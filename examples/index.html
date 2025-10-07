@@ -7,16 +7,13 @@
   
   <!-- 🚀 ARCHIVOS OPTIMIZADOS Y MINIFICADOS -->
   
-  <!-- 1. TOKENS - Marca y tema específicos (4.3KB → ~1KB gzip) -->
-  <link rel="stylesheet" href="dist/rb-jelpit-light.min.css" id="tokens-css">
+  <!-- 1. BUNDLE COMPLETO - Marca y tema (tokens + atoms + overrides) -->
+  <link rel="stylesheet" href="dist/rb-jelpit-light.min.css" id="brand-css">
   
-  <!-- 2. ESTILOS UNIVERSALES - Solo Atoms (6.7KB → 1.4KB gzip) -->
-  <link rel="stylesheet" href="dist/rb-styles.min.css" id="styles-css">
-  
-  <!-- 3. WEB COMPONENTS - Lógica JavaScript (30KB → 8.6KB gzip) -->
+  <!-- 2. WEB COMPONENTS - Lógica JavaScript (30KB → 8.6KB gzip) -->
   <script type="module" src="dist/rb-components.min.js"></script>
   
-  <!-- 💡 Tamaño total: ~11KB gzip - cada componente resuelve su CSS -->
+  <!-- 💡 Tamaño total: ~10KB gzip - Todo incluido en un solo archivo CSS -->
   
   <style>
     body {
@@ -42,15 +39,55 @@
     
     .brand-selector {
       margin-bottom: 2rem;
-      padding: 1.5rem;
+      padding: 2rem;
       background: var(--rb-color-grayscale-L400);
       border-radius: 12px;
+      box-shadow: var(--rb-shadow-s);
+    }
+    
+    .control-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .control-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--rb-color-grayscale-D200);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     .theme-toggle {
-      display: inline-flex;
+      display: flex;
       gap: 0.5rem;
-      margin-left: 1rem;
+    }
+    
+    select.rb-button {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='currentColor' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .control-panel {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
     }
     
     .demo-grid {
@@ -83,14 +120,23 @@
 
   <!-- Brand Selector -->
   <div class="brand-selector">
-    <h3>🔧 Panel de Control</h3>
-    <p class="text-label" style="margin-top: 0.5rem; margin-bottom: 1rem; color: var(--rb-color-grayscale-D100);">
-      Selecciona una marca y tema para ver los cambios en tiempo real
-    </p>
-    <div class="flex items-center gap-4 mt-4 flex-wrap">
-      <div>
-        <label class="text-label" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">📦 Marca</label>
-        <select id="brandSelect" class="rb-button rb-button--tertiary">
+    <div style="margin-bottom: 1rem;">
+      <h3 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+        🔧 Panel de Control
+      </h3>
+      <p class="text-label" style="margin: 0; color: var(--rb-color-grayscale-D100);">
+        Selecciona una marca y tema para ver los cambios en tiempo real
+      </p>
+    </div>
+    
+    <div class="control-panel">
+      <!-- Brand Control -->
+      <div class="control-group">
+        <label class="control-label">
+          <span style="font-size: 1.125rem;">📦</span>
+          Marca
+        </label>
+        <select id="brandSelect" class="rb-button rb-button--tertiary" style="width: 100%;">
           <option value="white-label">White Label</option>
           <option value="jelpit" selected>Jelpit</option>
           <option value="davivienda">Davivienda</option>
@@ -100,14 +146,23 @@
         </select>
       </div>
       
-      <div>
-        <label class="text-label" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">🌓 Tema</label>
+      <!-- Theme Control -->
+      <div class="control-group">
+        <label class="control-label">
+          <span style="font-size: 1.125rem;">🌓</span>
+          Tema
+        </label>
         <div class="theme-toggle">
-          <button id="lightBtn" class="rb-button rb-button--small rb-button--primary">☀️ Light</button>
-          <button id="darkBtn" class="rb-button rb-button--small rb-button--tertiary">🌙 Dark</button>
+          <button id="lightBtn" class="rb-button rb-button--small rb-button--primary" style="flex: 1;">
+            ☀️ Light
+          </button>
+          <button id="darkBtn" class="rb-button rb-button--small rb-button--tertiary" style="flex: 1;">
+            🌙 Dark
+          </button>
         </div>
       </div>
     </div>
+    
   </div>
 
   <!-- Buttons Section -->
@@ -184,7 +239,10 @@
         Root Block Design System v1.0.0
       </p>
       <p class="text-caption" style="color: var(--rb-color-grayscale-base);">
-        6 marcas · 2 temas · 3 archivos · ~11KB gzip
+        6 marcas · 2 temas · 2 archivos · ~10KB gzip
+      </p>
+      <p class="text-caption" style="color: var(--rb-color-grayscale-base); margin-top: 0.5rem;">
+        ✨ Incluye brand overrides automáticos (ej: animación especial Davivienda)
       </p>
       <p class="text-caption" style="color: var(--rb-color-grayscale-L100); margin-top: 0.5rem;">
         Construido con Style Dictionary, Lit, PNPM Workspaces
@@ -198,17 +256,21 @@
     const lightBtn = document.getElementById('lightBtn');
     const darkBtn = document.getElementById('darkBtn');
     const html = document.documentElement;
-    const tokensCss = document.getElementById('tokens-css');
+    const brandCss = document.getElementById('brand-css');
 
-    let currentBrand = 'jelpit';
-    let currentTheme = 'light';
+    // Leer valores iniciales del HTML
+    let currentBrand = html.getAttribute('data-brand') || 'jelpit';
+    let currentTheme = html.getAttribute('data-theme') || 'light';
 
     function updateTheme() {
       html.setAttribute('data-brand', currentBrand);
       html.setAttribute('data-theme', currentTheme);
       
-      // Update tokens CSS - Todos los archivos están en dist/
-      tokensCss.href = `dist/rb-${currentBrand}-${currentTheme}.min.css`;
+      // Update brand CSS - Complete bundle (tokens + atoms + overrides)
+      brandCss.href = `dist/rb-${currentBrand}-${currentTheme}.min.css`;
+      
+      // Sincronizar el select con el valor actual
+      brandSelect.value = currentBrand;
       
       // Update button states
       if (currentTheme === 'light') {
@@ -219,8 +281,12 @@
         darkBtn.className = 'rb-button rb-button--small rb-button--primary';
       }
 
-      console.log(`✅ Theme changed to: ${currentBrand} ${currentTheme}`);
-      console.log(`📦 Loading: dist/rb-${currentBrand}-${currentTheme}.min.css`);
+      console.log(`✅ Brand changed to: ${currentBrand} ${currentTheme}`);
+      console.log(`📦 Loading complete bundle: dist/rb-${currentBrand}-${currentTheme}.min.css`);
+      
+      if (currentBrand === 'davivienda') {
+        console.log('✨ Davivienda special loading animation enabled!');
+      }
     }
 
     brandSelect.addEventListener('change', (e) => {
@@ -237,6 +303,9 @@
       currentTheme = 'dark';
       updateTheme();
     });
+
+    // Inicializar el estado al cargar la página
+    updateTheme();
 
     // Modal Functions
     function openModal() {

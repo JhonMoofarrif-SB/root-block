@@ -81,6 +81,7 @@ Usamos [Conventional Commits](https://www.conventionalcommits.org/):
 - `chore:` Tareas de mantenimiento
 
 Ejemplos:
+
 ```
 feat(tokens): add new brand coomeva
 fix(button): correct hover state color
@@ -109,4 +110,3 @@ Si tienes dudas, abre un [Issue](https://github.com/tu-usuario/root-bloock/issue
 ## 📄 Licencia
 
 Al contribuir, aceptas que tus contribuciones serán licenciadas bajo MIT License.
-

@@ -13,7 +13,7 @@ pnpm add @rb/molecules
 ## 🧩 Componentes Disponibles
 
 - **Modal** (`<rb-modal>`) - Modal/Dialog con slots personalizables
-- *(Más componentes próximamente: DatePicker, Dropdown, DataTable)*
+- _(Más componentes próximamente: DatePicker, Dropdown, DataTable)_
 
 ## 🚀 Uso
 
@@ -47,23 +47,19 @@ Modal/Dialog reutilizable con slots para contenido personalizado.
 ```html
 <rb-modal id="myModal" title="Título del Modal">
   <p>Contenido principal del modal</p>
-  
+
   <div slot="footer">
-    <button class="rb-button rb-button--tertiary" onclick="closeModal()">
-      Cancelar
-    </button>
-    <button class="rb-button rb-button--primary" onclick="handleSubmit()">
-      Confirmar
-    </button>
+    <button class="rb-button rb-button--tertiary" onclick="closeModal()">Cancelar</button>
+    <button class="rb-button rb-button--primary" onclick="handleSubmit()">Confirmar</button>
   </div>
 </rb-modal>
 
 <script>
   const modal = document.getElementById('myModal');
-  
+
   // Abrir modal
   modal.openModal();
-  
+
   // Cerrar modal
   modal.close();
 </script>
@@ -71,17 +67,17 @@ Modal/Dialog reutilizable con slots para contenido personalizado.
 
 ### Props
 
-| Prop | Type | Default | Descripción |
-|------|------|---------|-------------|
-| `title` | `string` | `''` | Título del modal |
-| `open` | `boolean` | `false` | Estado abierto/cerrado |
+| Prop    | Type      | Default | Descripción            |
+| ------- | --------- | ------- | ---------------------- |
+| `title` | `string`  | `''`    | Título del modal       |
+| `open`  | `boolean` | `false` | Estado abierto/cerrado |
 
 ### Métodos
 
 ```typescript
 interface RbModal {
-  openModal(): void;  // Abrir el modal
-  close(): void;      // Cerrar el modal
+  openModal(): void; // Abrir el modal
+  close(): void; // Cerrar el modal
 }
 ```
 
@@ -100,71 +96,65 @@ modal.addEventListener('rb-modal-close', (e) => {
 
 ### Slots
 
-| Slot | Descripción |
-|------|-------------|
+| Slot        | Descripción                   |
+| ----------- | ----------------------------- |
 | `(default)` | Contenido principal del modal |
-| `footer` | Botones o acciones del footer |
+| `footer`    | Botones o acciones del footer |
 
 ### Ejemplo Completo
 
 ```html
 <!DOCTYPE html>
 <html lang="es" data-brand="jelpit" data-theme="light">
-<head>
-  <!-- Tokens y estilos -->
-  <link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css">
-  <link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css">
-  
-  <!-- Web Components -->
-  <script type="module" src="https://cdn.rootblock.com/rb-components.min.js"></script>
-</head>
-<body>
-  <!-- Botón trigger -->
-  <button class="rb-button rb-button--primary" onclick="openModal()">
-    Abrir Modal
-  </button>
+  <head>
+    <!-- Tokens y estilos -->
+    <link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css" />
+    <link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css" />
 
-  <!-- Modal Component -->
-  <rb-modal id="confirmModal" title="¿Estás seguro?">
-    <p>Esta acción no se puede deshacer.</p>
-    <p>¿Deseas continuar?</p>
-    
-    <div slot="footer">
-      <button class="rb-button rb-button--tertiary" onclick="closeModal()">
-        Cancelar
-      </button>
-      <button class="rb-button rb-button--danger" onclick="handleDelete()">
-        Eliminar
-      </button>
-    </div>
-  </rb-modal>
+    <!-- Web Components -->
+    <script type="module" src="https://cdn.rootblock.com/rb-components.min.js"></script>
+  </head>
+  <body>
+    <!-- Botón trigger -->
+    <button class="rb-button rb-button--primary" onclick="openModal()">Abrir Modal</button>
 
-  <script>
-    const modal = document.getElementById('confirmModal');
-    
-    function openModal() {
-      modal.openModal();
-    }
-    
-    function closeModal() {
-      modal.close();
-    }
-    
-    function handleDelete() {
-      console.log('Eliminando...');
-      closeModal();
-    }
-    
-    // Escuchar eventos
-    modal.addEventListener('rb-modal-open', () => {
-      console.log('Modal abierto');
-    });
-    
-    modal.addEventListener('rb-modal-close', () => {
-      console.log('Modal cerrado');
-    });
-  </script>
-</body>
+    <!-- Modal Component -->
+    <rb-modal id="confirmModal" title="¿Estás seguro?">
+      <p>Esta acción no se puede deshacer.</p>
+      <p>¿Deseas continuar?</p>
+
+      <div slot="footer">
+        <button class="rb-button rb-button--tertiary" onclick="closeModal()">Cancelar</button>
+        <button class="rb-button rb-button--danger" onclick="handleDelete()">Eliminar</button>
+      </div>
+    </rb-modal>
+
+    <script>
+      const modal = document.getElementById('confirmModal');
+
+      function openModal() {
+        modal.openModal();
+      }
+
+      function closeModal() {
+        modal.close();
+      }
+
+      function handleDelete() {
+        console.log('Eliminando...');
+        closeModal();
+      }
+
+      // Escuchar eventos
+      modal.addEventListener('rb-modal-open', () => {
+        console.log('Modal abierto');
+      });
+
+      modal.addEventListener('rb-modal-close', () => {
+        console.log('Modal cerrado');
+      });
+    </script>
+  </body>
 </html>
 ```
 
@@ -270,11 +260,11 @@ pnpm test
 
 ## 📊 Bundle Size
 
-| Componente | Size | Gzip |
-|-----------|------|------|
-| Modal | ~8KB | ~3KB |
-| Lit Runtime | ~22KB | ~6KB |
-| **Total** | ~30KB | ~8.6KB |
+| Componente  | Size  | Gzip   |
+| ----------- | ----- | ------ |
+| Modal       | ~8KB  | ~3KB   |
+| Lit Runtime | ~22KB | ~6KB   |
+| **Total**   | ~30KB | ~8.6KB |
 
 ## 🎯 Características
 

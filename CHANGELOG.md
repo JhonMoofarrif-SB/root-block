@@ -1,248 +1,146 @@
-# 📝 Changelog - Root Block Design System
+# Changelog
 
-## [1.0.0] - 2025-10-07
+All notable changes to this project will be documented in this file.
 
-### 🚀 Optimizaciones Mayores
-
-#### ❌ Eliminado: Package `@rb/foundations`
-
-**Razón:** Reducir tamaño del bundle y simplificar arquitectura
-
-**Cambios:**
-
-- ✅ Eliminado `packages/foundations/` completo
-- ✅ Removido de dependencies en `@rb/bundle` y `@rb/docs`
-- ✅ Removido import de Storybook
-- ✅ Actualizada documentación (ARCHITECTURE.md, README.md, BUILD.md)
-
-**Impacto en Bundle:**
-
-```
-ANTES (con foundations + utilities):
-rb-styles.min.css: 19 KB → 4.2 KB gzip
-
-DESPUÉS (sin foundations, sin utilities):
-rb-styles.min.css: 6.74 KB → 1.44 KB gzip (1.21 KB brotli)
-
-Reducción: 66% menos ✅
-```
-
-**Filosofía:**
-
-> Cada componente resuelve todo su CSS de forma autónoma
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-### 📦 Bundle Optimizations
+## [1.1.0] - 2025-10-07
 
-#### CSS Minification (cssnano)
+### ✨ Added
 
-- ✅ Eliminación de comentarios
-- ✅ Normalización de espacios
-- ✅ Optimización de colores
-- ✅ Merge de reglas CSS
-- ✅ Minificación de selectores
+#### Brand Overrides System
+- **New package**: `@rb/brand-overrides` for brand-specific customizations
+- Support for brand-specific CSS overrides with `@import` processing
+- Complete bundle per brand strategy (tokens + atoms + overrides in single file)
+- PostCSS Import integration for seamless override composition
 
-#### JavaScript Minification (esbuild)
+#### Davivienda Special Features
+- **Black bar loading animation** for Davivienda buttons
+- Solid color animation sliding from left to right
+- Border radius with rounded right corners only
+- Customizable animation duration (1.5s)
+- Different opacity levels per button variant
 
-- ✅ Minificación agresiva
-- ✅ Tree shaking
-- ✅ Eliminación de `console.log` y `debugger`
-- ✅ Mangling de propiedades privadas (`_*`)
-- ✅ Sin comentarios legales
+#### Build System
+- Simplified root scripts to 5 essential commands
+- `build:all` script for complete pipeline
+- `copy:all` script in bundle package
+- Automatic copying to `examples/dist` and `docs/.storybook`
 
-#### Compression
+#### Documentation
+- **LEEME.md**: Quick start guide in Spanish
+- **SCRIPTS.md**: Detailed script explanations
+- **BUILD.md**: Complete build system documentation
+- Improved README with new architecture details
 
-- ✅ Gzip (nivel 9) - compatible con todos los CDN
-- ✅ Brotli (nivel 11) - mejor compresión para CDN modernos
+### 🔧 Changed
+
+#### Demo & UI
+- Renamed `examples/demo.html` to `examples/index.html`
+- Improved control panel layout with 2-column grid
+- Better visual hierarchy and spacing
+- Added info badge for Davivienda special feature
+- Synchronized brand selector with initial state
+
+#### Storybook
+- Replaced MDX Welcome page with Lit-based `Welcome.stories.ts`
+- Added dynamic CSS loading in preview decorator
+- Configured `staticDirs` for bundle serving
+- Added `Colors.stories.ts` for design tokens showcase
+- Improved Button stories with Davivienda banner
+
+#### Build Configuration
+- Disabled `mergeLonghand` in cssnano to preserve border-radius
+- Added `postcss-import` dependency to bundle package
+- Updated builder to process `@import` in overrides
+- Improved console output with better logging
+
+### 🐛 Fixed
+
+- Brand selector initial state synchronization
+- Border-radius preservation in minified CSS
+- `@import` processing in brand overrides
+- Storybook MDX parsing errors
+- CSS loading race conditions in Storybook
+
+### 💥 Breaking Changes
+
+- **Removed**: Universal CSS bundle (replaced by complete per-brand bundles)
+- **Changed**: `examples/demo.html` → `examples/index.html`
+- **Changed**: Storybook now requires bundles in `.storybook/` directory
+- **Changed**: Build process now includes overrides automatically
+
+### 📦 Bundle Sizes
+
+- **Base brands**: ~11.6 KB minified, ~2.5 KB gzip
+- **Davivienda** (with overrides): ~13.5 KB minified, ~2.7 KB gzip
+- **JS bundle**: ~29.7 KB minified, ~8.6 KB gzip
+
+### 🎯 Migration Guide
+
+#### From v1.0.0 to v1.1.0
+
+**If you were using:**
+```html
+<!-- OLD (v1.0.0) -->
+<link rel="stylesheet" href="rb-tokens.css">
+<link rel="stylesheet" href="rb-atoms.css">
+```
+
+**Update to:**
+```html
+<!-- NEW (v1.1.0) -->
+<link rel="stylesheet" href="rb-jelpit-light.min.css">
+```
+
+**Build scripts:**
+```bash
+# OLD
+pnpm run build:tokens
+pnpm run build:atoms
+pnpm run build:bundle
+
+# NEW (simplified)
+pnpm run build
+```
+
+**Demo file:**
+- Update any links from `demo.html` to `index.html`
 
 ---
 
-### 🎨 Design Tokens
+## [1.0.0] - 2025-10-01
 
-#### Tokens Completados
+### ✨ Initial Release
 
-Todas las marcas ahora tienen tokens completos:
+- Multi-brand design system with 6 brands
+- Design tokens with Style Dictionary
+- CSS atoms (Button component)
+- Web Components with Lit (Modal, DatePicker, Dropdown)
+- CDN bundle generation with minification
+- Storybook documentation
+- PNPM workspaces monorepo
+- Turbo for build orchestration
 
-- ✅ Feedback colors: error, warning, info, success (D400-L400)
-- ✅ Mobile typography: mobile-h1 hasta mobile-h6
-
-**Marcas actualizadas:**
-
+### 🎨 Brands Supported
+- White Label
+- Jelpit
 - Davivienda
-- Doctor-aki
-- Cien-cuadras
-- Seguros-bolivar
-- White-label
+- Cien Cuadras
+- Doctor Aki
+- Seguros Bolívar
+
+### 🌓 Themes
+- Light
+- Dark
 
 ---
 
-### 🛠️ Scripts Nuevos
+## Links
 
-#### Root (`package.json`)
-
-```bash
-pnpm build:examples  # Build + copiar a examples/
-```
-
-#### Bundle (`packages/bundle/package.json`)
-
-```bash
-pnpm copy:examples   # Solo copiar archivos minificados
-pnpm build:copy      # Build + copiar
-```
-
----
-
-### 📊 Tamaños Finales
-
-#### CSS Universal (rb-styles.min.css)
-
-```
-Sin minificar:  10.18 KB
-Minificado:      6.74 KB  (33.8% menos)
-Gzip:            1.44 KB  (85.8% menos) ✅
-Brotli:          1.21 KB  (88.1% menos) ✅
-```
-
-#### CSS Tokens (rb-{marca}-{tema}.min.css)
-
-```
-Sin minificar:  ~5.5 KB
-Minificado:     ~4.3 KB  (21.8% menos)
-Gzip:           ~1.0 KB  (81.8% menos) ✅
-Brotli:         ~0.9 KB  (83.6% menos) ✅
-```
-
-#### JS Components (rb-components.min.js)
-
-```
-Minificado:     29.73 KB
-Gzip:            8.61 KB  (71.0% menos) ✅
-Brotli:          7.60 KB  (74.4% menos) ✅
-```
-
-#### Total por Página
-
-```
-CSS Tokens:  ~1.0 KB gzip
-CSS Styles:   1.4 KB gzip
-JS Bundle:    8.6 KB gzip
-────────────────────────
-TOTAL:       ~11 KB gzip ✅
-```
-
-**Comparativa:**
-
-- Antes optimización: ~73 KB sin comprimir
-- Después optimización: ~11 KB gzip
-- **Reducción: 85% menos** 🚀
-
----
-
-### 📁 Estructura de Archivos
-
-#### `packages/bundle/dist/` (PRODUCCIÓN)
-
-```
-✅ rb-styles.min.css + .gz + .br
-✅ rb-{marca}-{tema}.min.css × 12 + .gz + .br
-✅ rb-components.min.js + .gz + .br + .map
-❌ Sin archivos HTML (demos en examples/)
-```
-
-#### `examples/dist/` (DEMOS)
-
-```
-✅ rb-styles.min.css
-✅ rb-{marca}-{tema}.min.css × 12
-✅ rb-components.min.js + .map
-```
-
----
-
-### 🏗️ Arquitectura Actualizada
-
-```
-ANTES (5 capas):
-├── @rb/tokens
-├── @rb/foundations     ❌ ELIMINADO
-├── @rb/atoms
-├── @rb/molecules
-└── @rb/bundle
-
-DESPUÉS (4 capas):
-├── @rb/tokens          (Design Tokens)
-├── @rb/atoms           (CSS self-contained)
-├── @rb/molecules       (Lit Web Components)
-└── @rb/bundle          (CDN Generator)
-```
-
----
-
-### 📚 Documentación Actualizada
-
-- ✅ `README.md` - Estructura y packages
-- ✅ `ARCHITECTURE.md` - Capas del sistema
-- ✅ `BUILD.md` - Guía de build completa
-- ✅ `CHANGELOG.md` - Este archivo
-- ✅ `examples/README.md` - Uso de demos
-
----
-
-### 🔄 Breaking Changes
-
-#### ⚠️ Si usabas `@rb/foundations` directamente:
-
-```html
-<!-- ANTES -->
-<link rel="stylesheet" href="@rb/foundations/dist/index.css" />
-
-<!-- DESPUÉS -->
-<!-- No necesitas nada, cada componente resuelve su CSS -->
-```
-
-#### ⚠️ Si dependías de utilities CSS:
-
-```html
-<!-- ANTES -->
-<div class="d-flex px-4">
-  <!-- DESPUÉS -->
-  <!-- Usa inline styles o define tus propias utilities -->
-  <div style="display: flex; padding: 0 1rem;"></div>
-</div>
-```
-
----
-
-### 🎯 Próximos Pasos
-
-- [ ] Configurar CDN para servir archivos comprimidos
-- [ ] Tests E2E con Playwright
-- [ ] CI/CD pipeline
-- [ ] Publicar a npm (packages públicos)
-- [ ] Documentación interactiva con Storybook
-
----
-
-## Notas de Migración
-
-### Para desarrolladores:
-
-1. Actualizar imports (remover `@rb/foundations`)
-2. Ejecutar `pnpm install` para actualizar lockfile
-3. Ejecutar `pnpm build:examples` para generar archivos
-4. Verificar demos en `examples/bootstrap-style.html`
-
-### Para producción:
-
-1. Subir `packages/bundle/dist/` a CDN
-2. Configurar CDN para servir `.br` o `.gz` automáticamente
-3. Actualizar referencias en HTML a rutas de CDN
-4. Verificar que todas las marcas funcionan correctamente
-
----
-
-**Fecha:** 7 de octubre, 2025  
-**Versión:** 1.0.0  
-**Estado:** ✅ Listo para producción
+- [Repository](https://github.com/tu-usuario/root-bloock)
+- [Documentation](https://tu-usuario.github.io/root-bloock/storybook/)
+- [Issues](https://github.com/tu-usuario/root-bloock/issues)

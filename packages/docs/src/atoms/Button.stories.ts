@@ -109,10 +109,32 @@ export const AllVariants: Story = {
 
 export const Loading: Story = {
   render: () => html`
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-      <button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
-      <button class="rb-button rb-button--secondary rb-button--loading">Loading...</button>
-      <button class="rb-button rb-button--tertiary rb-button--loading">Loading...</button>
+    <div>
+      <!-- Info banner -->
+      <div
+        style="
+          padding: 1rem;
+          margin-bottom: 1.5rem;
+          background: var(--rb-color-secondary-L400, #f0f0f0);
+          border-left: 4px solid var(--rb-color-primary-base);
+          border-radius: 4px;
+        "
+      >
+        <p style="margin: 0; color: var(--rb-color-grayscale-D100);">
+          <strong>✨ Brand Override:</strong>
+          <span style="color: var(--rb-color-primary-base); font-weight: 600;">Davivienda</span>
+          has a special gradient slide animation during loading state. Other brands use the standard
+          spinner.
+          <br /><br />
+          <strong>💡 Try it:</strong> Change the brand in the toolbar above to see the difference!
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
+        <button class="rb-button rb-button--secondary rb-button--loading">Loading...</button>
+        <button class="rb-button rb-button--tertiary rb-button--loading">Loading...</button>
+      </div>
     </div>
   `,
 };

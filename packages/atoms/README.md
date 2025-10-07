@@ -13,7 +13,7 @@ pnpm add @rb/atoms
 ## 🎨 Componentes Disponibles
 
 - **Button** - Botones con múltiples variantes y tamaños
-- *(Más componentes próximamente)*
+- _(Más componentes próximamente)_
 
 ## 🚀 Uso
 
@@ -21,7 +21,7 @@ pnpm add @rb/atoms
 
 ```html
 <!-- Carga todos los componentes atoms -->
-<link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css">
+<link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css" />
 
 <!-- Usa las clases CSS -->
 <button class="rb-button rb-button--primary">Primary</button>
@@ -161,7 +161,7 @@ touch src/mi-componente.css
   color: var(--rb-color-grayscale-black);
   padding: var(--rb-spacing-md, 1rem);
   border-radius: 8px;
-  
+
   /* Expón variables para personalización */
   --rb-mi-componente-bg: var(--rb-color-grayscale-white);
   --rb-mi-componente-padding: 1rem;
@@ -203,10 +203,10 @@ pnpm clean
 
 ## 📊 Bundle Size
 
-| Componente | Size | Gzip |
-|-----------|------|------|
-| Button | ~3KB | ~800B |
-| **Total** | ~7KB | ~1.4KB |
+| Componente | Size | Gzip   |
+| ---------- | ---- | ------ |
+| Button     | ~3KB | ~800B  |
+| **Total**  | ~7KB | ~1.4KB |
 
 ## 🎯 Características
 

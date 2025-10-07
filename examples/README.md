@@ -9,7 +9,9 @@ Esta carpeta contiene ejemplos completos y funcionales del Design System en acci
 ### 🚀 Demos Principales
 
 #### `bootstrap-style.html`
+
 Demo completo al estilo Bootstrap con todas las secciones:
+
 - ✅ Hero section con badges
 - ✅ Instrucciones de uso (HTML, JS, CSS)
 - ✅ Panel de control interactivo (cambio de marca/tema)
@@ -18,13 +20,16 @@ Demo completo al estilo Bootstrap con todas las secciones:
 - ✅ Variables CSS disponibles
 
 **Características:**
+
 - ~14KB total (sin comprimir)
 - Funciona con `file://` protocol
 - No requiere servidor
 - Código comentado y explicado
 
 #### `demo.html`
+
 Demo simplificado y minimalista:
+
 - ✅ Header informativo
 - ✅ Panel de control
 - ✅ Botones (Atoms - CSS)
@@ -32,6 +37,7 @@ Demo simplificado y minimalista:
 - ✅ Footer con estadísticas
 
 **Características:**
+
 - ~9KB total (sin comprimir)
 - Más ligero y rápido
 - Ideal para quick start
@@ -62,7 +68,9 @@ dist/
 ### 📄 Documentación
 
 #### `INDEX.md`
+
 Documentación detallada de los ejemplos con:
+
 - Guía de uso
 - Estructura de archivos
 - Cómo funciona el sistema
@@ -81,11 +89,13 @@ open demo.html
 ```
 
 **Pros:**
+
 - ✅ Funciona inmediatamente
 - ✅ No requiere servidor
 - ✅ Ideal para desarrollo rápido
 
 **Cons:**
+
 - ⚠️ Algunas funciones avanzadas podrían no funcionar
 
 ### Opción 2: Con Servidor HTTP
@@ -99,11 +109,13 @@ python3 -m http.server 8080
 ```
 
 **Pros:**
+
 - ✅ Sin restricciones de CORS
 - ✅ Más cercano a producción
 - ✅ Todas las funciones funcionan
 
 **Cons:**
+
 - ⚠️ Requiere servidor (muy ligero)
 
 ### Opción 3: Live Server (VSCode)
@@ -154,9 +166,9 @@ Los archivos HTML son autocontenidos y fáciles de modificar:
 ```html
 <!-- Cambiar marca inicial -->
 <html data-brand="tu-marca" data-theme="light">
-
-<!-- Cambiar archivos CSS cargados -->
-<link rel="stylesheet" href="dist/rb-tu-marca-light.min.css">
+  <!-- Cambiar archivos CSS cargados -->
+  <link rel="stylesheet" href="dist/rb-tu-marca-light.min.css" />
+</html>
 ```
 
 ## 🔧 Troubleshooting
@@ -166,6 +178,7 @@ Los archivos HTML son autocontenidos y fáciles de modificar:
 **Problema:** Archivos CSS no se encuentran
 
 **Solución:**
+
 ```bash
 # Rebuild y copiar archivos
 cd ..
@@ -177,6 +190,7 @@ pnpm build:examples
 **Problema:** Web Components no inicializan
 
 **Solución:**
+
 - Verifica que `rb-components.min.js` esté en `dist/`
 - Abre la consola del navegador (F12) para ver errores
 - Usa un servidor HTTP en lugar de `file://`
@@ -186,6 +200,7 @@ pnpm build:examples
 **Problema:** Variables CSS no se actualizan
 
 **Solución:**
+
 - Verifica que los atributos `data-brand` y `data-theme` cambien
 - Fuerza un refresh: Cmd+Shift+R (Mac) o Ctrl+Shift+R (Windows)
 - Verifica que el archivo CSS de la marca exista en `dist/`
@@ -194,16 +209,17 @@ pnpm build:examples
 
 ### Métricas de los Demos
 
-| Demo | Tamaño HTML | CSS | JS | Total |
-|------|-------------|-----|----|---------| 
-| `bootstrap-style.html` | 14.5KB | ~11KB* | 30KB | ~55KB |
-| `demo.html` | 9.5KB | ~11KB* | 30KB | ~50KB |
+| Demo                   | Tamaño HTML | CSS     | JS   | Total |
+| ---------------------- | ----------- | ------- | ---- | ----- |
+| `bootstrap-style.html` | 14.5KB      | ~11KB\* | 30KB | ~55KB |
+| `demo.html`            | 9.5KB       | ~11KB\* | 30KB | ~50KB |
 
-*\*CSS = Tokens (4.3KB) + Styles (6.7KB)*
+_\*CSS = Tokens (4.3KB) + Styles (6.7KB)_
 
 ### Tiempos de Carga
 
 Con compresión gzip:
+
 - **First Paint**: <100ms
 - **Interactive**: <200ms
 - **Total Load**: <300ms

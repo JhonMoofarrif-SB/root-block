@@ -15,12 +15,13 @@
 root-bloock/
 ├── packages/
 │   ├── tokens/              # 🎨 Design Tokens (colores, tipografía, sombras)
-│   ├── atoms/              # ⚛️ Componentes CSS simples (cada uno con su CSS completo)
-│   ├── molecules/          # 🧬 Web Components complejos (Lit)
-│   ├── bundle/             # 📦 CDN Bundle Generator
-│   └── docs/               # 📚 Storybook
-└── apps/
-    └── playground/         # 🎮 Testing playground
+│   ├── atoms/               # ⚛️ Componentes CSS simples
+│   ├── molecules/           # 🧬 Web Components complejos (Lit)
+│   ├── brand-overrides/     # ✨ Estilos específicos por marca (NEW!)
+│   ├── bundle/              # 📦 CDN Bundle Generator
+│   └── docs/                # 📚 Storybook
+└── examples/
+    └── demo.html            # 🎮 Demo interactivo
 ```
 
 ## 📦 Packages
@@ -64,29 +65,31 @@ pnpm build
 pnpm dev
 ```
 
-### Uso CDN
+### Uso CDN (Simplificado!) ✨
 
 ```html
 <!DOCTYPE html>
-<html lang="es" data-brand="jelpit" data-theme="light">
+<html lang="es" data-brand="davivienda" data-theme="light">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi App con Root Block</title>
-    
-    <!-- 1. Tokens de marca (colores, tipografía) - ~1KB gzip -->
-    <link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css" id="tokens-css" />
-    
-    <!-- 2. Estilos universales (componentes CSS) - ~1.4KB gzip -->
-    <link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css" />
-    
-    <!-- 3. Web Components (opcional) - ~8.6KB gzip -->
+
+    <!-- 1. Bundle completo de marca (tokens + atoms + overrides) - ~2.4KB gzip -->
+    <link rel="stylesheet" href="https://cdn.rootblock.com/rb-davivienda-light.min.css" />
+
+    <!-- 2. Web Components (opcional) - ~8.6KB gzip -->
     <script type="module" src="https://cdn.rootblock.com/rb-components.min.js"></script>
+
+    <!-- 💡 Total: ~11KB gzip | Solo 2 archivos! -->
   </head>
   <body>
     <!-- Componentes CSS simples -->
     <button class="rb-button rb-button--primary">Primary Button</button>
     <button class="rb-button rb-button--secondary">Secondary Button</button>
+
+    <!-- Davivienda tiene animación especial de loading automáticamente ✨ -->
+    <button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
 
     <!-- Web Components complejos -->
     <rb-modal title="Mi Modal">
@@ -100,8 +103,8 @@ pnpm dev
 
 ```javascript
 function changeBrand(brand, theme) {
-  // 1. Cambiar SOLO tokens (styles.css y components.js NO cambian)
-  document.getElementById('tokens-css').href =
+  // 1. Cambiar bundle completo (incluye overrides automáticamente)
+  document.getElementById('brand-css').href =
     `https://cdn.example.com/rb-${brand}-${theme}.min.css`;
 
   // 2. Actualizar atributos HTML
@@ -109,7 +112,7 @@ function changeBrand(brand, theme) {
   document.documentElement.setAttribute('data-theme', theme);
 }
 
-// Cambiar a Davivienda Light
+// Cambiar a Davivienda Light (con animación especial)
 changeBrand('davivienda', 'light');
 ```
 
@@ -166,14 +169,14 @@ pnpm test:e2e
 
 ## 🌐 Marcas Disponibles
 
-| Marca | Primary | Secondary | Descripción |
-|-------|---------|-----------|-------------|
-| **White Label** | `#48555b` | `#afc4cc` | Marca genérica |
-| **Jelpit** | `#2e0063` | `#82e778` | Morado intenso + Verde brillante |
-| **Davivienda** | `#e1111c` | `#4b5c6f` | Rojo corporativo + Gris azulado |
-| **Cien Cuadras** | `#006098` | `#ffa533` | Azul inmobiliario + Naranja |
-| **Doctor Aki** | `#42671a` | `#61b064` | Verde oliva + Verde salud |
-| **Seguros Bolívar** | `#009056` | `#ffe16f` | Verde seguros + Amarillo dorado |
+| Marca               | Primary   | Secondary | Descripción                      |
+| ------------------- | --------- | --------- | -------------------------------- |
+| **White Label**     | `#48555b` | `#afc4cc` | Marca genérica                   |
+| **Jelpit**          | `#2e0063` | `#82e778` | Morado intenso + Verde brillante |
+| **Davivienda**      | `#e1111c` | `#4b5c6f` | Rojo corporativo + Gris azulado  |
+| **Cien Cuadras**    | `#006098` | `#ffa533` | Azul inmobiliario + Naranja      |
+| **Doctor Aki**      | `#42671a` | `#61b064` | Verde oliva + Verde salud        |
+| **Seguros Bolívar** | `#009056` | `#ffe16f` | Verde seguros + Amarillo dorado  |
 
 ## 🔧 Tecnologías
 
@@ -197,22 +200,25 @@ pnpm test:e2e
 
 ## 📊 Bundle Size
 
-| Package | Size (min) | Size (gzip) |
-|---------|-----------|-------------|
-| Tokens  | ~4KB      | ~1KB        |
-| Styles  | ~7KB      | ~1.4KB      |
-| Components | ~30KB  | ~8.6KB      |
-| **Total** | **~41KB** | **~11KB** |
+| Package                                   | Size (min) | Size (gzip) |
+| ----------------------------------------- | ---------- | ----------- |
+| Brand Bundle (tokens + atoms + overrides) | ~10KB      | ~2.4KB      |
+| Components (molecules)                    | ~30KB      | ~8.6KB      |
+| **Total por usuario**                     | **~40KB**  | **~11KB**   |
+
+**Nota:** Cada marca tiene su propio bundle completo, pero el usuario solo descarga el de su marca.
 
 ## 🗺️ Roadmap
 
 - [x] Sistema de tokens multi-marca
 - [x] Componentes CSS (Atoms)
 - [x] Web Components (Molecules)
+- [x] Brand-specific overrides (Davivienda loading animation ✨)
+- [x] Complete bundle system per brand
 - [ ] Componentes React/Vue/Angular
 - [ ] Temas personalizables por usuario
-- [ ] Modo de alto contraste
-- [ ] Reducción de movimiento (prefers-reduced-motion)
+- [ ] Modo de alto contraste (parcialmente soportado)
+- [x] Reducción de movimiento (prefers-reduced-motion) ✅
 - [ ] Más componentes (DataTable, Charts, etc.)
 
 ## 📄 Licencia

@@ -61,12 +61,12 @@ npx serve -l 3000
 
 ## 📊 Tamaños de Archivos
 
-| Archivo | Normal | Minificado | Gzip | Brotli |
-|---------|--------|------------|------|--------|
-| **Tokens** (por marca) | ~5KB | ~4KB | ~1KB | ~800B |
-| **Styles** (universal) | ~10KB | ~7KB | ~1.4KB | ~1.2KB |
-| **Components** (universal) | - | ~30KB | ~8.6KB | ~7.6KB |
-| **Total por marca** | - | ~41KB | **~11KB** | **~9.6KB** |
+| Archivo                    | Normal | Minificado | Gzip      | Brotli     |
+| -------------------------- | ------ | ---------- | --------- | ---------- |
+| **Tokens** (por marca)     | ~5KB   | ~4KB       | ~1KB      | ~800B      |
+| **Styles** (universal)     | ~10KB  | ~7KB       | ~1.4KB    | ~1.2KB     |
+| **Components** (universal) | -      | ~30KB      | ~8.6KB    | ~7.6KB     |
+| **Total por marca**        | -      | ~41KB      | **~11KB** | **~9.6KB** |
 
 ## 🛠️ Configuración
 
@@ -84,13 +84,13 @@ import { buildComponents } from './build-components';
 async function build() {
   // 1. Build tokens para cada marca/tema
   await buildTokens();
-  
+
   // 2. Build styles universales (atoms)
   await buildStyles();
-  
+
   // 3. Build Web Components
   await buildComponents();
-  
+
   // 4. Comprimir todo (gzip + brotli)
   await compressAll();
 }
@@ -124,8 +124,8 @@ pnpm copy:examples
 
 ```html
 <!-- Opción 1: Desde CDN (producción) -->
-<link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css">
-<link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css">
+<link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css" />
+<link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css" />
 <script type="module" src="https://cdn.rootblock.com/rb-components.min.js"></script>
 
 <!-- Opción 2: Auto-servir archivos comprimidos -->
@@ -140,7 +140,7 @@ location ~* \.min\.(css|js)$ {
   # Servir Brotli si está disponible
   gzip_static on;
   brotli_static on;
-  
+
   # Headers de cache
   expires 1y;
   add_header Cache-Control "public, immutable";
@@ -172,10 +172,10 @@ export default {
   ],
   build: {
     rollupOptions: {
-      external: ['@rb/bundle']
-    }
-  }
-}
+      external: ['@rb/bundle'],
+    },
+  },
+};
 ```
 
 ### Con Webpack
@@ -184,9 +184,9 @@ export default {
 // webpack.config.js
 module.exports = {
   externals: {
-    '@rb/bundle': '@rb/bundle'
-  }
-}
+    '@rb/bundle': '@rb/bundle',
+  },
+};
 ```
 
 ## 🎯 Características

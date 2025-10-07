@@ -1,0 +1,23 @@
+{
+  "name": "@rb/brand-overrides",
+  "version": "1.0.0",
+  "description": "Brand-specific style overrides for Root Block Design System",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "echo 'Brand overrides are bundled by @rb/bundle'",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "design-system",
+    "brand-overrides",
+    "css",
+    "tokens"
+  ],
+  "author": "Root Block",
+  "license": "MIT"
+}

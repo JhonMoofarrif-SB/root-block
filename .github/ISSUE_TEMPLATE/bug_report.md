@@ -35,9 +35,9 @@ assignees: ''
 - **Marca**: jelpit / davivienda / cien-cuadras / etc.
 - **Tema**: light / dark
 - **Navegador**: Chrome / Firefox / Safari
-- **Versión del navegador**: 
+- **Versión del navegador**:
 - **OS**: macOS / Windows / Linux
-- **Versión del Design System**: 
+- **Versión del Design System**:
 
 ## 📋 Información Adicional
 
@@ -46,4 +46,3 @@ assignees: ''
 ## 🔗 Links Útiles
 
 <!-- Links a CodePen, StackBlitz, o repositorios de ejemplo -->
-

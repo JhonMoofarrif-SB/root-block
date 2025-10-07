@@ -250,13 +250,18 @@
    BUTTON STATES
    ======================================== */
 
-/* Loading state */
+/* Loading state - Variables personalizables */
 .rb-button--loading {
+  /* Variables para animación de loading (pueden ser sobreescritas por marcas) */
+  --rb-button-loading-animation-duration: 0.6s;
+  --rb-button-loading-bg-animation: none;
+
   color: transparent;
   pointer-events: none;
   position: relative;
 }
 
+/* Loading spinner (default) - spinner circular */
 .rb-button--loading::after {
   content: '';
   position: absolute;
@@ -269,7 +274,8 @@
   border: 2px solid currentcolor;
   border-radius: 50%;
   border-top-color: transparent;
-  animation: rb-button-spinner 0.6s linear infinite;
+  animation: rb-button-spinner var(--rb-button-loading-animation-duration) linear infinite;
+  z-index: 2;
 }
 
 /* Loading spinner colors by variant */
@@ -286,6 +292,33 @@
 .rb-button--quaternary.rb-button--loading::after {
   border-color: var(--rb-color-primary-base);
   border-top-color: transparent;
+}
+
+/* 
+ * Loading con animación de fondo (activado con clase adicional)
+ * Las marcas pueden usar .rb-button--loading-animation para agregar efectos
+ */
+.rb-button--loading.rb-button--loading-animation {
+  overflow: hidden;
+}
+
+.rb-button--loading.rb-button--loading-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -110%;
+  width: 110%;
+  height: 100%;
+  background: var(--rb-button-loading-bg-animation);
+  border-radius: 0 var(--rb-button-border-radius) var(--rb-button-border-radius) 0;
+  z-index: 0;
+  transition: all 1s ease;
+}
+
+/* El texto debe estar encima de la animación */
+.rb-button--loading.rb-button--loading-animation > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ========================================

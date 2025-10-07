@@ -6,8 +6,10 @@
   "private": true,
   "scripts": {
     "build": "tsx src/builder.ts",
-    "build:copy": "npm run build && npm run copy:examples",
-    "copy:examples": "mkdir -p ../../examples/dist && cp dist/rb-*.min.css dist/rb-*.min.js ../../examples/dist/ 2>/dev/null || true",
+    "build:copy": "pnpm run build && pnpm run copy:all",
+    "copy:all": "pnpm run copy:examples && pnpm run copy:storybook",
+    "copy:examples": "mkdir -p ../../examples/dist && cp dist/rb-*.min.css dist/rb-*.min.js dist/rb-*.min.js.map ../../examples/dist/ 2>/dev/null || true && echo '✅ Archivos copiados a examples/dist/'",
+    "copy:storybook": "mkdir -p ../docs/.storybook && cp dist/rb-*.min.css ../docs/.storybook/ 2>/dev/null || true && echo '✅ Archivos CSS copiados a Storybook'",
     "dev": "tsx watch src/builder.ts",
     "clean": "rm -rf dist",
     "serve": "npx serve dist -p 3000"
@@ -31,6 +33,7 @@
     "cssnano": "^7.1.1",
     "esbuild": "^0.20.1",
     "postcss": "^8.5.6",
+    "postcss-import": "^16.1.1",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }

@@ -19,6 +19,7 @@
 ## 🔗 Issue Relacionado
 
 <!-- Si existe un issue, agrégalo aquí -->
+
 Closes #
 
 ## 📸 Screenshots (si aplica)
@@ -72,4 +73,5 @@ Closes #
 ## 💬 Notas Adicionales
 
 <!-- Cualquier información adicional que consideres relevante -->
- -->
+
+-->

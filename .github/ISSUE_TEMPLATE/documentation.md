@@ -20,9 +20,9 @@ assignees: ''
 
 <!-- ¿Dónde está el problema? -->
 
-- **Archivo/Package**: 
-- **Sección**: 
-- **URL** (si aplica): 
+- **Archivo/Package**:
+- **Sección**:
+- **URL** (si aplica):
 
 ## 📝 Descripción del Problema
 
@@ -39,4 +39,3 @@ assignees: ''
 ## 📋 Información Adicional
 
 <!-- Cualquier otra información relevante -->
-

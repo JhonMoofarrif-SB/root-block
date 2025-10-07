@@ -1,341 +1,273 @@
 # 🔧 Build Guide - Root Block Design System
 
-## 📦 Comandos de Build
+Guía completa para compilar el proyecto desde cero.
 
-### Build Completo
+---
 
-```bash
-# Build todos los packages (tokens, foundations, atoms, molecules, bundle)
-pnpm build
-
-# Build + copiar archivos a examples/
-pnpm build:examples
-```
-
-### Build por Package
+## 📦 **Pre-requisitos**
 
 ```bash
-# Solo tokens
-pnpm --filter @rb/tokens build
-
-# Solo bundle (genera archivos minificados)
-pnpm --filter @rb/bundle build
-
-# Bundle + copiar a examples
-pnpm --filter @rb/bundle run build:copy
-```
-
-### Copiar Archivos a Examples
-
-```bash
-# Solo copiar (sin rebuild)
-pnpm --filter @rb/bundle run copy:examples
+node >= 18.0.0
+pnpm >= 8.0.0
 ```
 
 ---
 
-## 📁 Estructura de Output
+## 🚀 **Build Completo (Recomendado)**
 
-### `packages/bundle/dist/` (PRODUCCIÓN)
-
-```
-dist/
-├── rb-styles.min.css              (6.7 KB → 1.4 KB gzip)
-├── rb-styles.min.css.gz           (comprimido gzip)
-├── rb-styles.min.css.br           (comprimido brotli)
-├── rb-styles.css                  (versión sin minificar)
-│
-├── rb-{marca}-{tema}.min.css      (×12 archivos, ~1 KB gzip cada uno)
-├── rb-{marca}-{tema}.min.css.gz   (×12 archivos)
-├── rb-{marca}-{tema}.min.css.br   (×12 archivos)
-├── rb-{marca}-{tema}.css          (×12 archivos sin minificar)
-│
-├── rb-components.min.js           (30 KB → 8.6 KB gzip)
-├── rb-components.min.js.gz        (comprimido gzip)
-├── rb-components.min.js.br        (comprimido brotli)
-└── rb-components.min.js.map       (source map)
-
-Total: ~54 archivos de producción
-✅ Sin archivos HTML (demos están en examples/)
-```
-
-### `examples/dist/` (DEMOS)
-
-```
-dist/
-├── rb-styles.min.css
-├── rb-{marca}-{tema}.min.css      (×12 archivos)
-├── rb-components.min.js
-└── rb-components.min.js.map
-
-Total: 14 archivos minificados para demos locales
-```
-
----
-
-## 🚀 Proceso de Build
-
-### 1. Tokens (@rb/tokens)
+Este comando compila **todo** el proyecto de forma ordenada:
 
 ```bash
-pnpm --filter @rb/tokens build
+pnpm run build:all
 ```
 
-**Genera:**
+**Qué hace:**
 
-- `dist/{marca}-{tema}.css` (×12)
-- `dist/index.d.ts` (tipos TypeScript)
-- `dist/index.js` (exports JS)
+1. ✅ Limpia todos los `dist/` anteriores
+2. ✅ Compila **tokens** (Style Dictionary)
+3. ✅ Compila **atoms** (CSS → dist)
+4. ✅ Compila **molecules** (Lit → dist)
+5. ✅ Genera **bundles** (CSS + JS minificados + brand overrides)
+6. ✅ Copia archivos a `examples/dist/` y `docs/.storybook/`
 
-**Output:** 12 archivos CSS con variables `--rb-*`
+**Resultado:**
+
+- `packages/bundle/dist/` → Todos los bundles minificados
+- `examples/dist/` → Archivos listos para el demo
+- `packages/docs/.storybook/` → CSS para Storybook
 
 ---
 
-### 2. Foundations (@rb/foundations)
+## 🎯 **Builds Individuales**
+
+### 1. **Tokens** (Design Tokens)
 
 ```bash
-pnpm --filter @rb/foundations build
+pnpm run build:tokens
 ```
 
-**Genera:**
+Genera CSS con variables de todas las marcas/temas.
 
-- ~~`dist/reset.css`~~ ❌ NO usado en bundle
-- ~~`dist/typography.css`~~ ❌ NO usado en bundle
-- ~~`dist/utilities.css`~~ ❌ NO usado en bundle
-
-**Nota:** Foundations ya NO se incluye en el bundle. Cada componente resuelve su CSS.
-
----
-
-### 3. Atoms (@rb/atoms)
+### 2. **Atoms** (CSS Components)
 
 ```bash
-pnpm --filter @rb/atoms build
+pnpm run build:atoms
 ```
 
-**Genera:**
+Copia CSS de componentes simples (buttons, etc).
 
-- `dist/button.css`
-- `dist/index.css` (bundle de todos los atoms)
-
-**Output:** Componentes CSS simples
-
----
-
-### 4. Molecules (@rb/molecules)
+### 3. **Molecules** (Web Components)
 
 ```bash
-pnpm --filter @rb/molecules build
+pnpm run build:molecules
 ```
 
-**Genera:**
+Compila Web Components con Lit.
 
-- `dist/index.js` (Web Components con Lit)
-
-**Output:** Bundle ES Module con todos los web components
-
----
-
-### 5. Bundle (@rb/bundle)
+### 4. **Bundle** (Minificados + Overrides)
 
 ```bash
-pnpm --filter @rb/bundle build
+pnpm run build:bundle
 ```
 
-**Proceso:**
+Genera bundles completos:
 
-1. Lee atoms (button.css, etc.)
-2. Combina en `rb-styles.css`
-3. Minifica con cssnano → `rb-styles.min.css`
-4. Comprime con gzip → `rb-styles.min.css.gz`
-5. Comprime con brotli → `rb-styles.min.css.br`
-6. Repite para tokens (×12 marcas)
-7. Bundle JS con esbuild → `rb-components.min.js`
-8. Comprime JS con gzip y brotli
+- Tokens + Atoms + Brand Overrides
+- Minificación con cssnano
+- Compresión gzip + brotli
+- Procesa `@import` con postcss-import
 
-**Output:** Archivos listos para CDN
+**⚠️ IMPORTANTE:** Este paso lee de `packages/brand-overrides/src/` y procesa los `@import` automáticamente.
 
----
-
-## 📊 Tamaños de Bundle
-
-### CSS Styles (rb-styles.min.css)
-
-```
-Sin minificar:  10.18 KB
-Minificado:      6.74 KB  (33.8% menos)
-Gzip:            1.44 KB  (85.8% menos) ✅
-Brotli:          1.21 KB  (88.1% menos) ✅
-```
-
-### CSS Tokens (rb-{marca}-{tema}.min.css)
-
-```
-Sin minificar:  ~5.5 KB
-Minificado:     ~4.3 KB  (21.8% menos)
-Gzip:           ~1.0 KB  (81.8% menos) ✅
-Brotli:         ~0.9 KB  (83.6% menos) ✅
-```
-
-### JS Components (rb-components.min.js)
-
-```
-Sin minificar:  N/A
-Minificado:     29.73 KB
-Gzip:            8.61 KB  (71.0% menos) ✅
-Brotli:          7.60 KB  (74.4% menos) ✅
-```
-
-### Total por Página
-
-```
-CSS Tokens:  ~1.0 KB gzip
-CSS Styles:   1.4 KB gzip
-JS Bundle:    8.6 KB gzip
-────────────────────────
-TOTAL:       ~11 KB gzip ✅
-```
-
----
-
-## 🎯 Optimizaciones Aplicadas
-
-### CSS (cssnano)
-
-- ✅ Eliminación de comentarios
-- ✅ Normalización de espacios
-- ✅ Optimización de colores
-- ✅ Merge de reglas CSS
-- ✅ Minificación de selectores
-- ✅ Compresión gzip nivel 9
-- ✅ Compresión brotli nivel 11
-
-### JavaScript (esbuild)
-
-- ✅ Minificación agresiva
-- ✅ Tree shaking
-- ✅ Eliminación de `console.log` y `debugger`
-- ✅ Mangling de propiedades privadas
-- ✅ Sin comentarios legales
-- ✅ Compresión gzip nivel 9
-- ✅ Compresión brotli nivel 11
-
-### Arquitectura
-
-- ❌ **Eliminado:** Foundations (reset + typography)
-- ❌ **Eliminado:** Utilities (flexbox, grid, spacing, display)
-- ✅ **Mantenido:** Solo Atoms (cada componente con CSS completo)
-- ✅ **Resultado:** Bundle 66% más pequeño
-
----
-
-## 🔄 Workflow Recomendado
-
-### Desarrollo
+### 5. **Copiar a Examples/Storybook**
 
 ```bash
-# 1. Hacer cambios en src/
-# 2. Build
-pnpm build:examples
-
-# 3. Abrir demo
-cd examples
-open bootstrap-style.html
+pnpm run build:examples
 ```
 
-### Producción
+Copia bundles a:
 
-```bash
-# 1. Build completo
-pnpm build
-
-# 2. Deploy packages/bundle/dist/ a CDN
-# (Cloudflare, Vercel, AWS S3, etc.)
-
-# 3. Ejemplos quedan en examples/ (no se suben)
-```
-
-### Watch Mode (desarrollo)
-
-```bash
-# Bundle en modo watch
-pnpm --filter @rb/bundle run dev
-
-# En otra terminal, copiar cambios
-pnpm --filter @rb/bundle run copy:examples
-```
+- `examples/dist/`
+- `packages/docs/.storybook/`
 
 ---
 
-## 📝 Scripts Disponibles
+## 📂 **Estructura de Brand Overrides**
 
-### Root (/)
+Los overrides se procesan automáticamente durante `build:bundle`:
 
-| Script                | Descripción                      |
-| --------------------- | -------------------------------- |
-| `pnpm build`          | Build todos los packages         |
-| `pnpm build:examples` | Build + copiar a examples/       |
-| `pnpm dev`            | Modo watch en todos los packages |
-| `pnpm clean`          | Limpiar todos los dist/          |
+```
+packages/brand-overrides/src/
+├── davivienda/
+│   ├── index.css           # → @import './button.css'
+│   └── button.css          # → Estilos específicos
+└── otra-marca/
+    └── index.css
+```
 
-### Bundle (packages/bundle/)
+**Cómo funciona:**
 
-| Script               | Descripción                           |
-| -------------------- | ------------------------------------- |
-| `pnpm build`         | Generar archivos minificados en dist/ |
-| `pnpm build:copy`    | Build + copiar a examples/            |
-| `pnpm copy:examples` | Solo copiar archivos a examples/      |
-| `pnpm dev`           | Modo watch del builder                |
-| `pnpm clean`         | Limpiar dist/                         |
-| `pnpm serve`         | Servir dist/ en puerto 3000           |
+1. El `builder.ts` lee `brand-overrides/src/{marca}/index.css`
+2. Procesa todos los `@import` con `postcss-import`
+3. Combina: Tokens + Atoms + Overrides
+4. Minifica y genera `rb-{marca}-{tema}.min.css`
 
 ---
 
-## 🐛 Troubleshooting
+## 🔄 **Desarrollo en Tiempo Real**
+
+### Modo Watch (Bundle)
+
+```bash
+pnpm run dev:bundle
+```
+
+Recompila automáticamente cuando cambias:
+
+- CSS en `atoms/`
+- CSS en `brand-overrides/`
+- Tokens
+
+### Storybook
+
+```bash
+pnpm run storybook
+```
+
+Inicia Storybook en `http://localhost:6007`
+
+- Compila bundles antes de iniciar
+- Carga CSS dinámicamente desde `.storybook/`
+
+---
+
+## 🧹 **Limpieza**
+
+```bash
+pnpm run clean
+```
+
+Elimina:
+
+- Todos los `dist/` de packages
+- `examples/dist/*.min.*`
+- `packages/docs/.storybook/*.min.css`
+
+---
+
+## 🎨 **Demos y Visualización**
+
+### Demo HTML
+
+```bash
+pnpm run serve:demo
+```
+
+Sirve `examples/demo.html` en `http://localhost:3000`
+
+### Bundles CDN
+
+```bash
+pnpm run serve:bundle
+```
+
+Sirve `packages/bundle/dist/` en `http://localhost:3001`
+
+### Storybook Build
+
+```bash
+pnpm run build:storybook
+```
+
+Genera Storybook estático en `packages/docs/storybook-static/`
+
+---
+
+## 🐛 **Troubleshooting**
 
 ### Error: "Cannot find module"
 
 ```bash
-# Reinstalar dependencias
 pnpm install
+pnpm run build:all
 ```
 
-### Archivos no copiados a examples/
+### Los cambios no se reflejan
 
 ```bash
-# Copiar manualmente
-pnpm --filter @rb/bundle run copy:examples
+pnpm run clean
+pnpm run build:all
 ```
 
-### Bundle demasiado grande
-
-- ✅ Ya optimizado: foundations y utilities eliminados
-- ✅ Minificación: cssnano + esbuild
-- ✅ Compresión: gzip + brotli
-- 📊 Actual: ~11 KB gzip total
-
-### Demos no funcionan
+### Storybook no carga los estilos
 
 ```bash
-# Verificar que archivos existen
-ls examples/dist/*.min.css
-ls examples/dist/*.min.js
+pnpm run build:bundle
+# Los CSS se copian automáticamente a .storybook/
+```
 
-# Si faltan, copiar
-pnpm --filter @rb/bundle run copy:examples
+### Brand overrides no se incluyen
+
+Verifica que:
+
+1. Existe `packages/brand-overrides/src/{marca}/index.css`
+2. El `index.css` tiene `@import` de los archivos necesarios
+3. Ejecutaste `pnpm run build:bundle` (no solo `build:atoms`)
+
+---
+
+## 📊 **Pipeline de Build**
+
+```mermaid
+graph TD
+    A[tokens] --> D[bundle]
+    B[atoms] --> D
+    C[molecules] --> D
+    E[brand-overrides] -.-> D
+    D --> F[examples/dist]
+    D --> G[docs/.storybook]
+```
+
+**Orden de dependencias:**
+
+1. `tokens` → Genera CSS variables
+2. `atoms` → Copia CSS componentes
+3. `molecules` → Compila Web Components
+4. `bundle` → Lee todo + overrides → Minifica → Genera bundles
+5. `examples` → Copia bundles finales
+
+---
+
+## ✅ **Verificación**
+
+Después de `pnpm run build:all`, deberías tener:
+
+```bash
+packages/bundle/dist/
+├── rb-jelpit-light.min.css       # ~11.6 KB
+├── rb-jelpit-light.min.css.gz    # ~2.5 KB
+├── rb-davivienda-light.min.css   # ~13.7 KB (con overrides)
+├── rb-davivienda-light.min.css.gz # ~2.7 KB
+├── rb-*.min.css                  # (todos los bundles CSS)
+└── rb-components.min.js          # ~29 KB (~8.6 KB gzip)
+
+examples/dist/
+├── rb-*.min.css
+└── rb-components.min.js
+
+packages/docs/.storybook/
+└── rb-*.min.css
 ```
 
 ---
 
-## 📚 Más Información
+## 💡 **Tips**
 
-- **Arquitectura:** `/ARCHITECTURE.md`
-- **Optimización:** `/OPTIMIZATION.md`
-- **Demos:** `/examples/README.md`
-- **Uso:** `/USAGE.md`
-- **Quick Start:** `/QUICK_START.md`
+- **Desarrollo rápido**: `pnpm run dev:bundle` + `pnpm run storybook`
+- **Build completo**: `pnpm run build:all` antes de commit
+- **Verificar tamaños**: `ls -lh packages/bundle/dist/*.gz`
+- **Test rápido**: `pnpm run serve:demo` y abre `http://localhost:3000`
 
 ---
 
-**Última actualización:** $(date)  
-**Versión:** 1.0.0
+**¿Dudas?** Revisa los scripts en `package.json` (root y `packages/bundle/`)

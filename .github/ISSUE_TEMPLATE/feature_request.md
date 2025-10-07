@@ -51,4 +51,3 @@ assignees: ''
 ## 📋 Información Adicional
 
 <!-- Cualquier otra información relevante -->
-

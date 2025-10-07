@@ -13,6 +13,7 @@ pnpm add @rb/tokens
 ## 🎨 Marcas y Temas
 
 ### Marcas Disponibles
+
 - `white-label` - Marca genérica
 - `jelpit` - Morado + Verde
 - `davivienda` - Rojo + Gris azulado
@@ -21,6 +22,7 @@ pnpm add @rb/tokens
 - `seguros-bolivar` - Verde + Amarillo
 
 ### Temas
+
 - `light` - Tema claro
 - `dark` - Tema oscuro
 
@@ -30,7 +32,7 @@ pnpm add @rb/tokens
 
 ```html
 <!-- Cargar tokens de una marca específica -->
-<link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css">
+<link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css" />
 ```
 
 ### Import en JavaScript
@@ -202,9 +204,9 @@ pnpm dev
 
 ## 📊 Tamaño de Archivos
 
-| Archivo | Normal | Minificado | Gzip |
-|---------|--------|------------|------|
-| Tokens (cada marca) | ~5KB | ~4KB | ~1KB |
+| Archivo             | Normal | Minificado | Gzip |
+| ------------------- | ------ | ---------- | ---- |
+| Tokens (cada marca) | ~5KB   | ~4KB       | ~1KB |
 
 ## 🎯 Características
 
