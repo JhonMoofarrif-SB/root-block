@@ -1,0 +1,502 @@
+import StyleDictionary from 'style-dictionary';
+import { promises as fs } from 'fs';
+import path from 'path';
+
+/**
+ * Configuración de marcas y temas
+ */
+export const BRANDS = [
+  'white-label',
+  'jelpit',
+  'davivienda',
+  'cien-cuadras',
+  'doctor-aki',
+  'seguros-bolivar',
+] as const;
+
+export const THEMES = ['light', 'dark'] as const;
+
+export type Brand = (typeof BRANDS)[number];
+export type Theme = (typeof THEMES)[number];
+
+/**
+ * Tipos para tokens
+ */
+interface TokenValue {
+  $value?: string;
+  $type?: string;
+  value?: string;
+}
+
+interface ColorScale {
+  [key: string]: TokenValue;
+}
+
+interface BrandTokens {
+  [brand: string]: {
+    primitive?: {
+      color?: {
+        primary?: ColorScale;
+        secondary?: ColorScale;
+        tertiary?: ColorScale;
+        grayscale?: ColorScale;
+        feedback?: {
+          error?: ColorScale;
+          warning?: ColorScale;
+          info?: ColorScale;
+          success?: ColorScale;
+        };
+      };
+      shadow?: {
+        [key: string]: TokenValue;
+      };
+      typography?: {
+        fontFamily?: TokenValue;
+        fontSize?: {
+          [key: string]: TokenValue;
+        };
+      };
+      gradient?: {
+        [key: string]: {
+          [key: string]: TokenValue;
+        };
+      };
+    };
+    color?: {
+      primary?: ColorScale;
+      secondary?: ColorScale;
+      tertiary?: ColorScale;
+      grayscale?: ColorScale;
+      feedback?: {
+        error?: ColorScale;
+        warning?: ColorScale;
+        info?: ColorScale;
+        success?: ColorScale;
+      };
+    };
+    shadow?: {
+      [key: string]: TokenValue;
+    };
+    typography?: {
+      fontFamily?: TokenValue;
+      fontSize?: {
+        [key: string]: TokenValue;
+      };
+    };
+    gradient?: {
+      [key: string]: {
+        [key: string]: TokenValue;
+      };
+    };
+  };
+}
+
+interface NormalizedTokens {
+  [brand: string]: {
+    color: {
+      primary: ColorScale;
+      secondary: ColorScale;
+      tertiary: ColorScale;
+      grayscale: ColorScale;
+      feedback: {
+        error: ColorScale;
+        warning: ColorScale;
+        info: ColorScale;
+        success: ColorScale;
+      };
+    };
+    shadow: {
+      [key: string]: TokenValue;
+    };
+    typography: {
+      fontFamily: TokenValue;
+      fontSize: {
+        [key: string]: TokenValue;
+      };
+    };
+    gradient: {
+      [key: string]: {
+        [key: string]: TokenValue;
+      };
+    };
+  };
+}
+
+/**
+ * Schema de tokens completo que TODAS las marcas deben tener
+ */
+const TOKEN_SCHEMA = {
+  color: {
+    primary: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+    secondary: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+    tertiary: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+    grayscale: [
+      'black',
+      'D400',
+      'D300',
+      'D200',
+      'D100',
+      'base',
+      'L100',
+      'L200',
+      'L300',
+      'L400',
+      'white',
+    ],
+    feedback: {
+      error: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+      warning: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+      info: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+      success: ['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'],
+    },
+  },
+  shadow: ['xs', 's', 'm', 'l', 'xl'],
+  typography: {
+    fontFamily: true,
+    fontSize: [
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'mobile-h1',
+      'mobile-h2',
+      'mobile-h3',
+      'mobile-h4',
+      'mobile-h5',
+      'mobile-h6',
+      'body',
+      'label',
+      'caption',
+      'button',
+    ],
+  },
+  gradient: {
+    primary: ['dark', 'base', 'light'],
+  },
+};
+
+/**
+ * Formato personalizado para CSS Variables con prefijo --rb-
+ * Genera variables CON prefijo --rb- para evitar colisiones
+ */
+StyleDictionary.registerFormat({
+  name: 'css/variables-normalized',
+  format: ({ dictionary, options }) => {
+    const { brand = 'default', theme = 'light' } = options;
+    const selector = `[data-brand="${brand}"][data-theme="${theme}"]`;
+
+    const tokens = dictionary.allTokens
+      .map((token) => {
+        // Remover el nombre de la marca del path para tener nombres estándar
+        const cleanPath = token.path.filter(
+          (part) =>
+            part !== brand &&
+            part !== 'primitive' &&
+            part !== '$value' &&
+            !BRANDS.includes(part as Brand)
+        );
+        const name = cleanPath.join('-');
+        const value = token.$value || token.value;
+        // Agregar prefijo --rb- a todas las variables
+        return `  --rb-${name}: ${value};`;
+      })
+      .join('\n');
+
+    return `/**
+ * Design Tokens - ${brand} ${theme}
+ * Generated by Style Dictionary
+ * DO NOT EDIT DIRECTLY
+ * 
+ * Variables con prefijo --rb- (Root Block)
+ * Todas las marcas tienen las mismas variables con diferentes valores
+ * Ejemplo: --rb-color-primary-base, --rb-typography-fontFamily
+ */
+
+${selector} {
+${tokens}
+}
+`;
+  },
+});
+
+/**
+ * Filtro para excluir tokens primitivos en el output final
+ */
+StyleDictionary.registerFilter({
+  name: 'filter-primitives',
+  filter: (token) => !token.path.includes('primitive'),
+});
+
+/**
+ * Transform para nombres de tokens CSS
+ */
+StyleDictionary.registerTransform({
+  name: 'name/css-normalized',
+  type: 'name',
+  transform: (token) => {
+    return token.path
+      .filter((part) => part !== 'primitive' && !BRANDS.includes(part as Brand))
+      .join('-')
+      .replace(/\$/g, '');
+  },
+});
+
+/**
+ * Normaliza los tokens de una marca para asegurar que tenga todos los tokens del schema
+ */
+function normalizeTokens(brandTokens: BrandTokens, brand: string): NormalizedTokens {
+  const normalized: NormalizedTokens = { [brand]: {} as NormalizedTokens[string] };
+
+  // Normalizar colores
+  normalized[brand].color = {};
+
+  // Primary, Secondary, Tertiary
+  ['primary', 'secondary', 'tertiary'].forEach((colorType) => {
+    normalized[brand].color[colorType] = {};
+    TOKEN_SCHEMA.color[colorType as 'primary'].forEach((scale) => {
+      const value =
+        brandTokens[brand]?.primitive?.color?.[colorType]?.[scale]?.$value ||
+        brandTokens[brand]?.color?.[colorType]?.[scale]?.$value ||
+        brandTokens[brand]?.color?.[colorType]?.[scale] ||
+        '';
+      normalized[brand].color[colorType][scale] = {
+        $value: value,
+        $type: 'color',
+      };
+    });
+  });
+
+  // Grayscale
+  normalized[brand].color.grayscale = {};
+  TOKEN_SCHEMA.color.grayscale.forEach((scale) => {
+    const value =
+      brandTokens[brand]?.primitive?.color?.grayscale?.[scale]?.$value ||
+      brandTokens[brand]?.color?.grayscale?.[scale]?.$value ||
+      brandTokens[brand]?.color?.grayscale?.[scale] ||
+      '';
+    normalized[brand].color.grayscale[scale] = {
+      $value: value,
+      $type: 'color',
+    };
+  });
+
+  // Feedback colors
+  normalized[brand].color.feedback = {};
+  ['error', 'warning', 'info', 'success'].forEach((feedbackType) => {
+    normalized[brand].color.feedback[feedbackType] = {};
+    TOKEN_SCHEMA.color.feedback.error.forEach((scale) => {
+      const value =
+        brandTokens[brand]?.primitive?.color?.feedback?.[feedbackType]?.[scale]?.$value ||
+        brandTokens[brand]?.color?.feedback?.[feedbackType]?.[scale]?.$value ||
+        brandTokens[brand]?.color?.feedback?.[feedbackType]?.base?.$value ||
+        '';
+      normalized[brand].color.feedback[feedbackType][scale] = {
+        $value: value,
+        $type: 'color',
+      };
+    });
+  });
+
+  // Shadows
+  normalized[brand].shadow = {};
+  TOKEN_SCHEMA.shadow.forEach((size) => {
+    const value =
+      brandTokens[brand]?.primitive?.shadow?.[size]?.$value ||
+      brandTokens[brand]?.shadow?.[size]?.$value ||
+      brandTokens[brand]?.shadow?.[size] ||
+      '0 0 0 transparent';
+    normalized[brand].shadow[size] = {
+      $value: value,
+      $type: 'shadow',
+    };
+  });
+
+  // Typography
+  normalized[brand].typography = {
+    fontFamily: {
+      $value:
+        brandTokens[brand]?.primitive?.typography?.fontFamily?.$value ||
+        brandTokens[brand]?.typography?.fontFamily?.$value ||
+        brandTokens[brand]?.typography?.fontFamily ||
+        "'Roboto', sans-serif",
+      $type: 'fontFamily',
+    },
+    fontSize: {},
+  };
+
+  TOKEN_SCHEMA.typography.fontSize.forEach((size) => {
+    const value =
+      brandTokens[brand]?.primitive?.typography?.fontSize?.[size]?.$value ||
+      brandTokens[brand]?.typography?.fontSize?.[size]?.$value ||
+      brandTokens[brand]?.typography?.fontSize?.[size] ||
+      '1rem';
+    normalized[brand].typography.fontSize[size] = {
+      $value: value,
+      $type: 'dimension',
+    };
+  });
+
+  // Gradients
+  normalized[brand].gradient = {};
+  ['primary', 'secondary', 'tertiary'].forEach((type) => {
+    normalized[brand].gradient[type] = {};
+    TOKEN_SCHEMA.gradient.primary.forEach((variant) => {
+      const value =
+        brandTokens[brand]?.primitive?.gradient?.[type]?.[variant]?.$value ||
+        brandTokens[brand]?.gradient?.[type]?.[variant]?.$value ||
+        brandTokens[brand]?.gradient?.[type]?.[variant] ||
+        'linear-gradient(180deg, transparent 0%, transparent 100%)';
+      normalized[brand].gradient[type][variant] = {
+        $value: value,
+        $type: 'gradient',
+      };
+    });
+  });
+
+  return normalized;
+}
+
+/**
+ * Construir tokens para una marca y tema específicos
+ */
+async function buildBrandTheme(brand: string, theme: string) {
+  // Leer tokens de la marca
+  const brandPath = path.join(process.cwd(), `src/primitives/brands/${brand}.json`);
+  const brandContent = await fs.readFile(brandPath, 'utf-8');
+  const brandTokens = JSON.parse(brandContent);
+
+  // Normalizar tokens
+  const normalizedTokens = normalizeTokens(brandTokens, brand);
+
+  // Guardar tokens normalizados temporalmente
+  const tempPath = path.join(process.cwd(), `src/.temp/${brand}.json`);
+  await fs.mkdir(path.dirname(tempPath), { recursive: true });
+  await fs.writeFile(tempPath, JSON.stringify(normalizedTokens, null, 2));
+
+  const config = {
+    source: [tempPath, `src/semantic/${theme}.json`],
+    platforms: {
+      css: {
+        transformGroup: 'css',
+        transforms: ['name/css-normalized', 'color/css'],
+        buildPath: 'dist/',
+        files: [
+          {
+            destination: `${brand}-${theme}.css`,
+            format: 'css/variables-normalized',
+            options: {
+              brand,
+              theme,
+            },
+          },
+        ],
+      },
+    },
+  };
+
+  const sd = new StyleDictionary(config);
+  await sd.buildAllPlatforms();
+  console.log(`✅ Built: ${brand}-${theme}.css`);
+}
+
+/**
+ * Generar TypeScript types para tokens
+ */
+async function generateTypes() {
+  const typesContent = `/**
+ * Design Tokens Types
+ * Auto-generated from Style Dictionary
+ */
+
+export type Brand = ${BRANDS.map((b) => `'${b}'`).join(' | ')};
+export type Theme = ${THEMES.map((t) => `'${t}'`).join(' | ')};
+
+export interface TokenConfig {
+  brand: Brand;
+  theme: Theme;
+}
+
+/**
+ * Get CSS file path for a brand/theme combination
+ */
+export function getTokensPath(config: TokenConfig): string {
+  return \`@rb/tokens/\${config.brand}-\${config.theme}.css\`;
+}
+
+/**
+ * Available brand/theme combinations
+ */
+export const AVAILABLE_CONFIGS: TokenConfig[] = [
+${BRANDS.flatMap((brand) => THEMES.map((theme) => `  { brand: '${brand}', theme: '${theme}' }`)).join(',\n')}
+];
+
+export const BRANDS: Brand[] = ${JSON.stringify([...BRANDS], null, 2)};
+export const THEMES: Theme[] = ${JSON.stringify([...THEMES], null, 2)};
+`;
+
+  await fs.writeFile('dist/index.d.ts', typesContent);
+  console.log('✅ Generated TypeScript types');
+}
+
+/**
+ * Generar archivo index.js para importaciones
+ */
+async function generateIndex() {
+  const indexContent = `/**
+ * Root Block Design Tokens
+ * @rb/tokens
+ */
+
+export const BRANDS = ${JSON.stringify([...BRANDS], null, 2)};
+export const THEMES = ${JSON.stringify([...THEMES], null, 2)};
+
+export function getTokensPath(brand, theme) {
+  return \`@rb/tokens/\${brand}-\${theme}.css\`;
+}
+
+export const AVAILABLE_CONFIGS = ${JSON.stringify(
+    BRANDS.flatMap((brand) => THEMES.map((theme) => ({ brand, theme }))),
+    null,
+    2
+  )};
+`;
+
+  await fs.writeFile('dist/index.js', indexContent);
+  console.log('✅ Generated index.js');
+}
+
+/**
+ * Main build process
+ */
+async function build() {
+  console.log('🚀 Building Root Block Design Tokens...\n');
+
+  // Crear directorio dist si no existe
+  await fs.mkdir('dist', { recursive: true });
+
+  // Build para cada combinación de marca/tema
+  for (const brand of BRANDS) {
+    for (const theme of THEMES) {
+      await buildBrandTheme(brand, theme);
+    }
+  }
+
+  // Limpiar archivos temporales
+  await fs.rm('src/.temp', { recursive: true, force: true });
+
+  // Generar tipos y archivos auxiliares
+  await generateTypes();
+  await generateIndex();
+
+  console.log('\n✨ Build completed successfully!');
+  console.log(`\n📦 Generated ${BRANDS.length * THEMES.length} CSS files in dist/`);
+  console.log('\n🎨 All brands have normalized tokens (same variables, different values)');
+}
+
+// Ejecutar build
+build().catch((error) => {
+  console.error('❌ Build failed:', error);
+  process.exit(1);
+});

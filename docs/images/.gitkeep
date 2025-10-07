@@ -1,0 +1,19 @@
+# Este archivo mantiene la carpeta en Git
+
+Aquí van los screenshots y assets para la documentación:
+
+- `demo-screenshot.png` - Screenshot del demo principal
+- `bootstrap-demo.png` - Screenshot del demo estilo Bootstrap
+- `storybook-screenshot.png` - Screenshot de Storybook
+- Otros assets visuales
+
+## Cómo tomar screenshots
+
+1. Abrir `examples/bootstrap-style.html` en el navegador
+2. Seleccionar la marca y tema deseado
+3. Tomar screenshot con:
+   - Mac: `Cmd + Shift + 4`
+   - Windows: `Win + Shift + S`
+   - Linux: `Print Screen`
+4. Guardar en esta carpeta
+

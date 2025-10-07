@@ -1,0 +1,37 @@
+{
+  "name": "@rb/bundle",
+  "version": "1.0.0",
+  "description": "CDN bundle generator para Root Block Design System",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsx src/builder.ts",
+    "build:copy": "npm run build && npm run copy:examples",
+    "copy:examples": "mkdir -p ../../examples/dist && cp dist/rb-*.min.css dist/rb-*.min.js ../../examples/dist/ 2>/dev/null || true",
+    "dev": "tsx watch src/builder.ts",
+    "clean": "rm -rf dist",
+    "serve": "npx serve dist -p 3000"
+  },
+  "keywords": [
+    "cdn",
+    "bundle",
+    "design-system"
+  ],
+  "author": "Root Block",
+  "license": "MIT",
+  "dependencies": {
+    "@rb/atoms": "workspace:*",
+    "@rb/molecules": "workspace:*",
+    "@rb/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "clean-css": "^5.3.3",
+    "compression": "^1.8.1",
+    "cssnano": "^7.1.1",
+    "esbuild": "^0.20.1",
+    "postcss": "^8.5.6",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "seguros-bolivar": {
+    "primitive": {
+      "color": {
+        "primary": {
+          "D400": { "$value": "#0b613e" },
+          "D300": { "$value": "#086d44" },
+          "D200": { "$value": "#05794a" },
+          "D100": { "$value": "#038450" },
+          "base": { "$value": "#009056" },
+          "L100": { "$value": "#66bc9a" },
+          "L200": { "$value": "#cce9dd" },
+          "L300": { "$value": "#e5f4ee" },
+          "L400": { "$value": "#f2f9f6" }
+        },
+        "secondary": {
+          "D400": { "$value": "#ffc918" },
+          "D300": { "$value": "#ffce29" },
+          "D200": { "$value": "#ffd543" },
+          "D100": { "$value": "#ffda55" },
+          "base": { "$value": "#ffe16f" },
+          "L100": { "$value": "#ffea9a" },
+          "L200": { "$value": "#fff0b7" },
+          "L300": { "$value": "#fff6d4" },
+          "L400": { "$value": "#fffcf0" }
+        },
+        "tertiary": {
+          "D400": { "$value": "#0c8a4d" },
+          "D300": { "$value": "#099d56" },
+          "D200": { "$value": "#07af5e" },
+          "D100": { "$value": "#04c267" },
+          "base": { "$value": "#02d46f" },
+          "L100": { "$value": "#4ee19a" },
+          "L200": { "$value": "#b3f2d4" },
+          "L300": { "$value": "#e6fbf1" },
+          "L400": { "$value": "#f2fdf8" }
+        },
+        "grayscale": {
+          "black": { "$value": "#1b1b1b" },
+          "D400": { "$value": "#282828" },
+          "D300": { "$value": "#414141" },
+          "D200": { "$value": "#5b5b5b" },
+          "D100": { "$value": "#757575" },
+          "base": { "$value": "#9b9b9b" },
+          "L100": { "$value": "#b9b9b9" },
+          "L200": { "$value": "#e1e1e1" },
+          "L300": { "$value": "#f5f5f5" },
+          "L400": { "$value": "#fafafa" },
+          "white": { "$value": "#ffffff" }
+        },
+        "feedback": {
+          "error": {
+            "D400": { "$value": "#8f2b34" },
+            "D300": { "$value": "#a22d38" },
+            "D200": { "$value": "#b5303d" },
+            "D100": { "$value": "#c93241" },
+            "base": { "$value": "#dc3545" },
+            "L100": { "$value": "#e7727d" },
+            "L200": { "$value": "#ee9aa2" },
+            "L300": { "$value": "#f5c2c7" },
+            "L400": { "$value": "#fbebec" }
+          },
+          "success": {
+            "D400": { "$value": "#236f34" },
+            "D300": { "$value": "#247d38" },
+            "D200": { "$value": "#258b3d" },
+            "D100": { "$value": "#279941" },
+            "base": { "$value": "#28a745" },
+            "L100": { "$value": "#69c17d" },
+            "L200": { "$value": "#94d3a2" },
+            "L300": { "$value": "#bee5c7" },
+            "L400": { "$value": "#e9f6ec" }
+          },
+          "warning": {
+            "D400": { "$value": "#d7b23e" },
+            "D300": { "$value": "#e0b52e" },
+            "D200": { "$value": "#ebb91f" },
+            "D100": { "$value": "#f5bd0f" },
+            "base": { "$value": "#ffc100" },
+            "L100": { "$value": "#ffd44d" },
+            "L200": { "$value": "#ffe080" },
+            "L300": { "$value": "#ffecb2" },
+            "L400": { "$value": "#fff9e5" }
+          },
+          "info": {
+            "D400": { "$value": "#0b56a4" },
+            "D300": { "$value": "#0860bb" },
+            "D200": { "$value": "#056ad1" },
+            "D100": { "$value": "#0374e8" },
+            "base": { "$value": "#007eff" },
+            "L100": { "$value": "#4da5ff" },
+            "L200": { "$value": "#80bfff" },
+            "L300": { "$value": "#b2d8ff" },
+            "L400": { "$value": "#e5f2ff" }
+          }
+        }
+      },
+      "typography": {
+        "fontFamily": { "$value": "'Bolivar', 'Roboto', sans-serif" },
+        "fontSize": {
+          "h1": { "$value": "2.25rem" },
+          "h2": { "$value": "2rem" },
+          "h3": { "$value": "1.75rem" },
+          "h4": { "$value": "1.5rem" },
+          "h5": { "$value": "1.25rem" },
+          "h6": { "$value": "1rem" },
+          "body": { "$value": "1rem" },
+          "label": { "$value": "0.875rem" },
+          "caption": { "$value": "0.75rem" },
+          "button": { "$value": "1rem" }
+        }
+      },
+      "shadow": {
+        "xs": {
+          "$value": "0px 2px 4px rgba(115, 115, 115, 0.16), 0px 0px 6px rgba(115, 115, 115, 0.16)"
+        },
+        "s": {
+          "$value": "1px 4px 4px rgba(115, 115, 115, 0.04), 1px 1px 8px rgba(115, 115, 115, 0.16)"
+        },
+        "m": {
+          "$value": "2px 8px 8px rgba(115, 115, 115, 0.04), 2px 2px 16px rgba(115, 115, 115, 0.16)"
+        },
+        "l": {
+          "$value": "3px 12px 8px rgba(115, 115, 115, 0.04), 3px 3px 24px rgba(115, 115, 115, 0.16)"
+        },
+        "xl": {
+          "$value": "3px 12px 16px rgba(115, 115, 115, 0.16), 4px 4px 24px rgba(115, 115, 115, 0.16)"
+        }
+      },
+      "gradient": {
+        "primary": {
+          "dark": { "$value": "linear-gradient(0deg, #05794a 0%, #0b613e 100%)" },
+          "base": { "$value": "linear-gradient(180deg, #05794a 0.04%, #009056 100%)" },
+          "light": { "$value": "linear-gradient(180deg, #cce9dd 0%, #f2f9f6 100%)" }
+        },
+        "secondary": {
+          "dark": { "$value": "linear-gradient(180deg, #ffc918 0%, #ffd543 100%)" },
+          "base": { "$value": "linear-gradient(180deg, #ffd543 0%, #ffe16f 100%)" },
+          "light": { "$value": "linear-gradient(180deg, #fff0b7 0%, #fffcf0 100%)" }
+        },
+        "tertiary": {
+          "dark": { "$value": "linear-gradient(180deg, #0c8a4d 0%, #07af5e 100%)" },
+          "base": { "$value": "linear-gradient(180deg, #07af5e 0%, #02d46f 100%)" },
+          "light": { "$value": "linear-gradient(180deg, #b3f2d4 0%, #f2fdf8 100%)" }
+        }
+      }
+    }
+  }
+}

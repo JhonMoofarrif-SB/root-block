@@ -1,0 +1,149 @@
+{
+  "white-label": {
+    "primitive": {
+      "color": {
+        "primary": {
+          "D400": { "$value": "#202121" },
+          "D300": { "$value": "#292c2e" },
+          "D200": { "$value": "#32383b" },
+          "D100": { "$value": "#3b4448" },
+          "base": { "$value": "#48555b" },
+          "L100": { "$value": "#7f888c" },
+          "L200": { "$value": "#a4aaad" },
+          "L300": { "$value": "#c8ccce" },
+          "L400": { "$value": "#edeeef" }
+        },
+        "secondary": {
+          "D400": { "$value": "#769aa8" },
+          "D300": { "$value": "#83a3b0" },
+          "D200": { "$value": "#90adb8" },
+          "D100": { "$value": "#9cb6c0" },
+          "base": { "$value": "#afc4cc" },
+          "L100": { "$value": "#c7d6db" },
+          "L200": { "$value": "#d7e2e6" },
+          "L300": { "$value": "#e7edf0" },
+          "L400": { "$value": "#f7f9fa" }
+        },
+        "tertiary": {
+          "D400": { "$value": "#90939e" },
+          "D300": { "$value": "#9a9da7" },
+          "D200": { "$value": "#a5a7b0" },
+          "D100": { "$value": "#afb1b9" },
+          "base": { "$value": "#bec0c6" },
+          "L100": { "$value": "#d2d3d7" },
+          "L200": { "$value": "#dfe0e3" },
+          "L300": { "$value": "#ececee" },
+          "L400": { "$value": "#f8f9f9" }
+        },
+        "grayscale": {
+          "black": { "$value": "#1b1b1b" },
+          "D400": { "$value": "#282828" },
+          "D300": { "$value": "#414141" },
+          "D200": { "$value": "#5b5b5b" },
+          "D100": { "$value": "#757575" },
+          "base": { "$value": "#9b9b9b" },
+          "L100": { "$value": "#b9b9b9" },
+          "L200": { "$value": "#e1e1e1" },
+          "L300": { "$value": "#f5f5f5" },
+          "L400": { "$value": "#fafafa" },
+          "white": { "$value": "#ffffff" }
+        },
+        "feedback": {
+          "error": {
+            "D400": { "$value": "#8f2b34" },
+            "D300": { "$value": "#a22d38" },
+            "D200": { "$value": "#b5303d" },
+            "D100": { "$value": "#c93241" },
+            "base": { "$value": "#dc3545" },
+            "L100": { "$value": "#e7727d" },
+            "L200": { "$value": "#ee9aa2" },
+            "L300": { "$value": "#f5c2c7" },
+            "L400": { "$value": "#fbebec" }
+          },
+          "success": {
+            "D400": { "$value": "#236f34" },
+            "D300": { "$value": "#247d38" },
+            "D200": { "$value": "#258b3d" },
+            "D100": { "$value": "#279941" },
+            "base": { "$value": "#28a745" },
+            "L100": { "$value": "#69c17d" },
+            "L200": { "$value": "#94d3a2" },
+            "L300": { "$value": "#bee5c7" },
+            "L400": { "$value": "#e9f6ec" }
+          },
+          "warning": {
+            "D400": { "$value": "#d6b13d" },
+            "D300": { "$value": "#e0b52e" },
+            "D200": { "$value": "#ebb91f" },
+            "D100": { "$value": "#f5bd0f" },
+            "base": { "$value": "#ffc100" },
+            "L100": { "$value": "#ffd44d" },
+            "L200": { "$value": "#ffe080" },
+            "L300": { "$value": "#ffecb2" },
+            "L400": { "$value": "#fff9e5" }
+          },
+          "info": {
+            "D400": { "$value": "#0b56a4" },
+            "D300": { "$value": "#0860bb" },
+            "D200": { "$value": "#056ad1" },
+            "D100": { "$value": "#0374e8" },
+            "base": { "$value": "#007eff" },
+            "L100": { "$value": "#4da5ff" },
+            "L200": { "$value": "#80bfff" },
+            "L300": { "$value": "#b2d8ff" },
+            "L400": { "$value": "#e5f2ff" }
+          }
+        }
+      },
+      "typography": {
+        "fontFamily": { "$value": "'Roboto', sans-serif" },
+        "fontSize": {
+          "h1": { "$value": "2.25rem" },
+          "h2": { "$value": "2rem" },
+          "h3": { "$value": "1.75rem" },
+          "h4": { "$value": "1.5rem" },
+          "h5": { "$value": "1.25rem" },
+          "h6": { "$value": "1rem" },
+          "body": { "$value": "1rem" },
+          "label": { "$value": "0.875rem" },
+          "caption": { "$value": "0.75rem" },
+          "button": { "$value": "1rem" }
+        }
+      },
+      "shadow": {
+        "xs": {
+          "$value": "0px 2px 4px rgba(115, 115, 115, 0.16), 0px 0px 6px rgba(115, 115, 115, 0.16)"
+        },
+        "s": {
+          "$value": "1px 4px 4px rgba(115, 115, 115, 0.04), 1px 1px 8px rgba(115, 115, 115, 0.16)"
+        },
+        "m": {
+          "$value": "2px 8px 8px rgba(115, 115, 115, 0.04), 2px 2px 16px rgba(115, 115, 115, 0.16)"
+        },
+        "l": {
+          "$value": "3px 12px 8px rgba(115, 115, 115, 0.08), 3px 3px 24px rgba(115, 115, 115, 0.16)"
+        },
+        "xl": {
+          "$value": "3px 12px 16px rgba(115, 115, 115, 0.16), 4px 4px 24px rgba(115, 115, 115, 0.16)"
+        }
+      },
+      "gradient": {
+        "primary": {
+          "dark": { "$value": "linear-gradient(226deg, #1f2121 14.67%, #32383b 85.36%)" },
+          "base": { "$value": "linear-gradient(180deg, #32383b 0%, #48555b 100%)" },
+          "light": { "$value": "linear-gradient(180deg, #a4aaad 0%, #edeeef 100%)" }
+        },
+        "secondary": {
+          "dark": { "$value": "linear-gradient(180deg, #769aa8 0%, #8facb8 100%)" },
+          "base": { "$value": "linear-gradient(180deg, #8facb8 0%, #afc4cc 100%)" },
+          "light": { "$value": "linear-gradient(180deg, #d7e2e6 0%, #f7f9fa 100%)" }
+        },
+        "tertiary": {
+          "dark": { "$value": "linear-gradient(180deg, #90939e 0%, #a4a7af 100%)" },
+          "base": { "$value": "linear-gradient(180deg, #a4a7af 0%, #bec0c6 100%)" },
+          "light": { "$value": "linear-gradient(180deg, #dfe0e3 0%, #f8f9f9 100%)" }
+        }
+      }
+    }
+  }
+}

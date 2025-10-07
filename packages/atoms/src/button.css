@@ -1,0 +1,353 @@
+/**
+ * Button Component - Root Block Design System
+ * Componente CSS puro con variables --rb-* personalizables por marca
+ * 
+ * Uso:
+ * <button class="rb-button rb-button--primary">Click me</button>
+ * <button class="rb-button rb-button--secondary rb-button--small">Small</button>
+ */
+
+/* ========================================
+   VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
+   ======================================== */
+
+.rb-button {
+  /* Colores - Pueden ser sobreescritos por marca */
+  --rb-button-bg-color: var(--rb-color-primary-base, #007acc);
+  --rb-button-bg-hover: var(--rb-color-primary-D100, #005a9e);
+  --rb-button-bg-active: var(--rb-color-primary-D200, #004578);
+  --rb-button-bg-disabled: var(--rb-color-grayscale-L200, #e1e1e1);
+  --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
+  --rb-button-text-disabled: var(--rb-color-grayscale-base, #9b9b9b);
+  --rb-button-border-color: var(--rb-color-primary-base, #007acc);
+  --rb-button-border-width: 1px;
+  --rb-button-border-radius: 8px;
+
+  /* Espaciado */
+  --rb-button-padding-x: 1.5rem;
+  --rb-button-padding-y: 0.657rem;
+  --rb-button-gap: 0.5rem;
+
+  /* Tipografía */
+  --rb-button-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+  --rb-button-font-size: 1rem;
+  --rb-button-font-weight: 700;
+  --rb-button-line-height: 1.188rem;
+
+  /* Tamaños */
+  --rb-button-min-width: 91px;
+  --rb-button-min-height: 40px;
+
+  /* Sombras */
+  --rb-button-shadow: none;
+  --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+  --rb-button-shadow-active: inset 2px 4px 8px rgb(0 0 0 / 16%);
+
+  /* Transiciones */
+  --rb-button-transition: all 0.2s ease;
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* Spacing */
+  padding: var(--rb-button-padding-y) var(--rb-button-padding-x);
+  gap: var(--rb-button-gap);
+
+  /* Sizing */
+  min-width: var(--rb-button-min-width);
+  min-height: var(--rb-button-min-height);
+  width: auto;
+
+  /* Typography */
+  font-family: var(--rb-button-font-family);
+  font-style: normal;
+  font-weight: var(--rb-button-font-weight);
+  font-size: var(--rb-button-font-size);
+  line-height: var(--rb-button-line-height);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Appearance */
+  background-color: var(--rb-button-bg-color);
+  color: var(--rb-button-text-color);
+  border: var(--rb-button-border-width) solid var(--rb-button-border-color);
+  border-radius: var(--rb-button-border-radius);
+  box-shadow: var(--rb-button-shadow);
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+
+  /* Animation */
+  transition: var(--rb-button-transition);
+}
+
+.rb-button:hover:not(:disabled) {
+  background-color: var(--rb-button-bg-hover);
+  border-color: var(--rb-button-bg-hover);
+  box-shadow: var(--rb-button-shadow-hover);
+}
+
+.rb-button:active:not(:disabled) {
+  background-color: var(--rb-button-bg-active);
+  border-color: var(--rb-button-bg-active);
+  box-shadow: var(--rb-button-shadow-active);
+}
+
+.rb-button:focus-visible:not(:disabled) {
+  outline: 2px solid var(--rb-color-primary-L100, #80bfff);
+  outline-offset: 2px;
+}
+
+.rb-button:disabled {
+  background-color: var(--rb-button-bg-disabled);
+  color: var(--rb-button-text-disabled);
+  border-color: var(--rb-button-bg-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ========================================
+   BUTTON VARIANTS
+   ======================================== */
+
+/* Primary Button (default) */
+.rb-button--primary {
+  --rb-button-bg-color: var(--rb-color-primary-base);
+  --rb-button-bg-hover: var(--rb-color-primary-D100);
+  --rb-button-bg-active: var(--rb-color-primary-D200);
+  --rb-button-border-color: var(--rb-color-primary-base);
+  --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
+}
+
+/* Secondary Button */
+.rb-button--secondary {
+  --rb-button-bg-color: var(--rb-color-secondary-base);
+  --rb-button-bg-hover: var(--rb-color-secondary-D100);
+  --rb-button-bg-active: var(--rb-color-secondary-D200);
+  --rb-button-border-color: var(--rb-color-secondary-base);
+  --rb-button-text-color: var(--rb-color-primary-base);
+}
+
+/* Tertiary Button (Outline) */
+.rb-button--tertiary {
+  --rb-button-bg-color: transparent;
+  --rb-button-bg-hover: var(--rb-color-primary-L400);
+  --rb-button-bg-active: var(--rb-color-primary-L300);
+  --rb-button-border-color: var(--rb-color-primary-base);
+  --rb-button-border-width: 2px;
+  --rb-button-text-color: var(--rb-color-primary-base);
+}
+
+/* Quaternary Button (Text with underline) */
+.rb-button--quaternary {
+  --rb-button-bg-color: transparent;
+  --rb-button-bg-hover: transparent;
+  --rb-button-bg-active: transparent;
+  --rb-button-border-color: transparent;
+  --rb-button-border-width: 0;
+  --rb-button-text-color: var(--rb-color-primary-base);
+  --rb-button-padding-x: 0;
+  --rb-button-padding-y: 0;
+  --rb-button-shadow-hover: none;
+
+  text-decoration: underline;
+  text-decoration-color: var(--rb-color-primary-base);
+}
+
+.rb-button--quaternary:hover:not(:disabled) {
+  --rb-button-text-color: var(--rb-color-primary-D100);
+
+  text-decoration-color: var(--rb-color-primary-D100);
+}
+
+/* Quinary Button */
+.rb-button--quinary {
+  --rb-button-bg-color: var(--rb-color-tertiary-base);
+  --rb-button-bg-hover: var(--rb-color-tertiary-D100);
+  --rb-button-bg-active: var(--rb-color-tertiary-D200);
+  --rb-button-border-color: var(--rb-color-tertiary-base);
+  --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
+}
+
+/* Danger/Error Button */
+.rb-button--danger {
+  --rb-button-bg-color: var(--rb-color-feedback-error-base, #dc3545);
+  --rb-button-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
+  --rb-button-bg-active: var(--rb-color-feedback-error-D200, #b5303d);
+  --rb-button-border-color: var(--rb-color-feedback-error-base, #dc3545);
+  --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
+}
+
+/* Success Button */
+.rb-button--success {
+  --rb-button-bg-color: var(--rb-color-feedback-success-base, #28a745);
+  --rb-button-bg-hover: var(--rb-color-feedback-success-D100, #279941);
+  --rb-button-bg-active: var(--rb-color-feedback-success-D200, #258b3d);
+  --rb-button-border-color: var(--rb-color-feedback-success-base, #28a745);
+  --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
+}
+
+/* ========================================
+   BUTTON SIZES
+   ======================================== */
+
+.rb-button--small {
+  --rb-button-padding-x: 0.8rem;
+  --rb-button-padding-y: 0.4rem;
+  --rb-button-font-size: 0.875rem;
+  --rb-button-min-height: 32px;
+  --rb-button-line-height: 1rem;
+}
+
+.rb-button--medium {
+  --rb-button-padding-x: 1.5rem;
+  --rb-button-padding-y: 0.657rem;
+  --rb-button-font-size: 1rem;
+  --rb-button-min-height: 40px;
+  --rb-button-line-height: 1.188rem;
+}
+
+.rb-button--large {
+  --rb-button-padding-x: 2rem;
+  --rb-button-padding-y: 0.875rem;
+  --rb-button-font-size: 1.125rem;
+  --rb-button-min-height: 48px;
+  --rb-button-line-height: 1.375rem;
+}
+
+/* ========================================
+   BUTTON MODIFIERS
+   ======================================== */
+
+/* Rounded corners */
+.rb-button--rounded {
+  --rb-button-border-radius: 2.1rem;
+}
+
+/* Circular button */
+.rb-button--circle {
+  --rb-button-border-radius: 50%;
+  --rb-button-padding-x: 0;
+  --rb-button-padding-y: 0;
+
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1.45rem;
+}
+
+/* Block (full width) */
+.rb-button--block {
+  display: flex;
+  width: 100%;
+}
+
+/* ========================================
+   BUTTON STATES
+   ======================================== */
+
+/* Loading state */
+.rb-button--loading {
+  color: transparent;
+  pointer-events: none;
+  position: relative;
+}
+
+.rb-button--loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid currentcolor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: rb-button-spinner 0.6s linear infinite;
+}
+
+/* Loading spinner colors by variant */
+.rb-button--primary.rb-button--loading::after,
+.rb-button--quinary.rb-button--loading::after,
+.rb-button--danger.rb-button--loading::after,
+.rb-button--success.rb-button--loading::after {
+  border-color: var(--rb-color-grayscale-white, #fff);
+  border-top-color: transparent;
+}
+
+.rb-button--secondary.rb-button--loading::after,
+.rb-button--tertiary.rb-button--loading::after,
+.rb-button--quaternary.rb-button--loading::after {
+  border-color: var(--rb-color-primary-base);
+  border-top-color: transparent;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes rb-button-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & RESPONSIVE
+   ======================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .rb-button {
+    --rb-button-border-width: 2px;
+  }
+
+  .rb-button--quaternary {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .rb-button {
+    --rb-button-transition: none;
+  }
+
+  .rb-button--loading::after {
+    animation: none;
+  }
+}
+
+/* Mobile - Full width by default */
+@media (width <= 640px) {
+  .rb-button {
+    width: 100%;
+  }
+
+  .rb-button--circle {
+    width: 2.5rem;
+  }
+}
+
+/* Desktop - Auto width */
+@media (width >= 641px) {
+  .rb-button {
+    width: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .rb-button {
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+  }
+}

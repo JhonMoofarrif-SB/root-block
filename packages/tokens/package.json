@@ -1,0 +1,47 @@
+{
+  "name": "@rb/tokens",
+  "version": "1.0.0",
+  "description": "Design tokens multi-brand para Root Block Design System",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./white-label-light.css": "./dist/white-label-light.css",
+    "./white-label-dark.css": "./dist/white-label-dark.css",
+    "./jelpit-light.css": "./dist/jelpit-light.css",
+    "./jelpit-dark.css": "./dist/jelpit-dark.css",
+    "./davivienda-light.css": "./dist/davivienda-light.css",
+    "./davivienda-dark.css": "./dist/davivienda-dark.css",
+    "./cien-cuadras-light.css": "./dist/cien-cuadras-light.css",
+    "./cien-cuadras-dark.css": "./dist/cien-cuadras-dark.css",
+    "./doctor-aki-light.css": "./dist/doctor-aki-light.css",
+    "./doctor-aki-dark.css": "./dist/doctor-aki-dark.css",
+    "./seguros-bolivar-light.css": "./dist/seguros-bolivar-light.css",
+    "./seguros-bolivar-dark.css": "./dist/seguros-bolivar-dark.css"
+  },
+  "scripts": {
+    "build": "tsx src/builder.ts",
+    "dev": "tsx watch src/builder.ts",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "css-variables",
+    "multi-brand",
+    "multi-theme"
+  ],
+  "author": "Root Block",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "eslint": "^8.57.0",
+    "style-dictionary": "^4.0.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

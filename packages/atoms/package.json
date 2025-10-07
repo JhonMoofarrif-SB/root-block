@@ -1,0 +1,39 @@
+{
+  "name": "@rb/atoms",
+  "version": "1.0.0",
+  "description": "Componentes CSS simples para Root Block Design System",
+  "main": "dist/index.css",
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": "./dist/index.css",
+    "./button.css": "./dist/button.css",
+    "./badge.css": "./dist/badge.css",
+    "./card.css": "./dist/card.css",
+    "./alert.css": "./dist/alert.css"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:copy && npm run build:bundle",
+    "clean": "rm -rf dist",
+    "build:copy": "mkdir -p dist && cp -r src/* dist/",
+    "build:bundle": "cat src/button.css > dist/index.css",
+    "dev": "npm run build",
+    "lint": "stylelint 'src/**/*.css'"
+  },
+  "keywords": [
+    "css",
+    "components",
+    "atoms",
+    "design-system",
+    "button",
+    "badge",
+    "card"
+  ],
+  "author": "Root Block",
+  "license": "MIT",
+  "devDependencies": {
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

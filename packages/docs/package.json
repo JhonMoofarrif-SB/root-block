@@ -1,0 +1,27 @@
+{
+  "name": "@rb/docs",
+  "version": "1.0.0",
+  "description": "Storybook documentation for Root Block Design System",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "clean": "rm -rf storybook-static"
+  },
+  "dependencies": {
+    "@rb/atoms": "workspace:*",
+    "@rb/molecules": "workspace:*",
+    "@rb/tokens": "workspace:*",
+    "lit": "^3.1.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/web-components": "^7.6.17",
+    "@storybook/web-components-vite": "^7.6.17",
+    "storybook": "^7.6.17",
+    "vite": "^5.1.4"
+  }
+}

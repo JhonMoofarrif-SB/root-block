@@ -1,0 +1,94 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Welcome" />
+
+# 🎨 Root Block Design System
+
+Bienvenido al **Root Block Design System** - Un sistema de diseño empresarial multi-marca.
+
+## 🌟 Características
+
+- **Multi-Marca**: 6 marcas × 2 temas = 12 combinaciones
+- **Componentes Híbridos**: CSS puro para simplicidad, Lit para complejidad
+- **Tokens Normalizados**: Variables CSS consistentes entre marcas
+- **CDN Ready**: Bundles optimizados para producción
+- **TypeScript**: Type-safe components
+- **Testing**: Vitest + Playwright
+
+## 📦 Packages
+
+### 🎨 [@rb/tokens](/?path=/docs/tokens-overview--docs)
+Design tokens (colores, tipografía, sombras) para 6 marcas
+
+### 🏗️ [@rb/foundations](/?path=/docs/foundations-overview--docs)
+CSS base: reset, tipografía, utilidades (flexbox, grid, spacing)
+
+### ⚛️ [@rb/atoms](/?path=/docs/atoms-button--docs)
+Componentes CSS simples: Button, Badge, Card, Alert
+
+### 🧬 [@rb/molecules](/?path=/docs/molecules-modal--docs)
+Web Components complejos: Modal, Date Picker, Dropdown
+
+### 📦 @rb/bundle
+Generador de bundles CDN optimizados
+
+## 🚀 Quick Start
+
+### Instalación
+
+\`\`\`bash
+pnpm install
+pnpm build
+\`\`\`
+
+### Uso CDN
+
+\`\`\`html
+<!DOCTYPE html>
+<html data-brand="jelpit" data-theme="light">
+<head>
+  <link rel="stylesheet" href="https://cdn.example.com/rb-jelpit-light.min.css">
+  <script type="module" src="https://cdn.example.com/rb-components.min.js"></script>
+</head>
+<body>
+  <button class="rb-button rb-button--primary">Click me</button>
+  <rb-modal title="My Modal">Content</rb-modal>
+</body>
+</html>
+\`\`\`
+
+## 🎯 Filosofía
+
+### Componentes Simples → CSS Puro
+- Button, Badge, Card, Alert
+- Variables `--rb-*` personalizables
+- Ligeros, rápidos, fáciles de override
+
+### Componentes Complejos → Web Components (Lit)
+- Modal, Date Picker, Dropdown, Data Table
+- Estado y lógica encapsulada
+- Shadow DOM para aislamiento
+
+## 🌐 Marcas
+
+Use el selector de **Brand** en la toolbar para ver cómo se adaptan los componentes:
+
+- **White Label**: Marca genérica
+- **Jelpit**: Morado + Verde
+- **Davivienda**: Rojo + Gris azulado
+- **Cien Cuadras**: Azul + Naranja
+- **Doctor Aki**: Teal + Naranja
+- **Seguros Bolívar**: Rojo + Azul
+
+## 📚 Navegación
+
+Explora los componentes en el menú lateral:
+- **Atoms**: Componentes CSS simples
+- **Molecules**: Web Components complejos
+- **Foundations**: Estilos base
+- **Tokens**: Variables de diseño
+
+---
+
+**Happy coding! 🚀**
+
