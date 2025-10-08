@@ -233,6 +233,40 @@ export const Welcome: Story = {
         </div>
       </div>
 
+      <!-- Live Demo -->
+      <div
+        style="
+          margin-top: 2rem;
+          padding: 2rem;
+          background: linear-gradient(135deg, var(--rb-color-primary-L400) 0%, var(--rb-color-secondary-L400) 100%);
+          border-radius: 12px;
+          text-align: center;
+        "
+      >
+        <h2 style="color: var(--rb-color-primary-base); margin-top: 0;">🎮 Demo Interactivo</h2>
+        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 1.5rem;">
+          Prueba todos los componentes en acción con cambio dinámico de marca y tema
+        </p>
+        <a
+          href="/examples/"
+          target="_blank"
+          style="
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--rb-color-primary-base);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+          "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.2)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+        >
+          Ver Demo en Vivo →
+        </a>
+      </div>
+
       <!-- Footer -->
       <div
         style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--rb-color-grayscale-L200); text-align: center;"

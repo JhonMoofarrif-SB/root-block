@@ -48,3 +48,4 @@ storybook-static/
 *.tmp
 .cache/
 
+.vercel

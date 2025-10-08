@@ -213,7 +213,12 @@ changeBrand('cien-cuadras', 'light'); // 🔵 Azul inmobiliario
 
 ## 📚 Documentación
 
-### Storybook Interactivo
+### 🌐 Documentación Online
+
+- **Storybook**: [root-bloock.vercel.app](https://root-bloock.vercel.app) - Documentación completa
+- **Demo Interactivo**: [root-bloock.vercel.app/examples](https://root-bloock.vercel.app/examples) - Prueba en vivo
+
+### Storybook Interactivo (Local)
 
 ```bash
 # Abrir Storybook con selector global de marca
@@ -232,6 +237,8 @@ pnpm run storybook
 | Archivo | Descripción |
 |---------|-------------|
 | [README.md](./README.md) | 📄 Documentación principal |
+| [VERCEL-SETUP.md](./VERCEL-SETUP.md) | 🚀 Guía de deployment en Vercel |
+| [.vercel-quick-start.md](./.vercel-quick-start.md) | ⚡ Quick start para Vercel |
 | [CHANGELOG.md](./CHANGELOG.md) | 📝 Historial de versiones |
 | [LEEME.md](./LEEME.md) | 🇪🇸 Guía rápida en español |
 | [BUILD.md](./BUILD.md) | 🏗️ Sistema de build detallado |
