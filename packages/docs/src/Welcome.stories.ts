@@ -181,20 +181,35 @@ export const Welcome: Story = {
         "
       >
         <h2 style="color: var(--rb-color-primary-base); margin-top: 0;">
-          ✨ Override Especial: Davivienda
+          ✨ Brand Overrides Especiales
         </h2>
-        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 1rem;">
-          <strong>Davivienda</strong> tiene una animación especial de gradiente en el estado loading
-          de los botones.
-        </p>
-        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 1rem;">
+        
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: #e1111c; margin: 0 0 0.5rem 0; font-size: 1.1rem;">
+            🔴 Davivienda
+          </h3>
+          <p style="color: var(--rb-color-grayscale-D100); margin: 0;">
+            <strong>Loading Animation:</strong> Gradiente negro deslizante de izquierda a derecha
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="color: #009056; margin: 0 0 0.5rem 0; font-size: 1.1rem;">
+            💚 Seguros Bolívar
+          </h3>
+          <p style="color: var(--rb-color-grayscale-D100); margin: 0;">
+            <strong>Color Swap:</strong> Botón Primary usa amarillo, Secondary usa verde (invertidos)
+          </p>
+        </div>
+        
+        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 0.5rem;">
           <strong>Para verlo en acción:</strong>
         </p>
         <ol style="color: var(--rb-color-grayscale-D100); margin: 0; padding-left: 1.5rem;">
-          <li>Selecciona "Davivienda" en el selector de Brand (toolbar)</li>
-          <li>Ve a "Atoms → Button → Loading"</li>
-          <li>Observa la animación de gradiente deslizante</li>
-          <li>Cambia a otra marca para comparar con el spinner estándar</li>
+          <li>Selecciona una marca en el selector de Brand (toolbar)</li>
+          <li>Ve a "Atoms → Button"</li>
+          <li>Observa los overrides específicos de cada marca</li>
+          <li>Compara con otras marcas que usan los estilos base</li>
         </ol>
       </div>
 

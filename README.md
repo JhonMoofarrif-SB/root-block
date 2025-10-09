@@ -237,6 +237,7 @@ pnpm run storybook
 | Archivo | Descripción |
 |---------|-------------|
 | [README.md](./README.md) | 📄 Documentación principal |
+| [.cursor/CSS_STANDARDS.md](./.cursor/CSS_STANDARDS.md) | 📐 **Estándares CSS** (Cursor AI los lee automáticamente) |
 | [VERCEL-SETUP.md](./VERCEL-SETUP.md) | 🚀 Guía de deployment en Vercel |
 | [.vercel-quick-start.md](./.vercel-quick-start.md) | ⚡ Quick start para Vercel |
 | [CHANGELOG.md](./CHANGELOG.md) | 📝 Historial de versiones |
@@ -254,11 +255,40 @@ pnpm test
 # E2E tests (Playwright)
 pnpm test:e2e
 
-# Lint
+# Lint JavaScript
 pnpm lint
 
-# Format
+# Format all files
 pnpm format
+```
+
+### 📐 CSS Standards & Rules
+
+El proyecto sigue estándares CSS modernos con **Cursor AI**:
+
+- **[.cursor/CSS_STANDARDS.md](./.cursor/CSS_STANDARDS.md)** - Guía completa de referencia en carpeta .cursor
+
+**Características principales:**
+- ✅ CSS Nesting nativo con `&`
+- ✅ `@layer` para control de cascada predecible
+- ✅ Logical Properties (RTL/LTR ready)
+- ✅ `clamp()` para responsive fluido sin media queries
+- ✅ Variables CSS con prefijo `--rb-`
+- ✅ Nomenclatura BEM con prefijo `rb-`
+- ✅ Accesibilidad completa (WCAG AA)
+- ✅ **Cursor AI aplica reglas automáticamente desde la carpeta `.cursor/`**
+
+**Quick Start - Crear un componente:**
+
+```bash
+# 1. Copiar template o pedir a Cursor AI
+cp packages/atoms/src/button.css packages/atoms/src/mi-componente.css
+
+# 2. Cursor AI aplicará las reglas automáticamente
+# Las reglas están en .cursor/CSS_STANDARDS.md
+
+# 3. Compilar
+pnpm run build
 ```
 
 ## 🌐 Marcas Disponibles
