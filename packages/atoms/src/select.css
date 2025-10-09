@@ -102,11 +102,28 @@
   transition: var(--rb-select-transition);
 }
 
+/* Hover state */
+.rb-select:hover:not(:disabled) {
+  border-color: var(--rb-select-border-color-focus);
+}
+
+/* Active state */
+.rb-select:active:not(:disabled) {
+  border-color: var(--rb-select-border-color-focus);
+  box-shadow: var(--rb-select-shadow-focus);
+}
+
 /* Focus state */
 .rb-select:focus {
   border-color: var(--rb-select-border-color-focus);
   box-shadow: var(--rb-select-shadow-focus);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23007acc' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
+/* Focus visible state */
+.rb-select:focus-visible:not(:disabled) {
+  outline: 2px solid var(--rb-color-primary-base, #007acc);
+  outline-offset: 2px;
 }
 
 /* Disabled state */
@@ -625,4 +642,80 @@
 .rb-select--filled:focus {
   --rb-select-bg-color: var(--rb-color-grayscale-white, #ffffff);
   --rb-select-border-color: var(--rb-select-border-color-focus);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Select focus animation */
+@keyframes rb-select-focus {
+  0% {
+    box-shadow: var(--rb-select-shadow);
+  }
+  100% {
+    box-shadow: var(--rb-select-shadow-focus);
+  }
+}
+
+/* Select error shake animation */
+@keyframes rb-select-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* Apply shake animation to error selects */
+.rb-select--error {
+  animation: rb-select-shake 0.5s ease-in-out;
+}
+
+/* ========================================
+   ACCESSIBILITY & RESPONSIVE
+   ======================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .rb-select {
+    --rb-select-border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .rb-select {
+    --rb-select-transition: none;
+  }
+
+  .rb-select--error {
+    animation: none;
+  }
+}
+
+/* Mobile optimizations */
+@media (width <= 640px) {
+  .rb-select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .rb-select--small {
+    font-size: 16px;
+  }
+}
+
+/* Desktop optimizations */
+@media (width >= 641px) {
+  .rb-select--inline {
+    min-width: 200px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .rb-select {
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+  }
 }

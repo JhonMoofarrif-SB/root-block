@@ -13,7 +13,9 @@
     "demo": "pnpm run build:all && cd examples && npx serve -p 3000",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "validate:css": "node scripts/validate-css-standards.js",
+    "validate:css:file": "node scripts/validate-css-standards.js"
   },
   "keywords": [
     "design-system",

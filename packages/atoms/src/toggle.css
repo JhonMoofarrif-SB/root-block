@@ -25,6 +25,8 @@
   --rb-toggle-bg-color: var(--rb-color-grayscale-L200, #edeef0);
   --rb-toggle-bg-color-active: var(--rb-color-primary-base, #007acc);
   --rb-toggle-bg-color-disabled: var(--rb-color-grayscale-L300, #f2f3f5);
+  --rb-toggle-text-color: var(--rb-color-grayscale-D300, #404040);
+  --rb-toggle-text-color-disabled: var(--rb-color-grayscale-base, #d9d9d9);
   --rb-toggle-slider-color: var(--rb-color-grayscale-white, #ffffff);
   --rb-toggle-slider-color-disabled: var(--rb-color-grayscale-L400, #f7f7f7);
   --rb-toggle-border-color: var(--rb-color-grayscale-L200, #edeef0);
@@ -127,6 +129,22 @@
 /* Focus state */
 .rb-toggle-input:focus + .rb-toggle-slider {
   box-shadow: var(--rb-toggle-shadow-focus);
+}
+
+/* Hover state */
+.rb-toggle:hover:not(:disabled) .rb-toggle-slider {
+  border-color: var(--rb-toggle-border-color-active);
+}
+
+/* Active state */
+.rb-toggle:active:not(:disabled) .rb-toggle-slider {
+  box-shadow: var(--rb-toggle-shadow-active);
+}
+
+/* Focus visible state */
+.rb-toggle:focus-visible:not(:disabled) {
+  outline: 2px solid var(--rb-color-primary-base, #007acc);
+  outline-offset: 2px;
 }
 
 /* Disabled state */

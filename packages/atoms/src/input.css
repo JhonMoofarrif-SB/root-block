@@ -100,10 +100,27 @@
   opacity: 1;
 }
 
+/* Hover state */
+.rb-input:hover:not(:disabled) {
+  border-color: var(--rb-input-border-color-focus);
+}
+
+/* Active state */
+.rb-input:active:not(:disabled) {
+  border-color: var(--rb-input-border-color-focus);
+  box-shadow: var(--rb-input-shadow-focus);
+}
+
 /* Focus state */
 .rb-input:focus {
   border-color: var(--rb-input-border-color-focus);
   box-shadow: var(--rb-input-shadow-focus);
+}
+
+/* Focus visible state */
+.rb-input:focus-visible:not(:disabled) {
+  outline: 2px solid var(--rb-color-primary-base, #007acc);
+  outline-offset: 2px;
 }
 
 /* Disabled state */
@@ -458,6 +475,32 @@
 .rb-input:focus-visible {
   outline: 2px solid var(--rb-color-primary-base, #007acc);
   outline-offset: 2px;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Input focus animation */
+@keyframes rb-input-focus {
+  0% {
+    box-shadow: var(--rb-input-shadow);
+  }
+  100% {
+    box-shadow: var(--rb-input-shadow-focus);
+  }
+}
+
+/* Input error shake animation */
+@keyframes rb-input-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* Apply shake animation to error inputs */
+.rb-input--error {
+  animation: rb-input-shake 0.5s ease-in-out;
 }
 
 /* ========================================
