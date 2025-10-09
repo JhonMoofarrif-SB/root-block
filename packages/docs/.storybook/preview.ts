@@ -17,7 +17,7 @@ const preview: Preview = {
   globalTypes: {
     brand: {
       description: 'Brand theme',
-      defaultValue: 'jelpit',
+      defaultValue: 'seguros-bolivar',
       toolbar: {
         title: 'Brand',
         icon: 'paintbrush',

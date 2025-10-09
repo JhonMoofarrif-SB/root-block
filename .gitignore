@@ -49,3 +49,5 @@ storybook-static/
 .cache/
 
 .vercel
+
+.storybook

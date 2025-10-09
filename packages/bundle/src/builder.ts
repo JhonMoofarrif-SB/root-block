@@ -305,7 +305,8 @@ async function build(): Promise<void> {
   console.log('  <link rel="stylesheet" href="rb-jelpit-light.min.css">');
   console.log('  <script type="module" src="rb-components.min.js"></script>');
   console.log('\n🎨 Brand-specific overrides included automatically!');
-  console.log('  - Davivienda: Special loading animation ✨');
+  console.log('  - Davivienda: Special gradient slide loading animation ✨');
+  console.log('  - Seguros Bolívar: Primary/Secondary color swap (Yellow/Green) 🔄');
   console.log('\n💡 Tip: Configure tu CDN para servir .br o .gz automáticamente');
 }
 

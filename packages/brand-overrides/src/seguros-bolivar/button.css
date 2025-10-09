@@ -1,0 +1,39 @@
+/**
+ * Seguros Bolívar - Button Overrides
+ * 
+ * Override específico: Inversión de colores Primary ↔ Secondary
+ * - PRIMARY (acción principal) = Color AMARILLO (secondary de tokens)
+ * - SECONDARY = Color VERDE (primary de tokens)
+ */
+
+/* ========================================
+   PRIMARY BUTTON - AMARILLO
+   ======================================== */
+
+[data-brand='seguros-bolivar'] .rb-button--primary {
+  --rb-button-bg-color: var(--rb-color-secondary-base);        /* Default: #FFE16F */
+  --rb-button-bg-hover: var(--rb-color-secondary-D100);        /* Hover: #FFDA55 */
+  --rb-button-bg-active: var(--rb-color-secondary-D200);       /* Active: #FFD543 */
+  --rb-button-border-color: var(--rb-color-secondary-base);
+  --rb-button-text-color: var(--rb-color-primary-D100);        /* Texto: #038450 */
+  --rb-button-shadow-active: inset 2px 2px 3px rgba(27, 27, 27, 0.16);
+}
+
+
+/* Override de focus: usar secondary-L100 (amarillo claro) */
+[data-brand='seguros-bolivar'] .rb-button:focus-visible:not(:disabled) {
+  outline: 3px solid var(--rb-color-secondary-L100);  /* #FFEA9A */
+  outline-offset: 4px;
+}
+
+/* ========================================
+   SECONDARY BUTTON - VERDE
+   ======================================== */
+
+[data-brand='seguros-bolivar'] .rb-button--secondary {
+  --rb-button-bg-color: var(--rb-color-primary-base);
+  --rb-button-bg-hover: var(--rb-color-primary-D100);
+  --rb-button-bg-active: var(--rb-color-primary-D200);
+  --rb-button-border-color: var(--rb-color-primary-base);
+  --rb-button-text-color: var(--rb-color-grayscale-white);
+}

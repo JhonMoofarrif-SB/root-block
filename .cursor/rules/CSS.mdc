@@ -1,0 +1,582 @@
+---
+alwaysApply: true
+---
+# Root Block Design System - CSS Standards for Cursor AI
+
+## 🎯 Contexto del Proyecto
+
+**Design System moderno multi-marca** para aplicaciones web empresariales.
+- 6 marcas: White Label, Jelpit, Davivienda, Cien Cuadras, Doctor Aki, Seguros Bolívar
+- Temas: light/dark
+- **IMPORTANTE:** Estas reglas son OBLIGATORIAS y NO negociables.
+
+---
+
+## 📋 PRINCIPIOS FUNDAMENTALES
+
+### SIEMPRE Usar:
+- ✅ CSS Nesting nativo con `&`
+- ✅ `@layer` para control de cascada (8 capas estándar)
+- ✅ Logical Properties (inline-size, padding-inline, etc.) - RTL/LTR ready
+- ✅ `clamp()` para responsive fluido
+- ✅ Variables CSS con prefijo `--rb-`
+- ✅ Nomenclatura BEM con prefijo `rb-`
+- ✅ Accesibilidad completa (prefers-reduced-motion, prefers-contrast, focus-visible)
+
+### NUNCA Usar:
+- ❌ Physical properties (width, height, left, right, padding-left, margin-top, etc.)
+- ❌ Media queries para tamaños (usar clamp() en su lugar)
+- ❌ Selectores sin prefijo `rb-`
+- ❌ Variables sin prefijo `--rb-`
+- ❌ Repetir selectores (usar nesting)
+- ❌ `!important` (usar @layer utilities)
+
+---
+
+## 🏗️ TEMPLATE OBLIGATORIO
+
+```css
+/**
+ * [ComponentName] Component - Root Block Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ * 
+ * Uso: <elemento class="rb-[component] rb-[component]--[variant]">
+ */
+
+@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .rb-[component] {
+    all: unset;
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .rb-[component] {
+    /* Colores */
+    --rb-[component]-bg-color: var(--rb-color-grayscale-white, #fff);
+    --rb-[component]-text-color: var(--rb-color-grayscale-black, #000);
+    --rb-[component]-border-color: var(--rb-color-grayscale-L200, #e0e0e0);
+
+    /* Espaciado - SIEMPRE con clamp() */
+    --rb-[component]-padding-inline: clamp(0.5rem, 0.3rem + 1vw, 1.5rem);
+    --rb-[component]-padding-block: clamp(0.25rem, 0.2rem + 0.5vw, 0.75rem);
+    --rb-[component]-gap: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+
+    /* Tipografía - SIEMPRE con clamp() */
+    --rb-[component]-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+    --rb-[component]-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --rb-[component]-font-weight: 400;
+    --rb-[component]-line-height: 1.5;
+
+    /* Bordes */
+    --rb-[component]-border-width: 1px;
+    --rb-[component]-border-radius: clamp(4px, 0.3rem + 0.3vw, 8px);
+
+    /* Transiciones */
+    --rb-[component]-transition: all 0.2s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  .rb-[component] {
+    /* Layout */
+    display: block;
+    position: relative;
+
+    /* Spacing - SOLO Logical Properties */
+    padding-inline: var(--rb-[component]-padding-inline);
+    padding-block: var(--rb-[component]-padding-block);
+
+    /* Typography */
+    font-family: var(--rb-[component]-font-family);
+    font-size: var(--rb-[component]-font-size);
+    font-weight: var(--rb-[component]-font-weight);
+    line-height: var(--rb-[component]-line-height);
+
+    /* Appearance */
+    background-color: var(--rb-[component]-bg-color);
+    color: var(--rb-[component]-text-color);
+    border: var(--rb-[component]-border-width) solid var(--rb-[component]-border-color);
+    border-radius: var(--rb-[component]-border-radius);
+
+    /* Animation */
+    transition: var(--rb-[component]-transition);
+
+    /* Nested Pseudo-classes - SIEMPRE usar & */
+    &:hover:not(:disabled) {
+      /* hover styles */
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--rb-color-primary-L100);
+      outline-offset: 4px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}
+
+/* ========================================
+   VARIANTS LAYER
+   ======================================== */
+@layer variants {
+  .rb-[component]--primary {
+    --rb-[component]-bg-color: var(--rb-color-primary-base);
+    --rb-[component]-text-color: var(--rb-color-grayscale-white);
+  }
+
+  .rb-[component]--secondary {
+    --rb-[component]-bg-color: var(--rb-color-secondary-base);
+    --rb-[component]-text-color: var(--rb-color-primary-base);
+  }
+}
+
+/* ========================================
+   SIZES LAYER
+   ======================================== */
+@layer sizes {
+  .rb-[component]--small {
+    --rb-[component]-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --rb-[component]-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
+    --rb-[component]-padding-block: clamp(0.2rem, 0.15rem + 0.3vw, 0.4rem);
+  }
+
+  .rb-[component]--large {
+    --rb-[component]-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+    --rb-[component]-padding-inline: clamp(0.8rem, 0.6rem + 1.5vw, 2rem);
+    --rb-[component]-padding-block: clamp(0.4rem, 0.3rem + 0.8vw, 1rem);
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  .rb-[component]--block {
+    inline-size: 100%;
+  }
+
+  .rb-[component]--rounded {
+    --rb-[component]-border-radius: clamp(12px, 1rem + 0.5vw, 20px);
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  .rb-[component]--loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .rb-[component]--error {
+    --rb-[component]-border-color: var(--rb-color-feedback-error-base);
+  }
+
+  .rb-[component]--success {
+    --rb-[component]-border-color: var(--rb-color-feedback-success-base);
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER (máxima prioridad)
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support - OBLIGATORIO */
+  @media (prefers-contrast: high) {
+    .rb-[component] {
+      --rb-[component]-border-width: 2px;
+    }
+  }
+
+  /* Reduced motion support - OBLIGATORIO */
+  @media (prefers-reduced-motion: reduce) {
+    .rb-[component] {
+      --rb-[component]-transition: none;
+      animation: none;
+    }
+  }
+
+  /* Mobile styles si es necesario */
+  @media (inline-size <= 640px) {
+    .rb-[component] {
+      /* mobile specific styles */
+    }
+  }
+}
+```
+
+---
+
+## 📏 MAPEO DE PROPIEDADES (OBLIGATORIO)
+
+**Cuando vayas a escribir una propiedad física, DETENTE y usa su equivalente lógico:**
+
+| ❌ PROHIBIDO | ✅ USAR SIEMPRE | Descripción |
+|-------------|----------------|-------------|
+| `width` | `inline-size` | Tamaño horizontal |
+| `height` | `block-size` | Tamaño vertical |
+| `min-width` | `min-inline-size` | Mínimo horizontal |
+| `max-width` | `max-inline-size` | Máximo horizontal |
+| `min-height` | `min-block-size` | Mínimo vertical |
+| `max-height` | `max-block-size` | Máximo vertical |
+| `padding-left` | `padding-inline-start` | Padding inicio |
+| `padding-right` | `padding-inline-end` | Padding fin |
+| `padding: X Y` | `padding-block: X; padding-inline: Y;` | Padding shorthand |
+| `margin-left` | `margin-inline-start` | Margin inicio |
+| `margin-right` | `margin-inline-end` | Margin fin |
+| `left` | `inset-inline-start` | Posición inicio |
+| `right` | `inset-inline-end` | Posición fin |
+| `top` | `inset-block-start` | Posición arriba |
+| `bottom` | `inset-block-end` | Posición abajo |
+| `border-left` | `border-inline-start` | Borde inicio |
+| `border-right` | `border-inline-end` | Borde fin |
+| `border-top-left-radius` | `border-start-start-radius` | Radio esquina |
+
+### Ejemplo de conversión:
+
+```css
+/* ❌ PROHIBIDO */
+.rb-card {
+  width: 300px;
+  height: 200px;
+  padding: 1rem 2rem;
+  margin-left: 1rem;
+  border-left: 2px solid red;
+}
+
+/* ✅ CORRECTO */
+.rb-card {
+  inline-size: 300px;
+  block-size: 200px;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  margin-inline-start: 1rem;
+  border-inline-start: 2px solid red;
+}
+```
+
+---
+
+## 🎨 RESPONSIVE CON clamp() (OBLIGATORIO)
+
+**NUNCA usar media queries para tamaños. SIEMPRE usar clamp():**
+
+```css
+/* ❌ PROHIBIDO */
+font-size: 1rem;
+@media (max-width: 768px) {
+  font-size: 0.875rem;
+}
+
+/* ✅ CORRECTO */
+font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+```
+
+### Valores Comunes Predefinidos:
+
+```css
+/* Font sizes */
+--rb-font-small:  clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+--rb-font-medium: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+--rb-font-large:  clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+
+/* Padding */
+--rb-padding-small:  clamp(0.5rem, 0.3rem + 0.8vw, 1rem);
+--rb-padding-medium: clamp(0.8rem, 0.5rem + 1.5vw, 2rem);
+
+/* Border radius */
+--rb-radius-small:  clamp(4px, 0.3rem + 0.3vw, 8px);
+--rb-radius-medium: clamp(6px, 0.4rem + 0.5vw, 12px);
+
+/* Gap */
+--rb-gap-small:  clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+--rb-gap-medium: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+```
+
+---
+
+## 🎭 CSS NESTING (OBLIGATORIO)
+
+**SIEMPRE usar `&` para anidar. NUNCA repetir selectores.**
+
+```css
+/* ❌ PROHIBIDO - Repetir selector */
+.rb-button {
+  padding: 1rem;
+}
+.rb-button:hover {
+  background: blue;
+}
+.rb-button--primary {
+  color: red;
+}
+
+/* ✅ CORRECTO - Usar & */
+.rb-button {
+  padding: 1rem;
+  
+  &:hover:not(:disabled) {
+    background: blue;
+  }
+  
+  &:focus-visible {
+    outline: 3px solid var(--rb-color-primary-L100);
+    outline-offset: 4px;
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  &--primary {
+    --rb-button-bg: var(--rb-color-primary-base);
+  }
+  
+  &--secondary {
+    --rb-button-bg: var(--rb-color-secondary-base);
+  }
+}
+```
+
+**Límite: Máximo 3 niveles de nesting**
+
+---
+
+## 📋 NOMENCLATURA (OBLIGATORIO)
+
+### Clases CSS - BEM con prefijo rb-
+
+```css
+/* ✅ CORRECTO */
+.rb-button                  /* Block */
+.rb-button--primary         /* Block + Modifier */
+.rb-button--small           /* Block + Size */
+.rb-button--loading         /* Block + State */
+
+/* ❌ PROHIBIDO */
+.button                     /* Sin prefijo rb- */
+.rb-button-primary          /* Falta -- */
+.rb-button__icon            /* No usar __ en atoms */
+.rbButton                   /* No camelCase */
+```
+
+### Variables CSS - SIEMPRE --rb-
+
+```css
+/* ✅ CORRECTO */
+--rb-button-bg-color
+--rb-button-padding-inline
+--rb-color-primary-base
+
+/* ❌ PROHIBIDO */
+--button-bg                 /* Sin prefijo rb- */
+--rb-button-padding-left    /* Usar padding-inline */
+--buttonBgColor             /* No camelCase */
+```
+
+---
+
+## 🏆 @layer - 8 CAPAS ESTÁNDAR (OBLIGATORIO)
+
+**Declarar SIEMPRE al inicio del archivo:**
+
+```css
+@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;
+```
+
+| Capa | Prioridad | Uso |
+|------|-----------|-----|
+| `reset` | 1 (más baja) | `all: unset`, `box-sizing` |
+| `tokens` | 2 | Variables CSS del componente |
+| `base` | 3 | Estilos base y estructura |
+| `variants` | 4 | primary, secondary, tertiary |
+| `sizes` | 5 | small, medium, large |
+| `modifiers` | 6 | square, circle, block |
+| `states` | 7 | hover, focus, disabled, loading |
+| `utilities` | 8 (más alta) | media queries, accesibilidad |
+
+**Para Brand Overrides:**
+
+```css
+@layer brand-overrides {
+  [data-brand='davivienda'] .rb-button {
+    --rb-button-bg-color: var(--rb-color-primary-base);
+  }
+}
+```
+
+---
+
+## ♿ ACCESIBILIDAD (OBLIGATORIO)
+
+**SIEMPRE incluir estos 4 elementos en TODOS los componentes:**
+
+```css
+@layer utilities {
+  /* 1. Reducción de movimiento - OBLIGATORIO */
+  @media (prefers-reduced-motion: reduce) {
+    .rb-[component] {
+      animation: none;
+      transition: none;
+    }
+  }
+  
+  /* 2. Alto contraste - OBLIGATORIO */
+  @media (prefers-contrast: high) {
+    .rb-[component] {
+      --rb-[component]-border-width: 2px;
+      outline: 2px solid currentColor;
+    }
+  }
+}
+
+@layer base {
+  .rb-[component] {
+    /* 3. Focus visible - OBLIGATORIO */
+    &:focus-visible {
+      outline: 3px solid var(--rb-color-primary-L100);
+      outline-offset: 4px;
+    }
+    
+    /* 4. Estado disabled - OBLIGATORIO */
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+}
+```
+
+---
+
+## 🔧 CASOS ESPECIALES
+
+### Animaciones (definir fuera de @layer)
+
+```css
+@keyframes rb-spinner {
+  to { transform: rotate(360deg); }
+}
+
+@layer states {
+  .rb-button--loading {
+    &::after {
+      animation: rb-spinner 0.6s linear infinite;
+    }
+  }
+}
+```
+
+### Pseudo-elementos (siempre anidados con &)
+
+```css
+@layer base {
+  .rb-component {
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-start: 0;
+    }
+  }
+}
+```
+
+---
+
+## 📊 ESTRUCTURA DE ARCHIVOS
+
+```
+packages/
+├── atoms/src/
+│   ├── button.css          ← Componente principal
+│   ├── input.css
+│   └── index.css           ← Solo @import
+│
+├── brand-overrides/src/
+│   ├── davivienda/
+│   │   ├── button.css      ← Override específico
+│   │   └── index.css       ← Solo @import
+│   └── seguros-bolivar/
+│       ├── button.css
+│       └── index.css
+```
+
+---
+
+## ✅ CHECKLIST ANTES DE FINALIZAR
+
+- [ ] ✅ `@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;`
+- [ ] ✅ Todas las clases tienen prefijo `rb-`
+- [ ] ✅ Todas las variables tienen prefijo `--rb-`
+- [ ] ✅ Usa CSS Nesting con `&` (no repites selectores)
+- [ ] ✅ Usa SOLO Logical Properties (inline-size, padding-inline, etc.)
+- [ ] ✅ NO usas physical properties (width, padding-left, etc.)
+- [ ] ✅ Usa `clamp()` para todos los tamaños responsive
+- [ ] ✅ Incluye `:focus-visible` con outline visible
+- [ ] ✅ Incluye `@media (prefers-reduced-motion: reduce)`
+- [ ] ✅ Incluye `@media (prefers-contrast: high)`
+- [ ] ✅ Estado `:disabled` presente y claro
+- [ ] ✅ `:hover` y `:active` solo con `:not(:disabled)`
+- [ ] ✅ Máximo 3 niveles de nesting
+
+---
+
+## 🚀 WORKFLOW PARA CREAR COMPONENTE
+
+1. Copiar template base de arriba
+2. Reemplazar `[component]` con el nombre del componente
+3. Definir variables en `@layer tokens`
+4. Estilos base en `@layer base`
+5. Variantes en `@layer variants`
+6. Tamaños en `@layer sizes`
+7. Modifiers en `@layer modifiers`
+8. Estados en `@layer states`
+9. Accesibilidad en `@layer utilities`
+10. Verificar checklist
+
+---
+
+## 📚 EJEMPLOS DE REFERENCIA
+
+- `packages/atoms/src/button.css` - Componente completo
+- `packages/brand-overrides/src/davivienda/button.css` - Override de marca
+
+---
+
+## 🎯 RECORDATORIOS FINALES
+
+1. **NUNCA** uses physical properties (width, height, left, padding-left, etc.)
+2. **SIEMPRE** usa `clamp()` para valores responsive
+3. **SIEMPRE** usa CSS Nesting con `&`
+4. **SIEMPRE** usa prefijos `rb-` y `--rb-`
+5. **SIEMPRE** incluye los 4 elementos de accesibilidad
+6. **SIEMPRE** usa `@layer` con las 8 capas estándar
+7. **NUNCA** uses `!important` (usa @layer utilities)
+8. **NUNCA** repitas selectores (usa nesting)
+
+---
+
+**Última actualización:** 2025-01-09  
+**Versión:** 3.0.0
