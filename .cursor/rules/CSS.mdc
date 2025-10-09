@@ -570,7 +570,7 @@ packages/
 1. **NUNCA** uses physical properties (width, height, left, padding-left, etc.)
 2. **SIEMPRE** usa `clamp()` para valores responsive
 3. **SIEMPRE** usa CSS Nesting con `&`
-4. **SIEMPRE** usa prefijos `rb-` y `--rb-`
+4. **SIEMPRE** usa prefijos `--rb-`
 5. **SIEMPRE** incluye los 4 elementos de accesibilidad
 6. **SIEMPRE** usa `@layer` con las 8 capas estándar
 7. **NUNCA** uses `!important` (usa @layer utilities)
