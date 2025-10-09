@@ -124,7 +124,7 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
   }
 
   // 2. Leer componentes base (atoms)
-  const atomsFiles = ['button.css', 'index.css'];
+  const atomsFiles = ['button.css', 'input.css', 'textArea.css', 'select.css', 'toggle.css', 'alert.css', 'index.css'];
   for (const file of atomsFiles) {
     const atomCSS = await readCSSFile(path.join(ATOMS_DIST, file));
     if (atomCSS && file !== 'index.css') {

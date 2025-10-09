@@ -1,0 +1,491 @@
+/**
+ * Input Component - Root Block Design System
+ * Componente CSS puro con variables --rb-* personalizables por marca
+ * 
+ * Uso:
+ * <input class="rb-input" type="text" placeholder="Ingresa tu texto">
+ * <input class="rb-input rb-input--error" type="email" placeholder="Email">
+ * <input class="rb-input rb-input--large rb-input--with-icon" type="password">
+ */
+
+/* ========================================
+   VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
+   ======================================== */
+
+.rb-input {
+  /* Colores - Pueden ser sobreescritos por marca */
+  --rb-input-bg-color: var(--rb-color-grayscale-white, #ffffff);
+  --rb-input-bg-disabled: var(--rb-color-grayscale-L300, #f2f3f5);
+  --rb-input-text-color: var(--rb-color-grayscale-D300, #404040);
+  --rb-input-text-placeholder: var(--rb-color-grayscale-base, #d9d9d9);
+  --rb-input-text-disabled: var(--rb-color-grayscale-base, #d9d9d9);
+  --rb-input-border-color: var(--rb-color-grayscale-L200, #edeef0);
+  --rb-input-border-color-focus: var(--rb-color-primary-base, #007acc);
+  --rb-input-border-color-error: var(--rb-color-feedback-error-base, #dc3545);
+  --rb-input-border-color-success: var(--rb-color-feedback-success-base, #28a745);
+  --rb-input-border-width: 1px;
+  --rb-input-border-radius: 8px;
+
+  /* Espaciado */
+  --rb-input-padding-x: 1rem;
+  --rb-input-padding-y: 0.75rem;
+  --rb-input-padding-icon-left: 2.5rem;
+  --rb-input-padding-icon-right: 2.5rem;
+
+  /* Tipografía */
+  --rb-input-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+  --rb-input-font-size: 1rem;
+  --rb-input-font-weight: 400;
+  --rb-input-line-height: 1.5;
+
+  /* Tamaños */
+  --rb-input-min-height: 40px;
+
+  /* Sombras */
+  --rb-input-shadow: none;
+  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-primary-L400, rgba(0, 122, 204, 0.1));
+
+  /* Transiciones */
+  --rb-input-transition: all 0.2s ease;
+
+  /* Layout */
+  display: block;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+
+  /* Spacing */
+  padding: var(--rb-input-padding-y) var(--rb-input-padding-x);
+
+  /* Sizing */
+  min-height: var(--rb-input-min-height);
+
+  /* Typography */
+  font-family: var(--rb-input-font-family);
+  font-style: normal;
+  font-weight: var(--rb-input-font-weight);
+  font-size: var(--rb-input-font-size);
+  line-height: var(--rb-input-line-height);
+
+  /* Appearance */
+  background-color: var(--rb-input-bg-color);
+  color: var(--rb-input-text-color);
+  border: var(--rb-input-border-width) solid var(--rb-input-border-color);
+  border-radius: var(--rb-input-border-radius);
+  box-shadow: var(--rb-input-shadow);
+  outline: none;
+
+  /* Animation */
+  transition: var(--rb-input-transition);
+}
+
+/* Placeholder styling */
+.rb-input::placeholder {
+  color: var(--rb-input-text-placeholder);
+  opacity: 1;
+}
+
+.rb-input::-webkit-input-placeholder {
+  color: var(--rb-input-text-placeholder);
+  opacity: 1;
+}
+
+.rb-input::-moz-placeholder {
+  color: var(--rb-input-text-placeholder);
+  opacity: 1;
+}
+
+.rb-input:-ms-input-placeholder {
+  color: var(--rb-input-text-placeholder);
+  opacity: 1;
+}
+
+/* Focus state */
+.rb-input:focus {
+  border-color: var(--rb-input-border-color-focus);
+  box-shadow: var(--rb-input-shadow-focus);
+}
+
+/* Disabled state */
+.rb-input:disabled {
+  background-color: var(--rb-input-bg-disabled);
+  color: var(--rb-input-text-disabled);
+  border-color: var(--rb-input-bg-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.rb-input:disabled::placeholder {
+  color: var(--rb-input-text-disabled);
+}
+
+/* ========================================
+   INPUT VARIANTS (TYPES)
+   ======================================== */
+
+/* Text input (default) */
+.rb-input--text {
+  /* Usa estilos base */
+}
+
+/* Email input */
+.rb-input--email {
+  /* Usa estilos base */
+}
+
+/* Password input */
+.rb-input--password {
+  /* Usa estilos base */
+}
+
+/* Number input */
+.rb-input--number {
+  /* Usa estilos base */
+}
+
+/* Search input */
+.rb-input--search {
+  /* Usa estilos base */
+}
+
+/* URL input */
+.rb-input--url {
+  /* Usa estilos base */
+}
+
+/* Tel input */
+.rb-input--tel {
+  /* Usa estilos base */
+}
+
+/* ========================================
+   INPUT STATES
+   ======================================== */
+
+/* Error state */
+.rb-input--error {
+  --rb-input-border-color: var(--rb-input-border-color-error);
+  --rb-input-border-color-focus: var(--rb-input-border-color-error);
+  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+}
+
+.rb-input--error:focus {
+  border-color: var(--rb-input-border-color-error);
+  box-shadow: var(--rb-input-shadow-focus);
+}
+
+/* Success state */
+.rb-input--success {
+  --rb-input-border-color: var(--rb-input-border-color-success);
+  --rb-input-border-color-focus: var(--rb-input-border-color-success);
+  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+}
+
+.rb-input--success:focus {
+  border-color: var(--rb-input-border-color-success);
+  box-shadow: var(--rb-input-shadow-focus);
+}
+
+/* Warning state */
+.rb-input--warning {
+  --rb-input-border-color: var(--rb-color-feedback-warning-base, #ffc107);
+  --rb-input-border-color-focus: var(--rb-color-feedback-warning-base, #ffc107);
+  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+}
+
+.rb-input--warning:focus {
+  border-color: var(--rb-color-feedback-warning-base, #ffc107);
+  box-shadow: var(--rb-input-shadow-focus);
+}
+
+/* ========================================
+   INPUT SIZES
+   ======================================== */
+
+.rb-input--small {
+  --rb-input-padding-x: 0.75rem;
+  --rb-input-padding-y: 0.5rem;
+  --rb-input-font-size: 0.875rem;
+  --rb-input-min-height: 32px;
+  --rb-input-line-height: 1.25;
+  --rb-input-padding-icon-left: 2rem;
+  --rb-input-padding-icon-right: 2rem;
+}
+
+.rb-input--medium {
+  --rb-input-padding-x: 1rem;
+  --rb-input-padding-y: 0.75rem;
+  --rb-input-font-size: 1rem;
+  --rb-input-min-height: 40px;
+  --rb-input-line-height: 1.5;
+  --rb-input-padding-icon-left: 2.5rem;
+  --rb-input-padding-icon-right: 2.5rem;
+}
+
+.rb-input--large {
+  --rb-input-padding-x: 1.25rem;
+  --rb-input-padding-y: 1rem;
+  --rb-input-font-size: 1.125rem;
+  --rb-input-min-height: 48px;
+  --rb-input-line-height: 1.5;
+  --rb-input-padding-icon-left: 3rem;
+  --rb-input-padding-icon-right: 3rem;
+}
+
+/* ========================================
+   INPUT MODIFIERS
+   ======================================== */
+
+/* Rounded corners */
+.rb-input--rounded {
+  --rb-input-border-radius: 2.1rem;
+}
+
+/* Block (full width) - ya es por defecto */
+.rb-input--block {
+  width: 100%;
+}
+
+/* Inline (auto width) */
+.rb-input--inline {
+  width: auto;
+  min-width: 200px;
+}
+
+/* With left icon */
+.rb-input--with-icon-left {
+  padding-left: var(--rb-input-padding-icon-left);
+}
+
+/* With right icon */
+.rb-input--with-icon-right {
+  padding-right: var(--rb-input-padding-icon-right);
+}
+
+/* With both icons */
+.rb-input--with-icon-both {
+  padding-left: var(--rb-input-padding-icon-left);
+  padding-right: var(--rb-input-padding-icon-right);
+}
+
+/* ========================================
+   INPUT CONTAINER (for icons and labels)
+   ======================================== */
+
+.rb-input-container {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.rb-input-container--inline {
+  display: inline-block;
+  width: auto;
+}
+
+/* Input icon positioning */
+.rb-input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--rb-color-grayscale-base, #d9d9d9);
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 2;
+  transition: var(--rb-input-transition);
+}
+
+.rb-input-icon--left {
+  left: 0.75rem;
+}
+
+.rb-input-icon--right {
+  right: 0.75rem;
+}
+
+/* Icon color changes on focus */
+.rb-input:focus + .rb-input-icon,
+.rb-input-container:focus-within .rb-input-icon {
+  color: var(--rb-color-primary-base, #007acc);
+}
+
+/* Icon color for error state */
+.rb-input--error + .rb-input-icon,
+.rb-input-container:has(.rb-input--error) .rb-input-icon {
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}
+
+/* Icon color for success state */
+.rb-input--success + .rb-input-icon,
+.rb-input-container:has(.rb-input--success) .rb-input-icon {
+  color: var(--rb-color-feedback-success-base, #28a745);
+}
+
+/* ========================================
+   INPUT LABEL
+   ======================================== */
+
+.rb-input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--rb-input-font-family);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rb-color-grayscale-D300, #404040);
+  line-height: 1.25;
+}
+
+.rb-input-label--required::after {
+  content: ' *';
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}
+
+.rb-input-label--optional::after {
+  content: ' (opcional)';
+  color: var(--rb-color-grayscale-base, #d9d9d9);
+  font-weight: 400;
+}
+
+/* ========================================
+   INPUT HELPER TEXT
+   ======================================== */
+
+.rb-input-helper {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--rb-input-font-family);
+  font-size: 0.75rem;
+  color: var(--rb-color-grayscale-base, #d9d9d9);
+  line-height: 1.25;
+}
+
+.rb-input-helper--error {
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}
+
+.rb-input-helper--success {
+  color: var(--rb-color-feedback-success-base, #28a745);
+}
+
+.rb-input-helper--warning {
+  color: var(--rb-color-feedback-warning-base, #ffc107);
+}
+
+/* ========================================
+   INPUT GROUP (multiple inputs)
+   ======================================== */
+
+.rb-input-group {
+  display: flex;
+  width: 100%;
+}
+
+.rb-input-group .rb-input {
+  border-radius: 0;
+  border-right-width: 0;
+}
+
+.rb-input-group .rb-input:first-child {
+  border-top-left-radius: var(--rb-input-border-radius);
+  border-bottom-left-radius: var(--rb-input-border-radius);
+}
+
+.rb-input-group .rb-input:last-child {
+  border-top-right-radius: var(--rb-input-border-radius);
+  border-bottom-right-radius: var(--rb-input-border-radius);
+  border-right-width: var(--rb-input-border-width);
+}
+
+.rb-input-group .rb-input:focus {
+  z-index: 1;
+  position: relative;
+}
+
+/* ========================================
+   ACCESSIBILITY & RESPONSIVE
+   ======================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .rb-input {
+    --rb-input-border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .rb-input {
+    --rb-input-transition: none;
+  }
+}
+
+/* Mobile optimizations */
+@media (width <= 640px) {
+  .rb-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .rb-input--small {
+    font-size: 16px;
+  }
+}
+
+/* Desktop optimizations */
+@media (width >= 641px) {
+  .rb-input--inline {
+    min-width: 250px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .rb-input {
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+  }
+  
+  .rb-input::placeholder {
+    color: #666 !important;
+  }
+}
+
+/* ========================================
+   FOCUS VISIBLE (keyboard navigation)
+   ======================================== */
+
+.rb-input:focus-visible {
+  outline: 2px solid var(--rb-color-primary-base, #007acc);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   AUTOFILL STYLES
+   ======================================== */
+
+.rb-input:-webkit-autofill,
+.rb-input:-webkit-autofill:hover,
+.rb-input:-webkit-autofill:focus,
+.rb-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--rb-input-bg-color) inset !important;
+  -webkit-text-fill-color: var(--rb-input-text-color) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ========================================
+   VALIDATION STYLES
+   ======================================== */
+
+.rb-input:valid:not(:placeholder-shown) {
+  /* Success styling for valid inputs */
+}
+
+.rb-input:invalid:not(:placeholder-shown) {
+  /* Error styling for invalid inputs */
+}
+
+/* Custom validation message styling */
+.rb-input:invalid:not(:placeholder-shown) + .rb-input-helper {
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}

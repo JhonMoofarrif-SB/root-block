@@ -1,0 +1,571 @@
+/**
+ * TextArea Component - Root Block Design System
+ * Componente CSS puro con variables --rb-* personalizables por marca
+ * Incluye contador de caracteres y auto-resize
+ * 
+ * Uso:
+ * <textarea class="rb-textarea" placeholder="Escribe tu mensaje aquí"></textarea>
+ * <textarea class="rb-textarea rb-textarea--error" maxlength="100"></textarea>
+ * <textarea class="rb-textarea rb-textarea--with-counter" maxlength="500"></textarea>
+ */
+
+/* ========================================
+   VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
+   ======================================== */
+
+.rb-textarea {
+  /* Colores - Pueden ser sobreescritos por marca */
+  --rb-textarea-bg-color: var(--rb-color-grayscale-white, #ffffff);
+  --rb-textarea-bg-disabled: var(--rb-color-grayscale-L300, #f2f3f5);
+  --rb-textarea-text-color: var(--rb-color-grayscale-D300, #404040);
+  --rb-textarea-text-placeholder: var(--rb-color-grayscale-base, #d9d9d9);
+  --rb-textarea-text-disabled: var(--rb-color-grayscale-base, #d9d9d9);
+  --rb-textarea-border-color: var(--rb-color-grayscale-L200, #edeef0);
+  --rb-textarea-border-color-focus: var(--rb-color-primary-base, #007acc);
+  --rb-textarea-border-color-error: var(--rb-color-feedback-error-base, #dc3545);
+  --rb-textarea-border-color-success: var(--rb-color-feedback-success-base, #28a745);
+  --rb-textarea-border-width: 1px;
+  --rb-textarea-border-radius: 8px;
+
+  /* Espaciado */
+  --rb-textarea-padding-x: 1rem;
+  --rb-textarea-padding-y: 0.75rem;
+  --rb-textarea-padding-bottom-counter: 2.5rem;
+
+  /* Tipografía */
+  --rb-textarea-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+  --rb-textarea-font-size: 1rem;
+  --rb-textarea-font-weight: 400;
+  --rb-textarea-line-height: 1.5;
+
+  /* Tamaños */
+  --rb-textarea-min-height: 80px;
+  --rb-textarea-max-height: 200px;
+
+  /* Sombras */
+  --rb-textarea-shadow: none;
+  --rb-textarea-shadow-focus: 0 0 0 3px var(--rb-color-primary-L400, rgba(0, 122, 204, 0.1));
+
+  /* Transiciones */
+  --rb-textarea-transition: all 0.2s ease;
+
+  /* Resize */
+  --rb-textarea-resize: vertical;
+
+  /* Layout */
+  display: block;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+
+  /* Spacing */
+  padding: var(--rb-textarea-padding-y) var(--rb-textarea-padding-x);
+
+  /* Sizing */
+  min-height: var(--rb-textarea-min-height);
+  max-height: var(--rb-textarea-max-height);
+
+  /* Typography */
+  font-family: var(--rb-textarea-font-family);
+  font-style: normal;
+  font-weight: var(--rb-textarea-font-weight);
+  font-size: var(--rb-textarea-font-size);
+  line-height: var(--rb-textarea-line-height);
+
+  /* Appearance */
+  background-color: var(--rb-textarea-bg-color);
+  color: var(--rb-textarea-text-color);
+  border: var(--rb-textarea-border-width) solid var(--rb-textarea-border-color);
+  border-radius: var(--rb-textarea-border-radius);
+  box-shadow: var(--rb-textarea-shadow);
+  outline: none;
+  resize: var(--rb-textarea-resize);
+
+  /* Animation */
+  transition: var(--rb-textarea-transition);
+}
+
+/* Placeholder styling */
+.rb-textarea::placeholder {
+  color: var(--rb-textarea-text-placeholder);
+  opacity: 1;
+}
+
+.rb-textarea::-webkit-input-placeholder {
+  color: var(--rb-textarea-text-placeholder);
+  opacity: 1;
+}
+
+.rb-textarea::-moz-placeholder {
+  color: var(--rb-textarea-text-placeholder);
+  opacity: 1;
+}
+
+.rb-textarea:-ms-input-placeholder {
+  color: var(--rb-textarea-text-placeholder);
+  opacity: 1;
+}
+
+/* Focus state */
+.rb-textarea:focus {
+  border-color: var(--rb-textarea-border-color-focus);
+  box-shadow: var(--rb-textarea-shadow-focus);
+}
+
+/* Disabled state */
+.rb-textarea:disabled {
+  background-color: var(--rb-textarea-bg-disabled);
+  color: var(--rb-textarea-text-disabled);
+  border-color: var(--rb-textarea-bg-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+  resize: none;
+}
+
+.rb-textarea:disabled::placeholder {
+  color: var(--rb-textarea-text-disabled);
+}
+
+/* ========================================
+   TEXTAREA STATES
+   ======================================== */
+
+/* Error state */
+.rb-textarea--error {
+  --rb-textarea-border-color: var(--rb-textarea-border-color-error);
+  --rb-textarea-border-color-focus: var(--rb-textarea-border-color-error);
+  --rb-textarea-shadow-focus: 0 0 0 3px var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+}
+
+.rb-textarea--error:focus {
+  border-color: var(--rb-textarea-border-color-error);
+  box-shadow: var(--rb-textarea-shadow-focus);
+}
+
+/* Success state */
+.rb-textarea--success {
+  --rb-textarea-border-color: var(--rb-textarea-border-color-success);
+  --rb-textarea-border-color-focus: var(--rb-textarea-border-color-success);
+  --rb-textarea-shadow-focus: 0 0 0 3px var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+}
+
+.rb-textarea--success:focus {
+  border-color: var(--rb-textarea-border-color-success);
+  box-shadow: var(--rb-textarea-shadow-focus);
+}
+
+/* Warning state */
+.rb-textarea--warning {
+  --rb-textarea-border-color: var(--rb-color-feedback-warning-base, #ffc107);
+  --rb-textarea-border-color-focus: var(--rb-color-feedback-warning-base, #ffc107);
+  --rb-textarea-shadow-focus: 0 0 0 3px var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+}
+
+.rb-textarea--warning:focus {
+  border-color: var(--rb-color-feedback-warning-base, #ffc107);
+  box-shadow: var(--rb-textarea-shadow-focus);
+}
+
+/* ========================================
+   TEXTAREA SIZES
+   ======================================== */
+
+.rb-textarea--small {
+  --rb-textarea-padding-x: 0.75rem;
+  --rb-textarea-padding-y: 0.5rem;
+  --rb-textarea-font-size: 0.875rem;
+  --rb-textarea-min-height: 60px;
+  --rb-textarea-max-height: 150px;
+  --rb-textarea-line-height: 1.25;
+  --rb-textarea-padding-bottom-counter: 2rem;
+}
+
+.rb-textarea--medium {
+  --rb-textarea-padding-x: 1rem;
+  --rb-textarea-padding-y: 0.75rem;
+  --rb-textarea-font-size: 1rem;
+  --rb-textarea-min-height: 80px;
+  --rb-textarea-max-height: 200px;
+  --rb-textarea-line-height: 1.5;
+  --rb-textarea-padding-bottom-counter: 2.5rem;
+}
+
+.rb-textarea--large {
+  --rb-textarea-padding-x: 1.25rem;
+  --rb-textarea-padding-y: 1rem;
+  --rb-textarea-font-size: 1.125rem;
+  --rb-textarea-min-height: 100px;
+  --rb-textarea-max-height: 250px;
+  --rb-textarea-line-height: 1.5;
+  --rb-textarea-padding-bottom-counter: 3rem;
+}
+
+/* ========================================
+   TEXTAREA MODIFIERS
+   ======================================== */
+
+/* Rounded corners */
+.rb-textarea--rounded {
+  --rb-textarea-border-radius: 2.1rem;
+}
+
+/* Block (full width) - ya es por defecto */
+.rb-textarea--block {
+  width: 100%;
+}
+
+/* Inline (auto width) */
+.rb-textarea--inline {
+  width: auto;
+  min-width: 200px;
+}
+
+/* No resize */
+.rb-textarea--no-resize {
+  --rb-textarea-resize: none;
+}
+
+/* Both resize */
+.rb-textarea--resize-both {
+  --rb-textarea-resize: both;
+}
+
+/* Horizontal resize */
+.rb-textarea--resize-horizontal {
+  --rb-textarea-resize: horizontal;
+}
+
+/* Auto resize (requires JavaScript) */
+.rb-textarea--auto-resize {
+  --rb-textarea-resize: none;
+  overflow: hidden;
+}
+
+/* ========================================
+   TEXTAREA CONTAINER (for counter and labels)
+   ======================================== */
+
+.rb-textarea-container {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.rb-textarea-container--inline {
+  display: inline-block;
+  width: auto;
+}
+
+/* ========================================
+   CHARACTER COUNTER
+   ======================================== */
+
+.rb-textarea-counter {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+  font-family: var(--rb-textarea-font-family);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--rb-color-grayscale-base, #d9d9d9);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 2;
+  transition: var(--rb-textarea-transition);
+  background-color: var(--rb-textarea-bg-color, #ffffff);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Counter states */
+.rb-textarea-counter--warning {
+  color: var(--rb-color-feedback-warning-base, #ffc107);
+  font-weight: 600;
+}
+
+.rb-textarea-counter--error {
+  color: var(--rb-color-feedback-error-base, #dc3545);
+  font-weight: 600;
+}
+
+.rb-textarea-counter--success {
+  color: var(--rb-color-feedback-success-base, #28a745);
+  font-weight: 600;
+}
+
+/* Counter with background for better visibility */
+.rb-textarea-counter--with-bg {
+  background-color: var(--rb-color-grayscale-L400, #f7f7f7);
+  border: 1px solid var(--rb-color-grayscale-L200, #edeef0);
+}
+
+.rb-textarea-counter--warning.rb-textarea-counter--with-bg {
+  background-color: var(--rb-color-feedback-warning-L400, #feeee5);
+  border-color: var(--rb-color-feedback-warning-L300, #ffbb88);
+}
+
+.rb-textarea-counter--error.rb-textarea-counter--with-bg {
+  background-color: var(--rb-color-feedback-error-L400, #fbe7e8);
+  border-color: var(--rb-color-feedback-error-L300, #f5c2c7);
+}
+
+.rb-textarea-counter--success.rb-textarea-counter--with-bg {
+  background-color: var(--rb-color-feedback-success-L400, #e5f3ec);
+  border-color: var(--rb-color-feedback-success-L300, #7ed8ac);
+}
+
+/* ========================================
+   TEXTAREA WITH COUNTER
+   ======================================== */
+
+.rb-textarea--with-counter {
+  padding-bottom: var(--rb-textarea-padding-bottom-counter);
+}
+
+/* ========================================
+   TEXTAREA LABEL
+   ======================================== */
+
+.rb-textarea-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--rb-textarea-font-family);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rb-color-grayscale-D300, #404040);
+  line-height: 1.25;
+}
+
+.rb-textarea-label--required::after {
+  content: ' *';
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}
+
+.rb-textarea-label--optional::after {
+  content: ' (opcional)';
+  color: var(--rb-color-grayscale-base, #d9d9d9);
+  font-weight: 400;
+}
+
+/* ========================================
+   TEXTAREA HELPER TEXT
+   ======================================== */
+
+.rb-textarea-helper {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--rb-textarea-font-family);
+  font-size: 0.75rem;
+  color: var(--rb-color-grayscale-base, #d9d9d9);
+  line-height: 1.25;
+}
+
+.rb-textarea-helper--error {
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}
+
+.rb-textarea-helper--success {
+  color: var(--rb-color-feedback-success-base, #28a745);
+}
+
+.rb-textarea-helper--warning {
+  color: var(--rb-color-feedback-warning-base, #ffc107);
+}
+
+/* ========================================
+   TEXTAREA GROUP (multiple textareas)
+   ======================================== */
+
+.rb-textarea-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.rb-textarea-group--horizontal {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.rb-textarea-group--horizontal .rb-textarea {
+  flex: 1;
+}
+
+/* ========================================
+   ACCESSIBILITY & RESPONSIVE
+   ======================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .rb-textarea {
+    --rb-textarea-border-width: 2px;
+  }
+  
+  .rb-textarea-counter {
+    border: 1px solid var(--rb-color-grayscale-D200, #6e6e6e);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .rb-textarea {
+    --rb-textarea-transition: none;
+  }
+}
+
+/* Mobile optimizations */
+@media (width <= 640px) {
+  .rb-textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .rb-textarea--small {
+    font-size: 16px;
+  }
+  
+  .rb-textarea-group--horizontal {
+    flex-direction: column;
+  }
+  
+  .rb-textarea-counter {
+    position: static;
+    margin-top: 0.5rem;
+    text-align: right;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* Desktop optimizations */
+@media (width >= 641px) {
+  .rb-textarea--inline {
+    min-width: 250px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .rb-textarea {
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+    resize: none !important;
+  }
+  
+  .rb-textarea::placeholder {
+    color: #666 !important;
+  }
+  
+  .rb-textarea-counter {
+    display: none;
+  }
+}
+
+/* ========================================
+   FOCUS VISIBLE (keyboard navigation)
+   ======================================== */
+
+.rb-textarea:focus-visible {
+  outline: 2px solid var(--rb-color-primary-base, #007acc);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   VALIDATION STYLES
+   ======================================== */
+
+.rb-textarea:valid:not(:placeholder-shown) {
+  /* Success styling for valid textareas */
+}
+
+.rb-textarea:invalid:not(:placeholder-shown) {
+  /* Error styling for invalid textareas */
+}
+
+/* Custom validation message styling */
+.rb-textarea:invalid:not(:placeholder-shown) + .rb-textarea-helper {
+  color: var(--rb-color-feedback-error-base, #dc3545);
+}
+
+/* ========================================
+   AUTO-RESIZE FUNCTIONALITY (CSS-only approach)
+   ======================================== */
+
+/* This requires JavaScript to work properly, but we provide the CSS structure */
+.rb-textarea--auto-resize {
+  resize: none;
+  overflow: hidden;
+  min-height: var(--rb-textarea-min-height);
+  max-height: none;
+}
+
+/* ========================================
+   COUNTER ANIMATIONS
+   ======================================== */
+
+.rb-textarea-counter--pulse {
+  animation: rb-textarea-counter-pulse 0.3s ease-in-out;
+}
+
+@keyframes rb-textarea-counter-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   LOADING STATE
+   ======================================== */
+
+.rb-textarea--loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.rb-textarea--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--rb-color-grayscale-L200, #edeef0);
+  border-top-color: var(--rb-color-primary-base, #007acc);
+  border-radius: 50%;
+  animation: rb-textarea-spinner 1s linear infinite;
+  z-index: 3;
+}
+
+@keyframes rb-textarea-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   DARK MODE SUPPORT
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .rb-textarea-counter {
+    background-color: var(--rb-color-grayscale-D300, #404040);
+    color: var(--rb-color-grayscale-L200, #edeef0);
+  }
+  
+  .rb-textarea-counter--with-bg {
+    background-color: var(--rb-color-grayscale-D200, #6e6e6e);
+    border-color: var(--rb-color-grayscale-D100, #8c8c8c);
+  }
+}

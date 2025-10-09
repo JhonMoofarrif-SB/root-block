@@ -9,15 +9,19 @@
   "exports": {
     ".": "./dist/index.css",
     "./button.css": "./dist/button.css",
+    "./input.css": "./dist/input.css",
+    "./textArea.css": "./dist/textArea.css",
+    "./select.css": "./dist/select.css",
+    "./toggle.css": "./dist/toggle.css",
+    "./alert.css": "./dist/alert.css",
     "./badge.css": "./dist/badge.css",
-    "./card.css": "./dist/card.css",
-    "./alert.css": "./dist/alert.css"
+    "./card.css": "./dist/card.css"
   },
   "scripts": {
     "build": "npm run clean && npm run build:copy && npm run build:bundle",
     "clean": "rm -rf dist",
     "build:copy": "mkdir -p dist && cp -r src/* dist/",
-    "build:bundle": "cat src/button.css > dist/index.css",
+    "build:bundle": "cat src/button.css src/input.css src/textArea.css src/select.css src/toggle.css src/alert.css > dist/index.css",
     "dev": "npm run build",
     "lint": "stylelint 'src/**/*.css'"
   },
@@ -27,6 +31,11 @@
     "atoms",
     "design-system",
     "button",
+    "input",
+    "textarea",
+    "select",
+    "toggle",
+    "alert",
     "badge",
     "card"
   ],

@@ -210,6 +210,1330 @@
     </div>
   </section>
 
+  <!-- Input Section -->
+  <section class="section">
+    <h2 class="section-title">📝 Inputs (CSS Puro)</h2>
+    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
+      Componentes de entrada construidos con CSS. Incluyen estados, validación y accesibilidad.<br>
+      Los colores y estilos se adaptan automáticamente según la marca seleccionada.
+    </p>
+    
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Básicos</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-input-label">Input Normal</label>
+        <input class="rb-input" type="text" placeholder="Ingresa tu texto aquí">
+        <div class="rb-input-helper">Texto de ayuda opcional</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label rb-input-label--required">Input Requerido</label>
+        <input class="rb-input" type="email" placeholder="ejemplo@email.com" required>
+        <div class="rb-input-helper">Campo obligatorio</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Input con Error</label>
+        <input class="rb-input rb-input--error" type="text" placeholder="Texto con error" value="valor inválido">
+        <div class="rb-input-helper rb-input-helper--error">Este campo tiene un error</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Input Exitoso</label>
+        <input class="rb-input rb-input--success" type="text" placeholder="Texto exitoso" value="valor válido">
+        <div class="rb-input-helper rb-input-helper--success">Campo validado correctamente</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Input Deshabilitado</label>
+        <input class="rb-input" type="text" placeholder="Campo deshabilitado" disabled>
+        <div class="rb-input-helper">Este campo está deshabilitado</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Input con Advertencia</label>
+        <input class="rb-input rb-input--warning" type="text" placeholder="Texto con advertencia">
+        <div class="rb-input-helper rb-input-helper--warning">Advertencia: revisa este campo</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-input-label">Small</label>
+        <input class="rb-input rb-input--small" type="text" placeholder="Input pequeño">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Medium (Default)</label>
+        <input class="rb-input rb-input--medium" type="text" placeholder="Input mediano">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Large</label>
+        <input class="rb-input rb-input--large" type="text" placeholder="Input grande">
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Con Iconos</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-input-label">Con Icono Izquierdo</label>
+        <div class="rb-input-container">
+          <input class="rb-input rb-input--with-icon-left" type="text" placeholder="Buscar...">
+          <span class="rb-input-icon rb-input-icon--left">🔍</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Con Icono Derecho</label>
+        <div class="rb-input-container">
+          <input class="rb-input rb-input--with-icon-right" type="password" placeholder="Contraseña">
+          <span class="rb-input-icon rb-input-icon--right">👁️</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Con Ambos Iconos</label>
+        <div class="rb-input-container">
+          <input class="rb-input rb-input--with-icon-both" type="text" placeholder="Usuario">
+          <span class="rb-input-icon rb-input-icon--left">👤</span>
+          <span class="rb-input-icon rb-input-icon--right">✓</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tipos de Input</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-input-label">Email</label>
+        <input class="rb-input" type="email" placeholder="correo@ejemplo.com">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Password</label>
+        <input class="rb-input" type="password" placeholder="••••••••">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Number</label>
+        <input class="rb-input" type="number" placeholder="12345">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Tel</label>
+        <input class="rb-input" type="tel" placeholder="+57 300 123 4567">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">URL</label>
+        <input class="rb-input" type="url" placeholder="https://ejemplo.com">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Search</label>
+        <input class="rb-input" type="search" placeholder="Buscar...">
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Modificadores</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-input-label">Rounded</label>
+        <input class="rb-input rb-input--rounded" type="text" placeholder="Input redondeado">
+      </div>
+      
+      <div class="card">
+        <label class="rb-input-label">Inline (Auto Width)</label>
+        <input class="rb-input rb-input--inline" type="text" placeholder="Auto width">
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Input Group</h3>
+    <div class="card" style="margin-bottom: 2rem;">
+      <label class="rb-input-label">Grupo de Inputs</label>
+      <div class="rb-input-group">
+        <input class="rb-input" type="text" placeholder="Primer input">
+        <input class="rb-input" type="text" placeholder="Segundo input">
+        <input class="rb-input" type="text" placeholder="Tercer input">
+      </div>
+      <div class="rb-input-helper">Inputs conectados visualmente</div>
+    </div>
+  </section>
+
+  <!-- TextArea Section -->
+  <section class="section">
+    <h2 class="section-title">📝 TextArea (CSS Puro)</h2>
+    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
+      Componentes de área de texto con contador de caracteres y auto-resize.<br>
+      Incluye validación visual y estados adaptativos por marca.
+    </p>
+    
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Básicos</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-textarea-label">TextArea Normal</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea" placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        <div class="rb-textarea-helper">Área de texto básica</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label rb-textarea-label--required">TextArea Requerido</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea" placeholder="Mensaje obligatorio..." required></textarea>
+        </div>
+        <div class="rb-textarea-helper">Campo obligatorio</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">TextArea con Error</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--error" placeholder="Texto con error">Contenido inválido</textarea>
+        </div>
+        <div class="rb-textarea-helper rb-textarea-helper--error">Este campo tiene un error</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">TextArea Exitoso</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--success" placeholder="Texto exitoso">Contenido válido</textarea>
+        </div>
+        <div class="rb-textarea-helper rb-textarea-helper--success">Campo validado correctamente</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">TextArea Deshabilitado</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea" placeholder="Campo deshabilitado" disabled>No se puede editar</textarea>
+        </div>
+        <div class="rb-textarea-helper">Este campo está deshabilitado</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">TextArea con Advertencia</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--warning" placeholder="Texto con advertencia"></textarea>
+        </div>
+        <div class="rb-textarea-helper rb-textarea-helper--warning">Advertencia: revisa este campo</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-textarea-label">Small</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--small" placeholder="TextArea pequeño"></textarea>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Medium (Default)</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--medium" placeholder="TextArea mediano"></textarea>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Large</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--large" placeholder="TextArea grande"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Contador de Caracteres</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-textarea-label">Con Contador Básico</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--with-counter" maxlength="100" placeholder="Máximo 100 caracteres"></textarea>
+          <div class="rb-textarea-counter">0/100</div>
+        </div>
+        <div class="rb-textarea-helper">Contador básico de caracteres</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Con Contador y Fondo</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--with-counter" maxlength="200" placeholder="Máximo 200 caracteres"></textarea>
+          <div class="rb-textarea-counter rb-textarea-counter--with-bg">0/200</div>
+        </div>
+        <div class="rb-textarea-helper">Contador con fondo para mejor visibilidad</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Contador con Advertencia</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--with-counter rb-textarea--warning" maxlength="50" placeholder="Máximo 50 caracteres">Este texto está cerca del límite de caracteres permitidos</textarea>
+          <div class="rb-textarea-counter rb-textarea-counter--warning rb-textarea-counter--with-bg">45/50</div>
+        </div>
+        <div class="rb-textarea-helper rb-textarea-helper--warning">Cerca del límite de caracteres</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Contador con Error</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--with-counter rb-textarea--error" maxlength="30" placeholder="Máximo 30 caracteres">Este texto excede el límite de caracteres permitidos</textarea>
+          <div class="rb-textarea-counter rb-textarea-counter--error rb-textarea-counter--with-bg">35/30</div>
+        </div>
+        <div class="rb-textarea-helper rb-textarea-helper--error">Excede el límite de caracteres</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Modificadores de Resize</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-textarea-label">No Resize</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--no-resize" placeholder="No se puede redimensionar"></textarea>
+        </div>
+        <div class="rb-textarea-helper">Tamaño fijo</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Resize Horizontal</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--resize-horizontal" placeholder="Solo horizontal"></textarea>
+        </div>
+        <div class="rb-textarea-helper">Solo redimensiona horizontalmente</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Resize Both</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--resize-both" placeholder="Ambas direcciones"></textarea>
+        </div>
+        <div class="rb-textarea-helper">Redimensiona en ambas direcciones</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Auto Resize</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--auto-resize" placeholder="Se ajusta automáticamente"></textarea>
+        </div>
+        <div class="rb-textarea-helper">Se ajusta al contenido (requiere JS)</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Modificadores Visuales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-textarea-label">Rounded</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--rounded" placeholder="TextArea redondeado"></textarea>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-textarea-label">Inline (Auto Width)</label>
+        <div class="rb-textarea-container rb-textarea-container--inline">
+          <textarea class="rb-textarea rb-textarea--inline" placeholder="Auto width"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">TextArea Group</h3>
+    <div class="card" style="margin-bottom: 2rem;">
+      <label class="rb-textarea-label">Grupo de TextAreas</label>
+      <div class="rb-textarea-group">
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea" placeholder="Primer textarea"></textarea>
+        </div>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea" placeholder="Segundo textarea"></textarea>
+        </div>
+      </div>
+      <div class="rb-textarea-helper">TextAreas agrupados verticalmente</div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Especiales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-textarea-label">Loading State</label>
+        <div class="rb-textarea-container">
+          <textarea class="rb-textarea rb-textarea--loading" placeholder="Cargando..."></textarea>
+        </div>
+        <div class="rb-textarea-helper">Estado de carga</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Select Section -->
+  <section class="section">
+    <h2 class="section-title">📋 Select (CSS Puro)</h2>
+    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
+      Componentes de selección con estilos nativos y personalizados.<br>
+      Incluye soporte para select simple, múltiple y con iconos.
+    </p>
+    
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Básicos</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Select Normal</label>
+        <select class="rb-select">
+          <option value="">Selecciona una opción</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+          <option value="3">Opción 3</option>
+        </select>
+        <div class="rb-select-helper">Selección básica</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label rb-select-label--required">Select Requerido</label>
+        <select class="rb-select" required>
+          <option value="">Selecciona obligatorio</option>
+          <option value="1">Opción A</option>
+          <option value="2">Opción B</option>
+        </select>
+        <div class="rb-select-helper">Campo obligatorio</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Select con Error</label>
+        <select class="rb-select rb-select--error">
+          <option value="">Selección con error</option>
+          <option value="1">Opción inválida</option>
+        </select>
+        <div class="rb-select-helper rb-select-helper--error">Este campo tiene un error</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Select Exitoso</label>
+        <select class="rb-select rb-select--success">
+          <option value="">Selección exitosa</option>
+          <option value="1" selected>Opción válida</option>
+        </select>
+        <div class="rb-select-helper rb-select-helper--success">Campo validado correctamente</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Select Deshabilitado</label>
+        <select class="rb-select" disabled>
+          <option value="">Campo deshabilitado</option>
+          <option value="1">No disponible</option>
+        </select>
+        <div class="rb-select-helper">Este campo está deshabilitado</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Select con Advertencia</label>
+        <select class="rb-select rb-select--warning">
+          <option value="">Selección con advertencia</option>
+          <option value="1">Revisar opción</option>
+        </select>
+        <div class="rb-select-helper rb-select-helper--warning">Advertencia: revisa esta selección</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Small</label>
+        <select class="rb-select rb-select--small">
+          <option value="">Select pequeño</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Medium (Default)</label>
+        <select class="rb-select rb-select--medium">
+          <option value="">Select mediano</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Large</label>
+        <select class="rb-select rb-select--large">
+          <option value="">Select grande</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Con Iconos</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Con Icono Izquierdo</label>
+        <div class="rb-select-container">
+          <select class="rb-select rb-select--with-icon-left">
+            <option value="">Selecciona país</option>
+            <option value="co">🇨🇴 Colombia</option>
+            <option value="mx">🇲🇽 México</option>
+            <option value="ar">🇦🇷 Argentina</option>
+          </select>
+          <span class="rb-select-icon rb-select-icon--left">🌍</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Con Icono Derecho</label>
+        <div class="rb-select-container">
+          <select class="rb-select rb-select--with-icon-right">
+            <option value="">Selecciona categoría</option>
+            <option value="tech">Tecnología</option>
+            <option value="design">Diseño</option>
+            <option value="business">Negocios</option>
+          </select>
+          <span class="rb-select-icon rb-select-icon--right">📂</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Con Ambos Iconos</label>
+        <div class="rb-select-container">
+          <select class="rb-select rb-select--with-icon-both">
+            <option value="">Selecciona usuario</option>
+            <option value="admin">Administrador</option>
+            <option value="user">Usuario</option>
+            <option value="guest">Invitado</option>
+          </select>
+          <span class="rb-select-icon rb-select-icon--left">👤</span>
+          <span class="rb-select-icon rb-select-icon--right">✓</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Select Múltiple</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Select Múltiple</label>
+        <select class="rb-select" multiple>
+          <option value="1">Opción 1</option>
+          <option value="2" selected>Opción 2 (seleccionada)</option>
+          <option value="3">Opción 3</option>
+          <option value="4" selected>Opción 4 (seleccionada)</option>
+          <option value="5">Opción 5</option>
+        </select>
+        <div class="rb-select-helper">Mantén Ctrl/Cmd para seleccionar múltiples</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Select con Grupos</label>
+        <select class="rb-select">
+          <option value="">Selecciona una opción</option>
+          <optgroup label="Categoría A">
+            <option value="a1">Opción A1</option>
+            <option value="a2">Opción A2</option>
+          </optgroup>
+          <optgroup label="Categoría B">
+            <option value="b1">Opción B1</option>
+            <option value="b2">Opción B2</option>
+          </optgroup>
+        </select>
+        <div class="rb-select-helper">Select con grupos de opciones</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Modificadores Visuales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Rounded</label>
+        <select class="rb-select rb-select--rounded">
+          <option value="">Select redondeado</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Inline (Auto Width)</label>
+        <div class="rb-select-container rb-select-container--inline">
+          <select class="rb-select rb-select--inline">
+            <option value="">Auto width</option>
+            <option value="1">Opción 1</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Minimal</label>
+        <select class="rb-select rb-select--minimal">
+          <option value="">Select minimal</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Filled</label>
+        <select class="rb-select rb-select--filled">
+          <option value="">Select filled</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños Especiales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Compact</label>
+        <select class="rb-select rb-select--compact">
+          <option value="">Select compacto</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Prominent</label>
+        <select class="rb-select rb-select--prominent">
+          <option value="">Select prominente</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Select Group</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Grupo Horizontal</label>
+        <div class="rb-select-group rb-select-group--horizontal">
+          <select class="rb-select">
+            <option value="">País</option>
+            <option value="co">Colombia</option>
+            <option value="mx">México</option>
+          </select>
+          <select class="rb-select">
+            <option value="">Ciudad</option>
+            <option value="bog">Bogotá</option>
+            <option value="med">Medellín</option>
+          </select>
+        </div>
+        <div class="rb-select-helper">Selects conectados horizontalmente</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">Grupo Vertical</label>
+        <div class="rb-select-group rb-select-group--vertical">
+          <select class="rb-select">
+            <option value="">Categoría</option>
+            <option value="tech">Tecnología</option>
+            <option value="design">Diseño</option>
+          </select>
+          <select class="rb-select">
+            <option value="">Subcategoría</option>
+            <option value="web">Desarrollo Web</option>
+            <option value="mobile">Móvil</option>
+          </select>
+        </div>
+        <div class="rb-select-helper">Selects agrupados verticalmente</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Especiales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-select-label">Loading State</label>
+        <select class="rb-select rb-select--loading">
+          <option value="">Cargando opciones...</option>
+        </select>
+        <div class="rb-select-helper">Estado de carga</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-select-label">No Arrow</label>
+        <select class="rb-select rb-select--no-arrow">
+          <option value="">Sin flecha</option>
+          <option value="1">Opción 1</option>
+          <option value="2">Opción 2</option>
+        </select>
+        <div class="rb-select-helper">Select sin flecha (para custom)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toggle Section -->
+  <section class="section">
+    <h2 class="section-title">🔄 Toggle (CSS Puro)</h2>
+    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
+      Componentes de toggle/switch con estilos nativos y personalizados.<br>
+      Incluye soporte para switch, checkbox-style y button-style.
+    </p>
+    
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Básicos</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle">
+          <input type="checkbox" class="rb-toggle-input">
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Toggle Normal</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle básico</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Toggle Activado</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle en estado activo</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--error">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Toggle con Error</span>
+        </label>
+        <div class="rb-toggle-helper rb-toggle-helper--error">Este toggle tiene un error</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--success">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Toggle Exitoso</span>
+        </label>
+        <div class="rb-toggle-helper rb-toggle-helper--success">Toggle validado correctamente</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle">
+          <input type="checkbox" class="rb-toggle-input" disabled>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Toggle Deshabilitado</span>
+        </label>
+        <div class="rb-toggle-helper">Este toggle está deshabilitado</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--warning">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Toggle con Advertencia</span>
+        </label>
+        <div class="rb-toggle-helper rb-toggle-helper--warning">Advertencia: revisa este toggle</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle rb-toggle--small">
+          <input type="checkbox" class="rb-toggle-input">
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Small</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle pequeño</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--medium">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Medium (Default)</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle mediano</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--large">
+          <input type="checkbox" class="rb-toggle-input">
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Large</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle grande</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Variantes de Estilo</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Switch Style</span>
+        </label>
+        <div class="rb-toggle-helper">Estilo switch tradicional</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--button">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+        </label>
+        <div class="rb-toggle-helper">Button style (ON/OFF)</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--checkbox">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Checkbox Style</span>
+        </label>
+        <div class="rb-toggle-helper">Estilo checkbox</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Modificadores Visuales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle rb-toggle--rounded">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Rounded</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle redondeado</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--minimal">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Minimal</span>
+        </label>
+        <div class="rb-toggle-helper">Sin bordes ni sombras</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--filled">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Filled</span>
+        </label>
+        <div class="rb-toggle-helper">Con fondo gris</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--outlined">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Outlined</span>
+        </label>
+        <div class="rb-toggle-helper">Solo borde, sin fondo</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños Especiales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle rb-toggle--compact">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Compact</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle compacto</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--prominent">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Prominent</span>
+        </label>
+        <div class="rb-toggle-helper">Toggle prominente</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Animaciones</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle rb-toggle--bounce">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Bounce</span>
+        </label>
+        <div class="rb-toggle-helper">Con animación bounce</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--pulse">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Pulse</span>
+        </label>
+        <div class="rb-toggle-helper">Con animación pulse</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Layouts</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="rb-toggle-container">
+          <div class="rb-toggle-title">Configuración de Notificaciones</div>
+          <label class="rb-toggle rb-toggle--block">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Notificaciones por email</span>
+          </label>
+          <label class="rb-toggle rb-toggle--block">
+            <input type="checkbox" class="rb-toggle-input">
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Notificaciones push</span>
+          </label>
+          <label class="rb-toggle rb-toggle--block">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Notificaciones SMS</span>
+          </label>
+        </div>
+        <div class="rb-toggle-helper">Configuración en bloque</div>
+      </div>
+      
+      <div class="card">
+        <div class="rb-toggle-container rb-toggle-container--horizontal">
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">WiFi</span>
+          </label>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input">
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Bluetooth</span>
+          </label>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">GPS</span>
+          </label>
+        </div>
+        <div class="rb-toggle-helper">Configuración horizontal</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Toggle Group</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="rb-toggle-title">Preferencias de Usuario</div>
+        <div class="rb-toggle-group">
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Modo oscuro</span>
+          </label>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input">
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Animaciones</span>
+          </label>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Sonidos</span>
+          </label>
+        </div>
+        <div class="rb-toggle-helper">Grupo vertical de toggles</div>
+      </div>
+      
+      <div class="card">
+        <div class="rb-toggle-title">Configuración de Privacidad</div>
+        <div class="rb-toggle-group rb-toggle-group--horizontal">
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Perfil público</span>
+          </label>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input">
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Mostrar email</span>
+          </label>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" checked>
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Permitir mensajes</span>
+          </label>
+        </div>
+        <div class="rb-toggle-helper">Grupo horizontal de toggles</div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados Especiales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <label class="rb-toggle rb-toggle--loading">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+          <span class="rb-toggle-label">Loading State</span>
+        </label>
+        <div class="rb-toggle-helper">Estado de carga</div>
+      </div>
+      
+      <div class="card">
+        <label class="rb-toggle rb-toggle--no-label">
+          <input type="checkbox" class="rb-toggle-input" checked>
+          <span class="rb-toggle-slider"></span>
+        </label>
+        <div class="rb-toggle-helper">Sin label (solo toggle)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alert Section -->
+  <section class="section">
+    <h2 class="section-title">🚨 Alert (CSS Puro)</h2>
+    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
+      Componentes de alerta tipo toast con estilos nativos y personalizados.<br>
+      Incluye soporte para diferentes estados, posicionamiento y variantes visuales.
+    </p>
+    
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Close icon: True</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Background: True</h4>
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a success alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--info">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an info alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a warning alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--error">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an error alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Background: False</h4>
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--no-bg">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a success alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--no-bg">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an info alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--no-bg">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a warning alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--error rb-alert--no-bg">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an error alert — check it</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Close icon: False</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Background: True</h4>
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a success alert — check it</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an info alert — check it</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a warning alert — check it</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--error rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an error alert — check it</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Background: False</h4>
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--no-bg rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a success alert — check it</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--no-bg rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an info alert — check it</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--no-bg rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is a warning alert — check it</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--error rb-alert--no-bg rb-alert--no-close">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Description info text</div>
+              <div class="rb-alert-message">This is an error alert — check it</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--small">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Small Alert</div>
+              <div class="rb-alert-message">This is a small alert message</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--medium">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Medium Alert (Default)</div>
+              <div class="rb-alert-message">This is a medium alert message</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--large">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Large Alert</div>
+              <div class="rb-alert-message">This is a large alert message</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Variantes de Estilo</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--minimal">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Minimal Alert</div>
+              <div class="rb-alert-message">Sin bordes ni sombras</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--outlined">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Outlined Alert</div>
+              <div class="rb-alert-message">Solo borde, sin fondo</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--filled">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Filled Alert</div>
+              <div class="rb-alert-message">Con fondo de color sólido</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--error rb-alert--rounded">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Rounded Alert</div>
+              <div class="rb-alert-message">Con bordes redondeados</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Posicionamiento Toast</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <p style="margin-bottom: 1rem; color: var(--rb-color-grayscale-base);">
+          Los toasts se posicionan de forma fija en la pantalla. Aquí se muestran como ejemplos inline:
+        </p>
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--toast" style="position: relative; top: auto; right: auto;">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Toast Top Right</div>
+              <div class="rb-alert-message">Posición fija en esquina superior derecha</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--toast rb-alert--toast-top-left" style="position: relative; top: auto; left: auto;">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Toast Top Left</div>
+              <div class="rb-alert-message">Posición fija en esquina superior izquierda</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--toast rb-alert--toast-bottom-right" style="position: relative; top: auto; bottom: auto; right: auto;">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Toast Bottom Right</div>
+              <div class="rb-alert-message">Posición fija en esquina inferior derecha</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Alertas Especiales</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <div class="rb-alert-group" style="gap: 1rem;">
+          <div class="rb-alert rb-alert--success rb-alert--loading">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Loading Alert</div>
+              <div class="rb-alert-message">Estado de carga con spinner</div>
+            </div>
+          </div>
+          
+          <div class="rb-alert rb-alert--info rb-alert--dismissible">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Dismissible Alert</div>
+              <div class="rb-alert-message">Haz clic para cerrar (hover effect)</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--warning rb-alert--banner">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Banner Alert</div>
+              <div class="rb-alert-message">Estilo banner sin bordes redondeados</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+          
+          <div class="rb-alert rb-alert--error rb-alert--compact">
+            <div class="rb-alert-icon"></div>
+            <div class="rb-alert-content">
+              <div class="rb-alert-title">Compact Alert</div>
+              <div class="rb-alert-message">Espaciado reducido</div>
+            </div>
+            <button class="rb-alert-close" aria-label="Close alert">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Alert Container (Para múltiples toasts)</h3>
+    <div class="card">
+      <p style="margin-bottom: 1rem; color: var(--rb-color-grayscale-base);">
+        Contenedor para múltiples alertas toast con posicionamiento automático:
+      </p>
+      <div class="rb-alert-container" style="position: relative; top: auto; right: auto; max-width: none;">
+        <div class="rb-alert rb-alert--success">
+          <div class="rb-alert-icon"></div>
+          <div class="rb-alert-content">
+            <div class="rb-alert-title">Primera alerta</div>
+            <div class="rb-alert-message">Esta es la primera alerta en el contenedor</div>
+          </div>
+          <button class="rb-alert-close" aria-label="Close alert">×</button>
+        </div>
+        
+        <div class="rb-alert rb-alert--info">
+          <div class="rb-alert-icon"></div>
+          <div class="rb-alert-content">
+            <div class="rb-alert-title">Segunda alerta</div>
+            <div class="rb-alert-message">Esta es la segunda alerta en el contenedor</div>
+          </div>
+          <button class="rb-alert-close" aria-label="Close alert">×</button>
+        </div>
+        
+        <div class="rb-alert rb-alert--warning">
+          <div class="rb-alert-icon"></div>
+          <div class="rb-alert-content">
+            <div class="rb-alert-title">Tercera alerta</div>
+            <div class="rb-alert-message">Esta es la tercera alerta en el contenedor</div>
+          </div>
+          <button class="rb-alert-close" aria-label="Close alert">×</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Modal Section -->
   <section class="section">
     <h2 class="section-title">📦 Modal (Web Component)</h2>
@@ -343,6 +1667,75 @@
     modal.addEventListener('rb-modal-close', () => {
       console.log('Modal closed');
     });
+
+    // TextArea Character Counter Functionality
+    function initTextAreaCounters() {
+      const textareas = document.querySelectorAll('.rb-textarea[maxlength]');
+      
+      textareas.forEach(textarea => {
+        const maxLength = parseInt(textarea.getAttribute('maxlength'));
+        const counter = textarea.parentElement.querySelector('.rb-textarea-counter');
+        
+        if (counter) {
+          function updateCounter() {
+            const currentLength = textarea.value.length;
+            const remaining = maxLength - currentLength;
+            
+            counter.textContent = `${currentLength}/${maxLength}`;
+            
+            // Remove all state classes
+            counter.classList.remove('rb-textarea-counter--warning', 'rb-textarea-counter--error', 'rb-textarea-counter--success');
+            textarea.classList.remove('rb-textarea--warning', 'rb-textarea--error', 'rb-textarea--success');
+            
+            // Add appropriate state classes
+            if (currentLength > maxLength) {
+              counter.classList.add('rb-textarea-counter--error');
+              textarea.classList.add('rb-textarea--error');
+            } else if (remaining <= 10 && remaining > 0) {
+              counter.classList.add('rb-textarea-counter--warning');
+              textarea.classList.add('rb-textarea--warning');
+            } else if (remaining === 0) {
+              counter.classList.add('rb-textarea-counter--success');
+              textarea.classList.add('rb-textarea--success');
+            }
+            
+            // Add pulse animation for state changes
+            counter.classList.add('rb-textarea-counter--pulse');
+            setTimeout(() => {
+              counter.classList.remove('rb-textarea-counter--pulse');
+            }, 300);
+          }
+          
+          // Initial update
+          updateCounter();
+          
+          // Update on input
+          textarea.addEventListener('input', updateCounter);
+        }
+      });
+    }
+
+    // Auto-resize functionality
+    function initAutoResize() {
+      const autoResizeTextareas = document.querySelectorAll('.rb-textarea--auto-resize');
+      
+      autoResizeTextareas.forEach(textarea => {
+        function autoResize() {
+          textarea.style.height = 'auto';
+          textarea.style.height = textarea.scrollHeight + 'px';
+        }
+        
+        // Initial resize
+        autoResize();
+        
+        // Resize on input
+        textarea.addEventListener('input', autoResize);
+      });
+    }
+
+    // Initialize textarea functionality
+    initTextAreaCounters();
+    initAutoResize();
   </script>
 </body>
 </html>
