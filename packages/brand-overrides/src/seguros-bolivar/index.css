@@ -1,10 +1,9 @@
 /**
  * Seguros Bolívar - Brand Overrides
  * 
- * Estilos específicos y personalizaciones para la marca Seguros Bolívar.
- * Incluye animaciones únicas y ajustes visuales que reflejan la identidad
- * corporativa de seguridad, confianza y solidez de la marca.
+ * Ya no se requieren overrides específicos para botones.
+ * Todos los estilos ahora están en el CSS base y utilizan
+ * las variables de color definidas en los tokens de la marca.
  */
 
-@import './button.css';
-
+/* No hay overrides específicos para Seguros Bolívar */

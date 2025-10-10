@@ -14,8 +14,7 @@ import { html } from 'lit';
  * | Botón primario | `.rb-button--primary` | `<button class="rb-button rb-button--primary">Primary</button>` |
  * | Botón secundario | `.rb-button--secondary` | `<button class="rb-button rb-button--secondary">Secondary</button>` |
  * | Botón terciario | `.rb-button--tertiary` | `<button class="rb-button rb-button--tertiary">Tertiary</button>` |
- * | Botón peligro | `.rb-button--danger` | `<button class="rb-button rb-button--danger">Delete</button>` |
- * | Botón éxito | `.rb-button--success` | `<button class="rb-button rb-button--success">Save</button>` |
+ * | Botón error | `.rb-button--error` | `<button class="rb-button rb-button--error">Error</button>` |
  * | **Variantes de Estilo** | | |
  * | Outline/borde (default) | `.rb-button--stroke` o sin clase | `<button class="rb-button rb-button--primary">Default</button>` |
  * | Fondo sólido | `.rb-button--fill` | `<button class="rb-button rb-button--primary rb-button--fill">Filled</button>` |
@@ -37,10 +36,12 @@ import { html } from 'lit';
  * 
  * ## 💡 Notas Importantes
  * 
- * - **Estilo por defecto**: STROKE (outline) - no necesitas especificar la clase
+ * - **Estilo por defecto**: FILL (relleno sólido) - usa `.rb-button--stroke` para outline
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
+ * - **Icon Only**: Es completamente circular (40x40px) por defecto
  * - **Loading con iconos**: El spinner reemplaza automáticamente el icono en su posición
  * - **Disabled**: Los botones disabled no reciben focus y muestran `cursor: not-allowed`
+ * - **Tipos válidos**: PRIMARY, SECONDARY, TERTIARY, ERROR (4 tipos únicamente)
  * - **Combinaciones**: Puedes combinar variantes de color + estilo + tamaño + iconos + estados
  * 
  * ## 🎯 Ejemplo de Combinación Completa
@@ -58,15 +59,15 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de botón versátil con 3 variantes de estilo (Fill, Stroke, Text), 4 posiciones de iconos y 3 estados principales.',
+        component: 'Componente de botón versátil con 4 tipos de color (Primary, Secondary, Tertiary, Error), 3 variantes de estilo (Fill, Stroke, Text), 4 posiciones de iconos y 3 estados principales.',
       },
     },
   },
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'quaternary', 'quinary', 'danger', 'success'],
-      description: 'Variante de color del botón',
+      options: ['primary', 'secondary', 'tertiary', 'error'],
+      description: 'Variante de color del botón (solo 4 tipos válidos)',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'primary' },
@@ -115,11 +116,27 @@ const meta: Meta = {
     },
     styleVariant: {
       control: 'select',
-      options: ['stroke', 'fill', 'text'],
-      description: 'Variante de estilo (stroke=outline, fill=solid, text=transparent)',
+      options: ['fill', 'stroke', 'text'],
+      description: 'Variante de estilo (fill=solid [default], stroke=outline, text=transparent)',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'stroke' },
+        defaultValue: { summary: 'fill' },
+      },
+    },
+    square: {
+      control: 'boolean',
+      description: 'Esquinas menos redondeadas (modificador)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    block: {
+      control: 'boolean',
+      description: 'Ancho completo (modificador)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
     },
   },
@@ -142,7 +159,9 @@ export const Playground: Story = {
     disabled: false,
     loading: false,
     iconPosition: 'none',
-    styleVariant: 'stroke',
+    styleVariant: 'fill',
+    square: false,
+    block: false,
   },
   render: (args) => {
     // Determinar las clases del botón
@@ -150,19 +169,21 @@ export const Playground: Story = {
       'rb-button',
       `rb-button--${args.variant}`,
       `rb-button--${args.size}`,
-      args.styleVariant && args.styleVariant !== 'stroke' ? `rb-button--${args.styleVariant}` : '',
+      args.styleVariant ? `rb-button--${args.styleVariant}` : '',
       args.loading ? 'rb-button--loading' : '',
       args.disabled ? 'rb-button--disabled' : '',
       args.iconPosition === 'left' ? 'rb-button--icon-left' : '',
       args.iconPosition === 'right' ? 'rb-button--icon-right' : '',
       args.iconPosition === 'only' ? 'rb-button--icon-only' : '',
+      args.square ? 'rb-button--square' : '',
+      args.block ? 'rb-button--block' : '',
     ].filter(Boolean).join(' ');
 
     // Renderizar el contenido según la posición del icono
     if (args.iconPosition === 'left') {
       return html`
         <button class="${classes}">
-          <i style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(0, 0, 0, 0.1); font-size: 1.1rem; font-style: normal; line-height: 1;">+</i>
+          <i class="fa-solid fa-user"></i>
           ${args.text}
         </button>
       `;
@@ -170,13 +191,13 @@ export const Playground: Story = {
       return html`
         <button class="${classes}">
           ${args.text}
-          <i style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(0, 0, 0, 0.1); font-size: 1.1rem; font-style: normal; line-height: 1;">+</i>
+          <i class="fa-solid fa-user"></i>
         </button>
       `;
     } else if (args.iconPosition === 'only') {
       return html`
         <button class="${classes}">
-          <i style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(0, 0, 0, 0.1); font-size: 1.1rem; font-style: normal; line-height: 1;">+</i>
+          <i class="fa-solid fa-user"></i>
         </button>
       `;
     } else {
