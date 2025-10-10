@@ -1,12 +1,152 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
+/**
+ * # Toggle Component
+ * 
+ * Componente de toggle/switch versátil del Root Block Design System con diferentes estilos, animaciones y estados.
+ * 
+ * ## 📋 Referencia Rápida de Clases
+ * 
+ * | Quiero... | Clase CSS | Ejemplo |
+ * |-----------|-----------|---------|
+ * | **Estados** | | |
+ * | Toggle normal (default) | `.rb-toggle` | `<label class="rb-toggle"><input class="rb-toggle-input" /><span class="rb-toggle-slider"></span></label>` |
+ * | Toggle con error | `.rb-toggle--error` | `<label class="rb-toggle rb-toggle--error">...</label>` |
+ * | Toggle exitoso | `.rb-toggle--success` | `<label class="rb-toggle rb-toggle--success">...</label>` |
+ * | Toggle con advertencia | `.rb-toggle--warning` | `<label class="rb-toggle rb-toggle--warning">...</label>` |
+ * | **Tamaños** | | |
+ * | Pequeño | `.rb-toggle--small` | `<label class="rb-toggle rb-toggle--small">...</label>` |
+ * | Mediano (default) | `.rb-toggle--medium` o sin clase | `<label class="rb-toggle">...</label>` |
+ * | Grande | `.rb-toggle--large` | `<label class="rb-toggle rb-toggle--large">...</label>` |
+ * | **Estilos** | | |
+ * | Switch (default) | Sin clase adicional | `<label class="rb-toggle">...</label>` |
+ * | Botón | `.rb-toggle--button` | `<label class="rb-toggle rb-toggle--button">...</label>` |
+ * | Checkbox | `.rb-toggle--checkbox` | `<label class="rb-toggle rb-toggle--checkbox">...</label>` |
+ * | **Modificadores** | | |
+ * | Bordes redondeados | `.rb-toggle--rounded` | `<label class="rb-toggle rb-toggle--rounded">...</label>` |
+ * | Minimal | `.rb-toggle--minimal` | `<label class="rb-toggle rb-toggle--minimal">...</label>` |
+ * 
+ * ## 💡 Notas Importantes
+ * 
+ * - **Estructura HTML**: Usa `<label class="rb-toggle">` conteniendo `<input class="rb-toggle-input">` y `<span class="rb-toggle-slider">`
+ * - **Label de texto**: Usa `<span class="rb-toggle-label">` dentro del label principal
+ * - **Input oculto**: El input real está oculto visualmente pero accesible para lectores de pantalla
+ * - **Estilo por defecto**: SWITCH - botón deslizante circular
+ * - **Interactividad**: Funciona con clicks en cualquier parte del label
+ * 
+ * ## 🎯 Ejemplo de Estructura Completa
+ * 
+ * ```html
+ * <div class="rb-toggle-container">
+ *   <label class="rb-toggle rb-toggle--large rb-toggle--success">
+ *     <input type="checkbox" class="rb-toggle-input" checked />
+ *     <span class="rb-toggle-slider"></span>
+ *     <span class="rb-toggle-label">Activar notificaciones</span>
+ *   </label>
+ *   <div class="rb-toggle-helper">Descripción del toggle</div>
+ * </div>
+ * ```
+ */
 const meta: Meta = {
   title: 'Atoms/Toggle',
+  tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
-        component: 'Componente de toggle/switch con diferentes estilos y animaciones. Incluye soporte para checkbox, button y switch styles.',
+        component: 'Componente de toggle/switch versátil con diferentes estilos (switch, button, checkbox), animaciones y estados de validación.',
+      },
+    },
+  },
+  argTypes: {
+    state: {
+      control: 'select',
+      options: ['normal', 'error', 'success', 'warning'],
+      description: 'Estado de validación del toggle',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'normal' },
+      },
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Tamaño del toggle',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'medium' },
+      },
+    },
+    style: {
+      control: 'select',
+      options: ['switch', 'button', 'checkbox'],
+      description: 'Estilo visual del toggle',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'switch' },
+      },
+    },
+    label: {
+      control: 'text',
+      description: 'Texto del label',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    checked: {
+      control: 'boolean',
+      description: 'Estado marcado/desmarcado',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    required: {
+      control: 'boolean',
+      description: 'Campo requerido',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Toggle deshabilitado',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    helperText: {
+      control: 'text',
+      description: 'Texto de ayuda',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    rounded: {
+      control: 'boolean',
+      description: 'Bordes redondeados',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    minimal: {
+      control: 'boolean',
+      description: 'Estilo minimal',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    animation: {
+      control: 'select',
+      options: ['none', 'bounce', 'pulse'],
+      description: 'Tipo de animación',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'none' },
       },
     },
   },
@@ -15,290 +155,322 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-// Estados básicos
-export const Default: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Toggle Normal</label>
+/**
+ * ## Playground (Interactivo)
+ * 
+ * Experimenta con todas las combinaciones del toggle usando los controles interactivos
+ * en el panel inferior. Puedes ajustar estilo, estado, tamaño, animaciones y más.
+ */
+export const Playground: Story = {
+  args: {
+    state: 'normal',
+    size: 'medium',
+    style: 'switch',
+    label: 'Activar notificaciones',
+    checked: false,
+    required: false,
+    disabled: false,
+    helperText: 'Recibe notificaciones cuando alguien te mencione',
+    rounded: false,
+    minimal: false,
+    animation: 'none',
+  },
+  render: (args) => {
+    const toggleClasses = [
+      'rb-toggle',
+      args.state !== 'normal' ? `rb-toggle--${args.state}` : '',
+      args.size !== 'medium' ? `rb-toggle--${args.size}` : '',
+      args.style !== 'switch' ? `rb-toggle--${args.style}` : '',
+      args.rounded ? 'rb-toggle--rounded' : '',
+      args.minimal ? 'rb-toggle--minimal' : '',
+      args.animation !== 'none' ? `rb-toggle--${args.animation}` : '',
+    ].filter(Boolean).join(' ');
+
+    const helperClasses = [
+      'rb-toggle-helper',
+      args.state !== 'normal' ? `rb-toggle-helper--${args.state}` : '',
+    ].filter(Boolean).join(' ');
+
+    return html`
+      <div style="max-width: 400px;">
         <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle" id="toggle1" />
-          <label for="toggle1" class="rb-toggle-label">Activar notificaciones</label>
+          <label class="${toggleClasses}">
+            <input 
+              type="checkbox" 
+              class="rb-toggle-input"
+              ?checked="${args.checked}"
+              ?required="${args.required}"
+              ?disabled="${args.disabled}"
+            />
+            ${args.style === 'button' ? html`
+              <span class="rb-toggle-slider"></span>
+            ` : html`
+              <span class="rb-toggle-slider"></span>
+              ${args.label && args.style !== 'button' ? html`
+                <span class="rb-toggle-label">${args.label}</span>
+              ` : ''}
+            `}
+          </label>
+          
+          ${args.helperText ? html`
+            <div class="${helperClasses}">
+              ${args.helperText}
+            </div>
+          ` : ''}
         </div>
-        <div class="rb-toggle-helper">Toggle básico</div>
       </div>
-      
-      <div>
-        <label class="rb-toggle-label rb-toggle-label--required">Toggle Requerido</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle" id="toggle2" required />
-          <label for="toggle2" class="rb-toggle-label">Aceptar términos</label>
-        </div>
-        <div class="rb-toggle-helper">Campo obligatorio</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Toggle con Error</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--error" id="toggle3" />
-          <label for="toggle3" class="rb-toggle-label">Toggle con error</label>
-        </div>
-        <div class="rb-toggle-helper rb-toggle-helper--error">Este toggle tiene un error</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Toggle Exitoso</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--success" id="toggle4" checked />
-          <label for="toggle4" class="rb-toggle-label">Toggle exitoso</label>
-        </div>
-        <div class="rb-toggle-helper rb-toggle-helper--success">Toggle validado correctamente</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Toggle Deshabilitado</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle" id="toggle5" disabled />
-          <label for="toggle5" class="rb-toggle-label">Toggle deshabilitado</label>
-        </div>
-        <div class="rb-toggle-helper">Este toggle está deshabilitado</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Toggle con Advertencia</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--warning" id="toggle6" />
-          <label for="toggle6" class="rb-toggle-label">Toggle con advertencia</label>
-        </div>
-        <div class="rb-toggle-helper rb-toggle-helper--warning">Advertencia: revisa este toggle</div>
-      </div>
-    </div>
-  `,
+    `;
+  },
 };
 
-// Tamaños
-export const Sizes: Story = {
+/**
+ * ## Estados - Matriz de Combinaciones
+ * 
+ * Matriz del toggle mostrando combinaciones de:
+ * - **4 Estados**: Normal, Error, Success, Warning
+ * - **3 Tamaños**: Small, Medium, Large
+ * - **3 Estilos**: Switch, Button, Checkbox
+ */
+export const Estados: Story = {
   render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Small</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--small" id="toggle-small" />
-          <label for="toggle-small" class="rb-toggle-label">Toggle pequeño</label>
-        </div>
-        <div class="rb-toggle-helper">Tamaño pequeño</div>
-      </div>
+    <style>
+      .toggle-matrix {
+        font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        background: var(--rb-color-grayscale-L400, #fafafa);
+      }
       
-      <div>
-        <label class="rb-toggle-label">Medium (Default)</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--medium" id="toggle-medium" />
-          <label for="toggle-medium" class="rb-toggle-label">Toggle mediano</label>
-        </div>
-        <div class="rb-toggle-helper">Tamaño mediano (por defecto)</div>
-      </div>
+      .toggle-demo {
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
       
-      <div>
-        <label class="rb-toggle-label">Large</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--large" id="toggle-large" />
-          <label for="toggle-large" class="rb-toggle-label">Toggle grande</label>
+      .toggle-demo h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--rb-color-primary-base, #007acc);
+      }
+      
+      .toggle-demo > div {
+        margin-bottom: 1rem;
+      }
+      
+      .toggle-demo > div:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+    
+    <div class="toggle-matrix">
+      <!-- Estados Básicos -->
+      <div class="toggle-demo">
+        <h3>Estados Básicos</h3>
+        <div>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Normal</span>
+          </label>
+          <div class="rb-toggle-helper">Estado normal</div>
         </div>
-        <div class="rb-toggle-helper">Tamaño grande</div>
+        <div>
+          <label class="rb-toggle rb-toggle--error">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Error</span>
+          </label>
+          <div class="rb-toggle-helper rb-toggle-helper--error">Campo con error</div>
+        </div>
+        <div>
+          <label class="rb-toggle rb-toggle--success">
+            <input type="checkbox" class="rb-toggle-input" checked />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Success</span>
+          </label>
+          <div class="rb-toggle-helper rb-toggle-helper--success">Campo válido</div>
+        </div>
+        <div>
+          <label class="rb-toggle rb-toggle--warning">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Warning</span>
+          </label>
+          <div class="rb-toggle-helper rb-toggle-helper--warning">Revisa este toggle</div>
+        </div>
       </div>
-    </div>
-  `,
-};
 
-// Estilos diferentes
-export const Styles: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Switch Style (Default)</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle" id="toggle-switch" />
-          <label for="toggle-switch" class="rb-toggle-label">Estilo switch</label>
+      <!-- Tamaños -->
+      <div class="toggle-demo">
+        <h3>Tamaños</h3>
+        <div>
+          <label class="rb-toggle rb-toggle--small">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Small</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Estilo switch por defecto</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Button Style</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--button" id="toggle-button" />
-          <label for="toggle-button" class="rb-toggle-label">Estilo botón</label>
+        <div>
+          <label class="rb-toggle rb-toggle--medium">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Medium</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Estilo botón</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Checkbox Style</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--checkbox" id="toggle-checkbox" />
-          <label for="toggle-checkbox" class="rb-toggle-label">Estilo checkbox</label>
+        <div>
+          <label class="rb-toggle rb-toggle--large">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Large</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Estilo checkbox tradicional</div>
       </div>
-    </div>
-  `,
-};
 
-// Modificadores visuales
-export const VisualModifiers: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Rounded</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--rounded" id="toggle-rounded" />
-          <label for="toggle-rounded" class="rb-toggle-label">Toggle redondeado</label>
+      <!-- Estilos -->
+      <div class="toggle-demo">
+        <h3>Estilos</h3>
+        <div>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Switch (default)</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Con bordes redondeados</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Minimal</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--minimal" id="toggle-minimal" />
-          <label for="toggle-minimal" class="rb-toggle-label">Toggle minimal</label>
+        <div>
+          <label class="rb-toggle rb-toggle--button">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+          </label>
+          <span style="margin-left: 1rem; font-size: 0.875rem; color: #666;">Button style</span>
         </div>
-        <div class="rb-toggle-helper">Sin bordes ni sombras</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Filled</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--filled" id="toggle-filled" />
-          <label for="toggle-filled" class="rb-toggle-label">Toggle filled</label>
+        <div>
+          <label class="rb-toggle rb-toggle--checkbox">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Checkbox style</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Con fondo gris</div>
       </div>
-      
-      <div>
-        <label class="rb-toggle-label">Outlined</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--outlined" id="toggle-outlined" />
-          <label for="toggle-outlined" class="rb-toggle-label">Toggle outlined</label>
-        </div>
-        <div class="rb-toggle-helper">Solo borde</div>
-      </div>
-    </div>
-  `,
-};
 
-// Tamaños especiales
-export const SpecialSizes: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Compact</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--compact" id="toggle-compact" />
-          <label for="toggle-compact" class="rb-toggle-label">Toggle compacto</label>
+      <!-- Estados Especiales -->
+      <div class="toggle-demo">
+        <h3>Estados Especiales</h3>
+        <div>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" required />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Requerido *</span>
+          </label>
+          <div class="rb-toggle-helper">Campo obligatorio</div>
         </div>
-        <div class="rb-toggle-helper">Tamaño compacto</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Prominent</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--prominent" id="toggle-prominent" />
-          <label for="toggle-prominent" class="rb-toggle-label">Toggle prominente</label>
+        <div>
+          <label class="rb-toggle">
+            <input type="checkbox" class="rb-toggle-input" disabled />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Deshabilitado</span>
+          </label>
+          <div class="rb-toggle-helper">Este toggle está deshabilitado</div>
         </div>
-        <div class="rb-toggle-helper">Tamaño prominente</div>
+        <div>
+          <label class="rb-toggle rb-toggle--rounded">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Rounded</span>
+          </label>
+        </div>
       </div>
-    </div>
-  `,
-};
 
-// Animaciones
-export const Animations: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Bounce Animation</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--bounce" id="toggle-bounce" />
-          <label for="toggle-bounce" class="rb-toggle-label">Toggle con bounce</label>
+      <!-- Modificadores Visuales -->
+      <div class="toggle-demo">
+        <h3>Modificadores</h3>
+        <div>
+          <label class="rb-toggle rb-toggle--minimal">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Minimal</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Animación de rebote</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Pulse Animation</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--pulse" id="toggle-pulse" />
-          <label for="toggle-pulse" class="rb-toggle-label">Toggle con pulse</label>
+        <div>
+          <label class="rb-toggle rb-toggle--filled">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Filled</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Animación de pulso</div>
+        <div>
+          <label class="rb-toggle rb-toggle--outlined">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Outlined</span>
+          </label>
+        </div>
       </div>
-    </div>
-  `,
-};
 
-// Sin etiqueta
-export const NoLabel: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Toggle sin etiqueta</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--no-label" id="toggle-no-label" />
+      <!-- Animaciones -->
+      <div class="toggle-demo">
+        <h3>Animaciones</h3>
+        <div>
+          <label class="rb-toggle rb-toggle--bounce">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Bounce</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Solo el toggle, sin texto</div>
-      </div>
-      
-      <div>
-        <label class="rb-toggle-label">Toggle con título</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle" id="toggle-with-title" />
-          <div class="rb-toggle-title">Configuración avanzada</div>
-          <label for="toggle-with-title" class="rb-toggle-label">Activar modo avanzado</label>
+        <div>
+          <label class="rb-toggle rb-toggle--pulse">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Pulse</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Toggle con título descriptivo</div>
       </div>
-    </div>
-  `,
-};
 
-// Toggle groups
-export const ToggleGroups: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Grupo Vertical</label>
-        <div class="rb-toggle-group rb-toggle-group--vertical">
-          <div class="rb-toggle-container">
-            <input type="checkbox" class="rb-toggle" id="toggle-group-1" />
-            <label for="toggle-group-1" class="rb-toggle-label">Notificaciones push</label>
+      <!-- Grupos -->
+      <div class="toggle-demo">
+        <h3>Grupos de Toggles</h3>
+        <div>
+          <div class="rb-toggle-group rb-toggle-group--vertical">
+            <label class="rb-toggle">
+              <input type="checkbox" class="rb-toggle-input" />
+              <span class="rb-toggle-slider"></span>
+              <span class="rb-toggle-label">Notificaciones push</span>
+            </label>
+            <label class="rb-toggle">
+              <input type="checkbox" class="rb-toggle-input" />
+              <span class="rb-toggle-slider"></span>
+              <span class="rb-toggle-label">Notificaciones email</span>
+            </label>
+            <label class="rb-toggle">
+              <input type="checkbox" class="rb-toggle-input" />
+              <span class="rb-toggle-slider"></span>
+              <span class="rb-toggle-label">Notificaciones SMS</span>
+            </label>
           </div>
-          <div class="rb-toggle-container">
-            <input type="checkbox" class="rb-toggle" id="toggle-group-2" />
-            <label for="toggle-group-2" class="rb-toggle-label">Notificaciones email</label>
-          </div>
-          <div class="rb-toggle-container">
-            <input type="checkbox" class="rb-toggle" id="toggle-group-3" />
-            <label for="toggle-group-3" class="rb-toggle-label">Notificaciones SMS</label>
-          </div>
+          <div class="rb-toggle-helper">Toggles agrupados</div>
         </div>
-        <div class="rb-toggle-helper">Toggles agrupados verticalmente</div>
       </div>
-    </div>
-  `,
-};
 
-// Estados especiales
-export const SpecialStates: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-      <div>
-        <label class="rb-toggle-label">Loading State</label>
-        <div class="rb-toggle-container">
-          <input type="checkbox" class="rb-toggle rb-toggle--loading" id="toggle-loading" />
-          <label for="toggle-loading" class="rb-toggle-label">Toggle cargando</label>
+      <!-- Tamaños Especiales -->
+      <div class="toggle-demo">
+        <h3>Tamaños Especiales</h3>
+        <div>
+          <label class="rb-toggle rb-toggle--compact">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Compact</span>
+          </label>
         </div>
-        <div class="rb-toggle-helper">Estado de carga</div>
+        <div>
+          <label class="rb-toggle rb-toggle--prominent">
+            <input type="checkbox" class="rb-toggle-input" />
+            <span class="rb-toggle-slider"></span>
+            <span class="rb-toggle-label">Prominent</span>
+          </label>
+        </div>
       </div>
     </div>
   `,
