@@ -1,0 +1,20 @@
+/**
+ * ============================================================================
+ * White Label - Button Component Overrides
+ * ============================================================================
+ * 
+ * Data Attribute Approach: [data-brand="white-label"]
+ * 
+ * White Label usa los estilos por defecto del button.css general.
+ * Este archivo existe para mantener la estructura consistente,
+ * pero no define ningún override.
+ * 
+ * Si en el futuro se necesitan personalizaciones para White Label,
+ * se pueden agregar aquí siguiendo el mismo patrón que las demás marcas.
+ * 
+ * ============================================================================
+ */
+
+[data-brand='white-label'] {
+  /* Sin overrides - usa estilos por defecto */
+}

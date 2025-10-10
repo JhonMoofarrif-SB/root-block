@@ -109,13 +109,13 @@ pnpm run storybook
 
 ### Scripts Simplificados (v1.1.0) ⚡
 
-| Script | Descripción |
-|--------|-------------|
-| `pnpm run build` | 🏗️ Build completo de todo el sistema |
-| `pnpm run demo` | 🎮 Servidor demo interactivo |
-| `pnpm run dev` | 👀 Watch mode para desarrollo |
-| `pnpm run storybook` | 📚 Documentación Storybook |
-| `pnpm run clean` | 🧹 Limpiar todos los builds |
+| Script               | Descripción                          |
+| -------------------- | ------------------------------------ |
+| `pnpm run build`     | 🏗️ Build completo de todo el sistema |
+| `pnpm run demo`      | 🎮 Servidor demo interactivo         |
+| `pnpm run dev`       | 👀 Watch mode para desarrollo        |
+| `pnpm run storybook` | 📚 Documentación Storybook           |
+| `pnpm run clean`     | 🧹 Limpiar todos los builds          |
 
 > 💡 **Tip:** Usa `pnpm run build` una sola vez y todo se compila automáticamente
 
@@ -170,21 +170,22 @@ function changeBrand(brand, theme) {
   // 2. Actualizar atributos HTML
   document.documentElement.setAttribute('data-brand', brand);
   document.documentElement.setAttribute('data-theme', theme);
-  
+
   console.log(`✅ Marca cambiada a: ${brand} ${theme}`);
-  
+
   if (brand === 'davivienda') {
     console.log('✨ Animación especial de loading activada!');
   }
 }
 
 // Ejemplos
-changeBrand('davivienda', 'light');  // ⚫ Con animación especial
-changeBrand('jelpit', 'dark');        // 🟣 Morado + Dark mode
+changeBrand('davivienda', 'light'); // ⚫ Con animación especial
+changeBrand('jelpit', 'dark'); // 🟣 Morado + Dark mode
 changeBrand('cien-cuadras', 'light'); // 🔵 Azul inmobiliario
 ```
 
 **Ventajas del nuevo sistema:**
+
 - ✅ Solo 1 archivo CSS cambia (no 3 como antes)
 - ✅ Overrides incluidos automáticamente
 - ✅ Sin dependencias externas
@@ -226,6 +227,7 @@ pnpm run storybook
 ```
 
 **Características de Storybook (v1.1.0):**
+
 - 🎨 Selector global de marca y tema en la barra superior
 - 📖 Documentación de todos los componentes
 - 🎯 Stories organizadas: Foundations → Atoms → Molecules
@@ -234,17 +236,17 @@ pnpm run storybook
 
 ### Archivos de Documentación
 
-| Archivo | Descripción |
-|---------|-------------|
-| [README.md](./README.md) | 📄 Documentación principal |
+| Archivo                                                | Descripción                                               |
+| ------------------------------------------------------ | --------------------------------------------------------- |
+| [README.md](./README.md)                               | 📄 Documentación principal                                |
 | [.cursor/CSS_STANDARDS.md](./.cursor/CSS_STANDARDS.md) | 📐 **Estándares CSS** (Cursor AI los lee automáticamente) |
-| [VERCEL-SETUP.md](./VERCEL-SETUP.md) | 🚀 Guía de deployment en Vercel |
-| [.vercel-quick-start.md](./.vercel-quick-start.md) | ⚡ Quick start para Vercel |
-| [CHANGELOG.md](./CHANGELOG.md) | 📝 Historial de versiones |
-| [LEEME.md](./LEEME.md) | 🇪🇸 Guía rápida en español |
-| [BUILD.md](./BUILD.md) | 🏗️ Sistema de build detallado |
-| [SCRIPTS.md](./SCRIPTS.md) | ⚡ Explicación de scripts |
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | 🤝 Guía de contribución |
+| [VERCEL-SETUP.md](./VERCEL-SETUP.md)                   | 🚀 Guía de deployment en Vercel                           |
+| [.vercel-quick-start.md](./.vercel-quick-start.md)     | ⚡ Quick start para Vercel                                |
+| [CHANGELOG.md](./CHANGELOG.md)                         | 📝 Historial de versiones                                 |
+| [LEEME.md](./LEEME.md)                                 | 🇪🇸 Guía rápida en español                                 |
+| [BUILD.md](./BUILD.md)                                 | 🏗️ Sistema de build detallado                             |
+| [SCRIPTS.md](./SCRIPTS.md)                             | ⚡ Explicación de scripts                                 |
+| [CONTRIBUTING.md](./CONTRIBUTING.md)                   | 🤝 Guía de contribución                                   |
 
 ## 🧪 Testing
 
@@ -269,6 +271,7 @@ El proyecto sigue estándares CSS modernos con **Cursor AI**:
 - **[.cursor/CSS_STANDARDS.md](./.cursor/CSS_STANDARDS.md)** - Guía completa de referencia en carpeta .cursor
 
 **Características principales:**
+
 - ✅ CSS Nesting nativo con `&`
 - ✅ `@layer` para control de cascada predecible
 - ✅ Logical Properties (RTL/LTR ready)
@@ -293,14 +296,14 @@ pnpm run build
 
 ## 🌐 Marcas Disponibles
 
-| Marca | Primary | Secondary | Especial | Descripción |
-|-------|---------|-----------|----------|-------------|
-| **White Label** | `#48555b` | `#afc4cc` | - | Marca genérica base |
-| **Jelpit** | `#2e0063` | `#82e778` | - | Morado intenso + Verde brillante |
-| **Davivienda** | `#e1111c` | `#4b5c6f` | ⚫ Loading | Rojo corporativo + Gris azulado |
-| **Cien Cuadras** | `#006098` | `#ffa533` | - | Azul inmobiliario + Naranja |
-| **Doctor Aki** | `#42671a` | `#61b064` | - | Verde oliva + Verde salud |
-| **Seguros Bolívar** | `#009056` | `#ffe16f` | - | Verde seguros + Amarillo dorado |
+| Marca               | Primary   | Secondary | Especial   | Descripción                      |
+| ------------------- | --------- | --------- | ---------- | -------------------------------- |
+| **White Label**     | `#48555b` | `#afc4cc` | -          | Marca genérica base              |
+| **Jelpit**          | `#2e0063` | `#82e778` | -          | Morado intenso + Verde brillante |
+| **Davivienda**      | `#e1111c` | `#4b5c6f` | ⚫ Loading | Rojo corporativo + Gris azulado  |
+| **Cien Cuadras**    | `#006098` | `#ffa533` | -          | Azul inmobiliario + Naranja      |
+| **Doctor Aki**      | `#42671a` | `#61b064` | -          | Verde oliva + Verde salud        |
+| **Seguros Bolívar** | `#009056` | `#ffe16f` | -          | Verde seguros + Amarillo dorado  |
 
 ### ⚫ Características Especiales
 
@@ -310,6 +313,7 @@ pnpm run build
 ## 🔧 Tecnologías
 
 ### Build & Tooling
+
 - **PNPM Workspaces**: Monorepo management
 - **Turborepo**: Builds paralelos ultra-rápidos
 - **Style Dictionary**: Design tokens generation
@@ -318,17 +322,20 @@ pnpm run build
 - **esbuild**: JavaScript bundling
 
 ### Components & Runtime
+
 - **Lit**: Web Components framework
 - **TypeScript**: Type safety completa
 - **CSS Variables**: Theming dinámico
 
 ### Quality & Testing
+
 - **Vitest**: Unit testing
 - **Playwright**: E2E testing
 - **ESLint**: JavaScript linting
 - **Prettier**: Code formatting
 
 ### Documentation
+
 - **Storybook 8**: Component documentation
 - **MDX**: Markdown + JSX para docs
 
@@ -344,22 +351,23 @@ pnpm run build
 
 ### Por Archivo (v1.1.0)
 
-| Archivo | Marca | Minificado | Gzip | Contenido |
-|---------|-------|------------|------|-----------|
-| `rb-jelpit-light.min.css` | Jelpit | 11.6 KB | 2.5 KB | Tokens + Atoms |
-| `rb-davivienda-light.min.css` | Davivienda | 13.5 KB | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
-| `rb-white-label-dark.min.css` | White Label | 11.6 KB | 2.5 KB | Tokens + Atoms |
-| `rb-components.min.js` | Universal | 29.7 KB | 8.6 KB | Todos los Web Components |
+| Archivo                       | Marca       | Minificado | Gzip   | Contenido                     |
+| ----------------------------- | ----------- | ---------- | ------ | ----------------------------- |
+| `rb-jelpit-light.min.css`     | Jelpit      | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
+| `rb-davivienda-light.min.css` | Davivienda  | 13.5 KB    | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
+| `rb-white-label-dark.min.css` | White Label | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
+| `rb-components.min.js`        | Universal   | 29.7 KB    | 8.6 KB | Todos los Web Components      |
 
 ### Total por Usuario
 
-| Escenario | CSS | JS | Total (gzip) |
-|-----------|-----|-----|--------------|
-| **Solo CSS** (Button, etc.) | ~2.5 KB | - | **~2.5 KB** |
-| **CSS + Davivienda overrides** | ~2.7 KB | - | **~2.7 KB** |
-| **Full (CSS + Components)** | ~2.5 KB | ~8.6 KB | **~11 KB** |
+| Escenario                      | CSS     | JS      | Total (gzip) |
+| ------------------------------ | ------- | ------- | ------------ |
+| **Solo CSS** (Button, etc.)    | ~2.5 KB | -       | **~2.5 KB**  |
+| **CSS + Davivienda overrides** | ~2.7 KB | -       | **~2.7 KB**  |
+| **Full (CSS + Components)**    | ~2.5 KB | ~8.6 KB | **~11 KB**   |
 
 **Notas:**
+
 - ✅ Cada marca tiene su bundle completo (no dependencies)
 - ✅ Usuario solo descarga 1 archivo CSS
 - ✅ Overrides añaden solo ~200 bytes (gzip)
@@ -416,9 +424,10 @@ pnpm run build
 4. Ejecuta `pnpm run build` - ¡Se incluirá automáticamente!
 
 Ejemplo:
+
 ```css
 /* packages/brand-overrides/src/mi-marca/button.css */
-[data-brand="mi-marca"] .rb-button--primary {
+[data-brand='mi-marca'] .rb-button--primary {
   /* Tus estilos personalizados */
 }
 ```

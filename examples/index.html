@@ -1,79 +1,119 @@
 <!DOCTYPE html>
-<html lang="es" data-brand="jelpit" data-theme="light">
+<html lang="es" data-brand="seguros-bolivar" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Root Block Design System - Demo (Optimized)</title>
+  <title>Root Block Design System - Demo Bootstrap Style</title>
   
-  <!-- 🚀 ARCHIVOS OPTIMIZADOS Y MINIFICADOS -->
-  
-  <!-- 1. BUNDLE COMPLETO - Marca y tema (tokens + atoms + overrides) -->
+  <!-- 🚀 Bundle Completo: tokens + atoms + brand overrides -->
   <link rel="stylesheet" href="dist/rb-seguros-bolivar-light.min.css" id="brand-css">
   
-  <!-- 2. WEB COMPONENTS - Lógica JavaScript (30KB → 8.6KB gzip) -->
+  <!-- 🧬 Web Components -->
   <script type="module" src="dist/rb-components.min.js"></script>
   
-  <!-- 💡 Tamaño total: ~10KB gzip - Todo incluido en un solo archivo CSS -->
-  
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       padding: 2rem;
+      font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+      background: var(--rb-color-grayscale-L400);
+      color: var(--rb-color-grayscale-black);
+    }
+
+    .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    
-    .header {
+
+    /* Hero Section */
+    .hero {
+      padding: 3rem;
+      background: linear-gradient(
+        135deg,
+        var(--rb-color-primary-L400) 0%,
+        var(--rb-color-secondary-L400) 100%
+      );
+      border-radius: 16px;
       margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid var(--rb-color-grayscale-L200);
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    
-    .section {
+
+    .hero h1 {
+      color: var(--rb-color-primary-D200);
+      margin: 0 0 1rem 0;
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      color: var(--rb-color-grayscale-D100);
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    /* Navigation Card */
+    .nav-card {
+      background: var(--rb-color-grayscale-white);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav-card h3 {
+      margin: 0;
+      color: var(--rb-color-primary-base);
+      font-size: 1.5rem;
+    }
+
+    /* Brand Selector */
+    .brand-selector {
+      background: var(--rb-color-grayscale-white);
+      border-radius: 12px;
+      padding: 2rem;
       margin-bottom: 3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    
-    .section-title {
-      margin-bottom: 1.5rem;
+
+    .brand-selector h2 {
+      margin: 0 0 1.5rem 0;
       color: var(--rb-color-primary-base);
     }
-    
-    .brand-selector {
-      margin-bottom: 2rem;
-      padding: 2rem;
-      background: var(--rb-color-grayscale-L400);
-      border-radius: 12px;
-      box-shadow: var(--rb-shadow-s);
-    }
-    
+
     .control-panel {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
-    
+
     .control-group {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
-    
+
     .control-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
       font-weight: 600;
       font-size: 0.875rem;
       color: var(--rb-color-grayscale-D200);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    
+
     .theme-toggle {
       display: flex;
       gap: 0.5rem;
     }
-    
+
     select.rb-button {
       cursor: pointer;
       appearance: none;
@@ -82,241 +122,352 @@
       background-position: right 1rem center;
       padding-right: 2.5rem;
     }
-    
-    @media (max-width: 768px) {
-      .control-panel {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
+
+    /* Section */
+    .section {
+      background: var(--rb-color-grayscale-white);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    
-    .demo-grid {
+
+    .section-title {
+      color: var(--rb-color-primary-base);
+      margin: 0 0 1.5rem 0;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--rb-color-primary-L300);
+      font-size: 1.75rem;
+    }
+
+    .subsection-title {
+      color: var(--rb-color-primary-D100);
+      margin: 2rem 0 1rem 0;
+      font-size: 1.25rem;
+    }
+
+    /* Button Demos */
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Card Grid */
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
+      margin-top: 1.5rem;
     }
-    
-    .card {
+
+    .demo-card {
       padding: 1.5rem;
-      background: var(--rb-color-grayscale-white);
       border: 1px solid var(--rb-color-grayscale-L200);
-      border-radius: 12px;
-      box-shadow: var(--rb-shadow-s);
+      border-radius: 8px;
+      background: var(--rb-color-grayscale-L400);
+    }
+
+    .demo-card h4 {
+      margin: 0 0 1rem 0;
+      color: var(--rb-color-primary-base);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-top: 2px solid var(--rb-color-grayscale-L200);
+    }
+
+    .footer p {
+      margin: 0.5rem 0;
+      color: var(--rb-color-grayscale-base);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .hero {
+        padding: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .nav-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
-<body>
-  <!-- Header -->
-  <div class="header">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-      <div style="flex: 1; min-width: 300px;">
-        <h1>🎨 Root Block Design System</h1>
-        <p style="font-size: 1.25rem; margin-top: 0.5rem; color: var(--rb-color-grayscale-D100);">
-          Demo Interactivo - Multi-Marca
-        </p>
-        <p class="text-label" style="margin-top: 1rem; color: var(--rb-color-grayscale-base);">
-          Sistema de diseño con 6 marcas, 2 temas cada una, usando solo 3 archivos.<br>
-          Cambia la marca o tema abajo y observa cómo los estilos se adaptan automáticamente.
+<body data-brand="seguros-bolivar">
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <h1>🎨 Root Block Design System</h1>
+      <p>Sistema de Diseño Multi-Marca con Data Attributes</p>
+    </div>
+
+    <!-- Navigation Card -->
+    <div class="nav-card">
+      <div>
+        <h3>🔘 Ver Todos los Botones</h3>
+        <p style="margin: 0.5rem 0 0 0; color: var(--rb-color-grayscale-base);">
+          Explora todas las variantes, tamaños y estados
         </p>
       </div>
       <a 
-        href="../" 
-        class="rb-button rb-button--secondary"
-        style="text-decoration: none; white-space: nowrap; align-self: flex-start;"
+        href="button.html" 
+        class="rb-button rb-button--primary rb-button--large"
+        style="text-decoration: none;"
       >
-        📚 Ver Documentación
+        📋 Ver Documentación de Botones
       </a>
     </div>
-  </div>
 
-  <!-- Brand Selector -->
-  <div class="brand-selector">
-    <div style="margin-bottom: 1rem;">
-      <h3 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-        🔧 Panel de Control
-      </h3>
-      <p class="text-label" style="margin: 0; color: var(--rb-color-grayscale-D100);">
-        Selecciona una marca y tema para ver los cambios en tiempo real
+    <!-- Brand Selector -->
+    <div class="brand-selector">
+      <h2>🔧 Selector de Marca y Tema</h2>
+      <p style="margin: 0 0 1.5rem 0; color: var(--rb-color-grayscale-base);">
+        Cambia la marca o tema para ver cómo se adaptan los componentes automáticamente
       </p>
-    </div>
-    
-    <div class="control-panel">
-      <!-- Brand Control -->
-      <div class="control-group">
-        <label class="control-label">
-          <span style="font-size: 1.125rem;">📦</span>
-          Marca
-        </label>
-        <select id="brandSelect" class="rb-button rb-button--tertiary" style="width: 100%;">
-          <option value="white-label">White Label</option>
-          <option value="jelpit" selected>Jelpit</option>
-          <option value="davivienda">Davivienda</option>
-          <option value="cien-cuadras">Cien Cuadras</option>
-          <option value="doctor-aki">Doctor Aki</option>
-          <option value="seguros-bolivar">Seguros Bolívar</option>
-        </select>
-      </div>
       
-      <!-- Theme Control -->
-      <div class="control-group">
-        <label class="control-label">
-          <span style="font-size: 1.125rem;">🌓</span>
-          Tema
-        </label>
-        <div class="theme-toggle">
-          <button id="lightBtn" class="rb-button rb-button--small rb-button--primary" style="flex: 1;">
-            ☀️ Light
-          </button>
-          <button id="darkBtn" class="rb-button rb-button--small rb-button--tertiary" style="flex: 1;">
-            🌙 Dark
-          </button>
+      <div class="control-panel">
+        <!-- Brand Select -->
+        <div class="control-group">
+          <label class="control-label">📦 Marca</label>
+          <select id="brandSelect" class="rb-button rb-button--tertiary">
+            <option value="white-label">White Label</option>
+            <option value="jelpit">Jelpit</option>
+            <option value="davivienda">Davivienda</option>
+            <option value="cien-cuadras">Cien Cuadras</option>
+            <option value="doctor-aki">Doctor Aki</option>
+            <option value="seguros-bolivar" selected>Seguros Bolívar</option>
+          </select>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <div class="control-group">
+          <label class="control-label">🌓 Tema</label>
+          <div class="theme-toggle">
+            <button id="lightBtn" class="rb-button rb-button--primary" style="flex: 1;">
+              ☀️ Light
+            </button>
+            <button id="darkBtn" class="rb-button rb-button--tertiary" style="flex: 1;">
+              🌙 Dark
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    
-  </div>
 
-  <!-- Buttons Section -->
-  <section class="section">
-    <h2 class="section-title">🔘 Botones (CSS Puro)</h2>
-    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
-      Componentes simples construidos con CSS. Solo agregas clases y funcionan.<br>
-      Los colores se adaptan automáticamente según la marca seleccionada.
-    </p>
-    
-    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Variantes de Color</h3>
-    <div class="flex gap-3 mb-6 flex-wrap">
-      <button class="rb-button rb-button--primary">Primary</button>
-      <button class="rb-button rb-button--secondary">Secondary</button>
-      <button class="rb-button rb-button--tertiary">Tertiary</button>
-      <button class="rb-button rb-button--quaternary">Quaternary</button>
-      <button class="rb-button rb-button--quinary">Quinary</button>
-      <button class="rb-button rb-button--danger">Danger</button>
-      <button class="rb-button rb-button--success">Success</button>
-    </div>
-
-    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Tamaños</h3>
-    <div class="flex gap-3 mb-6 items-center flex-wrap">
-      <button class="rb-button rb-button--primary rb-button--small">Small</button>
-      <button class="rb-button rb-button--primary rb-button--medium">Medium</button>
-      <button class="rb-button rb-button--primary rb-button--large">Large</button>
-    </div>
-
-    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Estados</h3>
-    <div class="flex gap-3 mb-6 flex-wrap">
-      <button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
-      <button class="rb-button rb-button--primary" disabled>Disabled</button>
-      <button class="rb-button rb-button--primary rb-button--rounded">Rounded</button>
-    </div>
-  </section>
-
-  <!-- Modal Section -->
-  <section class="section">
-    <h2 class="section-title">📦 Modal (Web Component)</h2>
-    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
-      Componente complejo construido con Lit. Incluye lógica JavaScript, estilos encapsulados y slots.<br>
-      También se adapta automáticamente a los tokens de la marca seleccionada.
-    </p>
-    
-    <button class="rb-button rb-button--primary" onclick="openModal()">
-      🔍 Abrir Modal
-    </button>
-
-    <rb-modal id="demoModal" title="✨ Modal de Ejemplo">
-      <p class="mb-4">Este es un <strong>Web Component</strong> construido con Lit.</p>
-      <p class="mb-4">
-        El modal usa automáticamente los tokens de diseño de la marca seleccionada.
-        Los colores, tipografía y espaciado se ajustan en tiempo real.
-      </p>
-      <p class="text-label" style="color: var(--rb-color-grayscale-base);">
-        📍 Marca actual: <strong id="modalBrand" style="color: var(--rb-color-primary-base);"></strong>
-      </p>
+    <!-- Button Examples Section -->
+    <section class="section">
+      <h2 class="section-title">🔘 Ejemplos de Botones</h2>
       
-      <div slot="footer">
-        <button class="rb-button rb-button--tertiary" onclick="closeModal()">
-          ✕ Cancelar
+      <h3 class="subsection-title">Tipos de Botón</h3>
+      <div class="button-grid">
+        <button class="rb-button rb-button--primary">Primary</button>
+        <button class="rb-button rb-button--secondary">Secondary</button>
+        <button class="rb-button rb-button--tertiary">Tertiary</button>
+        <button class="rb-button rb-button--error">Error</button>
+      </div>
+
+      <h3 class="subsection-title">Variantes de Estilo</h3>
+      <div class="button-grid">
+        <button class="rb-button rb-button--primary rb-button--stroke">Primary Stroke</button>
+        <button class="rb-button rb-button--primary">Primary Fill (default)</button>
+        <button class="rb-button rb-button--primary rb-button--text">Primary Text</button>
+      </div>
+
+      <h3 class="subsection-title">Tamaños</h3>
+      <div class="button-grid" style="align-items: center;">
+        <button class="rb-button rb-button--primary rb-button--small">Small</button>
+        <button class="rb-button rb-button--primary">Medium (default)</button>
+        <button class="rb-button rb-button--primary rb-button--large">Large</button>
+      </div>
+
+      <h3 class="subsection-title">Con Iconos</h3>
+      <div class="button-grid">
+        <button class="rb-button rb-button--primary rb-button--icon-left">
+          <i class="fa-solid fa-save"></i>
+          Guardar
         </button>
-        <button class="rb-button rb-button--primary" onclick="handleConfirm()">
-          ✓ Confirmar
+        <button class="rb-button rb-button--secondary rb-button--icon-right">
+          Siguiente
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="rb-button rb-button--primary rb-button--icon-only" title="Usuario">
+          <i class="fa-solid fa-user"></i>
         </button>
       </div>
-    </rb-modal>
-  </section>
 
-  <!-- Footer -->
-  <footer class="mt-8 pt-6" style="border-top: 2px solid var(--rb-color-grayscale-L200);">
-    <div style="text-align: center;">
-      <p class="text-label" style="color: var(--rb-color-grayscale-D100); font-weight: 600; margin-bottom: 0.5rem;">
+      <h3 class="subsection-title">Estados</h3>
+      <div class="button-grid">
+        <button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
+        <button class="rb-button rb-button--primary" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <!-- Modal Section -->
+    <section class="section">
+      <h2 class="section-title">📦 Modal (Web Component)</h2>
+      <p style="margin-bottom: 1.5rem; color: var(--rb-color-grayscale-base);">
+        Componente complejo construido con Lit. Se adapta automáticamente a los tokens de la marca seleccionada.
+      </p>
+      
+      <button class="rb-button rb-button--primary rb-button--large" onclick="openModal()">
+        🔍 Abrir Modal de Ejemplo
+      </button>
+
+      <rb-modal id="demoModal" title="✨ Modal de Ejemplo">
+        <p style="margin-bottom: 1rem;">
+          Este es un <strong>Web Component</strong> construido con Lit.
+        </p>
+        <p style="margin-bottom: 1rem;">
+          El modal usa automáticamente los tokens de diseño de la marca seleccionada.
+          Los colores, tipografía y espaciado se ajustan en tiempo real.
+        </p>
+        <p style="color: var(--rb-color-grayscale-base); margin: 0;">
+          📍 Marca actual: <strong id="modalBrand" style="color: var(--rb-color-primary-base);"></strong>
+        </p>
+        
+        <div slot="footer">
+          <button class="rb-button rb-button--tertiary" onclick="closeModal()">
+            ✕ Cancelar
+          </button>
+          <button class="rb-button rb-button--primary" onclick="handleConfirm()">
+            ✓ Confirmar
+          </button>
+        </div>
+      </rb-modal>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section">
+      <h2 class="section-title">✨ Características del Sistema</h2>
+      
+      <div class="card-grid">
+        <div class="demo-card">
+          <h4>🎯 CSS Puro</h4>
+          <p>Sin JavaScript para estilos. Solo data attributes y CSS variables.</p>
+        </div>
+        
+        <div class="demo-card">
+          <h4>📦 Multi-Marca</h4>
+          <p>6 marcas con sus propios tokens y overrides personalizados.</p>
+        </div>
+        
+        <div class="demo-card">
+          <h4>🌓 Dark Mode</h4>
+          <p>Todos los componentes soportan tema claro y oscuro.</p>
+        </div>
+        
+        <div class="demo-card">
+          <h4>⚡ Optimizado</h4>
+          <p>~34KB minificado, ~4.7KB gzip por marca.</p>
+        </div>
+        
+        <div class="demo-card">
+          <h4>♿ Accesible</h4>
+          <p>Focus visible, disabled, reduced motion, high contrast.</p>
+        </div>
+        
+        <div class="demo-card">
+          <h4>🔧 Mantenible</h4>
+          <p>Patrón consistente de variables CSS para fácil personalización.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p style="font-weight: 600; font-size: 1.125rem; color: var(--rb-color-primary-base);">
         Root Block Design System v1.0.0
       </p>
-      <p class="text-caption" style="color: var(--rb-color-grayscale-base);">
-        6 marcas · 2 temas · 2 archivos · ~10KB gzip
+      <p>6 marcas · 2 temas · Data Attributes Approach</p>
+      <p style="font-size: 0.875rem; color: var(--rb-color-grayscale-L100);">
+        Construido con CSS Variables, Lit, PNPM Workspaces
       </p>
-      <p class="text-caption" style="color: var(--rb-color-grayscale-base); margin-top: 0.5rem;">
-        ✨ Incluye brand overrides automáticos (ej: animación especial Davivienda)
-      </p>
-      <p class="text-caption" style="color: var(--rb-color-grayscale-L100); margin-top: 0.5rem;">
-        Construido con Style Dictionary, Lit, PNPM Workspaces
-      </p>
-    </div>
-  </footer>
+    </footer>
+  </div>
+
+  <!-- Font Awesome (para iconos) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  >
 
   <script>
-    // Brand and Theme Switching
+    // Brand and Theme Switching with localStorage persistence
     const brandSelect = document.getElementById('brandSelect');
     const lightBtn = document.getElementById('lightBtn');
     const darkBtn = document.getElementById('darkBtn');
     const html = document.documentElement;
+    const body = document.body;
     const brandCss = document.getElementById('brand-css');
 
-    // Leer valores iniciales del HTML
-    let currentBrand = html.getAttribute('data-brand') || 'jelpit';
-    let currentTheme = html.getAttribute('data-theme') || 'light';
+    // Leer valores de localStorage o usar defaults
+    let currentBrand = localStorage.getItem('rb-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
+    let currentTheme = localStorage.getItem('rb-theme') || html.getAttribute('data-theme') || 'light';
 
-    function updateTheme() {
+    function updateBrandAndTheme() {
+      // Update HTML attributes
       html.setAttribute('data-brand', currentBrand);
       html.setAttribute('data-theme', currentTheme);
+      body.setAttribute('data-brand', currentBrand);
       
-      // Update brand CSS - Complete bundle (tokens + atoms + overrides)
+      // Save to localStorage
+      localStorage.setItem('rb-brand', currentBrand);
+      localStorage.setItem('rb-theme', currentTheme);
+      
+      // Update CSS bundle (tokens + atoms + overrides)
       brandCss.href = `dist/rb-${currentBrand}-${currentTheme}.min.css`;
       
-      // Sincronizar el select con el valor actual
+      // Sync select
       brandSelect.value = currentBrand;
       
       // Update button states
       if (currentTheme === 'light') {
-        lightBtn.className = 'rb-button rb-button--small rb-button--primary';
-        darkBtn.className = 'rb-button rb-button--small rb-button--tertiary';
+        lightBtn.className = 'rb-button rb-button--primary';
+        darkBtn.className = 'rb-button rb-button--tertiary';
       } else {
-        lightBtn.className = 'rb-button rb-button--small rb-button--tertiary';
-        darkBtn.className = 'rb-button rb-button--small rb-button--primary';
+        lightBtn.className = 'rb-button rb-button--tertiary';
+        darkBtn.className = 'rb-button rb-button--primary';
       }
 
-      console.log(`✅ Brand changed to: ${currentBrand} ${currentTheme}`);
-      console.log(`📦 Loading complete bundle: dist/rb-${currentBrand}-${currentTheme}.min.css`);
-      
-      if (currentBrand === 'davivienda') {
-        console.log('✨ Davivienda special loading animation enabled!');
-      }
+      console.log(`✅ Marca: ${currentBrand} | Tema: ${currentTheme}`);
+      console.log(`📦 Bundle: dist/rb-${currentBrand}-${currentTheme}.min.css`);
+      console.log(`💾 Guardado en localStorage`);
     }
 
+    // Event Listeners
     brandSelect.addEventListener('change', (e) => {
       currentBrand = e.target.value;
-      updateTheme();
+      updateBrandAndTheme();
     });
 
     lightBtn.addEventListener('click', () => {
       currentTheme = 'light';
-      updateTheme();
+      updateBrandAndTheme();
     });
 
     darkBtn.addEventListener('click', () => {
       currentTheme = 'dark';
-      updateTheme();
+      updateBrandAndTheme();
     });
 
-    // Inicializar el estado al cargar la página
-    updateTheme();
+    // Initialize
+    updateBrandAndTheme();
 
     // Modal Functions
     function openModal() {
@@ -331,19 +482,18 @@
     }
 
     function handleConfirm() {
-      alert('¡Confirmado!');
+      alert(`✅ Confirmado en marca: ${currentBrand}`);
       closeModal();
     }
 
     // Listen to modal events
     const modal = document.getElementById('demoModal');
     modal.addEventListener('rb-modal-open', () => {
-      console.log('Modal opened');
+      console.log('🔓 Modal abierto');
     });
     modal.addEventListener('rb-modal-close', () => {
-      console.log('Modal closed');
+      console.log('🔒 Modal cerrado');
     });
   </script>
 </body>
 </html>
-

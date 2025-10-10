@@ -24,17 +24,13 @@ En Seguros Bolívar, los colores primary y secondary están invertidos:
 ### Uso
 
 ```html
-<link rel="stylesheet" href="rb-seguros-bolivar-light.min.css">
+<link rel="stylesheet" href="rb-seguros-bolivar-light.min.css" />
 
 <!-- Primary = Amarillo -->
-<button class="rb-button rb-button--primary">
-  Acción Principal
-</button>
+<button class="rb-button rb-button--primary">Acción Principal</button>
 
 <!-- Secondary = Verde -->
-<button class="rb-button rb-button--secondary">
-  Acción Secundaria
-</button>
+<button class="rb-button rb-button--secondary">Acción Secundaria</button>
 ```
 
 ## 📝 Notas

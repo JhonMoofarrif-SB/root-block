@@ -1,16 +1,19 @@
 # 🚀 Empezar en 3 Pasos
 
 ## 1. Instalar
+
 ```bash
 pnpm install
 ```
 
 ## 2. Compilar
+
 ```bash
 pnpm run build
 ```
 
 ## 3. Ver Demo
+
 ```bash
 pnpm run demo
 ```
@@ -43,6 +46,7 @@ pnpm run clean      # Limpiar todo
 La marca Davivienda tiene una animación especial de **barra negra** en el botón loading.
 
 **Para verla:**
+
 1. `pnpm run demo`
 2. Selecciona "Davivienda" en el selector
 3. Mira el botón "Loading..." ⬛✨
@@ -50,4 +54,3 @@ La marca Davivienda tiene una animación especial de **barra negra** en el botó
 ---
 
 **¿Problemas?** → Ejecuta `pnpm run clean` y luego `pnpm run build`
-

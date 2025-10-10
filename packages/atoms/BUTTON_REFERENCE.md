@@ -17,20 +17,24 @@ TOTAL:               7 × 3 × 4 × 7 × 3 = 1,764 combinaciones posibles
 ## 🎯 Cambios Principales
 
 ### ✅ **DEFAULT = STROKE** (outline con borde)
+
 El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ### ✅ **Nuevas Variantes de Estilo**
+
 1. **STROKE** (default): Outline con borde, fondo transparente
 2. **FILL**: Sólido con fondo de color
 3. **TEXT**: Sin fondo ni borde, solo texto
 
 ### ✅ **Nuevas Posiciones de Iconos**
+
 1. **icon-left**: Icono a la izquierda del texto
 2. **icon-right**: Icono a la derecha del texto
 3. **icon-only**: Solo icono, sin texto
 4. **no-icon** (default): Sin icono
 
 ### ✅ **Nueva Estructura de @layer**
+
 ```css
 @layer reset, tokens, base, variants, style-variants, sizes, modifiers, icon-positions, states, utilities;
 ```
@@ -43,67 +47,45 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Primary Stroke (default) -->
-<button class="rb-button rb-button--primary">
-  Primary Stroke
-</button>
+<button class="rb-button rb-button--primary">Primary Stroke</button>
 
 <!-- También explícito -->
-<button class="rb-button rb-button--primary rb-button--stroke">
-  Primary Stroke
-</button>
+<button class="rb-button rb-button--primary rb-button--stroke">Primary Stroke</button>
 
 <!-- Secondary Stroke -->
-<button class="rb-button rb-button--secondary">
-  Secondary Stroke
-</button>
+<button class="rb-button rb-button--secondary">Secondary Stroke</button>
 
 <!-- Danger Stroke -->
-<button class="rb-button rb-button--danger">
-  Danger Stroke
-</button>
+<button class="rb-button rb-button--danger">Danger Stroke</button>
 ```
 
 ### 2️⃣ **FILL (Sólido)**
 
 ```html
 <!-- Primary Fill -->
-<button class="rb-button rb-button--primary rb-button--fill">
-  Primary Fill
-</button>
+<button class="rb-button rb-button--primary rb-button--fill">Primary Fill</button>
 
 <!-- Secondary Fill -->
-<button class="rb-button rb-button--secondary rb-button--fill">
-  Secondary Fill
-</button>
+<button class="rb-button rb-button--secondary rb-button--fill">Secondary Fill</button>
 
 <!-- Danger Fill -->
-<button class="rb-button rb-button--danger rb-button--fill">
-  Danger Fill
-</button>
+<button class="rb-button rb-button--danger rb-button--fill">Danger Fill</button>
 
 <!-- Success Fill -->
-<button class="rb-button rb-button--success rb-button--fill">
-  Success Fill
-</button>
+<button class="rb-button rb-button--success rb-button--fill">Success Fill</button>
 ```
 
 ### 3️⃣ **TEXT (Sin fondo ni borde)**
 
 ```html
 <!-- Primary Text -->
-<button class="rb-button rb-button--primary rb-button--text">
-  Primary Text
-</button>
+<button class="rb-button rb-button--primary rb-button--text">Primary Text</button>
 
 <!-- Secondary Text -->
-<button class="rb-button rb-button--secondary rb-button--text">
-  Secondary Text
-</button>
+<button class="rb-button rb-button--secondary rb-button--text">Secondary Text</button>
 
 <!-- Danger Text -->
-<button class="rb-button rb-button--danger rb-button--text">
-  Danger Text
-</button>
+<button class="rb-button rb-button--danger rb-button--text">Danger Text</button>
 ```
 
 ### 4️⃣ **ICONOS**
@@ -143,19 +125,13 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Small -->
-<button class="rb-button rb-button--primary rb-button--small">
-  Small
-</button>
+<button class="rb-button rb-button--primary rb-button--small">Small</button>
 
 <!-- Medium (default) -->
-<button class="rb-button rb-button--primary">
-  Medium
-</button>
+<button class="rb-button rb-button--primary">Medium</button>
 
 <!-- Large -->
-<button class="rb-button rb-button--primary rb-button--large">
-  Large
-</button>
+<button class="rb-button rb-button--primary rb-button--large">Large</button>
 
 <!-- Small + Fill + Icon Left -->
 <button class="rb-button rb-button--primary rb-button--fill rb-button--small rb-button--icon-left">
@@ -167,9 +143,7 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Square (esquinas menos redondeadas) -->
-<button class="rb-button rb-button--primary rb-button--square">
-  Square
-</button>
+<button class="rb-button rb-button--primary rb-button--square">Square</button>
 
 <!-- Circle (circular perfecto) -->
 <button class="rb-button rb-button--primary rb-button--circle">
@@ -177,18 +151,14 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 </button>
 
 <!-- Block (full width) -->
-<button class="rb-button rb-button--primary rb-button--block">
-  Block Full Width
-</button>
+<button class="rb-button rb-button--primary rb-button--block">Block Full Width</button>
 ```
 
 ### 7️⃣ **ESTADOS**
 
 ```html
 <!-- Default (estado normal) -->
-<button class="rb-button rb-button--primary">
-  Default
-</button>
+<button class="rb-button rb-button--primary">Default</button>
 
 <!-- Hover (automático con CSS :hover) -->
 <!-- No requiere clase adicional -->
@@ -200,9 +170,7 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 <!-- No requiere clase adicional -->
 
 <!-- Loading (clase adicional) -->
-<button class="rb-button rb-button--primary rb-button--loading">
-  Loading...
-</button>
+<button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
 
 <!-- Loading con spinner a la derecha -->
 <button class="rb-button rb-button--primary rb-button--loading rb-button--loading-right">
@@ -215,9 +183,7 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 </button>
 
 <!-- Disabled (atributo HTML) -->
-<button class="rb-button rb-button--primary" disabled>
-  Disabled
-</button>
+<button class="rb-button rb-button--primary" disabled>Disabled</button>
 
 <!-- Disabled Hover (automático con CSS :disabled:hover) -->
 <!-- No requiere clase adicional -->
@@ -231,19 +197,13 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- CTA Principal (Fill Primary) -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--large">
-  Get Started
-</button>
+<button class="rb-button rb-button--primary rb-button--fill rb-button--large">Get Started</button>
 
 <!-- CTA Secundario (Stroke Primary) -->
-<button class="rb-button rb-button--primary rb-button--large">
-  Learn More
-</button>
+<button class="rb-button rb-button--primary rb-button--large">Learn More</button>
 
 <!-- CTA Terciario (Text Primary) -->
-<button class="rb-button rb-button--primary rb-button--text">
-  View Details
-</button>
+<button class="rb-button rb-button--primary rb-button--text">View Details</button>
 ```
 
 ### Botones con Iconos
@@ -269,19 +229,13 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Loading Primary Fill -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--loading">
-  Saving...
-</button>
+<button class="rb-button rb-button--primary rb-button--fill rb-button--loading">Saving...</button>
 
 <!-- Loading Secondary Stroke -->
-<button class="rb-button rb-button--secondary rb-button--loading">
-  Processing...
-</button>
+<button class="rb-button rb-button--secondary rb-button--loading">Processing...</button>
 
 <!-- Disabled Danger -->
-<button class="rb-button rb-button--danger rb-button--fill" disabled>
-  Cannot Delete
-</button>
+<button class="rb-button rb-button--danger rb-button--fill" disabled>Cannot Delete</button>
 ```
 
 ### Formularios
@@ -293,23 +247,21 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 </button>
 
 <!-- Cancel Button -->
-<button type="button" class="rb-button rb-button--secondary rb-button--text">
-  Cancel
-</button>
+<button type="button" class="rb-button rb-button--secondary rb-button--text">Cancel</button>
 ```
 
 ---
 
 ## 📋 Tabla de Variantes de Estilo
 
-| Tipo | STROKE (default) | FILL | TEXT |
-|------|------------------|------|------|
-| **Primary** | `.rb-button--primary` | `.rb-button--primary .rb-button--fill` | `.rb-button--primary .rb-button--text` |
-| **Secondary** | `.rb-button--secondary` | `.rb-button--secondary .rb-button--fill` | `.rb-button--secondary .rb-button--text` |
-| **Tertiary** | `.rb-button--tertiary` | `.rb-button--tertiary .rb-button--fill` | `.rb-button--tertiary .rb-button--text` |
-| **Danger** | `.rb-button--danger` | `.rb-button--danger .rb-button--fill` | `.rb-button--danger .rb-button--text` |
-| **Success** | `.rb-button--success` | `.rb-button--success .rb-button--fill` | `.rb-button--success .rb-button--text` |
-| **Quinary** | `.rb-button--quinary` | `.rb-button--quinary .rb-button--fill` | `.rb-button--quinary .rb-button--text` |
+| Tipo           | STROKE (default)         | FILL                                      | TEXT                                      |
+| -------------- | ------------------------ | ----------------------------------------- | ----------------------------------------- |
+| **Primary**    | `.rb-button--primary`    | `.rb-button--primary .rb-button--fill`    | `.rb-button--primary .rb-button--text`    |
+| **Secondary**  | `.rb-button--secondary`  | `.rb-button--secondary .rb-button--fill`  | `.rb-button--secondary .rb-button--text`  |
+| **Tertiary**   | `.rb-button--tertiary`   | `.rb-button--tertiary .rb-button--fill`   | `.rb-button--tertiary .rb-button--text`   |
+| **Danger**     | `.rb-button--danger`     | `.rb-button--danger .rb-button--fill`     | `.rb-button--danger .rb-button--text`     |
+| **Success**    | `.rb-button--success`    | `.rb-button--success .rb-button--fill`    | `.rb-button--success .rb-button--text`    |
+| **Quinary**    | `.rb-button--quinary`    | `.rb-button--quinary .rb-button--fill`    | `.rb-button--quinary .rb-button--text`    |
 | **Quaternary** | `.rb-button--quaternary` | `.rb-button--quaternary .rb-button--fill` | `.rb-button--quaternary .rb-button--text` |
 
 ---
@@ -351,6 +303,7 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 ## ✅ Reglas CSS Implementadas
 
 ### ✅ SIEMPRE Usar:
+
 - ✅ CSS Nesting nativo con `&`
 - ✅ `@layer` para control de cascada (10 capas)
 - ✅ Logical Properties (inline-size, padding-inline, etc.)
@@ -360,6 +313,7 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 - ✅ Accesibilidad completa
 
 ### ❌ NUNCA Usar:
+
 - ❌ Physical properties
 - ❌ Media queries para tamaños
 - ❌ Selectores sin prefijo `rb-`
@@ -409,4 +363,3 @@ packages/atoms/src/
 **Última actualización:** 2025-01-09  
 **Versión:** 2.0.0  
 **Total de combinaciones:** 1,764
-

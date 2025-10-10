@@ -1,141 +1,114 @@
 /**
- * Seguros Bolívar - Button Overrides
+ * ============================================================================
+ * Seguros Bolívar - Button Component Overrides
+ * ============================================================================
  * 
- * Override específico: Inversión de colores Primary ↔ Secondary
- * - PRIMARY STROKE = Amarillo (#FFE16F) con borde amarillo
- * - PRIMARY FILL = Amarillo (#FFE16F) con texto verde (#038450)
- * - PRIMARY TEXT = Verde (#038450)
+ * Data Attribute Approach: [data-brand="seguros-bolivar"]
+ * 
+ * Estructura:
+ * - 4 TIPOS: primary, secondary, tertiary, error
+ * - 3 VARIANTES: stroke (default), fill, text
+ * - ESTADOS: default, hover, active, disabled
+ * 
+ * Solo se definen las variables que se quieren cambiar respecto al default.
+ * Las variables usan el mismo patrón que el button.css general.
+ * 
+ * ============================================================================
  */
 
-/* ========================================
-   PRIMARY BUTTON - Amarillo con verde
-   ======================================== */
+[data-brand='seguros-bolivar'] {
+  /* ========================================
+     PRIMARY - STROKE (default)
+     Amarillo borde, texto verde
+     ======================================== */
+  .rb-button--primary {
+    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
 
-/* PRIMARY STROKE - borde y texto amarillo #FFE16F */
-[data-brand='seguros-bolivar'] .rb-button--primary:not(.rb-button--fill):not(.rb-button--text),
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--stroke {
-  --rb-button-bg-color: transparent;                           /* Fondo transparente */
-  --rb-button-text-color: var(--rb-color-secondary-base);      /* #FFE16F - amarillo */
-  --rb-button-border-color: var(--rb-color-secondary-base);    /* #FFE16F - amarillo */
-  --rb-button-bg-hover: var(--rb-color-secondary-L300);        /* Fondo sutil amarillo claro en hover */
-  --rb-button-bg-active: var(--rb-color-secondary-L200);       /* Fondo sutil amarillo en active */
-}
+    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
+    --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
 
-/* PRIMARY STROKE - Estados hover y active con mayor especificidad */
-[data-brand='seguros-bolivar'] .rb-button--primary:not(.rb-button--fill):not(.rb-button--text):hover:not(:disabled),
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--stroke:hover:not(:disabled) {
-  --rb-button-text-color: var(--rb-color-secondary-D100);      /* Amarillo más oscuro en hover */
-  color: var(--rb-color-secondary-D100) !important;
-  --rb-button-border-color: var(--rb-color-secondary-D100);
-  border-color: var(--rb-color-secondary-D100);
-}
+    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
+    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+  }
 
-[data-brand='seguros-bolivar'] .rb-button--primary:not(.rb-button--fill):not(.rb-button--text):active:not(:disabled),
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--stroke:active:not(:disabled) {
-  --rb-button-text-color: var(--rb-color-secondary-D200);      /* Amarillo aún más oscuro en active */
-  color: var(--rb-color-secondary-D200) !important;
-  --rb-button-border-color: var(--rb-color-secondary-D200);
-  border-color: var(--rb-color-secondary-D200);
-}
+  /* ========================================
+     PRIMARY - FILL
+     Amarillo sólido, texto verde
+     ======================================== */
+  .rb-button--fill.rb-button--primary {
+    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
+    --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300);
 
-/* PRIMARY FILL - fondo amarillo #FFE16F, texto verde #038450 */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill {
-  --rb-button-bg-color: var(--rb-color-secondary-base);        /* #FFE16F - amarillo */
-  --rb-button-text-color: var(--rb-color-primary-D100);        /* #038450 - verde oscuro */
-  --rb-button-border-color: var(--rb-color-secondary-base);    /* #FFE16F */
-}
+    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
 
-/* PRIMARY FILL - Estados hover y active con mayor especificidad */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill:hover:not(:disabled) {
-  --rb-button-bg-color: var(--rb-color-secondary-D100);        /* #FFDA55 - amarillo más oscuro */
-  --rb-button-bg-hover: var(--rb-color-secondary-D100);
-  background-color: var(--rb-color-secondary-D100) !important;
-  --rb-button-text-color: var(--rb-color-primary-D100);        /* #038450 - verde oscuro */
-  --rb-button-text-hover: var(--rb-color-primary-D100);        /* Override de text-hover */
-  color: var(--rb-color-primary-D100) !important;
-}
+    --rb-button-primary-fill-border: var(--rb-color-secondary-base);
+    --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300);
+  }
 
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill:active:not(:disabled) {
-  --rb-button-bg-color: var(--rb-color-secondary-D200);        /* #FFD543 - amarillo aún más oscuro */
-  --rb-button-bg-active: var(--rb-color-secondary-D200);
-  background-color: var(--rb-color-secondary-D200) !important;
-  --rb-button-text-color: var(--rb-color-primary-D100);        /* #038450 - verde oscuro */
-  --rb-button-text-active: var(--rb-color-primary-D100);       /* Override de text-active */
-  color: var(--rb-color-primary-D100) !important;
-}
+  /* ========================================
+     PRIMARY - TEXT
+     Transparente con texto verde
+     ======================================== */
+  .rb-button--text.rb-button--primary {
+    --rb-button-primary-text-bg: transparent;
+    --rb-button-primary-text-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-primary-text-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-primary-text-bg-disabled: transparent;
 
-/* PRIMARY FILL - Focus: el outline está definido globalmente */
+    --rb-button-primary-text-text: var(--rb-color-primary-base);
+    --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
+    --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
+  }
 
-/* PRIMARY FILL - Loading */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill.rb-button--loading {
-  --rb-button-bg-color: var(--rb-color-secondary-base);        /* #FFE16F - amarillo */
-  background-color: var(--rb-color-secondary-base) !important;
-  --rb-button-text-color: var(--rb-color-primary-D100);        /* #038450 - verde oscuro */
-  color: var(--rb-color-primary-D100) !important;
-}
+  /* ========================================
+     SECONDARY - STROKE
+     Verde borde, texto verde
+     ======================================== */
+  .rb-button--secondary {
+    --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
 
-/* PRIMARY FILL - Disabled */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill:disabled,
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill.rb-button--disabled {
-  --rb-button-bg-color: var(--rb-color-grayscale-L300);        /* #F5F5F5 - gris claro */
-  background-color: var(--rb-color-grayscale-L300) !important;
-  --rb-button-text-color: var(--rb-color-grayscale-L100);      /* #B9B9B9 - gris */
-  color: var(--rb-color-grayscale-L100) !important;
-  --rb-button-border-color: var(--rb-color-grayscale-L300);
-  border-color: var(--rb-color-grayscale-L300);
-  outline: none !important;
-  cursor: not-allowed;
-}
+    --rb-button-secondary-stroke-text: var(--rb-color-primary-D100);
+    --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100);
 
-/* PRIMARY FILL - Disabled hover - mantener colores disabled */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill:disabled:hover,
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill.rb-button--disabled:hover {
-  background-color: var(--rb-color-grayscale-L300) !important;  /* #F5F5F5 - sin cambio */
-  color: var(--rb-color-grayscale-L100) !important;             /* #B9B9B9 - sin cambio */
-  border-color: var(--rb-color-grayscale-L300) !important;
-  outline: none !important;
-  cursor: not-allowed;
-}
+    --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
+    --rb-button-secondary-stroke-border-hover: var(--rb-color-primary-D100);
+  }
 
-/* PRIMARY FILL - Disabled focus - sin outline */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill:disabled:focus,
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill:disabled:focus-visible,
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill.rb-button--disabled:focus,
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill.rb-button--disabled:focus-visible {
-  outline: none !important;
-}
+  /* ========================================
+     SECONDARY - FILL
+     Verde sólido, texto blanco
+     ======================================== */
+  .rb-button--fill.rb-button--secondary {
+    --rb-button-secondary-fill-bg: var(--rb-color-primary-base);
+    --rb-button-secondary-fill-bg-hover: var(--rb-color-primary-D100);
 
-/* PRIMARY TEXT - texto amarillo #FFE16F */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text {
-  --rb-button-text-color: var(--rb-color-secondary-base);      /* #FFE16F - amarillo */
-}
+    --rb-button-secondary-fill-text: var(--rb-color-grayscale-white);
 
-/* PRIMARY TEXT - Estados hover y active con mayor especificidad */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:hover:not(:disabled) {
-  --rb-button-text-color: var(--rb-color-secondary-D100);      /* Amarillo más oscuro en hover */
-  color: var(--rb-color-secondary-D100) !important;
-}
+    --rb-button-secondary-fill-border: var(--rb-color-primary-base);
+  }
 
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:active:not(:disabled) {
-  --rb-button-text-color: var(--rb-color-secondary-D200);      /* Amarillo aún más oscuro en active */
-  color: var(--rb-color-secondary-D200) !important;
-}
-
-
-/* Override de focus: usar secondary-L100 (amarillo claro) */
-[data-brand='seguros-bolivar'] .rb-button:focus-visible:not(:disabled):not(.rb-button--disabled) {
-  outline: 3px solid var(--rb-color-secondary-L100);  /* #FFEA9A */
-  outline-offset: 4px;
-}
-
-/* ========================================
-   SECONDARY BUTTON - VERDE
-   ======================================== */
-
-[data-brand='seguros-bolivar'] .rb-button--secondary {
-  --rb-button-bg-color: var(--rb-color-primary-base);
-  --rb-button-bg-hover: var(--rb-color-primary-D100);
-  --rb-button-bg-active: var(--rb-color-primary-D200);
-  --rb-button-border-color: var(--rb-color-primary-base);
-  --rb-button-text-color: var(--rb-color-grayscale-white);
+  /* ========================================
+     SECONDARY - TEXT
+     Transparente con texto verde
+     ======================================== */
+  .rb-button--text.rb-button--secondary {
+    --rb-button-secondary-text-text: var(--rb-color-primary-base);
+    --rb-button-secondary-text-text-hover: var(--rb-color-primary-D100);
+  }
 }

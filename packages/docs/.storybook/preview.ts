@@ -55,6 +55,17 @@ const preview: Preview = {
       document.documentElement.setAttribute('data-brand', brand);
       document.documentElement.setAttribute('data-theme', theme);
 
+      // Cargar Font Awesome (solo una vez)
+      const fontAwesomeId = 'rb-fontawesome-styles';
+      if (!document.getElementById(fontAwesomeId)) {
+        const fontAwesomeLink = document.createElement('link');
+        fontAwesomeLink.id = fontAwesomeId;
+        fontAwesomeLink.rel = 'stylesheet';
+        fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+        fontAwesomeLink.crossOrigin = 'anonymous';
+        document.head.appendChild(fontAwesomeLink);
+      }
+
       // Cargar dinámicamente el bundle completo de la marca
       const brandStyleId = 'rb-brand-styles';
       let styleLink = document.getElementById(brandStyleId) as HTMLLinkElement;

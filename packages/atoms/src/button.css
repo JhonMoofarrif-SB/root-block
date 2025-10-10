@@ -24,28 +24,19 @@
  *    ├─ PRIMARY ............................. Línea ~185
  *    ├─ SECONDARY ........................... Línea ~195
  *    ├─ TERTIARY ............................ Línea ~205
- *    ├─ DANGER .............................. Línea ~215
- *    ├─ SUCCESS ............................. Línea ~225
- *    ├─ QUINARY ............................. Línea ~235
- *    └─ QUATERNARY .......................... Línea ~245
+ *    └─ ERROR ............................... Línea ~215
  * 6. STYLE-VARIANTS LAYER .................... Línea ~255
  *    ├─ STROKE (default) .................... Línea ~265
  *    ├─ FILL ................................ Línea ~275
  *    │  ├─ PRIMARY FILL ..................... Línea ~280
  *    │  ├─ SECONDARY FILL ................... Línea ~295
  *    │  ├─ TERTIARY FILL .................... Línea ~310
- *    │  ├─ DANGER FILL ...................... Línea ~325
- *    │  ├─ SUCCESS FILL ..................... Línea ~340
- *    │  ├─ QUINARY FILL ..................... Línea ~355
- *    │  └─ QUATERNARY FILL .................. Línea ~370
+ *    │  └─ ERROR FILL ....................... Línea ~325
  *    └─ TEXT ................................ Línea ~385
  *       ├─ PRIMARY TEXT ..................... Línea ~405
  *       ├─ SECONDARY TEXT ................... Línea ~410
  *       ├─ TERTIARY TEXT .................... Línea ~415
- *       ├─ DANGER TEXT ...................... Línea ~420
- *       ├─ SUCCESS TEXT ..................... Línea ~425
- *       ├─ QUINARY TEXT ..................... Línea ~430
- *       └─ QUATERNARY TEXT .................. Línea ~435
+ *       └─ ERROR TEXT ....................... Línea ~420
  * 7. SIZES LAYER ............................. Línea ~445
  *    ├─ SMALL ............................... Línea ~450
  *    ├─ MEDIUM (default) .................... Línea ~455
@@ -84,7 +75,7 @@
  * 🎯 TIPOS DE COLOR
  * ============================================================================
  * 
- * primary, secondary, tertiary, danger, success, quinary, quaternary
+ * primary, secondary, tertiary, error
  * 
  * ============================================================================
  * 📱 ESTADOS
@@ -152,7 +143,7 @@
  * 📊 MATRIZ DE COMBINACIONES
  * ============================================================================
  * 
- * TIPOS (7):     primary, secondary, tertiary, danger, success, quinary, quaternary
+ * TIPOS (4):     primary, secondary, tertiary, error
  * ESTILOS (3):   stroke (default), fill, text
  * ICONOS (4):    no-icon (default), icon-left, icon-right, icon-only
  * ESTADOS (7):   default, hover, pressed, focus, loading, disabled, disabled-hover
@@ -182,23 +173,23 @@
 
 /* ========================================
    TOKENS LAYER - Variables CSS
-   DEFAULT = STROKE (outline)
+   DEFAULT = FILL (relleno sólido)
    ======================================== */
 
 @layer tokens {
   .rb-button {
-    /* Colores BASE - STROKE por defecto (outline) */
-    --rb-button-bg-color: transparent;
-    --rb-button-bg-hover: var(--rb-color-primary-L400, rgba(0, 122, 204, 0.08));
-    --rb-button-bg-active: var(--rb-color-primary-L300, rgba(0, 122, 204, 0.12));
+    /* Colores BASE - FILL por defecto (relleno sólido) */
+    --rb-button-bg-color: var(--rb-color-secondary-base);
+    --rb-button-bg-hover: var(--rb-color-secondary-D100);
+    --rb-button-bg-active: var(--rb-color-secondary-D200);
     --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-    --rb-button-text-color: var(--rb-color-primary-base, #007acc);
-    --rb-button-text-hover: var(--rb-color-primary-D100, #005a9e);
-    --rb-button-text-active: var(--rb-color-primary-D200, #004578);
+    --rb-button-text-color: var(--rb-color-primary-D100);
+    --rb-button-text-hover: var(--rb-color-primary-D100);
+    --rb-button-text-active: var(--rb-color-primary-D100);
     --rb-button-text-disabled: var(--rb-color-grayscale-L100, #b9b9b9);
-    --rb-button-border-color: var(--rb-color-primary-base, #007acc);
+    --rb-button-border-color: var(--rb-color-secondary-base);
     --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-    --rb-button-border-width: 2px;
+    --rb-button-border-width: 1px;
     --rb-button-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
 
     /* Espaciado - Fluido con clamp() */
@@ -222,8 +213,10 @@
     --rb-button-shadow-active: none;
     --rb-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
-    /* Transiciones */
-    --rb-button-transition: all 0.2s ease;
+    /* Transiciones - NO incluir outline para evitar destellos en focus */
+    --rb-button-transition:
+      background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+      transform 0.2s ease;
   }
 }
 
@@ -275,22 +268,23 @@
     &:hover:not(:disabled):not(.rb-button--disabled) {
       background-color: var(--rb-button-bg-hover);
       color: var(--rb-button-text-hover, var(--rb-button-text-color));
+      border-color: var(--rb-button-border-hover, var(--rb-button-border-color));
       box-shadow: var(--rb-button-shadow-hover);
       cursor: pointer;
-      /* border-color NO cambia - mantiene el color original */
     }
 
     &:active:not(:disabled):not(.rb-button--disabled) {
       background-color: var(--rb-button-bg-active);
       color: var(--rb-button-text-active, var(--rb-button-text-color));
-      box-shadow: var(--rb-button-shadow-active);
+      border-color: var(--rb-button-border-active, var(--rb-button-border-color));
+      box-shadow: var(--rb-button-shadow-pressed, var(--rb-button-shadow-active));
       cursor: pointer;
-      /* El borde mantiene su color original */
     }
 
     &:focus-visible:not(:disabled):not(.rb-button--disabled) {
       outline: 3px solid var(--rb-color-secondary-L100);
-      outline-offset: 4px;
+      outline-offset: 2px;
+      animation: rb-button-focus-pulse 0.3s ease-out;
     }
 
     &:disabled,
@@ -330,87 +324,175 @@
 
 @layer variants {
   /* ============================================
-     PRIMARY - Color primario (default stroke)
+     PRIMARY - STROKE (default)
+     Borde secondary, texto primary-D100 default, secondary en hover/active
      ============================================ */
   .rb-button--primary {
-    --rb-button-text-color: var(--rb-color-primary-base);
-    --rb-button-text-hover: var(--rb-color-primary-D100);
-    --rb-button-text-active: var(--rb-color-primary-D200);
-    --rb-button-border-color: var(--rb-color-primary-base);
-    --rb-button-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-bg-active: var(--rb-color-primary-L300);
+    /* STROKE variant (default) */
+    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+
+    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
+    --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+
+    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
+    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+
+    /* Apply STROKE as default */
+    --rb-button-bg-color: var(--rb-button-primary-stroke-bg);
+    --rb-button-bg-hover: var(--rb-button-primary-stroke-bg-hover);
+    --rb-button-bg-active: var(--rb-button-primary-stroke-bg-active);
+    --rb-button-bg-disabled: var(--rb-button-primary-stroke-bg-disabled);
+
+    --rb-button-text-color: var(--rb-button-primary-stroke-text);
+    --rb-button-text-hover: var(--rb-button-primary-stroke-text-hover);
+    --rb-button-text-active: var(--rb-button-primary-stroke-text-active);
+    --rb-button-text-disabled: var(--rb-button-primary-stroke-text-disabled);
+
+    --rb-button-border-color: var(--rb-button-primary-stroke-border);
+    --rb-button-border-hover: var(--rb-button-primary-stroke-border-hover);
+    --rb-button-border-active: var(--rb-button-primary-stroke-border-active);
+    --rb-button-border-disabled: var(--rb-button-primary-stroke-border-disabled);
+
+    --rb-button-border-width: 1px;
+    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+
+    /* Disabled Hover override */
+    &:disabled:hover,
+    &.rb-button--disabled:hover {
+      background-color: var(--rb-color-grayscale-L300) !important;
+      border-color: var(--rb-color-grayscale-L100) !important;
+      color: var(--rb-color-grayscale-base) !important;
+    }
   }
 
   /* ============================================
-     SECONDARY - Color secundario
+     SECONDARY - STROKE (default)
      ============================================ */
   .rb-button--secondary {
-    --rb-button-text-color: var(--rb-color-secondary-base);
-    --rb-button-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-text-active: var(--rb-color-secondary-D200);
-    --rb-button-border-color: var(--rb-color-secondary-base);
-    --rb-button-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-bg-active: var(--rb-color-secondary-L300);
+    /* STROKE variant (default) */
+    --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-secondary-stroke-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-secondary-stroke-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-secondary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+
+    --rb-button-secondary-stroke-text: var(--rb-color-secondary-D100);
+    --rb-button-secondary-stroke-text-hover: var(--rb-color-secondary-D100);
+    --rb-button-secondary-stroke-text-active: var(--rb-color-secondary-D200);
+    --rb-button-secondary-stroke-text-disabled: var(--rb-color-grayscale-base);
+
+    --rb-button-secondary-stroke-border: var(--rb-color-secondary-base);
+    --rb-button-secondary-stroke-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-secondary-stroke-border-active: var(--rb-color-secondary-D200);
+    --rb-button-secondary-stroke-border-disabled: var(--rb-color-grayscale-base);
+
+    /* Apply STROKE as default */
+    --rb-button-bg-color: var(--rb-button-secondary-stroke-bg);
+    --rb-button-bg-hover: var(--rb-button-secondary-stroke-bg-hover);
+    --rb-button-bg-active: var(--rb-button-secondary-stroke-bg-active);
+    --rb-button-bg-disabled: var(--rb-button-secondary-stroke-bg-disabled);
+
+    --rb-button-text-color: var(--rb-button-secondary-stroke-text);
+    --rb-button-text-hover: var(--rb-button-secondary-stroke-text-hover);
+    --rb-button-text-active: var(--rb-button-secondary-stroke-text-active);
+    --rb-button-text-disabled: var(--rb-button-secondary-stroke-text-disabled);
+
+    --rb-button-border-color: var(--rb-button-secondary-stroke-border);
+    --rb-button-border-hover: var(--rb-button-secondary-stroke-border-hover);
+    --rb-button-border-active: var(--rb-button-secondary-stroke-border-active);
+    --rb-button-border-disabled: var(--rb-button-secondary-stroke-border-disabled);
+
+    --rb-button-border-width: 1px;
+    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
-     TERTIARY - Color terciario
+     TERTIARY - STROKE (default)
      ============================================ */
   .rb-button--tertiary {
-    --rb-button-text-color: var(--rb-color-tertiary-base);
-    --rb-button-text-hover: var(--rb-color-tertiary-D100);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-border-color: var(--rb-color-tertiary-base);
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
+    /* STROKE variant (default) */
+    --rb-button-tertiary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-tertiary-stroke-bg-hover: var(--rb-color-tertiary-L400);
+    --rb-button-tertiary-stroke-bg-active: var(--rb-color-tertiary-L300);
+    --rb-button-tertiary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+
+    --rb-button-tertiary-stroke-text: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-stroke-text-hover: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-stroke-text-active: var(--rb-color-tertiary-D200);
+    --rb-button-tertiary-stroke-text-disabled: var(--rb-color-grayscale-base);
+
+    --rb-button-tertiary-stroke-border: var(--rb-color-tertiary-base);
+    --rb-button-tertiary-stroke-border-hover: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-stroke-border-active: var(--rb-color-tertiary-D200);
+    --rb-button-tertiary-stroke-border-disabled: var(--rb-color-grayscale-base);
+
+    /* Apply STROKE as default */
+    --rb-button-bg-color: var(--rb-button-tertiary-stroke-bg);
+    --rb-button-bg-hover: var(--rb-button-tertiary-stroke-bg-hover);
+    --rb-button-bg-active: var(--rb-button-tertiary-stroke-bg-active);
+    --rb-button-bg-disabled: var(--rb-button-tertiary-stroke-bg-disabled);
+
+    --rb-button-text-color: var(--rb-button-tertiary-stroke-text);
+    --rb-button-text-hover: var(--rb-button-tertiary-stroke-text-hover);
+    --rb-button-text-active: var(--rb-button-tertiary-stroke-text-active);
+    --rb-button-text-disabled: var(--rb-button-tertiary-stroke-text-disabled);
+
+    --rb-button-border-color: var(--rb-button-tertiary-stroke-border);
+    --rb-button-border-hover: var(--rb-button-tertiary-stroke-border-hover);
+    --rb-button-border-active: var(--rb-button-tertiary-stroke-border-active);
+    --rb-button-border-disabled: var(--rb-button-tertiary-stroke-border-disabled);
+
+    --rb-button-border-width: 1px;
+    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
-     DANGER/ERROR - Color de error
+     ERROR - STROKE (default)
      ============================================ */
-  .rb-button--danger {
-    --rb-button-text-color: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-text-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-border-color: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
-    --rb-button-bg-active: var(--rb-color-feedback-error-L300, rgba(220, 53, 69, 0.12));
-  }
+  .rb-button--error {
+    /* STROKE variant (default) */
+    --rb-button-error-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-error-stroke-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
+    --rb-button-error-stroke-bg-active: var(
+      --rb-color-feedback-error-L300,
+      rgba(220, 53, 69, 0.12)
+    );
+    --rb-button-error-stroke-bg-disabled: var(--rb-color-grayscale-white);
 
-  /* ============================================
-     SUCCESS - Color de éxito
-     ============================================ */
-  .rb-button--success {
-    --rb-button-text-color: var(--rb-color-feedback-success-base, #28a745);
-    --rb-button-text-hover: var(--rb-color-feedback-success-D100, #279941);
-    --rb-button-text-active: var(--rb-color-feedback-success-D200, #258b3d);
-    --rb-button-border-color: var(--rb-color-feedback-success-base, #28a745);
-    --rb-button-bg-hover: var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.08));
-    --rb-button-bg-active: var(--rb-color-feedback-success-L300, rgba(40, 167, 69, 0.12));
-  }
+    --rb-button-error-stroke-text: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-stroke-text-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-stroke-text-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-error-stroke-text-disabled: var(--rb-color-grayscale-base);
 
-  /* ============================================
-     QUINARY - Quinto color
-     ============================================ */
-  .rb-button--quinary {
-    --rb-button-text-color: var(--rb-color-tertiary-base);
-    --rb-button-text-hover: var(--rb-color-tertiary-D100);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-border-color: var(--rb-color-tertiary-base);
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
-  }
+    --rb-button-error-stroke-border: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-stroke-border-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-stroke-border-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-error-stroke-border-disabled: var(--rb-color-grayscale-base);
 
-  /* ============================================
-     QUATERNARY - Cuarto color (especial)
-     ============================================ */
-  .rb-button--quaternary {
-    --rb-button-text-color: var(--rb-color-primary-base);
-    --rb-button-text-hover: var(--rb-color-primary-D100);
-    --rb-button-text-active: var(--rb-color-primary-D200);
-    --rb-button-border-color: var(--rb-color-grayscale-L200);
-    --rb-button-bg-hover: var(--rb-color-grayscale-L400);
-    --rb-button-bg-active: var(--rb-color-grayscale-L300);
+    /* Apply STROKE as default */
+    --rb-button-bg-color: var(--rb-button-error-stroke-bg);
+    --rb-button-bg-hover: var(--rb-button-error-stroke-bg-hover);
+    --rb-button-bg-active: var(--rb-button-error-stroke-bg-active);
+    --rb-button-bg-disabled: var(--rb-button-error-stroke-bg-disabled);
+
+    --rb-button-text-color: var(--rb-button-error-stroke-text);
+    --rb-button-text-hover: var(--rb-button-error-stroke-text-hover);
+    --rb-button-text-active: var(--rb-button-error-stroke-text-active);
+    --rb-button-text-disabled: var(--rb-button-error-stroke-text-disabled);
+
+    --rb-button-border-color: var(--rb-button-error-stroke-border);
+    --rb-button-border-hover: var(--rb-button-error-stroke-border-hover);
+    --rb-button-border-active: var(--rb-button-error-stroke-border-active);
+    --rb-button-border-disabled: var(--rb-button-error-stroke-border-disabled);
+
+    --rb-button-border-width: 1px;
+    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 }
 
@@ -433,116 +515,156 @@
      FILL - Sólido con fondo de color
      ============================================ */
   .rb-button--fill {
-    /* Estilos base para FILL (usa primary por defecto si no se especifica variante) */
-    --rb-button-bg-color: var(--rb-color-primary-base);
-    --rb-button-bg-hover: var(--rb-color-primary-D100);
-    --rb-button-bg-active: var(--rb-color-primary-D200);
-    --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-    --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
-    --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
-    --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
-    --rb-button-border-color: var(--rb-color-primary-base);
-    --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-    --rb-button-shadow-active: none;
-
-    /* PRIMARY FILL */
+    /* PRIMARY FILL - fondo secondary (amarillo), texto primary-D100 (verde) */
     &.rb-button--primary {
-      --rb-button-bg-color: var(--rb-color-primary-base);
-      --rb-button-bg-hover: var(--rb-color-primary-D100);
-      --rb-button-bg-active: var(--rb-color-primary-D200);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-border-color: var(--rb-color-primary-base);
+      /* Define las variables específicas FILL */
+      --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
+      --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
+      --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
+      --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      --rb-button-primary-fill-text: var(--rb-color-primary-D100);
+      --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
+      --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
+      --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
+
+      --rb-button-primary-fill-border: var(--rb-color-secondary-base);
+      --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
+      --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
+      --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      /* Aplicar las variables FILL */
+      --rb-button-bg-color: var(--rb-button-primary-fill-bg);
+      --rb-button-bg-hover: var(--rb-button-primary-fill-bg-hover);
+      --rb-button-bg-active: var(--rb-button-primary-fill-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-primary-fill-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-primary-fill-text);
+      --rb-button-text-hover: var(--rb-button-primary-fill-text-hover);
+      --rb-button-text-active: var(--rb-button-primary-fill-text-active);
+      --rb-button-text-disabled: var(--rb-button-primary-fill-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-primary-fill-border);
+      --rb-button-border-hover: var(--rb-button-primary-fill-border-hover);
+      --rb-button-border-active: var(--rb-button-primary-fill-border-active);
+      --rb-button-border-disabled: var(--rb-button-primary-fill-border-disabled);
+
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
+      --rb-button-shadow-active: none;
     }
 
     /* SECONDARY FILL */
     &.rb-button--secondary {
-      --rb-button-bg-color: var(--rb-color-secondary-base);
-      --rb-button-bg-hover: var(--rb-color-secondary-D100);
-      --rb-button-bg-active: var(--rb-color-secondary-D200);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-primary-base);
-      --rb-button-text-hover: var(--rb-color-primary-D100);
-      --rb-button-text-active: var(--rb-color-primary-D200);
-      --rb-button-border-color: var(--rb-color-secondary-base);
-      /* Border no cambia en hover - variable removida var(--rb-color-secondary-D100); */
-      /* Border no cambia en active - variable removida var(--rb-color-secondary-D200); */
+      /* Define las variables específicas FILL */
+      --rb-button-secondary-fill-bg: var(--rb-color-secondary-base);
+      --rb-button-secondary-fill-bg-hover: var(--rb-color-secondary-D100);
+      --rb-button-secondary-fill-bg-active: var(--rb-color-secondary-D200);
+      --rb-button-secondary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      --rb-button-secondary-fill-text: var(--rb-color-primary-base);
+      --rb-button-secondary-fill-text-hover: var(--rb-color-primary-D100);
+      --rb-button-secondary-fill-text-active: var(--rb-color-primary-D200);
+      --rb-button-secondary-fill-text-disabled: var(--rb-color-grayscale-L100);
+
+      --rb-button-secondary-fill-border: var(--rb-color-secondary-base);
+      --rb-button-secondary-fill-border-hover: var(--rb-color-secondary-D100);
+      --rb-button-secondary-fill-border-active: var(--rb-color-secondary-D200);
+      --rb-button-secondary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      /* Aplicar las variables FILL */
+      --rb-button-bg-color: var(--rb-button-secondary-fill-bg);
+      --rb-button-bg-hover: var(--rb-button-secondary-fill-bg-hover);
+      --rb-button-bg-active: var(--rb-button-secondary-fill-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-secondary-fill-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-secondary-fill-text);
+      --rb-button-text-hover: var(--rb-button-secondary-fill-text-hover);
+      --rb-button-text-active: var(--rb-button-secondary-fill-text-active);
+      --rb-button-text-disabled: var(--rb-button-secondary-fill-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-secondary-fill-border);
+      --rb-button-border-hover: var(--rb-button-secondary-fill-border-hover);
+      --rb-button-border-active: var(--rb-button-secondary-fill-border-active);
+      --rb-button-border-disabled: var(--rb-button-secondary-fill-border-disabled);
+
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
+      --rb-button-shadow-active: none;
     }
 
     /* TERTIARY FILL */
     &.rb-button--tertiary {
-      --rb-button-bg-color: var(--rb-color-tertiary-base);
-      --rb-button-bg-hover: var(--rb-color-tertiary-D100);
-      --rb-button-bg-active: var(--rb-color-tertiary-D200);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-border-color: var(--rb-color-tertiary-base);
+      /* Define las variables específicas FILL */
+      --rb-button-tertiary-fill-bg: var(--rb-color-tertiary-base);
+      --rb-button-tertiary-fill-bg-hover: var(--rb-color-tertiary-D100);
+      --rb-button-tertiary-fill-bg-active: var(--rb-color-tertiary-D200);
+      --rb-button-tertiary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      --rb-button-tertiary-fill-text: var(--rb-color-grayscale-white, #fff);
+      --rb-button-tertiary-fill-text-hover: var(--rb-color-grayscale-white, #fff);
+      --rb-button-tertiary-fill-text-active: var(--rb-color-grayscale-white, #fff);
+      --rb-button-tertiary-fill-text-disabled: var(--rb-color-grayscale-L100);
+
+      --rb-button-tertiary-fill-border: var(--rb-color-tertiary-base);
+      --rb-button-tertiary-fill-border-hover: var(--rb-color-tertiary-D100);
+      --rb-button-tertiary-fill-border-active: var(--rb-color-tertiary-D200);
+      --rb-button-tertiary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      /* Aplicar las variables FILL */
+      --rb-button-bg-color: var(--rb-button-tertiary-fill-bg);
+      --rb-button-bg-hover: var(--rb-button-tertiary-fill-bg-hover);
+      --rb-button-bg-active: var(--rb-button-tertiary-fill-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-tertiary-fill-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-tertiary-fill-text);
+      --rb-button-text-hover: var(--rb-button-tertiary-fill-text-hover);
+      --rb-button-text-active: var(--rb-button-tertiary-fill-text-active);
+      --rb-button-text-disabled: var(--rb-button-tertiary-fill-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-tertiary-fill-border);
+      --rb-button-border-hover: var(--rb-button-tertiary-fill-border-hover);
+      --rb-button-border-active: var(--rb-button-tertiary-fill-border-active);
+      --rb-button-border-disabled: var(--rb-button-tertiary-fill-border-disabled);
+
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
+      --rb-button-shadow-active: none;
     }
 
-    /* DANGER FILL */
-    &.rb-button--danger {
-      --rb-button-bg-color: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
-      --rb-button-bg-active: var(--rb-color-feedback-error-D200, #b5303d);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-border-color: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
-    }
+    /* ERROR FILL */
+    &.rb-button--error {
+      /* Define las variables específicas FILL */
+      --rb-button-error-fill-bg: var(--rb-color-feedback-error-base, #dc3545);
+      --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
+      --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200, #b5303d);
+      --rb-button-error-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    /* SUCCESS FILL */
-    &.rb-button--success {
-      --rb-button-bg-color: var(--rb-color-feedback-success-base, #28a745);
-      --rb-button-bg-hover: var(--rb-color-feedback-success-D100, #279941);
-      --rb-button-bg-active: var(--rb-color-feedback-success-D200, #258b3d);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-border-color: var(--rb-color-feedback-success-base, #28a745);
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
-    }
+      --rb-button-error-fill-text: var(--rb-color-grayscale-white, #fff);
+      --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white, #fff);
+      --rb-button-error-fill-text-active: var(--rb-color-grayscale-white, #fff);
+      --rb-button-error-fill-text-disabled: var(--rb-color-grayscale-L100);
 
-    /* QUINARY FILL */
-    &.rb-button--quinary {
-      --rb-button-bg-color: var(--rb-color-tertiary-base);
-      --rb-button-bg-hover: var(--rb-color-tertiary-D100);
-      --rb-button-bg-active: var(--rb-color-tertiary-D200);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-border-color: var(--rb-color-tertiary-base);
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
-    }
+      --rb-button-error-fill-border: var(--rb-color-feedback-error-base, #dc3545);
+      --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100, #c93241);
+      --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200, #b5303d);
+      --rb-button-error-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    /* QUATERNARY FILL */
-    &.rb-button--quaternary {
-      --rb-button-bg-color: var(--rb-color-grayscale-L300);
-      --rb-button-bg-hover: var(--rb-color-grayscale-L200);
-      --rb-button-bg-active: var(--rb-color-grayscale-L100);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-      --rb-button-text-color: var(--rb-color-primary-base);
-      --rb-button-text-hover: var(--rb-color-primary-D100);
-      --rb-button-text-active: var(--rb-color-primary-D200);
-      --rb-button-border-color: var(--rb-color-grayscale-L300);
+      /* Aplicar las variables FILL */
+      --rb-button-bg-color: var(--rb-button-error-fill-bg);
+      --rb-button-bg-hover: var(--rb-button-error-fill-bg-hover);
+      --rb-button-bg-active: var(--rb-button-error-fill-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-error-fill-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-error-fill-text);
+      --rb-button-text-hover: var(--rb-button-error-fill-text-hover);
+      --rb-button-text-active: var(--rb-button-error-fill-text-active);
+      --rb-button-text-disabled: var(--rb-button-error-fill-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-error-fill-border);
+      --rb-button-border-hover: var(--rb-button-error-fill-border-hover);
+      --rb-button-border-active: var(--rb-button-error-fill-border-active);
+      --rb-button-border-disabled: var(--rb-button-error-fill-border-disabled);
+
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
+      --rb-button-shadow-active: none;
     }
   }
 
@@ -551,24 +673,11 @@
      ============================================ */
   .rb-button--text {
     /* Estilos base para TEXT (transparente) */
-    --rb-button-bg-color: transparent;
-    --rb-button-bg-hover: transparent;
-    --rb-button-bg-active: transparent;
-    --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-    --rb-button-border-color: transparent;
-    --rb-button-border-hover: transparent;
-    --rb-button-border-active: transparent;
-    --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
     --rb-button-border-width: 0;
     --rb-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
     --rb-button-shadow: none;
     --rb-button-shadow-hover: none;
     --rb-button-shadow-active: none;
-    
-    /* Colores de texto por defecto (usa primary si no se especifica) */
-    --rb-button-text-color: var(--rb-color-primary-base);
-    --rb-button-text-hover: var(--rb-color-primary-D100);
-    --rb-button-text-active: var(--rb-color-primary-D200);
 
     /* Underline sutil en hover */
     &:hover:not(:disabled) {
@@ -579,51 +688,142 @@
 
     /* PRIMARY TEXT */
     &.rb-button--primary {
-      --rb-button-text-color: var(--rb-color-primary-base);
-      --rb-button-text-hover: var(--rb-color-primary-D100);
-      --rb-button-text-active: var(--rb-color-primary-D200);
+      /* Define las variables específicas TEXT */
+      --rb-button-primary-text-bg: transparent;
+      --rb-button-primary-text-bg-hover: transparent;
+      --rb-button-primary-text-bg-active: transparent;
+      --rb-button-primary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      --rb-button-primary-text-text: var(--rb-color-primary-base);
+      --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
+      --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
+      --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
+
+      --rb-button-primary-text-border: transparent;
+      --rb-button-primary-text-border-hover: transparent;
+      --rb-button-primary-text-border-active: transparent;
+      --rb-button-primary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      /* Aplicar las variables TEXT */
+      --rb-button-bg-color: var(--rb-button-primary-text-bg);
+      --rb-button-bg-hover: var(--rb-button-primary-text-bg-hover);
+      --rb-button-bg-active: var(--rb-button-primary-text-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-primary-text-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-primary-text-text);
+      --rb-button-text-hover: var(--rb-button-primary-text-text-hover);
+      --rb-button-text-active: var(--rb-button-primary-text-text-active);
+      --rb-button-text-disabled: var(--rb-button-primary-text-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-primary-text-border);
+      --rb-button-border-hover: var(--rb-button-primary-text-border-hover);
+      --rb-button-border-active: var(--rb-button-primary-text-border-active);
+      --rb-button-border-disabled: var(--rb-button-primary-text-border-disabled);
     }
 
     /* SECONDARY TEXT */
     &.rb-button--secondary {
-      --rb-button-text-color: var(--rb-color-secondary-base);
-      --rb-button-text-hover: var(--rb-color-secondary-D100);
-      --rb-button-text-active: var(--rb-color-secondary-D200);
+      /* Define las variables específicas TEXT */
+      --rb-button-secondary-text-bg: transparent;
+      --rb-button-secondary-text-bg-hover: transparent;
+      --rb-button-secondary-text-bg-active: transparent;
+      --rb-button-secondary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      --rb-button-secondary-text-text: var(--rb-color-secondary-base);
+      --rb-button-secondary-text-text-hover: var(--rb-color-secondary-D100);
+      --rb-button-secondary-text-text-active: var(--rb-color-secondary-D200);
+      --rb-button-secondary-text-text-disabled: var(--rb-color-grayscale-base);
+
+      --rb-button-secondary-text-border: transparent;
+      --rb-button-secondary-text-border-hover: transparent;
+      --rb-button-secondary-text-border-active: transparent;
+      --rb-button-secondary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      /* Aplicar las variables TEXT */
+      --rb-button-bg-color: var(--rb-button-secondary-text-bg);
+      --rb-button-bg-hover: var(--rb-button-secondary-text-bg-hover);
+      --rb-button-bg-active: var(--rb-button-secondary-text-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-secondary-text-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-secondary-text-text);
+      --rb-button-text-hover: var(--rb-button-secondary-text-text-hover);
+      --rb-button-text-active: var(--rb-button-secondary-text-text-active);
+      --rb-button-text-disabled: var(--rb-button-secondary-text-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-secondary-text-border);
+      --rb-button-border-hover: var(--rb-button-secondary-text-border-hover);
+      --rb-button-border-active: var(--rb-button-secondary-text-border-active);
+      --rb-button-border-disabled: var(--rb-button-secondary-text-border-disabled);
     }
 
     /* TERTIARY TEXT */
     &.rb-button--tertiary {
-      --rb-button-text-color: var(--rb-color-tertiary-base);
-      --rb-button-text-hover: var(--rb-color-tertiary-D100);
-      --rb-button-text-active: var(--rb-color-tertiary-D200);
+      /* Define las variables específicas TEXT */
+      --rb-button-tertiary-text-bg: transparent;
+      --rb-button-tertiary-text-bg-hover: transparent;
+      --rb-button-tertiary-text-bg-active: transparent;
+      --rb-button-tertiary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      --rb-button-tertiary-text-text: var(--rb-color-tertiary-base);
+      --rb-button-tertiary-text-text-hover: var(--rb-color-tertiary-D100);
+      --rb-button-tertiary-text-text-active: var(--rb-color-tertiary-D200);
+      --rb-button-tertiary-text-text-disabled: var(--rb-color-grayscale-base);
+
+      --rb-button-tertiary-text-border: transparent;
+      --rb-button-tertiary-text-border-hover: transparent;
+      --rb-button-tertiary-text-border-active: transparent;
+      --rb-button-tertiary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+      /* Aplicar las variables TEXT */
+      --rb-button-bg-color: var(--rb-button-tertiary-text-bg);
+      --rb-button-bg-hover: var(--rb-button-tertiary-text-bg-hover);
+      --rb-button-bg-active: var(--rb-button-tertiary-text-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-tertiary-text-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-tertiary-text-text);
+      --rb-button-text-hover: var(--rb-button-tertiary-text-text-hover);
+      --rb-button-text-active: var(--rb-button-tertiary-text-text-active);
+      --rb-button-text-disabled: var(--rb-button-tertiary-text-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-tertiary-text-border);
+      --rb-button-border-hover: var(--rb-button-tertiary-text-border-hover);
+      --rb-button-border-active: var(--rb-button-tertiary-text-border-active);
+      --rb-button-border-disabled: var(--rb-button-tertiary-text-border-disabled);
     }
 
-    /* DANGER TEXT */
-    &.rb-button--danger {
-      --rb-button-text-color: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-text-hover: var(--rb-color-feedback-error-D100, #c93241);
-      --rb-button-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    }
+    /* ERROR TEXT */
+    &.rb-button--error {
+      /* Define las variables específicas TEXT */
+      --rb-button-error-text-bg: transparent;
+      --rb-button-error-text-bg-hover: transparent;
+      --rb-button-error-text-bg-active: transparent;
+      --rb-button-error-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    /* SUCCESS TEXT */
-    &.rb-button--success {
-      --rb-button-text-color: var(--rb-color-feedback-success-base, #28a745);
-      --rb-button-text-hover: var(--rb-color-feedback-success-D100, #279941);
-      --rb-button-text-active: var(--rb-color-feedback-success-D200, #258b3d);
-    }
+      --rb-button-error-text-text: var(--rb-color-feedback-error-base, #dc3545);
+      --rb-button-error-text-text-hover: var(--rb-color-feedback-error-D100, #c93241);
+      --rb-button-error-text-text-active: var(--rb-color-feedback-error-D200, #b5303d);
+      --rb-button-error-text-text-disabled: var(--rb-color-grayscale-base);
 
-    /* QUINARY TEXT */
-    &.rb-button--quinary {
-      --rb-button-text-color: var(--rb-color-tertiary-base);
-      --rb-button-text-hover: var(--rb-color-tertiary-D100);
-      --rb-button-text-active: var(--rb-color-tertiary-D200);
-    }
+      --rb-button-error-text-border: transparent;
+      --rb-button-error-text-border-hover: transparent;
+      --rb-button-error-text-border-active: transparent;
+      --rb-button-error-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    /* QUATERNARY TEXT */
-    &.rb-button--quaternary {
-      --rb-button-text-color: var(--rb-color-primary-base);
-      --rb-button-text-hover: var(--rb-color-primary-D100);
-      --rb-button-text-active: var(--rb-color-primary-D200);
+      /* Aplicar las variables TEXT */
+      --rb-button-bg-color: var(--rb-button-error-text-bg);
+      --rb-button-bg-hover: var(--rb-button-error-text-bg-hover);
+      --rb-button-bg-active: var(--rb-button-error-text-bg-active);
+      --rb-button-bg-disabled: var(--rb-button-error-text-bg-disabled);
+
+      --rb-button-text-color: var(--rb-button-error-text-text);
+      --rb-button-text-hover: var(--rb-button-error-text-text-hover);
+      --rb-button-text-active: var(--rb-button-error-text-text-active);
+      --rb-button-text-disabled: var(--rb-button-error-text-text-disabled);
+
+      --rb-button-border-color: var(--rb-button-error-text-border);
+      --rb-button-border-hover: var(--rb-button-error-text-border-hover);
+      --rb-button-border-active: var(--rb-button-error-text-border-active);
+      --rb-button-border-disabled: var(--rb-button-error-text-border-disabled);
     }
   }
 }
@@ -664,18 +864,6 @@
   /* Square corners - esquinas menos redondeadas */
   .rb-button--square {
     --rb-button-border-radius: clamp(6px, 0.4rem + 0.3vw, 10px);
-  }
-
-  /* Circle button - botón circular perfecto */
-  .rb-button--circle {
-    --rb-button-border-radius: 50%;
-    --rb-button-padding-inline: 0;
-    --rb-button-padding-block: 0;
-
-    inline-size: clamp(2rem, 5vw, 3rem);
-    block-size: clamp(2rem, 5vw, 3rem);
-    min-inline-size: clamp(2rem, 5vw, 3rem);
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
   }
 
   /* Block (full width) */
@@ -725,24 +913,83 @@
     }
   }
 
-  /* Icon Only - solo icono, sin texto */
+  /* Icon Only - solo icono, sin texto, completamente redondo
+     Estructura: icono 18px + padding 11px = 40x40px total circular */
   .rb-button--icon-only {
-    --rb-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
-    --rb-button-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
-    --rb-button-min-inline-size: clamp(2rem, 5vw, 2.5rem);
+    --rb-button-padding-inline: 11px;
+    --rb-button-padding-block: 11px;
+    --rb-button-min-inline-size: 40px;
+    --rb-button-border-radius: 50%; /* Completamente redondo */
 
-    inline-size: clamp(2rem, 5vw, 2.5rem);
-    block-size: clamp(2rem, 5vw, 2.5rem);
+    /* Forzar tamaño exacto 40x40px */
+    inline-size: 40px !important;
+    block-size: 40px !important;
+    min-inline-size: 40px !important;
+    max-inline-size: 40px !important;
+    min-block-size: 40px !important;
+    max-block-size: 40px !important;
 
-    /* SVG/Icon styles - tamaño responsive 18px base */
+    /* Asegurar que el padding no afecte el tamaño total */
+    padding-inline: 11px !important;
+    padding-block: 11px !important;
+    box-sizing: border-box !important;
+    border-radius: 50% !important; /* Siempre circular */
+
+    /* SVG/Icon styles - 18px por defecto */
     & > svg,
     & > i,
     & > span,
     & > [class*='icon'] {
-      inline-size: clamp(16px, 1.125rem, 20px);
-      block-size: clamp(16px, 1.125rem, 20px);
+      inline-size: 18px;
+      block-size: 18px;
       flex-shrink: 0;
       opacity: 1;
+    }
+
+    /* Small size: 32x32 (icono 14px + padding 9px) */
+    &.rb-button--small {
+      --rb-button-padding-inline: 9px;
+      --rb-button-padding-block: 9px;
+
+      inline-size: 32px !important;
+      block-size: 32px !important;
+      min-inline-size: 32px !important;
+      max-inline-size: 32px !important;
+      min-block-size: 32px !important;
+      max-block-size: 32px !important;
+      padding-inline: 9px !important;
+      padding-block: 9px !important;
+
+      & > svg,
+      & > i,
+      & > span,
+      & > [class*='icon'] {
+        inline-size: 14px;
+        block-size: 14px;
+      }
+    }
+
+    /* Large size: 48x48 (icono 22px + padding 13px) */
+    &.rb-button--large {
+      --rb-button-padding-inline: 13px;
+      --rb-button-padding-block: 13px;
+
+      inline-size: 48px !important;
+      block-size: 48px !important;
+      min-inline-size: 48px !important;
+      max-inline-size: 48px !important;
+      min-block-size: 48px !important;
+      max-block-size: 48px !important;
+      padding-inline: 13px !important;
+      padding-block: 13px !important;
+
+      & > svg,
+      & > i,
+      & > span,
+      & > [class*='icon'] {
+        inline-size: 22px;
+        block-size: 22px;
+      }
     }
   }
 }
@@ -837,26 +1084,20 @@
     border-top-color: transparent;
   }
 
-  /* FILL PRIMARY, TERTIARY, DANGER, SUCCESS, QUINARY - spinner blanco */
+  /* FILL PRIMARY, TERTIARY, ERROR - spinner color primary-D100 (verde oscuro) */
   .rb-button--fill.rb-button--primary.rb-button--loading::before,
   .rb-button--fill.rb-button--primary.rb-button--loading::after,
   .rb-button--fill.rb-button--tertiary.rb-button--loading::before,
   .rb-button--fill.rb-button--tertiary.rb-button--loading::after,
-  .rb-button--fill.rb-button--danger.rb-button--loading::before,
-  .rb-button--fill.rb-button--danger.rb-button--loading::after,
-  .rb-button--fill.rb-button--success.rb-button--loading::before,
-  .rb-button--fill.rb-button--success.rb-button--loading::after,
-  .rb-button--fill.rb-button--quinary.rb-button--loading::before,
-  .rb-button--fill.rb-button--quinary.rb-button--loading::after {
+  .rb-button--fill.rb-button--error.rb-button--loading::before,
+  .rb-button--fill.rb-button--error.rb-button--loading::after {
     border-color: var(--rb-color-primary-D100, black);
     border-top-color: transparent;
   }
 
-  /* FILL SECONDARY, QUATERNARY - spinner color primary */
+  /* FILL SECONDARY - spinner color primary-base */
   .rb-button--fill.rb-button--secondary.rb-button--loading::before,
-  .rb-button--fill.rb-button--secondary.rb-button--loading::after,
-  .rb-button--fill.rb-button--quaternary.rb-button--loading::before,
-  .rb-button--fill.rb-button--quaternary.rb-button--loading::after {
+  .rb-button--fill.rb-button--secondary.rb-button--loading::after {
     border-color: var(--rb-color-primary-base);
     border-top-color: transparent;
   }
@@ -878,6 +1119,21 @@
 @keyframes rb-button-spinner {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Animación sutil de focus - aparece con un pequeño pulse */
+@keyframes rb-button-focus-pulse {
+  0% {
+    outline-width: 0px;
+    outline-offset: 0px;
+  }
+  50% {
+    outline-offset: 3px;
+  }
+  100% {
+    outline-width: 3px;
+    outline-offset: 2px;
   }
 }
 
