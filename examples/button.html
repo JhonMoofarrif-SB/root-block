@@ -21,7 +21,7 @@
     />
 
     <!-- CSS del Design System - White Label Light -->
-    <link rel="stylesheet" href="./dist/rb-seguros-bolivar-light.min.css?v=final-cleanup" />
+    <link rel="stylesheet" href="./dist/rb-seguros-bolivar-light.min.css?v=final-cleanup" id="brand-css" />
     <style>
       * {
         margin-block: 0;
@@ -185,10 +185,81 @@
         font-family: 'Courier New', monospace;
         font-size: 0.9em;
       }
+
+      /* Brand Selector Styles */
+      .brand-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-block-end: 2rem;
+        padding-block: 1rem;
+        padding-inline: 1.5rem;
+        background: var(--rb-color-grayscale-white);
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        flex-wrap: wrap;
+      }
+
+      .brand-controls-group {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .brand-controls label {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--rb-color-grayscale-D200);
+      }
+
+      .brand-controls select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='currentColor' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-inline-end: 2.5rem;
+      }
+
+      .theme-toggle {
+        display: flex;
+        gap: 0.5rem;
+      }
     </style>
   </head>
   <body>
     <div class="matrix-container">
+      <!-- Brand & Theme Controls -->
+      <div class="brand-controls">
+        <button 
+          href="index.html" 
+          class="rb-button rb-button--tertiary rb-button--small"
+          style="text-decoration: none;"
+        >
+          ← Volver
+      </button>
+        
+        <div class="brand-controls-group">
+          <label for="brandSelect">📦 Marca:</label>
+          <select id="brandSelect" class="rb-button rb-button--tertiary rb-button--small">
+            <option value="white-label">White Label</option>
+            <option value="jelpit">Jelpit</option>
+            <option value="davivienda">Davivienda</option>
+            <option value="cien-cuadras">Cien Cuadras</option>
+            <option value="doctor-aki">Doctor Aki</option>
+            <option value="seguros-bolivar" selected>Seguros Bolívar</option>
+          </select>
+          
+          <label for="themeToggle">🌓 Tema:</label>
+          <div class="theme-toggle">
+            <button id="lightBtn" class="rb-button rb-button--primary rb-button--small">☀️ Light</button>
+            <button id="darkBtn" class="rb-button rb-button--tertiary rb-button--small">🌙 Dark</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Header -->
       <div class="matrix-header">
         <h1>Button - Primary</h1>
@@ -552,5 +623,68 @@
         </table>
       </div>
     </div>
+
+    <script>
+      // Brand and Theme Switching with localStorage persistence
+      const brandSelect = document.getElementById('brandSelect');
+      const lightBtn = document.getElementById('lightBtn');
+      const darkBtn = document.getElementById('darkBtn');
+      const html = document.documentElement;
+      const body = document.body;
+      const brandCss = document.getElementById('brand-css');
+
+      // Leer valores de localStorage o usar defaults
+      let currentBrand = localStorage.getItem('rb-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
+      let currentTheme = localStorage.getItem('rb-theme') || html.getAttribute('data-theme') || 'light';
+
+      function updateBrandAndTheme() {
+        // Update HTML attributes
+        html.setAttribute('data-brand', currentBrand);
+        html.setAttribute('data-theme', currentTheme);
+        body.setAttribute('data-brand', currentBrand);
+        
+        // Save to localStorage
+        localStorage.setItem('rb-brand', currentBrand);
+        localStorage.setItem('rb-theme', currentTheme);
+        
+        // Update CSS bundle (tokens + atoms + overrides)
+        brandCss.href = `dist/rb-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
+        
+        // Sync select
+        brandSelect.value = currentBrand;
+        
+        // Update button states
+        if (currentTheme === 'light') {
+          lightBtn.className = 'rb-button rb-button--primary rb-button--small';
+          darkBtn.className = 'rb-button rb-button--tertiary rb-button--small';
+        } else {
+          lightBtn.className = 'rb-button rb-button--tertiary rb-button--small';
+          darkBtn.className = 'rb-button rb-button--primary rb-button--small';
+        }
+
+        console.log(`✅ Marca: ${currentBrand} | Tema: ${currentTheme}`);
+        console.log(`📦 Bundle: dist/rb-${currentBrand}-${currentTheme}.min.css`);
+        console.log(`💾 Sincronizado con localStorage`);
+      }
+
+      // Event Listeners
+      brandSelect.addEventListener('change', (e) => {
+        currentBrand = e.target.value;
+        updateBrandAndTheme();
+      });
+
+      lightBtn.addEventListener('click', () => {
+        currentTheme = 'light';
+        updateBrandAndTheme();
+      });
+
+      darkBtn.addEventListener('click', () => {
+        currentTheme = 'dark';
+        updateBrandAndTheme();
+      });
+
+      // Initialize on page load
+      updateBrandAndTheme();
+    </script>
   </body>
 </html>

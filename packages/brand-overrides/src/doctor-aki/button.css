@@ -1,0 +1,45 @@
+/**
+ * ============================================================================
+ * Doctor Aki - Button Component Overrides
+ * ============================================================================
+ * 
+ * Data Attribute Approach: [data-brand="doctor-aki"]
+ * 
+ * Customizaciones específicas de Doctor Aki:
+ * - PRIMARY FILL: Colores de marca Doctor Aki
+ * - TERTIARY STROKE: Borde y texto personalizados
+ * 
+ * ============================================================================
+ */
+
+[data-brand="doctor-aki"] {
+  
+  /* ========================================
+     PRIMARY - FILL
+     Colores de marca Doctor Aki
+     ======================================== */
+  .rb-button--fill.rb-button--primary {
+    --rb-button-primary-fill-bg: var(--rb-color-primary-base);
+    --rb-button-primary-fill-bg-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-bg-active: var(--rb-color-primary-D200);
+    
+    --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
+    --rb-button-primary-fill-text-hover: var(--rb-color-grayscale-white);
+    --rb-button-primary-fill-text-active: var(--rb-color-grayscale-white);
+    
+    --rb-button-primary-fill-border: var(--rb-color-primary-base);
+    --rb-button-primary-fill-border-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-border-active: var(--rb-color-primary-D200);
+  }
+  
+  /* ========================================
+     TERTIARY - STROKE
+     Borde y texto personalizados
+     ======================================== */
+  .rb-button--tertiary {
+    --rb-button-tertiary-stroke-border: var(--rb-color-tertiary-base);
+    --rb-button-tertiary-stroke-text: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-stroke-text-hover: var(--rb-color-tertiary-D100);
+  }
+}
+

@@ -1,12 +1,7 @@
 /**
- * Davivienda - Brand Overrides
- * Estilos específicos de la marca Davivienda
- * 
- * Este archivo se incluye automáticamente en rb-davivienda-{theme}.min.css
+ * ============================================================================
+ * Davivienda - Brand Overrides Index
+ * ============================================================================
  */
 
 @import './button.css';
-
-/* Aquí se pueden agregar más overrides en el futuro */
-/* @import './input.css'; */
-/* @import './modal.css'; */

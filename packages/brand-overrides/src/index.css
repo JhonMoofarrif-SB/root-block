@@ -1,0 +1,20 @@
+/**
+ * ============================================================================
+ * Brand Overrides - Index
+ * ============================================================================
+ * 
+ * Importa todos los brand overrides usando data attributes
+ * 
+ * Cada marca tiene su propio archivo con [data-brand="nombre-marca"]
+ * 
+ * ============================================================================
+ */
+
+/* Importar overrides por marca */
+@import './seguros-bolivar.css';
+@import './davivienda.css';
+@import './jelpit.css';
+@import './cien-cuadras.css';
+@import './doctor-aki.css';
+@import './white-label.css';
+

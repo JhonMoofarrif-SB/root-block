@@ -1,139 +1,52 @@
 /**
- * Davivienda - Button Overrides (Modernizado)
- * - CSS Nesting
- * - Logical Properties
- * - @layer para mejor control
+ * ============================================================================
+ * Davivienda - Button Component Overrides
+ * ============================================================================
  * 
- * Animación especial de gradiente en estado loading (basado en rb-button de 21st.dev)
- * Esta marca tiene una animación única donde un gradiente oscuro
- * se mueve de izquierda a derecha cuando el botón está cargando.
+ * Data Attribute Approach: [data-brand="davivienda"]
+ * 
+ * Customizaciones específicas de Davivienda:
+ * - SECONDARY STROKE: Colores específicos de Davivienda
+ * - ERROR FILL: Estilos de error personalizados
+ * 
+ * ============================================================================
  */
 
-/* ========================================
-   BRAND OVERRIDES LAYER
-   ======================================== */
-
-@layer brand-overrides {
-  /* Botones con esquinas ligeramente más rectas */
-  [data-brand='davivienda'] .rb-button {
-    --rb-button-border-radius: clamp(4px, 0.3rem + 0.2vw, 8px);
-  }
-
-  /* Bordes más gruesos para mayor presencia visual */
-  [data-brand='davivienda'] .rb-button--primary,
-  [data-brand='davivienda'] .rb-button--danger,
-  [data-brand='davivienda'] .rb-button--success {
-    --rb-button-border-width: 2px;
-  }
-
-  /* Sombras con el color primary de Davivienda */
-  [data-brand='davivienda'] .rb-button {
-    --rb-button-shadow-hover: 0 2px 8px rgba(225, 17, 28, 0.2);
-  }
-
+[data-brand="davivienda"] {
+  
   /* ========================================
-     DAVIVIENDA LOADING ANIMATION
+     SECONDARY - STROKE
+     Personalización de colores para Davivienda
      ======================================== */
-
-  /* Variables de animación para Davivienda */
-  [data-brand='davivienda'] .rb-button--loading {
-    --rb-button-loading-animation-duration: 1.5s;
-    --rb-button-loading-bg-animation: rgba(0, 0, 0, 0.5);
-
-    overflow: hidden;
-    position: relative;
-
-    /* Elemento ::before que contiene el gradiente animado */
-    &::before {
-      content: '';
-      position: absolute;
-      inset-block: 0;
-      inset-inline-start: -110%;
-      inline-size: 110%;
-      block-size: 100%;
-      background: var(--rb-button-loading-bg-animation);
-      border-start-end-radius: var(--rb-button-border-radius);
-      border-end-end-radius: var(--rb-button-border-radius);
-      z-index: 0;
-      transition: all 1s ease;
-      animation: rb-davivienda-gradient-slide linear infinite;
-      animation-duration: var(--rb-button-loading-animation-duration);
-    }
-
-    /* El texto debe estar encima del gradiente */
-    & > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* El spinner debe estar encima del gradiente */
-    &::after {
-      z-index: 2;
-    }
+  .rb-button--secondary {
+    --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
+    --rb-button-secondary-stroke-bg-active: var(--rb-color-primary-L300);
+    
+    --rb-button-secondary-stroke-text: var(--rb-color-primary-base);
+    --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100);
+    --rb-button-secondary-stroke-text-active: var(--rb-color-primary-D200);
+    
+    --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
+    --rb-button-secondary-stroke-border-hover: var(--rb-color-primary-D100);
+    --rb-button-secondary-stroke-border-active: var(--rb-color-primary-D200);
   }
-
+  
   /* ========================================
-     VARIANTES DE COLOR PARA LA ANIMACIÓN
+     ERROR - FILL
+     Colores de error personalizados
      ======================================== */
-
-  /* Primary: color negro sólido sobre fondo rojo */
-  [data-brand='davivienda'] .rb-button--primary.rb-button--loading::before {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  /* Secondary: color negro sólido */
-  [data-brand='davivienda'] .rb-button--secondary.rb-button--loading::before {
-    background: rgba(0, 0, 0, 0.4);
-  }
-
-  /* Tertiary y Quaternary: color negro más sutil */
-  [data-brand='davivienda'] .rb-button--tertiary.rb-button--loading::before,
-  [data-brand='davivienda'] .rb-button--quaternary.rb-button--loading::before {
-    background: rgba(0, 0, 0, 0.35);
-  }
-
-  /* Danger: color negro sólido */
-  [data-brand='davivienda'] .rb-button--danger.rb-button--loading::before {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  /* Success: color negro sólido */
-  [data-brand='davivienda'] .rb-button--success.rb-button--loading::before {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  /* Quinary: color negro sólido */
-  [data-brand='davivienda'] .rb-button--quinary.rb-button--loading::before {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  /* Estado disabled: color gris sólido */
-  [data-brand='davivienda'] .rb-button:disabled.rb-button--loading::before {
-    background: rgba(155, 155, 155, 0.3);
-  }
-}
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-
-/* Animación del gradiente de izquierda a derecha */
-@keyframes rb-davivienda-gradient-slide {
-  0% {
-    inset-inline-start: -110%;
-  }
-  100% {
-    inset-inline-start: 0%;
-  }
-}
-
-/* ========================================
-   ACCESSIBILITY - REDUCED MOTION
-   ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  [data-brand='davivienda'] .rb-button--loading::before {
-    animation: none;
-    display: none;
+  .rb-button--fill.rb-button--error {
+    --rb-button-error-fill-bg: var(--rb-color-feedback-error-base);
+    --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100);
+    --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200);
+    
+    --rb-button-error-fill-text: var(--rb-color-grayscale-white);
+    --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white);
+    --rb-button-error-fill-text-active: var(--rb-color-grayscale-white);
+    
+    --rb-button-error-fill-border: var(--rb-color-feedback-error-base);
+    --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100);
+    --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200);
   }
 }

@@ -1,0 +1,46 @@
+/**
+ * ============================================================================
+ * Cien Cuadras - Button Component Overrides
+ * ============================================================================
+ * 
+ * Data Attribute Approach: [data-brand="cien-cuadras"]
+ * 
+ * Customizaciones específicas de Cien Cuadras:
+ * - PRIMARY STROKE: Colores de texto personalizados
+ * - PRIMARY FILL: Background y texto personalizados
+ * - SECONDARY TEXT: Color de texto personalizado
+ * 
+ * ============================================================================
+ */
+
+[data-brand="cien-cuadras"] {
+  
+  /* ========================================
+     PRIMARY - STROKE
+     Colores de texto personalizados
+     ======================================== */
+  .rb-button--primary {
+    --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
+    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D300);
+  }
+  
+  /* ========================================
+     PRIMARY - FILL
+     Background y texto personalizados
+     ======================================== */
+  .rb-button--fill.rb-button--primary {
+    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
+    --rb-button-primary-fill-text: var(--rb-color-primary-D300);
+    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D300);
+    --rb-button-primary-fill-text-active: var(--rb-color-primary-D300);
+  }
+  
+  /* ========================================
+     SECONDARY - TEXT
+     Color de texto personalizado
+     ======================================== */
+  .rb-button--text.rb-button--secondary {
+    --rb-button-secondary-text-text: var(--rb-color-secondary-D200);
+    --rb-button-secondary-text-text-hover: var(--rb-color-secondary-D300);
+  }
+}

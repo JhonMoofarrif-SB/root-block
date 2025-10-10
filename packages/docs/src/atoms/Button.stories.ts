@@ -152,6 +152,14 @@ type Story = StoryObj;
  * en el panel inferior. Puedes ajustar variante, tamaño, iconos, estados y más.
  */
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'html',
+      },
+    },
+  },
   args: {
     variant: 'primary',
     size: 'medium',
@@ -187,26 +195,30 @@ export const Playground: Story = {
           ${args.text}
         </button>
       `;
-    } else if (args.iconPosition === 'right') {
+    }
+    
+    if (args.iconPosition === 'right') {
       return html`
         <button class="${classes}">
           ${args.text}
           <i class="fa-solid fa-user"></i>
-        </button>
-      `;
-    } else if (args.iconPosition === 'only') {
-      return html`
-        <button class="${classes}">
-          <i class="fa-solid fa-user"></i>
-        </button>
-      `;
-    } else {
-      return html`
-        <button class="${classes}">
-          ${args.text}
         </button>
       `;
     }
+    
+    if (args.iconPosition === 'only') {
+      return html`
+        <button class="${classes}" title="${args.text}">
+          <i class="fa-solid fa-user"></i>
+        </button>
+      `;
+    }
+    
+    return html`
+      <button class="${classes}">
+        ${args.text}
+      </button>
+    `;
   },
 };
 
@@ -221,6 +233,14 @@ export const Playground: Story = {
  * **Total: 36 combinaciones** (3 × 4 × 3)
  */
 export const Primary: Story = {
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'html',
+      },
+    },
+  },
   render: () => html`
     <style>
       .matrix-container {
