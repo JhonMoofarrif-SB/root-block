@@ -11,8 +11,7 @@
  * ============================================================================
  */
 
-[data-brand="jelpit"] {
-  
+[data-brand='jelpit'] {
   /* ========================================
      PRIMARY - TEXT
      Background personalizado para Jelpit
@@ -21,7 +20,7 @@
     --rb-button-primary-text-bg: transparent;
     --rb-button-primary-text-bg-hover: var(--rb-color-primary-L400);
     --rb-button-primary-text-bg-active: var(--rb-color-primary-L300);
-    
+
     --rb-button-primary-text-text: var(--rb-color-primary-D100);
     --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
     --rb-button-primary-text-text-active: var(--rb-color-primary-D200);

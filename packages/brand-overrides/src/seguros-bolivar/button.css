@@ -16,8 +16,7 @@
  * ============================================================================
  */
 
-[data-brand="seguros-bolivar"] {
-  
+[data-brand='seguros-bolivar'] {
   /* ========================================
      PRIMARY - STROKE (default)
      Amarillo borde, texto verde
@@ -27,18 +26,18 @@
     --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
     --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
     --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
-    
+
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
     --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
     --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
     --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
-    
+
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
     --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
     --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
     --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
   }
-  
+
   /* ========================================
      PRIMARY - FILL
      Amarillo sólido, texto verde
@@ -48,18 +47,18 @@
     --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
     --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
     --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300);
-    
+
     --rb-button-primary-fill-text: var(--rb-color-primary-D100);
     --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
     --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
     --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
-    
+
     --rb-button-primary-fill-border: var(--rb-color-secondary-base);
     --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
     --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
     --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300);
   }
-  
+
   /* ========================================
      PRIMARY - TEXT
      Transparente con texto verde
@@ -69,13 +68,13 @@
     --rb-button-primary-text-bg-hover: var(--rb-color-secondary-L400);
     --rb-button-primary-text-bg-active: var(--rb-color-secondary-L300);
     --rb-button-primary-text-bg-disabled: transparent;
-    
+
     --rb-button-primary-text-text: var(--rb-color-primary-base);
     --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
     --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
     --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
   }
-  
+
   /* ========================================
      SECONDARY - STROKE
      Verde borde, texto verde
@@ -83,14 +82,14 @@
   .rb-button--secondary {
     --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
-    
+
     --rb-button-secondary-stroke-text: var(--rb-color-primary-D100);
     --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100);
-    
+
     --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
     --rb-button-secondary-stroke-border-hover: var(--rb-color-primary-D100);
   }
-  
+
   /* ========================================
      SECONDARY - FILL
      Verde sólido, texto blanco
@@ -98,12 +97,12 @@
   .rb-button--fill.rb-button--secondary {
     --rb-button-secondary-fill-bg: var(--rb-color-primary-base);
     --rb-button-secondary-fill-bg-hover: var(--rb-color-primary-D100);
-    
+
     --rb-button-secondary-fill-text: var(--rb-color-grayscale-white);
-    
+
     --rb-button-secondary-fill-border: var(--rb-color-primary-base);
   }
-  
+
   /* ========================================
      SECONDARY - TEXT
      Transparente con texto verde

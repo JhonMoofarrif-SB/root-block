@@ -12,7 +12,7 @@ Sistema de documentación construido con Storybook 7 para el design system multi
 🎨 **Toolbar Dinámica**: Cambia marca y tema en tiempo real  
 📖 **Auto-documentación**: Generación automática de docs desde props  
 🧩 **Componentes en Vivo**: Ejemplos interactivos y editables  
-🚀 **Hot Reload**: Ver cambios instantáneos durante desarrollo  
+🚀 **Hot Reload**: Ver cambios instantáneos durante desarrollo
 
 ---
 
@@ -51,6 +51,7 @@ pnpm --filter @rb/docs clean
 ## 🎨 Uso de la Toolbar
 
 ### Selector de Marca (Brand)
+
 Cambia entre las 6 marcas disponibles. Los colores y estilos se actualizan automáticamente:
 
 - **White Label** - Base neutra del sistema
@@ -61,6 +62,7 @@ Cambia entre las 6 marcas disponibles. Los colores y estilos se actualizan autom
 - **Seguros Bolívar** - Verde corporativo y amarillo
 
 ### Selector de Tema (Theme)
+
 Alterna entre modo claro y oscuro:
 
 - **Light** ☀️ - Tema claro
@@ -118,20 +120,12 @@ type Story = StoryObj;
 
 // Historia principal
 export const Default: Story = {
-  render: () => html`
-    <button class="rb-button rb-button--primary">
-      Mi Componente
-    </button>
-  `,
+  render: () => html` <button class="rb-button rb-button--primary">Mi Componente</button> `,
 };
 
 // Variantes
 export const Secondary: Story = {
-  render: () => html`
-    <button class="rb-button rb-button--secondary">
-      Variante Secundaria
-    </button>
-  `,
+  render: () => html` <button class="rb-button rb-button--secondary">Variante Secundaria</button> `,
 };
 ```
 
@@ -165,10 +159,7 @@ export const Interactive: Story = {
     disabled: false,
   },
   render: (args) => html`
-    <button 
-      class="rb-button rb-button--${args.variant}"
-      ?disabled=${args.disabled}
-    >
+    <button class="rb-button rb-button--${args.variant}" ?disabled=${args.disabled}>
       ${args.text}
     </button>
   `,
@@ -221,10 +212,11 @@ Texto explicativo sobre las variantes...
 ### Organización de Títulos
 
 ```typescript
-title: 'Category/Subcategory/ComponentName'
+title: 'Category/Subcategory/ComponentName';
 ```
 
 **Categorías estándar:**
+
 - `Introduction/*` - Páginas de bienvenida y guías generales
 - `Foundations/*` - Tokens de diseño (colores, tipografía, espaciado, etc.)
 - `Atoms/*` - Componentes CSS simples
@@ -234,7 +226,7 @@ title: 'Category/Subcategory/ComponentName'
 ### Tags Importantes
 
 ```typescript
-tags: ['autodocs']  // Genera página de documentación automática
+tags: ['autodocs']; // Genera página de documentación automática
 ```
 
 ### Parámetros Útiles
@@ -265,7 +257,7 @@ parameters: {
 
 - **Framework**: `@storybook/web-components-vite`
 - **Stories**: Auto-detecta `*.stories.@(js|jsx|ts|tsx)` y `*.mdx`
-- **Addons**: 
+- **Addons**:
   - `@storybook/addon-essentials` (controles, docs, actions, viewport, etc.)
   - `@storybook/addon-links` (navegación entre stories)
 - **staticDirs**: Sirve archivos desde `../../bundle/dist`

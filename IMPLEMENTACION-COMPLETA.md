@@ -13,6 +13,7 @@ Se implementó un **sistema de personalización de componentes por marca** usand
 **Archivo:** `packages/atoms/src/button.css`
 
 **Cambios:**
+
 - ✅ Nuevo patrón de variables: `--rb-button-{tipo}-{variante}-{propiedad}-{estado}`
 - ✅ Variables definidas para todas las combinaciones:
   - 4 tipos: `primary`, `secondary`, `tertiary`, `error`
@@ -22,13 +23,14 @@ Se implementó un **sistema de personalización de componentes por marca** usand
 - ✅ Total: **144 variables CSS** expuestas para customización
 
 **Ejemplo:**
+
 ```css
 .rb-button--primary {
   /* Define variables específicas STROKE */
   --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
   --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
   --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-  
+
   /* Aplica variables al componente */
   --rb-button-bg-color: var(--rb-button-primary-stroke-bg);
   --rb-button-text-color: var(--rb-button-primary-stroke-text);
@@ -74,15 +76,16 @@ packages/brand-overrides/src/
 ### 3. **Overrides por Marca** ✅
 
 #### 🟡 Seguros Bolívar
+
 **Personalización:** Amarillo (secondary) + Verde (primary)
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   .rb-button--primary {
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
   }
-  
+
   .rb-button--fill.rb-button--primary {
     --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
     --rb-button-primary-fill-text: var(--rb-color-primary-D100);
@@ -91,14 +94,15 @@ packages/brand-overrides/src/
 ```
 
 #### 🔵 Davivienda
+
 **Personalización:** Secondary y Error con colores propios
 
 ```css
-[data-brand="davivienda"] {
+[data-brand='davivienda'] {
   .rb-button--secondary {
     --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
   }
-  
+
   .rb-button--fill.rb-button--error {
     --rb-button-error-fill-bg: var(--rb-color-feedback-error-base);
   }
@@ -106,10 +110,11 @@ packages/brand-overrides/src/
 ```
 
 #### 🟢 Jelpit
+
 **Personalización:** PRIMARY TEXT con background L400
 
 ```css
-[data-brand="jelpit"] {
+[data-brand='jelpit'] {
   .rb-button--text.rb-button--primary {
     --rb-button-primary-text-bg-hover: var(--rb-color-primary-L400);
   }
@@ -117,10 +122,11 @@ packages/brand-overrides/src/
 ```
 
 #### 🟠 Cien Cuadras
+
 **Personalización:** Tonos de texto D200/D300
 
 ```css
-[data-brand="cien-cuadras"] {
+[data-brand='cien-cuadras'] {
   .rb-button--primary {
     --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
   }
@@ -128,10 +134,11 @@ packages/brand-overrides/src/
 ```
 
 #### 🩺 Doctor Aki
+
 **Personalización:** PRIMARY FILL con colores propios
 
 ```css
-[data-brand="doctor-aki"] {
+[data-brand='doctor-aki'] {
   .rb-button--fill.rb-button--primary {
     --rb-button-primary-fill-bg: var(--rb-color-primary-base);
   }
@@ -139,6 +146,7 @@ packages/brand-overrides/src/
 ```
 
 #### ⚪ White Label
+
 **Sin personalización:** Usa todos los estilos por defecto
 
 ---
@@ -153,6 +161,7 @@ packages/brand-overrides/src/
 4. **Bundle** → Ensambla todo en un archivo final
 
 **Resultado:**
+
 ```bash
 dist/
 ├── rb-seguros-bolivar-light.min.css    # 37.00 KB
@@ -169,21 +178,21 @@ dist/
 ## 🎨 Cómo Usar
 
 ### HTML
+
 ```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <link rel="stylesheet" href="rb-seguros-bolivar-light.min.css">
-</head>
-<body data-brand="seguros-bolivar">
-  <button class="rb-button rb-button--primary rb-button--fill">
-    Mi Botón
-  </button>
-</body>
+  <head>
+    <link rel="stylesheet" href="rb-seguros-bolivar-light.min.css" />
+  </head>
+  <body data-brand="seguros-bolivar">
+    <button class="rb-button rb-button--primary rb-button--fill">Mi Botón</button>
+  </body>
 </html>
 ```
 
 ### Resultado
+
 - ✅ El botón usa automáticamente los overrides de Seguros Bolívar
 - ✅ Los tokens (`--rb-color-*`) de Seguros Bolívar se aplican
 - ✅ Las variables del botón (`--rb-button-*`) se personalizan
@@ -192,14 +201,14 @@ dist/
 
 ## 📈 Métricas
 
-| Métrica | Valor |
-|---------|-------|
-| **Archivos CSS creados** | 18 archivos (6 marcas × 2 themes + 6 index.css) |
-| **Variables CSS expuestas** | 144 variables por componente |
-| **Marcas soportadas** | 6 (Seguros Bolívar, Davivienda, Jelpit, Cien Cuadras, Doctor Aki, White Label) |
-| **Build exitoso** | ✅ Sin errores |
-| **Tamaño promedio bundle** | ~34 KB minificado |
-| **Compresión gzip** | ~4.7 KB |
+| Métrica                     | Valor                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| **Archivos CSS creados**    | 18 archivos (6 marcas × 2 themes + 6 index.css)                                |
+| **Variables CSS expuestas** | 144 variables por componente                                                   |
+| **Marcas soportadas**       | 6 (Seguros Bolívar, Davivienda, Jelpit, Cien Cuadras, Doctor Aki, White Label) |
+| **Build exitoso**           | ✅ Sin errores                                                                 |
+| **Tamaño promedio bundle**  | ~34 KB minificado                                                              |
+| **Compresión gzip**         | ~4.7 KB                                                                        |
 
 ---
 
@@ -217,11 +226,13 @@ dist/
 ## 🚀 Próximos Pasos
 
 ### Inmediatos
+
 - [ ] Probar visualmente cada marca en ejemplos HTML
 - [ ] Validar en Storybook
 - [ ] Documentar casos de uso específicos
 
 ### Futuro
+
 - [ ] Agregar más componentes (Card, Input, Modal, etc.)
 - [ ] Crear guía visual de personalización
 - [ ] Automatizar tests de consistencia
@@ -287,4 +298,3 @@ El sistema de **Brand Override con Data Attributes** está completamente impleme
 **Fecha:** 2025-01-10  
 **Versión:** 1.0.0  
 **Equipo:** Root Block Design System
-

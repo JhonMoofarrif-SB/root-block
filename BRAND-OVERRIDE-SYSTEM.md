@@ -107,13 +107,13 @@ packages/
 
 ### Matriz Completa para Button
 
-| Tipo | Variantes | Propiedades | Estados | Total |
-|------|-----------|-------------|---------|-------|
-| 4 tipos | 3 variantes | 3 propiedades | 4 estados | **144 variables** |
-| primary | stroke | bg | default | |
-| secondary | fill | text | hover | |
-| tertiary | text | border | active | |
-| error | | | disabled | |
+| Tipo      | Variantes   | Propiedades   | Estados   | Total             |
+| --------- | ----------- | ------------- | --------- | ----------------- |
+| 4 tipos   | 3 variantes | 3 propiedades | 4 estados | **144 variables** |
+| primary   | stroke      | bg            | default   |                   |
+| secondary | fill        | text          | hover     |                   |
+| tertiary  | text        | border        | active    |                   |
+| error     |             |               | disabled  |                   |
 
 ---
 
@@ -130,7 +130,7 @@ Define las variables con valores por defecto:
     --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    
+
     /* Aplica las variables */
     --rb-button-bg-color: var(--rb-button-primary-stroke-bg);
     --rb-button-text-color: var(--rb-button-primary-stroke-text);
@@ -143,7 +143,7 @@ Define las variables con valores por defecto:
     /* Define variables FILL */
     --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
     --rb-button-primary-fill-text: var(--rb-color-primary-D100);
-    
+
     /* Sobreescribe las aplicadas */
     --rb-button-bg-color: var(--rb-button-primary-fill-bg);
     --rb-button-text-color: var(--rb-button-primary-fill-text);
@@ -156,13 +156,13 @@ Define las variables con valores por defecto:
 Redefine solo las variables que quiere cambiar:
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   .rb-button--primary {
     /* Solo redefine lo que cambia */
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
   }
-  
+
   .rb-button--fill.rb-button--primary {
     --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
     --rb-button-primary-fill-text: var(--rb-color-primary-D100);
@@ -175,16 +175,14 @@ Redefine solo las variables que quiere cambiar:
 ```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <!-- Bundle completo: tokens + atoms + overrides de Seguros Bolívar -->
-  <link rel="stylesheet" href="rb-seguros-bolivar-light.min.css">
-</head>
-<body data-brand="seguros-bolivar">
-  <!-- El botón usa los overrides de Seguros Bolívar automáticamente -->
-  <button class="rb-button rb-button--primary rb-button--fill">
-    Botón Primary Fill
-  </button>
-</body>
+  <head>
+    <!-- Bundle completo: tokens + atoms + overrides de Seguros Bolívar -->
+    <link rel="stylesheet" href="rb-seguros-bolivar-light.min.css" />
+  </head>
+  <body data-brand="seguros-bolivar">
+    <!-- El botón usa los overrides de Seguros Bolívar automáticamente -->
+    <button class="rb-button rb-button--primary rb-button--fill">Botón Primary Fill</button>
+  </body>
 </html>
 ```
 
@@ -235,21 +233,20 @@ touch nueva-marca/button.css
  * ============================================================================
  */
 
-[data-brand="nueva-marca"] {
-  
+[data-brand='nueva-marca'] {
   /* PRIMARY - STROKE */
   .rb-button--primary {
     --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-primary-stroke-text: var(--rb-color-primary-base);
     --rb-button-primary-stroke-border: var(--rb-color-primary-base);
   }
-  
+
   /* PRIMARY - FILL */
   .rb-button--fill.rb-button--primary {
     --rb-button-primary-fill-bg: var(--rb-color-primary-base);
     --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
   }
-  
+
   /* Agregar más overrides según necesidad */
 }
 ```
@@ -263,7 +260,7 @@ pnpm run build:all
 ### Paso 5: Usar
 
 ```html
-<link rel="stylesheet" href="rb-nueva-marca-light.min.css">
+<link rel="stylesheet" href="rb-nueva-marca-light.min.css" />
 <body data-brand="nueva-marca">
   <button class="rb-button rb-button--primary">Mi Botón</button>
 </body>
@@ -286,7 +283,7 @@ pnpm run build:all
     --rb-card-primary-bg: var(--rb-color-grayscale-white);
     --rb-card-primary-text: var(--rb-color-grayscale-black);
     --rb-card-primary-border: var(--rb-color-primary-base);
-    
+
     /* Aplica variables */
     background-color: var(--rb-card-primary-bg);
     color: var(--rb-card-primary-text);
@@ -300,7 +297,7 @@ pnpm run build:all
 `packages/brand-overrides/src/seguros-bolivar/card.css`:
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   .rb-card--primary {
     --rb-card-primary-border: var(--rb-color-secondary-base);
   }
@@ -311,7 +308,7 @@ pnpm run build:all
 
 ```css
 @import './button.css';
-@import './card.css';  /* ← Nuevo */
+@import './card.css'; /* ← Nuevo */
 ```
 
 ### Paso 4: Compilar
@@ -329,13 +326,13 @@ pnpm run build:all
 **Personalización:** Amarillo (secondary) + Verde (primary)
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   .rb-button--primary {
     /* STROKE: Borde amarillo, texto verde */
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
   }
-  
+
   .rb-button--fill.rb-button--primary {
     /* FILL: Fondo amarillo, texto verde */
     --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
@@ -349,11 +346,11 @@ pnpm run build:all
 **Personalización:** Secondary y Error con colores propios
 
 ```css
-[data-brand="davivienda"] {
+[data-brand='davivienda'] {
   .rb-button--secondary {
     --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
   }
-  
+
   .rb-button--fill.rb-button--error {
     --rb-button-error-fill-bg: var(--rb-color-feedback-error-base);
   }
@@ -365,7 +362,7 @@ pnpm run build:all
 **Personalización:** PRIMARY TEXT con background L400
 
 ```css
-[data-brand="jelpit"] {
+[data-brand='jelpit'] {
   .rb-button--text.rb-button--primary {
     --rb-button-primary-text-bg-hover: var(--rb-color-primary-L400);
     --rb-button-primary-text-text: var(--rb-color-primary-D100);
@@ -378,11 +375,11 @@ pnpm run build:all
 **Personalización:** Tonos de texto D200/D300
 
 ```css
-[data-brand="cien-cuadras"] {
+[data-brand='cien-cuadras'] {
   .rb-button--primary {
     --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
   }
-  
+
   .rb-button--fill.rb-button--primary {
     --rb-button-primary-fill-text: var(--rb-color-primary-D300);
   }
@@ -394,7 +391,7 @@ pnpm run build:all
 **Personalización:** PRIMARY FILL con colores propios
 
 ```css
-[data-brand="doctor-aki"] {
+[data-brand='doctor-aki'] {
   .rb-button--fill.rb-button--primary {
     --rb-button-primary-fill-bg: var(--rb-color-primary-base);
     --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
@@ -407,7 +404,7 @@ pnpm run build:all
 **Sin personalización:** Usa todos los estilos por defecto
 
 ```css
-[data-brand="white-label"] {
+[data-brand='white-label'] {
   /* Sin overrides - usa estilos base */
 }
 ```
@@ -416,16 +413,16 @@ pnpm run build:all
 
 ## ✅ Ventajas del Sistema
 
-| Ventaja | Descripción |
-|---------|-------------|
-| 🎯 **CSS Puro** | Sin JavaScript, JSON, ni builders complejos |
-| 🔧 **Mantenible** | Patrón consistente y predecible |
-| 📦 **Escalable** | Agregar marcas es copiar + modificar |
-| ⚡ **Performance** | CSS nativo, sin overhead |
-| 🎨 **Flexible** | Cada marca define solo lo que necesita |
-| 🔍 **Debugging** | DevTools muestra cascada completa |
-| 📱 **Responsive** | Compatible con media queries |
-| ♿ **Accesible** | Mantiene focus, disabled, etc. |
+| Ventaja            | Descripción                                 |
+| ------------------ | ------------------------------------------- |
+| 🎯 **CSS Puro**    | Sin JavaScript, JSON, ni builders complejos |
+| 🔧 **Mantenible**  | Patrón consistente y predecible             |
+| 📦 **Escalable**   | Agregar marcas es copiar + modificar        |
+| ⚡ **Performance** | CSS nativo, sin overhead                    |
+| 🎨 **Flexible**    | Cada marca define solo lo que necesita      |
+| 🔍 **Debugging**   | DevTools muestra cascada completa           |
+| 📱 **Responsive**  | Compatible con media queries                |
+| ♿ **Accesible**   | Mantiene focus, disabled, etc.              |
 
 ---
 
@@ -464,6 +461,7 @@ npx serve
 ### 4. Verificar Build
 
 Los archivos generados están en:
+
 - `packages/bundle/dist/rb-{marca}-{theme}.min.css`
 - `examples/dist/rb-{marca}-{theme}.min.css`
 
@@ -501,6 +499,7 @@ Los archivos generados están en:
 **Problema:** Los estilos de marca no se ven.
 
 **Solución:**
+
 1. Verificar que `data-brand` está en `<body>`
 2. Verificar que el CSS de la marca está cargado
 3. Limpiar caché del browser (Cmd+Shift+R)
@@ -511,6 +510,7 @@ Los archivos generados están en:
 **Problema:** `var(--rb-button-xxx)` no tiene valor.
 
 **Solución:**
+
 1. Verificar que la variable está definida en `button.css`
 2. Verificar el patrón de nombre (tipo-variante-propiedad-estado)
 3. Verificar que el selector coincide (`.rb-button--primary`, `.rb-button--fill.rb-button--primary`)
@@ -520,6 +520,7 @@ Los archivos generados están en:
 **Problema:** `pnpm run build:all` da error.
 
 **Solución:**
+
 1. Limpiar: `pnpm run clean`
 2. Verificar sintaxis CSS (no `}` de más o de menos)
 3. Verificar imports en `index.css`
@@ -584,4 +585,3 @@ Los archivos generados están en:
 **Última actualización:** 2025-01-10  
 **Versión:** 1.0.0  
 **Sistema:** Root Block Design System
-

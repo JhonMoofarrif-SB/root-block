@@ -33,6 +33,7 @@ Abre en el navegador: `http://localhost:3000`
 ## 🎯 ¿Qué Ver?
 
 ### 1. **`index.html`** - Demo Principal
+
 - Selector de 6 marcas (White Label, Jelpit, Davivienda, Cien Cuadras, Doctor Aki, Seguros Bolívar)
 - Toggle Light/Dark theme
 - Ejemplos de botones
@@ -40,6 +41,7 @@ Abre en el navegador: `http://localhost:3000`
 - Link a documentación completa de botones
 
 ### 2. **`button.html`** - Documentación Completa
+
 - Todos los tipos de botón (Primary, Secondary, Tertiary, Error)
 - Todas las variantes (Stroke, Fill, Text)
 - Todos los tamaños (Small, Medium, Large)
@@ -47,6 +49,7 @@ Abre en el navegador: `http://localhost:3000`
 - Estados (Loading, Disabled)
 
 ### 3. **`USO-BOTONES.md`** - Guía de Uso
+
 - Reglas básicas de las clases
 - Defaults del sistema (FILL, MEDIUM)
 - Ejemplos completos
@@ -57,17 +60,20 @@ Abre en el navegador: `http://localhost:3000`
 ## 🔧 Cambiar Marca
 
 ### Opción 1: Selector Visual
+
 Usa el dropdown en la página para cambiar entre marcas.
 
 ### Opción 2: Data Attribute
+
 Edita el HTML:
 
 ```html
 <!-- En index.html o button.html, línea 2 -->
-<html data-brand="seguros-bolivar" data-theme="light">
+<html data-brand="seguros-bolivar" data-theme="light"></html>
 ```
 
 Marcas disponibles:
+
 - `white-label`
 - `jelpit`
 - `davivienda`
@@ -87,7 +93,7 @@ Cada marca tiene su propio bundle que incluye:
 
 ```html
 <!-- Ejemplo: Cargar bundle de Seguros Bolívar Light -->
-<link rel="stylesheet" href="dist/rb-seguros-bolivar-light.min.css">
+<link rel="stylesheet" href="dist/rb-seguros-bolivar-light.min.css" />
 ```
 
 **Tamaño**: ~34KB minificado, ~4.7KB gzip

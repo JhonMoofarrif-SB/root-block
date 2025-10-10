@@ -35,7 +35,7 @@ En lugar de JSON + Builder complejo, usamos **data attributes + CSS variables**.
   .rb-button--primary {
     background: var(--rb-button-primary-bg);
     color: var(--rb-button-primary-text);
-    
+
     &:hover {
       background: var(--rb-button-primary-bg-hover, var(--rb-button-primary-bg));
     }
@@ -46,12 +46,12 @@ En lugar de JSON + Builder complejo, usamos **data attributes + CSS variables**.
 ### **2. Brand Overrides** (Personaliza por marca)
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   --rb-button-primary-bg: var(--rb-color-secondary-base); /* Amarillo */
   --rb-button-primary-text: var(--rb-color-primary-D100); /* Verde */
 }
 
-[data-brand="davivienda"] {
+[data-brand='davivienda'] {
   --rb-button-primary-bg: var(--rb-color-primary-base); /* Rojo */
   --rb-button-primary-text: white;
 }
@@ -62,19 +62,21 @@ En lugar de JSON + Builder complejo, usamos **data attributes + CSS variables**.
 ## ✅ **VENTAJAS**
 
 ### **1. Simplicidad**
+
 - ❌ No JSON
 - ❌ No Builder
 - ❌ No Schema
 - ✅ Solo CSS puro
 
 ### **2. Flexibilidad Total**
+
 ```css
 /* Cada marca puede override SOLO lo que necesita */
-[data-brand="jelpit"] {
+[data-brand='jelpit'] {
   --rb-button-text-bg-hover: #f2fdf1; /* Solo esto */
 }
 
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   /* Todo el button */
   --rb-button-primary-bg: ...;
   --rb-button-primary-text: ...;
@@ -83,23 +85,26 @@ En lugar de JSON + Builder complejo, usamos **data attributes + CSS variables**.
 ```
 
 ### **3. Facilidad de Mantenimiento**
+
 ```css
 /* Agregar nueva marca: 5 minutos */
-[data-brand="nueva-marca"] {
-  --rb-button-primary-bg: #FF5733;
+[data-brand='nueva-marca'] {
+  --rb-button-primary-bg: #ff5733;
 }
 ```
 
 ### **4. Performance**
+
 - ✅ CSS nativo (más rápido que JS)
 - ✅ Sin build step adicional
 - ✅ CSS-in-CSS (no CSS-in-JS)
 
 ### **5. Escalabilidad**
+
 ```css
 /* Agregar variante custom por marca */
-[data-brand="seguros-bolivar"] {
-  --rb-button-accent-bg: #FF5733;
+[data-brand='seguros-bolivar'] {
+  --rb-button-accent-bg: #ff5733;
   --rb-button-accent-text: white;
 }
 
@@ -133,13 +138,14 @@ packages/
 ### **Caso 1: Cambiar colores PRIMARY**
 
 ```css
-[data-brand="mi-marca"] {
-  --rb-button-primary-bg: #0066CC;
+[data-brand='mi-marca'] {
+  --rb-button-primary-bg: #0066cc;
   --rb-button-primary-text: white;
 }
 ```
 
 **Resultado:**
+
 ```html
 <body data-brand="mi-marca">
   <button class="rb-button rb-button--primary">
@@ -153,8 +159,8 @@ packages/
 ### **Caso 2: Solo cambiar hover**
 
 ```css
-[data-brand="mi-marca"] {
-  --rb-button-primary-bg-hover: #0055AA;
+[data-brand='mi-marca'] {
+  --rb-button-primary-bg-hover: #0055aa;
 }
 ```
 
@@ -165,11 +171,11 @@ packages/
 ### **Caso 3: Swap de colores (Seguros Bolívar)**
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   /* Primary usa secondary colors */
   --rb-button-primary-bg: var(--rb-color-secondary-base);
   --rb-button-primary-text: var(--rb-color-primary-D100);
-  
+
   /* Secondary usa primary colors */
   --rb-button-secondary-bg: var(--rb-color-primary-base);
   --rb-button-secondary-text: var(--rb-color-secondary-base);
@@ -181,9 +187,9 @@ packages/
 ### **Caso 4: Variante custom por marca**
 
 ```css
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   /* Nueva variante "accent" solo para esta marca */
-  --rb-button-accent-bg: linear-gradient(90deg, #FFE16F, #009056);
+  --rb-button-accent-bg: linear-gradient(90deg, #ffe16f, #009056);
   --rb-button-accent-text: #038450;
   --rb-button-accent-border: transparent;
 }
@@ -212,7 +218,7 @@ packages/
     --rb-button-primary-bg-active: var(--rb-color-primary-D200);
     --rb-button-primary-text: var(--rb-color-grayscale-white);
     --rb-button-primary-border: var(--rb-color-primary-base);
-    
+
     --rb-button-secondary-bg: var(--rb-color-secondary-base);
     /* ... más variables */
   }
@@ -223,11 +229,11 @@ packages/
     background: var(--rb-button-primary-bg);
     color: var(--rb-button-primary-text);
     border: 1px solid var(--rb-button-primary-border);
-    
+
     &:hover:not(:disabled) {
       background: var(--rb-button-primary-bg-hover);
     }
-    
+
     &:active {
       background: var(--rb-button-primary-bg-active);
     }
@@ -239,7 +245,7 @@ packages/
 
 ```css
 /* packages/brand-overrides/src/seguros-bolivar.css */
-[data-brand="seguros-bolivar"] {
+[data-brand='seguros-bolivar'] {
   --rb-button-primary-bg: var(--rb-color-secondary-base);
   --rb-button-primary-bg-hover: var(--rb-color-secondary-D100);
   --rb-button-primary-text: var(--rb-color-primary-D100);
@@ -261,24 +267,25 @@ const css = `
 
 ## 📊 **COMPARACIÓN: JSON vs Data Attributes**
 
-| Aspecto | JSON Tokens | Data Attributes |
-|---------|-------------|-----------------|
-| **Complejidad** | Alta | Baja |
-| **Build step** | Necesario | Opcional |
-| **Facilidad** | Media | Alta |
-| **Flexibilidad** | Alta | Alta |
-| **Performance** | Buena | Excelente |
-| **Type safety** | Con Schema | No |
-| **Autocomplete** | Con Schema | CSS nativo |
-| **Curva aprendizaje** | Media | Baja |
-| **Tiempo agregar marca** | 15-20 min | 5 min |
-| **Líneas código/marca** | JSON + Schema | Solo CSS |
+| Aspecto                  | JSON Tokens   | Data Attributes |
+| ------------------------ | ------------- | --------------- |
+| **Complejidad**          | Alta          | Baja            |
+| **Build step**           | Necesario     | Opcional        |
+| **Facilidad**            | Media         | Alta            |
+| **Flexibilidad**         | Alta          | Alta            |
+| **Performance**          | Buena         | Excelente       |
+| **Type safety**          | Con Schema    | No              |
+| **Autocomplete**         | Con Schema    | CSS nativo      |
+| **Curva aprendizaje**    | Media         | Baja            |
+| **Tiempo agregar marca** | 15-20 min     | 5 min           |
+| **Líneas código/marca**  | JSON + Schema | Solo CSS        |
 
 ---
 
 ## 💪 **VENTAJAS CLAVE**
 
 ### **1. Developer Experience**
+
 ```css
 /* Antes (JSON) */
 {
@@ -304,6 +311,7 @@ const css = `
 ```
 
 ### **2. Sin Build Complexity**
+
 ```bash
 # Antes
 pnpm run build:tokens  # Genera CSS desde JSON
@@ -314,10 +322,11 @@ pnpm run build:bundle  # Compila todo
 ```
 
 ### **3. Hot Reload**
+
 ```css
 /* Cambias variable → refresh → ves cambio inmediato */
-[data-brand="seguros-bolivar"] {
-  --rb-button-primary-bg: #FF0000; /* Prueba rápida */
+[data-brand='seguros-bolivar'] {
+  --rb-button-primary-bg: #ff0000; /* Prueba rápida */
 }
 ```
 
@@ -347,6 +356,7 @@ echo '[data-brand="mi-marca"] {
 ## 🎯 **RECOMENDACIÓN**
 
 **Usar Data Attributes cuando:**
+
 - ✅ Quieres simplicidad
 - ✅ CSS es suficiente
 - ✅ Build process simple
@@ -354,6 +364,7 @@ echo '[data-brand="mi-marca"] {
 - ✅ Pocas marcas (<10)
 
 **Usar JSON Tokens cuando:**
+
 - ⚠️ Necesitas validación estricta
 - ⚠️ Type safety crítico
 - ⚠️ Muchas marcas (>20)
@@ -365,10 +376,12 @@ echo '[data-brand="mi-marca"] {
 ## 📝 **CONCLUSIÓN**
 
 **Data Attributes = 80/20 rule**
+
 - 80% de funcionalidad
 - 20% de complejidad
 
 **JSON Tokens = Enterprise ready**
+
 - 100% de funcionalidad
 - 60% más complejidad
 
@@ -387,4 +400,3 @@ Para Root Block, **recomendamos Data Attributes** porque:
 ---
 
 **¿Procedemos con implementar Data Attributes en button.css?** 🚀
-

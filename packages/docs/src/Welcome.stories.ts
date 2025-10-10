@@ -183,11 +183,9 @@ export const Welcome: Story = {
         <h2 style="color: var(--rb-color-primary-base); margin-top: 0;">
           ✨ Brand Overrides Especiales
         </h2>
-        
+
         <div style="margin-bottom: 1.5rem;">
-          <h3 style="color: #e1111c; margin: 0 0 0.5rem 0; font-size: 1.1rem;">
-            🔴 Davivienda
-          </h3>
+          <h3 style="color: #e1111c; margin: 0 0 0.5rem 0; font-size: 1.1rem;">🔴 Davivienda</h3>
           <p style="color: var(--rb-color-grayscale-D100); margin: 0;">
             <strong>Loading Animation:</strong> Gradiente negro deslizante de izquierda a derecha
           </p>
@@ -198,10 +196,11 @@ export const Welcome: Story = {
             💚 Seguros Bolívar
           </h3>
           <p style="color: var(--rb-color-grayscale-D100); margin: 0;">
-            <strong>Color Swap:</strong> Botón Primary usa amarillo, Secondary usa verde (invertidos)
+            <strong>Color Swap:</strong> Botón Primary usa amarillo, Secondary usa verde
+            (invertidos)
           </p>
         </div>
-        
+
         <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 0.5rem;">
           <strong>Para verlo en acción:</strong>
         </p>

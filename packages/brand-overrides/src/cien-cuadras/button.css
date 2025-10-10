@@ -13,8 +13,7 @@
  * ============================================================================
  */
 
-[data-brand="cien-cuadras"] {
-  
+[data-brand='cien-cuadras'] {
   /* ========================================
      PRIMARY - STROKE
      Colores de texto personalizados
@@ -23,7 +22,7 @@
     --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
     --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D300);
   }
-  
+
   /* ========================================
      PRIMARY - FILL
      Background y texto personalizados
@@ -34,7 +33,7 @@
     --rb-button-primary-fill-text-hover: var(--rb-color-primary-D300);
     --rb-button-primary-fill-text-active: var(--rb-color-primary-D300);
   }
-  
+
   /* ========================================
      SECONDARY - TEXT
      Color de texto personalizado

@@ -5,11 +5,14 @@
 Font Awesome 6 está **completamente integrado** en el Storybook del proyecto. Los iconos se cargan automáticamente desde el CDN de Cloudflare y están disponibles en todas las historias.
 
 ### Versión Instalada
+
 - **Font Awesome 6.5.1** (Free)
 - Cargado desde: `https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css`
 
 ### Archivo de Configuración
+
 La integración se encuentra en:
+
 ```
 packages/docs/.storybook/preview.ts
 ```
@@ -29,17 +32,18 @@ packages/docs/.storybook/preview.ts
 
 ### Clases Disponibles
 
-| Clase CSS | Descripción | Uso |
-|-----------|-------------|-----|
-| `.rb-button--icon-left` | Icono a la izquierda del texto | Acciones principales |
-| `.rb-button--icon-right` | Icono a la derecha del texto | Navegación, enlaces externos |
-| `.rb-button--icon-only` | Solo icono (circular 40x40px) | Acciones compactas |
+| Clase CSS                | Descripción                    | Uso                          |
+| ------------------------ | ------------------------------ | ---------------------------- |
+| `.rb-button--icon-left`  | Icono a la izquierda del texto | Acciones principales         |
+| `.rb-button--icon-right` | Icono a la derecha del texto   | Navegación, enlaces externos |
+| `.rb-button--icon-only`  | Solo icono (circular 40x40px)  | Acciones compactas           |
 
 ---
 
 ## 📚 Tipos de Iconos Font Awesome
 
 ### 1. Solid Icons (fa-solid) - MÁS COMÚN
+
 Los iconos más utilizados con relleno sólido:
 
 ```html
@@ -50,6 +54,7 @@ Los iconos más utilizados con relleno sólido:
 ```
 
 ### 2. Regular Icons (fa-regular)
+
 Iconos con estilo outline:
 
 ```html
@@ -59,6 +64,7 @@ Iconos con estilo outline:
 ```
 
 ### 3. Brand Icons (fa-brands)
+
 Iconos de redes sociales y marcas:
 
 ```html
@@ -145,13 +151,17 @@ Iconos de redes sociales y marcas:
 </button>
 
 <!-- Loading -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-left">
+<button
+  class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-left"
+>
   <i class="fa-solid fa-cloud-arrow-up"></i>
   Subiendo...
 </button>
 
 <!-- Disabled -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-left">
+<button
+  class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-left"
+>
   <i class="fa-solid fa-cloud-arrow-up"></i>
   Subir archivo
 </button>
@@ -162,6 +172,7 @@ Iconos de redes sociales y marcas:
 ## 🔍 Búsqueda de Iconos
 
 ### Catálogo Completo
+
 Explora todos los iconos disponibles en Font Awesome:
 
 🔗 **https://fontawesome.com/search**
@@ -169,6 +180,7 @@ Explora todos los iconos disponibles en Font Awesome:
 ### Iconos Populares por Categoría
 
 #### 📁 Archivos y Documentos
+
 - `fa-file` - Archivo genérico
 - `fa-folder` - Carpeta
 - `fa-download` - Descargar
@@ -177,6 +189,7 @@ Explora todos los iconos disponibles en Font Awesome:
 - `fa-cloud-arrow-down` - Descargar de la nube
 
 #### 👤 Usuario y Cuenta
+
 - `fa-user` - Usuario
 - `fa-users` - Grupo de usuarios
 - `fa-user-plus` - Agregar usuario
@@ -185,6 +198,7 @@ Explora todos los iconos disponibles en Font Awesome:
 - `fa-right-to-bracket` - Iniciar sesión
 
 #### ⚙️ Acciones y Herramientas
+
 - `fa-gear` - Configuración
 - `fa-pen-to-square` - Editar
 - `fa-trash` - Eliminar
@@ -193,6 +207,7 @@ Explora todos los iconos disponibles en Font Awesome:
 - `fa-magnifying-glass` - Buscar
 
 #### 🔔 Notificaciones y Estados
+
 - `fa-bell` - Notificaciones
 - `fa-circle-check` - Éxito
 - `fa-circle-xmark` - Error
@@ -200,6 +215,7 @@ Explora todos los iconos disponibles en Font Awesome:
 - `fa-triangle-exclamation` - Advertencia
 
 #### 🧭 Navegación
+
 - `fa-chevron-left` - Anterior
 - `fa-chevron-right` - Siguiente
 - `fa-chevron-up` - Arriba
@@ -208,6 +224,7 @@ Explora todos los iconos disponibles en Font Awesome:
 - `fa-bars` - Menú hamburguesa
 
 #### 💬 Comunicación y Social
+
 - `fa-facebook` - Facebook
 - `fa-x-twitter` - Twitter/X
 - `fa-linkedin` - LinkedIn
@@ -220,16 +237,19 @@ Explora todos los iconos disponibles en Font Awesome:
 ## 💡 Mejores Prácticas
 
 ### 1. Consistencia de Iconos
+
 - **Solid (fa-solid)**: Usa para la mayoría de acciones
 - **Regular (fa-regular)**: Usa para indicadores y opciones secundarias
 - **Brands (fa-brands)**: Solo para redes sociales y marcas específicas
 
 ### 2. Posicionamiento Semántico
+
 - **Icon Left**: Acciones principales (Guardar, Eliminar, Editar)
 - **Icon Right**: Navegación y enlaces externos (Siguiente, Ver más)
 - **Icon Only**: Acciones compactas en toolbars o FABs
 
 ### 3. Accesibilidad
+
 Siempre usa el atributo `title` en botones icon-only:
 
 ```html
@@ -239,6 +259,7 @@ Siempre usa el atributo `title` en botones icon-only:
 ```
 
 ### 4. Estados Interactivos
+
 Los iconos heredan automáticamente el color del botón con `currentColor`, por lo que se adaptan perfectamente a todos los estados (hover, disabled, loading).
 
 ---
@@ -250,6 +271,7 @@ Para ver todos los ejemplos de Font Awesome en acción, navega a:
 **Storybook > Atoms > Button > Font Awesome Examples**
 
 Esta historia incluye:
+
 - ⚡ Iconos de Acción
 - 🧭 Iconos de Navegación
 - 🎯 Botones Solo Icono
@@ -261,15 +283,18 @@ Esta historia incluye:
 ## 🛠️ Troubleshooting
 
 ### Los iconos no se muestran
+
 1. Verifica que Storybook esté corriendo correctamente
 2. Abre las DevTools del navegador y confirma que Font Awesome se cargó desde el CDN
 3. Busca errores de red en la consola
 
 ### Los iconos se ven mal o desalineados
+
 - Asegúrate de usar las clases correctas del sistema Root Block: `.rb-button--icon-left`, `.rb-button--icon-right`, o `.rb-button--icon-only`
 - Los iconos deben estar dentro de un elemento `<i>` con las clases de Font Awesome
 
 ### Quiero usar Font Awesome Pro
+
 1. Edita `packages/docs/.storybook/preview.ts`
 2. Reemplaza la URL del CDN con tu Kit Code de Font Awesome Pro
 3. Reinicia Storybook
@@ -279,6 +304,7 @@ Esta historia incluye:
 ## 📝 Changelog
 
 ### v1.0.0 - 2025-01-10
+
 - ✅ Integración inicial de Font Awesome 6.5.1
 - ✅ Carga automática desde CDN
 - ✅ Historia completa de ejemplos en Storybook
@@ -292,4 +318,3 @@ Esta historia incluye:
 - [Font Awesome Icons Search](https://fontawesome.com/search)
 - [Font Awesome Accessibility](https://fontawesome.com/docs/web/dig-deeper/accessibility)
 - [Root Block Button Component](./src/atoms/Button.stories.ts)
-

@@ -12,8 +12,7 @@
  * ============================================================================
  */
 
-[data-brand="doctor-aki"] {
-  
+[data-brand='doctor-aki'] {
   /* ========================================
      PRIMARY - FILL
      Colores de marca Doctor Aki
@@ -22,16 +21,16 @@
     --rb-button-primary-fill-bg: var(--rb-color-primary-base);
     --rb-button-primary-fill-bg-hover: var(--rb-color-primary-D100);
     --rb-button-primary-fill-bg-active: var(--rb-color-primary-D200);
-    
+
     --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
     --rb-button-primary-fill-text-hover: var(--rb-color-grayscale-white);
     --rb-button-primary-fill-text-active: var(--rb-color-grayscale-white);
-    
+
     --rb-button-primary-fill-border: var(--rb-color-primary-base);
     --rb-button-primary-fill-border-hover: var(--rb-color-primary-D100);
     --rb-button-primary-fill-border-active: var(--rb-color-primary-D200);
   }
-  
+
   /* ========================================
      TERTIARY - STROKE
      Borde y texto personalizados
@@ -42,4 +41,3 @@
     --rb-button-tertiary-stroke-text-hover: var(--rb-color-tertiary-D100);
   }
 }
-

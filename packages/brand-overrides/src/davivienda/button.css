@@ -12,8 +12,7 @@
  * ============================================================================
  */
 
-[data-brand="davivienda"] {
-  
+[data-brand='davivienda'] {
   /* ========================================
      SECONDARY - STROKE
      Personalización de colores para Davivienda
@@ -22,16 +21,16 @@
     --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
     --rb-button-secondary-stroke-bg-active: var(--rb-color-primary-L300);
-    
+
     --rb-button-secondary-stroke-text: var(--rb-color-primary-base);
     --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100);
     --rb-button-secondary-stroke-text-active: var(--rb-color-primary-D200);
-    
+
     --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
     --rb-button-secondary-stroke-border-hover: var(--rb-color-primary-D100);
     --rb-button-secondary-stroke-border-active: var(--rb-color-primary-D200);
   }
-  
+
   /* ========================================
      ERROR - FILL
      Colores de error personalizados
@@ -40,11 +39,11 @@
     --rb-button-error-fill-bg: var(--rb-color-feedback-error-base);
     --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100);
     --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200);
-    
+
     --rb-button-error-fill-text: var(--rb-color-grayscale-white);
     --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white);
     --rb-button-error-fill-text-active: var(--rb-color-grayscale-white);
-    
+
     --rb-button-error-fill-border: var(--rb-color-feedback-error-base);
     --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100);
     --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200);
