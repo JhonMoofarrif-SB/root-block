@@ -1567,6 +1567,177 @@
     </rb-modal>
   </section>
 
+  <!-- Toast Section -->
+  <section class="section">
+    <h2 class="section-title">🍞 Toast (Web Component)</h2>
+    <p class="text-label" style="margin-bottom: 2rem; color: var(--rb-color-grayscale-base);">
+      Componente de notificaciones toast flotantes construido con Lit. Basado en alert.css con posicionamiento dinámico.<br>
+      Incluye auto-dismiss, diferentes posiciones, gestión automática de múltiples toast y se adapta a los tokens de marca.
+    </p>
+    
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Ejemplos Básicos con Click</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Tipos de Toast</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button class="rb-button rb-button--success" onclick="showSuccessToast()">
+            ✅ Success Toast
+          </button>
+          <button class="rb-button rb-button--danger" onclick="showErrorToast()">
+            ❌ Error Toast
+          </button>
+          <button class="rb-button rb-button--warning" onclick="showWarningToast()">
+            ⚠️ Warning Toast
+          </button>
+          <button class="rb-button rb-button--info" onclick="showInfoToast()">
+            ℹ️ Info Toast
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Posiciones</h4>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; font-size: 0.875rem;">
+          <button class="rb-button rb-button--small rb-button--secondary" onclick="showPositionToast('top-left')">
+            ↖️ Top Left
+          </button>
+          <button class="rb-button rb-button--small rb-button--secondary" onclick="showPositionToast('top-right')">
+            ↗️ Top Right
+          </button>
+          <button class="rb-button rb-button--small rb-button--secondary" onclick="showPositionToast('bottom-left')">
+            ↙️ Bottom Left
+          </button>
+          <button class="rb-button rb-button--small rb-button--secondary" onclick="showPositionToast('bottom-right')">
+            ↘️ Bottom Right
+          </button>
+          <button class="rb-button rb-button--small rb-button--secondary" onclick="showPositionToast('top-center')" style="grid-column: 1 / -1;">
+            ⬆️ Top Center
+          </button>
+          <button class="rb-button rb-button--small rb-button--secondary" onclick="showPositionToast('bottom-center')" style="grid-column: 1 / -1;">
+            ⬇️ Bottom Center
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Características Especiales</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button class="rb-button rb-button--primary" onclick="showProgressToast()">
+            ⏰ Con Progress Bar
+          </button>
+          <button class="rb-button rb-button--secondary" onclick="showPersistentToast()">
+            📌 Sin Auto-Dismiss
+          </button>
+          <button class="rb-button rb-button--tertiary" onclick="showRandomToast()">
+            🎲 Toast Aleatorio
+          </button>
+          <button class="rb-button rb-button--quaternary" onclick="showMultipleToasts()">
+            🍞 Múltiples Toast
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Gestión de Toast</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button class="rb-button rb-button--info" onclick="showInteractiveToast()">
+            🖱️ Toast Interactivo
+          </button>
+          <button class="rb-button rb-button--success" onclick="showCustomToast()">
+            🎨 Toast Personalizado
+          </button>
+          <button class="rb-button rb-button--warning" onclick="hideAllToasts()">
+            🫥 Ocultar Todos
+          </button>
+          <button class="rb-button rb-button--danger" onclick="removeAllToasts()">
+            🗑️ Eliminar Todos
+          </button>
+        </div>
+        <div style="margin-top: 1rem; padding: 0.75rem; background: var(--rb-color-grayscale-L400); border-radius: 6px; text-align: center;">
+          <span style="font-size: 0.875rem; color: var(--rb-color-grayscale-D200);">
+            Toast activos: <strong id="toastCounter">0</strong>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3" style="color: var(--rb-color-primary-base);">Ejemplos Avanzados</h3>
+    <div class="demo-grid" style="margin-bottom: 2rem;">
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Tamaños</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button class="rb-button rb-button--small rb-button--outline" onclick="showSizeToast('small')">
+            Small Toast
+          </button>
+          <button class="rb-button rb-button--medium rb-button--outline" onclick="showSizeToast('medium')">
+            Medium Toast
+          </button>
+          <button class="rb-button rb-button--large rb-button--outline" onclick="showSizeToast('large')">
+            Large Toast
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Auto-Dismiss</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button class="rb-button rb-button--primary" onclick="showTimedToast(2000)">
+            2 Segundos
+          </button>
+          <button class="rb-button rb-button--primary" onclick="showTimedToast(5000)">
+            5 Segundos
+          </button>
+          <button class="rb-button rb-button--primary" onclick="showTimedToast(10000)">
+            10 Segundos
+          </button>
+          <button class="rb-button rb-button--secondary" onclick="showCountdownToast()">
+            ⏰ Con Countdown
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Uso Programático</h4>
+        <p style="font-size: 0.875rem; color: var(--rb-color-grayscale-base); margin-bottom: 1rem;">
+          Los toast se pueden crear por JavaScript usando el ToastManager:
+        </p>
+        <div style="background: var(--rb-color-grayscale-L400); padding: 1rem; border-radius: 6px; font-family: monospace; font-size: 0.8125rem; overflow-x: auto;">
+          <div>// Métodos rápidos</div>
+          <div style="color: var(--rb-color-primary-base);">showSuccess('¡Éxito!');</div>
+          <div style="color: var(--rb-color-feedback-error-base);">showError('Error!');</div>
+          <div style="margin-top: 0.5rem;">// Configuración avanzada</div>
+          <div style="color: var(--rb-color-grayscale-D200);">toastManager.show({</div>
+          <div style="color: var(--rb-color-grayscale-D200); margin-left: 1rem;">type: 'info',</div>
+          <div style="color: var(--rb-color-grayscale-D200); margin-left: 1rem;">title: 'Título',</div>
+          <div style="color: var(--rb-color-grayscale-D200); margin-left: 1rem;">position: 'top-center',</div>
+          <div style="color: var(--rb-color-grayscale-D200); margin-left: 1rem;">autoDismiss: 5000</div>
+          <div style="color: var(--rb-color-grayscale-D200);">});</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 2rem;">
+      <h4 style="margin-bottom: 1rem; color: var(--rb-color-grayscale-D300);">Integración con Design System</h4>
+      <p style="font-size: 0.875rem; color: var(--rb-color-grayscale-base); margin-bottom: 1rem;">
+        Los toast se adaptan automáticamente a la marca y tema seleccionados. Cambia la marca arriba para ver los cambios:
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="rb-button rb-button--primary" onclick="showBrandToast()">
+          🎨 Toast con Brand Actual
+        </button>
+        <button class="rb-button rb-button--secondary" onclick="showAllBrands()">
+          🌈 Simular Todas las Marcas
+        </button>
+      </div>
+      <div style="margin-top: 1rem; padding: 1rem; background: var(--rb-color-primary-L400, rgba(0, 122, 204, 0.1)); border-left: 4px solid var(--rb-color-primary-base); border-radius: 0 6px 6px 0;">
+        <p style="margin: 0; font-size: 0.875rem; color: var(--rb-color-primary-base);">
+          <strong>Marca actual:</strong> <span id="currentBrandToast"></span><br>
+          <strong>Variables CSS:</strong> Los toast usan automáticamente <code>--rb-color-*</code> tokens
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="mt-8 pt-6" style="border-top: 2px solid var(--rb-color-grayscale-L200);">
     <div style="text-align: center;">
@@ -1736,6 +1907,380 @@
     // Initialize textarea functionality
     initTextAreaCounters();
     initAutoResize();
+
+    // Toast functionality - Import and initialize
+    let toastManager;
+    let showSuccess, showError, showWarning, showInfo, hideAllToasts, removeAllToasts, showToast;
+
+    // Dynamic import of toast components
+    async function initToast() {
+      try {
+        const toastModule = await import('./dist/rb-components.min.js');
+        
+        // The toast functions should be available globally after component loads
+        // We'll access them through window or create simple wrapper functions
+        
+        // Simple toast manager simulation until the real component is built
+        const createSimpleToast = (type, message, title, options = {}) => {
+          const toast = document.createElement('rb-toast');
+          if (!toast) {
+            // Fallback alert if component not loaded
+            alert(`${type.toUpperCase()}: ${title ? title + ' - ' : ''}${message}`);
+            return;
+          }
+          
+          toast.type = type;
+          toast.message = message;
+          if (title) toast.title = title;
+          if (options.position) toast.position = options.position;
+          if (options.autoDismiss) toast.autoDismiss = options.autoDismiss;
+          if (options.showProgress !== undefined) toast.showProgress = options.showProgress;
+          if (options.size) toast.size = options.size;
+          
+          document.body.appendChild(toast);
+          toast.show();
+          
+          updateToastCounter();
+          return toast;
+        };
+
+        // Toast functions for the demo
+        window.showSuccessToast = () => {
+          createSimpleToast('success', '¡Operación completada exitosamente!', '¡Éxito!', {
+            autoDismiss: 4000,
+            showProgress: true,
+            position: 'top-right'
+          });
+        };
+
+        window.showErrorToast = () => {
+          createSimpleToast('error', 'Ha ocurrido un error inesperado', 'Error', {
+            autoDismiss: 6000,
+            showProgress: true,
+            position: 'top-left'
+          });
+        };
+
+        window.showWarningToast = () => {
+          createSimpleToast('warning', 'Revisa esta información antes de continuar', 'Advertencia', {
+            autoDismiss: 5000,
+            showProgress: true,
+            position: 'bottom-right'
+          });
+        };
+
+        window.showInfoToast = () => {
+          createSimpleToast('info', 'Tienes 3 notificaciones nuevas', 'Información', {
+            autoDismiss: 4000,
+            showProgress: true,
+            position: 'bottom-left'
+          });
+        };
+
+        window.showPositionToast = (position) => {
+          createSimpleToast('info', `Toast mostrado en posición ${position}`, `Posición: ${position}`, {
+            position: position,
+            autoDismiss: 3000,
+            showProgress: true
+          });
+        };
+
+        window.showProgressToast = () => {
+          createSimpleToast('success', 'Este toast tiene barra de progreso visible', 'Con Progress Bar', {
+            autoDismiss: 8000,
+            showProgress: true,
+            position: 'top-center'
+          });
+        };
+
+        window.showPersistentToast = () => {
+          createSimpleToast('warning', 'Este toast no se cierra automáticamente. Haz clic en × para cerrarlo.', 'Toast Persistente', {
+            autoDismiss: 0,
+            showProgress: false,
+            position: 'bottom-center'
+          });
+        };
+
+        window.showRandomToast = () => {
+          const types = ['success', 'error', 'warning', 'info'];
+          const positions = ['top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center', 'bottom-center'];
+          const messages = [
+            '¡Mensaje aleatorio exitoso!',
+            'Error aleatorio generado',
+            'Advertencia aleatoria',
+            'Información aleatoria'
+          ];
+          
+          const randomType = types[Math.floor(Math.random() * types.length)];
+          const randomPosition = positions[Math.floor(Math.random() * positions.length)];
+          const randomMessage = messages[types.indexOf(randomType)];
+          
+          createSimpleToast(randomType, randomMessage, `Toast ${randomType.charAt(0).toUpperCase() + randomType.slice(1)}`, {
+            position: randomPosition,
+            autoDismiss: 4000,
+            showProgress: true
+          });
+        };
+
+        window.showMultipleToasts = () => {
+          const types = ['success', 'info', 'warning', 'error', 'success'];
+          const positions = ['top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center'];
+          
+          types.forEach((type, index) => {
+            setTimeout(() => {
+              createSimpleToast(type, `Este es el toast número ${index + 1}`, `Toast #${index + 1}`, {
+                position: positions[index],
+                autoDismiss: 8000,
+                showProgress: true
+              });
+            }, index * 300);
+          });
+        };
+
+        window.showInteractiveToast = () => {
+          const toast = document.createElement('rb-toast');
+          if (!toast) {
+            alert('Toast interactivo requiere el componente rb-toast');
+            return;
+          }
+          
+          toast.type = 'info';
+          toast.title = 'Toast Interactivo';
+          toast.position = 'bottom-center';
+          toast.autoDismiss = 0;
+          toast.showClose = false;
+          
+          toast.innerHTML = `
+            <div>
+              <p>¿Te gusta este componente?</p>
+              <div slot="actions" style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <button class="rb-button rb-button--small rb-button--success" onclick="handleToastFeedback('yes', this)">
+                  👍 Sí
+                </button>
+                <button class="rb-button rb-button--small rb-button--tertiary" onclick="handleToastFeedback('no', this)">
+                  👎 No
+                </button>
+              </div>
+            </div>
+          `;
+          
+          document.body.appendChild(toast);
+          toast.show();
+          updateToastCounter();
+        };
+
+        window.handleToastFeedback = (feedback, button) => {
+          const toast = button.closest('rb-toast');
+          toast.hide();
+          
+          setTimeout(() => {
+            createSimpleToast('success', 
+              feedback === 'yes' ? '¡Gracias por tu feedback positivo!' : 'Gracias por tu feedback',
+              'Feedback Recibido',
+              { autoDismiss: 3000 }
+            );
+          }, 300);
+        };
+
+        window.showCustomToast = () => {
+          const toast = document.createElement('rb-toast');
+          if (!toast) {
+            alert('Toast personalizado requiere el componente rb-toast');
+            return;
+          }
+          
+          toast.type = 'success';
+          toast.title = 'Toast Personalizado';
+          toast.position = 'top-center';
+          toast.autoDismiss = 6000;
+          toast.showProgress = true;
+          
+          toast.innerHTML = `
+            <div>
+              <p>Este toast tiene contenido HTML personalizado:</p>
+              <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                <li>✅ Contenido rich</li>
+                <li>🎨 Estilos personalizados</li>
+                <li>🔗 <a href="#" style="color: var(--rb-color-primary-base);">Enlaces</a></li>
+              </ul>
+            </div>
+          `;
+          
+          document.body.appendChild(toast);
+          toast.show();
+          updateToastCounter();
+        };
+
+        window.showSizeToast = (size) => {
+          createSimpleToast('info', `Este es un toast de tamaño ${size}`, `Toast ${size.charAt(0).toUpperCase() + size.slice(1)}`, {
+            size: size,
+            autoDismiss: 4000,
+            showProgress: true,
+            position: 'top-right'
+          });
+        };
+
+        window.showTimedToast = (duration) => {
+          createSimpleToast('success', `Este toast se cerrará automáticamente en ${duration/1000} segundos`, `Auto Dismiss: ${duration/1000}s`, {
+            autoDismiss: duration,
+            showProgress: true,
+            position: 'top-center'
+          });
+        };
+
+        window.showCountdownToast = () => {
+          let countdown = 5;
+          const toast = document.createElement('rb-toast');
+          if (!toast) {
+            alert('Countdown toast requiere el componente rb-toast');
+            return;
+          }
+          
+          toast.type = 'info';
+          toast.title = 'Countdown Toast';
+          toast.message = `Se cerrará en ${countdown} segundos...`;
+          toast.position = 'bottom-center';
+          toast.autoDismiss = 0;
+          toast.showClose = false;
+          
+          document.body.appendChild(toast);
+          toast.show();
+          updateToastCounter();
+          
+          const countdownInterval = setInterval(() => {
+            countdown--;
+            toast.message = `Se cerrará en ${countdown} segundos...`;
+            
+            if (countdown <= 0) {
+              clearInterval(countdownInterval);
+              toast.hide();
+              setTimeout(() => {
+                createSimpleToast('success', '¡Countdown completado!', 'Completado', {
+                  autoDismiss: 2000
+                });
+              }, 300);
+            }
+          }, 1000);
+        };
+
+        window.showBrandToast = () => {
+          const brandElement = document.getElementById('currentBrandToast');
+          const brandText = `${currentBrand} (${currentTheme})`;
+          brandElement.textContent = brandText;
+          
+          createSimpleToast('info', 
+            `Este toast usa los tokens de la marca ${currentBrand} en tema ${currentTheme}`, 
+            'Brand Integration',
+            {
+              autoDismiss: 5000,
+              showProgress: true,
+              position: 'top-center'
+            }
+          );
+        };
+
+        window.showAllBrands = () => {
+          const brands = ['jelpit', 'davivienda', 'white-label', 'cien-cuadras', 'doctor-aki', 'seguros-bolivar'];
+          const types = ['success', 'info', 'warning', 'error'];
+          
+          brands.forEach((brand, index) => {
+            setTimeout(() => {
+              const type = types[index % types.length];
+              createSimpleToast(type, 
+                `Toast simulando marca ${brand}`, 
+                `Marca: ${brand}`,
+                {
+                  position: index % 2 === 0 ? 'top-right' : 'bottom-left',
+                  autoDismiss: 6000,
+                  showProgress: true
+                }
+              );
+            }, index * 500);
+          });
+        };
+
+        window.hideAllToasts = () => {
+          const toasts = document.querySelectorAll('rb-toast[visible]');
+          toasts.forEach(toast => {
+            toast.hide();
+          });
+          
+          if (toasts.length === 0) {
+            createSimpleToast('info', 'No hay toast activos para ocultar', 'Sin Toast Activos', {
+              autoDismiss: 2000
+            });
+          }
+        };
+
+        window.removeAllToasts = () => {
+          const toasts = document.querySelectorAll('rb-toast');
+          toasts.forEach(toast => {
+            toast.remove();
+          });
+          updateToastCounter();
+          
+          if (toasts.length === 0) {
+            createSimpleToast('info', 'No hay toast para eliminar', 'Sin Toast', {
+              autoDismiss: 2000
+            });
+          } else {
+            createSimpleToast('success', `${toasts.length} toast eliminados`, 'Toast Eliminados', {
+              autoDismiss: 2000
+            });
+          }
+        };
+
+        function updateToastCounter() {
+          setTimeout(() => {
+            const activeToasts = document.querySelectorAll('rb-toast[visible]').length;
+            const counter = document.getElementById('toastCounter');
+            if (counter) {
+              counter.textContent = activeToasts;
+            }
+          }, 100);
+        }
+
+        // Update counter every 500ms
+        setInterval(updateToastCounter, 500);
+
+        // Initialize brand display
+        const currentBrandToast = document.getElementById('currentBrandToast');
+        if (currentBrandToast) {
+          currentBrandToast.textContent = `${currentBrand} (${currentTheme})`;
+        }
+
+        console.log('✅ Toast functionality initialized');
+      } catch (error) {
+        console.warn('Toast component not available yet:', error);
+        
+        // Fallback functions that use regular alerts
+        const fallbackToast = (type, message, title) => {
+          alert(`${type.toUpperCase()}${title ? ' - ' + title : ''}: ${message}`);
+        };
+
+        window.showSuccessToast = () => fallbackToast('success', '¡Operación completada exitosamente!', '¡Éxito!');
+        window.showErrorToast = () => fallbackToast('error', 'Ha ocurrido un error inesperado', 'Error');
+        window.showWarningToast = () => fallbackToast('warning', 'Revisa esta información antes de continuar', 'Advertencia');
+        window.showInfoToast = () => fallbackToast('info', 'Tienes 3 notificaciones nuevas', 'Información');
+        window.showPositionToast = (pos) => fallbackToast('info', `Toast en posición ${pos}`, 'Posición');
+        window.showProgressToast = () => fallbackToast('success', 'Toast con progress bar', 'Progress');
+        window.showPersistentToast = () => fallbackToast('warning', 'Toast persistente', 'Persistente');
+        window.showRandomToast = () => fallbackToast('info', 'Toast aleatorio', 'Aleatorio');
+        window.showMultipleToasts = () => fallbackToast('info', '5 toast múltiples', 'Múltiples');
+        window.showInteractiveToast = () => fallbackToast('info', 'Toast interactivo', 'Interactivo');
+        window.showCustomToast = () => fallbackToast('success', 'Toast personalizado', 'Personalizado');
+        window.showSizeToast = (size) => fallbackToast('info', `Toast ${size}`, 'Tamaño');
+        window.showTimedToast = (ms) => fallbackToast('success', `Toast ${ms/1000}s`, 'Timed');
+        window.showCountdownToast = () => fallbackToast('info', 'Toast countdown', 'Countdown');
+        window.showBrandToast = () => fallbackToast('info', `Brand ${currentBrand}`, 'Brand');
+        window.showAllBrands = () => fallbackToast('info', 'Todas las marcas', 'Marcas');
+        window.hideAllToasts = () => fallbackToast('info', 'Ocultar todos', 'Ocultar');
+        window.removeAllToasts = () => fallbackToast('success', 'Eliminar todos', 'Eliminar');
+      }
+    }
+
+    // Initialize toast functionality
+    initToast();
   </script>
 </body>
 </html>
