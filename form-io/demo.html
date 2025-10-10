@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es" data-rb-brand="davivienda" data-rb-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root Block Form.io - Demo</title>
+    <meta name="rb-css-base-url" content="./dist">
+    
+    <!-- Cargar Form.io primero -->
+    <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
+    
+    <!-- Cargar Root Block Form.io Bundle -->
+    <link rel="stylesheet" href="./dist/root-block-formio-davivienda-light.min.css">
+    <script src="./dist/root-block-formio.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: var(--rb-color-primary-base, #007acc);
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #666;
+            margin: 0;
+        }
+        
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .demo-controls select,
+        .demo-controls button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .demo-controls button:hover {
+            background: #f0f0f0;
+        }
+        
+        #formio-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #fafafa;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+        
+        .code-example pre {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Root Block Form.io Integration</h1>
+            <p>Demostración del componente Button integrado con Form.io</p>
+        </div>
+        
+        <div class="demo-controls">
+            <select id="brandSelect">
+                <option value="davivienda">Davivienda</option>
+                <option value="white-label">White Label</option>
+                <option value="jelpit">Jelpit</option>
+                <option value="seguros-bolivar">Seguros Bolívar</option>
+                <option value="cien-cuadras">Cien Cuadras</option>
+                <option value="doctor-aki">Doctor Aki</option>
+            </select>
+            
+            <select id="themeSelect">
+                <option value="light">Light Theme</option>
+                <option value="dark">Dark Theme</option>
+            </select>
+            
+            <button onclick="reloadForm()">🔄 Recargar Formulario</button>
+            <button onclick="toggleTheme()">🌙 Alternar Tema</button>
+        </div>
+        
+        <div id="formio-container">
+            <div id="formio"></div>
+        </div>
+        
+        <div class="code-example">
+            <h3>📋 Configuración del Formulario:</h3>
+            <pre id="codeExample"></pre>
+        </div>
+    </div>
+
+    <script>
+        // Configuración del formulario
+        const formSchema = {
+            components: [
+                {
+                    type: 'button',
+                    key: 'primaryButton',
+                    label: 'Botón Primary Fill',
+                    variant: 'primary',
+                    styleVariant: 'fill',
+                    size: 'large',
+                    action: 'custom',
+                    customAction: 'alert("¡Primary Button clickeado!");',
+                    block: true
+                },
+                {
+                    type: 'button',
+                    key: 'secondaryButton',
+                    label: 'Botón Secondary Stroke',
+                    variant: 'secondary',
+                    styleVariant: 'stroke',
+                    size: 'medium',
+                    action: 'custom',
+                    customAction: 'alert("¡Secondary Button clickeado!");'
+                },
+                {
+                    type: 'button',
+                    key: 'iconButton',
+                    label: 'Con Icono',
+                    variant: 'success',
+                    styleVariant: 'fill',
+                    size: 'medium',
+                    iconPosition: 'left',
+                    icon: '✓',
+                    action: 'custom',
+                    customAction: 'alert("¡Botón con icono clickeado!");'
+                },
+                {
+                    type: 'button',
+                    key: 'iconOnlyButton',
+                    variant: 'tertiary',
+                    styleVariant: 'stroke',
+                    size: 'small',
+                    iconPosition: 'only',
+                    icon: '⚙️',
+                    action: 'custom',
+                    customAction: 'alert("¡Botón solo icono clickeado!");'
+                },
+                {
+                    type: 'button',
+                    key: 'textButton',
+                    label: 'Botón Text',
+                    variant: 'primary',
+                    styleVariant: 'text',
+                    size: 'medium',
+                    action: 'custom',
+                    customAction: 'alert("¡Text Button clickeado!");'
+                },
+                {
+                    type: 'button',
+                    key: 'dangerButton',
+                    label: 'Botón Danger',
+                    variant: 'danger',
+                    styleVariant: 'fill',
+                    size: 'medium',
+                    action: 'custom',
+                    customAction: 'alert("¡Danger Button clickeado!");'
+                }
+            ]
+        };
+
+        let currentForm = null;
+
+        // Registrar componentes de Root Block con Form.io
+        if (window.RootBlockFormIO && window.Formio && window.Formio.Components) {
+            window.RootBlockFormIO.registerComponents(window.Formio.Components);
+            console.log('✅ Root Block components registered with Form.io');
+        }
+
+        // Función para crear el formulario
+        async function createForm() {
+            const container = document.getElementById('formio');
+            container.innerHTML = '';
+            
+            try {
+                currentForm = await Formio.createForm(container, formSchema);
+                console.log('✅ Form created successfully');
+                
+                // Escuchar eventos de botones
+                if (window.RootBlockFormIO) {
+                    window.RootBlockFormIO.utils.EventBus.on('button:click', (data) => {
+                        console.log('Button clicked:', data);
+                    });
+                }
+                
+            } catch (error) {
+                console.error('❌ Error creating form:', error);
+                container.innerHTML = `<div style="color: red; padding: 1rem;">Error: ${error.message}</div>`;
+            }
+        }
+
+        // Función para recargar el formulario
+        function reloadForm() {
+            createForm();
+        }
+
+        // Función para alternar tema
+        function toggleTheme() {
+            if (window.RootBlockFormIO) {
+                window.RootBlockFormIO.utils.ThemeManager.toggleTheme();
+            }
+        }
+
+        // Cambiar marca
+        document.getElementById('brandSelect').addEventListener('change', (e) => {
+            if (window.RootBlockFormIO) {
+                window.RootBlockFormIO.utils.ThemeManager.setBrand(e.target.value);
+            }
+        });
+
+        // Cambiar tema
+        document.getElementById('themeSelect').addEventListener('change', (e) => {
+            if (window.RootBlockFormIO) {
+                window.RootBlockFormIO.utils.ThemeManager.setTheme(e.target.value);
+            }
+        });
+
+        // Mostrar código de ejemplo
+        function updateCodeExample() {
+            const codeElement = document.getElementById('codeExample');
+            codeElement.textContent = JSON.stringify(formSchema, null, 2);
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 Initializing Root Block Form.io Demo');
+            
+            // Verificar dependencias
+            if (!window.Formio) {
+                console.error('❌ Form.io not loaded');
+                return;
+            }
+            
+            if (!window.RootBlockFormIO) {
+                console.error('❌ Root Block Form.io not loaded');
+                return;
+            }
+            
+            // Crear formulario inicial
+            createForm();
+            updateCodeExample();
+            
+            console.log('✅ Demo initialized successfully');
+        });
+
+        // Debug info
+        console.log('Available components:', window.Formio?.Components ? Object.keys(window.Formio.Components.components) : 'Form.io not loaded');
+        console.log('Root Block FormIO:', window.RootBlockFormIO);
+    </script>
+</body>
+</html>
