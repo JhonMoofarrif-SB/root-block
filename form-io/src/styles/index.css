@@ -1,0 +1,10 @@
+/**
+ * Root Block Design System - Complete Bundle for Form.io
+ * Incluye todos los estilos necesarios para la integración
+ */
+
+/* Base styles from Root Block Design System */
+@import url('../../packages/atoms/src/button.css');
+
+/* Form.io specific integration styles */
+@import url('./formio-integration.css');
