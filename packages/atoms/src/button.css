@@ -195,7 +195,7 @@
     --rb-button-text-color: var(--rb-color-primary-base, #007acc);
     --rb-button-text-hover: var(--rb-color-primary-D100, #005a9e);
     --rb-button-text-active: var(--rb-color-primary-D200, #004578);
-    --rb-button-text-disabled: var(--rb-color-grayscale-base, #9b9b9b);
+    --rb-button-text-disabled: var(--rb-color-grayscale-L100, #b9b9b9);
     --rb-button-border-color: var(--rb-color-primary-base, #007acc);
     --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
     --rb-button-border-width: 2px;
@@ -220,7 +220,7 @@
     --rb-button-shadow: none;
     --rb-button-shadow-hover: none;
     --rb-button-shadow-active: none;
-    --rb-button-shadow-pressed: inset 2px 2px 3px 0px #1b1b1b29;
+    --rb-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
     /* Transiciones */
     --rb-button-transition: all 0.2s ease;
@@ -272,36 +272,53 @@
     transition: var(--rb-button-transition);
 
     /* Nested Pseudo-classes - Estados interactivos */
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled):not(.rb-button--disabled) {
       background-color: var(--rb-button-bg-hover);
-      color: var(--rb-button-text-hover);
+      color: var(--rb-button-text-hover, var(--rb-button-text-color));
       box-shadow: var(--rb-button-shadow-hover);
+      cursor: pointer;
       /* border-color NO cambia - mantiene el color original */
     }
 
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.rb-button--disabled) {
       background-color: var(--rb-button-bg-active);
-      color: var(--rb-button-text-active);
+      color: var(--rb-button-text-active, var(--rb-button-text-color));
       box-shadow: var(--rb-button-shadow-active);
+      cursor: pointer;
       /* El borde mantiene su color original */
     }
 
     &:focus-visible:not(:disabled):not(.rb-button--disabled) {
-      outline: 3px solid var(--rb-color-primary-L100);
+      outline: 3px solid var(--rb-color-secondary-L100);
       outline-offset: 4px;
     }
 
     &:disabled,
-    &:disabled:hover,
-    &.rb-button--disabled,
-    &.rb-button--disabled:hover,
-    &.rb-button--disabled:focus,
-    &.rb-button--disabled:focus-visible {
+    &.rb-button--disabled {
       background-color: var(--rb-button-bg-disabled);
       color: var(--rb-button-text-disabled);
       border-color: var(--rb-button-border-disabled);
       cursor: not-allowed;
       box-shadow: none;
+      outline: none;
+    }
+
+    /* Disabled hover - mantener los mismos colores disabled */
+    &:disabled:hover,
+    &.rb-button--disabled:hover {
+      background-color: var(--rb-button-bg-disabled) !important;
+      color: var(--rb-button-text-disabled) !important;
+      border-color: var(--rb-button-border-disabled) !important;
+      cursor: not-allowed;
+      box-shadow: none;
+      outline: none;
+    }
+
+    /* Disabled focus - sin outline */
+    &:disabled:focus,
+    &:disabled:focus-visible,
+    &.rb-button--disabled:focus,
+    &.rb-button--disabled:focus-visible {
       outline: none;
     }
   }
@@ -416,6 +433,18 @@
      FILL - Sólido con fondo de color
      ============================================ */
   .rb-button--fill {
+    /* Estilos base para FILL (usa primary por defecto si no se especifica variante) */
+    --rb-button-bg-color: var(--rb-color-primary-base);
+    --rb-button-bg-hover: var(--rb-color-primary-D100);
+    --rb-button-bg-active: var(--rb-color-primary-D200);
+    --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-button-text-color: var(--rb-color-grayscale-white, #fff);
+    --rb-button-text-hover: var(--rb-color-grayscale-white, #fff);
+    --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
+    --rb-button-border-color: var(--rb-color-primary-base);
+    --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+    --rb-button-shadow-active: none;
+
     /* PRIMARY FILL */
     &.rb-button--primary {
       --rb-button-bg-color: var(--rb-color-primary-base);
@@ -427,7 +456,7 @@
       --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
       --rb-button-border-color: var(--rb-color-primary-base);
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
 
     /* SECONDARY FILL */
@@ -443,7 +472,7 @@
       /* Border no cambia en hover - variable removida var(--rb-color-secondary-D100); */
       /* Border no cambia en active - variable removida var(--rb-color-secondary-D200); */
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
 
     /* TERTIARY FILL */
@@ -457,7 +486,7 @@
       --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
       --rb-button-border-color: var(--rb-color-tertiary-base);
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
 
     /* DANGER FILL */
@@ -471,7 +500,7 @@
       --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
       --rb-button-border-color: var(--rb-color-feedback-error-base, #dc3545);
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
 
     /* SUCCESS FILL */
@@ -485,7 +514,7 @@
       --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
       --rb-button-border-color: var(--rb-color-feedback-success-base, #28a745);
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
 
     /* QUINARY FILL */
@@ -499,7 +528,7 @@
       --rb-button-text-active: var(--rb-color-grayscale-white, #fff);
       --rb-button-border-color: var(--rb-color-tertiary-base);
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
 
     /* QUATERNARY FILL */
@@ -513,7 +542,7 @@
       --rb-button-text-active: var(--rb-color-primary-D200);
       --rb-button-border-color: var(--rb-color-grayscale-L300);
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: var(--rb-button-shadow-pressed);
+      --rb-button-shadow-active: none; /* Sin sombra inset en FILL - solo cambio de color */
     }
   }
 
@@ -521,6 +550,7 @@
      TEXT - Sin fondo ni borde
      ============================================ */
   .rb-button--text {
+    /* Estilos base para TEXT (transparente) */
     --rb-button-bg-color: transparent;
     --rb-button-bg-hover: transparent;
     --rb-button-bg-active: transparent;
@@ -534,6 +564,11 @@
     --rb-button-shadow: none;
     --rb-button-shadow-hover: none;
     --rb-button-shadow-active: none;
+    
+    /* Colores de texto por defecto (usa primary si no se especifica) */
+    --rb-button-text-color: var(--rb-color-primary-base);
+    --rb-button-text-hover: var(--rb-color-primary-D100);
+    --rb-button-text-active: var(--rb-color-primary-D200);
 
     /* Underline sutil en hover */
     &:hover:not(:disabled) {
@@ -660,13 +695,16 @@
   .rb-button--icon-left {
     flex-direction: row;
 
-    /* SVG/Icon styles */
+    /* SVG/Icon styles - tamaño responsive 18px base */
     & > svg:first-child,
+    & > i:first-child,
+    & > span:first-child,
     & > [class*='icon']:first-child {
       margin-inline-end: var(--rb-button-gap);
-      inline-size: clamp(1rem, 2.5vw, 1.25rem);
-      block-size: clamp(1rem, 2.5vw, 1.25rem);
+      inline-size: clamp(16px, 1.125rem, 20px);
+      block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
+      opacity: 1;
     }
   }
 
@@ -674,13 +712,16 @@
   .rb-button--icon-right {
     flex-direction: row;
 
-    /* SVG/Icon styles */
+    /* SVG/Icon styles - tamaño responsive 18px base */
     & > svg:last-child,
+    & > i:last-child,
+    & > span:last-child,
     & > [class*='icon']:last-child {
       margin-inline-start: var(--rb-button-gap);
-      inline-size: clamp(1rem, 2.5vw, 1.25rem);
-      block-size: clamp(1rem, 2.5vw, 1.25rem);
+      inline-size: clamp(16px, 1.125rem, 20px);
+      block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
+      opacity: 1;
     }
   }
 
@@ -693,12 +734,15 @@
     inline-size: clamp(2rem, 5vw, 2.5rem);
     block-size: clamp(2rem, 5vw, 2.5rem);
 
-    /* SVG/Icon styles */
+    /* SVG/Icon styles - tamaño responsive 18px base */
     & > svg,
+    & > i,
+    & > span,
     & > [class*='icon'] {
-      inline-size: clamp(1rem, 2.5vw, 1.25rem);
-      block-size: clamp(1rem, 2.5vw, 1.25rem);
+      inline-size: clamp(16px, 1.125rem, 20px);
+      block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
+      opacity: 1;
     }
   }
 }
@@ -721,8 +765,17 @@
     align-items: center;
     gap: var(--rb-button-gap);
 
-    /* Loading con icono a la izquierda (default) */
-    &:not(.rb-button--loading-right):not(.rb-button--icon-only)::before {
+    /* Ocultar iconos cuando está en loading - reemplazar por spinner */
+    & > svg,
+    & > i,
+    & > span,
+    & > [class*='icon'] {
+      display: none !important; /* Remover completamente el icono */
+    }
+
+    /* Loading con icono a la izquierda (default o icon-left) */
+    &:not(.rb-button--icon-right):not(.rb-button--icon-only)::before,
+    &.rb-button--icon-left::before {
       content: '';
       inline-size: var(--rb-button-loading-spinner-size);
       block-size: var(--rb-button-loading-spinner-size);
@@ -731,10 +784,11 @@
       border-top-color: transparent;
       animation: rb-button-spinner var(--rb-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
+      margin-inline-end: var(--rb-button-gap);
     }
 
-    /* Loading con icono a la derecha */
-    &.rb-button--loading-right:not(.rb-button--icon-only)::after {
+    /* Loading con icono a la derecha (icon-right) */
+    &.rb-button--icon-right::after {
       content: '';
       inline-size: var(--rb-button-loading-spinner-size);
       block-size: var(--rb-button-loading-spinner-size);
@@ -743,13 +797,18 @@
       border-top-color: transparent;
       animation: rb-button-spinner var(--rb-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
-      position: static;
-      margin: 0;
+      margin-inline-start: var(--rb-button-gap);
     }
 
-    /* Loading solo icono (icon-only) */
+    /* Loading solo icono (icon-only) - spinner centrado absolutamente */
     &.rb-button--icon-only {
-      color: transparent;
+      /* Remover el icono completamente */
+      & > svg,
+      & > i,
+      & > span,
+      & > [class*='icon'] {
+        display: none !important;
+      }
 
       &::after {
         content: '';
@@ -789,7 +848,7 @@
   .rb-button--fill.rb-button--success.rb-button--loading::after,
   .rb-button--fill.rb-button--quinary.rb-button--loading::before,
   .rb-button--fill.rb-button--quinary.rb-button--loading::after {
-    border-color: var(--rb-color-grayscale-white, #fff);
+    border-color: var(--rb-color-primary-D100, black);
     border-top-color: transparent;
   }
 
