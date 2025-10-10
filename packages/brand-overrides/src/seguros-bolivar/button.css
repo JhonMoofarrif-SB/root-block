@@ -124,8 +124,9 @@
 
 /* Override de focus: usar secondary-L100 (amarillo claro) */
 [data-brand='seguros-bolivar'] .rb-button:focus-visible:not(:disabled):not(.rb-button--disabled) {
-  outline: 3px solid var(--rb-color-secondary-L100);  /* #FFEA9A */
-  outline-offset: 4px;
+  outline: 2px solid var(--rb-color-secondary-L100) !important;  /* Amarillo claro #FFEA9A */
+  outline-offset: 2px !important;
+  animation: rb-button-focus-pulse 0.3s ease-out !important;
 }
 
 /* ========================================

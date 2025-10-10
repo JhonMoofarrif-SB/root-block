@@ -222,8 +222,8 @@
     --rb-button-shadow-active: none;
     --rb-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
-    /* Transiciones */
-    --rb-button-transition: all 0.2s ease;
+    /* Transiciones - NO incluir outline para evitar destellos en focus */
+    --rb-button-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
 }
 
@@ -290,7 +290,8 @@
 
     &:focus-visible:not(:disabled):not(.rb-button--disabled) {
       outline: 3px solid var(--rb-color-secondary-L100);
-      outline-offset: 4px;
+      outline-offset: 2px;
+      animation: rb-button-focus-pulse 0.3s ease-out;
     }
 
     &:disabled,
@@ -725,24 +726,81 @@
     }
   }
 
-  /* Icon Only - solo icono, sin texto */
+  /* Icon Only - solo icono, sin texto 
+     Estructura: icono 18px + padding 11px = 40x40px total */
   .rb-button--icon-only {
-    --rb-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
-    --rb-button-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
-    --rb-button-min-inline-size: clamp(2rem, 5vw, 2.5rem);
+    --rb-button-padding-inline: 11px;
+    --rb-button-padding-block: 11px;
+    --rb-button-min-inline-size: 40px;
 
-    inline-size: clamp(2rem, 5vw, 2.5rem);
-    block-size: clamp(2rem, 5vw, 2.5rem);
+    /* Forzar tamaño exacto 40x40px */
+    inline-size: 40px !important;
+    block-size: 40px !important;
+    min-inline-size: 40px !important;
+    max-inline-size: 40px !important;
+    min-block-size: 40px !important;
+    max-block-size: 40px !important;
+    
+    /* Asegurar que el padding no afecte el tamaño total */
+    padding-inline: 11px !important;
+    padding-block: 11px !important;
+    box-sizing: border-box !important;
 
-    /* SVG/Icon styles - tamaño responsive 18px base */
+    /* SVG/Icon styles - 18px por defecto */
     & > svg,
     & > i,
     & > span,
     & > [class*='icon'] {
-      inline-size: clamp(16px, 1.125rem, 20px);
-      block-size: clamp(16px, 1.125rem, 20px);
+      inline-size: 18px;
+      block-size: 18px;
       flex-shrink: 0;
       opacity: 1;
+    }
+
+    /* Small size: 32x32 (icono 14px + padding 9px) */
+    &.rb-button--small {
+      --rb-button-padding-inline: 9px;
+      --rb-button-padding-block: 9px;
+      
+      inline-size: 32px !important;
+      block-size: 32px !important;
+      min-inline-size: 32px !important;
+      max-inline-size: 32px !important;
+      min-block-size: 32px !important;
+      max-block-size: 32px !important;
+      padding-inline: 9px !important;
+      padding-block: 9px !important;
+
+      & > svg,
+      & > i,
+      & > span,
+      & > [class*='icon'] {
+        inline-size: 14px;
+        block-size: 14px;
+      }
+    }
+
+    /* Large size: 48x48 (icono 22px + padding 13px) */
+    &.rb-button--large {
+      --rb-button-padding-inline: 13px;
+      --rb-button-padding-block: 13px;
+      
+      inline-size: 48px !important;
+      block-size: 48px !important;
+      min-inline-size: 48px !important;
+      max-inline-size: 48px !important;
+      min-block-size: 48px !important;
+      max-block-size: 48px !important;
+      padding-inline: 13px !important;
+      padding-block: 13px !important;
+
+      & > svg,
+      & > i,
+      & > span,
+      & > [class*='icon'] {
+        inline-size: 22px;
+        block-size: 22px;
+      }
     }
   }
 }
@@ -878,6 +936,21 @@
 @keyframes rb-button-spinner {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Animación sutil de focus - aparece con un pequeño pulse */
+@keyframes rb-button-focus-pulse {
+  0% {
+    outline-width: 0px;
+    outline-offset: 0px;
+  }
+  50% {
+    outline-offset: 3px;
+  }
+  100% {
+    outline-width: 3px;
+    outline-offset: 2px;
   }
 }
 
