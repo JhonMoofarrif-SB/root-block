@@ -13,7 +13,9 @@
     ".": "./dist/index.js",
     "./modal": "./dist/components/modal/modal.js",
     "./date-picker": "./dist/components/date-picker/date-picker.js",
-    "./dropdown": "./dist/components/dropdown/dropdown.js"
+    "./dropdown": "./dist/components/dropdown/dropdown.js",
+    "./toast": "./dist/components/toast/toast.js",
+    "./toast-manager": "./dist/components/toast/toast-manager.js"
   },
   "scripts": {
     "build": "tsc && vite build",
@@ -31,7 +33,9 @@
     "design-system",
     "modal",
     "date-picker",
-    "dropdown"
+    "dropdown",
+    "toast",
+    "notifications"
   ],
   "author": "Root Block",
   "license": "MIT",
