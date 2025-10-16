@@ -1,0 +1,53 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.jsx text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Documentation
+*.md linguist-documentation
+*.mdx linguist-documentation
+docs/ linguist-documentation
+examples/ linguist-documentation
+
+# Language detection
+*.css linguist-language=CSS
+*.scss linguist-language=SCSS
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.rar binary
+
+# Generated files
+dist/ linguist-generated
+build/ linguist-generated
+*.min.js linguist-generated
+*.min.css linguist-generated
+*.map linguist-generated
+storybook-static/ linguist-generated

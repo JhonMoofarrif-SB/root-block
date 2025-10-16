@@ -1,19 +1,8 @@
 {
   "name": "@rb/root",
   "version": "1.0.0",
-  "type": "module",
   "private": true,
   "description": "Root Block Design System - Multi-brand Enterprise Design System",
-  "scripts": {
-    "build": "pnpm run clean && turbo run build --force --no-cache && pnpm --filter @rb/bundle run copy:all",
-    "dev": "pnpm --filter @rb/bundle dev",
-    "clean": "turbo run clean && rm -rf .turbo node_modules/.cache examples/dist/*.min.* packages/docs/.storybook/*.min.css",
-    "storybook": "pnpm run build && pnpm --filter @rb/docs storybook",
-    "demo": "pnpm run build && cd examples && npx serve -p 3000",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{html,ts,tsx,js,jsx,json,css,md}\"",
-    "test": "turbo run test"
-  },
   "keywords": [
     "design-system",
     "multi-brand",
@@ -22,16 +11,40 @@
     "css",
     "design-tokens"
   ],
-  "author": "Root Block",
-  "license": "MIT",
+  "homepage": "https://github.com/tu-usuario/root-bloock#readme",
+  "bugs": {
+    "url": "https://github.com/tu-usuario/root-bloock/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tu-usuario/root-bloock.git"
   },
-  "bugs": {
-    "url": "https://github.com/tu-usuario/root-bloock/issues"
+  "license": "MIT",
+  "author": "Root Block",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run clean && turbo run build --force --no-cache && pnpm --filter @rb/bundle run copy:all",
+    "check": "pnpm run lint && pnpm run format:check && pnpm run test",
+    "clean": "turbo run clean && rm -rf .turbo node_modules/.cache examples/dist/*.min.* packages/docs/.storybook/*.min.css",
+    "demo": "pnpm run build && cd examples && npx serve -p 3000",
+    "dev": "./scripts/dev.sh",
+    "dev:bundle": "pnpm --filter @rb/bundle dev",
+    "dev:demo": "pnpm run build && cd examples && npx serve -p 3000",
+    "dev:storybook": "pnpm run build && pnpm --filter @rb/docs storybook",
+    "dev:test": "vitest --watch",
+    "format": "prettier --write \"**/*.{html,ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{html,ts,tsx,js,jsx,json,css,md}\"",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix && pnpm format",
+    "prepare": "husky",
+    "release": "changeset publish",
+    "setup": "./scripts/setup.sh",
+    "storybook": "pnpm run build && pnpm --filter @rb/docs storybook",
+    "test": "turbo run test",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest --watch",
+    "version": "changeset version"
   },
-  "homepage": "https://github.com/tu-usuario/root-bloock#readme",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@eslint/js": "^8.57.0",
@@ -41,17 +54,20 @@
     "@typescript-eslint/parser": "^6.21.0",
     "@vitest/ui": "^1.3.1",
     "eslint": "^8.57.0",
+    "husky": "^9.1.7",
     "jsdom": "^24.0.0",
+    "lint-staged": "^16.2.4",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "prettier": "^3.2.5",
+    "sort-package-json": "^3.4.0",
     "turbo": "^1.12.5",
     "typescript": "^5.3.3",
     "vitest": "^1.3.1"
   },
+  "packageManager": "pnpm@8.15.4",
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
-  },
-  "packageManager": "pnpm@8.15.4"
+  }
 }
