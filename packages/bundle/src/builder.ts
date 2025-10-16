@@ -95,10 +95,7 @@ async function readCSSFile(filePath: string): Promise<string> {
     const css = await fs.readFile(filePath, 'utf-8');
 
     // SIEMPRE procesar con PostCSS para expandir @import y CSS Nesting
-    const result = await postcss([
-      postcssImport(),
-      postcssNesting()
-    ]).process(css, {
+    const result = await postcss([postcssImport(), postcssNesting()]).process(css, {
       from: filePath,
     });
     return result.css;
@@ -125,7 +122,15 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
   }
 
   // 2. Leer componentes base (atoms)
-  const atomsFiles = ['button.css', 'input.css', 'textArea.css', 'select.css', 'toggle.css', 'alert.css', 'index.css'];
+  const atomsFiles = [
+    'button.css',
+    'input.css',
+    'textArea.css',
+    'select.css',
+    'toggle.css',
+    'alert.css',
+    'index.css',
+  ];
   for (const file of atomsFiles) {
     const atomCSS = await readCSSFile(path.join(ATOMS_DIST, file));
     if (atomCSS && file !== 'index.css') {

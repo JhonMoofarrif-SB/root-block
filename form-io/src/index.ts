@@ -25,14 +25,14 @@ export function registerComponents(Components: any): void {
 export const RootBlockFormIO = {
   version: '1.0.0',
   components: {
-    Button
+    Button,
   },
   utils: {
     EventBus,
     ThemeManager,
-    Validator
+    Validator,
   },
-  registerComponents
+  registerComponents,
 };
 
 // Auto-inicialización si está en el DOM

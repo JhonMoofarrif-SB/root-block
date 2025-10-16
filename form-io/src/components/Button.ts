@@ -13,7 +13,7 @@ export class Button extends BaseComponent {
     input: true,
     tableView: false,
     components: [],
-    displayInTable: false
+    displayInTable: false,
   };
 
   static editForm = {
@@ -35,8 +35,8 @@ export class Button extends BaseComponent {
                 placeholder: 'Button Text',
                 tooltip: 'The text to display on the button',
                 validate: {
-                  required: true
-                }
+                  required: true,
+                },
               },
               {
                 type: 'select',
@@ -52,10 +52,10 @@ export class Button extends BaseComponent {
                     { label: 'Quaternary', value: 'quaternary' },
                     { label: 'Quinary', value: 'quinary' },
                     { label: 'Danger', value: 'danger' },
-                    { label: 'Success', value: 'success' }
-                  ]
+                    { label: 'Success', value: 'success' },
+                  ],
                 },
-                defaultValue: 'primary'
+                defaultValue: 'primary',
               },
               {
                 type: 'select',
@@ -67,10 +67,10 @@ export class Button extends BaseComponent {
                   values: [
                     { label: 'Stroke (Default)', value: 'stroke' },
                     { label: 'Fill', value: 'fill' },
-                    { label: 'Text', value: 'text' }
-                  ]
+                    { label: 'Text', value: 'text' },
+                  ],
                 },
-                defaultValue: 'stroke'
+                defaultValue: 'stroke',
               },
               {
                 type: 'select',
@@ -82,10 +82,10 @@ export class Button extends BaseComponent {
                   values: [
                     { label: 'Small', value: 'small' },
                     { label: 'Medium', value: 'medium' },
-                    { label: 'Large', value: 'large' }
-                  ]
+                    { label: 'Large', value: 'large' },
+                  ],
                 },
-                defaultValue: 'medium'
+                defaultValue: 'medium',
               },
               {
                 type: 'select',
@@ -98,10 +98,10 @@ export class Button extends BaseComponent {
                     { label: 'No Icon', value: 'none' },
                     { label: 'Icon Left', value: 'left' },
                     { label: 'Icon Right', value: 'right' },
-                    { label: 'Icon Only', value: 'only' }
-                  ]
+                    { label: 'Icon Only', value: 'only' },
+                  ],
                 },
-                defaultValue: 'none'
+                defaultValue: 'none',
               },
               {
                 type: 'textfield',
@@ -112,22 +112,22 @@ export class Button extends BaseComponent {
                 conditional: {
                   show: true,
                   when: 'iconPosition',
-                  eq: ['left', 'right', 'only']
-                }
+                  eq: ['left', 'right', 'only'],
+                },
               },
               {
                 type: 'checkbox',
                 input: true,
                 key: 'block',
-                label: 'Full Width (Block)'
+                label: 'Full Width (Block)',
               },
               {
                 type: 'checkbox',
                 input: true,
                 key: 'disabled',
-                label: 'Disabled'
-              }
-            ]
+                label: 'Disabled',
+              },
+            ],
           },
           {
             label: 'Action',
@@ -145,10 +145,10 @@ export class Button extends BaseComponent {
                     { label: 'Submit', value: 'submit' },
                     { label: 'Reset', value: 'reset' },
                     { label: 'Custom', value: 'custom' },
-                    { label: 'Event', value: 'event' }
-                  ]
+                    { label: 'Event', value: 'event' },
+                  ],
                 },
-                defaultValue: 'submit'
+                defaultValue: 'submit',
               },
               {
                 type: 'textfield',
@@ -159,8 +159,8 @@ export class Button extends BaseComponent {
                 conditional: {
                   show: true,
                   when: 'action',
-                  eq: 'custom'
-                }
+                  eq: 'custom',
+                },
               },
               {
                 type: 'textfield',
@@ -171,14 +171,14 @@ export class Button extends BaseComponent {
                 conditional: {
                   show: true,
                   when: 'action',
-                  eq: 'event'
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                  eq: 'event',
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
   };
 
   constructor(component: any, options: any, data: any) {
@@ -236,7 +236,10 @@ export class Button extends BaseComponent {
 
     // Icon position
     if (this.component.iconPosition && this.component.iconPosition !== 'none') {
-      const iconClass = this.component.iconPosition === 'only' ? 'icon-only' : `icon-${this.component.iconPosition}`;
+      const iconClass =
+        this.component.iconPosition === 'only'
+          ? 'icon-only'
+          : `icon-${this.component.iconPosition}`;
       classes.push(`rb-button--${iconClass}`);
     }
 
@@ -370,7 +373,7 @@ export class Button extends BaseComponent {
     EventBus.emit('button:click', {
       component: this.component,
       instance: this,
-      event
+      event,
     });
 
     // Manejar acciones
@@ -403,7 +406,8 @@ export class Button extends BaseComponent {
   private handleSubmit(): void {
     if (this.root && this.root.submit) {
       this.setLoading(true);
-      this.root.submit()
+      this.root
+        .submit()
         .then(() => {
           this.setLoading(false);
         })
@@ -445,7 +449,7 @@ export class Button extends BaseComponent {
       EventBus.emit(this.component.event, {
         component: this.component,
         instance: this,
-        form: this.root
+        form: this.root,
       });
     }
   }
@@ -455,7 +459,7 @@ export class Button extends BaseComponent {
    */
   setLoading(loading: boolean): void {
     this.loading = loading;
-    
+
     if (this.refs.button) {
       if (loading) {
         this.refs.button.classList.add('rb-button--loading');

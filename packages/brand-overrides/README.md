@@ -99,6 +99,22 @@ pnpm build  # En el root del proyecto
 
 ## 📝 Ejemplos
 
+### Seguros Bolívar - Swap de Colores SECONDARY
+
+Seguros Bolívar usa colores PRIMARY (verde) donde el base usa SECONDARY (amarillo) en los botones secondary.
+
+```css
+/* Solo personaliza colores, el comportamiento viene del BASE */
+:where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--stroke {
+  --rb-button-text-color: var(--rb-color-primary-D100); /* Verde */
+  --rb-button-border-color: var(--rb-color-primary-D100);
+}
+```
+
+Ver: `src/seguros-bolivar/button.css`
+
+**📖 Para más ejemplos de personalización SECONDARY:** Ver [GUIA_PERSONALIZACION_SECONDARY.md](../../GUIA_PERSONALIZACION_SECONDARY.md)
+
 ### Davivienda - Animación de Loading
 
 Davivienda tiene una animación especial de gradiente que se mueve cuando el botón está en estado loading.

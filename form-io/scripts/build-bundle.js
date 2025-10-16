@@ -43,7 +43,6 @@ class FormIOBundleBuilder {
 
       console.log('✨ Build completed successfully!\n');
       await this.showBuildSummary();
-
     } catch (error) {
       console.error('❌ Build failed:', error);
       process.exit(1);
@@ -67,14 +66,14 @@ class FormIOBundleBuilder {
    */
   async buildTypeScript() {
     console.log('📦 Building TypeScript...');
-    
+
     // TypeScript se compila usando tsc (definido en package.json scripts)
     const { spawn } = require('child_process');
-    
+
     return new Promise((resolve, reject) => {
-      const tsc = spawn('npx', ['tsc'], { 
+      const tsc = spawn('npx', ['tsc'], {
         cwd: this.rootDir,
-        stdio: 'inherit'
+        stdio: 'inherit',
       });
 
       tsc.on('close', (code) => {
@@ -96,11 +95,11 @@ class FormIOBundleBuilder {
 
     const brands = [
       'white-label',
-      'jelpit', 
+      'jelpit',
       'davivienda',
       'cien-cuadras',
       'doctor-aki',
-      'seguros-bolivar'
+      'seguros-bolivar',
     ];
 
     const themes = ['light', 'dark'];
@@ -125,7 +124,9 @@ class FormIOBundleBuilder {
     try {
       // Leer archivos CSS
       const buttonCSS = await this.readFile(path.join(this.atomsDir, 'button.css'));
-      const formioCSS = await this.readFile(path.join(this.srcDir, 'styles/formio-integration.css'));
+      const formioCSS = await this.readFile(
+        path.join(this.srcDir, 'styles/formio-integration.css')
+      );
       const tokensCSS = await this.readTokensCSS(brand, theme);
 
       // Combinar CSS
@@ -140,25 +141,27 @@ class FormIOBundleBuilder {
         buttonCSS,
         '',
         '/* === FORM.IO INTEGRATION === */',
-        formioCSS
+        formioCSS,
       ].join('\n');
 
       // Procesar con PostCSS y minificar
       const result = await postcss([
         cssnano({
-          preset: ['default', {
-            discardComments: { removeAll: true },
-            normalizeWhitespace: true,
-            minifySelectors: true
-          }]
-        })
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+              normalizeWhitespace: true,
+              minifySelectors: true,
+            },
+          ],
+        }),
       ]).process(combinedCSS, { from: undefined });
 
       // Escribir archivo
       await fs.writeFile(outputPath, result.css);
-      
-      console.log(`  ✅ ${outputFile} (${this.formatBytes(result.css.length)})`);
 
+      console.log(`  ✅ ${outputFile} (${this.formatBytes(result.css.length)})`);
     } catch (error) {
       console.error(`  ❌ Failed to build ${outputFile}:`, error.message);
     }
@@ -174,7 +177,9 @@ class FormIOBundleBuilder {
     try {
       // Leer archivos CSS (sin tokens)
       const buttonCSS = await this.readFile(path.join(this.atomsDir, 'button.css'));
-      const formioCSS = await this.readFile(path.join(this.srcDir, 'styles/formio-integration.css'));
+      const formioCSS = await this.readFile(
+        path.join(this.srcDir, 'styles/formio-integration.css')
+      );
 
       // Combinar CSS
       const combinedCSS = [
@@ -185,25 +190,27 @@ class FormIOBundleBuilder {
         buttonCSS,
         '',
         '/* === FORM.IO INTEGRATION === */',
-        formioCSS
+        formioCSS,
       ].join('\n');
 
       // Procesar con PostCSS y minificar
       const result = await postcss([
         cssnano({
-          preset: ['default', {
-            discardComments: { removeAll: true },
-            normalizeWhitespace: true,
-            minifySelectors: true
-          }]
-        })
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+              normalizeWhitespace: true,
+              minifySelectors: true,
+            },
+          ],
+        }),
       ]).process(combinedCSS, { from: undefined });
 
       // Escribir archivo
       await fs.writeFile(outputPath, result.css);
-      
-      console.log(`  ✅ ${outputFile} (${this.formatBytes(result.css.length)})`);
 
+      console.log(`  ✅ ${outputFile} (${this.formatBytes(result.css.length)})`);
     } catch (error) {
       console.error(`  ❌ Failed to build ${outputFile}:`, error.message);
     }
@@ -232,7 +239,7 @@ class FormIOBundleBuilder {
 
     // Bundle principal
     await this.buildMainJSBundle();
-    
+
     // Bundle minificado
     await this.buildMinifiedJSBundle();
   }
@@ -251,7 +258,7 @@ class FormIOBundleBuilder {
         platform: 'browser',
         target: 'es2017',
         sourcemap: true,
-        external: ['formiojs'] // Form.io será cargado externamente
+        external: ['formiojs'], // Form.io será cargado externamente
       });
 
       console.log('  ✅ root-block-formio.bundle.js');
@@ -275,7 +282,7 @@ class FormIOBundleBuilder {
         target: 'es2017',
         minify: true,
         sourcemap: true,
-        external: ['formiojs'] // Form.io será cargado externamente
+        external: ['formiojs'], // Form.io será cargado externamente
       });
 
       console.log('  ✅ root-block-formio.min.js');
@@ -291,7 +298,7 @@ class FormIOBundleBuilder {
     console.log('📦 Building complete bundle...');
 
     const brands = ['white-label', 'davivienda', 'jelpit'];
-    
+
     for (const brand of brands) {
       await this.buildCompleteBrandBundle(brand);
     }
@@ -307,9 +314,11 @@ class FormIOBundleBuilder {
     try {
       // Leer JS bundle
       const jsBundle = await this.readFile(path.join(this.distDir, 'root-block-formio.min.js'));
-      
+
       // Leer CSS para light theme
-      const cssBundle = await this.readFile(path.join(this.distDir, `root-block-formio-${brand}-light.min.css`));
+      const cssBundle = await this.readFile(
+        path.join(this.distDir, `root-block-formio-${brand}-light.min.css`)
+      );
 
       // Crear bundle completo que inyecta CSS
       const completeBundle = `
@@ -329,7 +338,6 @@ class FormIOBundleBuilder {
 
       await fs.writeFile(outputPath, completeBundle);
       console.log(`  ✅ ${outputFile} (${this.formatBytes(completeBundle.length)})`);
-
     } catch (error) {
       console.error(`  ❌ Failed to build complete bundle for ${brand}:`, error);
     }
@@ -426,7 +434,7 @@ const form = {
 
     console.log('📊 Build Summary:');
     console.log('================');
-    
+
     stats.forEach(({ file, size }) => {
       console.log(`  ${file.padEnd(40)} ${this.formatBytes(size)}`);
     });

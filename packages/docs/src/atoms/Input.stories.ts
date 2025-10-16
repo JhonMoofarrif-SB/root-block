@@ -3,11 +3,11 @@ import { html } from 'lit';
 
 /**
  * # Input Component
- * 
+ *
  * Componente de input versátil del Root Block Design System con diferentes tipos, estados, tamaños y opciones de iconos.
- * 
+ *
  * ## 📋 Referencia Rápida de Clases
- * 
+ *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
@@ -26,18 +26,18 @@ import { html } from 'lit';
  * | **Modificadores** | | |
  * | Bordes redondeados | `.rb-input--rounded` | `<input class="rb-input rb-input--rounded" type="text" />` |
  * | Inline (auto width) | `.rb-input--inline` | `<input class="rb-input rb-input--inline" type="text" />` |
- * 
+ *
  * ## 💡 Notas Importantes
- * 
+ *
  * - **Estado por defecto**: NORMAL - sin validación especial
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
  * - **Label**: Usa `rb-input-label` y `rb-input-label--required` para requeridos
  * - **Helper text**: Usa `rb-input-helper` con estados `--error`, `--success`, `--warning`
  * - **Iconos**: Requieren contenedor `rb-input-container` y elementos `rb-input-icon`
  * - **Tipos soportados**: text, email, password, number, tel, url, search
- * 
+ *
  * ## 🎯 Ejemplo de Estructura Completa
- * 
+ *
  * ```html
  * <div>
  *   <label class="rb-input-label rb-input-label--required">Email</label>
@@ -55,7 +55,8 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de input versátil con múltiples tipos (text, email, password, etc.), estados de validación y opciones de iconos.',
+        component:
+          'Componente de input versátil con múltiples tipos (text, email, password, etc.), estados de validación y opciones de iconos.',
       },
     },
   },
@@ -164,7 +165,7 @@ type Story = StoryObj;
 
 /**
  * ## Playground (Interactivo)
- * 
+ *
  * Experimenta con todas las combinaciones del input usando los controles interactivos
  * en el panel inferior. Puedes ajustar tipo, estado, tamaño, iconos y más.
  */
@@ -194,19 +195,22 @@ export const Playground: Story = {
       args.iconPosition === 'left' ? 'rb-input--with-icon-left' : '',
       args.iconPosition === 'right' ? 'rb-input--with-icon-right' : '',
       args.iconPosition === 'both' ? 'rb-input--with-icon-both' : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     // Determinar las clases del label
-    const labelClasses = [
-      'rb-input-label',
-      args.required ? 'rb-input-label--required' : '',
-    ].filter(Boolean).join(' ');
+    const labelClasses = ['rb-input-label', args.required ? 'rb-input-label--required' : '']
+      .filter(Boolean)
+      .join(' ');
 
     // Determinar las clases del helper
     const helperClasses = [
       'rb-input-helper',
       args.state !== 'normal' ? `rb-input-helper--${args.state}` : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     // Función para obtener el icono según el tipo de input
     const getIcon = (type: string, position: string) => {
@@ -214,14 +218,20 @@ export const Playground: Story = {
         if (type === 'email') return position === 'left' ? '📧' : '✓';
         return position === 'left' ? '🔍' : '✓';
       }
-      
+
       switch (type) {
-        case 'email': return '📧';
-        case 'password': return '👁️';
-        case 'search': return '🔍';
-        case 'tel': return '📞';
-        case 'url': return '🌐';
-        default: return position === 'left' ? '🔍' : '✓';
+        case 'email':
+          return '📧';
+        case 'password':
+          return '👁️';
+        case 'search':
+          return '🔍';
+        case 'tel':
+          return '📞';
+        case 'url':
+          return '🌐';
+        default:
+          return position === 'left' ? '🔍' : '✓';
       }
     };
 
@@ -230,55 +240,52 @@ export const Playground: Story = {
     return html`
       <div style="max-width: 400px;">
         <div>
-          ${args.label ? html`
-            <label class="${labelClasses}" for="${inputId}">
-              ${args.label}
-            </label>
-          ` : ''}
-          
-          ${args.iconPosition !== 'none' ? html`
-            <div class="rb-input-container ${args.inline ? 'rb-input-container--inline' : ''}">
-              <input 
-                id="${inputId}"
-                class="${inputClasses}"
-                type="${args.type}"
-                placeholder="${args.placeholder || ''}"
-                value="${args.value || ''}"
-                ?required="${args.required}"
-                ?disabled="${args.disabled}"
-              />
-              
-              ${args.iconPosition === 'left' || args.iconPosition === 'both' ? html`
-                <span class="rb-input-icon rb-input-icon--left">
-                  ${getIcon(args.type, 'left')}
-                </span>
-              ` : ''}
-              
-              ${args.iconPosition === 'right' || args.iconPosition === 'both' ? html`
-                <span class="rb-input-icon rb-input-icon--right">
-                  ${getIcon(args.type, 'right')}
-                </span>
-              ` : ''}
-            </div>
-          ` : html`
-            <div class="${args.inline ? 'rb-input-container rb-input-container--inline' : ''}">
-              <input 
-                id="${inputId}"
-                class="${inputClasses}"
-                type="${args.type}"
-                placeholder="${args.placeholder || ''}"
-                value="${args.value || ''}"
-                ?required="${args.required}"
-                ?disabled="${args.disabled}"
-              />
-            </div>
-          `}
-          
-          ${args.helperText ? html`
-            <div class="${helperClasses}">
-              ${args.helperText}
-            </div>
-          ` : ''}
+          ${args.label
+            ? html` <label class="${labelClasses}" for="${inputId}"> ${args.label} </label> `
+            : ''}
+          ${args.iconPosition !== 'none'
+            ? html`
+                <div class="rb-input-container ${args.inline ? 'rb-input-container--inline' : ''}">
+                  <input
+                    id="${inputId}"
+                    class="${inputClasses}"
+                    type="${args.type}"
+                    placeholder="${args.placeholder || ''}"
+                    value="${args.value || ''}"
+                    ?required="${args.required}"
+                    ?disabled="${args.disabled}"
+                  />
+
+                  ${args.iconPosition === 'left' || args.iconPosition === 'both'
+                    ? html`
+                        <span class="rb-input-icon rb-input-icon--left">
+                          ${getIcon(args.type, 'left')}
+                        </span>
+                      `
+                    : ''}
+                  ${args.iconPosition === 'right' || args.iconPosition === 'both'
+                    ? html`
+                        <span class="rb-input-icon rb-input-icon--right">
+                          ${getIcon(args.type, 'right')}
+                        </span>
+                      `
+                    : ''}
+                </div>
+              `
+            : html`
+                <div class="${args.inline ? 'rb-input-container rb-input-container--inline' : ''}">
+                  <input
+                    id="${inputId}"
+                    class="${inputClasses}"
+                    type="${args.type}"
+                    placeholder="${args.placeholder || ''}"
+                    value="${args.value || ''}"
+                    ?required="${args.required}"
+                    ?disabled="${args.disabled}"
+                  />
+                </div>
+              `}
+          ${args.helperText ? html` <div class="${helperClasses}">${args.helperText}</div> ` : ''}
         </div>
       </div>
     `;
@@ -287,7 +294,7 @@ export const Playground: Story = {
 
 /**
  * ## Estados - Matriz de Combinaciones
- * 
+ *
  * Matriz del input mostrando combinaciones de:
  * - **4 Estados**: Normal, Error, Success, Warning
  * - **3 Tamaños**: Small, Medium, Large
@@ -304,30 +311,30 @@ export const Estados: Story = {
         padding: 2rem;
         background: var(--rb-color-grayscale-L400, #fafafa);
       }
-      
+
       .input-demo {
         padding: 1.5rem;
         background: white;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      
+
       .input-demo h3 {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
         color: var(--rb-color-primary-base, #007acc);
       }
-      
+
       .input-demo > div {
         margin-bottom: 1rem;
       }
-      
+
       .input-demo > div:last-child {
         margin-bottom: 0;
       }
     </style>
-    
+
     <div class="input-matrix">
       <!-- Estados Básicos -->
       <div class="input-demo">
@@ -377,21 +384,33 @@ export const Estados: Story = {
         <div>
           <label class="rb-input-label">Icono Izquierdo</label>
           <div class="rb-input-container">
-            <input class="rb-input rb-input--with-icon-left" type="search" placeholder="Buscar..." />
+            <input
+              class="rb-input rb-input--with-icon-left"
+              type="search"
+              placeholder="Buscar..."
+            />
             <span class="rb-input-icon rb-input-icon--left">🔍</span>
           </div>
         </div>
         <div>
           <label class="rb-input-label">Icono Derecho</label>
           <div class="rb-input-container">
-            <input class="rb-input rb-input--with-icon-right" type="password" placeholder="Contraseña" />
+            <input
+              class="rb-input rb-input--with-icon-right"
+              type="password"
+              placeholder="Contraseña"
+            />
             <span class="rb-input-icon rb-input-icon--right">👁️</span>
           </div>
         </div>
         <div>
           <label class="rb-input-label">Ambos Iconos</label>
           <div class="rb-input-container">
-            <input class="rb-input rb-input--with-icon-both" type="email" placeholder="email@ejemplo.com" />
+            <input
+              class="rb-input rb-input--with-icon-both"
+              type="email"
+              placeholder="email@ejemplo.com"
+            />
             <span class="rb-input-icon rb-input-icon--left">📧</span>
             <span class="rb-input-icon rb-input-icon--right">✓</span>
           </div>

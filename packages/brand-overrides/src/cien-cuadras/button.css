@@ -1,61 +1,54 @@
 /**
  * ============================================================================
- * Cien Cuadras - Button Component Overrides
+ * CIEN CUADRAS - Button Component Overrides (EJEMPLO)
  * ============================================================================
  * 
- * Data Attribute Approach: [data-brand="cien-cuadras"]
+ * 🎯 ESTE ES UN EJEMPLO - Ajustar según diseño real de Cien Cuadras
  * 
- * Customizaciones específicas de Cien Cuadras:
- * - PRIMARY STROKE: Colores de texto personalizados
- * - PRIMARY FILL: Background y texto personalizados
- * - SECONDARY TEXT: Color de texto personalizado
+ * Este archivo muestra un override MÍNIMO:
+ * - Solo personaliza focus outline (más grueso y color diferente)
+ * - STROKE, FILL, TEXT usan el BASE ✅
+ * 
+ * Solo ~15 líneas de código necesarias
  * 
  * ============================================================================
  */
 
-[data-brand='cien-cuadras'] {
-  /* ========================================
-     PRIMARY - STROKE
-     Colores personalizados para Cien Cuadras
-     Borde secondary, texto primary-D200/D300
-     ======================================== */
-  .rb-button--primary {
-    /* Background */
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+@layer brand-overrides {
+  /* ============================================
+     Focus outline más grueso para accesibilidad
+     ============================================ */
 
-    /* Text - Tonos más oscuros (D200/D300) */
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D300);
-    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D300);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
-
-    /* Border */
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+  /* STROKE */
+  :where([data-brand='cien-cuadras']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='cien-cuadras'])
+    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
+    outline-color: var(--rb-color-tertiary-base); /* Violeta */
+    outline-width: 4px; /* Más grueso que el base (2px) */
+    outline-offset: 4px; /* Más separado */
   }
 
-  /* ========================================
-     PRIMARY - FILL
-     Background y texto personalizados
-     ======================================== */
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-text: var(--rb-color-primary-D300);
-    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D300);
-    --rb-button-primary-fill-text-active: var(--rb-color-primary-D300);
+  /* FILL */
+  :where([data-brand='cien-cuadras']) .rb-button--secondary.rb-button--fill:focus-visible {
+    outline-color: var(--rb-color-tertiary-base);
+    outline-width: 4px;
+    outline-offset: 4px;
   }
 
-  /* ========================================
-     SECONDARY - TEXT
-     Color de texto personalizado
-     ======================================== */
-  .rb-button--text.rb-button--secondary {
-    --rb-button-secondary-text-text: var(--rb-color-secondary-D200);
-    --rb-button-secondary-text-text-hover: var(--rb-color-secondary-D300);
+  /* TEXT */
+  :where([data-brand='cien-cuadras']) .rb-button--secondary.rb-button--text:focus-visible {
+    outline-color: var(--rb-color-tertiary-base);
+    outline-width: 4px;
+    outline-offset: 4px;
   }
 }
+
+/* ============================================================================
+   📝 NOTAS:
+   
+   - STROKE, FILL, TEXT: ✅ Usan colores del BASE
+   - Focus outline: ❌ Personalizado (más grueso para accesibilidad)
+   - Total líneas: ~15
+   
+   📚 Ver más ejemplos en: ../EJEMPLOS_OTRAS_MARCAS.md
+   ============================================================================ */

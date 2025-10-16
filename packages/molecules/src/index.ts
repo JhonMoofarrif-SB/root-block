@@ -6,8 +6,8 @@
 export { RbModal } from './components/modal/modal.js';
 export { RbDatePicker } from './components/date-picker/date-picker.js';
 export { RbToast } from './components/toast/toast.js';
-export { 
-  ToastManager, 
+export {
+  ToastManager,
   showToast,
   showSuccess,
   showError,
@@ -18,6 +18,6 @@ export {
   hideAllToasts,
   removeAllToasts,
   type ToastOptions,
-  type ToastInstance
+  type ToastInstance,
 } from './components/toast/toast-manager.js';
 export { RbDropdown } from './components/dropdown/dropdown.js';

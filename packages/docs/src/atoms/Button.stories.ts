@@ -719,7 +719,8 @@ export const Primary: Story = {
             posición con <code>.rb-button--loading</code>.
           </li>
           <li>
-            <strong>Iconos:</strong> Usa Font Awesome (<code>fa-user</code>) como icono real. Los iconos heredan el color del texto del botón con <code>currentColor</code>.
+            <strong>Iconos:</strong> Usa Font Awesome (<code>fa-user</code>) como icono real. Los
+            iconos heredan el color del texto del botón con <code>currentColor</code>.
           </li>
           <li>
             <strong>Clases de Iconos:</strong> Usa <code>.rb-button--icon-left</code>,

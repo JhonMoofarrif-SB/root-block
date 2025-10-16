@@ -9,6 +9,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ## 🏗️ Estructura Obligatoria de Archivos CSS
 
 ### 1. **Comentario de Cabecera** (OBLIGATORIO)
+
 ```css
 /**
  * [ComponentName] Component - Root Block Design System
@@ -22,6 +23,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 2. **Variables CSS Personalizables** (OBLIGATORIO)
+
 ```css
 /* ========================================
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
@@ -67,6 +69,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 3. **Estilos Base del Componente** (OBLIGATORIO)
+
 ```css
 .rb-[component] {
   /* Layout */
@@ -110,6 +113,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 4. **Estados Interactivos** (OBLIGATORIO)
+
 ```css
 .rb-[component]:hover:not(:disabled) {
   background-color: var(--rb-[component]-bg-hover);
@@ -138,6 +142,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 5. **Variantes** (OBLIGATORIO)
+
 ```css
 /* ========================================
    [COMPONENT] VARIANTS
@@ -165,6 +170,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 6. **Tamaños** (OBLIGATORIO)
+
 ```css
 /* ========================================
    [COMPONENT] SIZES
@@ -196,6 +202,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 7. **Modificadores** (OBLIGATORIO)
+
 ```css
 /* ========================================
    [COMPONENT] MODIFIERS
@@ -216,6 +223,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 8. **Estados Especiales** (OBLIGATORIO)
+
 ```css
 /* ========================================
    [COMPONENT] STATES
@@ -235,6 +243,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 9. **Animaciones** (OBLIGATORIO)
+
 ```css
 /* ========================================
    ANIMATIONS
@@ -250,6 +259,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ```
 
 ### 10. **Accesibilidad y Responsive** (OBLIGATORIO)
+
 ```css
 /* ========================================
    ACCESSIBILITY & RESPONSIVE
@@ -303,6 +313,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ## 📏 Reglas de Nomenclatura
 
 ### Variables CSS
+
 - **Prefijo obligatorio**: `--rb-`
 - **Formato**: `--rb-[component]-[property]-[state]`
 - **Ejemplos**:
@@ -311,6 +322,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
   - `--rb-alert-text-color-error`
 
 ### Clases CSS
+
 - **Prefijo obligatorio**: `rb-`
 - **Formato**: `rb-[component]` o `rb-[component]--[modifier]`
 - **Ejemplos**:
@@ -320,6 +332,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
   - `rb-alert--dismissible`
 
 ### Estados
+
 - **Error**: `--error`
 - **Success**: `--success`
 - **Warning**: `--warning`
@@ -331,24 +344,28 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ## 🎯 Reglas de Implementación
 
 ### 1. **Variables CSS**
+
 - ✅ **SIEMPRE** usar variables CSS con prefijo `--rb-`
 - ✅ **SIEMPRE** incluir fallbacks con valores por defecto
 - ✅ **SIEMPRE** usar tokens del design system cuando estén disponibles
 - ❌ **NUNCA** usar valores hardcodeados sin variables
 
 ### 2. **Estados**
+
 - ✅ **SIEMPRE** incluir estados: hover, active, focus, disabled
 - ✅ **SIEMPRE** usar `:not(:disabled)` en estados interactivos
 - ✅ **SIEMPRE** incluir `:focus-visible` para accesibilidad
 - ❌ **NUNCA** olvidar el estado disabled
 
 ### 3. **Responsive**
+
 - ✅ **SIEMPRE** incluir media queries para mobile y desktop
 - ✅ **SIEMPRE** incluir soporte para `prefers-reduced-motion`
 - ✅ **SIEMPRE** incluir soporte para `prefers-contrast`
 - ✅ **SIEMPRE** incluir estilos de impresión
 
 ### 4. **Accesibilidad**
+
 - ✅ **SIEMPRE** incluir `outline` visible en focus
 - ✅ **SIEMPRE** incluir `cursor: not-allowed` en disabled
 - ✅ **SIEMPRE** incluir `user-select: none` en elementos interactivos
@@ -359,6 +376,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ## 📚 Ejemplos de Referencia
 
 ### Componentes que siguen la estructura:
+
 - ✅ `button.css` - Referencia principal
 - ✅ `input.css` - Formularios
 - ✅ `textArea.css` - Texto largo
@@ -367,6 +385,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 - ✅ `alert.css` - Notificaciones
 
 ### Estructura de archivos:
+
 ```
 packages/atoms/src/
 ├── button.css      ← Referencia estándar
@@ -420,6 +439,7 @@ Antes de crear un componente, verificar:
 ## 📞 Soporte
 
 Si tienes dudas sobre la implementación:
+
 1. Revisa los componentes existentes como referencia
 2. Consulta este documento
 3. Pregunta al equipo de diseño

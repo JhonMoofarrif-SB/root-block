@@ -20,8 +20,18 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- CSS del Design System - White Label Light -->
-    <link rel="stylesheet" href="./dist/rb-seguros-bolivar-light.min.css?v=final-cleanup" id="brand-css" />
+    <!-- CSS del Design System - Seguros Bolívar Light -->
+    <!-- PRELOAD: Carga el CSS más rápido (-100ms First Paint) -->
+    <link
+      rel="preload"
+      href="../dist/rb-seguros-bolivar-light.min.css?v=final-cleanup"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="../dist/rb-seguros-bolivar-light.min.css?v=final-cleanup"
+      id="brand-css"
+    />
     <style>
       * {
         margin-block: 0;
@@ -186,19 +196,36 @@
         font-size: 0.9em;
       }
 
-      /* Brand Selector Styles */
+      /* Brand Selector Styles - Modern UI */
       .brand-controls {
-        display: flex;
-        justify-content: space-between;
+        position: sticky;
+        top: 1rem;
+        z-index: 100;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 1.5rem;
         align-items: center;
-        gap: 1rem;
         margin-block-end: 2rem;
-        padding-block: 1rem;
-        padding-inline: 1.5rem;
-        background: var(--rb-color-grayscale-white);
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        flex-wrap: wrap;
+        padding: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--rb-color-grayscale-white) 0%,
+          var(--rb-color-grayscale-L400) 100%
+        );
+        border-radius: 16px;
+        box-shadow:
+          0 4px 20px rgba(0, 0, 0, 0.08),
+          0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--rb-color-grayscale-L200);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .brand-controls:hover {
+        box-shadow:
+          0 8px 30px rgba(0, 0, 0, 0.12),
+          0 2px 6px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
       }
 
       .brand-controls-group {
@@ -206,26 +233,41 @@
         gap: 1rem;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
       .brand-controls label {
         font-weight: 600;
-        font-size: 0.875rem;
-        color: var(--rb-color-grayscale-D200);
-      }
-
-      .brand-controls select {
-        cursor: pointer;
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='currentColor' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 1rem center;
-        padding-inline-end: 2.5rem;
+        font-size: 0.8125rem;
+        color: var(--rb-color-grayscale-D300);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
       }
 
       .theme-toggle {
         display: flex;
         gap: 0.5rem;
+        background: var(--rb-color-grayscale-L300);
+        padding: 0.25rem;
+        border-radius: 50px;
+        border: 1px solid var(--rb-color-grayscale-L200);
+      }
+
+      @media (max-width: 768px) {
+        .brand-controls {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .brand-controls-group {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .theme-toggle {
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -233,14 +275,14 @@
     <div class="matrix-container">
       <!-- Brand & Theme Controls -->
       <div class="brand-controls">
-        <button 
-          href="index.html" 
+        <button
+          href="index.html"
           class="rb-button rb-button--tertiary rb-button--small"
-          style="text-decoration: none;"
+          style="text-decoration: none"
         >
           ← Volver
-      </button>
-        
+        </button>
+
         <div class="brand-controls-group">
           <label for="brandSelect">📦 Marca:</label>
           <select id="brandSelect" class="rb-button rb-button--tertiary rb-button--small">
@@ -251,11 +293,15 @@
             <option value="doctor-aki">Doctor Aki</option>
             <option value="seguros-bolivar" selected>Seguros Bolívar</option>
           </select>
-          
+
           <label for="themeToggle">🌓 Tema:</label>
           <div class="theme-toggle">
-            <button id="lightBtn" class="rb-button rb-button--primary rb-button--small">☀️ Light</button>
-            <button id="darkBtn" class="rb-button rb-button--tertiary rb-button--small">🌙 Dark</button>
+            <button id="lightBtn" class="rb-button rb-button--primary rb-button--small">
+              ☀️ Light
+            </button>
+            <button id="darkBtn" class="rb-button rb-button--tertiary rb-button--small">
+              🌙 Dark
+            </button>
           </div>
         </div>
       </div>
@@ -269,10 +315,7 @@
          SECCIÓN 1: FILL
          ======================================== -->
       <div class="matrix-section">
-        <h2 class="matrix-title">🎨 Variante FILL - Primary Button</h2>
-        <p class="matrix-subtitle">
-          Fondo sólido con el color primario. Máxima prominencia visual.
-        </p>
+        <h2 class="matrix-title">Variante FILL - Primary Button</h2>
 
         <table class="matrix-table">
           <thead>
@@ -390,9 +433,6 @@
          ======================================== -->
       <div class="matrix-section">
         <h2 class="matrix-title">🎨 Variante STROKE - Primary Button (Default)</h2>
-        <p class="matrix-subtitle">
-          Fondo transparente con borde visible. Estilo por defecto del botón.
-        </p>
 
         <table class="matrix-table">
           <thead>
@@ -417,7 +457,9 @@
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--stroke rb-button--icon-right">
+                <button
+                  class="rb-button rb-button--primary rb-button--stroke rb-button--icon-right"
+                >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -510,7 +552,6 @@
          ======================================== -->
       <div class="matrix-section">
         <h2 class="matrix-title">🎨 Variante TEXT - Primary Button</h2>
-        <p class="matrix-subtitle">Fondo transparente sin borde. Mínima prominencia visual.</p>
 
         <table class="matrix-table">
           <thead>
@@ -634,25 +675,27 @@
       const brandCss = document.getElementById('brand-css');
 
       // Leer valores de localStorage o usar defaults
-      let currentBrand = localStorage.getItem('rb-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
-      let currentTheme = localStorage.getItem('rb-theme') || html.getAttribute('data-theme') || 'light';
+      let currentBrand =
+        localStorage.getItem('rb-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
+      let currentTheme =
+        localStorage.getItem('rb-theme') || html.getAttribute('data-theme') || 'light';
 
       function updateBrandAndTheme() {
         // Update HTML attributes
         html.setAttribute('data-brand', currentBrand);
         html.setAttribute('data-theme', currentTheme);
         body.setAttribute('data-brand', currentBrand);
-        
+
         // Save to localStorage
         localStorage.setItem('rb-brand', currentBrand);
         localStorage.setItem('rb-theme', currentTheme);
-        
+
         // Update CSS bundle (tokens + atoms + overrides)
-        brandCss.href = `dist/rb-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
-        
+        brandCss.href = `../dist/rb-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
+
         // Sync select
         brandSelect.value = currentBrand;
-        
+
         // Update button states
         if (currentTheme === 'light') {
           lightBtn.className = 'rb-button rb-button--primary rb-button--small';

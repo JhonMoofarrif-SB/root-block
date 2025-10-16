@@ -4,7 +4,13 @@ export interface ToastOptions {
   type?: 'info' | 'success' | 'warning' | 'error';
   title?: string;
   message?: string;
-  position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+  position?:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right';
   size?: 'small' | 'medium' | 'large';
   autoDismiss?: number;
   showClose?: boolean;
@@ -20,7 +26,7 @@ export interface ToastInstance {
 
 /**
  * ToastManager - Singleton para gestionar múltiples toasts
- * 
+ *
  * Permite crear, mostrar y gestionar toasts de forma centralizada
  * Evita solapamientos y mantiene un stack ordenado por posición
  */
@@ -47,10 +53,10 @@ export class ToastManager {
   show(options: ToastOptions = {}): string {
     const id = `toast-${++this.counter}-${Date.now()}`;
     const position = options.position || 'top-right';
-    
+
     // Create toast element
     const toast = document.createElement('rb-toast') as RbToast;
-    
+
     // Set properties
     if (options.type) toast.type = options.type;
     if (options.title) toast.title = options.title;
@@ -64,21 +70,21 @@ export class ToastManager {
 
     // Get or create container for this position
     const container = this.getOrCreateContainer(position);
-    
+
     // Add to container
     container.appendChild(toast);
-    
+
     // Store instance
     this.toasts.set(id, { id, element: toast, container });
-    
+
     // Setup event listeners
     this.setupToastEventListeners(id, toast);
-    
+
     // Show toast after a brief delay to ensure DOM is ready
     requestAnimationFrame(() => {
       toast.show();
     });
-    
+
     return id;
   }
 
@@ -88,7 +94,7 @@ export class ToastManager {
   hide(id: string): boolean {
     const instance = this.toasts.get(id);
     if (!instance) return false;
-    
+
     instance.element.hide();
     return true;
   }
@@ -99,13 +105,13 @@ export class ToastManager {
   remove(id: string): boolean {
     const instance = this.toasts.get(id);
     if (!instance) return false;
-    
+
     instance.element.remove();
     this.toasts.delete(id);
-    
+
     // Clean up empty containers
     this.cleanupEmptyContainers();
-    
+
     return true;
   }
 
@@ -141,10 +147,10 @@ export class ToastManager {
    */
   getToastCount(position?: string): number {
     if (!position) return this.toasts.size;
-    
-    return Array.from(this.toasts.values())
-      .filter(instance => instance.element.position === position)
-      .length;
+
+    return Array.from(this.toasts.values()).filter(
+      (instance) => instance.element.position === position
+    ).length;
   }
 
   // Convenience methods for different toast types
@@ -166,21 +172,21 @@ export class ToastManager {
 
   private getOrCreateContainer(position: string): HTMLElement {
     let container = this.containers.get(position);
-    
+
     if (!container) {
       container = document.createElement('div');
       container.className = `rb-toast-container rb-toast-container--${position}`;
       container.setAttribute('aria-live', 'polite');
       container.setAttribute('aria-label', `Notificaciones ${position.replace('-', ' ')}`);
-      
+
       // Apply container styles
       this.applyContainerStyles(container, position);
-      
+
       // Add to body
       document.body.appendChild(container);
       this.containers.set(position, container);
     }
-    
+
     return container;
   }
 
@@ -194,7 +200,7 @@ export class ToastManager {
     container.style.maxWidth = '400px';
     container.style.minWidth = '300px';
     container.style.pointerEvents = 'none';
-    
+
     // Position-specific styles
     switch (position) {
       case 'top-right':
@@ -233,7 +239,7 @@ export class ToastManager {
     if (mediaQuery.matches) {
       this.applyMobileStyles(container, position);
     }
-    
+
     // Listen for media query changes
     mediaQuery.addEventListener('change', (e) => {
       if (e.matches) {
@@ -250,7 +256,7 @@ export class ToastManager {
     container.style.maxWidth = 'none';
     container.style.minWidth = 'auto';
     container.style.transform = 'none';
-    
+
     if (position.includes('top')) {
       container.style.top = '0.5rem';
       container.style.bottom = 'auto';
@@ -299,13 +305,13 @@ export const toastManager = ToastManager.getInstance();
 
 // Global convenience functions
 export const showToast = (options: ToastOptions) => toastManager.show(options);
-export const showSuccess = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) => 
+export const showSuccess = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) =>
   toastManager.success(message, options);
-export const showError = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) => 
+export const showError = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) =>
   toastManager.error(message, options);
-export const showWarning = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) => 
+export const showWarning = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) =>
   toastManager.warning(message, options);
-export const showInfo = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) => 
+export const showInfo = (message: string, options?: Omit<ToastOptions, 'type' | 'message'>) =>
   toastManager.info(message, options);
 export const hideToast = (id: string) => toastManager.hide(id);
 export const removeToast = (id: string) => toastManager.remove(id);

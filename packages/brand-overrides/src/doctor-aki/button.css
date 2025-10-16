@@ -1,67 +1,102 @@
 /**
  * ============================================================================
- * Doctor Aki - Button Component Overrides
+ * DOCTOR AKI - Button Component Overrides (EJEMPLO)
  * ============================================================================
  * 
- * Data Attribute Approach: [data-brand="doctor-aki"]
+ * 🎯 ESTE ES UN EJEMPLO - Ajustar según diseño real de Doctor Aki
  * 
- * Customizaciones específicas de Doctor Aki:
- * - PRIMARY FILL: Colores de marca Doctor Aki
- * - TERTIARY STROKE: Borde y texto personalizados
+ * Este archivo muestra cómo crear un override COMPLETO:
+ * - STROKE: Usa TERTIARY (violeta) en lugar de SECONDARY ❌
+ * - FILL: Usa TERTIARY (violeta) en lugar de SECONDARY ❌
+ * - TEXT: Usa TERTIARY (violeta) en lugar de SECONDARY ❌
+ * 
+ * Copiado de Seguros Bolívar y ajustado: PRIMARY → TERTIARY
+ * 
+ * ~60 líneas de código necesarias
  * 
  * ============================================================================
  */
 
-[data-brand='doctor-aki'] {
-  /* ========================================
-     PRIMARY - STROKE
-     Borde primary, texto primary para Doctor Aki
-     ======================================== */
-  .rb-button--primary {
-    /* Background */
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-primary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+@layer brand-overrides {
+  /* ============================================
+     SECONDARY STROKE - TERTIARY colors
+     ============================================ */
+  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke,
+  :where([data-brand='doctor-aki'])
+    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text) {
+    /* 🟣 Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
+    --rb-button-text-color: var(--rb-color-tertiary-D100);
+    --rb-button-border-color: var(--rb-color-tertiary-D100);
 
-    /* Text */
-    --rb-button-primary-stroke-text: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
+    --rb-button-text-hover: var(--rb-color-tertiary-D200);
+    --rb-button-border-hover: var(--rb-color-tertiary-D200);
 
-    /* Border */
-    --rb-button-primary-stroke-border: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --rb-button-bg-active: var(--rb-color-tertiary-L300);
+    --rb-button-text-active: var(--rb-color-tertiary-D200);
+    --rb-button-border-active: var(--rb-color-tertiary-D200);
   }
 
-  /* ========================================
-     PRIMARY - FILL
-     Colores de marca Doctor Aki
-     ======================================== */
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-primary-base);
-    --rb-button-primary-fill-bg-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-bg-active: var(--rb-color-primary-D200);
-
-    --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
-    --rb-button-primary-fill-text-hover: var(--rb-color-grayscale-white);
-    --rb-button-primary-fill-text-active: var(--rb-color-grayscale-white);
-
-    --rb-button-primary-fill-border: var(--rb-color-primary-base);
-    --rb-button-primary-fill-border-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-border-active: var(--rb-color-primary-D200);
-  }
-
-  /* ========================================
-     TERTIARY - STROKE
-     Borde y texto personalizados
-     ======================================== */
-  .rb-button--tertiary {
-    --rb-button-tertiary-stroke-border: var(--rb-color-tertiary-base);
-    --rb-button-tertiary-stroke-text: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-stroke-text-hover: var(--rb-color-tertiary-D100);
+  /* Focus outline - Violeta claro */
+  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='doctor-aki'])
+    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
+    outline-color: var(--rb-color-tertiary-L100);
   }
 }
+
+@layer brand-overrides {
+  /* ============================================
+     SECONDARY FILL - TERTIARY colors
+     ============================================ */
+  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill {
+    /* 🟣 Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
+    --rb-button-bg-color: var(--rb-color-tertiary-L300);
+    --rb-button-text-color: var(--rb-color-tertiary-D200);
+    --rb-button-border-color: var(--rb-color-tertiary-L300);
+
+    --rb-button-bg-hover: var(--rb-color-tertiary-L200);
+    --rb-button-text-hover: var(--rb-color-tertiary-D300);
+    --rb-button-border-hover: var(--rb-color-tertiary-L200);
+
+    --rb-button-bg-active: var(--rb-color-tertiary-L200);
+    --rb-button-text-active: var(--rb-color-tertiary-D300);
+    --rb-button-border-active: var(--rb-color-tertiary-L200);
+  }
+
+  /* Focus outline - Violeta claro */
+  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill:focus-visible {
+    outline-color: var(--rb-color-tertiary-L100);
+  }
+}
+
+@layer brand-overrides {
+  /* ============================================
+     SECONDARY TEXT - TERTIARY colors
+     ============================================ */
+  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text {
+    /* 🟣 Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
+    --rb-button-text-color: var(--rb-color-tertiary-D100);
+
+    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
+    --rb-button-text-hover: var(--rb-color-tertiary-D200);
+
+    --rb-button-bg-active: var(--rb-color-tertiary-L300);
+    --rb-button-text-active: var(--rb-color-tertiary-D200);
+  }
+
+  /* Focus outline - Violeta claro */
+  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text:focus-visible {
+    outline-color: var(--rb-color-tertiary-L100);
+  }
+}
+
+/* ============================================================================
+   📝 NOTAS:
+   
+   - Este override es similar a Seguros Bolívar
+   - Solo cambia: PRIMARY (verde) → TERTIARY (violeta)
+   - Total líneas: ~60
+   
+   📚 Para copiar/pegar: Ver ../EJEMPLOS_OTRAS_MARCAS.md
+   ============================================================================ */

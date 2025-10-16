@@ -25,7 +25,7 @@ export abstract class BaseComponent {
   protected init(): void {
     // Aplicar tema si está disponible
     this.applyTheme();
-    
+
     // Configurar eventos globales
     this.setupGlobalEvents();
   }
@@ -99,7 +99,7 @@ export abstract class BaseComponent {
       'rb-component',
       `rb-component--${this.component.type}`,
       this.component.disabled ? 'rb-component--disabled' : '',
-      this.loading ? 'rb-component--loading' : ''
+      this.loading ? 'rb-component--loading' : '',
     ].filter(Boolean);
   }
 
@@ -150,10 +150,10 @@ export abstract class BaseComponent {
       detail: {
         component: this.component,
         instance: this,
-        data
-      }
+        data,
+      },
     });
-    
+
     if (this.element) {
       this.element.dispatchEvent(event);
     } else {
@@ -166,11 +166,11 @@ export abstract class BaseComponent {
    */
   protected handleError(error: Error, context?: string): void {
     console.error(`[${this.component.type}${context ? ` - ${context}` : ''}]:`, error);
-    
+
     this.emit('error', {
       error: error.message,
       context,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
   }
 

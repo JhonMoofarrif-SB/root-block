@@ -17,13 +17,18 @@
 root-bloock/
 ├── packages/
 │   ├── tokens/              # 🎨 Design Tokens (colores, tipografía, sombras)
-│   ├── atoms/               # ⚛️ Componentes CSS simples (Button, etc.)
+│   ├── atoms/               # ⚛️ Componentes CSS simples (Button, Input, etc.)
 │   ├── molecules/           # 🧬 Web Components complejos (Modal, DatePicker, Dropdown)
-│   ├── brand-overrides/     # ✨ Estilos específicos por marca (NEW v1.1.0!)
-│   ├── bundle/              # 📦 CDN Bundle Generator (Complete bundles)
-│   └── docs/                # 📚 Storybook Documentation
-└── examples/
-    └── index.html           # 🎮 Demo interactivo multi-marca
+│   ├── brand-overrides/     # ✨ Estilos específicos por marca
+│   ├── bundle/              # 📦 CDN Bundle Generator (99KB → 9.9KB brotli)
+│   └── docs/                # 📚 Storybook + Package documentation
+├── examples/
+│   ├── index.html           # 🎮 Demo interactivo multi-marca
+│   ├── button-primary.html  # 🔘 Demo botones primarios
+│   └── button-secondary.html # 🔘 Demo botones secundarios
+└── docs/
+    ├── guides/              # 📖 Guías de uso y arquitectura
+    └── optimization/        # ⚡ Documentación de optimización
 ```
 
 ### 🆕 Sistema de Overrides (v1.1.0)
@@ -436,6 +441,25 @@ Ejemplo:
 
 ![Demo del Design System](./docs/images/demo-screenshot.png)
 
+## 📚 Documentación Completa
+
+### Guías
+
+- [**Sistema de Overrides**](./docs/guides/BRAND-OVERRIDE-SYSTEM.md) - Arquitectura y uso del sistema de overrides
+- [**Personalización Secondary Button**](./docs/guides/GUIA_PERSONALIZACION_SECONDARY.md) - Guía para personalizar botones secundarios
+- [**Estrategia de Tokens**](./docs/guides/DECISION_TOKENS_STRATEGY.md) - Por qué usamos primitive tokens + overrides
+- [**Tokens vs Overrides**](./docs/guides/TOKENS_VS_OVERRIDES.md) - Comparación de estrategias
+- [**Estándares CSS**](./docs/guides/CSS_STANDARDS.md) - Convenciones y mejores prácticas
+
+### Optimización
+
+- [**Quick Start Optimización**](./docs/optimization/QUICK_START_OPTIMIZACION.md) - 3 pasos para optimizar (45 min)
+- [**Resumen Análisis**](./docs/optimization/RESUMEN_ANALISIS_OPTIMIZACION.md) - Plan completo de optimización
+- [**Critical CSS**](./docs/optimization/IMPLEMENTACION_CRITICAL_CSS.md) - Implementación de Critical CSS
+- [**Flujo Visual**](./docs/optimization/FLUJO_VISUAL_CSS.md) - Diagramas del flujo completo
+- [**PurgeCSS**](./docs/optimization/GUIA_IMPLEMENTACION_PURGECSS.md) - Guía para reducir CSS no usado
+- [**Índice Optimización**](./docs/optimization/INDICE_OPTIMIZACION.md) - Índice completo de optimización
+
 ## 📄 Licencia
 
 MIT © Root Block - ver [LICENSE](./LICENSE) para más detalles
@@ -449,4 +473,4 @@ MIT © Root Block - ver [LICENSE](./LICENSE) para más detalles
 
 ---
 
-Hecho con ❤️ por el equipo de Root Block | **v1.1.0** - Brand Overrides System ⚫
+Hecho con ❤️ por el equipo de Root Block | **v1.1.0** - Brand Overrides System + Optimizations ⚡

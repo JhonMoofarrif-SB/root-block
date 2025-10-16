@@ -155,7 +155,8 @@
 .rb-textarea--success {
   --rb-textarea-border-color: var(--rb-textarea-border-color-success);
   --rb-textarea-border-color-focus: var(--rb-textarea-border-color-success);
-  --rb-textarea-shadow-focus: 0 0 0 3px var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+  --rb-textarea-shadow-focus: 0 0 0 3px
+    var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
 .rb-textarea--success:focus {
@@ -167,7 +168,8 @@
 .rb-textarea--warning {
   --rb-textarea-border-color: var(--rb-color-feedback-warning-base, #ffc107);
   --rb-textarea-border-color-focus: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-textarea-shadow-focus: 0 0 0 3px var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+  --rb-textarea-shadow-focus: 0 0 0 3px
+    var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
 .rb-textarea--warning:focus {
@@ -411,7 +413,7 @@
   .rb-textarea {
     --rb-textarea-border-width: 2px;
   }
-  
+
   .rb-textarea-counter {
     border: 1px solid var(--rb-color-grayscale-D200, #6e6e6e);
   }
@@ -429,15 +431,15 @@
   .rb-textarea {
     font-size: 16px; /* Prevents zoom on iOS */
   }
-  
+
   .rb-textarea--small {
     font-size: 16px;
   }
-  
+
   .rb-textarea-group--horizontal {
     flex-direction: column;
   }
-  
+
   .rb-textarea-counter {
     position: static;
     margin-top: 0.5rem;
@@ -464,11 +466,11 @@
     box-shadow: none !important;
     resize: none !important;
   }
-  
+
   .rb-textarea::placeholder {
     color: #666 !important;
   }
-  
+
   .rb-textarea-counter {
     display: none;
   }
@@ -572,7 +574,7 @@
     background-color: var(--rb-color-grayscale-D300, #404040);
     color: var(--rb-color-grayscale-L200, #edeef0);
   }
-  
+
   .rb-textarea-counter--with-bg {
     background-color: var(--rb-color-grayscale-D200, #6e6e6e);
     border-color: var(--rb-color-grayscale-D100, #8c8c8c);

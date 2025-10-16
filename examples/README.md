@@ -8,14 +8,36 @@ Ejemplos interactivos del sistema de diseño.
 
 ```
 examples/
-├── index.html          → Demo principal con selector de marcas
-├── button.html         → Documentación completa de botones
-├── README.md           → Esta guía
-├── USO-BOTONES.md      → Guía rápida de uso de botones
-└── dist/               → CSS y JS compilados
-    ├── rb-*.min.css    → Bundles por marca (tokens + atoms + overrides)
+├── index.html              → 🏠 Demo principal con navegación
+├── button/                 → 🔘 Demos de botones
+│   ├── primary.html        → 🔵 Matriz completa botones primarios
+│   └── secondary.html      → 🟡 Matriz completa botones secundarios
+├── README.md               → Esta guía
+├── USO-BOTONES.md          → Guía rápida de uso de botones
+└── dist/                   → CSS y JS compilados
+    ├── rb-*.min.css        → Bundles por marca (99KB → 9.9KB brotli)
     └── rb-components.min.js → Web Components
 ```
+
+## 🎨 Demos Disponibles
+
+### 1. **Demo Principal** (`index.html`)
+
+- Vista general de componentes
+- Selector interactivo de marca y tema
+- Navegación a demos específicos
+
+### 2. **Botones Primarios** (`button/primary.html`)
+
+- Matriz completa: 3 variantes × 6 estados
+- Fill, Stroke, Text
+- Con iconos (left, right, only)
+
+### 3. **Botones Secundarios** (`button/secondary.html`)
+
+- Matriz completa de secundarios
+- Override especial Seguros Bolívar
+- 3 variantes × 6 estados
 
 ---
 

@@ -21,7 +21,7 @@ class EventBusClass {
     if (!this.listeners[event]) return;
 
     if (callback) {
-      this.listeners[event] = this.listeners[event].filter(cb => cb !== callback);
+      this.listeners[event] = this.listeners[event].filter((cb) => cb !== callback);
     } else {
       delete this.listeners[event];
     }
@@ -33,7 +33,7 @@ class EventBusClass {
   emit(event: string, data?: any): void {
     if (!this.listeners[event]) return;
 
-    this.listeners[event].forEach(callback => {
+    this.listeners[event].forEach((callback) => {
       try {
         callback(data);
       } catch (error) {

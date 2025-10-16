@@ -375,8 +375,10 @@ async function buildBrandTheme(brand: string, theme: string) {
   await fs.mkdir(path.dirname(tempPath), { recursive: true });
   await fs.writeFile(tempPath, JSON.stringify(normalizedTokens, null, 2));
 
+  // Solo usar primitive tokens (normalizados)
+  // Semantic tokens NO se usan - usamos overrides CSS en su lugar
   const config = {
-    source: [tempPath, `src/semantic/${theme}.json`],
+    source: [tempPath],
     platforms: {
       css: {
         transformGroup: 'css',

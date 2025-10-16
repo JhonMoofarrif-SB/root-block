@@ -26,23 +26,23 @@
   /* Resetear estilos de Form.io que puedan interferir */
   all: unset;
   box-sizing: border-box;
-  
+
   /* Aplicar estilos base del Root Block Design System */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  
+
   /* Spacing - Logical Properties */
   padding-inline: var(--rb-button-padding-inline);
   padding-block: var(--rb-button-padding-block);
   gap: var(--rb-button-gap);
-  
+
   /* Sizing - Logical Properties */
   min-inline-size: var(--rb-button-min-inline-size);
   min-block-size: var(--rb-button-min-block-size);
   inline-size: auto;
-  
+
   /* Typography */
   font-family: var(--rb-button-font-family);
   font-style: normal;
@@ -52,7 +52,7 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  
+
   /* Appearance */
   background-color: var(--rb-button-bg-color);
   color: var(--rb-button-text-color);
@@ -61,7 +61,7 @@
   box-shadow: var(--rb-button-shadow);
   cursor: pointer;
   user-select: none;
-  
+
   /* Animation */
   transition: var(--rb-button-transition);
 }
@@ -104,13 +104,13 @@ button.rb-button {
   /* Resetear completamente */
   all: unset !important;
   box-sizing: border-box !important;
-  
+
   /* Aplicar estilos del Root Block */
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
-  
+
   /* Variables CSS se aplicarán automáticamente */
   padding-inline: var(--rb-button-padding-inline) !important;
   padding-block: var(--rb-button-padding-block) !important;
@@ -365,7 +365,7 @@ button.rb-button.rb-button--tertiary.rb-button--fill {
   .formio-component {
     margin-bottom: 0.75rem;
   }
-  
+
   .formio-component-button .rb-button:not(.rb-button--icon-only):not(.rb-button--circle) {
     width: 100%;
   }
@@ -375,16 +375,16 @@ button.rb-button.rb-button--tertiary.rb-button--fill {
    FORM.IO THEME INTEGRATION
    ======================================== */
 
-[data-rb-theme="dark"] .formio-form {
+[data-rb-theme='dark'] .formio-form {
   background: var(--rb-color-grayscale-D200, #2d2d2d);
   color: var(--rb-color-grayscale-L200, #e0e0e0);
 }
 
-[data-rb-theme="dark"] .formio-component-label {
+[data-rb-theme='dark'] .formio-component-label {
   color: var(--rb-color-grayscale-L200, #e0e0e0);
 }
 
-[data-rb-theme="dark"] .formio-component-description {
+[data-rb-theme='dark'] .formio-component-description {
   color: var(--rb-color-grayscale-L100, #b9b9b9);
 }
 
@@ -409,7 +409,7 @@ button.rb-button.rb-button--tertiary.rb-button--fill {
   .formio-component-label {
     font-weight: 700;
   }
-  
+
   .formio-error {
     font-weight: 600;
     text-decoration: underline;
@@ -427,7 +427,7 @@ button.rb-button.rb-button--tertiary.rb-button--fill {
     border: 1px solid black !important;
     box-shadow: none !important;
   }
-  
+
   .formio-loading::after {
     display: none !important;
   }

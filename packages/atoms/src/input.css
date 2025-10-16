@@ -441,7 +441,7 @@
   .rb-input {
     font-size: 16px; /* Prevents zoom on iOS */
   }
-  
+
   .rb-input--small {
     font-size: 16px;
   }
@@ -462,7 +462,7 @@
     border: 1px solid black !important;
     box-shadow: none !important;
   }
-  
+
   .rb-input::placeholder {
     color: #666 !important;
   }
@@ -493,9 +493,23 @@
 
 /* Input error shake animation */
 @keyframes rb-input-shake {
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-  20%, 40%, 60%, 80% { transform: translateX(2px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
 }
 
 /* Apply shake animation to error inputs */

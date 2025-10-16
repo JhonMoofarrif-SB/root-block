@@ -3,11 +3,11 @@ import { html } from 'lit';
 
 /**
  * # Toggle Component
- * 
+ *
  * Componente de toggle/switch versátil del Root Block Design System con diferentes estilos, animaciones y estados.
- * 
+ *
  * ## 📋 Referencia Rápida de Clases
- * 
+ *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
@@ -26,17 +26,17 @@ import { html } from 'lit';
  * | **Modificadores** | | |
  * | Bordes redondeados | `.rb-toggle--rounded` | `<label class="rb-toggle rb-toggle--rounded">...</label>` |
  * | Minimal | `.rb-toggle--minimal` | `<label class="rb-toggle rb-toggle--minimal">...</label>` |
- * 
+ *
  * ## 💡 Notas Importantes
- * 
+ *
  * - **Estructura HTML**: Usa `<label class="rb-toggle">` conteniendo `<input class="rb-toggle-input">` y `<span class="rb-toggle-slider">`
  * - **Label de texto**: Usa `<span class="rb-toggle-label">` dentro del label principal
  * - **Input oculto**: El input real está oculto visualmente pero accesible para lectores de pantalla
  * - **Estilo por defecto**: SWITCH - botón deslizante circular
  * - **Interactividad**: Funciona con clicks en cualquier parte del label
- * 
+ *
  * ## 🎯 Ejemplo de Estructura Completa
- * 
+ *
  * ```html
  * <div class="rb-toggle-container">
  *   <label class="rb-toggle rb-toggle--large rb-toggle--success">
@@ -54,7 +54,8 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de toggle/switch versátil con diferentes estilos (switch, button, checkbox), animaciones y estados de validación.',
+        component:
+          'Componente de toggle/switch versátil con diferentes estilos (switch, button, checkbox), animaciones y estados de validación.',
       },
     },
   },
@@ -157,7 +158,7 @@ type Story = StoryObj;
 
 /**
  * ## Playground (Interactivo)
- * 
+ *
  * Experimenta con todas las combinaciones del toggle usando los controles interactivos
  * en el panel inferior. Puedes ajustar estilo, estado, tamaño, animaciones y más.
  */
@@ -184,39 +185,39 @@ export const Playground: Story = {
       args.rounded ? 'rb-toggle--rounded' : '',
       args.minimal ? 'rb-toggle--minimal' : '',
       args.animation !== 'none' ? `rb-toggle--${args.animation}` : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     const helperClasses = [
       'rb-toggle-helper',
       args.state !== 'normal' ? `rb-toggle-helper--${args.state}` : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     return html`
       <div style="max-width: 400px;">
         <div class="rb-toggle-container">
           <label class="${toggleClasses}">
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               class="rb-toggle-input"
               ?checked="${args.checked}"
               ?required="${args.required}"
               ?disabled="${args.disabled}"
             />
-            ${args.style === 'button' ? html`
-              <span class="rb-toggle-slider"></span>
-            ` : html`
-              <span class="rb-toggle-slider"></span>
-              ${args.label && args.style !== 'button' ? html`
-                <span class="rb-toggle-label">${args.label}</span>
-              ` : ''}
-            `}
+            ${args.style === 'button'
+              ? html` <span class="rb-toggle-slider"></span> `
+              : html`
+                  <span class="rb-toggle-slider"></span>
+                  ${args.label && args.style !== 'button'
+                    ? html` <span class="rb-toggle-label">${args.label}</span> `
+                    : ''}
+                `}
           </label>
-          
-          ${args.helperText ? html`
-            <div class="${helperClasses}">
-              ${args.helperText}
-            </div>
-          ` : ''}
+
+          ${args.helperText ? html` <div class="${helperClasses}">${args.helperText}</div> ` : ''}
         </div>
       </div>
     `;
@@ -225,7 +226,7 @@ export const Playground: Story = {
 
 /**
  * ## Estados - Matriz de Combinaciones
- * 
+ *
  * Matriz del toggle mostrando combinaciones de:
  * - **4 Estados**: Normal, Error, Success, Warning
  * - **3 Tamaños**: Small, Medium, Large
@@ -242,30 +243,30 @@ export const Estados: Story = {
         padding: 2rem;
         background: var(--rb-color-grayscale-L400, #fafafa);
       }
-      
+
       .toggle-demo {
         padding: 1.5rem;
         background: white;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      
+
       .toggle-demo h3 {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
         color: var(--rb-color-primary-base, #007acc);
       }
-      
+
       .toggle-demo > div {
         margin-bottom: 1rem;
       }
-      
+
       .toggle-demo > div:last-child {
         margin-bottom: 0;
       }
     </style>
-    
+
     <div class="toggle-matrix">
       <!-- Estados Básicos -->
       <div class="toggle-demo">

@@ -4,6 +4,8 @@
 
 Tokens de diseño generados con Style Dictionary para 6 marcas × 2 temas = 12 combinaciones.
 
+**Estrategia:** Solo **Primitive Tokens** + **Overrides CSS** (sin semantic tokens).
+
 ## 📦 Instalación
 
 ```bash
@@ -223,6 +225,32 @@ pnpm dev
 - [Guía de Tokens](../../docs/tokens.md)
 - [Style Dictionary Config](./src/builder.ts)
 - [Ejemplos](../../examples/)
+- **[¿Por qué NO usamos Semantic Tokens?](../../DECISION_TOKENS_STRATEGY.md)** 📖
+
+---
+
+## 🤔 ¿Por qué solo Primitive Tokens?
+
+### Estrategia Actual: Primitive + Overrides CSS
+
+```
+Primitives (por marca)
+     ↓
+  BASE CSS usa primitives
+     ↓
+  Override CSS cuando sea necesario
+```
+
+**Ventajas:**
+
+- ✅ Más simple de entender
+- ✅ Más fácil de debuggear
+- ✅ Más flexible (cualquier propiedad CSS)
+- ✅ Solo 1 de 5 marcas necesita override
+
+**Ver documentación completa:** `DECISION_TOKENS_STRATEGY.md` en la raíz del proyecto.
+
+---
 
 ## 📄 Licencia
 

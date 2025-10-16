@@ -3,7 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 
 /**
  * Toast Component - Root Block Design System
- * 
+ *
  * Componente de notificaciones toast flotantes basado en alert.css
  * Soporta múltiples tipos, posiciones y auto-dismiss
  *
@@ -27,9 +27,9 @@ import { customElement, property, state } from 'lit/decorators.js';
  *
  * @example
  * ```html
- * <rb-toast 
- *   type="success" 
- *   title="¡Éxito!" 
+ * <rb-toast
+ *   type="success"
+ *   title="¡Éxito!"
  *   message="Operación completada correctamente"
  *   position="top-right"
  *   auto-dismiss="5000">
@@ -43,14 +43,20 @@ export class RbToast extends LitElement {
       /* Importar estilos base de alert.css mediante CSS custom properties */
       --rb-toast-bg-color: var(--rb-alert-bg-color, var(--rb-color-grayscale-white, #ffffff));
       --rb-toast-text-color: var(--rb-alert-text-color, var(--rb-color-grayscale-D300, #404040));
-      --rb-toast-border-color: var(--rb-alert-border-color, var(--rb-color-grayscale-L200, #edeef0));
+      --rb-toast-border-color: var(
+        --rb-alert-border-color,
+        var(--rb-color-grayscale-L200, #edeef0)
+      );
       --rb-toast-shadow: var(--rb-alert-shadow-toast, 0 4px 16px rgba(0, 0, 0, 0.15));
       --rb-toast-border-radius: var(--rb-alert-border-radius, 8px);
       --rb-toast-padding: var(--rb-alert-padding, 1rem);
       --rb-toast-gap: var(--rb-alert-gap, 0.75rem);
-      --rb-toast-font-family: var(--rb-alert-font-family, var(--rb-typography-fontFamily, 'Roboto', sans-serif));
+      --rb-toast-font-family: var(
+        --rb-alert-font-family,
+        var(--rb-typography-fontFamily, 'Roboto', sans-serif)
+      );
       --rb-toast-transition: var(--rb-alert-transition, all 0.2s ease);
-      
+
       /* Posicionamiento */
       position: fixed;
       z-index: 1000;
@@ -65,58 +71,58 @@ export class RbToast extends LitElement {
       transform: translateX(0);
     }
 
-    :host([position="top-right"]) {
+    :host([position='top-right']) {
       top: 1rem;
       right: 1rem;
     }
 
-    :host([position="top-left"]) {
+    :host([position='top-left']) {
       top: 1rem;
       left: 1rem;
       transform: translateX(-100%);
     }
 
-    :host([position="top-left"][visible]) {
+    :host([position='top-left'][visible]) {
       transform: translateX(0);
     }
 
-    :host([position="top-center"]) {
+    :host([position='top-center']) {
       top: 1rem;
       left: 50%;
       transform: translateX(-50%) translateY(-100%);
     }
 
-    :host([position="top-center"][visible]) {
+    :host([position='top-center'][visible]) {
       transform: translateX(-50%) translateY(0);
     }
 
-    :host([position="bottom-right"]) {
+    :host([position='bottom-right']) {
       bottom: 1rem;
       right: 1rem;
       transform: translateX(100%) translateY(100%);
     }
 
-    :host([position="bottom-right"][visible]) {
+    :host([position='bottom-right'][visible]) {
       transform: translateX(0) translateY(0);
     }
 
-    :host([position="bottom-left"]) {
+    :host([position='bottom-left']) {
       bottom: 1rem;
       left: 1rem;
       transform: translateX(-100%) translateY(100%);
     }
 
-    :host([position="bottom-left"][visible]) {
+    :host([position='bottom-left'][visible]) {
       transform: translateX(0) translateY(0);
     }
 
-    :host([position="bottom-center"]) {
+    :host([position='bottom-center']) {
       bottom: 1rem;
       left: 50%;
       transform: translateX(-50%) translateY(100%);
     }
 
-    :host([position="bottom-center"][visible]) {
+    :host([position='bottom-center'][visible]) {
       transform: translateX(-50%) translateY(0);
     }
 
@@ -226,112 +232,112 @@ export class RbToast extends LitElement {
     }
 
     /* Toast Type Variants */
-    :host([type="success"]) .toast {
+    :host([type='success']) .toast {
       --rb-toast-bg-color: var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
       --rb-toast-border-color: var(--rb-color-feedback-success-base, #28a745);
       --rb-toast-text-color: var(--rb-color-feedback-success-base, #28a745);
     }
 
-    :host([type="success"]) .icon::before {
+    :host([type='success']) .icon::before {
       content: '✓';
       color: var(--rb-color-feedback-success-base, #28a745);
     }
 
-    :host([type="success"]) .progress {
+    :host([type='success']) .progress {
       background-color: var(--rb-color-feedback-success-base, #28a745);
     }
 
-    :host([type="info"]) .toast {
+    :host([type='info']) .toast {
       --rb-toast-bg-color: var(--rb-color-feedback-info-L400, rgba(0, 122, 204, 0.1));
       --rb-toast-border-color: var(--rb-color-feedback-info-base, #007acc);
       --rb-toast-text-color: var(--rb-color-feedback-info-base, #007acc);
     }
 
-    :host([type="info"]) .icon::before {
+    :host([type='info']) .icon::before {
       content: 'i';
       font-style: italic;
       font-weight: 600;
       color: var(--rb-color-feedback-info-base, #007acc);
     }
 
-    :host([type="info"]) .progress {
+    :host([type='info']) .progress {
       background-color: var(--rb-color-feedback-info-base, #007acc);
     }
 
-    :host([type="warning"]) .toast {
+    :host([type='warning']) .toast {
       --rb-toast-bg-color: var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
       --rb-toast-border-color: var(--rb-color-feedback-warning-base, #ffc107);
       --rb-toast-text-color: var(--rb-color-feedback-warning-base, #ffc107);
     }
 
-    :host([type="warning"]) .icon::before {
+    :host([type='warning']) .icon::before {
       content: '⚠';
       color: var(--rb-color-feedback-warning-base, #ffc107);
     }
 
-    :host([type="warning"]) .progress {
+    :host([type='warning']) .progress {
       background-color: var(--rb-color-feedback-warning-base, #ffc107);
     }
 
-    :host([type="error"]) .toast {
+    :host([type='error']) .toast {
       --rb-toast-bg-color: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
       --rb-toast-border-color: var(--rb-color-feedback-error-base, #dc3545);
       --rb-toast-text-color: var(--rb-color-feedback-error-base, #dc3545);
     }
 
-    :host([type="error"]) .icon::before {
+    :host([type='error']) .icon::before {
       content: '✕';
       color: var(--rb-color-feedback-error-base, #dc3545);
     }
 
-    :host([type="error"]) .progress {
+    :host([type='error']) .progress {
       background-color: var(--rb-color-feedback-error-base, #dc3545);
     }
 
     /* Size Variants */
-    :host([size="small"]) .toast {
+    :host([size='small']) .toast {
       min-height: 2.5rem;
       padding: 0.75rem;
       gap: 0.5rem;
     }
 
-    :host([size="small"]) .icon {
+    :host([size='small']) .icon {
       width: 1rem;
       height: 1rem;
       font-size: 1rem;
     }
 
-    :host([size="small"]) .title,
-    :host([size="small"]) .message {
+    :host([size='small']) .title,
+    :host([size='small']) .message {
       font-size: 0.8125rem;
     }
 
-    :host([size="small"]) .close {
+    :host([size='small']) .close {
       width: 1.25rem;
       height: 1.25rem;
     }
 
-    :host([size="large"]) .toast {
+    :host([size='large']) .toast {
       min-height: 3.5rem;
       padding: 1.25rem;
       gap: 1rem;
     }
 
-    :host([size="large"]) .icon {
+    :host([size='large']) .icon {
       width: 1.5rem;
       height: 1.5rem;
       font-size: 1.5rem;
     }
 
-    :host([size="large"]) .title {
+    :host([size='large']) .title {
       font-size: 1rem;
     }
 
-    :host([size="large"]) .message {
+    :host([size='large']) .message {
       font-size: 0.9375rem;
     }
 
-    :host([size="large"]) .close {
+    :host([size='large']) .close {
       width: 1.75rem;
       height: 1.75rem;
     }
@@ -360,25 +366,25 @@ export class RbToast extends LitElement {
 
     /* Mobile Optimization */
     @media (max-width: 640px) {
-      :host([position*="top"]) {
+      :host([position*='top']) {
         top: 0.5rem;
         left: 0.5rem;
         right: 0.5rem;
         transform: translateY(-100%);
       }
 
-      :host([position*="top"][visible]) {
+      :host([position*='top'][visible]) {
         transform: translateY(0);
       }
 
-      :host([position*="bottom"]) {
+      :host([position*='bottom']) {
         bottom: 0.5rem;
         left: 0.5rem;
         right: 0.5rem;
         transform: translateY(100%);
       }
 
-      :host([position*="bottom"][visible]) {
+      :host([position*='bottom'][visible]) {
         transform: translateY(0);
       }
 
@@ -393,7 +399,13 @@ export class RbToast extends LitElement {
   type: 'info' | 'success' | 'warning' | 'error' = 'info';
 
   @property({ type: String, reflect: true })
-  position: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' = 'top-right';
+  position:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right' = 'top-right';
 
   @property({ type: String, reflect: true })
   size: 'small' | 'medium' | 'large' = 'medium';
@@ -456,13 +468,13 @@ export class RbToast extends LitElement {
 
   private _setupAutoDismiss(): void {
     this._clearTimers();
-    
+
     if (this.autoDismiss > 0) {
       // Setup progress bar animation if enabled
       if (this.showProgress) {
         this._progressWidth = 100;
         this.requestUpdate();
-        
+
         // Start progress animation
         setTimeout(() => {
           this._progressWidth = 0;
@@ -553,13 +565,14 @@ export class RbToast extends LitElement {
   }
 
   override render() {
-    const progressStyle = this.showProgress && this.autoDismiss > 0 
-      ? `width: ${this._progressWidth}%; transition-duration: ${this.autoDismiss}ms;`
-      : 'display: none;';
+    const progressStyle =
+      this.showProgress && this.autoDismiss > 0
+        ? `width: ${this._progressWidth}%; transition-duration: ${this.autoDismiss}ms;`
+        : 'display: none;';
 
     return html`
-      <div 
-        class="toast" 
+      <div
+        class="toast"
         part="toast"
         @click=${this._handleClick}
         @keydown=${this._handleKeyDown}
@@ -582,7 +595,7 @@ export class RbToast extends LitElement {
                 </div>
               `
             : ''}
-          
+
           <div class="message" part="message">
             <slot>${this.message}</slot>
           </div>
@@ -604,11 +617,7 @@ export class RbToast extends LitElement {
             `
           : ''}
 
-        <div 
-          class="progress" 
-          part="progress"
-          style=${progressStyle}
-        ></div>
+        <div class="progress" part="progress" style=${progressStyle}></div>
       </div>
     `;
   }

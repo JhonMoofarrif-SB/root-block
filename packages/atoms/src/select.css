@@ -463,11 +463,11 @@
   .rb-select {
     font-size: 16px; /* Prevents zoom on iOS */
   }
-  
+
   .rb-select--small {
     font-size: 16px;
   }
-  
+
   .rb-select-group--horizontal {
     flex-direction: column;
   }
@@ -489,7 +489,7 @@
     box-shadow: none !important;
     background-image: none !important;
   }
-  
+
   .rb-select option {
     background: transparent !important;
     color: black !important;
@@ -509,16 +509,16 @@
    VALIDATION STYLES
    ======================================== */
 
-.rb-select:valid:not([value=""]) {
+.rb-select:valid:not([value='']) {
   /* Success styling for valid selects */
 }
 
-.rb-select:invalid:not([value=""]) {
+.rb-select:invalid:not([value='']) {
   /* Error styling for invalid selects */
 }
 
 /* Custom validation message styling */
-.rb-select:invalid:not([value=""]) + .rb-select-helper {
+.rb-select:invalid:not([value='']) + .rb-select-helper {
   color: var(--rb-color-feedback-error-base, #dc3545);
 }
 
@@ -562,16 +562,16 @@
   .rb-select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23edeef0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   }
-  
+
   .rb-select:focus {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23007acc' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   }
-  
+
   .rb-select[multiple] option {
     background-color: var(--rb-color-grayscale-D200, #6e6e6e);
     color: var(--rb-color-grayscale-L200, #edeef0);
   }
-  
+
   .rb-select[multiple] option:checked {
     background-color: var(--rb-color-primary-base, #007acc);
     color: var(--rb-color-grayscale-white, #ffffff);
@@ -660,9 +660,23 @@
 
 /* Select error shake animation */
 @keyframes rb-select-shake {
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-  20%, 40%, 60%, 80% { transform: translateX(2px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
 }
 
 /* Apply shake animation to error selects */
@@ -697,7 +711,7 @@
   .rb-select {
     font-size: 16px; /* Prevents zoom on iOS */
   }
-  
+
   .rb-select--small {
     font-size: 16px;
   }

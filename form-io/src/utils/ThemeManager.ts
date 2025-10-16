@@ -10,11 +10,11 @@ export class ThemeManager {
   // Marcas disponibles
   private readonly brands = [
     'white-label',
-    'jelpit', 
+    'jelpit',
     'davivienda',
     'cien-cuadras',
     'doctor-aki',
-    'seguros-bolivar'
+    'seguros-bolivar',
   ];
 
   // Temas disponibles
@@ -42,7 +42,7 @@ export class ThemeManager {
 
     // Detectar tema del sistema
     this.detectSystemTheme();
-    
+
     // Detectar marca desde atributos HTML
     this.detectBrandFromHTML();
 
@@ -69,9 +69,9 @@ export class ThemeManager {
    */
   private detectBrandFromHTML(): void {
     const htmlElement = document.documentElement;
-    const brandAttr = htmlElement.getAttribute('data-brand') || 
-                     htmlElement.getAttribute('data-rb-brand');
-    
+    const brandAttr =
+      htmlElement.getAttribute('data-brand') || htmlElement.getAttribute('data-rb-brand');
+
     if (brandAttr && this.brands.includes(brandAttr)) {
       this.currentBrand = brandAttr;
     }
@@ -122,12 +122,12 @@ export class ThemeManager {
    */
   private applyTheme(): void {
     const htmlElement = document.documentElement;
-    
+
     // Remover clases anteriores
-    this.brands.forEach(brand => {
+    this.brands.forEach((brand) => {
       htmlElement.classList.remove(`rb-brand--${brand}`);
     });
-    this.themes.forEach(theme => {
+    this.themes.forEach((theme) => {
       htmlElement.classList.remove(`rb-theme--${theme}`);
     });
 
@@ -149,7 +149,7 @@ export class ThemeManager {
   private loadThemeCSS(): void {
     const cssId = 'rb-theme-css';
     const existingLink = document.getElementById(cssId) as HTMLLinkElement;
-    
+
     // Construir URL del CSS
     const cssUrl = this.buildCSSUrl();
 
@@ -189,8 +189,8 @@ export class ThemeManager {
     const event = new CustomEvent('rb:theme-change', {
       detail: {
         brand: this.currentBrand,
-        theme: this.currentTheme
-      }
+        theme: this.currentTheme,
+      },
     });
     document.dispatchEvent(event);
   }
@@ -243,7 +243,7 @@ export class ThemeManager {
   getCurrentConfig(): { brand: string; theme: string } {
     return {
       brand: this.currentBrand,
-      theme: this.currentTheme
+      theme: this.currentTheme,
     };
   }
 

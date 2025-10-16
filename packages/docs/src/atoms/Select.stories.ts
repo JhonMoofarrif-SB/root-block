@@ -3,11 +3,11 @@ import { html } from 'lit';
 
 /**
  * # Select Component
- * 
+ *
  * Componente de select versátil del Root Block Design System con diferentes estados, tamaños y opciones de iconos.
- * 
+ *
  * ## 📋 Referencia Rápida de Clases
- * 
+ *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
@@ -24,9 +24,9 @@ import { html } from 'lit';
  * | **Modificadores** | | |
  * | Bordes redondeados | `.rb-select--rounded` | `<select class="rb-select rb-select--rounded">...</select>` |
  * | Inline (auto width) | `.rb-select--inline` | `<select class="rb-select rb-select--inline">...</select>` |
- * 
+ *
  * ## 💡 Notas Importantes
- * 
+ *
  * - **Estado por defecto**: NORMAL - sin validación especial
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
  * - **Label**: Usa `rb-select-label` y `rb-select-label--required` para requeridos
@@ -40,7 +40,8 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de select versátil con soporte para selección simple/múltiple, grupos de opciones y diferentes estados de validación.',
+        component:
+          'Componente de select versátil con soporte para selección simple/múltiple, grupos de opciones y diferentes estados de validación.',
       },
     },
   },
@@ -125,7 +126,7 @@ type Story = StoryObj;
 
 /**
  * ## Playground (Interactivo)
- * 
+ *
  * Experimenta con todas las combinaciones del select usando los controles interactivos
  * en el panel inferior. Puedes ajustar estado, tamaño, opciones y más.
  */
@@ -148,69 +149,66 @@ export const Playground: Story = {
       args.size !== 'medium' ? `rb-select--${args.size}` : '',
       args.rounded ? 'rb-select--rounded' : '',
       args.hasIcon ? 'rb-select--with-icon-left' : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
-    const labelClasses = [
-      'rb-select-label',
-      args.required ? 'rb-select-label--required' : '',
-    ].filter(Boolean).join(' ');
+    const labelClasses = ['rb-select-label', args.required ? 'rb-select-label--required' : '']
+      .filter(Boolean)
+      .join(' ');
 
     const helperClasses = [
       'rb-select-helper',
       args.state !== 'normal' ? `rb-select-helper--${args.state}` : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     const selectId = 'playground-select';
 
     return html`
       <div style="max-width: 400px;">
         <div>
-          ${args.label ? html`
-            <label class="${labelClasses}" for="${selectId}">
-              ${args.label}
-            </label>
-          ` : ''}
-          
-          ${args.hasIcon ? html`
-            <div class="rb-select-container">
-              <select 
-                id="${selectId}"
-                class="${selectClasses}"
-                ?required="${args.required}"
-                ?disabled="${args.disabled}"
-                ?multiple="${args.multiple}"
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="tech">Tecnología</option>
-                <option value="design">Diseño</option>
-                <option value="business">Negocios</option>
-                <option value="marketing">Marketing</option>
-                <option value="sales">Ventas</option>
-              </select>
-              <span class="rb-select-icon rb-select-icon--left">📂</span>
-            </div>
-          ` : html`
-            <select 
-              id="${selectId}"
-              class="${selectClasses}"
-              ?required="${args.required}"
-              ?disabled="${args.disabled}"
-              ?multiple="${args.multiple}"
-            >
-              <option value="">Selecciona una opción</option>
-              <option value="tech">Tecnología</option>
-              <option value="design">Diseño</option>
-              <option value="business">Negocios</option>
-              <option value="marketing">Marketing</option>
-              <option value="sales">Ventas</option>
-            </select>
-          `}
-          
-          ${args.helperText ? html`
-            <div class="${helperClasses}">
-              ${args.helperText}
-            </div>
-          ` : ''}
+          ${args.label
+            ? html` <label class="${labelClasses}" for="${selectId}"> ${args.label} </label> `
+            : ''}
+          ${args.hasIcon
+            ? html`
+                <div class="rb-select-container">
+                  <select
+                    id="${selectId}"
+                    class="${selectClasses}"
+                    ?required="${args.required}"
+                    ?disabled="${args.disabled}"
+                    ?multiple="${args.multiple}"
+                  >
+                    <option value="">Selecciona una opción</option>
+                    <option value="tech">Tecnología</option>
+                    <option value="design">Diseño</option>
+                    <option value="business">Negocios</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="sales">Ventas</option>
+                  </select>
+                  <span class="rb-select-icon rb-select-icon--left">📂</span>
+                </div>
+              `
+            : html`
+                <select
+                  id="${selectId}"
+                  class="${selectClasses}"
+                  ?required="${args.required}"
+                  ?disabled="${args.disabled}"
+                  ?multiple="${args.multiple}"
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="tech">Tecnología</option>
+                  <option value="design">Diseño</option>
+                  <option value="business">Negocios</option>
+                  <option value="marketing">Marketing</option>
+                  <option value="sales">Ventas</option>
+                </select>
+              `}
+          ${args.helperText ? html` <div class="${helperClasses}">${args.helperText}</div> ` : ''}
         </div>
       </div>
     `;
@@ -219,7 +217,7 @@ export const Playground: Story = {
 
 /**
  * ## Estados - Matriz de Combinaciones
- * 
+ *
  * Matriz del select mostrando combinaciones de:
  * - **4 Estados**: Normal, Error, Success, Warning
  * - **3 Tamaños**: Small, Medium, Large
@@ -236,30 +234,30 @@ export const Estados: Story = {
         padding: 2rem;
         background: var(--rb-color-grayscale-L400, #fafafa);
       }
-      
+
       .select-demo {
         padding: 1.5rem;
         background: white;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      
+
       .select-demo h3 {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
         color: var(--rb-color-primary-base, #007acc);
       }
-      
+
       .select-demo > div {
         margin-bottom: 1rem;
       }
-      
+
       .select-demo > div:last-child {
         margin-bottom: 0;
       }
     </style>
-    
+
     <div class="select-matrix">
       <!-- Estados Básicos -->
       <div class="select-demo">

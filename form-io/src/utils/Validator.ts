@@ -114,7 +114,7 @@ export class Validator {
 
     return {
       isValid: errors.length === 0,
-      errors
+      errors,
     };
   }
 
@@ -191,7 +191,7 @@ export class Validator {
       'YYYY-MM-DD': /^\d{4}-\d{2}-\d{2}$/,
       'DD/MM/YYYY': /^\d{2}\/\d{2}\/\d{4}$/,
       'MM/DD/YYYY': /^\d{2}\/\d{2}\/\d{4}$/,
-      'DD-MM-YYYY': /^\d{2}-\d{2}-\d{4}$/
+      'DD-MM-YYYY': /^\d{2}-\d{2}-\d{4}$/,
     };
 
     const regex = formats[format];

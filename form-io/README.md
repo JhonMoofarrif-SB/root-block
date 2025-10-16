@@ -29,7 +29,10 @@ npm install @rb/formio
 <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
 <!-- Cargar Root Block Form.io Bundle -->
-<link rel="stylesheet" href="https://cdn.rootblock.com/formio/root-block-formio-davivienda-light.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.rootblock.com/formio/root-block-formio-davivienda-light.min.css"
+/>
 <script src="https://cdn.rootblock.com/formio/root-block-formio.min.js"></script>
 ```
 
@@ -61,9 +64,9 @@ const form = await Formio.createForm(document.getElementById('formio'), {
       styleVariant: 'fill',
       size: 'large',
       action: 'submit',
-      block: true
-    }
-  ]
+      block: true,
+    },
+  ],
 });
 ```
 
@@ -72,20 +75,20 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 ```html
 <!DOCTYPE html>
 <html data-rb-brand="davivienda" data-rb-theme="light">
-<head>
-  <meta name="rb-css-base-url" content="/assets/css">
-  <link rel="stylesheet" href="root-block-formio-davivienda-light.min.css">
-</head>
-<body>
-  <div id="formio"></div>
-  
-  <script src="formio.full.min.js"></script>
-  <script src="root-block-formio.min.js"></script>
-  <script>
-    // El tema se aplica automáticamente
-    Formio.createForm(document.getElementById('formio'), formSchema);
-  </script>
-</body>
+  <head>
+    <meta name="rb-css-base-url" content="/assets/css" />
+    <link rel="stylesheet" href="root-block-formio-davivienda-light.min.css" />
+  </head>
+  <body>
+    <div id="formio"></div>
+
+    <script src="formio.full.min.js"></script>
+    <script src="root-block-formio.min.js"></script>
+    <script>
+      // El tema se aplica automáticamente
+      Formio.createForm(document.getElementById('formio'), formSchema);
+    </script>
+  </body>
 </html>
 ```
 
@@ -93,16 +96,16 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 
 ### Propiedades Disponibles
 
-| Propiedad | Tipo | Default | Descripción |
-|-----------|------|---------|-------------|
-| `variant` | `string` | `'primary'` | Color: primary, secondary, tertiary, quaternary, quinary, danger, success |
-| `styleVariant` | `string` | `'stroke'` | Estilo: stroke, fill, text |
-| `size` | `string` | `'medium'` | Tamaño: small, medium, large |
-| `iconPosition` | `string` | `'none'` | Posición del icono: none, left, right, only |
-| `icon` | `string` | `''` | SVG o clase CSS del icono |
-| `block` | `boolean` | `false` | Botón de ancho completo |
-| `action` | `string` | `'submit'` | Acción: submit, reset, custom, event |
-| `disabled` | `boolean` | `false` | Estado deshabilitado |
+| Propiedad      | Tipo      | Default     | Descripción                                                               |
+| -------------- | --------- | ----------- | ------------------------------------------------------------------------- |
+| `variant`      | `string`  | `'primary'` | Color: primary, secondary, tertiary, quaternary, quinary, danger, success |
+| `styleVariant` | `string`  | `'stroke'`  | Estilo: stroke, fill, text                                                |
+| `size`         | `string`  | `'medium'`  | Tamaño: small, medium, large                                              |
+| `iconPosition` | `string`  | `'none'`    | Posición del icono: none, left, right, only                               |
+| `icon`         | `string`  | `''`        | SVG o clase CSS del icono                                                 |
+| `block`        | `boolean` | `false`     | Botón de ancho completo                                                   |
+| `action`       | `string`  | `'submit'`  | Acción: submit, reset, custom, event                                      |
+| `disabled`     | `boolean` | `false`     | Estado deshabilitado                                                      |
 
 ### Ejemplos de Configuración
 
@@ -152,6 +155,7 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 ## 🎭 Marcas y Temas Disponibles
 
 ### Marcas
+
 - `white-label` - Tema genérico
 - `jelpit` - Jelpit
 - `davivienda` - Davivienda (con animaciones especiales)
@@ -160,6 +164,7 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 - `seguros-bolivar` - Seguros Bolívar
 
 ### Temas
+
 - `light` - Tema claro
 - `dark` - Tema oscuro
 
@@ -210,7 +215,7 @@ const isValid = Validator.email('user@example.com');
 // Validaciones múltiples
 const result = Validator.validate('test@email.com', [
   { type: 'required', message: 'Email es requerido' },
-  { type: 'email', message: 'Email inválido' }
+  { type: 'email', message: 'Email inválido' },
 ]);
 
 console.log(result.isValid, result.errors);
@@ -225,7 +230,7 @@ class CustomComponent extends BaseComponent {
   static schema = {
     type: 'custom',
     label: 'Custom Component',
-    key: 'custom'
+    key: 'custom',
   };
 
   render() {
@@ -298,12 +303,12 @@ npm run build
 
 ## 📊 Tamaños de Bundle
 
-| Archivo | Tamaño | Gzip | Descripción |
-|---------|--------|------|-------------|
-| `root-block-formio.min.css` | ~15KB | ~3KB | CSS universal |
-| `root-block-formio-{brand}-{theme}.min.css` | ~18KB | ~4KB | CSS con tokens |
-| `root-block-formio.min.js` | ~25KB | ~8KB | JavaScript minificado |
-| Bundle completo | ~43KB | ~12KB | CSS + JS combinado |
+| Archivo                                     | Tamaño | Gzip  | Descripción           |
+| ------------------------------------------- | ------ | ----- | --------------------- |
+| `root-block-formio.min.css`                 | ~15KB  | ~3KB  | CSS universal         |
+| `root-block-formio-{brand}-{theme}.min.css` | ~18KB  | ~4KB  | CSS con tokens        |
+| `root-block-formio.min.js`                  | ~25KB  | ~8KB  | JavaScript minificado |
+| Bundle completo                             | ~43KB  | ~12KB | CSS + JS combinado    |
 
 ## 🔧 Configuración Avanzada
 
@@ -328,7 +333,7 @@ npm run build
 // Configurar Form.io para usar Root Block
 Formio.use({
   framework: 'rootblock',
-  iconset: 'fontawesome'
+  iconset: 'fontawesome',
 });
 
 // Configurar validaciones globales
@@ -337,7 +342,7 @@ Formio.validators.rootblock = {
   message: 'Validation failed',
   check: (component, setting, value) => {
     return Validator.validate(value, component.validate?.rules || []);
-  }
+  },
 };
 ```
 

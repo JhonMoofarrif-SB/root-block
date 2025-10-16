@@ -90,9 +90,7 @@ pnpm demo
 Abre `http://localhost:3000/button.html` y verifica con:
 
 ```html
-<button class="rb-button rb-button--primary" data-brand="tu-marca">
-  Tu Marca
-</button>
+<button class="rb-button rb-button--primary" data-brand="tu-marca">Tu Marca</button>
 ```
 
 ---
@@ -102,16 +100,18 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ### **SECCIÓN 1: Estructura Global** ⚙️
 
 **Cuándo usarla:**
+
 - Si necesitas tamaños fijos (no responsive)
 - Si tu marca tiene border-radius específico
 - Si quieres padding/gap diferentes del base
 
 **Ejemplo:**
+
 ```css
 [data-brand='jelpit'] .rb-button {
-  --rb-button-border-radius: 8px;      /* Menos redondeado */
-  --rb-button-padding-inline: 20px;    /* Más padding */
-  --rb-button-min-block-size: 44px;    /* Más alto */
+  --rb-button-border-radius: 8px; /* Menos redondeado */
+  --rb-button-padding-inline: 20px; /* Más padding */
+  --rb-button-min-block-size: 44px; /* Más alto */
 }
 ```
 
@@ -120,10 +120,12 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ### **SECCIÓN 2: Focus Outline** 🎯
 
 **Cuándo usarla:**
+
 - Si tu marca usa un color específico para accesibilidad
 - Si necesitas grosor diferente (2px vs 3px)
 
 **Ejemplo:**
+
 ```css
 /* Jelpit: outline naranja */
 [data-brand='jelpit'] .rb-button--primary:focus-visible {
@@ -137,10 +139,12 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ### **SECCIÓN 3: Text Decoration** 📝
 
 **Cuándo usarla:**
+
 - Siempre que uses botones TEXT (`.rb-button--text`)
 - Para que el underline use tu color de marca
 
 **Ejemplo:**
+
 ```css
 [data-brand='davivienda'] .rb-button--primary.rb-button--text {
   text-decoration-color: var(--rb-color-primary-base) !important;
@@ -152,10 +156,12 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ### **SECCIÓN 4: Disabled Hover** 🚫
 
 **Cuándo usarla:**
+
 - Si quieres feedback visual cuando se hace hover en disabled
 - Si necesitas valores diferentes del base
 
 **Valores comunes:**
+
 ```css
 /* Opción 1: Aparece fondo gris claro */
 --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 */
@@ -172,17 +178,19 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ### **SECCIÓN 5: Overrides Avanzados** 🔥
 
 **Cuándo usarla:**
+
 - SOLO si necesitas cambios muy específicos por variante (STROKE, FILL, TEXT)
 - SOLO si el base no te funciona
 
 **Ejemplo:**
+
 ```css
 @layer brand-overrides {
   /* Cambiar hover de PRIMARY STROKE */
   [data-brand='tu-marca'] .rb-button--primary.rb-button--stroke {
     --rb-button-bg-hover: var(--rb-color-primary-L400);
   }
-  
+
   /* Cambiar disabled-hover de PRIMARY FILL */
   [data-brand='tu-marca'] .rb-button--primary.rb-button--fill {
     --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100);
@@ -239,10 +247,9 @@ text-decoration-color: var(--rb-color-primary-D100);
 --rb-button-min-block-size: 40px;
 
 /* COLORES (vienen de tokens) */
---rb-color-primary-D100:    #038450  /* Verde oscuro */
---rb-color-secondary-L100:  #FFEA9A  /* Amarillo claro */
---rb-color-grayscale-L300:  #F5F5F5  /* Gris muy claro */
---rb-color-grayscale-base:  #9B9B9B  /* Gris medio */
+--rb-color-primary-D100: #038450 /* Verde oscuro */ --rb-color-secondary-L100: #ffea9a
+  /* Amarillo claro */ --rb-color-grayscale-L300: #f5f5f5 /* Gris muy claro */
+  --rb-color-grayscale-base: #9b9b9b /* Gris medio */;
 ```
 
 ---
@@ -259,8 +266,8 @@ cat packages/bundle/dist/rb-tu-marca-light.css | grep "data-brand"
 ### **2. Inspeccionar en DevTools:**
 
 ```html
-<button 
-  class="rb-button rb-button--primary" 
+<button
+  class="rb-button rb-button--primary"
   data-brand="tu-marca"
   style="/* Inspecciona las CSS variables aquí */"
 >
@@ -315,4 +322,3 @@ cat packages/tokens/src/primitives/brands/tu-marca.json
 ---
 
 **¿Necesitas ayuda?** Consulta los archivos de referencia o abre un issue 🚀
-

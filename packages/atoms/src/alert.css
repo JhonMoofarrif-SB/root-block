@@ -25,25 +25,25 @@
   --rb-alert-bg-color-info: var(--rb-color-feedback-info-L400, rgba(0, 122, 204, 0.1));
   --rb-alert-bg-color-warning: var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
   --rb-alert-bg-color-error: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
-  
+
   --rb-alert-border-color: var(--rb-color-grayscale-L200, #edeef0);
   --rb-alert-border-color-success: var(--rb-color-feedback-success-base, #28a745);
   --rb-alert-border-color-info: var(--rb-color-feedback-info-base, #007acc);
   --rb-alert-border-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
   --rb-alert-border-color-error: var(--rb-color-feedback-error-base, #dc3545);
-  
+
   --rb-alert-text-color: var(--rb-color-grayscale-D300, #404040);
   --rb-alert-text-color-success: var(--rb-color-feedback-success-base, #28a745);
   --rb-alert-text-color-info: var(--rb-color-feedback-info-base, #007acc);
   --rb-alert-text-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
   --rb-alert-text-color-error: var(--rb-color-feedback-error-base, #dc3545);
-  
+
   --rb-alert-icon-color: var(--rb-color-grayscale-base, #d9d9d9);
   --rb-alert-icon-color-success: var(--rb-color-feedback-success-base, #28a745);
   --rb-alert-icon-color-info: var(--rb-color-feedback-info-base, #007acc);
   --rb-alert-icon-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
   --rb-alert-icon-color-error: var(--rb-color-feedback-error-base, #dc3545);
-  
+
   --rb-alert-close-color: var(--rb-color-grayscale-base, #d9d9d9);
   --rb-alert-close-color-hover: var(--rb-color-grayscale-D300, #404040);
 
@@ -526,7 +526,7 @@
   .rb-alert {
     --rb-alert-transition: none;
   }
-  
+
   .rb-alert--toast,
   .rb-alert--fade-in,
   .rb-alert--fade-out,
@@ -544,7 +544,7 @@
     max-width: none;
     min-width: auto;
   }
-  
+
   .rb-alert-container {
     top: 0.5rem;
     right: 0.5rem;
@@ -552,7 +552,7 @@
     max-width: none;
     min-width: auto;
   }
-  
+
   .rb-alert-group--horizontal {
     flex-direction: column;
   }
@@ -563,7 +563,7 @@
   .rb-alert--toast {
     max-width: 450px;
   }
-  
+
   .rb-alert-container {
     max-width: 450px;
   }
@@ -578,7 +578,7 @@
     box-shadow: none !important;
     position: static !important;
   }
-  
+
   .rb-alert-close {
     display: none !important;
   }
@@ -637,11 +637,11 @@
     --rb-alert-text-color: var(--rb-color-grayscale-L200, #edeef0);
     --rb-alert-border-color: var(--rb-color-grayscale-D100, #4a4a4a);
   }
-  
+
   .rb-alert--no-bg {
     --rb-alert-bg-color: var(--rb-color-grayscale-D200, #6e6e6e);
   }
-  
+
   .rb-alert-close:hover {
     background-color: var(--rb-color-grayscale-D100, rgba(74, 74, 74, 0.5));
   }

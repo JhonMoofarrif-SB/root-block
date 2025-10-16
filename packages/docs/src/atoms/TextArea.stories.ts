@@ -3,11 +3,11 @@ import { html } from 'lit';
 
 /**
  * # TextArea Component
- * 
+ *
  * Componente de textarea versátil del Root Block Design System con contador de caracteres, auto-resize y diferentes estados.
- * 
+ *
  * ## 📋 Referencia Rápida de Clases
- * 
+ *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
@@ -32,7 +32,8 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Componente de textarea versátil con contador de caracteres, auto-resize y múltiples estados de validación.',
+        component:
+          'Componente de textarea versátil con contador de caracteres, auto-resize y múltiples estados de validación.',
       },
     },
   },
@@ -139,7 +140,7 @@ type Story = StoryObj;
 
 /**
  * ## Playground (Interactivo)
- * 
+ *
  * Experimenta con todas las combinaciones del textarea usando los controles interactivos
  * en el panel inferior. Puedes ajustar estado, tamaño, contador y más.
  */
@@ -165,58 +166,61 @@ export const Playground: Story = {
       args.size !== 'medium' ? `rb-textarea--${args.size}` : '',
       args.rounded ? 'rb-textarea--rounded' : '',
       args.withCounter ? 'rb-textarea--with-counter' : '',
-      args.resize !== 'default' ? `rb-textarea--${args.resize === 'none' ? 'no-resize' : args.resize === 'auto' ? 'auto-resize' : `resize-${args.resize}`}` : '',
-    ].filter(Boolean).join(' ');
+      args.resize !== 'default'
+        ? `rb-textarea--${args.resize === 'none' ? 'no-resize' : args.resize === 'auto' ? 'auto-resize' : `resize-${args.resize}`}`
+        : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
 
-    const labelClasses = [
-      'rb-textarea-label',
-      args.required ? 'rb-textarea-label--required' : '',
-    ].filter(Boolean).join(' ');
+    const labelClasses = ['rb-textarea-label', args.required ? 'rb-textarea-label--required' : '']
+      .filter(Boolean)
+      .join(' ');
 
     const helperClasses = [
       'rb-textarea-helper',
       args.state !== 'normal' ? `rb-textarea-helper--${args.state}` : '',
-    ].filter(Boolean).join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     const textareaId = 'playground-textarea';
 
     return html`
       <div style="max-width: 500px;">
         <div>
-          ${args.label ? html`
-            <label class="${labelClasses}" for="${textareaId}">
-              ${args.label}
-            </label>
-          ` : ''}
-          
-          ${args.withCounter ? html`
-            <div class="rb-textarea-container">
-              <textarea 
-                id="${textareaId}"
-                class="${textareaClasses}"
-                placeholder="${args.placeholder || ''}"
-                ?required="${args.required}"
-                ?disabled="${args.disabled}"
-                maxlength="${args.maxLength || ''}"
-              >${args.value || ''}</textarea>
-              <div class="rb-textarea-counter">0/${args.maxLength || 200}</div>
-            </div>
-          ` : html`
-            <textarea 
-              id="${textareaId}"
-              class="${textareaClasses}"
-              placeholder="${args.placeholder || ''}"
-              ?required="${args.required}"
-              ?disabled="${args.disabled}"
-              maxlength="${args.maxLength || ''}"
-            >${args.value || ''}</textarea>
-          `}
-          
-          ${args.helperText ? html`
-            <div class="${helperClasses}">
-              ${args.helperText}
-            </div>
-          ` : ''}
+          ${args.label
+            ? html` <label class="${labelClasses}" for="${textareaId}"> ${args.label} </label> `
+            : ''}
+          ${args.withCounter
+            ? html`
+                <div class="rb-textarea-container">
+                  <textarea
+                    id="${textareaId}"
+                    class="${textareaClasses}"
+                    placeholder="${args.placeholder || ''}"
+                    ?required="${args.required}"
+                    ?disabled="${args.disabled}"
+                    maxlength="${args.maxLength || ''}"
+                  >
+${args.value || ''}</textarea
+                  >
+                  <div class="rb-textarea-counter">0/${args.maxLength || 200}</div>
+                </div>
+              `
+            : html`
+                <textarea
+                  id="${textareaId}"
+                  class="${textareaClasses}"
+                  placeholder="${args.placeholder || ''}"
+                  ?required="${args.required}"
+                  ?disabled="${args.disabled}"
+                  maxlength="${args.maxLength || ''}"
+                >
+${args.value || ''}</textarea
+                >
+              `}
+          ${args.helperText ? html` <div class="${helperClasses}">${args.helperText}</div> ` : ''}
         </div>
       </div>
     `;
@@ -225,7 +229,7 @@ export const Playground: Story = {
 
 /**
  * ## Estados - Matriz de Combinaciones
- * 
+ *
  * Matriz del textarea mostrando combinaciones de:
  * - **4 Estados**: Normal, Error, Success, Warning
  * - **3 Tamaños**: Small, Medium, Large
@@ -242,30 +246,30 @@ export const Estados: Story = {
         padding: 2rem;
         background: var(--rb-color-grayscale-L400, #fafafa);
       }
-      
+
       .textarea-demo {
         padding: 1.5rem;
         background: white;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      
+
       .textarea-demo h3 {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
         color: var(--rb-color-primary-base, #007acc);
       }
-      
+
       .textarea-demo > div {
         margin-bottom: 1rem;
       }
-      
+
       .textarea-demo > div:last-child {
         margin-bottom: 0;
       }
     </style>
-    
+
     <div class="textarea-matrix">
       <!-- Estados Básicos -->
       <div class="textarea-demo">
@@ -287,7 +291,10 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="rb-textarea-label">Warning</label>
-          <textarea class="rb-textarea rb-textarea--warning" placeholder="Con advertencia"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--warning"
+            placeholder="Con advertencia"
+          ></textarea>
           <div class="rb-textarea-helper rb-textarea-helper--warning">Revisa este campo</div>
         </div>
       </div>
@@ -297,11 +304,17 @@ export const Estados: Story = {
         <h3>Tamaños</h3>
         <div>
           <label class="rb-textarea-label">Small</label>
-          <textarea class="rb-textarea rb-textarea--small" placeholder="TextArea pequeño"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--small"
+            placeholder="TextArea pequeño"
+          ></textarea>
         </div>
         <div>
           <label class="rb-textarea-label">Medium</label>
-          <textarea class="rb-textarea rb-textarea--medium" placeholder="TextArea mediano"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--medium"
+            placeholder="TextArea mediano"
+          ></textarea>
         </div>
         <div>
           <label class="rb-textarea-label">Large</label>
@@ -315,14 +328,22 @@ export const Estados: Story = {
         <div>
           <label class="rb-textarea-label">Contador Básico</label>
           <div class="rb-textarea-container">
-            <textarea class="rb-textarea rb-textarea--with-counter" maxlength="100" placeholder="Máximo 100 caracteres"></textarea>
+            <textarea
+              class="rb-textarea rb-textarea--with-counter"
+              maxlength="100"
+              placeholder="Máximo 100 caracteres"
+            ></textarea>
             <div class="rb-textarea-counter">0/100</div>
           </div>
         </div>
         <div>
           <label class="rb-textarea-label">Contador con Warning</label>
           <div class="rb-textarea-container">
-            <textarea class="rb-textarea rb-textarea--with-counter" maxlength="50" placeholder="Máximo 50 caracteres"></textarea>
+            <textarea
+              class="rb-textarea rb-textarea--with-counter"
+              maxlength="50"
+              placeholder="Máximo 50 caracteres"
+            ></textarea>
             <div class="rb-textarea-counter rb-textarea-counter--warning">0/50</div>
           </div>
         </div>
@@ -333,15 +354,24 @@ export const Estados: Story = {
         <h3>Opciones de Resize</h3>
         <div>
           <label class="rb-textarea-label">No Resize</label>
-          <textarea class="rb-textarea rb-textarea--no-resize" placeholder="Sin redimensionar"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--no-resize"
+            placeholder="Sin redimensionar"
+          ></textarea>
         </div>
         <div>
           <label class="rb-textarea-label">Auto Resize</label>
-          <textarea class="rb-textarea rb-textarea--auto-resize" placeholder="Se ajusta automáticamente"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--auto-resize"
+            placeholder="Se ajusta automáticamente"
+          ></textarea>
         </div>
         <div>
           <label class="rb-textarea-label">Resize Both</label>
-          <textarea class="rb-textarea rb-textarea--resize-both" placeholder="Ambas direcciones"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--resize-both"
+            placeholder="Ambas direcciones"
+          ></textarea>
         </div>
       </div>
 
@@ -360,7 +390,10 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="rb-textarea-label">Rounded</label>
-          <textarea class="rb-textarea rb-textarea--rounded" placeholder="Bordes redondeados"></textarea>
+          <textarea
+            class="rb-textarea rb-textarea--rounded"
+            placeholder="Bordes redondeados"
+          ></textarea>
         </div>
       </div>
 

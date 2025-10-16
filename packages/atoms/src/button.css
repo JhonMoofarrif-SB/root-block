@@ -302,7 +302,10 @@
     &.rb-button--disabled:hover {
       background-color: var(--rb-button-bg-disabled-hover, var(--rb-button-bg-disabled)) !important;
       color: var(--rb-button-text-disabled-hover, var(--rb-button-text-disabled)) !important;
-      border-color: var(--rb-button-border-disabled-hover, var(--rb-button-border-disabled)) !important;
+      border-color: var(
+        --rb-button-border-disabled-hover,
+        var(--rb-button-border-disabled)
+      ) !important;
       cursor: not-allowed;
       box-shadow: none;
       outline: none;
@@ -585,7 +588,10 @@
        ======================================== */
     --rb-button-error-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-error-stroke-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
-    --rb-button-error-stroke-bg-active: var(--rb-color-feedback-error-L300, rgba(220, 53, 69, 0.12));
+    --rb-button-error-stroke-bg-active: var(
+      --rb-color-feedback-error-L300,
+      rgba(220, 53, 69, 0.12)
+    );
     --rb-button-error-stroke-bg-disabled: var(--rb-color-grayscale-white);
 
     --rb-button-error-stroke-text: var(--rb-color-feedback-error-D100, #c93241);
@@ -712,7 +718,7 @@
 
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
       --rb-button-shadow-active: none;
-      
+
       /* Disabled hover - Patrón Seguros Bolívar: texto se aclara */
       --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene */
       --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100); /* #B9B9B9 más claro */
@@ -907,14 +913,14 @@
       --rb-button-border-hover: var(--rb-button-primary-text-border-hover);
       --rb-button-border-active: var(--rb-button-primary-text-border-active);
       --rb-button-border-disabled: var(--rb-button-primary-text-border-disabled);
-      
+
       /* Sombra inset en pressed (patrón Seguros Bolívar) */
       --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
-      
+
       /* Disabled hover: aparece fondo gris */
       --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 aparece */
       --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
-      
+
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
       &.rb-button--disabled {
@@ -955,7 +961,7 @@
       --rb-button-border-hover: var(--rb-button-secondary-text-border-hover);
       --rb-button-border-active: var(--rb-button-secondary-text-border-active);
       --rb-button-border-disabled: var(--rb-button-secondary-text-border-disabled);
-      
+
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
       &.rb-button--disabled {
@@ -996,7 +1002,7 @@
       --rb-button-border-hover: var(--rb-button-tertiary-text-border-hover);
       --rb-button-border-active: var(--rb-button-tertiary-text-border-active);
       --rb-button-border-disabled: var(--rb-button-tertiary-text-border-disabled);
-      
+
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
       &.rb-button--disabled {
@@ -1037,7 +1043,7 @@
       --rb-button-border-hover: var(--rb-button-error-text-border-hover);
       --rb-button-border-active: var(--rb-button-error-text-border-active);
       --rb-button-border-disabled: var(--rb-button-error-text-border-disabled);
-      
+
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
       &.rb-button--disabled {

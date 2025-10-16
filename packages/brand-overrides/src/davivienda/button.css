@@ -1,75 +1,56 @@
 /**
  * ============================================================================
- * Davivienda - Button Component Overrides
+ * DAVIVIENDA - Button Component Overrides (EJEMPLO)
  * ============================================================================
  * 
- * Data Attribute Approach: [data-brand="davivienda"]
+ * 🎯 ESTE ES UN EJEMPLO - Ajustar según diseño real de Davivienda
  * 
- * Customizaciones específicas de Davivienda:
- * - SECONDARY STROKE: Colores específicos de Davivienda
- * - ERROR FILL: Estilos de error personalizados
+ * Este archivo muestra cómo crear un override PARCIAL:
+ * - STROKE y TEXT usan el BASE (amarillo) ✅
+ * - FILL usa rojo en lugar de amarillo ❌
+ * 
+ * Solo ~25 líneas de código necesarias
  * 
  * ============================================================================
  */
 
-[data-brand='davivienda'] {
-  /* ========================================
-     PRIMARY - STROKE
-     Borde primary, texto primary para Davivienda
-     ======================================== */
-  .rb-button--primary {
-    /* Background */
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-primary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+@layer brand-overrides {
+  /* ============================================
+     SECONDARY FILL - Rojo en lugar de amarillo
+     ============================================ */
+  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill {
+    /* 🔴 Cambiar de SECONDARY (amarillo) a ERROR (rojo) */
+    --rb-button-bg-color: var(--rb-color-feedback-error-base);
+    --rb-button-bg-hover: var(--rb-color-feedback-error-D100);
+    --rb-button-bg-active: var(--rb-color-feedback-error-D200);
 
-    /* Text */
-    --rb-button-primary-stroke-text: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    /* ⚪ Texto blanco para mejor contraste sobre rojo */
+    --rb-button-text-color: var(--rb-color-grayscale-white);
+    --rb-button-text-hover: var(--rb-color-grayscale-white);
+    --rb-button-text-active: var(--rb-color-grayscale-white);
 
-    /* Border */
-    --rb-button-primary-stroke-border: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    /* 🔴 Borde rojo (mismo que background) */
+    --rb-button-border-color: var(--rb-color-feedback-error-base);
+    --rb-button-border-hover: var(--rb-color-feedback-error-D100);
+    --rb-button-border-active: var(--rb-color-feedback-error-D200);
   }
 
-  /* ========================================
-     SECONDARY - STROKE
-     Personalización de colores para Davivienda
-     ======================================== */
-  .rb-button--secondary {
-    --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-secondary-stroke-bg-active: var(--rb-color-primary-L300);
-
-    --rb-button-secondary-stroke-text: var(--rb-color-primary-base);
-    --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100);
-    --rb-button-secondary-stroke-text-active: var(--rb-color-primary-D200);
-
-    --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
-    --rb-button-secondary-stroke-border-hover: var(--rb-color-primary-D100);
-    --rb-button-secondary-stroke-border-active: var(--rb-color-primary-D200);
-  }
-
-  /* ========================================
-     ERROR - FILL
-     Colores de error personalizados
-     ======================================== */
-  .rb-button--fill.rb-button--error {
-    --rb-button-error-fill-bg: var(--rb-color-feedback-error-base);
-    --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100);
-    --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200);
-
-    --rb-button-error-fill-text: var(--rb-color-grayscale-white);
-    --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white);
-    --rb-button-error-fill-text-active: var(--rb-color-grayscale-white);
-
-    --rb-button-error-fill-border: var(--rb-color-feedback-error-base);
-    --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100);
-    --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200);
+  /* Focus outline - Rojo claro */
+  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill:focus-visible {
+    outline-color: var(--rb-color-feedback-error-L100);
   }
 }
+
+/* ============================================================================
+   📝 NOTAS:
+   
+   - STROKE: ✅ Usa el BASE (amarillo + primary text)
+   - TEXT: ✅ Usa el BASE (amarillo text)
+   - FILL: ❌ Personalizado (rojo + white text)
+   
+   - Total líneas: ~25
+   - Solo se define lo que CAMBIA vs BASE
+   - disabled, shadows, etc. vienen del BASE automáticamente
+   
+   📚 Ver más ejemplos en: ../EJEMPLOS_OTRAS_MARCAS.md
+   ============================================================================ */
