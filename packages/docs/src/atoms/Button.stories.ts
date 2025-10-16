@@ -739,3 +739,567 @@ export const Primary: Story = {
     </div>
   `,
 };
+
+/**
+ * ## Secondary - Matriz Completa de Combinaciones
+ *
+ * Matriz completa del botón Secondary mostrando todas las combinaciones de:
+ * - **3 Variantes de Estilo**: Fill, Stroke (default), Text
+ * - **4 Posiciones de Icono**: Icon Left, Icon Right, Default (sin icono), Icon Only
+ * - **3 Estados**: Default, Loading, Disabled
+ *
+ * **Total: 36 combinaciones** (3 × 4 × 3)
+ *
+ * El botón Secondary usa colores secundarios de la marca y es ideal para acciones complementarias.
+ */
+export const Secondary: Story = {
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'html',
+      },
+    },
+  },
+  render: () => html`
+    <style>
+      .matrix-container {
+        font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+        padding: 2rem;
+        background: var(--rb-color-grayscale-L400, #fafafa);
+      }
+
+      .matrix-section {
+        margin-bottom: 4rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .matrix-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--rb-color-secondary-base, #82e778);
+      }
+
+      .matrix-subtitle {
+        font-size: 1rem;
+        color: var(--rb-color-grayscale-base, #666);
+        margin-bottom: 2rem;
+      }
+
+      .matrix-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+      }
+
+      .matrix-table th,
+      .matrix-table td {
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border-right: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border-bottom: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+      }
+
+      .matrix-table th {
+        background: var(--rb-color-secondary-base, #82e778);
+        color: var(--rb-color-grayscale-D300, #000);
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .matrix-table td:first-child {
+        background: var(--rb-color-grayscale-L300, #f5f5f5);
+        font-weight: 600;
+        text-align: left;
+        padding-left: 1.5rem;
+        color: var(--rb-color-grayscale-D100, #333);
+      }
+
+      .matrix-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .matrix-table th:last-child,
+      .matrix-table td:last-child {
+        border-right: none;
+      }
+
+      .state-label {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: var(--rb-color-grayscale-L200, #e0e0e0);
+        color: var(--rb-color-grayscale-D200, #222);
+      }
+
+      .state-label.default {
+        background: #e8f5e8;
+        color: #2e7d32;
+      }
+      .state-label.loading {
+        background: #fff3e0;
+        color: #ef6c00;
+      }
+      .state-label.disabled {
+        background: #eceff1;
+        color: #546e7a;
+      }
+
+      /* Font Awesome link */
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+    </style>
+
+    <div class="matrix-container">
+      <!-- ========================================
+           SECCIÓN 1: FILL
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">🎨 Variante FILL - Secondary Button</h2>
+        <p class="matrix-subtitle">
+          Fondo sólido con el color secundario. Ideal para acciones complementarias importantes.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Icon Left</th>
+              <th>Icon Right</th>
+              <th>Default (Sin icono)</th>
+              <th>Icon Only</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--fill rb-button--icon-left">
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--fill">Action</button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--fill rb-button--icon-only">
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Loading State -->
+            <tr>
+              <td>
+                <span class="state-label loading">Loading</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--fill rb-button--loading">
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--fill rb-button--disabled">
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 2: STROKE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">🎨 Variante STROKE - Secondary Button (Default)</h2>
+        <p class="matrix-subtitle">
+          Fondo transparente con borde del color secundario. Estilo por defecto del botón.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Icon Left</th>
+              <th>Icon Right</th>
+              <th>Default (Sin icono)</th>
+              <th>Icon Only</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--stroke">Action</button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Loading State -->
+            <tr>
+              <td>
+                <span class="state-label loading">Loading</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--stroke rb-button--loading">
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled"
+                >
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 3: TEXT
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">🎨 Variante TEXT - Secondary Button</h2>
+        <p class="matrix-subtitle">
+          Fondo transparente sin borde. Para acciones sutiles y complementarias.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Icon Left</th>
+              <th>Icon Right</th>
+              <th>Default (Sin icono)</th>
+              <th>Icon Only</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--text rb-button--icon-left">
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--text">Action</button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--text rb-button--icon-only">
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Loading State -->
+            <tr>
+              <td>
+                <span class="state-label loading">Loading</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--text rb-button--loading">
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-left"
+                >
+                  <i class="fa-solid fa-star"></i>
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-right"
+                >
+                  Action
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+              <td>
+                <button class="rb-button rb-button--secondary rb-button--text rb-button--disabled">
+                  Action
+                </button>
+              </td>
+              <td>
+                <button
+                  class="rb-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-only"
+                >
+                  <i class="fa-solid fa-star"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           COMPARACIÓN SECONDARY vs PRIMARY
+           ======================================== -->
+      <div class="matrix-section" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
+        <h3 style="margin-top: 0; color: #6a1b9a;">🔄 Secondary vs Primary</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          <div>
+            <h4 style="color: var(--rb-color-primary-base, #007acc); margin-bottom: 1rem;">
+              🔵 Primary Button
+            </h4>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="rb-button rb-button--primary rb-button--fill">Primary Fill</button>
+              <button class="rb-button rb-button--primary rb-button--stroke">Primary Stroke</button>
+              <button class="rb-button rb-button--primary rb-button--text">Primary Text</button>
+            </div>
+          </div>
+          <div>
+            <h4 style="color: var(--rb-color-secondary-base, #82e778); margin-bottom: 1rem;">
+              🟢 Secondary Button
+            </h4>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="rb-button rb-button--secondary rb-button--fill">Secondary Fill</button>
+              <button class="rb-button rb-button--secondary rb-button--stroke">
+                Secondary Stroke
+              </button>
+              <button class="rb-button rb-button--secondary rb-button--text">Secondary Text</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           RESUMEN Y NOTAS SECONDARY
+           ======================================== -->
+      <div class="matrix-section" style="background: #e8f5e8; border-left: 4px solid #4caf50;">
+        <h3 style="margin-top: 0; color: #2e7d32;">📝 Notas del Botón Secondary</h3>
+        <ul style="line-height: 1.8; color: #333;">
+          <li>
+            <strong>Propósito:</strong> Ideal para acciones complementarias, secundarias o
+            alternativas que no son la acción principal de la página.
+          </li>
+          <li>
+            <strong>Colores:</strong> Usa la paleta de colores secundarios de cada marca (ej: verde
+            en Jelpit, naranja en Cien Cuadras, amarillo en Seguros Bolívar).
+          </li>
+          <li>
+            <strong>Jerarquía Visual:</strong> Menos prominente que Primary pero más que Tertiary.
+            Perfecto para "Cancelar", "Guardar borrador", "Opciones avanzadas".
+          </li>
+          <li>
+            <strong>Icono Recomendado:</strong> Usa <code>fa-star</code> para diferenciarlo del
+            Primary que usa <code>fa-user</code>.
+          </li>
+          <li>
+            <strong>Combinaciones:</strong> Igual que Primary: 3 variantes × 4 posiciones × 3
+            estados = <strong>36 combinaciones</strong> disponibles.
+          </li>
+          <li>
+            <strong>Uso Típico:</strong> Combina con Primary para crear interfaces balanceadas:
+            <code>Primary + Secondary</code> en diálogos, formularios y acciones duales.
+          </li>
+          <li>
+            <strong>Accesibilidad:</strong> Mantiene el mismo contraste y comportamiento que
+            Primary, solo cambian los colores según la marca.
+          </li>
+        </ul>
+      </div>
+    </div>
+  `,
+};
