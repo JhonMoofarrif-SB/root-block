@@ -20,9 +20,9 @@ import { html } from 'lit';
  * | Fondo sólido | `.rb-button--fill` | `<button class="rb-button rb-button--primary rb-button--fill">Filled</button>` |
  * | Transparente sin borde | `.rb-button--text` | `<button class="rb-button rb-button--primary rb-button--text">Text</button>` |
  * | **Posiciones de Icono** | | |
- * | Icono a la izquierda | `.rb-button--icon-left` | `<button class="rb-button rb-button--primary rb-button--icon-left"><i>+</i> Action</button>` |
- * | Icono a la derecha | `.rb-button--icon-right` | `<button class="rb-button rb-button--primary rb-button--icon-right">Action <i>+</i></button>` |
- * | Solo icono | `.rb-button--icon-only` | `<button class="rb-button rb-button--primary rb-button--icon-only"><i>+</i></button>` |
+ * | Icono a la izquierda | `.rb-button--icon-left` | `<button class="rb-button rb-button--primary rb-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
+ * | Icono a la derecha | `.rb-button--icon-right` | `<button class="rb-button rb-button--primary rb-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
+ * | Solo icono | `.rb-button--icon-only` | `<button class="rb-button rb-button--primary rb-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
  * | **Tamaños** | | |
  * | Pequeño | `.rb-button--small` | `<button class="rb-button rb-button--primary rb-button--small">Small</button>` |
  * | Mediano (default) | `.rb-button--medium` o sin clase | `<button class="rb-button rb-button--primary">Medium</button>` |
@@ -48,7 +48,7 @@ import { html } from 'lit';
  *
  * ```html
  * <button class="rb-button rb-button--primary rb-button--fill rb-button--large rb-button--icon-left">
- *   <i class="icon-save"></i>
+ *   <i class="fa-solid fa-user"></i>
  *   Guardar Cambios
  * </button>
  * ```
@@ -335,21 +335,8 @@ export const Primary: Story = {
         color: #546e7a;
       }
 
-      /* Estilos para iconos reales */
-      .demo-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: currentColor;
-        color: var(--rb-color-grayscale-white, #fff);
-        font-style: normal;
-        font-size: 0.75rem;
-        font-weight: 700;
-        line-height: 1;
-      }
+      /* Font Awesome link */
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
     </style>
 
     <div class="matrix-container">
@@ -380,14 +367,14 @@ export const Primary: Story = {
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--fill rb-button--icon-left">
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--fill rb-button--icon-right">
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -395,7 +382,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--fill rb-button--icon-only">
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -409,7 +396,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-left"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -418,7 +405,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -430,7 +417,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-only"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -444,7 +431,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-left"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -453,7 +440,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -465,7 +452,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-only"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -500,7 +487,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--stroke rb-button--icon-left">
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -509,7 +496,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--stroke rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -517,7 +504,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--stroke rb-button--icon-only">
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -531,7 +518,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-left"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -540,7 +527,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -552,7 +539,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-only"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -566,7 +553,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-left"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -575,7 +562,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -587,7 +574,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-only"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -620,14 +607,14 @@ export const Primary: Story = {
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--text rb-button--icon-left">
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--text rb-button--icon-right">
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -635,7 +622,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button class="rb-button rb-button--primary rb-button--text rb-button--icon-only">
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -649,7 +636,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-left"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -658,7 +645,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -670,7 +657,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-only"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -684,7 +671,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-left"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
@@ -693,7 +680,7 @@ export const Primary: Story = {
                   class="rb-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-right"
                 >
                   Action
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
@@ -705,7 +692,7 @@ export const Primary: Story = {
                 <button
                   class="rb-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-only"
                 >
-                  <i class="demo-icon">+</i>
+                  <i class="fa-solid fa-user"></i>
                 </button>
               </td>
             </tr>
@@ -732,8 +719,7 @@ export const Primary: Story = {
             posición con <code>.rb-button--loading</code>.
           </li>
           <li>
-            <strong>Iconos:</strong> Los iconos (+) son elementos <code>&lt;i&gt;</code> reales y
-            heredan el color del texto del botón con <code>currentColor</code>.
+            <strong>Iconos:</strong> Usa Font Awesome (<code>fa-user</code>) como icono real. Los iconos heredan el color del texto del botón con <code>currentColor</code>.
           </li>
           <li>
             <strong>Clases de Iconos:</strong> Usa <code>.rb-button--icon-left</code>,

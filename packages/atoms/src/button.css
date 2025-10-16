@@ -329,7 +329,8 @@
      ============================================ */
   .rb-button--primary {
     /* ========================================
-       STROKE (default) - Fondo blanco, borde amarillo, texto verde/amarillo
+       STROKE (default) - Fondo blanco, borde amarillo, texto verde (SIEMPRE)
+       Patrón Seguros Bolívar: texto mantiene color primary en hover/active
        ======================================== */
     --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
@@ -337,8 +338,8 @@
     --rb-button-primary-stroke-bg-disabled: transparent;
 
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
+    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
     --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
@@ -384,6 +385,7 @@
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
+       Patrón Seguros Bolívar: texto mantiene color primary
        ======================================== */
     --rb-button-bg-color: var(--rb-color-grayscale-white);
     --rb-button-bg-hover: var(--rb-color-secondary-L400);
@@ -391,8 +393,8 @@
     --rb-button-bg-disabled: transparent;
 
     --rb-button-text-color: var(--rb-color-primary-D100);
-    --rb-button-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-text-active: var(--rb-color-secondary-D200);
+    --rb-button-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
+    --rb-button-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
     --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
     --rb-button-border-color: var(--rb-color-secondary-base);
@@ -403,10 +405,10 @@
     --rb-button-border-width: 1px;
     --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
-    /* Disabled Hover - Variables específicas para PRIMARY STROKE */
-    --rb-button-bg-disabled-hover: transparent;
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B */
-    --rb-button-border-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B */
+    /* Disabled Hover - Patrón Seguros Bolívar: aparece fondo gris */
+    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200); /* #E1E1E1 aparece */
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
+    --rb-button-border-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
   }
 
   /* ============================================
@@ -415,17 +417,18 @@
      ============================================ */
   .rb-button--secondary {
     /* ========================================
-       STROKE (default) - Fondo blanco, borde amarillo, texto amarillo
+       STROKE (default) - Fondo blanco, borde amarillo, texto verde
+       Patrón Seguros Bolívar: SECONDARY usa color primary (verde)
        ======================================== */
     --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-secondary-stroke-bg-hover: var(--rb-color-secondary-L400);
     --rb-button-secondary-stroke-bg-active: var(--rb-color-secondary-L300);
     --rb-button-secondary-stroke-bg-disabled: var(--rb-color-grayscale-white);
 
-    --rb-button-secondary-stroke-text: var(--rb-color-secondary-D100);
-    --rb-button-secondary-stroke-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-secondary-stroke-text-active: var(--rb-color-secondary-D200);
-    --rb-button-secondary-stroke-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --rb-button-secondary-stroke-text: var(--rb-color-primary-D100); /* Verde */
+    --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
+    --rb-button-secondary-stroke-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
+    --rb-button-secondary-stroke-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
     --rb-button-secondary-stroke-border: var(--rb-color-secondary-base);
     --rb-button-secondary-stroke-border-hover: var(--rb-color-secondary-D100);
@@ -470,15 +473,16 @@
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
+       Patrón Seguros Bolívar: SECONDARY usa primary-D100 (verde)
        ======================================== */
     --rb-button-bg-color: var(--rb-color-grayscale-white);
     --rb-button-bg-hover: var(--rb-color-secondary-L400);
     --rb-button-bg-active: var(--rb-color-secondary-L300);
     --rb-button-bg-disabled: var(--rb-color-grayscale-white);
 
-    --rb-button-text-color: var(--rb-color-secondary-D100);
-    --rb-button-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-text-active: var(--rb-color-secondary-D200);
+    --rb-button-text-color: var(--rb-color-primary-D100); /* Verde */
+    --rb-button-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
+    --rb-button-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
     --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
     --rb-button-border-color: var(--rb-color-secondary-base);
@@ -683,7 +687,7 @@
       --rb-button-primary-fill-text: var(--rb-color-primary-D100);
       --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
       --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
-      --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
+      --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
       --rb-button-primary-fill-border: var(--rb-color-secondary-base);
       --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
@@ -699,7 +703,7 @@
       --rb-button-text-color: var(--rb-color-primary-D100);
       --rb-button-text-hover: var(--rb-color-primary-D100);
       --rb-button-text-active: var(--rb-color-primary-D100);
-      --rb-button-text-disabled: var(--rb-color-grayscale-L100);
+      --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
       --rb-button-border-color: var(--rb-color-secondary-base);
       --rb-button-border-hover: var(--rb-color-secondary-D100);
@@ -708,6 +712,11 @@
 
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
       --rb-button-shadow-active: none;
+      
+      /* Disabled hover - Patrón Seguros Bolívar: texto se aclara */
+      --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene */
+      --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100); /* #B9B9B9 más claro */
+      --rb-button-border-disabled-hover: var(--rb-color-grayscale-L300);
     }
 
     /* SECONDARY FILL */
@@ -858,29 +867,30 @@
       text-decoration: underline;
     }
 
-    /* En disabled, mantener underline pero con color disabled */
-    &:disabled {
+    /* En disabled, mantener underline con color gris #9B9B9B */
+    &:disabled,
+    &.rb-button--disabled {
       text-decoration: underline;
-      text-decoration-color: currentColor;
+      text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
     }
 
-    /* PRIMARY TEXT */
+    /* PRIMARY TEXT - Patrón Seguros Bolívar */
     &.rb-button--primary {
       /* Define las variables específicas TEXT */
       --rb-button-primary-text-bg: transparent;
-      --rb-button-primary-text-bg-hover: transparent;
-      --rb-button-primary-text-bg-active: transparent;
-      --rb-button-primary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --rb-button-primary-text-bg-hover: var(--rb-color-secondary-L400); /* #FFFCF0 aparece */
+      --rb-button-primary-text-bg-active: var(--rb-color-secondary-L300); /* #FFF6D4 aparece */
+      --rb-button-primary-text-bg-disabled: transparent;
 
-      --rb-button-primary-text-text: var(--rb-color-primary-base);
-      --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
-      --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
+      --rb-button-primary-text-text: var(--rb-color-primary-D100); /* Verde */
+      --rb-button-primary-text-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
+      --rb-button-primary-text-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
       --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
 
       --rb-button-primary-text-border: transparent;
       --rb-button-primary-text-border-hover: transparent;
       --rb-button-primary-text-border-active: transparent;
-      --rb-button-primary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --rb-button-primary-text-border-disabled: transparent;
 
       /* Aplicar las variables TEXT */
       --rb-button-bg-color: var(--rb-button-primary-text-bg);
@@ -897,6 +907,19 @@
       --rb-button-border-hover: var(--rb-button-primary-text-border-hover);
       --rb-button-border-active: var(--rb-button-primary-text-border-active);
       --rb-button-border-disabled: var(--rb-button-primary-text-border-disabled);
+      
+      /* Sombra inset en pressed (patrón Seguros Bolívar) */
+      --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+      
+      /* Disabled hover: aparece fondo gris */
+      --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 aparece */
+      --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
+      
+      /* Text decoration color en disabled - debe coincidir con el color del texto */
+      &:disabled,
+      &.rb-button--disabled {
+        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      }
     }
 
     /* SECONDARY TEXT */
@@ -932,6 +955,12 @@
       --rb-button-border-hover: var(--rb-button-secondary-text-border-hover);
       --rb-button-border-active: var(--rb-button-secondary-text-border-active);
       --rb-button-border-disabled: var(--rb-button-secondary-text-border-disabled);
+      
+      /* Text decoration color en disabled - debe coincidir con el color del texto */
+      &:disabled,
+      &.rb-button--disabled {
+        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      }
     }
 
     /* TERTIARY TEXT */
@@ -967,6 +996,12 @@
       --rb-button-border-hover: var(--rb-button-tertiary-text-border-hover);
       --rb-button-border-active: var(--rb-button-tertiary-text-border-active);
       --rb-button-border-disabled: var(--rb-button-tertiary-text-border-disabled);
+      
+      /* Text decoration color en disabled - debe coincidir con el color del texto */
+      &:disabled,
+      &.rb-button--disabled {
+        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      }
     }
 
     /* ERROR TEXT */
@@ -1002,6 +1037,12 @@
       --rb-button-border-hover: var(--rb-button-error-text-border-hover);
       --rb-button-border-active: var(--rb-button-error-text-border-active);
       --rb-button-border-disabled: var(--rb-button-error-text-border-disabled);
+      
+      /* Text decoration color en disabled - debe coincidir con el color del texto */
+      &:disabled,
+      &.rb-button--disabled {
+        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      }
     }
   }
 }
