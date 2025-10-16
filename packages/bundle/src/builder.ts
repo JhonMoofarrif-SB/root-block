@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
+import postcssNesting from 'postcss-nesting';
 import cssnano from 'cssnano';
 import * as esbuild from 'esbuild';
 import { gzipSync, brotliCompressSync } from 'zlib';
@@ -43,6 +44,7 @@ const BRAND_OVERRIDES_SRC = path.join(PACKAGES_DIR, 'brand-overrides/src');
  */
 async function minifyCSS(css: string): Promise<string> {
   const result = await postcss([
+    postcssNesting(), // Expandir CSS Nesting ANTES de minificar
     cssnano({
       preset: [
         'default',
@@ -92,15 +94,14 @@ async function readCSSFile(filePath: string): Promise<string> {
   try {
     const css = await fs.readFile(filePath, 'utf-8');
 
-    // Si el archivo contiene @import, procesarlo con postcss-import
-    if (css.includes('@import')) {
-      const result = await postcss([postcssImport()]).process(css, {
-        from: filePath,
-      });
-      return result.css;
-    }
-
-    return css;
+    // SIEMPRE procesar con PostCSS para expandir @import y CSS Nesting
+    const result = await postcss([
+      postcssImport(),
+      postcssNesting()
+    ]).process(css, {
+      from: filePath,
+    });
+    return result.css;
   } catch (error) {
     console.warn(`⚠️  Could not read ${filePath}:`, error instanceof Error ? error.message : error);
     return '';

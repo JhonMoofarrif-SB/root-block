@@ -16,11 +16,27 @@
 [data-brand='cien-cuadras'] {
   /* ========================================
      PRIMARY - STROKE
-     Colores de texto personalizados
+     Colores personalizados para Cien Cuadras
+     Borde secondary, texto primary-D200/D300
      ======================================== */
   .rb-button--primary {
+    /* Background */
+    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+
+    /* Text - Tonos más oscuros (D200/D300) */
     --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
     --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D300);
+    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D300);
+    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+
+    /* Border */
+    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
+    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
   }
 
   /* ========================================

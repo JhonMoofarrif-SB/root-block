@@ -1,5 +1,7 @@
 ---
-alwaysApply: true
+alwaysApply: false
+version: "3.3.0"
+date: "2025-01-16"
 ---
 # Root Block Design System - CSS Standards for Cursor AI
 
@@ -29,7 +31,7 @@ alwaysApply: true
 - ❌ Selectores sin prefijo `rb-`
 - ❌ Variables sin prefijo `--rb-`
 - ❌ Repetir selectores (usar nesting)
-- ❌ `!important` (usar @layer utilities)
+- ❌ `!important` (excepto en @layer utilities cuando es absolutamente necesario)
 
 ---
 
@@ -63,28 +65,51 @@ alwaysApply: true
    ======================================== */
 @layer tokens {
   .rb-[component] {
-    /* Colores */
+    /* Colores BASE - Estados interactivos */
     --rb-[component]-bg-color: var(--rb-color-grayscale-white, #fff);
+    --rb-[component]-bg-hover: var(--rb-color-grayscale-L400, #f0f0f0);
+    --rb-[component]-bg-active: var(--rb-color-grayscale-L300, #e0e0e0);
+    --rb-[component]-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-[component]-bg-disabled-hover: var(--rb-color-grayscale-L300, #f5f5f5);
+
     --rb-[component]-text-color: var(--rb-color-grayscale-black, #000);
+    --rb-[component]-text-hover: var(--rb-color-grayscale-black, #000);
+    --rb-[component]-text-active: var(--rb-color-grayscale-black, #000);
+    --rb-[component]-text-disabled: var(--rb-color-grayscale-base, #9b9b9b);
+    --rb-[component]-text-disabled-hover: var(--rb-color-grayscale-base, #9b9b9b);
+
     --rb-[component]-border-color: var(--rb-color-grayscale-L200, #e0e0e0);
+    --rb-[component]-border-hover: var(--rb-color-grayscale-L100, #d0d0d0);
+    --rb-[component]-border-active: var(--rb-color-grayscale-base, #9b9b9b);
+    --rb-[component]-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-[component]-border-disabled-hover: var(--rb-color-grayscale-L300, #f5f5f5);
 
     /* Espaciado - SIEMPRE con clamp() */
-    --rb-[component]-padding-inline: clamp(0.5rem, 0.3rem + 1vw, 1.5rem);
-    --rb-[component]-padding-block: clamp(0.25rem, 0.2rem + 0.5vw, 0.75rem);
+    --rb-[component]-padding-inline: clamp(0.8rem, 0.5rem + 1.5vw, 2rem);
+    --rb-[component]-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.875rem);
     --rb-[component]-gap: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
 
     /* Tipografía - SIEMPRE con clamp() */
     --rb-[component]-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
     --rb-[component]-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
-    --rb-[component]-font-weight: 400;
-    --rb-[component]-line-height: 1.5;
+    --rb-[component]-font-weight: 700;
+    --rb-[component]-line-height: 1.2;
+
+    /* Tamaños - Logical properties */
+    --rb-[component]-min-inline-size: clamp(80px, 15vw, 120px);
+    --rb-[component]-min-block-size: clamp(36px, 8vw, 44px);
 
     /* Bordes */
     --rb-[component]-border-width: 1px;
-    --rb-[component]-border-radius: clamp(4px, 0.3rem + 0.3vw, 8px);
+    --rb-[component]-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
 
-    /* Transiciones */
-    --rb-[component]-transition: all 0.2s ease;
+    /* Sombras (opcional) */
+    --rb-[component]-shadow: none;
+    --rb-[component]-shadow-hover: none;
+    --rb-[component]-shadow-active: none;
+
+    /* Transiciones - NO incluir outline para evitar destellos en focus */
+    --rb-[component]-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
 }
 
@@ -117,18 +142,52 @@ alwaysApply: true
     transition: var(--rb-[component]-transition);
 
     /* Nested Pseudo-classes - SIEMPRE usar & */
-    &:hover:not(:disabled) {
-      /* hover styles */
+    &:hover:not(:disabled):not(.rb-[component]--disabled) {
+      background-color: var(--rb-[component]-bg-hover);
+      color: var(--rb-[component]-text-hover, var(--rb-[component]-text-color));
+      border-color: var(--rb-[component]-border-hover, var(--rb-[component]-border-color));
+      cursor: pointer;
     }
 
-    &:focus-visible {
-      outline: 3px solid var(--rb-color-primary-L100);
-      outline-offset: 4px;
+    &:active:not(:disabled):not(.rb-[component]--disabled) {
+      background-color: var(--rb-[component]-bg-active);
+      color: var(--rb-[component]-text-active, var(--rb-[component]-text-color));
+      border-color: var(--rb-[component]-border-active, var(--rb-[component]-border-color));
+      cursor: pointer;
     }
 
-    &:disabled {
+    &:focus-visible:not(:disabled):not(.rb-[component]--disabled) {
+      outline: 3px solid var(--rb-color-secondary-L100);
+      outline-offset: 2px;
+    }
+
+    &:disabled,
+    &.rb-[component]--disabled {
+      background-color: var(--rb-[component]-bg-disabled);
+      color: var(--rb-[component]-text-disabled);
+      border-color: var(--rb-[component]-border-disabled);
       cursor: not-allowed;
-      opacity: 0.6;
+      box-shadow: none;
+      outline: none;
+    }
+
+    /* Disabled hover - usar variables específicas con fallback */
+    &:disabled:hover,
+    &.rb-[component]--disabled:hover {
+      background-color: var(--rb-[component]-bg-disabled-hover, var(--rb-[component]-bg-disabled)) !important;
+      color: var(--rb-[component]-text-disabled-hover, var(--rb-[component]-text-disabled)) !important;
+      border-color: var(--rb-[component]-border-disabled-hover, var(--rb-[component]-border-disabled)) !important;
+      cursor: not-allowed;
+      box-shadow: none;
+      outline: none;
+    }
+
+    /* Disabled focus - sin outline */
+    &:disabled:focus,
+    &:disabled:focus-visible,
+    &.rb-[component]--disabled:focus,
+    &.rb-[component]--disabled:focus-visible {
+      outline: none;
     }
   }
 }
@@ -223,6 +282,83 @@ alwaysApply: true
   }
 }
 ```
+
+---
+
+## 🎨 ESTADO DISABLED + HOVER (NUEVO EN v3.3.0)
+
+### Concepto
+Los componentes pueden mostrar **visual feedback** cuando el usuario pasa el mouse sobre un elemento deshabilitado, sin cambiar su funcionalidad.
+
+### Variables Disponibles
+```css
+/* En @layer tokens */
+--rb-[component]-bg-disabled: var(--rb-color-grayscale-L300); /* Sin hover */
+--rb-[component]-bg-disabled-hover: var(--rb-color-grayscale-L200); /* Con hover */
+
+--rb-[component]-text-disabled: var(--rb-color-grayscale-base);
+--rb-[component]-text-disabled-hover: var(--rb-color-grayscale-L100);
+
+--rb-[component]-border-disabled: var(--rb-color-grayscale-L300);
+--rb-[component]-border-disabled-hover: var(--rb-color-grayscale-L200);
+```
+
+### Implementación en BASE LAYER
+```css
+@layer base {
+  .rb-[component] {
+    &:disabled:hover,
+    &.rb-[component]--disabled:hover {
+      /* Usa -disabled-hover, fallback a -disabled si no está definido */
+      background-color: var(--rb-[component]-bg-disabled-hover, var(--rb-[component]-bg-disabled)) !important;
+      color: var(--rb-[component]-text-disabled-hover, var(--rb-[component]-text-disabled)) !important;
+      border-color: var(--rb-[component]-border-disabled-hover, var(--rb-[component]-border-disabled)) !important;
+      cursor: not-allowed;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+```
+
+### Ejemplo de Uso - Brand Override
+```css
+@layer brand-overrides {
+  [data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill {
+    /* DISABLED: fondo gris claro */
+    --rb-button-bg-disabled: var(--rb-color-grayscale-L300); /* #F5F5F5 */
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    
+    /* DISABLED + HOVER: texto más claro para feedback visual */
+    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene */
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100); /* #B9B9B9 más claro */
+  }
+  
+  [data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text {
+    /* DISABLED: transparente */
+    --rb-button-bg-disabled: transparent;
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    
+    /* DISABLED + HOVER: aparece fondo gris */
+    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 aparece */
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
+  }
+}
+```
+
+### Casos de Uso Comunes
+
+| Variante | Disabled | Disabled + Hover | Feedback Visual |
+|----------|----------|------------------|-----------------|
+| **STROKE** | `bg: transparent` | `bg: #E1E1E1` | Fondo aparece |
+| **FILL** | `bg: #F5F5F5`, `text: #9B9B9B` | `bg: #F5F5F5`, `text: #B9B9B9` | Texto se aclara |
+| **TEXT** | `bg: transparent`, `text: #9B9B9B` | `bg: #F5F5F5`, `text: #9B9B9B` | Fondo aparece |
+
+### Beneficios
+✅ **UX mejorada:** Usuario sabe que el botón detecta hover pero está deshabilitado  
+✅ **Flexible:** Cada marca puede personalizar su feedback visual  
+✅ **Fallback automático:** Si no se define `-disabled-hover`, usa `-disabled`  
+✅ **Consistente:** Mismo patrón para todos los componentes  
 
 ---
 
@@ -396,12 +532,19 @@ font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
 
 ---
 
-## 🏆 @layer - 8 CAPAS ESTÁNDAR (OBLIGATORIO)
+## 🏆 @layer - CAPAS ESTÁNDAR (OBLIGATORIO)
 
 **Declarar SIEMPRE al inicio del archivo:**
 
 ```css
+/* Para componentes simples (8 capas) */
 @layer reset, tokens, base, variants, sizes, modifiers, states, utilities;
+
+/* Para componentes con style-variants (9 capas) - como button */
+@layer reset, tokens, base, variants, style-variants, sizes, modifiers, states, utilities;
+
+/* Para componentes con icon-positions (10 capas) - como button */
+@layer reset, tokens, base, variants, style-variants, brand-overrides, sizes, modifiers, icon-positions, states, utilities;
 ```
 
 | Capa | Prioridad | Uso |
@@ -409,11 +552,29 @@ font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
 | `reset` | 1 (más baja) | `all: unset`, `box-sizing` |
 | `tokens` | 2 | Variables CSS del componente |
 | `base` | 3 | Estilos base y estructura |
-| `variants` | 4 | primary, secondary, tertiary |
-| `sizes` | 5 | small, medium, large |
-| `modifiers` | 6 | square, circle, block |
-| `states` | 7 | hover, focus, disabled, loading |
-| `utilities` | 8 (más alta) | media queries, accesibilidad |
+| `variants` | 4 | primary, secondary, tertiary, error |
+| `style-variants` | 5 (opcional) | stroke, fill, text |
+| `brand-overrides` | 6 | **NUEVO**: Overrides específicos por marca |
+| `sizes` | 7 | small, medium, large |
+| `modifiers` | 8 | square, circle, block |
+| `icon-positions` | 9 (opcional) | icon-left, icon-right, icon-only |
+| `states` | 10 | hover, focus, disabled, loading |
+| `utilities` | 11 (más alta) | media queries, accesibilidad |
+
+**NUEVO: Layer `brand-overrides`**
+
+El layer `brand-overrides` permite a las marcas sobrescribir variables CSS del componente base sin usar `!important`. Tiene prioridad sobre `variants` y `style-variants` pero menor que `utilities`.
+
+**Ejemplo de uso:**
+
+```css
+@layer brand-overrides {
+  [data-brand='seguros-bolivar'] .rb-button--primary {
+    --rb-button-text-hover: var(--rb-color-primary-D100);
+    --rb-button-text-active: var(--rb-color-primary-D100);
+  }
+}
+```
 
 **Para Brand Overrides:**
 
@@ -527,19 +688,24 @@ packages/
 
 ## ✅ CHECKLIST ANTES DE FINALIZAR
 
-- [ ] ✅ `@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;`
+- [ ] ✅ Declaración de `@layer` correcta al inicio del archivo
 - [ ] ✅ Todas las clases tienen prefijo `rb-`
 - [ ] ✅ Todas las variables tienen prefijo `--rb-`
 - [ ] ✅ Usa CSS Nesting con `&` (no repites selectores)
 - [ ] ✅ Usa SOLO Logical Properties (inline-size, padding-inline, etc.)
 - [ ] ✅ NO usas physical properties (width, padding-left, etc.)
 - [ ] ✅ Usa `clamp()` para todos los tamaños responsive
-- [ ] ✅ Incluye `:focus-visible` con outline visible
+- [ ] ✅ Define variables para todos los estados: default, hover, active, disabled, disabled-hover
+- [ ] ✅ Incluye `:hover:not(:disabled):not(.rb-[component]--disabled)`
+- [ ] ✅ Incluye `:active:not(:disabled):not(.rb-[component]--disabled)`
+- [ ] ✅ Incluye `:focus-visible` con outline visible (3px solid secondary-L100)
+- [ ] ✅ Incluye estado `:disabled` y clase `.rb-[component]--disabled`
+- [ ] ✅ Incluye `:disabled:hover` con variables `-disabled-hover` (fallback a `-disabled`)
 - [ ] ✅ Incluye `@media (prefers-reduced-motion: reduce)`
 - [ ] ✅ Incluye `@media (prefers-contrast: high)`
-- [ ] ✅ Estado `:disabled` presente y claro
-- [ ] ✅ `:hover` y `:active` solo con `:not(:disabled)`
 - [ ] ✅ Máximo 3 niveles de nesting
+- [ ] ✅ Transiciones NO incluyen outline (evita destellos en focus)
+- [ ] ✅ `@keyframes` definidos fuera de `@layer`
 
 ---
 
@@ -560,8 +726,9 @@ packages/
 
 ## 📚 EJEMPLOS DE REFERENCIA
 
-- `packages/atoms/src/button.css` - Componente completo
-- `packages/brand-overrides/src/davivienda/button.css` - Override de marca
+- `packages/atoms/src/button.css` - Componente completo (gold standard)
+- `packages/brand-overrides/src/seguros-bolivar/button.css` - Ejemplo de override con @layer brand-overrides
+- Ver también: `.cursor/rules/CSS_OVERRIDE_BRAND.mdc` - Guía específica para brand overrides
 
 ---
 
@@ -570,13 +737,22 @@ packages/
 1. **NUNCA** uses physical properties (width, height, left, padding-left, etc.)
 2. **SIEMPRE** usa `clamp()` para valores responsive
 3. **SIEMPRE** usa CSS Nesting con `&`
-4. **SIEMPRE** usa prefijos `--rb-`
-5. **SIEMPRE** incluye los 4 elementos de accesibilidad
-6. **SIEMPRE** usa `@layer` con las 8 capas estándar
-7. **NUNCA** uses `!important` (usa @layer utilities)
-8. **NUNCA** repitas selectores (usa nesting)
+4. **SIEMPRE** usa prefijos `--rb-` para variables CSS
+5. **SIEMPRE** usa prefijos `rb-` para clases CSS
+6. **SIEMPRE** incluye los 4 elementos de accesibilidad
+7. **SIEMPRE** define variables para TODOS los estados (default, hover, active, disabled, disabled-hover)
+8. **SIEMPRE** usa `:not(:disabled):not(.rb-[component]--disabled)` en hover y active
+9. **SIEMPRE** incluye estado disabled con clase `.rb-[component]--disabled`
+10. **SIEMPRE** incluye `:disabled:hover` con variables `-disabled-hover` (fallback a `-disabled` si no se define)
+11. **SIEMPRE** usa `@layer` con las capas correctas según el componente
+12. **SIEMPRE** usa `@layer brand-overrides` para todos los overrides de marca
+13. **SIEMPRE** usa `outline` con `secondary-L100` en focus-visible (NO primary-L100)
+14. **NUNCA** incluyas `outline` en transiciones (evita destellos en focus)
+15. **NUNCA** uses `!important` (excepto en @layer utilities cuando sea necesario)
+16. **NUNCA** repitas selectores (usa nesting)
+17. **NUNCA** definas `@keyframes` dentro de `@layer`
 
 ---
 
-**Última actualización:** 2025-01-09  
-**Versión:** 3.0.0
+**Última actualización:** 2025-01-16  
+**Versión:** 3.2.0 - Actualizado con @layer brand-overrides para overrides de marca

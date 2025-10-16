@@ -3,112 +3,223 @@
  * Seguros Bolívar - Button Component Overrides
  * ============================================================================
  * 
- * Data Attribute Approach: [data-brand="seguros-bolivar"]
+ * NUEVA ARQUITECTURA SIMPLIFICADA:
  * 
- * Estructura:
- * - 4 TIPOS: primary, secondary, tertiary, error
- * - 3 VARIANTES: stroke (default), fill, text
- * - ESTADOS: default, hover, active, disabled
+ * Con la refactorización del button.css base, ahora podemos agrupar todos
+ * los overrides por variante (PRIMARY, SECONDARY, etc.) en lugar de tener
+ * selectores separados para cada estilo (STROKE, FILL, TEXT).
  * 
- * Solo se definen las variables que se quieren cambiar respecto al default.
- * Las variables usan el mismo patrón que el button.css general.
+ * ESPECIFICACIONES SEGUROS BOLÍVAR:
+ * - Border-radius: 50px (completamente redondeado)
+ * - Padding: 8px (vertical) 16px (horizontal)
+ * - Gap: 8px
+ * - Height: 40px
+ * - Color primario: #038450 (verde)
+ * - Color secundario: #FFE16F (amarillo)
  * 
  * ============================================================================
  */
 
-[data-brand='seguros-bolivar'] {
-  /* ========================================
-     PRIMARY - STROKE (default)
-     Amarillo borde, texto verde
-     ======================================== */
-  .rb-button--primary {
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL - Aplica a todos los botones de la marca
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .rb-button {
+  /* Border radius completamente redondeado */
+  --rb-button-border-radius: 50px;
+  
+  /* Padding específico: 8px vertical, 16px horizontal */
+  --rb-button-padding-block: 8px;
+  --rb-button-padding-inline: 16px;
+  
+  /* Gap entre icono y texto */
+  --rb-button-gap: 8px;
+  
+  /* Altura mínima */
+  --rb-button-min-block-size: 40px;
+}
 
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
-
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+/* ============================================================================
+   2. PRIMARY BUTTON - Override usando @layer brand-overrides
+   ============================================================================
+   
+   NUEVA ARQUITECTURA CON LAYERS:
+   
+   Ahora usamos @layer brand-overrides que tiene MAYOR prioridad que 
+   @layer variants y @layer style-variants del base. Esto nos permite
+   sobrescribir las variables CSS sin usar !important.
+   
+   ORDEN DE LAYERS (menor a mayor prioridad):
+   1. reset
+   2. tokens  
+   3. base
+   4. variants
+   5. style-variants
+   6. brand-overrides ← AQUÍ ESTAMOS (máxima prioridad para overrides)
+   7. sizes
+   8. modifiers
+   9. icon-positions
+   10. states
+   11. utilities
+   
+   ============================================================================ */
+@layer brand-overrides {
+  [data-brand='seguros-bolivar'] .rb-button--primary {
+    /* ========================================
+       STROKE - Override: texto VERDE en hover/active (el base usa amarillo)
+       ======================================== */
+    --rb-button-text-hover: var(--rb-color-primary-D100);
+    --rb-button-text-active: var(--rb-color-primary-D100);
+    
+    /* ========================================
+       DISABLED - Override: fondo gris claro
+       Background: #F5F5F5 = var(--rb-color-grayscale-L300)
+       ======================================== */
+    --rb-button-bg-disabled: var(--rb-color-grayscale-L300);
+    
+    /* ========================================
+       DISABLED + HOVER - Override específico cuando disabled y hover
+       Estas variables son opcionales. Si no se definen, usa los valores de disabled.
+       ======================================== */
+    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200); /* #E1E1E1 - más oscuro al hacer hover */
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B - mantiene el gris */
+    --rb-button-border-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B */
   }
 
-  /* ========================================
-     PRIMARY - FILL
-     Amarillo sólido, texto verde
-     ======================================== */
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300);
-
-    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
-
-    --rb-button-primary-fill-border: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300);
+  [data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill {
+    /* ========================================
+       FILL - Override de estados DISABLED y DISABLED + HOVER
+       ======================================== */
+    
+    /* DISABLED: fondo gris claro, texto/icono gris oscuro, sin borde */
+    --rb-button-bg-disabled: var(--rb-color-grayscale-L300); /* #F5F5F5 */
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --rb-button-border-disabled: var(--rb-color-grayscale-L300); /* #F5F5F5 - match con fondo */
+    
+    /* DISABLED + HOVER: mismo fondo, texto/icono más claro, sin borde */
+    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene igual */
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100); /* #B9B9B9 más claro */
+    --rb-button-border-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 - match con fondo */
   }
 
-  /* ========================================
-     PRIMARY - TEXT
-     Transparente con texto verde
-     ======================================== */
-  .rb-button--text.rb-button--primary {
-    --rb-button-primary-text-bg: transparent;
-    --rb-button-primary-text-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-primary-text-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-text-bg-disabled: transparent;
-
-    --rb-button-primary-text-text: var(--rb-color-primary-base);
-    --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
-    --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
-  }
-
-  /* ========================================
-     SECONDARY - STROKE
-     Verde borde, texto verde
-     ======================================== */
-  .rb-button--secondary {
-    --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
-
-    --rb-button-secondary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100);
-
-    --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
-    --rb-button-secondary-stroke-border-hover: var(--rb-color-primary-D100);
-  }
-
-  /* ========================================
-     SECONDARY - FILL
-     Verde sólido, texto blanco
-     ======================================== */
-  .rb-button--fill.rb-button--secondary {
-    --rb-button-secondary-fill-bg: var(--rb-color-primary-base);
-    --rb-button-secondary-fill-bg-hover: var(--rb-color-primary-D100);
-
-    --rb-button-secondary-fill-text: var(--rb-color-grayscale-white);
-
-    --rb-button-secondary-fill-border: var(--rb-color-primary-base);
-  }
-
-  /* ========================================
-     SECONDARY - TEXT
-     Transparente con texto verde
-     ======================================== */
-  .rb-button--text.rb-button--secondary {
-    --rb-button-secondary-text-text: var(--rb-color-primary-base);
-    --rb-button-secondary-text-text-hover: var(--rb-color-primary-D100);
+  [data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text {
+    /* ========================================
+       TEXT - Override completo de todos los estados
+       ======================================== */
+    
+    /* Default: fondo transparente, sin borde, texto verde */
+    --rb-button-bg-color: transparent;
+    --rb-button-border-width: 0;
+    --rb-button-text-color: var(--rb-color-primary-D100); /* #038450 */
+    
+    /* Hover: fondo crema claro */
+    --rb-button-bg-hover: var(--rb-color-secondary-L400); /* #FFFCF0 */
+    --rb-button-text-hover: var(--rb-color-primary-D100); /* #038450 mantiene verde */
+    
+    /* Pressed/Active: fondo crema + sombra inset */
+    --rb-button-bg-active: var(--rb-color-secondary-L300); /* #FFF6D4 */
+    --rb-button-text-active: var(--rb-color-primary-D100); /* #038450 mantiene verde */
+    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    
+    /* ========================================
+       DISABLED + HOVER - Override: fondo gris claro al hacer hover
+       ======================================== */
+    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 aparece al hover */
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene gris */
+    --rb-button-border-disabled-hover: transparent; /* sin borde */
   }
 }
+
+/* ============================================================================
+   TEXT DECORATION COLOR - Primary TEXT button
+   ============================================================================
+   El underline ya está aplicado en el base button.css
+   Aquí solo sobrescribimos el COLOR del underline para que sea verde
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text {
+  text-decoration-color: var(--rb-color-primary-D100) !important; /* #038450 verde */
+}
+
+/* DISABLED state - fondo transparente, texto y underline gris */
+[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:disabled,
+[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text.rb-button--disabled {
+  background-color: transparent !important;
+  color: var(--rb-color-grayscale-base) !important; /* #9B9B9B */
+  text-decoration-color: var(--rb-color-grayscale-base) !important; /* #9B9B9B */
+}
+
+/* ============================================================================
+   OUTLINE OVERRIDE - Focus visible para Primary TEXT
+   ============================================================================
+   Se define fuera de @layer para tener máxima prioridad
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:focus-visible {
+  outline: 2px solid var(--rb-color-secondary-L100); /* #FFEA9A */
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   3. SECONDARY BUTTON - Override usando @layer brand-overrides
+   ============================================================================ */
+@layer brand-overrides {
+  /* SECONDARY STROKE - Override: colores verdes en lugar de amarillos */
+  [data-brand='seguros-bolivar'] .rb-button--secondary {
+    --rb-button-bg-hover: var(--rb-color-primary-L400);
+    --rb-button-bg-active: var(--rb-color-primary-L300);
+    --rb-button-text-color: var(--rb-color-primary-D100);
+    --rb-button-text-hover: var(--rb-color-primary-D100);
+    --rb-button-text-active: var(--rb-color-primary-D100);
+    --rb-button-border-color: var(--rb-color-primary-base);
+    --rb-button-border-hover: var(--rb-color-primary-D100);
+    --rb-button-border-active: var(--rb-color-primary-D100);
+  }
+
+  /* SECONDARY FILL - Override: fondo verde, texto blanco */
+  [data-brand='seguros-bolivar'] .rb-button--secondary.rb-button--fill {
+    --rb-button-bg-color: var(--rb-color-primary-base);
+    --rb-button-bg-hover: var(--rb-color-primary-D100);
+    --rb-button-bg-active: var(--rb-color-primary-D200);
+    --rb-button-text-color: var(--rb-color-grayscale-white);
+    --rb-button-text-hover: var(--rb-color-grayscale-white);
+    --rb-button-text-active: var(--rb-color-grayscale-white);
+    --rb-button-border-color: var(--rb-color-primary-base);
+    --rb-button-border-hover: var(--rb-color-primary-D100);
+    --rb-button-border-active: var(--rb-color-primary-D200);
+  }
+
+  /* SECONDARY TEXT - Override: texto verde, fondo crema en hover/active */
+  [data-brand='seguros-bolivar'] .rb-button--secondary.rb-button--text {
+    --rb-button-bg-hover: var(--rb-color-primary-L400);
+    --rb-button-bg-active: var(--rb-color-primary-L300);
+    --rb-button-text-color: var(--rb-color-primary-base);
+    --rb-button-text-hover: var(--rb-color-primary-D100);
+    --rb-button-text-active: var(--rb-color-primary-D200);
+  }
+}
+
+/* ============================================================================
+   NOTAS DE IMPLEMENTACIÓN
+   ============================================================================
+   
+   ✅ VENTAJAS DE ESTA ESTRUCTURA:
+   
+   1. **Más simple:** 2 selectores en lugar de 6
+   2. **Más mantenible:** Todo PRIMARY en un lugar, todo SECONDARY en otro
+   3. **Más escalable:** Agregar TERTIARY o ERROR es directo
+   4. **Más legible:** Ves todos los cambios de una variante junta
+   5. **Aprovecha la nueva arquitectura:** Las variables específicas ya
+      están definidas en el base, solo sobrescribimos lo que cambia
+   
+   🎯 CÓMO FUNCIONA:
+   
+   - El base `button.css` define todas las variables de cada variante
+   - Aquí solo sobrescribimos las que SON DIFERENTES para Seguros Bolívar
+   - No necesitamos redefinir variables finales (--rb-button-text-hover)
+     porque el base ya las aplica correctamente desde las variables específicas
+   
+   📝 PARA AGREGAR NUEVAS VARIANTES:
+   
+   [data-brand='seguros-bolivar'] .rb-button--tertiary {
+     // Solo sobrescribe lo que necesites cambiar
+   }
+   
+   ============================================================================ */

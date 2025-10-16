@@ -14,6 +14,30 @@
 
 [data-brand='davivienda'] {
   /* ========================================
+     PRIMARY - STROKE
+     Borde primary, texto primary para Davivienda
+     ======================================== */
+  .rb-button--primary {
+    /* Background */
+    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
+    --rb-button-primary-stroke-bg-hover: var(--rb-color-primary-L400);
+    --rb-button-primary-stroke-bg-active: var(--rb-color-primary-L300);
+    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+
+    /* Text */
+    --rb-button-primary-stroke-text: var(--rb-color-primary-base);
+    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D200);
+    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+
+    /* Border */
+    --rb-button-primary-stroke-border: var(--rb-color-primary-base);
+    --rb-button-primary-stroke-border-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-stroke-border-active: var(--rb-color-primary-D200);
+    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+  }
+
+  /* ========================================
      SECONDARY - STROKE
      Personalización de colores para Davivienda
      ======================================== */

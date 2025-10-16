@@ -158,7 +158,7 @@
    LAYERS - Define prioridad de cascada
    ======================================== */
 
-@layer reset, tokens, base, variants, style-variants, sizes, modifiers, icon-positions, states, utilities;
+@layer reset, tokens, base, variants, style-variants, brand-overrides, sizes, modifiers, icon-positions, states, utilities;
 
 /* ========================================
    RESET LAYER
@@ -186,7 +186,7 @@
     --rb-button-text-color: var(--rb-color-primary-D100);
     --rb-button-text-hover: var(--rb-color-primary-D100);
     --rb-button-text-active: var(--rb-color-primary-D100);
-    --rb-button-text-disabled: var(--rb-color-grayscale-L100, #b9b9b9);
+    --rb-button-text-disabled: var(--rb-color-grayscale-base, #9b9b9b);
     --rb-button-border-color: var(--rb-color-secondary-base);
     --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
     --rb-button-border-width: 1px;
@@ -297,12 +297,12 @@
       outline: none;
     }
 
-    /* Disabled hover - mantener los mismos colores disabled */
+    /* Disabled hover - usar variables específicas para disabled-hover */
     &:disabled:hover,
     &.rb-button--disabled:hover {
-      background-color: var(--rb-button-bg-disabled) !important;
-      color: var(--rb-button-text-disabled) !important;
-      border-color: var(--rb-button-border-disabled) !important;
+      background-color: var(--rb-button-bg-disabled-hover, var(--rb-button-bg-disabled)) !important;
+      color: var(--rb-button-text-disabled-hover, var(--rb-button-text-disabled)) !important;
+      border-color: var(--rb-button-border-disabled-hover, var(--rb-button-border-disabled)) !important;
       cursor: not-allowed;
       box-shadow: none;
       outline: none;
@@ -324,59 +324,99 @@
 
 @layer variants {
   /* ============================================
-     PRIMARY - STROKE (default)
-     Borde secondary, texto primary-D100 default, secondary en hover/active
+     PRIMARY - Todas las variantes de estilo
+     Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
   .rb-button--primary {
-    /* STROKE variant (default) */
+    /* ========================================
+       STROKE (default) - Fondo blanco, borde amarillo, texto verde/amarillo
+       ======================================== */
     --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
     --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+    --rb-button-primary-stroke-bg-disabled: transparent;
 
     --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
     --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
     --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
 
     --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
     --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
     --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
     --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
 
-    /* Apply STROKE as default */
-    --rb-button-bg-color: var(--rb-button-primary-stroke-bg);
-    --rb-button-bg-hover: var(--rb-button-primary-stroke-bg-hover);
-    --rb-button-bg-active: var(--rb-button-primary-stroke-bg-active);
-    --rb-button-bg-disabled: var(--rb-button-primary-stroke-bg-disabled);
+    /* ========================================
+       FILL - Fondo amarillo, texto verde
+       ======================================== */
+    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
+    --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-text-color: var(--rb-button-primary-stroke-text);
-    --rb-button-text-hover: var(--rb-button-primary-stroke-text-hover);
-    --rb-button-text-active: var(--rb-button-primary-stroke-text-active);
-    --rb-button-text-disabled: var(--rb-button-primary-stroke-text-disabled);
+    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
+    --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-border-color: var(--rb-button-primary-stroke-border);
-    --rb-button-border-hover: var(--rb-button-primary-stroke-border-hover);
-    --rb-button-border-active: var(--rb-button-primary-stroke-border-active);
-    --rb-button-border-disabled: var(--rb-button-primary-stroke-border-disabled);
+    --rb-button-primary-fill-border: var(--rb-color-secondary-base);
+    --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
+    --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       TEXT - Sin fondo ni borde, solo texto verde
+       ======================================== */
+    --rb-button-primary-text-bg: transparent;
+    --rb-button-primary-text-bg-hover: transparent;
+    --rb-button-primary-text-bg-active: transparent;
+    --rb-button-primary-text-bg-disabled: transparent;
+
+    --rb-button-primary-text-text: var(--rb-color-primary-base);
+    --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
+    --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
+    --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+
+    --rb-button-primary-text-border: transparent;
+    --rb-button-primary-text-border-hover: transparent;
+    --rb-button-primary-text-border-active: transparent;
+    --rb-button-primary-text-border-disabled: transparent;
+
+    /* ========================================
+       Aplicar STROKE como default - VALORES DIRECTOS
+       ======================================== */
+    --rb-button-bg-color: var(--rb-color-grayscale-white);
+    --rb-button-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-bg-disabled: transparent;
+
+    --rb-button-text-color: var(--rb-color-primary-D100);
+    --rb-button-text-hover: var(--rb-color-secondary-D100);
+    --rb-button-text-active: var(--rb-color-secondary-D200);
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+
+    --rb-button-border-color: var(--rb-color-secondary-base);
+    --rb-button-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-border-active: var(--rb-color-secondary-D200);
+    --rb-button-border-disabled: var(--rb-color-grayscale-base);
 
     --rb-button-border-width: 1px;
     --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
-    /* Disabled Hover override */
-    &:disabled:hover,
-    &.rb-button--disabled:hover {
-      background-color: var(--rb-color-grayscale-L300) !important;
-      border-color: var(--rb-color-grayscale-L100) !important;
-      color: var(--rb-color-grayscale-base) !important;
-    }
+    /* Disabled Hover - Variables específicas para PRIMARY STROKE */
+    --rb-button-bg-disabled-hover: transparent;
+    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --rb-button-border-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B */
   }
 
   /* ============================================
-     SECONDARY - STROKE (default)
+     SECONDARY - Todas las variantes de estilo
+     Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
   .rb-button--secondary {
-    /* STROKE variant (default) */
+    /* ========================================
+       STROKE (default) - Fondo blanco, borde amarillo, texto amarillo
+       ======================================== */
     --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-secondary-stroke-bg-hover: var(--rb-color-secondary-L400);
     --rb-button-secondary-stroke-bg-active: var(--rb-color-secondary-L300);
@@ -385,38 +425,79 @@
     --rb-button-secondary-stroke-text: var(--rb-color-secondary-D100);
     --rb-button-secondary-stroke-text-hover: var(--rb-color-secondary-D100);
     --rb-button-secondary-stroke-text-active: var(--rb-color-secondary-D200);
-    --rb-button-secondary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --rb-button-secondary-stroke-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
     --rb-button-secondary-stroke-border: var(--rb-color-secondary-base);
     --rb-button-secondary-stroke-border-hover: var(--rb-color-secondary-D100);
     --rb-button-secondary-stroke-border-active: var(--rb-color-secondary-D200);
     --rb-button-secondary-stroke-border-disabled: var(--rb-color-grayscale-base);
 
-    /* Apply STROKE as default */
-    --rb-button-bg-color: var(--rb-button-secondary-stroke-bg);
-    --rb-button-bg-hover: var(--rb-button-secondary-stroke-bg-hover);
-    --rb-button-bg-active: var(--rb-button-secondary-stroke-bg-active);
-    --rb-button-bg-disabled: var(--rb-button-secondary-stroke-bg-disabled);
+    /* ========================================
+       FILL - Fondo amarillo, texto verde
+       ======================================== */
+    --rb-button-secondary-fill-bg: var(--rb-color-secondary-base);
+    --rb-button-secondary-fill-bg-hover: var(--rb-color-secondary-D100);
+    --rb-button-secondary-fill-bg-active: var(--rb-color-secondary-D200);
+    --rb-button-secondary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-text-color: var(--rb-button-secondary-stroke-text);
-    --rb-button-text-hover: var(--rb-button-secondary-stroke-text-hover);
-    --rb-button-text-active: var(--rb-button-secondary-stroke-text-active);
-    --rb-button-text-disabled: var(--rb-button-secondary-stroke-text-disabled);
+    --rb-button-secondary-fill-text: var(--rb-color-primary-base);
+    --rb-button-secondary-fill-text-hover: var(--rb-color-primary-D100);
+    --rb-button-secondary-fill-text-active: var(--rb-color-primary-D200);
+    --rb-button-secondary-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-border-color: var(--rb-button-secondary-stroke-border);
-    --rb-button-border-hover: var(--rb-button-secondary-stroke-border-hover);
-    --rb-button-border-active: var(--rb-button-secondary-stroke-border-active);
-    --rb-button-border-disabled: var(--rb-button-secondary-stroke-border-disabled);
+    --rb-button-secondary-fill-border: var(--rb-color-secondary-base);
+    --rb-button-secondary-fill-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-secondary-fill-border-active: var(--rb-color-secondary-D200);
+    --rb-button-secondary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       TEXT - Sin fondo ni borde, solo texto amarillo
+       ======================================== */
+    --rb-button-secondary-text-bg: transparent;
+    --rb-button-secondary-text-bg-hover: transparent;
+    --rb-button-secondary-text-bg-active: transparent;
+    --rb-button-secondary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    --rb-button-secondary-text-text: var(--rb-color-secondary-base);
+    --rb-button-secondary-text-text-hover: var(--rb-color-secondary-D100);
+    --rb-button-secondary-text-text-active: var(--rb-color-secondary-D200);
+    --rb-button-secondary-text-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+
+    --rb-button-secondary-text-border: transparent;
+    --rb-button-secondary-text-border-hover: transparent;
+    --rb-button-secondary-text-border-active: transparent;
+    --rb-button-secondary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       Aplicar STROKE como default - VALORES DIRECTOS
+       ======================================== */
+    --rb-button-bg-color: var(--rb-color-grayscale-white);
+    --rb-button-bg-hover: var(--rb-color-secondary-L400);
+    --rb-button-bg-active: var(--rb-color-secondary-L300);
+    --rb-button-bg-disabled: var(--rb-color-grayscale-white);
+
+    --rb-button-text-color: var(--rb-color-secondary-D100);
+    --rb-button-text-hover: var(--rb-color-secondary-D100);
+    --rb-button-text-active: var(--rb-color-secondary-D200);
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+
+    --rb-button-border-color: var(--rb-color-secondary-base);
+    --rb-button-border-hover: var(--rb-color-secondary-D100);
+    --rb-button-border-active: var(--rb-color-secondary-D200);
+    --rb-button-border-disabled: var(--rb-color-grayscale-base);
 
     --rb-button-border-width: 1px;
     --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
-     TERTIARY - STROKE (default)
+     TERTIARY - Todas las variantes de estilo
+     Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
   .rb-button--tertiary {
-    /* STROKE variant (default) */
+    /* ========================================
+       STROKE (default) - Fondo blanco, borde tertiary, texto tertiary
+       ======================================== */
     --rb-button-tertiary-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-tertiary-stroke-bg-hover: var(--rb-color-tertiary-L400);
     --rb-button-tertiary-stroke-bg-active: var(--rb-color-tertiary-L300);
@@ -425,71 +506,147 @@
     --rb-button-tertiary-stroke-text: var(--rb-color-tertiary-D100);
     --rb-button-tertiary-stroke-text-hover: var(--rb-color-tertiary-D100);
     --rb-button-tertiary-stroke-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-tertiary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --rb-button-tertiary-stroke-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
     --rb-button-tertiary-stroke-border: var(--rb-color-tertiary-base);
     --rb-button-tertiary-stroke-border-hover: var(--rb-color-tertiary-D100);
     --rb-button-tertiary-stroke-border-active: var(--rb-color-tertiary-D200);
     --rb-button-tertiary-stroke-border-disabled: var(--rb-color-grayscale-base);
 
-    /* Apply STROKE as default */
-    --rb-button-bg-color: var(--rb-button-tertiary-stroke-bg);
-    --rb-button-bg-hover: var(--rb-button-tertiary-stroke-bg-hover);
-    --rb-button-bg-active: var(--rb-button-tertiary-stroke-bg-active);
-    --rb-button-bg-disabled: var(--rb-button-tertiary-stroke-bg-disabled);
+    /* ========================================
+       FILL - Fondo tertiary, texto blanco
+       ======================================== */
+    --rb-button-tertiary-fill-bg: var(--rb-color-tertiary-base);
+    --rb-button-tertiary-fill-bg-hover: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-fill-bg-active: var(--rb-color-tertiary-D200);
+    --rb-button-tertiary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-text-color: var(--rb-button-tertiary-stroke-text);
-    --rb-button-text-hover: var(--rb-button-tertiary-stroke-text-hover);
-    --rb-button-text-active: var(--rb-button-tertiary-stroke-text-active);
-    --rb-button-text-disabled: var(--rb-button-tertiary-stroke-text-disabled);
+    --rb-button-tertiary-fill-text: var(--rb-color-grayscale-white, #fff);
+    --rb-button-tertiary-fill-text-hover: var(--rb-color-grayscale-white, #fff);
+    --rb-button-tertiary-fill-text-active: var(--rb-color-grayscale-white, #fff);
+    --rb-button-tertiary-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-border-color: var(--rb-button-tertiary-stroke-border);
-    --rb-button-border-hover: var(--rb-button-tertiary-stroke-border-hover);
-    --rb-button-border-active: var(--rb-button-tertiary-stroke-border-active);
-    --rb-button-border-disabled: var(--rb-button-tertiary-stroke-border-disabled);
+    --rb-button-tertiary-fill-border: var(--rb-color-tertiary-base);
+    --rb-button-tertiary-fill-border-hover: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-fill-border-active: var(--rb-color-tertiary-D200);
+    --rb-button-tertiary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       TEXT - Sin fondo ni borde, solo texto tertiary
+       ======================================== */
+    --rb-button-tertiary-text-bg: transparent;
+    --rb-button-tertiary-text-bg-hover: transparent;
+    --rb-button-tertiary-text-bg-active: transparent;
+    --rb-button-tertiary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    --rb-button-tertiary-text-text: var(--rb-color-tertiary-base);
+    --rb-button-tertiary-text-text-hover: var(--rb-color-tertiary-D100);
+    --rb-button-tertiary-text-text-active: var(--rb-color-tertiary-D200);
+    --rb-button-tertiary-text-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+
+    --rb-button-tertiary-text-border: transparent;
+    --rb-button-tertiary-text-border-hover: transparent;
+    --rb-button-tertiary-text-border-active: transparent;
+    --rb-button-tertiary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       Aplicar STROKE como default - VALORES DIRECTOS
+       ======================================== */
+    --rb-button-bg-color: var(--rb-color-grayscale-white);
+    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
+    --rb-button-bg-active: var(--rb-color-tertiary-L300);
+    --rb-button-bg-disabled: var(--rb-color-grayscale-white);
+
+    --rb-button-text-color: var(--rb-color-tertiary-D100);
+    --rb-button-text-hover: var(--rb-color-tertiary-D100);
+    --rb-button-text-active: var(--rb-color-tertiary-D200);
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+
+    --rb-button-border-color: var(--rb-color-tertiary-base);
+    --rb-button-border-hover: var(--rb-color-tertiary-D100);
+    --rb-button-border-active: var(--rb-color-tertiary-D200);
+    --rb-button-border-disabled: var(--rb-color-grayscale-base);
 
     --rb-button-border-width: 1px;
     --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
-     ERROR - STROKE (default)
+     ERROR - Todas las variantes de estilo
+     Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
   .rb-button--error {
-    /* STROKE variant (default) */
+    /* ========================================
+       STROKE (default) - Fondo blanco, borde rojo, texto rojo
+       ======================================== */
     --rb-button-error-stroke-bg: var(--rb-color-grayscale-white);
     --rb-button-error-stroke-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
-    --rb-button-error-stroke-bg-active: var(
-      --rb-color-feedback-error-L300,
-      rgba(220, 53, 69, 0.12)
-    );
+    --rb-button-error-stroke-bg-active: var(--rb-color-feedback-error-L300, rgba(220, 53, 69, 0.12));
     --rb-button-error-stroke-bg-disabled: var(--rb-color-grayscale-white);
 
     --rb-button-error-stroke-text: var(--rb-color-feedback-error-D100, #c93241);
     --rb-button-error-stroke-text-hover: var(--rb-color-feedback-error-D100, #c93241);
     --rb-button-error-stroke-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --rb-button-error-stroke-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
     --rb-button-error-stroke-border: var(--rb-color-feedback-error-base, #dc3545);
     --rb-button-error-stroke-border-hover: var(--rb-color-feedback-error-D100, #c93241);
     --rb-button-error-stroke-border-active: var(--rb-color-feedback-error-D200, #b5303d);
     --rb-button-error-stroke-border-disabled: var(--rb-color-grayscale-base);
 
-    /* Apply STROKE as default */
-    --rb-button-bg-color: var(--rb-button-error-stroke-bg);
-    --rb-button-bg-hover: var(--rb-button-error-stroke-bg-hover);
-    --rb-button-bg-active: var(--rb-button-error-stroke-bg-active);
-    --rb-button-bg-disabled: var(--rb-button-error-stroke-bg-disabled);
+    /* ========================================
+       FILL - Fondo rojo, texto blanco
+       ======================================== */
+    --rb-button-error-fill-bg: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-error-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-text-color: var(--rb-button-error-stroke-text);
-    --rb-button-text-hover: var(--rb-button-error-stroke-text-hover);
-    --rb-button-text-active: var(--rb-button-error-stroke-text-active);
-    --rb-button-text-disabled: var(--rb-button-error-stroke-text-disabled);
+    --rb-button-error-fill-text: var(--rb-color-grayscale-white, #fff);
+    --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white, #fff);
+    --rb-button-error-fill-text-active: var(--rb-color-grayscale-white, #fff);
+    --rb-button-error-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-border-color: var(--rb-button-error-stroke-border);
-    --rb-button-border-hover: var(--rb-button-error-stroke-border-hover);
-    --rb-button-border-active: var(--rb-button-error-stroke-border-active);
-    --rb-button-border-disabled: var(--rb-button-error-stroke-border-disabled);
+    --rb-button-error-fill-border: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-error-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       TEXT - Sin fondo ni borde, solo texto rojo
+       ======================================== */
+    --rb-button-error-text-bg: transparent;
+    --rb-button-error-text-bg-hover: transparent;
+    --rb-button-error-text-bg-active: transparent;
+    --rb-button-error-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    --rb-button-error-text-text: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-text-text-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-text-text-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-error-text-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+
+    --rb-button-error-text-border: transparent;
+    --rb-button-error-text-border-hover: transparent;
+    --rb-button-error-text-border-active: transparent;
+    --rb-button-error-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+
+    /* ========================================
+       Aplicar STROKE como default - VALORES DIRECTOS
+       ======================================== */
+    --rb-button-bg-color: var(--rb-color-grayscale-white);
+    --rb-button-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
+    --rb-button-bg-active: var(--rb-color-feedback-error-L300, rgba(220, 53, 69, 0.12));
+    --rb-button-bg-disabled: var(--rb-color-grayscale-white);
+
+    --rb-button-text-color: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-text-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-text-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+
+    --rb-button-border-color: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-border-hover: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-border-active: var(--rb-color-feedback-error-D200, #b5303d);
+    --rb-button-border-disabled: var(--rb-color-grayscale-base);
 
     --rb-button-border-width: 1px;
     --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
@@ -517,7 +674,7 @@
   .rb-button--fill {
     /* PRIMARY FILL - fondo secondary (amarillo), texto primary-D100 (verde) */
     &.rb-button--primary {
-      /* Define las variables específicas FILL */
+      /* Define las variables específicas FILL (documentación) */
       --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
       --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
       --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
@@ -533,21 +690,21 @@
       --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
       --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-      /* Aplicar las variables FILL */
-      --rb-button-bg-color: var(--rb-button-primary-fill-bg);
-      --rb-button-bg-hover: var(--rb-button-primary-fill-bg-hover);
-      --rb-button-bg-active: var(--rb-button-primary-fill-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-primary-fill-bg-disabled);
+      /* Aplicar las variables FILL - VALORES DIRECTOS (no referencias) */
+      --rb-button-bg-color: var(--rb-color-secondary-base);
+      --rb-button-bg-hover: var(--rb-color-secondary-D100);
+      --rb-button-bg-active: var(--rb-color-secondary-D200);
+      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-text-color: var(--rb-button-primary-fill-text);
-      --rb-button-text-hover: var(--rb-button-primary-fill-text-hover);
-      --rb-button-text-active: var(--rb-button-primary-fill-text-active);
-      --rb-button-text-disabled: var(--rb-button-primary-fill-text-disabled);
+      --rb-button-text-color: var(--rb-color-primary-D100);
+      --rb-button-text-hover: var(--rb-color-primary-D100);
+      --rb-button-text-active: var(--rb-color-primary-D100);
+      --rb-button-text-disabled: var(--rb-color-grayscale-L100);
 
-      --rb-button-border-color: var(--rb-button-primary-fill-border);
-      --rb-button-border-hover: var(--rb-button-primary-fill-border-hover);
-      --rb-button-border-active: var(--rb-button-primary-fill-border-active);
-      --rb-button-border-disabled: var(--rb-button-primary-fill-border-disabled);
+      --rb-button-border-color: var(--rb-color-secondary-base);
+      --rb-button-border-hover: var(--rb-color-secondary-D100);
+      --rb-button-border-active: var(--rb-color-secondary-D200);
+      --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
 
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
       --rb-button-shadow-active: none;
@@ -679,11 +836,32 @@
     --rb-button-shadow-hover: none;
     --rb-button-shadow-active: none;
 
-    /* Underline sutil en hover */
-    &:hover:not(:disabled) {
+    /* Underline SIEMPRE visible en TEXT buttons */
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-color: currentColor;
+
+    /* Iconos NO deben heredar el underline */
+    & > svg,
+    & > i,
+    & > [class*='fa-'],
+    & > [class*='icon'] {
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Mantener underline en todos los estados */
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &:focus:not(:disabled) {
       text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
+    }
+
+    /* En disabled, mantener underline pero con color disabled */
+    &:disabled {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
     }
 
     /* PRIMARY TEXT */
@@ -1020,6 +1198,19 @@
       display: none !important; /* Remover completamente el icono */
     }
 
+    /* Mantener underline en botones TEXT cuando están en loading */
+    &.rb-button--text {
+      text-decoration: underline;
+      text-underline-offset: 1px;
+    }
+
+    /* Los spinners (::before y ::after) NO deben tener underline */
+    &.rb-button--text::before,
+    &.rb-button--text::after {
+      text-decoration: none;
+      display: inline-block;
+    }
+
     /* Loading con icono a la izquierda (default o icon-left) */
     &:not(.rb-button--icon-right):not(.rb-button--icon-only)::before,
     &.rb-button--icon-left::before {
@@ -1150,8 +1341,7 @@
 
     .rb-button--text {
       text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
+      text-underline-offset: 1px;
     }
   }
 
