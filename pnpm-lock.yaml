@@ -53,6 +53,12 @@ importers:
       sort-package-json:
         specifier: ^3.4.0
         version: 3.4.0
+      stylelint:
+        specifier: ^16.2.1
+        version: 16.25.0(typescript@5.9.3)
+      stylelint-config-standard:
+        specifier: ^36.0.0
+        version: 36.0.1(stylelint@16.25.0)
       turbo:
         specifier: ^1.12.5
         version: 1.13.4

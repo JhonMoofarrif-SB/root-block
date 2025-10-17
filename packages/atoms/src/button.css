@@ -2,17 +2,17 @@
  * ============================================================================
  * Button Component - Root Block Design System
  * ============================================================================
- * 
+ *
  * Componente CSS moderno con:
  * - CSS Nesting nativo
  * - @layer para control de cascada
  * - Logical Properties para internacionalización (RTL/LTR)
  * - clamp() para responsive fluido
- * 
+ *
  * ============================================================================
  * 📋 ÍNDICE DE NAVEGACIÓN
  * ============================================================================
- * 
+ *
  * 1. LAYERS DECLARATION ...................... Línea ~40
  * 2. RESET LAYER ............................. Línea ~50
  * 3. TOKENS LAYER ............................ Línea ~60
@@ -62,95 +62,95 @@
  *     ├─ Mobile Responsive .................. Línea ~695
  *     ├─ Desktop Responsive ................. Línea ~705
  *     └─ Print Styles ....................... Línea ~715
- * 
+ *
  * ============================================================================
  * 🎨 VARIANTES DE ESTILO
  * ============================================================================
- * 
+ *
  * STROKE (default): outline con borde, fondo transparente
  * FILL: sólido con fondo de color
  * TEXT: sin fondo ni borde, solo texto
- * 
+ *
  * ============================================================================
  * 🎯 TIPOS DE COLOR
  * ============================================================================
- * 
+ *
  * primary, secondary, tertiary, error
- * 
+ *
  * ============================================================================
  * 📱 ESTADOS
  * ============================================================================
- * 
+ *
  * default, hover, pressed, focus, loading, disabled, disabled-hover
- * 
+ *
  * ============================================================================
  * 🎭 POSICIONES DE ICONOS
  * ============================================================================
- * 
+ *
  * no-icon (default), icon-left, icon-right, icon-only
- * 
+ *
  * ============================================================================
  * 📏 TAMAÑOS
  * ============================================================================
- * 
+ *
  * small, medium (default), large
- * 
+ *
  * ============================================================================
  * 💡 EJEMPLOS DE USO
  * ============================================================================
- * 
+ *
  * <!-- STROKE (default) -->
  * <button class="rb-button rb-button--primary">
  *   Primary Stroke
  * </button>
- * 
+ *
  * <!-- FILL -->
  * <button class="rb-button rb-button--primary rb-button--fill">
  *   Primary Fill
  * </button>
- * 
+ *
  * <!-- TEXT -->
  * <button class="rb-button rb-button--primary rb-button--text">
  *   Primary Text
  * </button>
- * 
+ *
  * <!-- Icon Left -->
  * <button class="rb-button rb-button--primary rb-button--icon-left">
  *   <svg>...</svg> Icon Left
  * </button>
- * 
+ *
  * <!-- Icon Right -->
  * <button class="rb-button rb-button--primary rb-button--icon-right">
  *   Icon Right <svg>...</svg>
  * </button>
- * 
+ *
  * <!-- Icon Only -->
  * <button class="rb-button rb-button--primary rb-button--icon-only">
  *   <svg>...</svg>
  * </button>
- * 
+ *
  * <!-- Loading -->
  * <button class="rb-button rb-button--primary rb-button--loading">
  *   Loading...
  * </button>
- * 
+ *
  * <!-- Disabled -->
  * <button class="rb-button rb-button--primary" disabled>
  *   Disabled
  * </button>
- * 
+ *
  * ============================================================================
  * 📊 MATRIZ DE COMBINACIONES
  * ============================================================================
- * 
+ *
  * TIPOS (4):     primary, secondary, tertiary, error
  * ESTILOS (3):   stroke (default), fill, text
  * ICONOS (4):    no-icon (default), icon-left, icon-right, icon-only
  * ESTADOS (7):   default, hover, pressed, focus, loading, disabled, disabled-hover
  * TAMAÑOS (3):   small, medium (default), large
- * 
+ *
  * TOTAL:         7 × 3 × 4 × 7 × 3 = 1,764 combinaciones posibles
- * 
+ *
  * ============================================================================
  */
 
@@ -584,82 +584,94 @@
      ============================================ */
   .rb-button--error {
     /* ========================================
-       STROKE (default) - Fondo blanco, borde rojo, texto rojo
+       STROKE (default) - Fondo transparente, borde rojo, texto rojo
        ======================================== */
-    --rb-button-error-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-error-stroke-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
-    --rb-button-error-stroke-bg-active: var(
-      --rb-color-feedback-error-L300,
-      rgba(220, 53, 69, 0.12)
-    );
-    --rb-button-error-stroke-bg-disabled: var(--rb-color-grayscale-white);
+    --rb-button-error-stroke-bg: transparent;
+    --rb-button-error-stroke-bg-hover: transparent;
+    --rb-button-error-stroke-bg-active: transparent;
+    --rb-button-error-stroke-bg-disabled: transparent;
+    --rb-button-error-stroke-bg-disabled-hover: var(--rb-color-feedback-error-L400, #fbebec);
 
-    --rb-button-error-stroke-text: var(--rb-color-feedback-error-D100, #c93241);
+    --rb-button-error-stroke-text: var(--rb-color-feedback-error-base, #dc3545);
     --rb-button-error-stroke-text-hover: var(--rb-color-feedback-error-D100, #c93241);
     --rb-button-error-stroke-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-stroke-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --rb-button-error-stroke-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
+    --rb-button-error-stroke-text-disabled-hover: var(--rb-color-feedback-error-L200, #ee9aa2);
 
     --rb-button-error-stroke-border: var(--rb-color-feedback-error-base, #dc3545);
     --rb-button-error-stroke-border-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-stroke-border-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --rb-button-error-stroke-border-active: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-stroke-border-disabled: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-stroke-border-disabled-hover: var(--rb-color-feedback-error-L200, #ee9aa2);
 
     /* ========================================
        FILL - Fondo rojo, texto blanco
        ======================================== */
     --rb-button-error-fill-bg: var(--rb-color-feedback-error-base, #dc3545);
     --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-fill-bg-disabled: var(--rb-color-feedback-error-L400, #fbebec);
+    --rb-button-error-fill-bg-disabled-hover: var(--rb-color-feedback-error-L300, #f5c2c7);
 
-    --rb-button-error-fill-text: var(--rb-color-grayscale-white, #fff);
-    --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white, #fff);
-    --rb-button-error-fill-text-active: var(--rb-color-grayscale-white, #fff);
-    --rb-button-error-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --rb-button-error-fill-text: var(--rb-color-grayscale-white, #ffffff);
+    --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white, #ffffff);
+    --rb-button-error-fill-text-active: var(--rb-color-grayscale-white, #ffffff);
+    --rb-button-error-fill-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
+    --rb-button-error-fill-text-disabled-hover: var(--rb-color-feedback-error-L200, #ee9aa2);
 
     --rb-button-error-fill-border: var(--rb-color-feedback-error-base, #dc3545);
     --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-button-error-fill-border-active: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-fill-border-disabled: var(--rb-color-feedback-error-L400, #fbebec);
+    --rb-button-error-fill-border-disabled-hover: var(--rb-color-feedback-error-L300, #f5c2c7);
 
     /* ========================================
-       TEXT - Sin fondo ni borde, solo texto rojo
+       TEXT - Sin fondo ni borde, solo texto rojo con underline
        ======================================== */
     --rb-button-error-text-bg: transparent;
     --rb-button-error-text-bg-hover: transparent;
     --rb-button-error-text-bg-active: transparent;
-    --rb-button-error-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-button-error-text-bg-disabled: var(--rb-color-feedback-error-L400, #fbebec);
 
     --rb-button-error-text-text: var(--rb-color-feedback-error-base, #dc3545);
     --rb-button-error-text-text-hover: var(--rb-color-feedback-error-D100, #c93241);
     --rb-button-error-text-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-text-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --rb-button-error-text-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
 
     --rb-button-error-text-border: transparent;
     --rb-button-error-text-border-hover: transparent;
-    --rb-button-error-text-border-active: transparent;
-    --rb-button-error-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --rb-button-error-text-border-active: var(--rb-color-feedback-error-base, #dc3545);
+    --rb-button-error-text-border-disabled: transparent;
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        ======================================== */
-    --rb-button-bg-color: var(--rb-color-grayscale-white);
-    --rb-button-bg-hover: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.08));
-    --rb-button-bg-active: var(--rb-color-feedback-error-L300, rgba(220, 53, 69, 0.12));
-    --rb-button-bg-disabled: var(--rb-color-grayscale-white);
+    --rb-button-bg-color: var(--rb-button-error-stroke-bg);
+    --rb-button-bg-hover: var(--rb-button-error-stroke-bg-hover);
+    --rb-button-bg-active: var(--rb-button-error-stroke-bg-active);
+    --rb-button-bg-disabled: var(--rb-button-error-stroke-bg-disabled);
+    --rb-button-bg-disabled-hover: var(--rb-button-error-stroke-bg-disabled-hover);
 
-    --rb-button-text-color: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-text-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --rb-button-text-color: var(--rb-button-error-stroke-text);
+    --rb-button-text-hover: var(--rb-button-error-stroke-text-hover);
+    --rb-button-text-active: var(--rb-button-error-stroke-text-active);
+    --rb-button-text-disabled: var(--rb-button-error-stroke-text-disabled);
+    --rb-button-text-disabled-hover: var(--rb-button-error-stroke-text-disabled-hover);
 
-    --rb-button-border-color: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-border-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-border-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-border-disabled: var(--rb-color-grayscale-base);
+    --rb-button-border-color: var(--rb-button-error-stroke-border);
+    --rb-button-border-hover: var(--rb-button-error-stroke-border-hover);
+    --rb-button-border-active: var(--rb-button-error-stroke-border-active);
+    --rb-button-border-disabled: var(--rb-button-error-stroke-border-disabled);
+    --rb-button-border-disabled-hover: var(--rb-button-error-stroke-border-disabled-hover);
 
     --rb-button-border-width: 1px;
     --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+
+    /* Focus outline - ERROR usa color error-L100 en lugar de secondary-L100 */
+    &:focus-visible:not(:disabled):not(.rb-button--disabled) {
+      outline: 2px solid var(--rb-color-feedback-error-L100, #e7727d);
+      outline-offset: 2px;
+    }
   }
 }
 
@@ -803,37 +815,24 @@
 
     /* ERROR FILL */
     &.rb-button--error {
-      /* Define las variables específicas FILL */
-      --rb-button-error-fill-bg: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
-      --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-D200, #b5303d);
-      --rb-button-error-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-
-      --rb-button-error-fill-text: var(--rb-color-grayscale-white, #fff);
-      --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-error-fill-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-error-fill-text-disabled: var(--rb-color-grayscale-L100);
-
-      --rb-button-error-fill-border: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100, #c93241);
-      --rb-button-error-fill-border-active: var(--rb-color-feedback-error-D200, #b5303d);
-      --rb-button-error-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-
-      /* Aplicar las variables FILL */
+      /* Aplicar las variables FILL (ya definidas arriba en type-variants) */
       --rb-button-bg-color: var(--rb-button-error-fill-bg);
       --rb-button-bg-hover: var(--rb-button-error-fill-bg-hover);
       --rb-button-bg-active: var(--rb-button-error-fill-bg-active);
       --rb-button-bg-disabled: var(--rb-button-error-fill-bg-disabled);
+      --rb-button-bg-disabled-hover: var(--rb-button-error-fill-bg-disabled-hover);
 
       --rb-button-text-color: var(--rb-button-error-fill-text);
       --rb-button-text-hover: var(--rb-button-error-fill-text-hover);
       --rb-button-text-active: var(--rb-button-error-fill-text-active);
       --rb-button-text-disabled: var(--rb-button-error-fill-text-disabled);
+      --rb-button-text-disabled-hover: var(--rb-button-error-fill-text-disabled-hover);
 
       --rb-button-border-color: var(--rb-button-error-fill-border);
       --rb-button-border-hover: var(--rb-button-error-fill-border-hover);
       --rb-button-border-active: var(--rb-button-error-fill-border-active);
       --rb-button-border-disabled: var(--rb-button-error-fill-border-disabled);
+      --rb-button-border-disabled-hover: var(--rb-button-error-fill-border-disabled-hover);
 
       --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
       --rb-button-shadow-active: none;
@@ -1016,17 +1015,17 @@
       --rb-button-error-text-bg: transparent;
       --rb-button-error-text-bg-hover: transparent;
       --rb-button-error-text-bg-active: transparent;
-      --rb-button-error-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --rb-button-error-text-bg-disabled: var(--rb-color-feedback-error-L400, #fbebec);
 
       --rb-button-error-text-text: var(--rb-color-feedback-error-base, #dc3545);
       --rb-button-error-text-text-hover: var(--rb-color-feedback-error-D100, #c93241);
       --rb-button-error-text-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-      --rb-button-error-text-text-disabled: var(--rb-color-grayscale-base);
+      --rb-button-error-text-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
 
       --rb-button-error-text-border: transparent;
       --rb-button-error-text-border-hover: transparent;
-      --rb-button-error-text-border-active: transparent;
-      --rb-button-error-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --rb-button-error-text-border-active: var(--rb-color-feedback-error-base, #dc3545);
+      --rb-button-error-text-border-disabled: transparent;
 
       /* Aplicar las variables TEXT */
       --rb-button-bg-color: var(--rb-button-error-text-bg);
@@ -1044,10 +1043,20 @@
       --rb-button-border-active: var(--rb-button-error-text-border-active);
       --rb-button-border-disabled: var(--rb-button-error-text-border-disabled);
 
-      /* Text decoration color en disabled - debe coincidir con el color del texto */
+      /* Border width para pressed/active (1px) */
+      --rb-button-border-width: 1px;
+
+      /* Box-shadow pressed para TEXT variant */
+      --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+
+      /* Underline siempre visible, color coincide con el texto */
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+
+      /* Text decoration color en disabled - debe coincidir con el color del texto disabled */
       &:disabled,
       &.rb-button--disabled {
-        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+        text-decoration-color: var(--rb-color-feedback-error-L200, #ee9aa2);
       }
     }
   }
@@ -1322,13 +1331,11 @@
     border-top-color: transparent;
   }
 
-  /* FILL PRIMARY, TERTIARY, ERROR - spinner color primary-D100 (verde oscuro) */
+  /* FILL PRIMARY, TERTIARY - spinner color primary-D100 (verde oscuro) */
   .rb-button--fill.rb-button--primary.rb-button--loading::before,
   .rb-button--fill.rb-button--primary.rb-button--loading::after,
   .rb-button--fill.rb-button--tertiary.rb-button--loading::before,
-  .rb-button--fill.rb-button--tertiary.rb-button--loading::after,
-  .rb-button--fill.rb-button--error.rb-button--loading::before,
-  .rb-button--fill.rb-button--error.rb-button--loading::after {
+  .rb-button--fill.rb-button--tertiary.rb-button--loading::after {
     border-color: var(--rb-color-primary-D100, black);
     border-top-color: transparent;
   }
@@ -1340,12 +1347,28 @@
     border-top-color: transparent;
   }
 
+  /* FILL ERROR - spinner color WHITE */
+  .rb-button--fill.rb-button--error.rb-button--loading::before,
+  .rb-button--fill.rb-button--error.rb-button--loading::after {
+    border-color: var(--rb-color-grayscale-white, white);
+    border-top-color: transparent;
+  }
+
   /* Disabled spinner - usar color grayscale */
   .rb-button:disabled.rb-button--loading::before,
   .rb-button:disabled.rb-button--loading::after,
   .rb-button.rb-button--disabled.rb-button--loading::before,
   .rb-button.rb-button--disabled.rb-button--loading::after {
     border-color: var(--rb-color-grayscale-base, #9b9b9b);
+    border-top-color: transparent;
+  }
+
+  /* ERROR FILL Disabled - spinner color error-L200 */
+  .rb-button--fill.rb-button--error:disabled.rb-button--loading::before,
+  .rb-button--fill.rb-button--error:disabled.rb-button--loading::after,
+  .rb-button--fill.rb-button--error.rb-button--disabled.rb-button--loading::before,
+  .rb-button--fill.rb-button--error.rb-button--disabled.rb-button--loading::after {
+    border-color: var(--rb-color-feedback-error-L200, #ee9aa2);
     border-top-color: transparent;
   }
 }
