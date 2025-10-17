@@ -20,24 +20,24 @@
      ============================================ */
 
   /* STROKE */
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
   :where([data-brand='cien-cuadras'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base); /* Violeta */
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text):focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base); /* Violeta */
     outline-width: 4px; /* Más grueso que el base (2px) */
     outline-offset: 4px; /* Más separado */
   }
 
   /* FILL */
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base);
     outline-width: 4px;
     outline-offset: 4px;
   }
 
   /* TEXT */
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary.sb-ui-button--text:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base);
     outline-width: 4px;
     outline-offset: 4px;
   }

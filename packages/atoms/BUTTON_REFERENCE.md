@@ -256,46 +256,46 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 | Tipo           | STROKE (default)         | FILL                                      | TEXT                                      |
 | -------------- | ------------------------ | ----------------------------------------- | ----------------------------------------- |
-| **Primary**    | `.b-ui-button--primary`    | `.b-ui-button--primary .b-ui-button--fill`    | `.b-ui-button--primary .b-ui-button--text`    |
-| **Secondary**  | `.b-ui-button--secondary`  | `.b-ui-button--secondary .b-ui-button--fill`  | `.b-ui-button--secondary .b-ui-button--text`  |
-| **Tertiary**   | `.b-ui-button--tertiary`   | `.b-ui-button--tertiary .b-ui-button--fill`   | `.b-ui-button--tertiary .b-ui-button--text`   |
-| **Danger**     | `.b-ui-button--danger`     | `.b-ui-button--danger .b-ui-button--fill`     | `.b-ui-button--danger .b-ui-button--text`     |
-| **Success**    | `.b-ui-button--success`    | `.b-ui-button--success .b-ui-button--fill`    | `.b-ui-button--success .b-ui-button--text`    |
-| **Quinary**    | `.b-ui-button--quinary`    | `.b-ui-button--quinary .b-ui-button--fill`    | `.b-ui-button--quinary .b-ui-button--text`    |
-| **Quaternary** | `.b-ui-button--quaternary` | `.b-ui-button--quaternary .b-ui-button--fill` | `.b-ui-button--quaternary .b-ui-button--text` |
+| **Primary**    | `.sb-ui-button--primary`    | `.sb-ui-button--primary .sb-ui-button--fill`    | `.sb-ui-button--primary .sb-ui-button--text`    |
+| **Secondary**  | `.sb-ui-button--secondary`  | `.sb-ui-button--secondary .sb-ui-button--fill`  | `.sb-ui-button--secondary .sb-ui-button--text`  |
+| **Tertiary**   | `.sb-ui-button--tertiary`   | `.sb-ui-button--tertiary .sb-ui-button--fill`   | `.sb-ui-button--tertiary .sb-ui-button--text`   |
+| **Danger**     | `.sb-ui-button--danger`     | `.sb-ui-button--danger .sb-ui-button--fill`     | `.sb-ui-button--danger .sb-ui-button--text`     |
+| **Success**    | `.sb-ui-button--success`    | `.sb-ui-button--success .sb-ui-button--fill`    | `.sb-ui-button--success .sb-ui-button--text`    |
+| **Quinary**    | `.sb-ui-button--quinary`    | `.sb-ui-button--quinary .sb-ui-button--fill`    | `.sb-ui-button--quinary .sb-ui-button--text`    |
+| **Quaternary** | `.sb-ui-button--quaternary` | `.sb-ui-button--quaternary .sb-ui-button--fill` | `.sb-ui-button--quaternary .sb-ui-button--text` |
 
 ---
 
 ## 🎯 Nomenclatura BEM Completa
 
 ```
-.b-ui-button                          ← Base
-.b-ui-button--primary                 ← Tipo de color
-.b-ui-button--secondary               ← Tipo de color
-.b-ui-button--tertiary                ← Tipo de color
-.b-ui-button--danger                  ← Tipo de color
-.b-ui-button--success                 ← Tipo de color
-.b-ui-button--quinary                 ← Tipo de color
-.b-ui-button--quaternary              ← Tipo de color
+.sb-ui-button                          ← Base
+.sb-ui-button--primary                 ← Tipo de color
+.sb-ui-button--secondary               ← Tipo de color
+.sb-ui-button--tertiary                ← Tipo de color
+.sb-ui-button--danger                  ← Tipo de color
+.sb-ui-button--success                 ← Tipo de color
+.sb-ui-button--quinary                 ← Tipo de color
+.sb-ui-button--quaternary              ← Tipo de color
 
-.b-ui-button--stroke                  ← Estilo (opcional, es default)
-.b-ui-button--fill                    ← Estilo sólido
-.b-ui-button--text                    ← Estilo texto
+.sb-ui-button--stroke                  ← Estilo (opcional, es default)
+.sb-ui-button--fill                    ← Estilo sólido
+.sb-ui-button--text                    ← Estilo texto
 
-.b-ui-button--small                   ← Tamaño
-.b-ui-button--medium                  ← Tamaño (default)
-.b-ui-button--large                   ← Tamaño
+.sb-ui-button--small                   ← Tamaño
+.sb-ui-button--medium                  ← Tamaño (default)
+.sb-ui-button--large                   ← Tamaño
 
-.b-ui-button--icon-left               ← Posición icono
-.b-ui-button--icon-right              ← Posición icono
-.b-ui-button--icon-only               ← Posición icono
+.sb-ui-button--icon-left               ← Posición icono
+.sb-ui-button--icon-right              ← Posición icono
+.sb-ui-button--icon-only               ← Posición icono
 
-.b-ui-button--square                  ← Modificador
-.b-ui-button--circle                  ← Modificador
-.b-ui-button--block                   ← Modificador
+.sb-ui-button--square                  ← Modificador
+.sb-ui-button--circle                  ← Modificador
+.sb-ui-button--block                   ← Modificador
 
-.b-ui-button--loading                 ← Estado
-.b-ui-button--loading-right           ← Modificador de loading
+.sb-ui-button--loading                 ← Estado
+.sb-ui-button--loading-right           ← Modificador de loading
 ```
 
 ---
@@ -308,16 +308,16 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 - ✅ `@layer` para control de cascada (10 capas)
 - ✅ Logical Properties (inline-size, padding-inline, etc.)
 - ✅ `clamp()` para responsive fluido
-- ✅ Variables CSS con prefijo `--b-ui-`
-- ✅ Nomenclatura BEM con prefijo `b-ui-`
+- ✅ Variables CSS con prefijo `--sb-ui-`
+- ✅ Nomenclatura BEM con prefijo `sb-ui-`
 - ✅ Accesibilidad completa
 
 ### ❌ NUNCA Usar:
 
 - ❌ Physical properties
 - ❌ Media queries para tamaños
-- ❌ Selectores sin prefijo `b-ui-`
-- ❌ Variables sin prefijo `--b-ui-`
+- ❌ Selectores sin prefijo `sb-ui-`
+- ❌ Variables sin prefijo `--sb-ui-`
 - ❌ Repetir selectores
 - ❌ `!important`
 

@@ -1,7 +1,7 @@
 {
-  "name": "@bolivar-ui/docs",
+  "name": "@seguros-bolivar-ui/docs",
   "version": "1.0.0",
-  "description": "Storybook documentation for Bolivar UI Design System",
+  "description": "Storybook documentation for Seguros Bolivar UI Design System",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,9 +10,9 @@
     "clean": "rm -rf storybook-static"
   },
   "dependencies": {
-    "@bolivar-ui/atoms": "workspace:*",
-    "@bolivar-ui/molecules": "workspace:*",
-    "@bolivar-ui/tokens": "workspace:*",
+    "@seguros-bolivar-ui/atoms": "workspace:*",
+    "@seguros-bolivar-ui/molecules": "workspace:*",
+    "@seguros-bolivar-ui/tokens": "workspace:*",
     "lit": "^3.1.2"
   },
   "devDependencies": {

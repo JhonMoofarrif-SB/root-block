@@ -158,7 +158,7 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
 
   // Agregar header con metadatos
   const header = `/**
- * Bolivar UI Design System - Complete Bundle
+ * Seguros Bolivar UI Design System - Complete Bundle
  * Brand: ${brand} | Theme: ${theme}
  * Generated: ${new Date().toISOString()}
  *
@@ -168,8 +168,8 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
  * - Brand Overrides (if any)
  *
  * Usage:
- * <link rel="stylesheet" href="b-ui-${brand}-${theme}.min.css">
- * <script type="module" src="b-ui-components.min.js"></script>
+ * <link rel="stylesheet" href="sb-ui-${brand}-${theme}.min.css">
+ * <script type="module" src="sb-ui-components.min.js"></script>
  *
  * @brand ${brand}
  * @theme ${theme}
@@ -183,7 +183,7 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
   const minified = await minifyCSS(cssWithHeader);
 
   // Guardar bundles
-  const fileName = `b-ui-${brand}-${theme}`;
+  const fileName = `sb-ui-${brand}-${theme}`;
 
   // Versión normal
   await fs.writeFile(path.join(DIST_DIR, `${fileName}.css`), cssWithHeader, 'utf-8');
@@ -235,7 +235,7 @@ async function buildJSBundle(): Promise<void> {
     minifySyntax: true,
     format: 'esm',
     target: 'es2020',
-    outfile: path.join(DIST_DIR, 'b-ui-components.min.js'),
+    outfile: path.join(DIST_DIR, 'sb-ui-components.min.js'),
     sourcemap: true,
     treeShaking: true,
     external: [], // Bundle everything
@@ -244,7 +244,7 @@ async function buildJSBundle(): Promise<void> {
     mangleProps: /^_/, // Mangle propiedades privadas
   });
 
-  const jsFilePath = path.join(DIST_DIR, 'b-ui-components.min.js');
+  const jsFilePath = path.join(DIST_DIR, 'sb-ui-components.min.js');
   const stats = await fs.stat(jsFilePath);
   const size = (stats.size / 1024).toFixed(2);
 
@@ -255,9 +255,9 @@ async function buildJSBundle(): Promise<void> {
   const gzSize = ((await fs.readFile(`${jsFilePath}.gz`)).length / 1024).toFixed(2);
   const brSize = ((await fs.readFile(`${jsFilePath}.br`)).length / 1024).toFixed(2);
 
-  console.log(`  ✅ b-ui-components.min.js (${size} KB)`);
-  console.log(`  📦 b-ui-components.min.js.gz (${gzSize} KB)`);
-  console.log(`  📦 b-ui-components.min.js.br (${brSize} KB)`);
+  console.log(`  ✅ sb-ui-components.min.js (${size} KB)`);
+  console.log(`  📦 sb-ui-components.min.js.gz (${gzSize} KB)`);
+  console.log(`  📦 sb-ui-components.min.js.br (${brSize} KB)`);
 }
 
 /**
@@ -300,7 +300,7 @@ async function build(): Promise<void> {
   console.log(
     `  - ${BRANDS.length * THEMES.length} complete brand bundles (tokens + atoms + overrides)`
   );
-  console.log(`  - 1 Web Components bundle: b-ui-components.min.js`);
+  console.log(`  - 1 Web Components bundle: sb-ui-components.min.js`);
   console.log('\n🗜️  Compression formats:');
   console.log('  - .min.css / .min.js (minified)');
   console.log('  - .min.css.gz / .min.js.gz (gzip - compatible con todos los CDN)');
@@ -308,8 +308,8 @@ async function build(): Promise<void> {
   console.log(`\n📁 Output directory: ${DIST_DIR}`);
   console.log(`\n🌐 To serve: cd ${path.relative(process.cwd(), DIST_DIR)} && npx serve`);
   console.log('\n📝 New Usage (Simple):');
-  console.log('  <link rel="stylesheet" href="b-ui-jelpit-light.min.css">');
-  console.log('  <script type="module" src="b-ui-components.min.js"></script>');
+  console.log('  <link rel="stylesheet" href="sb-ui-jelpit-light.min.css">');
+  console.log('  <script type="module" src="sb-ui-components.min.js"></script>');
   console.log('\n🎨 Brand-specific overrides included automatically!');
   console.log('  - Davivienda: Special gradient slide loading animation ✨');
   console.log('  - Seguros Bolívar: Primary/Secondary color swap (Yellow/Green) 🔄');

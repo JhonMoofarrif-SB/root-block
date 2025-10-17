@@ -1,7 +1,7 @@
 {
-  "name": "@bolivar-ui/atoms",
+  "name": "@seguros-bolivar-ui/atoms",
   "version": "1.0.0",
-  "description": "Componentes CSS simples para Bolivar UI Design System",
+  "description": "Componentes CSS simples para Seguros Bolivar UI Design System",
   "main": "dist/index.css",
   "files": [
     "dist/**/*"
@@ -39,7 +39,7 @@
     "badge",
     "card"
   ],
-  "author": "Bolivar UI",
+  "author": "Seguros Bolivar UI",
   "license": "MIT",
   "devDependencies": {
     "stylelint": "^16.2.1",

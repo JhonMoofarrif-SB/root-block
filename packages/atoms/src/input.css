@@ -1,6 +1,6 @@
 /**
  * Input Component - Root Block Design System
- * Componente CSS puro con variables --b-ui-* personalizables por marca
+ * Componente CSS puro con variables --sb-ui-* personalizables por marca
  * 
  * Uso:
  * <input class="rb-input" type="text" placeholder="Ingresa tu texto">
@@ -12,41 +12,41 @@
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
    ======================================== */
 
-.b-ui-input {
+.sb-ui-input {
   /* Colores - Pueden ser sobreescritos por marca */
-  --b-ui-input-bg-color: var(--b-ui-color-grayscale-white, #ffffff);
-  --b-ui-input-bg-disabled: var(--b-ui-color-grayscale-L300, #f2f3f5);
-  --b-ui-input-text-color: var(--b-ui-color-grayscale-D300, #404040);
-  --b-ui-input-text-placeholder: var(--b-ui-color-grayscale-base, #d9d9d9);
-  --b-ui-input-text-disabled: var(--b-ui-color-grayscale-base, #d9d9d9);
-  --b-ui-input-border-color: var(--b-ui-color-grayscale-L200, #edeef0);
-  --b-ui-input-border-color-focus: var(--b-ui-color-primary-base, #007acc);
-  --b-ui-input-border-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
-  --b-ui-input-border-color-success: var(--b-ui-color-feedback-success-base, #28a745);
-  --b-ui-input-border-width: 1px;
-  --b-ui-input-border-radius: 8px;
+  --sb-ui-input-bg-color: var(--sb-ui-color-grayscale-white, #ffffff);
+  --sb-ui-input-bg-disabled: var(--sb-ui-color-grayscale-L300, #f2f3f5);
+  --sb-ui-input-text-color: var(--sb-ui-color-grayscale-D300, #404040);
+  --sb-ui-input-text-placeholder: var(--sb-ui-color-grayscale-base, #d9d9d9);
+  --sb-ui-input-text-disabled: var(--sb-ui-color-grayscale-base, #d9d9d9);
+  --sb-ui-input-border-color: var(--sb-ui-color-grayscale-L200, #edeef0);
+  --sb-ui-input-border-color-focus: var(--sb-ui-color-primary-base, #007acc);
+  --sb-ui-input-border-color-error: var(--sb-ui-color-feedback-error-base, #dc3545);
+  --sb-ui-input-border-color-success: var(--sb-ui-color-feedback-success-base, #28a745);
+  --sb-ui-input-border-width: 1px;
+  --sb-ui-input-border-radius: 8px;
 
   /* Espaciado */
-  --b-ui-input-padding-x: 1rem;
-  --b-ui-input-padding-y: 0.75rem;
-  --b-ui-input-padding-icon-left: 2.5rem;
-  --b-ui-input-padding-icon-right: 2.5rem;
+  --sb-ui-input-padding-x: 1rem;
+  --sb-ui-input-padding-y: 0.75rem;
+  --sb-ui-input-padding-icon-left: 2.5rem;
+  --sb-ui-input-padding-icon-right: 2.5rem;
 
   /* Tipografía */
-  --b-ui-input-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
-  --b-ui-input-font-size: 1rem;
-  --b-ui-input-font-weight: 400;
-  --b-ui-input-line-height: 1.5;
+  --sb-ui-input-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+  --sb-ui-input-font-size: 1rem;
+  --sb-ui-input-font-weight: 400;
+  --sb-ui-input-line-height: 1.5;
 
   /* Tamaños */
-  --b-ui-input-min-height: 40px;
+  --sb-ui-input-min-height: 40px;
 
   /* Sombras */
-  --b-ui-input-shadow: none;
-  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
+  --sb-ui-input-shadow: none;
+  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
 
   /* Transiciones */
-  --b-ui-input-transition: all 0.2s ease;
+  --sb-ui-input-transition: all 0.2s ease;
 
   /* Layout */
   display: block;
@@ -55,85 +55,85 @@
   box-sizing: border-box;
 
   /* Spacing */
-  padding: var(--b-ui-input-padding-y) var(--b-ui-input-padding-x);
+  padding: var(--sb-ui-input-padding-y) var(--sb-ui-input-padding-x);
 
   /* Sizing */
-  min-height: var(--b-ui-input-min-height);
+  min-height: var(--sb-ui-input-min-height);
 
   /* Typography */
-  font-family: var(--b-ui-input-font-family);
+  font-family: var(--sb-ui-input-font-family);
   font-style: normal;
-  font-weight: var(--b-ui-input-font-weight);
-  font-size: var(--b-ui-input-font-size);
-  line-height: var(--b-ui-input-line-height);
+  font-weight: var(--sb-ui-input-font-weight);
+  font-size: var(--sb-ui-input-font-size);
+  line-height: var(--sb-ui-input-line-height);
 
   /* Appearance */
-  background-color: var(--b-ui-input-bg-color);
-  color: var(--b-ui-input-text-color);
-  border: var(--b-ui-input-border-width) solid var(--b-ui-input-border-color);
-  border-radius: var(--b-ui-input-border-radius);
-  box-shadow: var(--b-ui-input-shadow);
+  background-color: var(--sb-ui-input-bg-color);
+  color: var(--sb-ui-input-text-color);
+  border: var(--sb-ui-input-border-width) solid var(--sb-ui-input-border-color);
+  border-radius: var(--sb-ui-input-border-radius);
+  box-shadow: var(--sb-ui-input-shadow);
   outline: none;
 
   /* Animation */
-  transition: var(--b-ui-input-transition);
+  transition: var(--sb-ui-input-transition);
 }
 
 /* Placeholder styling */
-.b-ui-input::placeholder {
-  color: var(--b-ui-input-text-placeholder);
+.sb-ui-input::placeholder {
+  color: var(--sb-ui-input-text-placeholder);
   opacity: 1;
 }
 
-.b-ui-input::-webkit-input-placeholder {
-  color: var(--b-ui-input-text-placeholder);
+.sb-ui-input::-webkit-input-placeholder {
+  color: var(--sb-ui-input-text-placeholder);
   opacity: 1;
 }
 
-.b-ui-input::-moz-placeholder {
-  color: var(--b-ui-input-text-placeholder);
+.sb-ui-input::-moz-placeholder {
+  color: var(--sb-ui-input-text-placeholder);
   opacity: 1;
 }
 
-.b-ui-input:-ms-input-placeholder {
-  color: var(--b-ui-input-text-placeholder);
+.sb-ui-input:-ms-input-placeholder {
+  color: var(--sb-ui-input-text-placeholder);
   opacity: 1;
 }
 
 /* Hover state */
-.b-ui-input:hover:not(:disabled) {
-  border-color: var(--b-ui-input-border-color-focus);
+.sb-ui-input:hover:not(:disabled) {
+  border-color: var(--sb-ui-input-border-color-focus);
 }
 
 /* Active state */
-.b-ui-input:active:not(:disabled) {
-  border-color: var(--b-ui-input-border-color-focus);
-  box-shadow: var(--b-ui-input-shadow-focus);
+.sb-ui-input:active:not(:disabled) {
+  border-color: var(--sb-ui-input-border-color-focus);
+  box-shadow: var(--sb-ui-input-shadow-focus);
 }
 
 /* Focus state */
-.b-ui-input:focus {
-  border-color: var(--b-ui-input-border-color-focus);
-  box-shadow: var(--b-ui-input-shadow-focus);
+.sb-ui-input:focus {
+  border-color: var(--sb-ui-input-border-color-focus);
+  box-shadow: var(--sb-ui-input-shadow-focus);
 }
 
 /* Focus visible state */
-.b-ui-input:focus-visible:not(:disabled) {
-  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
+.sb-ui-input:focus-visible:not(:disabled) {
+  outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
 /* Disabled state */
-.b-ui-input:disabled {
-  background-color: var(--b-ui-input-bg-disabled);
-  color: var(--b-ui-input-text-disabled);
-  border-color: var(--b-ui-input-bg-disabled);
+.sb-ui-input:disabled {
+  background-color: var(--sb-ui-input-bg-disabled);
+  color: var(--sb-ui-input-text-disabled);
+  border-color: var(--sb-ui-input-bg-disabled);
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-.b-ui-input:disabled::placeholder {
-  color: var(--b-ui-input-text-disabled);
+.sb-ui-input:disabled::placeholder {
+  color: var(--sb-ui-input-text-disabled);
 }
 
 /* ========================================
@@ -141,37 +141,37 @@
    ======================================== */
 
 /* Text input (default) */
-.b-ui-input--text {
+.sb-ui-input--text {
   /* Usa estilos base */
 }
 
 /* Email input */
-.b-ui-input--email {
+.sb-ui-input--email {
   /* Usa estilos base */
 }
 
 /* Password input */
-.b-ui-input--password {
+.sb-ui-input--password {
   /* Usa estilos base */
 }
 
 /* Number input */
-.b-ui-input--number {
+.sb-ui-input--number {
   /* Usa estilos base */
 }
 
 /* Search input */
-.b-ui-input--search {
+.sb-ui-input--search {
   /* Usa estilos base */
 }
 
 /* URL input */
-.b-ui-input--url {
+.sb-ui-input--url {
   /* Usa estilos base */
 }
 
 /* Tel input */
-.b-ui-input--tel {
+.sb-ui-input--tel {
   /* Usa estilos base */
 }
 
@@ -180,73 +180,73 @@
    ======================================== */
 
 /* Error state */
-.b-ui-input--error {
-  --b-ui-input-border-color: var(--b-ui-input-border-color-error);
-  --b-ui-input-border-color-focus: var(--b-ui-input-border-color-error);
-  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+.sb-ui-input--error {
+  --sb-ui-input-border-color: var(--sb-ui-input-border-color-error);
+  --sb-ui-input-border-color-focus: var(--sb-ui-input-border-color-error);
+  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 }
 
-.b-ui-input--error:focus {
-  border-color: var(--b-ui-input-border-color-error);
-  box-shadow: var(--b-ui-input-shadow-focus);
+.sb-ui-input--error:focus {
+  border-color: var(--sb-ui-input-border-color-error);
+  box-shadow: var(--sb-ui-input-shadow-focus);
 }
 
 /* Success state */
-.b-ui-input--success {
-  --b-ui-input-border-color: var(--b-ui-input-border-color-success);
-  --b-ui-input-border-color-focus: var(--b-ui-input-border-color-success);
-  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+.sb-ui-input--success {
+  --sb-ui-input-border-color: var(--sb-ui-input-border-color-success);
+  --sb-ui-input-border-color-focus: var(--sb-ui-input-border-color-success);
+  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
-.b-ui-input--success:focus {
-  border-color: var(--b-ui-input-border-color-success);
-  box-shadow: var(--b-ui-input-shadow-focus);
+.sb-ui-input--success:focus {
+  border-color: var(--sb-ui-input-border-color-success);
+  box-shadow: var(--sb-ui-input-shadow-focus);
 }
 
 /* Warning state */
-.b-ui-input--warning {
-  --b-ui-input-border-color: var(--b-ui-color-feedback-warning-base, #ffc107);
-  --b-ui-input-border-color-focus: var(--b-ui-color-feedback-warning-base, #ffc107);
-  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+.sb-ui-input--warning {
+  --sb-ui-input-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  --sb-ui-input-border-color-focus: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
-.b-ui-input--warning:focus {
-  border-color: var(--b-ui-color-feedback-warning-base, #ffc107);
-  box-shadow: var(--b-ui-input-shadow-focus);
+.sb-ui-input--warning:focus {
+  border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  box-shadow: var(--sb-ui-input-shadow-focus);
 }
 
 /* ========================================
    INPUT SIZES
    ======================================== */
 
-.b-ui-input--small {
-  --b-ui-input-padding-x: 0.75rem;
-  --b-ui-input-padding-y: 0.5rem;
-  --b-ui-input-font-size: 0.875rem;
-  --b-ui-input-min-height: 32px;
-  --b-ui-input-line-height: 1.25;
-  --b-ui-input-padding-icon-left: 2rem;
-  --b-ui-input-padding-icon-right: 2rem;
+.sb-ui-input--small {
+  --sb-ui-input-padding-x: 0.75rem;
+  --sb-ui-input-padding-y: 0.5rem;
+  --sb-ui-input-font-size: 0.875rem;
+  --sb-ui-input-min-height: 32px;
+  --sb-ui-input-line-height: 1.25;
+  --sb-ui-input-padding-icon-left: 2rem;
+  --sb-ui-input-padding-icon-right: 2rem;
 }
 
-.b-ui-input--medium {
-  --b-ui-input-padding-x: 1rem;
-  --b-ui-input-padding-y: 0.75rem;
-  --b-ui-input-font-size: 1rem;
-  --b-ui-input-min-height: 40px;
-  --b-ui-input-line-height: 1.5;
-  --b-ui-input-padding-icon-left: 2.5rem;
-  --b-ui-input-padding-icon-right: 2.5rem;
+.sb-ui-input--medium {
+  --sb-ui-input-padding-x: 1rem;
+  --sb-ui-input-padding-y: 0.75rem;
+  --sb-ui-input-font-size: 1rem;
+  --sb-ui-input-min-height: 40px;
+  --sb-ui-input-line-height: 1.5;
+  --sb-ui-input-padding-icon-left: 2.5rem;
+  --sb-ui-input-padding-icon-right: 2.5rem;
 }
 
-.b-ui-input--large {
-  --b-ui-input-padding-x: 1.25rem;
-  --b-ui-input-padding-y: 1rem;
-  --b-ui-input-font-size: 1.125rem;
-  --b-ui-input-min-height: 48px;
-  --b-ui-input-line-height: 1.5;
-  --b-ui-input-padding-icon-left: 3rem;
-  --b-ui-input-padding-icon-right: 3rem;
+.sb-ui-input--large {
+  --sb-ui-input-padding-x: 1.25rem;
+  --sb-ui-input-padding-y: 1rem;
+  --sb-ui-input-font-size: 1.125rem;
+  --sb-ui-input-min-height: 48px;
+  --sb-ui-input-line-height: 1.5;
+  --sb-ui-input-padding-icon-left: 3rem;
+  --sb-ui-input-padding-icon-right: 3rem;
 }
 
 /* ========================================
@@ -254,112 +254,112 @@
    ======================================== */
 
 /* Rounded corners */
-.b-ui-input--rounded {
-  --b-ui-input-border-radius: 2.1rem;
+.sb-ui-input--rounded {
+  --sb-ui-input-border-radius: 2.1rem;
 }
 
 /* Block (full width) - ya es por defecto */
-.b-ui-input--block {
+.sb-ui-input--block {
   width: 100%;
 }
 
 /* Inline (auto width) */
-.b-ui-input--inline {
+.sb-ui-input--inline {
   width: auto;
   min-width: 200px;
 }
 
 /* With left icon */
-.b-ui-input--with-icon-left {
-  padding-left: var(--b-ui-input-padding-icon-left);
+.sb-ui-input--with-icon-left {
+  padding-left: var(--sb-ui-input-padding-icon-left);
 }
 
 /* With right icon */
-.b-ui-input--with-icon-right {
-  padding-right: var(--b-ui-input-padding-icon-right);
+.sb-ui-input--with-icon-right {
+  padding-right: var(--sb-ui-input-padding-icon-right);
 }
 
 /* With both icons */
-.b-ui-input--with-icon-both {
-  padding-left: var(--b-ui-input-padding-icon-left);
-  padding-right: var(--b-ui-input-padding-icon-right);
+.sb-ui-input--with-icon-both {
+  padding-left: var(--sb-ui-input-padding-icon-left);
+  padding-right: var(--sb-ui-input-padding-icon-right);
 }
 
 /* ========================================
    INPUT CONTAINER (for icons and labels)
    ======================================== */
 
-.b-ui-input-container {
+.sb-ui-input-container {
   position: relative;
   display: block;
   width: 100%;
 }
 
-.b-ui-input-container--inline {
+.sb-ui-input-container--inline {
   display: inline-block;
   width: auto;
 }
 
 /* Input icon positioning */
-.b-ui-input-icon {
+.sb-ui-input-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
   font-size: 1rem;
   pointer-events: none;
   z-index: 2;
-  transition: var(--b-ui-input-transition);
+  transition: var(--sb-ui-input-transition);
 }
 
-.b-ui-input-icon--left {
+.sb-ui-input-icon--left {
   left: 0.75rem;
 }
 
-.b-ui-input-icon--right {
+.sb-ui-input-icon--right {
   right: 0.75rem;
 }
 
 /* Icon color changes on focus */
-.b-ui-input:focus + .b-ui-input-icon,
-.b-ui-input-container:focus-within .b-ui-input-icon {
-  color: var(--b-ui-color-primary-base, #007acc);
+.sb-ui-input:focus + .sb-ui-input-icon,
+.sb-ui-input-container:focus-within .sb-ui-input-icon {
+  color: var(--sb-ui-color-primary-base, #007acc);
 }
 
 /* Icon color for error state */
-.b-ui-input--error + .b-ui-input-icon,
-.b-ui-input-container:has(.b-ui-input--error) .b-ui-input-icon {
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+.sb-ui-input--error + .sb-ui-input-icon,
+.sb-ui-input-container:has(.sb-ui-input--error) .sb-ui-input-icon {
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
 
 /* Icon color for success state */
-.b-ui-input--success + .b-ui-input-icon,
-.b-ui-input-container:has(.b-ui-input--success) .b-ui-input-icon {
-  color: var(--b-ui-color-feedback-success-base, #28a745);
+.sb-ui-input--success + .sb-ui-input-icon,
+.sb-ui-input-container:has(.sb-ui-input--success) .sb-ui-input-icon {
+  color: var(--sb-ui-color-feedback-success-base, #28a745);
 }
 
 /* ========================================
    INPUT LABEL
    ======================================== */
 
-.b-ui-input-label {
+.sb-ui-input-label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: var(--b-ui-input-font-family);
+  font-family: var(--sb-ui-input-font-family);
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--b-ui-color-grayscale-D300, #404040);
+  color: var(--sb-ui-color-grayscale-D300, #404040);
   line-height: 1.25;
 }
 
-.b-ui-input-label--required::after {
+.sb-ui-input-label--required::after {
   content: ' *';
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
 
-.b-ui-input-label--optional::after {
+.sb-ui-input-label--optional::after {
   content: ' (opcional)';
-  color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
   font-weight: 400;
 }
 
@@ -367,53 +367,53 @@
    INPUT HELPER TEXT
    ======================================== */
 
-.b-ui-input-helper {
+.sb-ui-input-helper {
   display: block;
   margin-top: 0.25rem;
-  font-family: var(--b-ui-input-font-family);
+  font-family: var(--sb-ui-input-font-family);
   font-size: 0.75rem;
-  color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
   line-height: 1.25;
 }
 
-.b-ui-input-helper--error {
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+.sb-ui-input-helper--error {
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
 
-.b-ui-input-helper--success {
-  color: var(--b-ui-color-feedback-success-base, #28a745);
+.sb-ui-input-helper--success {
+  color: var(--sb-ui-color-feedback-success-base, #28a745);
 }
 
-.b-ui-input-helper--warning {
-  color: var(--b-ui-color-feedback-warning-base, #ffc107);
+.sb-ui-input-helper--warning {
+  color: var(--sb-ui-color-feedback-warning-base, #ffc107);
 }
 
 /* ========================================
    INPUT GROUP (multiple inputs)
    ======================================== */
 
-.b-ui-input-group {
+.sb-ui-input-group {
   display: flex;
   width: 100%;
 }
 
-.b-ui-input-group .b-ui-input {
+.sb-ui-input-group .sb-ui-input {
   border-radius: 0;
   border-right-width: 0;
 }
 
-.b-ui-input-group .b-ui-input:first-child {
-  border-top-left-radius: var(--b-ui-input-border-radius);
-  border-bottom-left-radius: var(--b-ui-input-border-radius);
+.sb-ui-input-group .sb-ui-input:first-child {
+  border-top-left-radius: var(--sb-ui-input-border-radius);
+  border-bottom-left-radius: var(--sb-ui-input-border-radius);
 }
 
-.b-ui-input-group .b-ui-input:last-child {
-  border-top-right-radius: var(--b-ui-input-border-radius);
-  border-bottom-right-radius: var(--b-ui-input-border-radius);
-  border-right-width: var(--b-ui-input-border-width);
+.sb-ui-input-group .sb-ui-input:last-child {
+  border-top-right-radius: var(--sb-ui-input-border-radius);
+  border-bottom-right-radius: var(--sb-ui-input-border-radius);
+  border-right-width: var(--sb-ui-input-border-width);
 }
 
-.b-ui-input-group .b-ui-input:focus {
+.sb-ui-input-group .sb-ui-input:focus {
   z-index: 1;
   position: relative;
 }
@@ -424,46 +424,46 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .b-ui-input {
-    --b-ui-input-border-width: 2px;
+  .sb-ui-input {
+    --sb-ui-input-border-width: 2px;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .b-ui-input {
-    --b-ui-input-transition: none;
+  .sb-ui-input {
+    --sb-ui-input-transition: none;
   }
 }
 
 /* Mobile optimizations */
 @media (width <= 640px) {
-  .b-ui-input {
+  .sb-ui-input {
     font-size: 16px; /* Prevents zoom on iOS */
   }
 
-  .b-ui-input--small {
+  .sb-ui-input--small {
     font-size: 16px;
   }
 }
 
 /* Desktop optimizations */
 @media (width >= 641px) {
-  .b-ui-input--inline {
+  .sb-ui-input--inline {
     min-width: 250px;
   }
 }
 
 /* Print styles */
 @media print {
-  .b-ui-input {
+  .sb-ui-input {
     background: transparent !important;
     color: black !important;
     border: 1px solid black !important;
     box-shadow: none !important;
   }
 
-  .b-ui-input::placeholder {
+  .sb-ui-input::placeholder {
     color: #666 !important;
   }
 }
@@ -472,8 +472,8 @@
    FOCUS VISIBLE (keyboard navigation)
    ======================================== */
 
-.b-ui-input:focus-visible {
-  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
+.sb-ui-input:focus-visible {
+  outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
@@ -484,10 +484,10 @@
 /* Input focus animation */
 @keyframes rb-input-focus {
   0% {
-    box-shadow: var(--b-ui-input-shadow);
+    box-shadow: var(--sb-ui-input-shadow);
   }
   100% {
-    box-shadow: var(--b-ui-input-shadow-focus);
+    box-shadow: var(--sb-ui-input-shadow-focus);
   }
 }
 
@@ -513,7 +513,7 @@
 }
 
 /* Apply shake animation to error inputs */
-.b-ui-input--error {
+.sb-ui-input--error {
   animation: rb-input-shake 0.5s ease-in-out;
 }
 
@@ -521,12 +521,12 @@
    AUTOFILL STYLES
    ======================================== */
 
-.b-ui-input:-webkit-autofill,
-.b-ui-input:-webkit-autofill:hover,
-.b-ui-input:-webkit-autofill:focus,
-.b-ui-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px var(--b-ui-input-bg-color) inset !important;
-  -webkit-text-fill-color: var(--b-ui-input-text-color) !important;
+.sb-ui-input:-webkit-autofill,
+.sb-ui-input:-webkit-autofill:hover,
+.sb-ui-input:-webkit-autofill:focus,
+.sb-ui-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--sb-ui-input-bg-color) inset !important;
+  -webkit-text-fill-color: var(--sb-ui-input-text-color) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -534,15 +534,15 @@
    VALIDATION STYLES
    ======================================== */
 
-.b-ui-input:valid:not(:placeholder-shown) {
+.sb-ui-input:valid:not(:placeholder-shown) {
   /* Success styling for valid inputs */
 }
 
-.b-ui-input:invalid:not(:placeholder-shown) {
+.sb-ui-input:invalid:not(:placeholder-shown) {
   /* Error styling for invalid inputs */
 }
 
 /* Custom validation message styling */
-.b-ui-input:invalid:not(:placeholder-shown) + .b-ui-input-helper {
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+.sb-ui-input:invalid:not(:placeholder-shown) + .sb-ui-input-helper {
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }

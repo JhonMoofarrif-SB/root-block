@@ -4,27 +4,27 @@ import { html } from 'lit';
 /**
  * # TextArea Component
  *
- * Componente de textarea versátil del Bolivar UI Design System con contador de caracteres, auto-resize y diferentes estados.
+ * Componente de textarea versátil del Seguros Bolivar UI Design System con contador de caracteres, auto-resize y diferentes estados.
  *
  * ## 📋 Referencia Rápida de Clases
  *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | TextArea normal (default) | `.rb-textarea` | `<textarea class="b-ui-textarea"></textarea>` |
- * | TextArea con error | `.rb-textarea--error` | `<textarea class="b-ui-textarea rb-textarea--error"></textarea>` |
- * | TextArea exitoso | `.rb-textarea--success` | `<textarea class="b-ui-textarea rb-textarea--success"></textarea>` |
- * | TextArea con advertencia | `.rb-textarea--warning` | `<textarea class="b-ui-textarea rb-textarea--warning"></textarea>` |
+ * | TextArea normal (default) | `.rb-textarea` | `<textarea class="sb-ui-textarea"></textarea>` |
+ * | TextArea con error | `.rb-textarea--error` | `<textarea class="sb-ui-textarea rb-textarea--error"></textarea>` |
+ * | TextArea exitoso | `.rb-textarea--success` | `<textarea class="sb-ui-textarea rb-textarea--success"></textarea>` |
+ * | TextArea con advertencia | `.rb-textarea--warning` | `<textarea class="sb-ui-textarea rb-textarea--warning"></textarea>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-textarea--small` | `<textarea class="b-ui-textarea rb-textarea--small"></textarea>` |
- * | Mediano (default) | `.rb-textarea--medium` o sin clase | `<textarea class="b-ui-textarea"></textarea>` |
- * | Grande | `.rb-textarea--large` | `<textarea class="b-ui-textarea rb-textarea--large"></textarea>` |
+ * | Pequeño | `.rb-textarea--small` | `<textarea class="sb-ui-textarea rb-textarea--small"></textarea>` |
+ * | Mediano (default) | `.rb-textarea--medium` o sin clase | `<textarea class="sb-ui-textarea"></textarea>` |
+ * | Grande | `.rb-textarea--large` | `<textarea class="sb-ui-textarea rb-textarea--large"></textarea>` |
  * | **Resize** | | |
- * | Sin resize | `.rb-textarea--no-resize` | `<textarea class="b-ui-textarea rb-textarea--no-resize"></textarea>` |
- * | Auto resize | `.rb-textarea--auto-resize` | `<textarea class="b-ui-textarea rb-textarea--auto-resize"></textarea>` |
+ * | Sin resize | `.rb-textarea--no-resize` | `<textarea class="sb-ui-textarea rb-textarea--no-resize"></textarea>` |
+ * | Auto resize | `.rb-textarea--auto-resize` | `<textarea class="sb-ui-textarea rb-textarea--auto-resize"></textarea>` |
  * | **Modificadores** | | |
  * | Con contador | `.rb-textarea--with-counter` | En un `.rb-textarea-container` |
- * | Bordes redondeados | `.rb-textarea--rounded` | `<textarea class="b-ui-textarea rb-textarea--rounded"></textarea>` |
+ * | Bordes redondeados | `.rb-textarea--rounded` | `<textarea class="sb-ui-textarea rb-textarea--rounded"></textarea>` |
  */
 const meta: Meta = {
   title: 'Atoms/TextArea',
@@ -161,11 +161,11 @@ export const Playground: Story = {
   },
   render: (args) => {
     const textareaClasses = [
-      'b-ui-textarea',
+      'sb-ui-textarea',
       args.state !== 'normal' ? `rb-textarea--${args.state}` : '',
       args.size !== 'medium' ? `rb-textarea--${args.size}` : '',
-      args.rounded ? 'b-ui-textarea--rounded' : '',
-      args.withCounter ? 'b-ui-textarea--with-counter' : '',
+      args.rounded ? 'sb-ui-textarea--rounded' : '',
+      args.withCounter ? 'sb-ui-textarea--with-counter' : '',
       args.resize !== 'default'
         ? `rb-textarea--${args.resize === 'none' ? 'no-resize' : args.resize === 'auto' ? 'auto-resize' : `resize-${args.resize}`}`
         : '',
@@ -173,12 +173,12 @@ export const Playground: Story = {
       .filter(Boolean)
       .join(' ');
 
-    const labelClasses = ['b-ui-textarea-label', args.required ? 'b-ui-textarea-label--required' : '']
+    const labelClasses = ['sb-ui-textarea-label', args.required ? 'sb-ui-textarea-label--required' : '']
       .filter(Boolean)
       .join(' ');
 
     const helperClasses = [
-      'b-ui-textarea-helper',
+      'sb-ui-textarea-helper',
       args.state !== 'normal' ? `rb-textarea-helper--${args.state}` : '',
     ]
       .filter(Boolean)
@@ -194,7 +194,7 @@ export const Playground: Story = {
             : ''}
           ${args.withCounter
             ? html`
-                <div class="b-ui-textarea-container">
+                <div class="sb-ui-textarea-container">
                   <textarea
                     id="${textareaId}"
                     class="${textareaClasses}"
@@ -205,7 +205,7 @@ export const Playground: Story = {
                   >
 ${args.value || ''}</textarea
                   >
-                  <div class="b-ui-textarea-counter">0/${args.maxLength || 200}</div>
+                  <div class="sb-ui-textarea-counter">0/${args.maxLength || 200}</div>
                 </div>
               `
             : html`
@@ -239,12 +239,12 @@ export const Estados: Story = {
   render: () => html`
     <style>
       .textarea-matrix {
-        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
         padding: 2rem;
-        background: var(--b-ui-color-grayscale-L400, #fafafa);
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
       .textarea-demo {
@@ -258,7 +258,7 @@ export const Estados: Story = {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
-        color: var(--b-ui-color-primary-base, #007acc);
+        color: var(--sb-ui-color-primary-base, #007acc);
       }
 
       .textarea-demo > div {
@@ -275,27 +275,27 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Estados Básicos</h3>
         <div>
-          <label class="b-ui-textarea-label">Normal</label>
-          <textarea class="b-ui-textarea" placeholder="TextArea normal"></textarea>
-          <div class="b-ui-textarea-helper">Estado normal</div>
+          <label class="sb-ui-textarea-label">Normal</label>
+          <textarea class="sb-ui-textarea" placeholder="TextArea normal"></textarea>
+          <div class="sb-ui-textarea-helper">Estado normal</div>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Error</label>
-          <textarea class="b-ui-textarea rb-textarea--error" placeholder="Con error"></textarea>
-          <div class="b-ui-textarea-helper rb-textarea-helper--error">Campo con error</div>
+          <label class="sb-ui-textarea-label">Error</label>
+          <textarea class="sb-ui-textarea rb-textarea--error" placeholder="Con error"></textarea>
+          <div class="sb-ui-textarea-helper rb-textarea-helper--error">Campo con error</div>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Success</label>
-          <textarea class="b-ui-textarea rb-textarea--success">Texto válido</textarea>
-          <div class="b-ui-textarea-helper rb-textarea-helper--success">Campo válido</div>
+          <label class="sb-ui-textarea-label">Success</label>
+          <textarea class="sb-ui-textarea rb-textarea--success">Texto válido</textarea>
+          <div class="sb-ui-textarea-helper rb-textarea-helper--success">Campo válido</div>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Warning</label>
+          <label class="sb-ui-textarea-label">Warning</label>
           <textarea
-            class="b-ui-textarea rb-textarea--warning"
+            class="sb-ui-textarea rb-textarea--warning"
             placeholder="Con advertencia"
           ></textarea>
-          <div class="b-ui-textarea-helper rb-textarea-helper--warning">Revisa este campo</div>
+          <div class="sb-ui-textarea-helper rb-textarea-helper--warning">Revisa este campo</div>
         </div>
       </div>
 
@@ -303,22 +303,22 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Tamaños</h3>
         <div>
-          <label class="b-ui-textarea-label">Small</label>
+          <label class="sb-ui-textarea-label">Small</label>
           <textarea
-            class="b-ui-textarea rb-textarea--small"
+            class="sb-ui-textarea rb-textarea--small"
             placeholder="TextArea pequeño"
           ></textarea>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Medium</label>
+          <label class="sb-ui-textarea-label">Medium</label>
           <textarea
-            class="b-ui-textarea rb-textarea--medium"
+            class="sb-ui-textarea rb-textarea--medium"
             placeholder="TextArea mediano"
           ></textarea>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Large</label>
-          <textarea class="b-ui-textarea rb-textarea--large" placeholder="TextArea grande"></textarea>
+          <label class="sb-ui-textarea-label">Large</label>
+          <textarea class="sb-ui-textarea rb-textarea--large" placeholder="TextArea grande"></textarea>
         </div>
       </div>
 
@@ -326,25 +326,25 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Con Contador</h3>
         <div>
-          <label class="b-ui-textarea-label">Contador Básico</label>
-          <div class="b-ui-textarea-container">
+          <label class="sb-ui-textarea-label">Contador Básico</label>
+          <div class="sb-ui-textarea-container">
             <textarea
-              class="b-ui-textarea rb-textarea--with-counter"
+              class="sb-ui-textarea rb-textarea--with-counter"
               maxlength="100"
               placeholder="Máximo 100 caracteres"
             ></textarea>
-            <div class="b-ui-textarea-counter">0/100</div>
+            <div class="sb-ui-textarea-counter">0/100</div>
           </div>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Contador con Warning</label>
-          <div class="b-ui-textarea-container">
+          <label class="sb-ui-textarea-label">Contador con Warning</label>
+          <div class="sb-ui-textarea-container">
             <textarea
-              class="b-ui-textarea rb-textarea--with-counter"
+              class="sb-ui-textarea rb-textarea--with-counter"
               maxlength="50"
               placeholder="Máximo 50 caracteres"
             ></textarea>
-            <div class="b-ui-textarea-counter rb-textarea-counter--warning">0/50</div>
+            <div class="sb-ui-textarea-counter rb-textarea-counter--warning">0/50</div>
           </div>
         </div>
       </div>
@@ -353,23 +353,23 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Opciones de Resize</h3>
         <div>
-          <label class="b-ui-textarea-label">No Resize</label>
+          <label class="sb-ui-textarea-label">No Resize</label>
           <textarea
-            class="b-ui-textarea rb-textarea--no-resize"
+            class="sb-ui-textarea rb-textarea--no-resize"
             placeholder="Sin redimensionar"
           ></textarea>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Auto Resize</label>
+          <label class="sb-ui-textarea-label">Auto Resize</label>
           <textarea
-            class="b-ui-textarea rb-textarea--auto-resize"
+            class="sb-ui-textarea rb-textarea--auto-resize"
             placeholder="Se ajusta automáticamente"
           ></textarea>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Resize Both</label>
+          <label class="sb-ui-textarea-label">Resize Both</label>
           <textarea
-            class="b-ui-textarea rb-textarea--resize-both"
+            class="sb-ui-textarea rb-textarea--resize-both"
             placeholder="Ambas direcciones"
           ></textarea>
         </div>
@@ -379,19 +379,19 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Estados Especiales</h3>
         <div>
-          <label class="b-ui-textarea-label rb-textarea-label--required">Requerido</label>
-          <textarea class="b-ui-textarea" placeholder="Campo obligatorio" required></textarea>
-          <div class="b-ui-textarea-helper">Campo obligatorio</div>
+          <label class="sb-ui-textarea-label rb-textarea-label--required">Requerido</label>
+          <textarea class="sb-ui-textarea" placeholder="Campo obligatorio" required></textarea>
+          <div class="sb-ui-textarea-helper">Campo obligatorio</div>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Deshabilitado</label>
-          <textarea class="b-ui-textarea" placeholder="Campo deshabilitado" disabled></textarea>
-          <div class="b-ui-textarea-helper">Este campo está deshabilitado</div>
+          <label class="sb-ui-textarea-label">Deshabilitado</label>
+          <textarea class="sb-ui-textarea" placeholder="Campo deshabilitado" disabled></textarea>
+          <div class="sb-ui-textarea-helper">Este campo está deshabilitado</div>
         </div>
         <div>
-          <label class="b-ui-textarea-label">Rounded</label>
+          <label class="sb-ui-textarea-label">Rounded</label>
           <textarea
-            class="b-ui-textarea rb-textarea--rounded"
+            class="sb-ui-textarea rb-textarea--rounded"
             placeholder="Bordes redondeados"
           ></textarea>
         </div>
@@ -401,12 +401,12 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Grupos de TextAreas</h3>
         <div>
-          <label class="b-ui-textarea-label">Grupo Vertical</label>
-          <div class="b-ui-textarea-group rb-textarea-group--vertical">
-            <textarea class="b-ui-textarea" placeholder="Primer textarea"></textarea>
-            <textarea class="b-ui-textarea" placeholder="Segundo textarea"></textarea>
+          <label class="sb-ui-textarea-label">Grupo Vertical</label>
+          <div class="sb-ui-textarea-group rb-textarea-group--vertical">
+            <textarea class="sb-ui-textarea" placeholder="Primer textarea"></textarea>
+            <textarea class="sb-ui-textarea" placeholder="Segundo textarea"></textarea>
           </div>
-          <div class="b-ui-textarea-helper">TextAreas agrupados</div>
+          <div class="sb-ui-textarea-helper">TextAreas agrupados</div>
         </div>
       </div>
     </div>

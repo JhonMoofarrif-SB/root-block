@@ -165,7 +165,7 @@
    ======================================== */
 
 @layer reset {
-  .b-ui-button {
+  .sb-ui-button {
     all: unset;
     box-sizing: border-box;
   }
@@ -177,44 +177,44 @@
    ======================================== */
 
 @layer tokens {
-  .b-ui-button {
+  .sb-ui-button {
     /* Colores BASE - FILL por defecto (relleno sólido) */
-    --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
-    --b-ui-button-bg-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-bg-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
-    --b-ui-button-text-color: var(--b-ui-color-primary-D100);
-    --b-ui-button-text-hover: var(--b-ui-color-primary-D100);
-    --b-ui-button-text-active: var(--b-ui-color-primary-D100);
-    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base, #9b9b9b);
-    --b-ui-button-border-color: var(--b-ui-color-secondary-base);
-    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
-    --b-ui-button-border-width: 1px;
-    --b-ui-button-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+    --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-bg-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-text-active: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-border-width: 1px;
+    --sb-ui-button-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
 
     /* Espaciado - Fluido con clamp() */
-    --b-ui-button-padding-inline: clamp(0.8rem, 0.5rem + 1.5vw, 2rem);
-    --b-ui-button-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.875rem);
-    --b-ui-button-gap: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+    --sb-ui-button-padding-inline: clamp(0.8rem, 0.5rem + 1.5vw, 2rem);
+    --sb-ui-button-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.875rem);
+    --sb-ui-button-gap: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
 
     /* Tipografía - Fluido con clamp() */
-    --b-ui-button-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
-    --b-ui-button-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
-    --b-ui-button-font-weight: 700;
-    --b-ui-button-line-height: 1.2;
+    --sb-ui-button-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-button-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --sb-ui-button-font-weight: 700;
+    --sb-ui-button-line-height: 1.2;
 
     /* Tamaños - Logical properties */
-    --b-ui-button-min-inline-size: clamp(80px, 15vw, 120px);
-    --b-ui-button-min-block-size: clamp(36px, 8vw, 44px);
+    --sb-ui-button-min-inline-size: clamp(80px, 15vw, 120px);
+    --sb-ui-button-min-block-size: clamp(36px, 8vw, 44px);
 
     /* Sombras */
-    --b-ui-button-shadow: none;
-    --b-ui-button-shadow-hover: none;
-    --b-ui-button-shadow-active: none;
-    --b-ui-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    --sb-ui-button-shadow: none;
+    --sb-ui-button-shadow-hover: none;
+    --sb-ui-button-shadow-active: none;
+    --sb-ui-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
     /* Transiciones - NO incluir outline para evitar destellos en focus */
-    --b-ui-button-transition:
+    --sb-ui-button-transition:
       background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
       transform 0.2s ease;
   }
@@ -225,7 +225,7 @@
    ======================================== */
 
 @layer base {
-  .b-ui-button {
+  .sb-ui-button {
     /* Layout */
     display: inline-flex;
     align-items: center;
@@ -233,65 +233,65 @@
     position: relative;
 
     /* Spacing - Logical Properties */
-    padding-inline: var(--b-ui-button-padding-inline);
-    padding-block: var(--b-ui-button-padding-block);
-    gap: var(--b-ui-button-gap);
+    padding-inline: var(--sb-ui-button-padding-inline);
+    padding-block: var(--sb-ui-button-padding-block);
+    gap: var(--sb-ui-button-gap);
 
     /* Sizing - Logical Properties */
-    min-inline-size: var(--b-ui-button-min-inline-size);
-    min-block-size: var(--b-ui-button-min-block-size);
+    min-inline-size: var(--sb-ui-button-min-inline-size);
+    min-block-size: var(--sb-ui-button-min-block-size);
     inline-size: auto;
 
     /* Typography */
-    font-family: var(--b-ui-button-font-family);
+    font-family: var(--sb-ui-button-font-family);
     font-style: normal;
-    font-weight: var(--b-ui-button-font-weight);
-    font-size: var(--b-ui-button-font-size);
-    line-height: var(--b-ui-button-line-height);
+    font-weight: var(--sb-ui-button-font-weight);
+    font-size: var(--sb-ui-button-font-size);
+    line-height: var(--sb-ui-button-line-height);
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
 
     /* Appearance - STROKE por defecto */
-    background-color: var(--b-ui-button-bg-color);
-    color: var(--b-ui-button-text-color);
-    border: var(--b-ui-button-border-width) solid var(--b-ui-button-border-color);
-    border-radius: var(--b-ui-button-border-radius);
-    box-shadow: var(--b-ui-button-shadow);
+    background-color: var(--sb-ui-button-bg-color);
+    color: var(--sb-ui-button-text-color);
+    border: var(--sb-ui-button-border-width) solid var(--sb-ui-button-border-color);
+    border-radius: var(--sb-ui-button-border-radius);
+    box-shadow: var(--sb-ui-button-shadow);
     cursor: pointer;
     user-select: none;
 
     /* Animation */
-    transition: var(--b-ui-button-transition);
+    transition: var(--sb-ui-button-transition);
 
     /* Nested Pseudo-classes - Estados interactivos */
-    &:hover:not(:disabled):not(.b-ui-button--disabled) {
-      background-color: var(--b-ui-button-bg-hover);
-      color: var(--b-ui-button-text-hover, var(--b-ui-button-text-color));
-      border-color: var(--b-ui-button-border-hover, var(--b-ui-button-border-color));
-      box-shadow: var(--b-ui-button-shadow-hover);
+    &:hover:not(:disabled):not(.sb-ui-button--disabled) {
+      background-color: var(--sb-ui-button-bg-hover);
+      color: var(--sb-ui-button-text-hover, var(--sb-ui-button-text-color));
+      border-color: var(--sb-ui-button-border-hover, var(--sb-ui-button-border-color));
+      box-shadow: var(--sb-ui-button-shadow-hover);
       cursor: pointer;
     }
 
-    &:active:not(:disabled):not(.b-ui-button--disabled) {
-      background-color: var(--b-ui-button-bg-active);
-      color: var(--b-ui-button-text-active, var(--b-ui-button-text-color));
-      border-color: var(--b-ui-button-border-active, var(--b-ui-button-border-color));
-      box-shadow: var(--b-ui-button-shadow-pressed, var(--b-ui-button-shadow-active));
+    &:active:not(:disabled):not(.sb-ui-button--disabled) {
+      background-color: var(--sb-ui-button-bg-active);
+      color: var(--sb-ui-button-text-active, var(--sb-ui-button-text-color));
+      border-color: var(--sb-ui-button-border-active, var(--sb-ui-button-border-color));
+      box-shadow: var(--sb-ui-button-shadow-pressed, var(--sb-ui-button-shadow-active));
       cursor: pointer;
     }
 
-    &:focus-visible:not(:disabled):not(.b-ui-button--disabled) {
-      outline: 3px solid var(--b-ui-color-secondary-L100);
+    &:focus-visible:not(:disabled):not(.sb-ui-button--disabled) {
+      outline: 3px solid var(--sb-ui-color-secondary-L100);
       outline-offset: 2px;
       animation: rb-button-focus-pulse 0.3s ease-out;
     }
 
     &:disabled,
-    &.b-ui-button--disabled {
-      background-color: var(--b-ui-button-bg-disabled);
-      color: var(--b-ui-button-text-disabled);
-      border-color: var(--b-ui-button-border-disabled);
+    &.sb-ui-button--disabled {
+      background-color: var(--sb-ui-button-bg-disabled);
+      color: var(--sb-ui-button-text-disabled);
+      border-color: var(--sb-ui-button-border-disabled);
       cursor: not-allowed;
       box-shadow: none;
       outline: none;
@@ -299,12 +299,12 @@
 
     /* Disabled hover - usar variables específicas para disabled-hover */
     &:disabled:hover,
-    &.b-ui-button--disabled:hover {
-      background-color: var(--b-ui-button-bg-disabled-hover, var(--b-ui-button-bg-disabled)) !important;
-      color: var(--b-ui-button-text-disabled-hover, var(--b-ui-button-text-disabled)) !important;
+    &.sb-ui-button--disabled:hover {
+      background-color: var(--sb-ui-button-bg-disabled-hover, var(--sb-ui-button-bg-disabled)) !important;
+      color: var(--sb-ui-button-text-disabled-hover, var(--sb-ui-button-text-disabled)) !important;
       border-color: var(
-        --b-ui-button-border-disabled-hover,
-        var(--b-ui-button-border-disabled)
+        --sb-ui-button-border-disabled-hover,
+        var(--sb-ui-button-border-disabled)
       ) !important;
       cursor: not-allowed;
       box-shadow: none;
@@ -314,8 +314,8 @@
     /* Disabled focus - sin outline */
     &:disabled:focus,
     &:disabled:focus-visible,
-    &.b-ui-button--disabled:focus,
-    &.b-ui-button--disabled:focus-visible {
+    &.sb-ui-button--disabled:focus,
+    &.sb-ui-button--disabled:focus-visible {
       outline: none;
     }
   }
@@ -330,346 +330,346 @@
      PRIMARY - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .b-ui-button--primary {
+  .sb-ui-button--primary {
     /* ========================================
        STROKE (default) - Fondo blanco, borde amarillo, texto verde (SIEMPRE)
        Patrón Seguros Bolívar: texto mantiene color primary en hover/active
        ======================================== */
-    --b-ui-button-primary-stroke-bg: var(--b-ui-color-grayscale-white);
-    --b-ui-button-primary-stroke-bg-hover: var(--b-ui-color-secondary-L400);
-    --b-ui-button-primary-stroke-bg-active: var(--b-ui-color-secondary-L300);
-    --b-ui-button-primary-stroke-bg-disabled: transparent;
+    --sb-ui-button-primary-stroke-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-primary-stroke-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-button-primary-stroke-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-button-primary-stroke-bg-disabled: transparent;
 
-    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D100);
-    --b-ui-button-primary-stroke-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-primary-stroke-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-primary-stroke-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-primary-stroke-text: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-stroke-text-hover: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-primary-stroke-text-active: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-primary-stroke-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-    --b-ui-button-primary-stroke-border: var(--b-ui-color-secondary-base);
-    --b-ui-button-primary-stroke-border-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-primary-stroke-border-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-primary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
+    --sb-ui-button-primary-stroke-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-stroke-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-stroke-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-stroke-border-disabled: var(--sb-ui-color-grayscale-base);
 
     /* ========================================
        FILL - Fondo amarillo, texto verde
        ======================================== */
-    --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
-    --b-ui-button-primary-fill-bg-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-primary-fill-bg-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-primary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-primary-fill-bg: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-fill-bg-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-    --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
-    --b-ui-button-primary-fill-text-hover: var(--b-ui-color-primary-D100);
-    --b-ui-button-primary-fill-text-active: var(--b-ui-color-primary-D100);
-    --b-ui-button-primary-fill-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --sb-ui-button-primary-fill-text: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-fill-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-fill-text-active: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-fill-text-disabled: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --b-ui-button-primary-fill-border: var(--b-ui-color-secondary-base);
-    --b-ui-button-primary-fill-border-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-primary-fill-border-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-primary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-primary-fill-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-fill-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-fill-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-fill-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto verde
        ======================================== */
-    --b-ui-button-primary-text-bg: transparent;
-    --b-ui-button-primary-text-bg-hover: transparent;
-    --b-ui-button-primary-text-bg-active: transparent;
-    --b-ui-button-primary-text-bg-disabled: transparent;
+    --sb-ui-button-primary-text-bg: transparent;
+    --sb-ui-button-primary-text-bg-hover: transparent;
+    --sb-ui-button-primary-text-bg-active: transparent;
+    --sb-ui-button-primary-text-bg-disabled: transparent;
 
-    --b-ui-button-primary-text-text: var(--b-ui-color-primary-base);
-    --b-ui-button-primary-text-text-hover: var(--b-ui-color-primary-D100);
-    --b-ui-button-primary-text-text-active: var(--b-ui-color-primary-D200);
-    --b-ui-button-primary-text-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-primary-text-text: var(--sb-ui-color-primary-base);
+    --sb-ui-button-primary-text-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-text-text-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-button-primary-text-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-    --b-ui-button-primary-text-border: transparent;
-    --b-ui-button-primary-text-border-hover: transparent;
-    --b-ui-button-primary-text-border-active: transparent;
-    --b-ui-button-primary-text-border-disabled: transparent;
+    --sb-ui-button-primary-text-border: transparent;
+    --sb-ui-button-primary-text-border-hover: transparent;
+    --sb-ui-button-primary-text-border-active: transparent;
+    --sb-ui-button-primary-text-border-disabled: transparent;
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        Patrón Seguros Bolívar: texto mantiene color primary
        ======================================== */
-    --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
-    --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400);
-    --b-ui-button-bg-active: var(--b-ui-color-secondary-L300);
-    --b-ui-button-bg-disabled: transparent;
+    --sb-ui-button-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-button-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-button-bg-disabled: transparent;
 
-    --b-ui-button-text-color: var(--b-ui-color-primary-D100);
-    --b-ui-button-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-text-active: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-    --b-ui-button-border-color: var(--b-ui-color-secondary-base);
-    --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-border-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);
+    --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-base);
 
-    --b-ui-button-border-width: 1px;
-    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --sb-ui-button-border-width: 1px;
+    --sb-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
     /* Disabled Hover - Patrón Seguros Bolívar: aparece fondo gris */
-    --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L200); /* #E1E1E1 aparece */
-    --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B mantiene */
-    --b-ui-button-border-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B mantiene */
+    --sb-ui-button-bg-disabled-hover: var(--sb-ui-color-grayscale-L200); /* #E1E1E1 aparece */
+    --sb-ui-button-text-disabled-hover: var(--sb-ui-color-grayscale-base); /* #9B9B9B mantiene */
+    --sb-ui-button-border-disabled-hover: var(--sb-ui-color-grayscale-base); /* #9B9B9B mantiene */
   }
 
   /* ============================================
      SECONDARY - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .b-ui-button--secondary {
+  .sb-ui-button--secondary {
     /* ========================================
        STROKE (default) - Fondo blanco, borde amarillo, texto verde
        Patrón Seguros Bolívar: SECONDARY usa color primary (verde)
        ======================================== */
-    --b-ui-button-secondary-stroke-bg: var(--b-ui-color-grayscale-white);
-    --b-ui-button-secondary-stroke-bg-hover: var(--b-ui-color-secondary-L400);
-    --b-ui-button-secondary-stroke-bg-active: var(--b-ui-color-secondary-L300);
-    --b-ui-button-secondary-stroke-bg-disabled: var(--b-ui-color-grayscale-white);
+    --sb-ui-button-secondary-stroke-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-secondary-stroke-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-button-secondary-stroke-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-button-secondary-stroke-bg-disabled: var(--sb-ui-color-grayscale-white);
 
-    --b-ui-button-secondary-stroke-text: var(--b-ui-color-primary-D100); /* Verde */
-    --b-ui-button-secondary-stroke-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-secondary-stroke-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-secondary-stroke-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-secondary-stroke-text: var(--sb-ui-color-primary-D100); /* Verde */
+    --sb-ui-button-secondary-stroke-text-hover: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-secondary-stroke-text-active: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-secondary-stroke-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-    --b-ui-button-secondary-stroke-border: var(--b-ui-color-secondary-base);
-    --b-ui-button-secondary-stroke-border-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-secondary-stroke-border-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-secondary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
+    --sb-ui-button-secondary-stroke-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-secondary-stroke-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-secondary-stroke-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-secondary-stroke-border-disabled: var(--sb-ui-color-grayscale-base);
 
     /* ========================================
        FILL - Fondo amarillo, texto verde
        ======================================== */
-    --b-ui-button-secondary-fill-bg: var(--b-ui-color-secondary-base);
-    --b-ui-button-secondary-fill-bg-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-secondary-fill-bg-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-secondary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-secondary-fill-bg: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-secondary-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-secondary-fill-bg-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-secondary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-    --b-ui-button-secondary-fill-text: var(--b-ui-color-primary-base);
-    --b-ui-button-secondary-fill-text-hover: var(--b-ui-color-primary-D100);
-    --b-ui-button-secondary-fill-text-active: var(--b-ui-color-primary-D200);
-    --b-ui-button-secondary-fill-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --sb-ui-button-secondary-fill-text: var(--sb-ui-color-primary-base);
+    --sb-ui-button-secondary-fill-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-secondary-fill-text-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-button-secondary-fill-text-disabled: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --b-ui-button-secondary-fill-border: var(--b-ui-color-secondary-base);
-    --b-ui-button-secondary-fill-border-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-secondary-fill-border-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-secondary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-secondary-fill-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-secondary-fill-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-secondary-fill-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-secondary-fill-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto amarillo
        ======================================== */
-    --b-ui-button-secondary-text-bg: transparent;
-    --b-ui-button-secondary-text-bg-hover: transparent;
-    --b-ui-button-secondary-text-bg-active: transparent;
-    --b-ui-button-secondary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-secondary-text-bg: transparent;
+    --sb-ui-button-secondary-text-bg-hover: transparent;
+    --sb-ui-button-secondary-text-bg-active: transparent;
+    --sb-ui-button-secondary-text-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-    --b-ui-button-secondary-text-text: var(--b-ui-color-secondary-base);
-    --b-ui-button-secondary-text-text-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-secondary-text-text-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-secondary-text-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --sb-ui-button-secondary-text-text: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-secondary-text-text-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-secondary-text-text-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-secondary-text-text-disabled: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --b-ui-button-secondary-text-border: transparent;
-    --b-ui-button-secondary-text-border-hover: transparent;
-    --b-ui-button-secondary-text-border-active: transparent;
-    --b-ui-button-secondary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-secondary-text-border: transparent;
+    --sb-ui-button-secondary-text-border-hover: transparent;
+    --sb-ui-button-secondary-text-border-active: transparent;
+    --sb-ui-button-secondary-text-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        Patrón Seguros Bolívar: SECONDARY usa primary-D100 (verde)
        ======================================== */
-    --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
-    --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400);
-    --b-ui-button-bg-active: var(--b-ui-color-secondary-L300);
-    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-white);
+    --sb-ui-button-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-button-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-white);
 
-    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde */
-    --b-ui-button-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
-    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D100); /* Verde */
+    --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-text-active: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-    --b-ui-button-border-color: var(--b-ui-color-secondary-base);
-    --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
-    --b-ui-button-border-active: var(--b-ui-color-secondary-D200);
-    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);
+    --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-base);
 
-    --b-ui-button-border-width: 1px;
-    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --sb-ui-button-border-width: 1px;
+    --sb-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
      TERTIARY - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .b-ui-button--tertiary {
+  .sb-ui-button--tertiary {
     /* ========================================
        STROKE (default) - Fondo blanco, borde tertiary, texto tertiary
        ======================================== */
-    --b-ui-button-tertiary-stroke-bg: var(--b-ui-color-grayscale-white);
-    --b-ui-button-tertiary-stroke-bg-hover: var(--b-ui-color-tertiary-L400);
-    --b-ui-button-tertiary-stroke-bg-active: var(--b-ui-color-tertiary-L300);
-    --b-ui-button-tertiary-stroke-bg-disabled: var(--b-ui-color-grayscale-white);
+    --sb-ui-button-tertiary-stroke-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-tertiary-stroke-bg-hover: var(--sb-ui-color-tertiary-L400);
+    --sb-ui-button-tertiary-stroke-bg-active: var(--sb-ui-color-tertiary-L300);
+    --sb-ui-button-tertiary-stroke-bg-disabled: var(--sb-ui-color-grayscale-white);
 
-    --b-ui-button-tertiary-stroke-text: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-tertiary-stroke-text-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-tertiary-stroke-text-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-tertiary-stroke-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --sb-ui-button-tertiary-stroke-text: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-tertiary-stroke-text-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-tertiary-stroke-text-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-tertiary-stroke-text-disabled: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --b-ui-button-tertiary-stroke-border: var(--b-ui-color-tertiary-base);
-    --b-ui-button-tertiary-stroke-border-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-tertiary-stroke-border-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-tertiary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
+    --sb-ui-button-tertiary-stroke-border: var(--sb-ui-color-tertiary-base);
+    --sb-ui-button-tertiary-stroke-border-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-tertiary-stroke-border-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-tertiary-stroke-border-disabled: var(--sb-ui-color-grayscale-base);
 
     /* ========================================
        FILL - Fondo tertiary, texto blanco
        ======================================== */
-    --b-ui-button-tertiary-fill-bg: var(--b-ui-color-tertiary-base);
-    --b-ui-button-tertiary-fill-bg-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-tertiary-fill-bg-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-tertiary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-tertiary-fill-bg: var(--sb-ui-color-tertiary-base);
+    --sb-ui-button-tertiary-fill-bg-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-tertiary-fill-bg-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-tertiary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-    --b-ui-button-tertiary-fill-text: var(--b-ui-color-grayscale-white, #fff);
-    --b-ui-button-tertiary-fill-text-hover: var(--b-ui-color-grayscale-white, #fff);
-    --b-ui-button-tertiary-fill-text-active: var(--b-ui-color-grayscale-white, #fff);
-    --b-ui-button-tertiary-fill-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --sb-ui-button-tertiary-fill-text: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-button-tertiary-fill-text-hover: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-button-tertiary-fill-text-active: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-button-tertiary-fill-text-disabled: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --b-ui-button-tertiary-fill-border: var(--b-ui-color-tertiary-base);
-    --b-ui-button-tertiary-fill-border-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-tertiary-fill-border-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-tertiary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-tertiary-fill-border: var(--sb-ui-color-tertiary-base);
+    --sb-ui-button-tertiary-fill-border-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-tertiary-fill-border-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-tertiary-fill-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto tertiary
        ======================================== */
-    --b-ui-button-tertiary-text-bg: transparent;
-    --b-ui-button-tertiary-text-bg-hover: transparent;
-    --b-ui-button-tertiary-text-bg-active: transparent;
-    --b-ui-button-tertiary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-tertiary-text-bg: transparent;
+    --sb-ui-button-tertiary-text-bg-hover: transparent;
+    --sb-ui-button-tertiary-text-bg-active: transparent;
+    --sb-ui-button-tertiary-text-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-    --b-ui-button-tertiary-text-text: var(--b-ui-color-tertiary-base);
-    --b-ui-button-tertiary-text-text-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-tertiary-text-text-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-tertiary-text-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --sb-ui-button-tertiary-text-text: var(--sb-ui-color-tertiary-base);
+    --sb-ui-button-tertiary-text-text-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-tertiary-text-text-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-tertiary-text-text-disabled: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --b-ui-button-tertiary-text-border: transparent;
-    --b-ui-button-tertiary-text-border-hover: transparent;
-    --b-ui-button-tertiary-text-border-active: transparent;
-    --b-ui-button-tertiary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-button-tertiary-text-border: transparent;
+    --sb-ui-button-tertiary-text-border-hover: transparent;
+    --sb-ui-button-tertiary-text-border-active: transparent;
+    --sb-ui-button-tertiary-text-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        ======================================== */
-    --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
-    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
-    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
-    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-white);
+    --sb-ui-button-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-tertiary-L400);
+    --sb-ui-button-bg-active: var(--sb-ui-color-tertiary-L300);
+    --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-white);
 
-    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-text-color: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-text-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-text-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-    --b-ui-button-border-color: var(--b-ui-color-tertiary-base);
-    --b-ui-button-border-hover: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-border-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);
+    --sb-ui-button-border-color: var(--sb-ui-color-tertiary-base);
+    --sb-ui-button-border-hover: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-border-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-base);
 
-    --b-ui-button-border-width: 1px;
-    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --sb-ui-button-border-width: 1px;
+    --sb-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
      ERROR - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .b-ui-button--error {
+  .sb-ui-button--error {
     /* ========================================
        STROKE (default) - Fondo transparente, borde rojo, texto rojo
        ======================================== */
-    --b-ui-button-error-stroke-bg: transparent;
-    --b-ui-button-error-stroke-bg-hover: transparent;
-    --b-ui-button-error-stroke-bg-active: transparent;
-    --b-ui-button-error-stroke-bg-disabled: transparent;
-    --b-ui-button-error-stroke-bg-disabled-hover: var(--b-ui-color-feedback-error-L400, #fbebec);
+    --sb-ui-button-error-stroke-bg: transparent;
+    --sb-ui-button-error-stroke-bg-hover: transparent;
+    --sb-ui-button-error-stroke-bg-active: transparent;
+    --sb-ui-button-error-stroke-bg-disabled: transparent;
+    --sb-ui-button-error-stroke-bg-disabled-hover: var(--sb-ui-color-feedback-error-L400, #fbebec);
 
-    --b-ui-button-error-stroke-text: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-stroke-text-hover: var(--b-ui-color-feedback-error-D100, #c93241);
-    --b-ui-button-error-stroke-text-active: var(--b-ui-color-feedback-error-D200, #b5303d);
-    --b-ui-button-error-stroke-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
-    --b-ui-button-error-stroke-text-disabled-hover: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-stroke-text: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-stroke-text-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
+    --sb-ui-button-error-stroke-text-active: var(--sb-ui-color-feedback-error-D200, #b5303d);
+    --sb-ui-button-error-stroke-text-disabled: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-stroke-text-disabled-hover: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
 
-    --b-ui-button-error-stroke-border: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-stroke-border-hover: var(--b-ui-color-feedback-error-D100, #c93241);
-    --b-ui-button-error-stroke-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-stroke-border-disabled: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-stroke-border-disabled-hover: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-stroke-border: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-stroke-border-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
+    --sb-ui-button-error-stroke-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-stroke-border-disabled: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-stroke-border-disabled-hover: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
 
     /* ========================================
        FILL - Fondo rojo, texto blanco
        ======================================== */
-    --b-ui-button-error-fill-bg: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-fill-bg-hover: var(--b-ui-color-feedback-error-D100, #c93241);
-    --b-ui-button-error-fill-bg-active: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-fill-bg-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
-    --b-ui-button-error-fill-bg-disabled-hover: var(--b-ui-color-feedback-error-L300, #f5c2c7);
+    --sb-ui-button-error-fill-bg: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-fill-bg-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
+    --sb-ui-button-error-fill-bg-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-fill-bg-disabled: var(--sb-ui-color-feedback-error-L400, #fbebec);
+    --sb-ui-button-error-fill-bg-disabled-hover: var(--sb-ui-color-feedback-error-L300, #f5c2c7);
 
-    --b-ui-button-error-fill-text: var(--b-ui-color-grayscale-white, #ffffff);
-    --b-ui-button-error-fill-text-hover: var(--b-ui-color-grayscale-white, #ffffff);
-    --b-ui-button-error-fill-text-active: var(--b-ui-color-grayscale-white, #ffffff);
-    --b-ui-button-error-fill-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
-    --b-ui-button-error-fill-text-disabled-hover: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-fill-text: var(--sb-ui-color-grayscale-white, #ffffff);
+    --sb-ui-button-error-fill-text-hover: var(--sb-ui-color-grayscale-white, #ffffff);
+    --sb-ui-button-error-fill-text-active: var(--sb-ui-color-grayscale-white, #ffffff);
+    --sb-ui-button-error-fill-text-disabled: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-fill-text-disabled-hover: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
 
-    --b-ui-button-error-fill-border: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-fill-border-hover: var(--b-ui-color-feedback-error-D100, #c93241);
-    --b-ui-button-error-fill-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-fill-border-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
-    --b-ui-button-error-fill-border-disabled-hover: var(--b-ui-color-feedback-error-L300, #f5c2c7);
+    --sb-ui-button-error-fill-border: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-fill-border-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
+    --sb-ui-button-error-fill-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-fill-border-disabled: var(--sb-ui-color-feedback-error-L400, #fbebec);
+    --sb-ui-button-error-fill-border-disabled-hover: var(--sb-ui-color-feedback-error-L300, #f5c2c7);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto rojo con underline
        ======================================== */
-    --b-ui-button-error-text-bg: transparent;
-    --b-ui-button-error-text-bg-hover: transparent;
-    --b-ui-button-error-text-bg-active: transparent;
-    --b-ui-button-error-text-bg-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
+    --sb-ui-button-error-text-bg: transparent;
+    --sb-ui-button-error-text-bg-hover: transparent;
+    --sb-ui-button-error-text-bg-active: transparent;
+    --sb-ui-button-error-text-bg-disabled: var(--sb-ui-color-feedback-error-L400, #fbebec);
 
-    --b-ui-button-error-text-text: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-text-text-hover: var(--b-ui-color-feedback-error-D100, #c93241);
-    --b-ui-button-error-text-text-active: var(--b-ui-color-feedback-error-D200, #b5303d);
-    --b-ui-button-error-text-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-text-text: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-text-text-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
+    --sb-ui-button-error-text-text-active: var(--sb-ui-color-feedback-error-D200, #b5303d);
+    --sb-ui-button-error-text-text-disabled: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
 
-    --b-ui-button-error-text-border: transparent;
-    --b-ui-button-error-text-border-hover: transparent;
-    --b-ui-button-error-text-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
-    --b-ui-button-error-text-border-disabled: transparent;
+    --sb-ui-button-error-text-border: transparent;
+    --sb-ui-button-error-text-border-hover: transparent;
+    --sb-ui-button-error-text-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-button-error-text-border-disabled: transparent;
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        ======================================== */
-    --b-ui-button-bg-color: var(--b-ui-button-error-stroke-bg);
-    --b-ui-button-bg-hover: var(--b-ui-button-error-stroke-bg-hover);
-    --b-ui-button-bg-active: var(--b-ui-button-error-stroke-bg-active);
-    --b-ui-button-bg-disabled: var(--b-ui-button-error-stroke-bg-disabled);
-    --b-ui-button-bg-disabled-hover: var(--b-ui-button-error-stroke-bg-disabled-hover);
+    --sb-ui-button-bg-color: var(--sb-ui-button-error-stroke-bg);
+    --sb-ui-button-bg-hover: var(--sb-ui-button-error-stroke-bg-hover);
+    --sb-ui-button-bg-active: var(--sb-ui-button-error-stroke-bg-active);
+    --sb-ui-button-bg-disabled: var(--sb-ui-button-error-stroke-bg-disabled);
+    --sb-ui-button-bg-disabled-hover: var(--sb-ui-button-error-stroke-bg-disabled-hover);
 
-    --b-ui-button-text-color: var(--b-ui-button-error-stroke-text);
-    --b-ui-button-text-hover: var(--b-ui-button-error-stroke-text-hover);
-    --b-ui-button-text-active: var(--b-ui-button-error-stroke-text-active);
-    --b-ui-button-text-disabled: var(--b-ui-button-error-stroke-text-disabled);
-    --b-ui-button-text-disabled-hover: var(--b-ui-button-error-stroke-text-disabled-hover);
+    --sb-ui-button-text-color: var(--sb-ui-button-error-stroke-text);
+    --sb-ui-button-text-hover: var(--sb-ui-button-error-stroke-text-hover);
+    --sb-ui-button-text-active: var(--sb-ui-button-error-stroke-text-active);
+    --sb-ui-button-text-disabled: var(--sb-ui-button-error-stroke-text-disabled);
+    --sb-ui-button-text-disabled-hover: var(--sb-ui-button-error-stroke-text-disabled-hover);
 
-    --b-ui-button-border-color: var(--b-ui-button-error-stroke-border);
-    --b-ui-button-border-hover: var(--b-ui-button-error-stroke-border-hover);
-    --b-ui-button-border-active: var(--b-ui-button-error-stroke-border-active);
-    --b-ui-button-border-disabled: var(--b-ui-button-error-stroke-border-disabled);
-    --b-ui-button-border-disabled-hover: var(--b-ui-button-error-stroke-border-disabled-hover);
+    --sb-ui-button-border-color: var(--sb-ui-button-error-stroke-border);
+    --sb-ui-button-border-hover: var(--sb-ui-button-error-stroke-border-hover);
+    --sb-ui-button-border-active: var(--sb-ui-button-error-stroke-border-active);
+    --sb-ui-button-border-disabled: var(--sb-ui-button-error-stroke-border-disabled);
+    --sb-ui-button-border-disabled-hover: var(--sb-ui-button-error-stroke-border-disabled-hover);
 
-    --b-ui-button-border-width: 1px;
-    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --sb-ui-button-border-width: 1px;
+    --sb-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
     /* Focus outline - ERROR usa color error-L100 en lugar de secondary-L100 */
-    &:focus-visible:not(:disabled):not(.b-ui-button--disabled) {
-      outline: 2px solid var(--b-ui-color-feedback-error-L100, #e7727d);
+    &:focus-visible:not(:disabled):not(.sb-ui-button--disabled) {
+      outline: 2px solid var(--sb-ui-color-feedback-error-L100, #e7727d);
       outline-offset: 2px;
     }
   }
@@ -685,170 +685,170 @@
      STROKE - Outline con borde (DEFAULT)
      Se puede usar explícitamente o es el default
      ============================================ */
-  .b-ui-button--stroke {
+  .sb-ui-button--stroke {
     /* Ya es el default, esta clase es opcional para claridad */
-    --b-ui-button-bg-color: transparent;
+    --sb-ui-button-bg-color: transparent;
   }
 
   /* ============================================
      FILL - Sólido con fondo de color
      ============================================ */
-  .b-ui-button--fill {
+  .sb-ui-button--fill {
     /* PRIMARY FILL - fondo secondary (amarillo), texto primary-D100 (verde) */
-    &.b-ui-button--primary {
+    &.sb-ui-button--primary {
       /* Define las variables específicas FILL (documentación) */
-      --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
-      --b-ui-button-primary-fill-bg-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-primary-fill-bg-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-primary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-primary-fill-bg: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-primary-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-primary-fill-bg-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-primary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
-      --b-ui-button-primary-fill-text-hover: var(--b-ui-color-primary-D100);
-      --b-ui-button-primary-fill-text-active: var(--b-ui-color-primary-D100);
-      --b-ui-button-primary-fill-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+      --sb-ui-button-primary-fill-text: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-primary-fill-text-hover: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-primary-fill-text-active: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-primary-fill-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-      --b-ui-button-primary-fill-border: var(--b-ui-color-secondary-base);
-      --b-ui-button-primary-fill-border-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-primary-fill-border-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-primary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-primary-fill-border: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-primary-fill-border-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-primary-fill-border-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-primary-fill-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables FILL - VALORES DIRECTOS (no referencias) */
-      --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
-      --b-ui-button-bg-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-bg-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-bg-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-text-color: var(--b-ui-color-primary-D100);
-      --b-ui-button-text-hover: var(--b-ui-color-primary-D100);
-      --b-ui-button-text-active: var(--b-ui-color-primary-D100);
-      --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+      --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-text-active: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
-      --b-ui-button-border-color: var(--b-ui-color-secondary-base);
-      --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-border-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --b-ui-button-shadow-active: none;
+      --sb-ui-button-shadow-hover: var(--sb-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --sb-ui-button-shadow-active: none;
 
       /* Disabled hover - Patrón Seguros Bolívar: texto se aclara */
-      --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* #F5F5F5 mantiene */
-      --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-L100); /* #B9B9B9 más claro */
-      --b-ui-button-border-disabled-hover: var(--b-ui-color-grayscale-L300);
+      --sb-ui-button-bg-disabled-hover: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 mantiene */
+      --sb-ui-button-text-disabled-hover: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 más claro */
+      --sb-ui-button-border-disabled-hover: var(--sb-ui-color-grayscale-L300);
     }
 
     /* SECONDARY FILL */
-    &.b-ui-button--secondary {
+    &.sb-ui-button--secondary {
       /* Define las variables específicas FILL */
-      --b-ui-button-secondary-fill-bg: var(--b-ui-color-secondary-base);
-      --b-ui-button-secondary-fill-bg-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-secondary-fill-bg-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-secondary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-secondary-fill-bg: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-secondary-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-secondary-fill-bg-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-secondary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-secondary-fill-text: var(--b-ui-color-primary-base);
-      --b-ui-button-secondary-fill-text-hover: var(--b-ui-color-primary-D100);
-      --b-ui-button-secondary-fill-text-active: var(--b-ui-color-primary-D200);
-      --b-ui-button-secondary-fill-text-disabled: var(--b-ui-color-grayscale-L100);
+      --sb-ui-button-secondary-fill-text: var(--sb-ui-color-primary-base);
+      --sb-ui-button-secondary-fill-text-hover: var(--sb-ui-color-primary-D100);
+      --sb-ui-button-secondary-fill-text-active: var(--sb-ui-color-primary-D200);
+      --sb-ui-button-secondary-fill-text-disabled: var(--sb-ui-color-grayscale-L100);
 
-      --b-ui-button-secondary-fill-border: var(--b-ui-color-secondary-base);
-      --b-ui-button-secondary-fill-border-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-secondary-fill-border-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-secondary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-secondary-fill-border: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-secondary-fill-border-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-secondary-fill-border-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-secondary-fill-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables FILL */
-      --b-ui-button-bg-color: var(--b-ui-button-secondary-fill-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-secondary-fill-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-secondary-fill-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-secondary-fill-bg-disabled);
+      --sb-ui-button-bg-color: var(--sb-ui-button-secondary-fill-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-secondary-fill-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-secondary-fill-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-secondary-fill-bg-disabled);
 
-      --b-ui-button-text-color: var(--b-ui-button-secondary-fill-text);
-      --b-ui-button-text-hover: var(--b-ui-button-secondary-fill-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-secondary-fill-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-secondary-fill-text-disabled);
+      --sb-ui-button-text-color: var(--sb-ui-button-secondary-fill-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-secondary-fill-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-secondary-fill-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-secondary-fill-text-disabled);
 
-      --b-ui-button-border-color: var(--b-ui-button-secondary-fill-border);
-      --b-ui-button-border-hover: var(--b-ui-button-secondary-fill-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-secondary-fill-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-secondary-fill-border-disabled);
+      --sb-ui-button-border-color: var(--sb-ui-button-secondary-fill-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-secondary-fill-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-secondary-fill-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-secondary-fill-border-disabled);
 
-      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --b-ui-button-shadow-active: none;
+      --sb-ui-button-shadow-hover: var(--sb-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --sb-ui-button-shadow-active: none;
     }
 
     /* TERTIARY FILL */
-    &.b-ui-button--tertiary {
+    &.sb-ui-button--tertiary {
       /* Define las variables específicas FILL */
-      --b-ui-button-tertiary-fill-bg: var(--b-ui-color-tertiary-base);
-      --b-ui-button-tertiary-fill-bg-hover: var(--b-ui-color-tertiary-D100);
-      --b-ui-button-tertiary-fill-bg-active: var(--b-ui-color-tertiary-D200);
-      --b-ui-button-tertiary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-tertiary-fill-bg: var(--sb-ui-color-tertiary-base);
+      --sb-ui-button-tertiary-fill-bg-hover: var(--sb-ui-color-tertiary-D100);
+      --sb-ui-button-tertiary-fill-bg-active: var(--sb-ui-color-tertiary-D200);
+      --sb-ui-button-tertiary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-tertiary-fill-text: var(--b-ui-color-grayscale-white, #fff);
-      --b-ui-button-tertiary-fill-text-hover: var(--b-ui-color-grayscale-white, #fff);
-      --b-ui-button-tertiary-fill-text-active: var(--b-ui-color-grayscale-white, #fff);
-      --b-ui-button-tertiary-fill-text-disabled: var(--b-ui-color-grayscale-L100);
+      --sb-ui-button-tertiary-fill-text: var(--sb-ui-color-grayscale-white, #fff);
+      --sb-ui-button-tertiary-fill-text-hover: var(--sb-ui-color-grayscale-white, #fff);
+      --sb-ui-button-tertiary-fill-text-active: var(--sb-ui-color-grayscale-white, #fff);
+      --sb-ui-button-tertiary-fill-text-disabled: var(--sb-ui-color-grayscale-L100);
 
-      --b-ui-button-tertiary-fill-border: var(--b-ui-color-tertiary-base);
-      --b-ui-button-tertiary-fill-border-hover: var(--b-ui-color-tertiary-D100);
-      --b-ui-button-tertiary-fill-border-active: var(--b-ui-color-tertiary-D200);
-      --b-ui-button-tertiary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-tertiary-fill-border: var(--sb-ui-color-tertiary-base);
+      --sb-ui-button-tertiary-fill-border-hover: var(--sb-ui-color-tertiary-D100);
+      --sb-ui-button-tertiary-fill-border-active: var(--sb-ui-color-tertiary-D200);
+      --sb-ui-button-tertiary-fill-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables FILL */
-      --b-ui-button-bg-color: var(--b-ui-button-tertiary-fill-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-tertiary-fill-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-tertiary-fill-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-tertiary-fill-bg-disabled);
+      --sb-ui-button-bg-color: var(--sb-ui-button-tertiary-fill-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-tertiary-fill-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-tertiary-fill-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-tertiary-fill-bg-disabled);
 
-      --b-ui-button-text-color: var(--b-ui-button-tertiary-fill-text);
-      --b-ui-button-text-hover: var(--b-ui-button-tertiary-fill-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-tertiary-fill-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-tertiary-fill-text-disabled);
+      --sb-ui-button-text-color: var(--sb-ui-button-tertiary-fill-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-tertiary-fill-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-tertiary-fill-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-tertiary-fill-text-disabled);
 
-      --b-ui-button-border-color: var(--b-ui-button-tertiary-fill-border);
-      --b-ui-button-border-hover: var(--b-ui-button-tertiary-fill-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-tertiary-fill-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-tertiary-fill-border-disabled);
+      --sb-ui-button-border-color: var(--sb-ui-button-tertiary-fill-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-tertiary-fill-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-tertiary-fill-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-tertiary-fill-border-disabled);
 
-      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --b-ui-button-shadow-active: none;
+      --sb-ui-button-shadow-hover: var(--sb-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --sb-ui-button-shadow-active: none;
     }
 
     /* ERROR FILL */
-    &.b-ui-button--error {
+    &.sb-ui-button--error {
       /* Aplicar las variables FILL (ya definidas arriba en type-variants) */
-      --b-ui-button-bg-color: var(--b-ui-button-error-fill-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-error-fill-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-error-fill-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-error-fill-bg-disabled);
-      --b-ui-button-bg-disabled-hover: var(--b-ui-button-error-fill-bg-disabled-hover);
+      --sb-ui-button-bg-color: var(--sb-ui-button-error-fill-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-error-fill-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-error-fill-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-error-fill-bg-disabled);
+      --sb-ui-button-bg-disabled-hover: var(--sb-ui-button-error-fill-bg-disabled-hover);
 
-      --b-ui-button-text-color: var(--b-ui-button-error-fill-text);
-      --b-ui-button-text-hover: var(--b-ui-button-error-fill-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-error-fill-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-error-fill-text-disabled);
-      --b-ui-button-text-disabled-hover: var(--b-ui-button-error-fill-text-disabled-hover);
+      --sb-ui-button-text-color: var(--sb-ui-button-error-fill-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-error-fill-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-error-fill-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-error-fill-text-disabled);
+      --sb-ui-button-text-disabled-hover: var(--sb-ui-button-error-fill-text-disabled-hover);
 
-      --b-ui-button-border-color: var(--b-ui-button-error-fill-border);
-      --b-ui-button-border-hover: var(--b-ui-button-error-fill-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-error-fill-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-error-fill-border-disabled);
-      --b-ui-button-border-disabled-hover: var(--b-ui-button-error-fill-border-disabled-hover);
+      --sb-ui-button-border-color: var(--sb-ui-button-error-fill-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-error-fill-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-error-fill-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-error-fill-border-disabled);
+      --sb-ui-button-border-disabled-hover: var(--sb-ui-button-error-fill-border-disabled-hover);
 
-      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --b-ui-button-shadow-active: none;
+      --sb-ui-button-shadow-hover: var(--sb-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --sb-ui-button-shadow-active: none;
     }
   }
 
   /* ============================================
      TEXT - Sin fondo ni borde
      ============================================ */
-  .b-ui-button--text {
+  .sb-ui-button--text {
     /* Estilos base para TEXT (transparente) */
-    --b-ui-button-border-width: 0;
-    --b-ui-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
-    --b-ui-button-shadow: none;
-    --b-ui-button-shadow-hover: none;
-    --b-ui-button-shadow-active: none;
+    --sb-ui-button-border-width: 0;
+    --sb-ui-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
+    --sb-ui-button-shadow: none;
+    --sb-ui-button-shadow-hover: none;
+    --sb-ui-button-shadow-active: none;
 
     /* Underline SIEMPRE visible en TEXT buttons */
     text-decoration: underline;
@@ -874,180 +874,180 @@
 
     /* En disabled, mantener underline con color gris #9B9B9B */
     &:disabled,
-    &.b-ui-button--disabled {
+    &.sb-ui-button--disabled {
       text-decoration: underline;
-      text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+      text-decoration-color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
     }
 
     /* PRIMARY TEXT - Patrón Seguros Bolívar */
-    &.b-ui-button--primary {
+    &.sb-ui-button--primary {
       /* Define las variables específicas TEXT */
-      --b-ui-button-primary-text-bg: transparent;
-      --b-ui-button-primary-text-bg-hover: var(--b-ui-color-secondary-L400); /* #FFFCF0 aparece */
-      --b-ui-button-primary-text-bg-active: var(--b-ui-color-secondary-L300); /* #FFF6D4 aparece */
-      --b-ui-button-primary-text-bg-disabled: transparent;
+      --sb-ui-button-primary-text-bg: transparent;
+      --sb-ui-button-primary-text-bg-hover: var(--sb-ui-color-secondary-L400); /* #FFFCF0 aparece */
+      --sb-ui-button-primary-text-bg-active: var(--sb-ui-color-secondary-L300); /* #FFF6D4 aparece */
+      --sb-ui-button-primary-text-bg-disabled: transparent;
 
-      --b-ui-button-primary-text-text: var(--b-ui-color-primary-D100); /* Verde */
-      --b-ui-button-primary-text-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
-      --b-ui-button-primary-text-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
-      --b-ui-button-primary-text-text-disabled: var(--b-ui-color-grayscale-base);
+      --sb-ui-button-primary-text-text: var(--sb-ui-color-primary-D100); /* Verde */
+      --sb-ui-button-primary-text-text-hover: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+      --sb-ui-button-primary-text-text-active: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+      --sb-ui-button-primary-text-text-disabled: var(--sb-ui-color-grayscale-base);
 
-      --b-ui-button-primary-text-border: transparent;
-      --b-ui-button-primary-text-border-hover: transparent;
-      --b-ui-button-primary-text-border-active: transparent;
-      --b-ui-button-primary-text-border-disabled: transparent;
+      --sb-ui-button-primary-text-border: transparent;
+      --sb-ui-button-primary-text-border-hover: transparent;
+      --sb-ui-button-primary-text-border-active: transparent;
+      --sb-ui-button-primary-text-border-disabled: transparent;
 
       /* Aplicar las variables TEXT */
-      --b-ui-button-bg-color: var(--b-ui-button-primary-text-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-primary-text-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-primary-text-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-primary-text-bg-disabled);
+      --sb-ui-button-bg-color: var(--sb-ui-button-primary-text-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-primary-text-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-primary-text-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-primary-text-bg-disabled);
 
-      --b-ui-button-text-color: var(--b-ui-button-primary-text-text);
-      --b-ui-button-text-hover: var(--b-ui-button-primary-text-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-primary-text-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-primary-text-text-disabled);
+      --sb-ui-button-text-color: var(--sb-ui-button-primary-text-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-primary-text-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-primary-text-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-primary-text-text-disabled);
 
-      --b-ui-button-border-color: var(--b-ui-button-primary-text-border);
-      --b-ui-button-border-hover: var(--b-ui-button-primary-text-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-primary-text-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-primary-text-border-disabled);
+      --sb-ui-button-border-color: var(--sb-ui-button-primary-text-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-primary-text-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-primary-text-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-primary-text-border-disabled);
 
       /* Sombra inset en pressed (patrón Seguros Bolívar) */
-      --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+      --sb-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
       /* Disabled hover: aparece fondo gris */
-      --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* #F5F5F5 aparece */
-      --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B mantiene */
+      --sb-ui-button-bg-disabled-hover: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 aparece */
+      --sb-ui-button-text-disabled-hover: var(--sb-ui-color-grayscale-base); /* #9B9B9B mantiene */
 
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
-      &.b-ui-button--disabled {
-        text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+      &.sb-ui-button--disabled {
+        text-decoration-color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
       }
     }
 
     /* SECONDARY TEXT */
-    &.b-ui-button--secondary {
+    &.sb-ui-button--secondary {
       /* Define las variables específicas TEXT */
-      --b-ui-button-secondary-text-bg: transparent;
-      --b-ui-button-secondary-text-bg-hover: transparent;
-      --b-ui-button-secondary-text-bg-active: transparent;
-      --b-ui-button-secondary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-secondary-text-bg: transparent;
+      --sb-ui-button-secondary-text-bg-hover: transparent;
+      --sb-ui-button-secondary-text-bg-active: transparent;
+      --sb-ui-button-secondary-text-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-secondary-text-text: var(--b-ui-color-secondary-base);
-      --b-ui-button-secondary-text-text-hover: var(--b-ui-color-secondary-D100);
-      --b-ui-button-secondary-text-text-active: var(--b-ui-color-secondary-D200);
-      --b-ui-button-secondary-text-text-disabled: var(--b-ui-color-grayscale-base);
+      --sb-ui-button-secondary-text-text: var(--sb-ui-color-secondary-base);
+      --sb-ui-button-secondary-text-text-hover: var(--sb-ui-color-secondary-D100);
+      --sb-ui-button-secondary-text-text-active: var(--sb-ui-color-secondary-D200);
+      --sb-ui-button-secondary-text-text-disabled: var(--sb-ui-color-grayscale-base);
 
-      --b-ui-button-secondary-text-border: transparent;
-      --b-ui-button-secondary-text-border-hover: transparent;
-      --b-ui-button-secondary-text-border-active: transparent;
-      --b-ui-button-secondary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-secondary-text-border: transparent;
+      --sb-ui-button-secondary-text-border-hover: transparent;
+      --sb-ui-button-secondary-text-border-active: transparent;
+      --sb-ui-button-secondary-text-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables TEXT */
-      --b-ui-button-bg-color: var(--b-ui-button-secondary-text-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-secondary-text-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-secondary-text-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-secondary-text-bg-disabled);
+      --sb-ui-button-bg-color: var(--sb-ui-button-secondary-text-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-secondary-text-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-secondary-text-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-secondary-text-bg-disabled);
 
-      --b-ui-button-text-color: var(--b-ui-button-secondary-text-text);
-      --b-ui-button-text-hover: var(--b-ui-button-secondary-text-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-secondary-text-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-secondary-text-text-disabled);
+      --sb-ui-button-text-color: var(--sb-ui-button-secondary-text-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-secondary-text-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-secondary-text-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-secondary-text-text-disabled);
 
-      --b-ui-button-border-color: var(--b-ui-button-secondary-text-border);
-      --b-ui-button-border-hover: var(--b-ui-button-secondary-text-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-secondary-text-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-secondary-text-border-disabled);
+      --sb-ui-button-border-color: var(--sb-ui-button-secondary-text-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-secondary-text-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-secondary-text-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-secondary-text-border-disabled);
 
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
-      &.b-ui-button--disabled {
-        text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+      &.sb-ui-button--disabled {
+        text-decoration-color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
       }
     }
 
     /* TERTIARY TEXT */
-    &.b-ui-button--tertiary {
+    &.sb-ui-button--tertiary {
       /* Define las variables específicas TEXT */
-      --b-ui-button-tertiary-text-bg: transparent;
-      --b-ui-button-tertiary-text-bg-hover: transparent;
-      --b-ui-button-tertiary-text-bg-active: transparent;
-      --b-ui-button-tertiary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-tertiary-text-bg: transparent;
+      --sb-ui-button-tertiary-text-bg-hover: transparent;
+      --sb-ui-button-tertiary-text-bg-active: transparent;
+      --sb-ui-button-tertiary-text-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-      --b-ui-button-tertiary-text-text: var(--b-ui-color-tertiary-base);
-      --b-ui-button-tertiary-text-text-hover: var(--b-ui-color-tertiary-D100);
-      --b-ui-button-tertiary-text-text-active: var(--b-ui-color-tertiary-D200);
-      --b-ui-button-tertiary-text-text-disabled: var(--b-ui-color-grayscale-base);
+      --sb-ui-button-tertiary-text-text: var(--sb-ui-color-tertiary-base);
+      --sb-ui-button-tertiary-text-text-hover: var(--sb-ui-color-tertiary-D100);
+      --sb-ui-button-tertiary-text-text-active: var(--sb-ui-color-tertiary-D200);
+      --sb-ui-button-tertiary-text-text-disabled: var(--sb-ui-color-grayscale-base);
 
-      --b-ui-button-tertiary-text-border: transparent;
-      --b-ui-button-tertiary-text-border-hover: transparent;
-      --b-ui-button-tertiary-text-border-active: transparent;
-      --b-ui-button-tertiary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+      --sb-ui-button-tertiary-text-border: transparent;
+      --sb-ui-button-tertiary-text-border-hover: transparent;
+      --sb-ui-button-tertiary-text-border-active: transparent;
+      --sb-ui-button-tertiary-text-border-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables TEXT */
-      --b-ui-button-bg-color: var(--b-ui-button-tertiary-text-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-tertiary-text-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-tertiary-text-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-tertiary-text-bg-disabled);
+      --sb-ui-button-bg-color: var(--sb-ui-button-tertiary-text-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-tertiary-text-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-tertiary-text-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-tertiary-text-bg-disabled);
 
-      --b-ui-button-text-color: var(--b-ui-button-tertiary-text-text);
-      --b-ui-button-text-hover: var(--b-ui-button-tertiary-text-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-tertiary-text-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-tertiary-text-text-disabled);
+      --sb-ui-button-text-color: var(--sb-ui-button-tertiary-text-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-tertiary-text-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-tertiary-text-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-tertiary-text-text-disabled);
 
-      --b-ui-button-border-color: var(--b-ui-button-tertiary-text-border);
-      --b-ui-button-border-hover: var(--b-ui-button-tertiary-text-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-tertiary-text-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-tertiary-text-border-disabled);
+      --sb-ui-button-border-color: var(--sb-ui-button-tertiary-text-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-tertiary-text-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-tertiary-text-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-tertiary-text-border-disabled);
 
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
-      &.b-ui-button--disabled {
-        text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
+      &.sb-ui-button--disabled {
+        text-decoration-color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
       }
     }
 
     /* ERROR TEXT */
-    &.b-ui-button--error {
+    &.sb-ui-button--error {
       /* Define las variables específicas TEXT */
-      --b-ui-button-error-text-bg: transparent;
-      --b-ui-button-error-text-bg-hover: transparent;
-      --b-ui-button-error-text-bg-active: transparent;
-      --b-ui-button-error-text-bg-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
+      --sb-ui-button-error-text-bg: transparent;
+      --sb-ui-button-error-text-bg-hover: transparent;
+      --sb-ui-button-error-text-bg-active: transparent;
+      --sb-ui-button-error-text-bg-disabled: var(--sb-ui-color-feedback-error-L400, #fbebec);
 
-      --b-ui-button-error-text-text: var(--b-ui-color-feedback-error-base, #dc3545);
-      --b-ui-button-error-text-text-hover: var(--b-ui-color-feedback-error-D100, #c93241);
-      --b-ui-button-error-text-text-active: var(--b-ui-color-feedback-error-D200, #b5303d);
-      --b-ui-button-error-text-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+      --sb-ui-button-error-text-text: var(--sb-ui-color-feedback-error-base, #dc3545);
+      --sb-ui-button-error-text-text-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
+      --sb-ui-button-error-text-text-active: var(--sb-ui-color-feedback-error-D200, #b5303d);
+      --sb-ui-button-error-text-text-disabled: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
 
-      --b-ui-button-error-text-border: transparent;
-      --b-ui-button-error-text-border-hover: transparent;
-      --b-ui-button-error-text-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
-      --b-ui-button-error-text-border-disabled: transparent;
+      --sb-ui-button-error-text-border: transparent;
+      --sb-ui-button-error-text-border-hover: transparent;
+      --sb-ui-button-error-text-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+      --sb-ui-button-error-text-border-disabled: transparent;
 
       /* Aplicar las variables TEXT */
-      --b-ui-button-bg-color: var(--b-ui-button-error-text-bg);
-      --b-ui-button-bg-hover: var(--b-ui-button-error-text-bg-hover);
-      --b-ui-button-bg-active: var(--b-ui-button-error-text-bg-active);
-      --b-ui-button-bg-disabled: var(--b-ui-button-error-text-bg-disabled);
+      --sb-ui-button-bg-color: var(--sb-ui-button-error-text-bg);
+      --sb-ui-button-bg-hover: var(--sb-ui-button-error-text-bg-hover);
+      --sb-ui-button-bg-active: var(--sb-ui-button-error-text-bg-active);
+      --sb-ui-button-bg-disabled: var(--sb-ui-button-error-text-bg-disabled);
 
-      --b-ui-button-text-color: var(--b-ui-button-error-text-text);
-      --b-ui-button-text-hover: var(--b-ui-button-error-text-text-hover);
-      --b-ui-button-text-active: var(--b-ui-button-error-text-text-active);
-      --b-ui-button-text-disabled: var(--b-ui-button-error-text-text-disabled);
+      --sb-ui-button-text-color: var(--sb-ui-button-error-text-text);
+      --sb-ui-button-text-hover: var(--sb-ui-button-error-text-text-hover);
+      --sb-ui-button-text-active: var(--sb-ui-button-error-text-text-active);
+      --sb-ui-button-text-disabled: var(--sb-ui-button-error-text-text-disabled);
 
-      --b-ui-button-border-color: var(--b-ui-button-error-text-border);
-      --b-ui-button-border-hover: var(--b-ui-button-error-text-border-hover);
-      --b-ui-button-border-active: var(--b-ui-button-error-text-border-active);
-      --b-ui-button-border-disabled: var(--b-ui-button-error-text-border-disabled);
+      --sb-ui-button-border-color: var(--sb-ui-button-error-text-border);
+      --sb-ui-button-border-hover: var(--sb-ui-button-error-text-border-hover);
+      --sb-ui-button-border-active: var(--sb-ui-button-error-text-border-active);
+      --sb-ui-button-border-disabled: var(--sb-ui-button-error-text-border-disabled);
 
       /* Border width para pressed/active (1px) */
-      --b-ui-button-border-width: 1px;
+      --sb-ui-button-border-width: 1px;
 
       /* Box-shadow pressed para TEXT variant */
-      --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+      --sb-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
       /* Underline siempre visible, color coincide con el texto */
       text-decoration: underline;
@@ -1055,8 +1055,8 @@
 
       /* Text decoration color en disabled - debe coincidir con el color del texto disabled */
       &:disabled,
-      &.b-ui-button--disabled {
-        text-decoration-color: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+      &.sb-ui-button--disabled {
+        text-decoration-color: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
       }
     }
   }
@@ -1067,26 +1067,26 @@
    ======================================== */
 
 @layer sizes {
-  .b-ui-button--small {
-    --b-ui-button-padding-inline: clamp(0.5rem, 0.3rem + 0.8vw, 1rem);
-    --b-ui-button-padding-block: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
-    --b-ui-button-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-    --b-ui-button-min-inline-size: clamp(60px, 12vw, 100px);
-    --b-ui-button-min-block-size: clamp(28px, 6vw, 36px);
-    --b-ui-button-gap: clamp(0.2rem, 0.15rem + 0.2vw, 0.4rem);
+  .sb-ui-button--small {
+    --sb-ui-button-padding-inline: clamp(0.5rem, 0.3rem + 0.8vw, 1rem);
+    --sb-ui-button-padding-block: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+    --sb-ui-button-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-button-min-inline-size: clamp(60px, 12vw, 100px);
+    --sb-ui-button-min-block-size: clamp(28px, 6vw, 36px);
+    --sb-ui-button-gap: clamp(0.2rem, 0.15rem + 0.2vw, 0.4rem);
   }
 
-  .b-ui-button--medium {
+  .sb-ui-button--medium {
     /* Default - ya definido en tokens */
   }
 
-  .b-ui-button--large {
-    --b-ui-button-padding-inline: clamp(1.2rem, 0.8rem + 2vw, 2.5rem);
-    --b-ui-button-padding-block: clamp(0.5rem, 0.4rem + 0.8vw, 1.125rem);
-    --b-ui-button-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
-    --b-ui-button-min-inline-size: clamp(100px, 18vw, 140px);
-    --b-ui-button-min-block-size: clamp(44px, 10vw, 56px);
-    --b-ui-button-gap: clamp(0.3rem, 0.25rem + 0.4vw, 0.6rem);
+  .sb-ui-button--large {
+    --sb-ui-button-padding-inline: clamp(1.2rem, 0.8rem + 2vw, 2.5rem);
+    --sb-ui-button-padding-block: clamp(0.5rem, 0.4rem + 0.8vw, 1.125rem);
+    --sb-ui-button-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+    --sb-ui-button-min-inline-size: clamp(100px, 18vw, 140px);
+    --sb-ui-button-min-block-size: clamp(44px, 10vw, 56px);
+    --sb-ui-button-gap: clamp(0.3rem, 0.25rem + 0.4vw, 0.6rem);
   }
 }
 
@@ -1096,12 +1096,12 @@
 
 @layer modifiers {
   /* Square corners - esquinas menos redondeadas */
-  .b-ui-button--square {
-    --b-ui-button-border-radius: clamp(6px, 0.4rem + 0.3vw, 10px);
+  .sb-ui-button--square {
+    --sb-ui-button-border-radius: clamp(6px, 0.4rem + 0.3vw, 10px);
   }
 
   /* Block (full width) */
-  .b-ui-button--block {
+  .sb-ui-button--block {
     display: flex;
     inline-size: 100%;
   }
@@ -1114,7 +1114,7 @@
 
 @layer icon-positions {
   /* Icon Left - icono a la izquierda del texto */
-  .b-ui-button--icon-left {
+  .sb-ui-button--icon-left {
     flex-direction: row;
 
     /* SVG/Icon styles - tamaño responsive 18px base */
@@ -1122,7 +1122,7 @@
     & > i:first-child,
     & > span:first-child,
     & > [class*='icon']:first-child {
-      margin-inline-end: var(--b-ui-button-gap);
+      margin-inline-end: var(--sb-ui-button-gap);
       inline-size: clamp(16px, 1.125rem, 20px);
       block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
@@ -1131,7 +1131,7 @@
   }
 
   /* Icon Right - icono a la derecha del texto */
-  .b-ui-button--icon-right {
+  .sb-ui-button--icon-right {
     flex-direction: row;
 
     /* SVG/Icon styles - tamaño responsive 18px base */
@@ -1139,7 +1139,7 @@
     & > i:last-child,
     & > span:last-child,
     & > [class*='icon']:last-child {
-      margin-inline-start: var(--b-ui-button-gap);
+      margin-inline-start: var(--sb-ui-button-gap);
       inline-size: clamp(16px, 1.125rem, 20px);
       block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
@@ -1149,11 +1149,11 @@
 
   /* Icon Only - solo icono, sin texto, completamente redondo
      Estructura: icono 18px + padding 11px = 40x40px total circular */
-  .b-ui-button--icon-only {
-    --b-ui-button-padding-inline: 11px;
-    --b-ui-button-padding-block: 11px;
-    --b-ui-button-min-inline-size: 40px;
-    --b-ui-button-border-radius: 50%; /* Completamente redondo */
+  .sb-ui-button--icon-only {
+    --sb-ui-button-padding-inline: 11px;
+    --sb-ui-button-padding-block: 11px;
+    --sb-ui-button-min-inline-size: 40px;
+    --sb-ui-button-border-radius: 50%; /* Completamente redondo */
 
     /* Forzar tamaño exacto 40x40px */
     inline-size: 40px !important;
@@ -1181,9 +1181,9 @@
     }
 
     /* Small size: 32x32 (icono 14px + padding 9px) */
-    &.b-ui-button--small {
-      --b-ui-button-padding-inline: 9px;
-      --b-ui-button-padding-block: 9px;
+    &.sb-ui-button--small {
+      --sb-ui-button-padding-inline: 9px;
+      --sb-ui-button-padding-block: 9px;
 
       inline-size: 32px !important;
       block-size: 32px !important;
@@ -1204,9 +1204,9 @@
     }
 
     /* Large size: 48x48 (icono 22px + padding 13px) */
-    &.b-ui-button--large {
-      --b-ui-button-padding-inline: 13px;
-      --b-ui-button-padding-block: 13px;
+    &.sb-ui-button--large {
+      --sb-ui-button-padding-inline: 13px;
+      --sb-ui-button-padding-block: 13px;
 
       inline-size: 48px !important;
       block-size: 48px !important;
@@ -1236,15 +1236,15 @@
   /* ============================================
      LOADING STATE
      ============================================ */
-  .b-ui-button--loading {
-    --b-ui-button-loading-animation-duration: 0.6s;
-    --b-ui-button-loading-spinner-size: clamp(14px, 3vw, 18px);
+  .sb-ui-button--loading {
+    --sb-ui-button-loading-animation-duration: 0.6s;
+    --sb-ui-button-loading-spinner-size: clamp(14px, 3vw, 18px);
 
     pointer-events: none;
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: var(--b-ui-button-gap);
+    gap: var(--sb-ui-button-gap);
 
     /* Ocultar iconos cuando está en loading - reemplazar por spinner */
     & > svg,
@@ -1255,47 +1255,47 @@
     }
 
     /* Mantener underline en botones TEXT cuando están en loading */
-    &.b-ui-button--text {
+    &.sb-ui-button--text {
       text-decoration: underline;
       text-underline-offset: 1px;
     }
 
     /* Los spinners (::before y ::after) NO deben tener underline */
-    &.b-ui-button--text::before,
-    &.b-ui-button--text::after {
+    &.sb-ui-button--text::before,
+    &.sb-ui-button--text::after {
       text-decoration: none;
       display: inline-block;
     }
 
     /* Loading con icono a la izquierda (default o icon-left) */
-    &:not(.b-ui-button--icon-right):not(.b-ui-button--icon-only)::before,
-    &.b-ui-button--icon-left::before {
+    &:not(.sb-ui-button--icon-right):not(.sb-ui-button--icon-only)::before,
+    &.sb-ui-button--icon-left::before {
       content: '';
-      inline-size: var(--b-ui-button-loading-spinner-size);
-      block-size: var(--b-ui-button-loading-spinner-size);
+      inline-size: var(--sb-ui-button-loading-spinner-size);
+      block-size: var(--sb-ui-button-loading-spinner-size);
       border: 2px solid currentcolor;
       border-radius: 50%;
       border-top-color: transparent;
-      animation: rb-button-spinner var(--b-ui-button-loading-animation-duration) linear infinite;
+      animation: rb-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
-      margin-inline-end: var(--b-ui-button-gap);
+      margin-inline-end: var(--sb-ui-button-gap);
     }
 
     /* Loading con icono a la derecha (icon-right) */
-    &.b-ui-button--icon-right::after {
+    &.sb-ui-button--icon-right::after {
       content: '';
-      inline-size: var(--b-ui-button-loading-spinner-size);
-      block-size: var(--b-ui-button-loading-spinner-size);
+      inline-size: var(--sb-ui-button-loading-spinner-size);
+      block-size: var(--sb-ui-button-loading-spinner-size);
       border: 2px solid currentcolor;
       border-radius: 50%;
       border-top-color: transparent;
-      animation: rb-button-spinner var(--b-ui-button-loading-animation-duration) linear infinite;
+      animation: rb-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
-      margin-inline-start: var(--b-ui-button-gap);
+      margin-inline-start: var(--sb-ui-button-gap);
     }
 
     /* Loading solo icono (icon-only) - spinner centrado absolutamente */
-    &.b-ui-button--icon-only {
+    &.sb-ui-button--icon-only {
       /* Remover el icono completamente */
       & > svg,
       & > i,
@@ -1307,16 +1307,16 @@
       &::after {
         content: '';
         position: absolute;
-        inline-size: var(--b-ui-button-loading-spinner-size);
-        block-size: var(--b-ui-button-loading-spinner-size);
+        inline-size: var(--sb-ui-button-loading-spinner-size);
+        block-size: var(--sb-ui-button-loading-spinner-size);
         inset-block-start: 50%;
         inset-inline-start: 50%;
-        margin-inline-start: calc(var(--b-ui-button-loading-spinner-size) / -2);
-        margin-block-start: calc(var(--b-ui-button-loading-spinner-size) / -2);
+        margin-inline-start: calc(var(--sb-ui-button-loading-spinner-size) / -2);
+        margin-block-start: calc(var(--sb-ui-button-loading-spinner-size) / -2);
         border: 2px solid currentcolor;
         border-radius: 50%;
         border-top-color: transparent;
-        animation: rb-button-spinner var(--b-ui-button-loading-animation-duration) linear infinite;
+        animation: rb-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
         z-index: 2;
       }
     }
@@ -1325,50 +1325,50 @@
   /* Spinner colors por variante de estilo */
 
   /* STROKE y TEXT - spinner color del texto */
-  .b-ui-button--loading:not(.b-ui-button--fill)::before,
-  .b-ui-button--loading:not(.b-ui-button--fill)::after {
+  .sb-ui-button--loading:not(.sb-ui-button--fill)::before,
+  .sb-ui-button--loading:not(.sb-ui-button--fill)::after {
     border-color: currentcolor;
     border-top-color: transparent;
   }
 
   /* FILL PRIMARY, TERTIARY - spinner color primary-D100 (verde oscuro) */
-  .b-ui-button--fill.b-ui-button--primary.b-ui-button--loading::before,
-  .b-ui-button--fill.b-ui-button--primary.b-ui-button--loading::after,
-  .b-ui-button--fill.b-ui-button--tertiary.b-ui-button--loading::before,
-  .b-ui-button--fill.b-ui-button--tertiary.b-ui-button--loading::after {
-    border-color: var(--b-ui-color-primary-D100, black);
+  .sb-ui-button--fill.sb-ui-button--primary.sb-ui-button--loading::before,
+  .sb-ui-button--fill.sb-ui-button--primary.sb-ui-button--loading::after,
+  .sb-ui-button--fill.sb-ui-button--tertiary.sb-ui-button--loading::before,
+  .sb-ui-button--fill.sb-ui-button--tertiary.sb-ui-button--loading::after {
+    border-color: var(--sb-ui-color-primary-D100, black);
     border-top-color: transparent;
   }
 
   /* FILL SECONDARY - spinner color primary-base */
-  .b-ui-button--fill.b-ui-button--secondary.b-ui-button--loading::before,
-  .b-ui-button--fill.b-ui-button--secondary.b-ui-button--loading::after {
-    border-color: var(--b-ui-color-primary-base);
+  .sb-ui-button--fill.sb-ui-button--secondary.sb-ui-button--loading::before,
+  .sb-ui-button--fill.sb-ui-button--secondary.sb-ui-button--loading::after {
+    border-color: var(--sb-ui-color-primary-base);
     border-top-color: transparent;
   }
 
   /* FILL ERROR - spinner color WHITE */
-  .b-ui-button--fill.b-ui-button--error.b-ui-button--loading::before,
-  .b-ui-button--fill.b-ui-button--error.b-ui-button--loading::after {
-    border-color: var(--b-ui-color-grayscale-white, white);
+  .sb-ui-button--fill.sb-ui-button--error.sb-ui-button--loading::before,
+  .sb-ui-button--fill.sb-ui-button--error.sb-ui-button--loading::after {
+    border-color: var(--sb-ui-color-grayscale-white, white);
     border-top-color: transparent;
   }
 
   /* Disabled spinner - usar color grayscale */
-  .b-ui-button:disabled.b-ui-button--loading::before,
-  .b-ui-button:disabled.b-ui-button--loading::after,
-  .b-ui-button.b-ui-button--disabled.b-ui-button--loading::before,
-  .b-ui-button.b-ui-button--disabled.b-ui-button--loading::after {
-    border-color: var(--b-ui-color-grayscale-base, #9b9b9b);
+  .sb-ui-button:disabled.sb-ui-button--loading::before,
+  .sb-ui-button:disabled.sb-ui-button--loading::after,
+  .sb-ui-button.sb-ui-button--disabled.sb-ui-button--loading::before,
+  .sb-ui-button.sb-ui-button--disabled.sb-ui-button--loading::after {
+    border-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
     border-top-color: transparent;
   }
 
   /* ERROR FILL Disabled - spinner color error-L200 */
-  .b-ui-button--fill.b-ui-button--error:disabled.b-ui-button--loading::before,
-  .b-ui-button--fill.b-ui-button--error:disabled.b-ui-button--loading::after,
-  .b-ui-button--fill.b-ui-button--error.b-ui-button--disabled.b-ui-button--loading::before,
-  .b-ui-button--fill.b-ui-button--error.b-ui-button--disabled.b-ui-button--loading::after {
-    border-color: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+  .sb-ui-button--fill.sb-ui-button--error:disabled.sb-ui-button--loading::before,
+  .sb-ui-button--fill.sb-ui-button--error:disabled.sb-ui-button--loading::after,
+  .sb-ui-button--fill.sb-ui-button--error.sb-ui-button--disabled.sb-ui-button--loading::before,
+  .sb-ui-button--fill.sb-ui-button--error.sb-ui-button--disabled.sb-ui-button--loading::after {
+    border-color: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
     border-top-color: transparent;
   }
 }
@@ -1405,11 +1405,11 @@
 @layer utilities {
   /* High contrast mode support */
   @media (prefers-contrast: high) {
-    .b-ui-button {
-      --b-ui-button-border-width: 3px;
+    .sb-ui-button {
+      --sb-ui-button-border-width: 3px;
     }
 
-    .b-ui-button--text {
+    .sb-ui-button--text {
       text-decoration: underline;
       text-underline-offset: 1px;
     }
@@ -1417,33 +1417,33 @@
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .b-ui-button {
-      --b-ui-button-transition: none;
+    .sb-ui-button {
+      --sb-ui-button-transition: none;
     }
 
-    .b-ui-button--loading::before,
-    .b-ui-button--loading::after {
+    .sb-ui-button--loading::before,
+    .sb-ui-button--loading::after {
       animation: none;
     }
   }
 
   /* Mobile - Full width by default (excepto icon-only y circle) */
   @media (inline-size <= 640px) {
-    .b-ui-button:not(.b-ui-button--icon-only):not(.b-ui-button--circle) {
+    .sb-ui-button:not(.sb-ui-button--icon-only):not(.sb-ui-button--circle) {
       inline-size: 100%;
     }
   }
 
   /* Desktop - Auto width */
   @media (inline-size >= 641px) {
-    .b-ui-button:not(.b-ui-button--block) {
+    .sb-ui-button:not(.sb-ui-button--block) {
       inline-size: auto;
     }
   }
 
   /* Print styles */
   @media print {
-    .b-ui-button {
+    .sb-ui-button {
       background: transparent;
       color: black;
       border: 1px solid black;

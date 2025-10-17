@@ -1,7 +1,7 @@
 {
-  "name": "@bolivar-ui/molecules",
+  "name": "@seguros-bolivar-ui/molecules",
   "version": "1.0.0",
-  "description": "Web Components complejos con Lit para Bolivar UI Design System",
+  "description": "Web Components complejos con Lit para Seguros Bolivar UI Design System",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,7 +37,7 @@
     "toast",
     "notifications"
   ],
-  "author": "Bolivar UI",
+  "author": "Seguros Bolivar UI",
   "license": "MIT",
   "dependencies": {
     "lit": "^3.1.2"

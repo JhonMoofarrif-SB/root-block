@@ -1,6 +1,6 @@
-# 📦 @bolivar-ui/bundle
+# 📦 @seguros-bolivar-ui/bundle
 
-> Generador de bundles CDN optimizados para Bolivar UI Design System
+> Generador de bundles CDN optimizados para Seguros Bolivar UI Design System
 
 Genera bundles minificados y comprimidos listos para CDN, organizados por marca y tema.
 
@@ -8,9 +8,9 @@ Genera bundles minificados y comprimidos listos para CDN, organizados por marca 
 
 Este package construye los archivos finales para distribución CDN:
 
-- **Tokens por marca**: `b-ui-{marca}-{tema}.min.css` (~1KB gzip)
-- **Estilos universales**: `b-ui-styles.min.css` (~1.4KB gzip)
-- **Web Components**: `b-ui-components.min.js` (~8.6KB gzip)
+- **Tokens por marca**: `sb-ui-{marca}-{tema}.min.css` (~1KB gzip)
+- **Estilos universales**: `sb-ui-styles.min.css` (~1.4KB gzip)
+- **Web Components**: `sb-ui-components.min.js` (~8.6KB gzip)
 
 ## 📦 Archivos Generados
 
@@ -149,10 +149,10 @@ location ~* \.min\.(css|js)$ {
 
 ## 🔧 Agregar Nueva Marca al Bundle
 
-1. La marca debe existir en `@bolivar-ui/tokens`
+1. La marca debe existir en `@seguros-bolivar-ui/tokens`
 2. El builder detectará automáticamente y generará:
-   - `b-ui-nueva-marca-light.min.css`
-   - `b-ui-nueva-marca-dark.min.css`
+   - `sb-ui-nueva-marca-light.min.css`
+   - `sb-ui-nueva-marca-dark.min.css`
    - Archivos comprimidos (.gz, .br)
 
 ```bash
@@ -172,7 +172,7 @@ export default {
   ],
   build: {
     rollupOptions: {
-      external: ['@bolivar-ui/bundle'],
+      external: ['@seguros-bolivar-ui/bundle'],
     },
   },
 };
@@ -184,7 +184,7 @@ export default {
 // webpack.config.js
 module.exports = {
   externals: {
-    '@bolivar-ui/bundle': '@bolivar-ui/bundle',
+    '@seguros-bolivar-ui/bundle': '@seguros-bolivar-ui/bundle',
   },
 };
 ```
@@ -200,11 +200,11 @@ module.exports = {
 
 ## 📚 Ver También
 
-- [@bolivar-ui/tokens](../tokens/README.md) - Source de tokens
-- [@bolivar-ui/atoms](../atoms/README.md) - Source de styles
-- [@bolivar-ui/molecules](../molecules/README.md) - Source de components
+- [@seguros-bolivar-ui/tokens](../tokens/README.md) - Source de tokens
+- [@seguros-bolivar-ui/atoms](../atoms/README.md) - Source de styles
+- [@seguros-bolivar-ui/molecules](../molecules/README.md) - Source de components
 - [Ejemplos](../../examples/) - Demos con bundles
 
 ## 📄 Licencia
 
-MIT © Bolivar UI
+MIT © Seguros Bolivar UI

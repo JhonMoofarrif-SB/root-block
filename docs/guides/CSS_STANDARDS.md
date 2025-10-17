@@ -1,8 +1,8 @@
-# 🎨 CSS Standards - Bolivar UI Design System
+# 🎨 CSS Standards - Seguros Bolivar UI Design System
 
 ## 📋 Estructura Estándar para Componentes CSS
 
-Este documento define las reglas y estructura estándar que **TODOS** los desarrolladores deben seguir al crear componentes CSS en el Bolivar UI Design System.
+Este documento define las reglas y estructura estándar que **TODOS** los desarrolladores deben seguir al crear componentes CSS en el Seguros Bolivar UI Design System.
 
 ---
 
@@ -12,8 +12,8 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 ```css
 /**
- * [ComponentName] Component - Bolivar UI Design System
- * Componente CSS puro con variables --b-ui-* personalizables por marca
+ * [ComponentName] Component - Seguros Bolivar UI Design System
+ * Componente CSS puro con variables --sb-ui-* personalizables por marca
  * [Descripción específica del componente]
  * 
  * Uso:
@@ -29,40 +29,40 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
    ======================================== */
 
-.b-ui-[component] {
+.sb-ui-[component] {
   /* Colores - Pueden ser sobreescritos por marca */
-  --b-ui-[component]-bg-color: var(--b-ui-color-primary-base, #007acc);
-  --b-ui-[component]-bg-hover: var(--b-ui-color-primary-D100, #005a9e);
-  --b-ui-[component]-bg-active: var(--b-ui-color-primary-D200, #004578);
-  --b-ui-[component]-bg-disabled: var(--b-ui-color-grayscale-L200, #e1e1e1);
-  --b-ui-[component]-text-color: var(--b-ui-color-grayscale-white, #fff);
-  --b-ui-[component]-text-disabled: var(--b-ui-color-grayscale-base, #9b9b9b);
-  --b-ui-[component]-border-color: var(--b-ui-color-primary-base, #007acc);
-  --b-ui-[component]-border-width: 1px;
-  --b-ui-[component]-border-radius: 8px;
+  --sb-ui-[component]-bg-color: var(--sb-ui-color-primary-base, #007acc);
+  --sb-ui-[component]-bg-hover: var(--sb-ui-color-primary-D100, #005a9e);
+  --sb-ui-[component]-bg-active: var(--sb-ui-color-primary-D200, #004578);
+  --sb-ui-[component]-bg-disabled: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+  --sb-ui-[component]-text-color: var(--sb-ui-color-grayscale-white, #fff);
+  --sb-ui-[component]-text-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+  --sb-ui-[component]-border-color: var(--sb-ui-color-primary-base, #007acc);
+  --sb-ui-[component]-border-width: 1px;
+  --sb-ui-[component]-border-radius: 8px;
 
   /* Espaciado */
-  --b-ui-[component]-padding-x: 1.5rem;
-  --b-ui-[component]-padding-y: 0.657rem;
-  --b-ui-[component]-gap: 0.5rem;
+  --sb-ui-[component]-padding-x: 1.5rem;
+  --sb-ui-[component]-padding-y: 0.657rem;
+  --sb-ui-[component]-gap: 0.5rem;
 
   /* Tipografía */
-  --b-ui-[component]-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
-  --b-ui-[component]-font-size: 1rem;
-  --b-ui-[component]-font-weight: 700;
-  --b-ui-[component]-line-height: 1.188rem;
+  --sb-ui-[component]-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+  --sb-ui-[component]-font-size: 1rem;
+  --sb-ui-[component]-font-weight: 700;
+  --sb-ui-[component]-line-height: 1.188rem;
 
   /* Tamaños */
-  --b-ui-[component]-min-width: 91px;
-  --b-ui-[component]-min-height: 40px;
+  --sb-ui-[component]-min-width: 91px;
+  --sb-ui-[component]-min-height: 40px;
 
   /* Sombras */
-  --b-ui-[component]-shadow: none;
-  --b-ui-[component]-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-  --b-ui-[component]-shadow-active: inset 2px 4px 8px rgb(0 0 0 / 16%);
+  --sb-ui-[component]-shadow: none;
+  --sb-ui-[component]-shadow-hover: var(--sb-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+  --sb-ui-[component]-shadow-active: inset 2px 4px 8px rgb(0 0 0 / 16%);
 
   /* Transiciones */
-  --b-ui-[component]-transition: all 0.2s ease;
+  --sb-ui-[component]-transition: all 0.2s ease;
 
   /* [Otras variables específicas del componente] */
 }
@@ -71,7 +71,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ### 3. **Estilos Base del Componente** (OBLIGATORIO)
 
 ```css
-.b-ui-[component] {
+.sb-ui-[component] {
   /* Layout */
   display: inline-flex;
   align-items: center;
@@ -79,63 +79,63 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
   position: relative;
 
   /* Spacing */
-  padding: var(--b-ui-[component]-padding-y) var(--b-ui-[component]-padding-x);
-  gap: var(--b-ui-[component]-gap);
+  padding: var(--sb-ui-[component]-padding-y) var(--sb-ui-[component]-padding-x);
+  gap: var(--sb-ui-[component]-gap);
 
   /* Sizing */
-  min-width: var(--b-ui-[component]-min-width);
-  min-height: var(--b-ui-[component]-min-height);
+  min-width: var(--sb-ui-[component]-min-width);
+  min-height: var(--sb-ui-[component]-min-height);
   width: auto;
 
   /* Typography */
-  font-family: var(--b-ui-[component]-font-family);
+  font-family: var(--sb-ui-[component]-font-family);
   font-style: normal;
-  font-weight: var(--b-ui-[component]-font-weight);
-  font-size: var(--b-ui-[component]-font-size);
-  line-height: var(--b-ui-[component]-line-height);
+  font-weight: var(--sb-ui-[component]-font-weight);
+  font-size: var(--sb-ui-[component]-font-size);
+  line-height: var(--sb-ui-[component]-line-height);
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
 
   /* Appearance */
-  background-color: var(--b-ui-[component]-bg-color);
-  color: var(--b-ui-[component]-text-color);
-  border: var(--b-ui-[component]-border-width) solid var(--b-ui-[component]-border-color);
-  border-radius: var(--b-ui-[component]-border-radius);
-  box-shadow: var(--b-ui-[component]-shadow);
+  background-color: var(--sb-ui-[component]-bg-color);
+  color: var(--sb-ui-[component]-text-color);
+  border: var(--sb-ui-[component]-border-width) solid var(--sb-ui-[component]-border-color);
+  border-radius: var(--sb-ui-[component]-border-radius);
+  box-shadow: var(--sb-ui-[component]-shadow);
   cursor: pointer;
   user-select: none;
   box-sizing: border-box;
 
   /* Animation */
-  transition: var(--b-ui-[component]-transition);
+  transition: var(--sb-ui-[component]-transition);
 }
 ```
 
 ### 4. **Estados Interactivos** (OBLIGATORIO)
 
 ```css
-.b-ui-[component]:hover:not(:disabled) {
-  background-color: var(--b-ui-[component]-bg-hover);
-  border-color: var(--b-ui-[component]-bg-hover);
-  box-shadow: var(--b-ui-[component]-shadow-hover);
+.sb-ui-[component]:hover:not(:disabled) {
+  background-color: var(--sb-ui-[component]-bg-hover);
+  border-color: var(--sb-ui-[component]-bg-hover);
+  box-shadow: var(--sb-ui-[component]-shadow-hover);
 }
 
-.b-ui-[component]:active:not(:disabled) {
-  background-color: var(--b-ui-[component]-bg-active);
-  border-color: var(--b-ui-[component]-bg-active);
-  box-shadow: var(--b-ui-[component]-shadow-active);
+.sb-ui-[component]:active:not(:disabled) {
+  background-color: var(--sb-ui-[component]-bg-active);
+  border-color: var(--sb-ui-[component]-bg-active);
+  box-shadow: var(--sb-ui-[component]-shadow-active);
 }
 
-.b-ui-[component]:focus-visible:not(:disabled) {
-  outline: 2px solid var(--b-ui-color-primary-L100, #80bfff);
+.sb-ui-[component]:focus-visible:not(:disabled) {
+  outline: 2px solid var(--sb-ui-color-primary-L100, #80bfff);
   outline-offset: 2px;
 }
 
-.b-ui-[component]:disabled {
-  background-color: var(--b-ui-[component]-bg-disabled);
-  color: var(--b-ui-[component]-text-disabled);
-  border-color: var(--b-ui-[component]-bg-disabled);
+.sb-ui-[component]:disabled {
+  background-color: var(--sb-ui-[component]-bg-disabled);
+  color: var(--sb-ui-[component]-text-disabled);
+  border-color: var(--sb-ui-[component]-bg-disabled);
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -149,21 +149,21 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    ======================================== */
 
 /* Primary (default) */
-.b-ui-[component]--primary {
-  --b-ui-[component]-bg-color: var(--b-ui-color-primary-base);
-  --b-ui-[component]-bg-hover: var(--b-ui-color-primary-D100);
-  --b-ui-[component]-bg-active: var(--b-ui-color-primary-D200);
-  --b-ui-[component]-border-color: var(--b-ui-color-primary-base);
-  --b-ui-[component]-text-color: var(--b-ui-color-grayscale-white, #fff);
+.sb-ui-[component]--primary {
+  --sb-ui-[component]-bg-color: var(--sb-ui-color-primary-base);
+  --sb-ui-[component]-bg-hover: var(--sb-ui-color-primary-D100);
+  --sb-ui-[component]-bg-active: var(--sb-ui-color-primary-D200);
+  --sb-ui-[component]-border-color: var(--sb-ui-color-primary-base);
+  --sb-ui-[component]-text-color: var(--sb-ui-color-grayscale-white, #fff);
 }
 
 /* Secondary */
-.b-ui-[component]--secondary {
-  --b-ui-[component]-bg-color: var(--b-ui-color-secondary-base);
-  --b-ui-[component]-bg-hover: var(--b-ui-color-secondary-D100);
-  --b-ui-[component]-bg-active: var(--b-ui-color-secondary-D200);
-  --b-ui-[component]-border-color: var(--b-ui-color-secondary-base);
-  --b-ui-[component]-text-color: var(--b-ui-color-primary-base);
+.sb-ui-[component]--secondary {
+  --sb-ui-[component]-bg-color: var(--sb-ui-color-secondary-base);
+  --sb-ui-[component]-bg-hover: var(--sb-ui-color-secondary-D100);
+  --sb-ui-[component]-bg-active: var(--sb-ui-color-secondary-D200);
+  --sb-ui-[component]-border-color: var(--sb-ui-color-secondary-base);
+  --sb-ui-[component]-text-color: var(--sb-ui-color-primary-base);
 }
 
 /* [Otras variantes según el componente] */
@@ -176,28 +176,28 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    [COMPONENT] SIZES
    ======================================== */
 
-.b-ui-[component]--small {
-  --b-ui-[component]-padding-x: 0.8rem;
-  --b-ui-[component]-padding-y: 0.4rem;
-  --b-ui-[component]-font-size: 0.875rem;
-  --b-ui-[component]-min-height: 32px;
-  --b-ui-[component]-line-height: 1rem;
+.sb-ui-[component]--small {
+  --sb-ui-[component]-padding-x: 0.8rem;
+  --sb-ui-[component]-padding-y: 0.4rem;
+  --sb-ui-[component]-font-size: 0.875rem;
+  --sb-ui-[component]-min-height: 32px;
+  --sb-ui-[component]-line-height: 1rem;
 }
 
-.b-ui-[component]--medium {
-  --b-ui-[component]-padding-x: 1.5rem;
-  --b-ui-[component]-padding-y: 0.657rem;
-  --b-ui-[component]-font-size: 1rem;
-  --b-ui-[component]-min-height: 40px;
-  --b-ui-[component]-line-height: 1.188rem;
+.sb-ui-[component]--medium {
+  --sb-ui-[component]-padding-x: 1.5rem;
+  --sb-ui-[component]-padding-y: 0.657rem;
+  --sb-ui-[component]-font-size: 1rem;
+  --sb-ui-[component]-min-height: 40px;
+  --sb-ui-[component]-line-height: 1.188rem;
 }
 
-.b-ui-[component]--large {
-  --b-ui-[component]-padding-x: 2rem;
-  --b-ui-[component]-padding-y: 0.875rem;
-  --b-ui-[component]-font-size: 1.125rem;
-  --b-ui-[component]-min-height: 48px;
-  --b-ui-[component]-line-height: 1.375rem;
+.sb-ui-[component]--large {
+  --sb-ui-[component]-padding-x: 2rem;
+  --sb-ui-[component]-padding-y: 0.875rem;
+  --sb-ui-[component]-font-size: 1.125rem;
+  --sb-ui-[component]-min-height: 48px;
+  --sb-ui-[component]-line-height: 1.375rem;
 }
 ```
 
@@ -209,12 +209,12 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    ======================================== */
 
 /* Rounded corners */
-.b-ui-[component]--rounded {
-  --b-ui-[component]-border-radius: 2.1rem;
+.sb-ui-[component]--rounded {
+  --sb-ui-[component]-border-radius: 2.1rem;
 }
 
 /* Block (full width) */
-.b-ui-[component]--block {
+.sb-ui-[component]--block {
   display: flex;
   width: 100%;
 }
@@ -230,9 +230,9 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    ======================================== */
 
 /* Loading state */
-.b-ui-[component]--loading {
-  --b-ui-[component]-loading-animation-duration: 0.6s;
-  --b-ui-[component]-loading-bg-animation: none;
+.sb-ui-[component]--loading {
+  --sb-ui-[component]-loading-animation-duration: 0.6s;
+  --sb-ui-[component]-loading-bg-animation: none;
 
   color: transparent;
   pointer-events: none;
@@ -267,39 +267,39 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .b-ui-[component] {
-    --b-ui-[component]-border-width: 2px;
+  .sb-ui-[component] {
+    --sb-ui-[component]-border-width: 2px;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .b-ui-[component] {
-    --b-ui-[component]-transition: none;
+  .sb-ui-[component] {
+    --sb-ui-[component]-transition: none;
   }
 
-  .b-ui-[component]--loading::after {
+  .sb-ui-[component]--loading::after {
     animation: none;
   }
 }
 
 /* Mobile optimizations */
 @media (width <= 640px) {
-  .b-ui-[component] {
+  .sb-ui-[component] {
     width: 100%;
   }
 }
 
 /* Desktop optimizations */
 @media (width >= 641px) {
-  .b-ui-[component] {
+  .sb-ui-[component] {
     width: auto;
   }
 }
 
 /* Print styles */
 @media print {
-  .b-ui-[component] {
+  .sb-ui-[component] {
     background: transparent !important;
     color: black !important;
     border: 1px solid black !important;
@@ -314,22 +314,22 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 ### Variables CSS
 
-- **Prefijo obligatorio**: `--b-ui-`
-- **Formato**: `--b-ui-[component]-[property]-[state]`
+- **Prefijo obligatorio**: `--sb-ui-`
+- **Formato**: `--sb-ui-[component]-[property]-[state]`
 - **Ejemplos**:
-  - `--b-ui-button-bg-color`
-  - `--b-ui-input-border-color-focus`
-  - `--b-ui-alert-text-color-error`
+  - `--sb-ui-button-bg-color`
+  - `--sb-ui-input-border-color-focus`
+  - `--sb-ui-alert-text-color-error`
 
 ### Clases CSS
 
-- **Prefijo obligatorio**: `b-ui-`
-- **Formato**: `b-ui-[component]` o `b-ui-[component]--[modifier]`
+- **Prefijo obligatorio**: `sb-ui-`
+- **Formato**: `sb-ui-[component]` o `sb-ui-[component]--[modifier]`
 - **Ejemplos**:
-  - `b-ui-button`
-  - `b-ui-button--primary`
-  - `b-ui-input--error`
-  - `b-ui-alert--dismissible`
+  - `sb-ui-button`
+  - `sb-ui-button--primary`
+  - `sb-ui-input--error`
+  - `sb-ui-alert--dismissible`
 
 ### Estados
 
@@ -345,7 +345,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 ### 1. **Variables CSS**
 
-- ✅ **SIEMPRE** usar variables CSS con prefijo `--b-ui-`
+- ✅ **SIEMPRE** usar variables CSS con prefijo `--sb-ui-`
 - ✅ **SIEMPRE** incluir fallbacks con valores por defecto
 - ✅ **SIEMPRE** usar tokens del design system cuando estén disponibles
 - ❌ **NUNCA** usar valores hardcodeados sin variables
@@ -404,7 +404,7 @@ packages/atoms/src/
 Antes de crear un componente, verificar:
 
 - [ ] ✅ Comentario de cabecera con descripción y ejemplos de uso
-- [ ] ✅ Variables CSS con prefijo `--b-ui-` y fallbacks
+- [ ] ✅ Variables CSS con prefijo `--sb-ui-` y fallbacks
 - [ ] ✅ Estilos base del componente
 - [ ] ✅ Estados interactivos (hover, active, focus, disabled)
 - [ ] ✅ Variantes (primary, secondary, etc.)
@@ -449,4 +449,4 @@ Si tienes dudas sobre la implementación:
 
 **Última actualización**: 2024-01-09  
 **Versión**: 1.0.0  
-**Mantenedor**: Bolivar UI Design System Team
+**Mantenedor**: Seguros Bolivar UI Design System Team

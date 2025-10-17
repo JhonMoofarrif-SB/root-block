@@ -34,9 +34,9 @@
 
 ```css
 /* BASE espera que SECONDARY buttons usen colores SECONDARY (amarillo) */
-.b-ui-button--secondary {
-  --b-ui-button-bg-color: var(--b-ui-color-secondary-base); /* Amarillo */
-  --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde */
+.sb-ui-button--secondary {
+  --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base); /* Amarillo */
+  --sb-ui-button-text-color: var(--sb-ui-color-primary-D100); /* Verde */
 }
 ```
 
@@ -53,9 +53,9 @@
 ```css
 /* Override para Seguros Bolívar */
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300); /* Verde claro */
-    --b-ui-button-text-color: var(--b-ui-color-primary-D200); /* Verde oscuro */
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300); /* Verde claro */
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D200); /* Verde oscuro */
   }
 }
 ```
@@ -143,8 +143,8 @@
 ```css
 /* Override necesario */
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300);
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300);
   }
 }
 ```
@@ -162,8 +162,8 @@
 ```css
 /* Override necesario */
 @layer brand-overrides {
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text {
-    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400); /* Aparece en hover */
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--text {
+    --sb-ui-button-bg-hover: var(--sb-ui-color-tertiary-L400); /* Aparece en hover */
   }
 }
 ```
@@ -181,8 +181,8 @@
 ```css
 /* Override necesario */
 @layer brand-overrides {
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base);
     outline-width: 4px; /* Más grueso que el base (2px) */
   }
 }
@@ -257,9 +257,9 @@ Ejemplo: Border radius diferente, padding diferente
 ```
 /packages/atoms/src/button.css
 
-.b-ui-button--secondary {
+.sb-ui-button--secondary {
   /* Usa tokens SECONDARY porque así se llama el botón */
-  --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
+  --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);
 }
 ```
 
@@ -273,9 +273,9 @@ Ejemplo: Border radius diferente, padding diferente
 /packages/brand-overrides/src/seguros-bolivar/button.css
 
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
     /* Remapping: secondary button usa colores primary */
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300);
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300);
   }
 }
 ```
@@ -300,9 +300,9 @@ SECONDARY = Color secundario de marca (independiente de dónde se use)
 ### 2️⃣ **BASE Predecible**
 
 ```css
-.b-ui-button--primary → Usa colores PRIMARY
-.b-ui-button--secondary → Usa colores SECONDARY
-.b-ui-button--tertiary → Usa colores TERTIARY
+.sb-ui-button--primary → Usa colores PRIMARY
+.sb-ui-button--secondary → Usa colores SECONDARY
+.sb-ui-button--tertiary → Usa colores TERTIARY
 ```
 
 ✅ Patrón claro y consistente para 95% de las marcas.
@@ -313,7 +313,7 @@ SECONDARY = Color secundario de marca (independiente de dónde se use)
 
 ```css
 /* Solo cuando el diseño lo requiere */
-[data-brand='seguros-bolivar'] .b-ui-button--secondary {
+[data-brand='seguros-bolivar'] .sb-ui-button--secondary {
   /* Remapping específico */
 }
 ```
@@ -360,8 +360,8 @@ SECONDARY = Color secundario de marca (independiente de dónde se use)
 ```css
 /* ✅ BIEN: Override maneja el remapping en el botón */
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300);
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300);
   }
 }
 ```
@@ -436,6 +436,6 @@ SECONDARY = Color secundario de marca (independiente de dónde se use)
 ---
 
 **Fecha:** Octubre 16, 2025  
-**Autor:** Bolivar UI Team  
+**Autor:** Seguros Bolivar UI Team  
 **Versión:** 1.0  
 **Estado:** ✅ Architectural Decision Record

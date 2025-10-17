@@ -74,25 +74,25 @@ touch packages/brand-overrides/src/davivienda/button.css
 
 @layer brand-overrides {
   /* SECONDARY FILL - Rojo en lugar de amarillo */
-  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill {
+  :where([data-brand='davivienda']) .sb-ui-button--secondary.sb-ui-button--fill {
     /* Cambiar de amarillo (secondary) a rojo (error) */
-    --b-ui-button-bg-color: var(--b-ui-color-feedback-error-base);
-    --b-ui-button-bg-hover: var(--b-ui-color-feedback-error-D100);
-    --b-ui-button-bg-active: var(--b-ui-color-feedback-error-D200);
+    --sb-ui-button-bg-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-feedback-error-D100);
+    --sb-ui-button-bg-active: var(--sb-ui-color-feedback-error-D200);
 
     /* Texto blanco para mejor contraste */
-    --b-ui-button-text-color: var(--b-ui-color-grayscale-white);
-    --b-ui-button-text-hover: var(--b-ui-color-grayscale-white);
-    --b-ui-button-text-active: var(--b-ui-color-grayscale-white);
+    --sb-ui-button-text-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-text-hover: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-text-active: var(--sb-ui-color-grayscale-white);
 
-    --b-ui-button-border-color: var(--b-ui-color-feedback-error-base);
-    --b-ui-button-border-hover: var(--b-ui-color-feedback-error-D100);
-    --b-ui-button-border-active: var(--b-ui-color-feedback-error-D200);
+    --sb-ui-button-border-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-button-border-hover: var(--sb-ui-color-feedback-error-D100);
+    --sb-ui-button-border-active: var(--sb-ui-color-feedback-error-D200);
   }
 
   /* Focus outline - Rojo claro */
-  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-feedback-error-L100);
+  :where([data-brand='davivienda']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-feedback-error-L100);
   }
 }
 ```
@@ -145,64 +145,64 @@ Reemplazar: tertiary
 ```css
 @layer brand-overrides {
   /* SECONDARY STROKE - Solo cambios de color TERTIARY vs SECONDARY */
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke,
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--stroke,
   :where([data-brand='doctor-aki'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text) {
     /* Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
-    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
-    --b-ui-button-border-color: var(--b-ui-color-tertiary-D100);
+    --sb-ui-button-text-color: var(--sb-ui-color-tertiary-D100);
+    --sb-ui-button-border-color: var(--sb-ui-color-tertiary-D100);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
-    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-border-hover: var(--b-ui-color-tertiary-D200);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-tertiary-L400);
+    --sb-ui-button-text-hover: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-border-hover: var(--sb-ui-color-tertiary-D200);
 
-    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
-    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-border-active: var(--b-ui-color-tertiary-D200);
+    --sb-ui-button-bg-active: var(--sb-ui-color-tertiary-L300);
+    --sb-ui-button-text-active: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-border-active: var(--sb-ui-color-tertiary-D200);
   }
 
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
   :where([data-brand='doctor-aki'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
-    outline-color: var(--b-ui-color-tertiary-L100);
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text):focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-L100);
   }
 }
 
 @layer brand-overrides {
   /* SECONDARY FILL - Solo cambios de color TERTIARY vs SECONDARY */
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill {
-    --b-ui-button-bg-color: var(--b-ui-color-tertiary-L300);
-    --b-ui-button-text-color: var(--b-ui-color-tertiary-D200);
-    --b-ui-button-border-color: var(--b-ui-color-tertiary-L300);
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--fill {
+    --sb-ui-button-bg-color: var(--sb-ui-color-tertiary-L300);
+    --sb-ui-button-text-color: var(--sb-ui-color-tertiary-D200);
+    --sb-ui-button-border-color: var(--sb-ui-color-tertiary-L300);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L200);
-    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D300);
-    --b-ui-button-border-hover: var(--b-ui-color-tertiary-L200);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-tertiary-L200);
+    --sb-ui-button-text-hover: var(--sb-ui-color-tertiary-D300);
+    --sb-ui-button-border-hover: var(--sb-ui-color-tertiary-L200);
 
-    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L200);
-    --b-ui-button-text-active: var(--b-ui-color-tertiary-D300);
-    --b-ui-button-border-active: var(--b-ui-color-tertiary-L200);
+    --sb-ui-button-bg-active: var(--sb-ui-color-tertiary-L200);
+    --sb-ui-button-text-active: var(--sb-ui-color-tertiary-D300);
+    --sb-ui-button-border-active: var(--sb-ui-color-tertiary-L200);
   }
 
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-L100);
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-L100);
   }
 }
 
 @layer brand-overrides {
   /* SECONDARY TEXT - Solo cambios de color TERTIARY vs SECONDARY */
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text {
-    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--text {
+    --sb-ui-button-text-color: var(--sb-ui-color-tertiary-D100);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
-    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D200);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-tertiary-L400);
+    --sb-ui-button-text-hover: var(--sb-ui-color-tertiary-D200);
 
-    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
-    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
+    --sb-ui-button-bg-active: var(--sb-ui-color-tertiary-L300);
+    --sb-ui-button-text-active: var(--sb-ui-color-tertiary-D200);
   }
 
-  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-L100);
+  :where([data-brand='doctor-aki']) .sb-ui-button--secondary.sb-ui-button--text:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-L100);
   }
 }
 ```
@@ -228,22 +228,22 @@ Reemplazar: tertiary
 
 @layer brand-overrides {
   /* Focus outline más grueso para TODAS las variantes secondary */
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
   :where([data-brand='cien-cuadras'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base);
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text):focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base);
     outline-width: 4px; /* Más grueso que el base (2px) */
     outline-offset: 4px; /* Más separado */
   }
 
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base);
     outline-width: 4px;
     outline-offset: 4px;
   }
 
-  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
-    outline-color: var(--b-ui-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .sb-ui-button--secondary.sb-ui-button--text:focus-visible {
+    outline-color: var(--sb-ui-color-tertiary-base);
     outline-width: 4px;
     outline-offset: 4px;
   }
@@ -280,26 +280,26 @@ Reemplazar: tertiary
   /* ============================================
      SECONDARY STROKE
      ============================================ */
-  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke,
+  :where([data-brand='tu-marca']) .sb-ui-button--secondary.sb-ui-button--stroke,
   :where([data-brand='tu-marca'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text) {
     /* Solo definir lo que CAMBIA vs BASE */
-    --b-ui-button-text-color: var(--b-ui-color-???);
-    --b-ui-button-border-color: var(--b-ui-color-???);
+    --sb-ui-button-text-color: var(--sb-ui-color-???);
+    --sb-ui-button-border-color: var(--sb-ui-color-???);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-???);
-    --b-ui-button-text-hover: var(--b-ui-color-???);
-    --b-ui-button-border-hover: var(--b-ui-color-???);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-???);
+    --sb-ui-button-text-hover: var(--sb-ui-color-???);
+    --sb-ui-button-border-hover: var(--sb-ui-color-???);
 
-    --b-ui-button-bg-active: var(--b-ui-color-???);
-    --b-ui-button-text-active: var(--b-ui-color-???);
-    --b-ui-button-border-active: var(--b-ui-color-???);
+    --sb-ui-button-bg-active: var(--sb-ui-color-???);
+    --sb-ui-button-text-active: var(--sb-ui-color-???);
+    --sb-ui-button-border-active: var(--sb-ui-color-???);
   }
 
-  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
+  :where([data-brand='tu-marca']) .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
   :where([data-brand='tu-marca'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
-    outline-color: var(--b-ui-color-???);
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text):focus-visible {
+    outline-color: var(--sb-ui-color-???);
   }
 }
 
@@ -307,22 +307,22 @@ Reemplazar: tertiary
   /* ============================================
      SECONDARY FILL
      ============================================ */
-  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill {
-    --b-ui-button-bg-color: var(--b-ui-color-???);
-    --b-ui-button-text-color: var(--b-ui-color-???);
-    --b-ui-button-border-color: var(--b-ui-color-???);
+  :where([data-brand='tu-marca']) .sb-ui-button--secondary.sb-ui-button--fill {
+    --sb-ui-button-bg-color: var(--sb-ui-color-???);
+    --sb-ui-button-text-color: var(--sb-ui-color-???);
+    --sb-ui-button-border-color: var(--sb-ui-color-???);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-???);
-    --b-ui-button-text-hover: var(--b-ui-color-???);
-    --b-ui-button-border-hover: var(--b-ui-color-???);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-???);
+    --sb-ui-button-text-hover: var(--sb-ui-color-???);
+    --sb-ui-button-border-hover: var(--sb-ui-color-???);
 
-    --b-ui-button-bg-active: var(--b-ui-color-???);
-    --b-ui-button-text-active: var(--b-ui-color-???);
-    --b-ui-button-border-active: var(--b-ui-color-???);
+    --sb-ui-button-bg-active: var(--sb-ui-color-???);
+    --sb-ui-button-text-active: var(--sb-ui-color-???);
+    --sb-ui-button-border-active: var(--sb-ui-color-???);
   }
 
-  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-???);
+  :where([data-brand='tu-marca']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-???);
   }
 }
 
@@ -330,18 +330,18 @@ Reemplazar: tertiary
   /* ============================================
      SECONDARY TEXT
      ============================================ */
-  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--text {
-    --b-ui-button-text-color: var(--b-ui-color-???);
+  :where([data-brand='tu-marca']) .sb-ui-button--secondary.sb-ui-button--text {
+    --sb-ui-button-text-color: var(--sb-ui-color-???);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-???);
-    --b-ui-button-text-hover: var(--b-ui-color-???);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-???);
+    --sb-ui-button-text-hover: var(--sb-ui-color-???);
 
-    --b-ui-button-bg-active: var(--b-ui-color-???);
-    --b-ui-button-text-active: var(--b-ui-color-???);
+    --sb-ui-button-bg-active: var(--sb-ui-color-???);
+    --sb-ui-button-text-active: var(--sb-ui-color-???);
   }
 
-  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
-    outline-color: var(--b-ui-color-???);
+  :where([data-brand='tu-marca']) .sb-ui-button--secondary.sb-ui-button--text:focus-visible {
+    outline-color: var(--sb-ui-color-???);
   }
 }
 ```
@@ -356,36 +356,36 @@ Cada marca tiene estos tokens disponibles (revisar en `packages/tokens/src/primi
 
 ```css
 /* Primary (color principal de marca) */
-var(--b-ui-color-primary-D400)  /* Muy muy oscuro */
-var(--b-ui-color-primary-D300)  /* Muy oscuro */
-var(--b-ui-color-primary-D200)  /* Oscuro */
-var(--b-ui-color-primary-D100)  /* Medio oscuro */
-var(--b-ui-color-primary-base)  /* Base */
-var(--b-ui-color-primary-L100)  /* Claro medio */
-var(--b-ui-color-primary-L200)  /* Claro */
-var(--b-ui-color-primary-L300)  /* Muy claro */
-var(--b-ui-color-primary-L400)  /* Casi blanco */
+var(--sb-ui-color-primary-D400)  /* Muy muy oscuro */
+var(--sb-ui-color-primary-D300)  /* Muy oscuro */
+var(--sb-ui-color-primary-D200)  /* Oscuro */
+var(--sb-ui-color-primary-D100)  /* Medio oscuro */
+var(--sb-ui-color-primary-base)  /* Base */
+var(--sb-ui-color-primary-L100)  /* Claro medio */
+var(--sb-ui-color-primary-L200)  /* Claro */
+var(--sb-ui-color-primary-L300)  /* Muy claro */
+var(--sb-ui-color-primary-L400)  /* Casi blanco */
 
 /* Secondary (color secundario de marca) */
-var(--b-ui-color-secondary-D400) /* ... misma escala ... */
-var(--b-ui-color-secondary-base)
-var(--b-ui-color-secondary-L400)
+var(--sb-ui-color-secondary-D400) /* ... misma escala ... */
+var(--sb-ui-color-secondary-base)
+var(--sb-ui-color-secondary-L400)
 
 /* Tertiary (color terciario de marca) */
-var(--b-ui-color-tertiary-D400) /* ... misma escala ... */
-var(--b-ui-color-tertiary-base)
-var(--b-ui-color-tertiary-L400)
+var(--sb-ui-color-tertiary-D400) /* ... misma escala ... */
+var(--sb-ui-color-tertiary-base)
+var(--sb-ui-color-tertiary-L400)
 
 /* Grayscale (grises neutrales) */
-var(--b-ui-color-grayscale-black)
-var(--b-ui-color-grayscale-base)
-var(--b-ui-color-grayscale-white)
+var(--sb-ui-color-grayscale-black)
+var(--sb-ui-color-grayscale-base)
+var(--sb-ui-color-grayscale-white)
 
 /* Feedback (estados) */
-var(--b-ui-color-feedback-error-base)
-var(--b-ui-color-feedback-success-base)
-var(--b-ui-color-feedback-warning-base)
-var(--b-ui-color-feedback-info-base)
+var(--sb-ui-color-feedback-error-base)
+var(--sb-ui-color-feedback-success-base)
+var(--sb-ui-color-feedback-warning-base)
+var(--sb-ui-color-feedback-info-base)
 ```
 
 ---

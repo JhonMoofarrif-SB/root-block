@@ -46,30 +46,30 @@
    
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
-   [data-brand='jelpit'] .b-ui-button {
-     --b-ui-button-border-radius: 8px;      // Menos redondeado
-     --b-ui-button-padding-inline: 20px;    // Más padding
-     --b-ui-button-padding-block: 10px;
-     --b-ui-button-gap: 10px;
-     --b-ui-button-min-block-size: 44px;    // Más alto
+   [data-brand='jelpit'] .sb-ui-button {
+     --sb-ui-button-border-radius: 8px;      // Menos redondeado
+     --sb-ui-button-padding-inline: 20px;    // Más padding
+     --sb-ui-button-padding-block: 10px;
+     --sb-ui-button-gap: 10px;
+     --sb-ui-button-min-block-size: 44px;    // Más alto
    }
    ```
    ============================================================================ */
-[data-brand='seguros-bolivar'] .b-ui-button {
+[data-brand='seguros-bolivar'] .sb-ui-button {
   /* 🔵 ESTRUCTURA FIJA (Seguros Bolívar) */
-  --b-ui-button-border-radius: 50px;
+  --sb-ui-button-border-radius: 50px;
   /* ☝️ Muy redondeado vs base: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem) */
 
-  --b-ui-button-padding-inline: 16px;
+  --sb-ui-button-padding-inline: 16px;
   /* ☝️ Fijo vs base: clamp(0.8rem, 0.5rem + 1.5vw, 2rem) */
 
-  --b-ui-button-padding-block: 8px;
+  --sb-ui-button-padding-block: 8px;
   /* ☝️ Fijo vs base: clamp(0.4rem, 0.3rem + 0.5vw, 0.875rem) */
 
-  --b-ui-button-gap: 8px;
+  --sb-ui-button-gap: 8px;
   /* ☝️ Fijo vs base: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem) */
 
-  --b-ui-button-min-block-size: 40px;
+  --sb-ui-button-min-block-size: 40px;
   /* ☝️ Fijo vs base: clamp(36px, 8vw, 44px) */
 }
 
@@ -92,14 +92,14 @@
    ```css
    @layer brand-overrides {
    // Jelpit: outline naranja
-   [data-brand='jelpit'] .b-ui-button--primary:focus-visible {
-     outline: 3px solid var(--b-ui-color-primary-L100);
+   [data-brand='jelpit'] .sb-ui-button--primary:focus-visible {
+     outline: 3px solid var(--sb-ui-color-primary-L100);
      outline-offset: 2px;
    }
    
    // Davivienda: outline rojo
-   [data-brand='davivienda'] .b-ui-button--primary:focus-visible {
-     outline: 2px solid var(--b-ui-color-primary-L200);
+   [data-brand='davivienda'] .sb-ui-button--primary:focus-visible {
+     outline: 2px solid var(--sb-ui-color-primary-L200);
      outline-offset: 3px;
      }
    }
@@ -108,9 +108,9 @@
 @layer brand-overrides {
   /* ✅ Solo personaliza el COLOR del outline, no el comportamiento */
   /* :where() reduce la especificidad para que el base pueda sobrescribir en disabled */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--primary.b-ui-button--text:focus-visible {
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--primary.sb-ui-button--text:focus-visible {
     /* 🟡 Amarillo claro para focus (token secondary-L100 = #FFEA9A) */
-    outline-color: var(--b-ui-color-secondary-L100);
+    outline-color: var(--sb-ui-color-secondary-L100);
     outline-width: 2px;
     outline-offset: 2px;
   }
@@ -133,21 +133,21 @@
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
    // Jelpit: underline naranja
-   [data-brand='jelpit'] .b-ui-button--primary.b-ui-button--text {
-     text-decoration-color: var(--b-ui-color-primary-D100) !important;
+   [data-brand='jelpit'] .sb-ui-button--primary.sb-ui-button--text {
+     text-decoration-color: var(--sb-ui-color-primary-D100) !important;
    }
    
    // Davivienda: underline rojo
-   [data-brand='davivienda'] .b-ui-button--primary.b-ui-button--text {
-     text-decoration-color: var(--b-ui-color-primary-base) !important;
+   [data-brand='davivienda'] .sb-ui-button--primary.sb-ui-button--text {
+     text-decoration-color: var(--sb-ui-color-primary-base) !important;
    }
    ```
    ============================================================================ */
 [data-brand='seguros-bolivar']
-  .b-ui-button--primary.b-ui-button--text:not(:disabled):not(.b-ui-button--disabled) {
+  .sb-ui-button--primary.sb-ui-button--text:not(:disabled):not(.sb-ui-button--disabled) {
   /* 🟢 Verde para underline (token primary-D100 = #038450) */
   /* Solo aplica cuando NO está disabled */
-  text-decoration-color: var(--b-ui-color-primary-D100) !important;
+  text-decoration-color: var(--sb-ui-color-primary-D100) !important;
 }
 
 /* ============================================================================
@@ -165,46 +165,46 @@
    El base ya tiene disabled-hover genérico, esto solo ajusta valores específicos
    
    📝 VALORES COMUNES:
-   - Fondo: var(--b-ui-color-grayscale-L300) = #F5F5F5 (gris muy claro)
-   - Fondo hover: var(--b-ui-color-grayscale-L200) = #E1E1E1 (gris claro)
-   - Texto: var(--b-ui-color-grayscale-base) = #9B9B9B (gris medio)
-   - Texto hover: var(--b-ui-color-grayscale-L100) = #B9B9B9 (gris claro)
+   - Fondo: var(--sb-ui-color-grayscale-L300) = #F5F5F5 (gris muy claro)
+   - Fondo hover: var(--sb-ui-color-grayscale-L200) = #E1E1E1 (gris claro)
+   - Texto: var(--sb-ui-color-grayscale-base) = #9B9B9B (gris medio)
+   - Texto hover: var(--sb-ui-color-grayscale-L100) = #B9B9B9 (gris claro)
    
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
    // Jelpit: fondo más oscuro en hover
-   [data-brand='jelpit'] .b-ui-button--primary.b-ui-button--text:disabled:hover {
-     background-color: var(--b-ui-color-grayscale-L100) !important;
-     color: var(--b-ui-color-grayscale-base) !important;
+   [data-brand='jelpit'] .sb-ui-button--primary.sb-ui-button--text:disabled:hover {
+     background-color: var(--sb-ui-color-grayscale-L100) !important;
+     color: var(--sb-ui-color-grayscale-base) !important;
    }
    
    // Davivienda: sin cambio de fondo
-   [data-brand='davivienda'] .b-ui-button--primary:disabled:hover {
+   [data-brand='davivienda'] .sb-ui-button--primary:disabled:hover {
      background-color: transparent !important;
    }
    ```
    ============================================================================ */
 /* Disabled por defecto - SIEMPRE gris */
-[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text:disabled,
-[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text.b-ui-button--disabled {
+[data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text:disabled,
+[data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text.sb-ui-button--disabled {
   /* 🩶 Texto gris medio (token grayscale-base = #9B9B9B) */
-  color: var(--b-ui-color-grayscale-base) !important;
+  color: var(--sb-ui-color-grayscale-base) !important;
 
   /* 🩶 Underline gris medio - MISMO color que texto (token grayscale-base = #9B9B9B) */
-  text-decoration-color: var(--b-ui-color-grayscale-base) !important;
+  text-decoration-color: var(--sb-ui-color-grayscale-base) !important;
 }
 
 /* Disabled + Hover - aparece fondo gris */
-[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text:disabled:hover,
-[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text.b-ui-button--disabled:hover {
+[data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text:disabled:hover,
+[data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text.sb-ui-button--disabled:hover {
   /* 🩶 Gris claro aparece en hover (token grayscale-L300 = #F5F5F5) */
-  background-color: var(--b-ui-color-grayscale-L300) !important;
+  background-color: var(--sb-ui-color-grayscale-L300) !important;
 
   /* 🩶 Texto gris medio mantiene (token grayscale-base = #9B9B9B) */
-  color: var(--b-ui-color-grayscale-base) !important;
+  color: var(--sb-ui-color-grayscale-base) !important;
 
   /* 🩶 Underline gris medio mantiene (token grayscale-base = #9B9B9B) */
-  text-decoration-color: var(--b-ui-color-grayscale-base) !important;
+  text-decoration-color: var(--sb-ui-color-grayscale-base) !important;
 }
 
 /* ============================================================================
@@ -251,24 +251,24 @@
    SECONDARY STROKE - Documentación de comportamiento
    ============================================ */
 /*
-[data-brand='seguros-bolivar'] .b-ui-button--secondary {
+[data-brand='seguros-bolivar'] .sb-ui-button--secondary {
   // Ya definido en el base con estos valores:
   
   // Estados normales
-  --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);           // #FFFFFF
-  --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400);            // #FFFCF0
-  --b-ui-button-bg-active: var(--b-ui-color-secondary-L300);           // #FFF6D4
-  --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-white);        // #FFFFFF
+  --sb-ui-button-bg-color: var(--sb-ui-color-grayscale-white);           // #FFFFFF
+  --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-L400);            // #FFFCF0
+  --sb-ui-button-bg-active: var(--sb-ui-color-secondary-L300);           // #FFF6D4
+  --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-white);        // #FFFFFF
   
-  --b-ui-button-text-color: var(--b-ui-color-primary-D100);            // #038450 (verde)
-  --b-ui-button-text-hover: var(--b-ui-color-primary-D100);            // #038450 (mantiene)
-  --b-ui-button-text-active: var(--b-ui-color-primary-D100);           // #038450 (mantiene)
-  --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base);       // #9B9B9B
+  --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);            // #038450 (verde)
+  --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100);            // #038450 (mantiene)
+  --sb-ui-button-text-active: var(--sb-ui-color-primary-D100);           // #038450 (mantiene)
+  --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base);       // #9B9B9B
   
-  --b-ui-button-border-color: var(--b-ui-color-secondary-base);        // #FFE16F (amarillo)
-  --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);        // #FFDA55
-  --b-ui-button-border-active: var(--b-ui-color-secondary-D200);       // #FFD543
-  --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);     // #9B9B9B
+  --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);        // #FFE16F (amarillo)
+  --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);        // #FFDA55
+  --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);       // #FFD543
+  --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-base);     // #9B9B9B
 }
 */
 
@@ -276,29 +276,29 @@
    SECONDARY FILL - Documentación de comportamiento
    ============================================ */
 /*
-[data-brand='seguros-bolivar'] .b-ui-button--secondary.b-ui-button--fill {
+[data-brand='seguros-bolivar'] .sb-ui-button--secondary.sb-ui-button--fill {
   // Ya definido en el base con estos valores:
   
   // Backgrounds
-  --b-ui-button-bg-color: var(--b-ui-color-secondary-base);            // #FFE16F (amarillo)
-  --b-ui-button-bg-hover: var(--b-ui-color-secondary-D100);            // #FFDA55
-  --b-ui-button-bg-active: var(--b-ui-color-secondary-D200);           // #FFD543
-  --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300);         // #F5F5F5
+  --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);            // #FFE16F (amarillo)
+  --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-D100);            // #FFDA55
+  --sb-ui-button-bg-active: var(--sb-ui-color-secondary-D200);           // #FFD543
+  --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300);         // #F5F5F5
   
   // Textos - Verde que oscurece progresivamente
-  --b-ui-button-text-color: var(--b-ui-color-primary-base);            // #009056 (verde claro)
-  --b-ui-button-text-hover: var(--b-ui-color-primary-D100);            // #038450 (verde medio)
-  --b-ui-button-text-active: var(--b-ui-color-primary-D200);           // #05794A (verde oscuro)
-  --b-ui-button-text-disabled: var(--b-ui-color-grayscale-L100);       // #B9B9B9
+  --sb-ui-button-text-color: var(--sb-ui-color-primary-base);            // #009056 (verde claro)
+  --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100);            // #038450 (verde medio)
+  --sb-ui-button-text-active: var(--sb-ui-color-primary-D200);           // #05794A (verde oscuro)
+  --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-L100);       // #B9B9B9
   
   // Borders (mismo color que background)
-  --b-ui-button-border-color: var(--b-ui-color-secondary-base);        // #FFE16F
-  --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);        // #FFDA55
-  --b-ui-button-border-active: var(--b-ui-color-secondary-D200);       // #FFD543
-  --b-ui-button-border-disabled: var(--b-ui-color-grayscale-L300);     // #F5F5F5
+  --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);        // #FFE16F
+  --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);        // #FFDA55
+  --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);       // #FFD543
+  --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-L300);     // #F5F5F5
   
   // Shadow al hacer hover
-  --b-ui-button-shadow-hover: var(--b-ui-shadow-s);                    // Sombra sutil
+  --sb-ui-button-shadow-hover: var(--sb-ui-shadow-s);                    // Sombra sutil
 }
 */
 
@@ -306,20 +306,20 @@
    SECONDARY TEXT - Documentación de comportamiento
    ============================================ */
 /*
-[data-brand='seguros-bolivar'] .b-ui-button--secondary.b-ui-button--text {
+[data-brand='seguros-bolivar'] .sb-ui-button--secondary.sb-ui-button--text {
   // Ya definido en el base con estos valores:
   
   // Backgrounds (todos transparentes excepto disabled)
-  --b-ui-button-bg-color: transparent;
-  --b-ui-button-bg-hover: transparent;
-  --b-ui-button-bg-active: transparent;
-  --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300);         // #F5F5F5 (aparece)
+  --sb-ui-button-bg-color: transparent;
+  --sb-ui-button-bg-hover: transparent;
+  --sb-ui-button-bg-active: transparent;
+  --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300);         // #F5F5F5 (aparece)
   
   // Textos - Amarillo que oscurece
-  --b-ui-button-text-color: var(--b-ui-color-secondary-base);          // #FFE16F (amarillo claro)
-  --b-ui-button-text-hover: var(--b-ui-color-secondary-D100);          // #FFDA55 (amarillo medio)
-  --b-ui-button-text-active: var(--b-ui-color-secondary-D200);         // #FFD543 (amarillo oscuro)
-  --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base);       // #9B9B9B
+  --sb-ui-button-text-color: var(--sb-ui-color-secondary-base);          // #FFE16F (amarillo claro)
+  --sb-ui-button-text-hover: var(--sb-ui-color-secondary-D100);          // #FFDA55 (amarillo medio)
+  --sb-ui-button-text-active: var(--sb-ui-color-secondary-D200);         // #FFD543 (amarillo oscuro)
+  --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base);       // #9B9B9B
   
   // Underline (siempre visible, color del texto)
   text-decoration: underline;
@@ -327,7 +327,7 @@
   
   // En disabled, underline es gris
   &:disabled {
-    text-decoration-color: var(--b-ui-color-grayscale-base);         // #9B9B9B
+    text-decoration-color: var(--sb-ui-color-grayscale-base);         // #9B9B9B
   }
 }
 */
@@ -350,27 +350,27 @@
 
 @layer brand-overrides {
   /* SECONDARY STROKE - Solo cambios de color PRIMARY vs SECONDARY */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke,
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--stroke,
   :where([data-brand='seguros-bolivar'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text) {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde en vez de amarillo */
-    --b-ui-button-border-color: var(--b-ui-color-primary-D100);
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D100); /* Verde en vez de amarillo */
+    --sb-ui-button-border-color: var(--sb-ui-color-primary-D100);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-primary-L400); /* Verde claro en vez de amarillo */
-    --b-ui-button-text-hover: var(--b-ui-color-primary-D200);
-    --b-ui-button-border-hover: var(--b-ui-color-primary-D200);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-primary-L400); /* Verde claro en vez de amarillo */
+    --sb-ui-button-text-hover: var(--sb-ui-color-primary-D200);
+    --sb-ui-button-border-hover: var(--sb-ui-color-primary-D200);
 
-    --b-ui-button-bg-active: var(--b-ui-color-primary-L300);
-    --b-ui-button-text-active: var(--b-ui-color-primary-D200);
-    --b-ui-button-border-active: var(--b-ui-color-primary-D200);
+    --sb-ui-button-bg-active: var(--sb-ui-color-primary-L300);
+    --sb-ui-button-text-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-button-border-active: var(--sb-ui-color-primary-D200);
   }
 
   /* Focus outline - Verde en vez de amarillo */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
   :where([data-brand='seguros-bolivar'])
-    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
-    outline-color: var(--b-ui-color-primary-L100); /* Verde claro */
+    .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text):focus-visible {
+    outline-color: var(--sb-ui-color-primary-L100); /* Verde claro */
   }
 }
 
@@ -392,24 +392,24 @@
 
 @layer brand-overrides {
   /* SECONDARY FILL - Solo cambios de color PRIMARY vs SECONDARY */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--fill {
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--fill {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300); /* Verde muy claro en vez de amarillo */
-    --b-ui-button-text-color: var(--b-ui-color-primary-D200); /* Verde oscuro */
-    --b-ui-button-border-color: var(--b-ui-color-primary-L300);
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300); /* Verde muy claro en vez de amarillo */
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D200); /* Verde oscuro */
+    --sb-ui-button-border-color: var(--sb-ui-color-primary-L300);
 
-    --b-ui-button-bg-hover: var(--b-ui-color-primary-L200); /* Verde claro */
-    --b-ui-button-text-hover: var(--b-ui-color-primary-D300); /* Verde muy oscuro */
-    --b-ui-button-border-hover: var(--b-ui-color-primary-L200);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-primary-L200); /* Verde claro */
+    --sb-ui-button-text-hover: var(--sb-ui-color-primary-D300); /* Verde muy oscuro */
+    --sb-ui-button-border-hover: var(--sb-ui-color-primary-L200);
 
-    --b-ui-button-bg-active: var(--b-ui-color-primary-L200);
-    --b-ui-button-text-active: var(--b-ui-color-primary-D300);
-    --b-ui-button-border-active: var(--b-ui-color-primary-L200);
+    --sb-ui-button-bg-active: var(--sb-ui-color-primary-L200);
+    --sb-ui-button-text-active: var(--sb-ui-color-primary-D300);
+    --sb-ui-button-border-active: var(--sb-ui-color-primary-L200);
   }
 
   /* Focus outline - Verde en vez de amarillo */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-primary-L100);
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-primary-L100);
   }
 }
 
@@ -432,20 +432,20 @@
 
 @layer brand-overrides {
   /* SECONDARY TEXT - Solo cambios de color PRIMARY vs SECONDARY */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--text {
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--text {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde en vez de amarillo */
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D100); /* Verde en vez de amarillo */
 
-    --b-ui-button-bg-hover: var(--b-ui-color-primary-L400); /* Verde casi blanco (aparece en hover) */
-    --b-ui-button-text-hover: var(--b-ui-color-primary-D200);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-primary-L400); /* Verde casi blanco (aparece en hover) */
+    --sb-ui-button-text-hover: var(--sb-ui-color-primary-D200);
 
-    --b-ui-button-bg-active: var(--b-ui-color-primary-L300); /* Verde claro (aparece en pressed) */
-    --b-ui-button-text-active: var(--b-ui-color-primary-D200);
+    --sb-ui-button-bg-active: var(--sb-ui-color-primary-L300); /* Verde claro (aparece en pressed) */
+    --sb-ui-button-text-active: var(--sb-ui-color-primary-D200);
   }
 
   /* Focus outline - Verde en vez de amarillo */
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
-    outline-color: var(--b-ui-color-primary-L100);
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--text:focus-visible {
+    outline-color: var(--sb-ui-color-primary-L100);
   }
 }
 
@@ -489,23 +489,23 @@
    🎨 TOKENS DISPONIBLES (Seguros Bolívar):
    ```
    PRIMARY:
-   - --b-ui-color-primary-base:  #05A660  (verde base)
-   - --b-ui-color-primary-D100:  #038450  (verde oscuro) ✅ USADO
-   - --b-ui-color-primary-D200:  #026B41  (verde muy oscuro)
+   - --sb-ui-color-primary-base:  #05A660  (verde base)
+   - --sb-ui-color-primary-D100:  #038450  (verde oscuro) ✅ USADO
+   - --sb-ui-color-primary-D200:  #026B41  (verde muy oscuro)
    
    SECONDARY:
-   - --b-ui-color-secondary-base:  #FFE16F  (amarillo base)
-   - --b-ui-color-secondary-D100:  #FFDA55  (amarillo oscuro)
-   - --b-ui-color-secondary-L100:  #FFEA9A  (amarillo claro) ✅ USADO
-   - --b-ui-color-secondary-L300:  #FFF6D4  (amarillo muy claro)
-   - --b-ui-color-secondary-L400:  #FFFCF0  (amarillo casi blanco)
+   - --sb-ui-color-secondary-base:  #FFE16F  (amarillo base)
+   - --sb-ui-color-secondary-D100:  #FFDA55  (amarillo oscuro)
+   - --sb-ui-color-secondary-L100:  #FFEA9A  (amarillo claro) ✅ USADO
+   - --sb-ui-color-secondary-L300:  #FFF6D4  (amarillo muy claro)
+   - --sb-ui-color-secondary-L400:  #FFFCF0  (amarillo casi blanco)
    
    GRAYSCALE:
-   - --b-ui-color-grayscale-white:  #FFFFFF  (blanco)
-   - --b-ui-color-grayscale-L300:   #F5F5F5  (gris muy claro) ✅ USADO
-   - --b-ui-color-grayscale-L200:   #E1E1E1  (gris claro)
-   - --b-ui-color-grayscale-L100:   #B9B9B9  (gris claro medio)
-   - --b-ui-color-grayscale-base:   #9B9B9B  (gris medio) ✅ USADO
+   - --sb-ui-color-grayscale-white:  #FFFFFF  (blanco)
+   - --sb-ui-color-grayscale-L300:   #F5F5F5  (gris muy claro) ✅ USADO
+   - --sb-ui-color-grayscale-L200:   #E1E1E1  (gris claro)
+   - --sb-ui-color-grayscale-L100:   #B9B9B9  (gris claro medio)
+   - --sb-ui-color-grayscale-base:   #9B9B9B  (gris medio) ✅ USADO
    ```
    
    🚀 TESTING:

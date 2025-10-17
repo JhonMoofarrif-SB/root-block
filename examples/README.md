@@ -1,4 +1,4 @@
-# 🎨 Bolivar UI Design System - Examples
+# 🎨 Seguros Bolivar UI Design System - Examples
 
 Ejemplos interactivos del sistema de diseño.
 

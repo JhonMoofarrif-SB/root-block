@@ -4,7 +4,7 @@
 
 ### 1. **Clase Base (OBLIGATORIA)**
 
-Todos los botones deben tener la clase `.b-ui-button`:
+Todos los botones deben tener la clase `.sb-ui-button`:
 
 ```html
 <button class="rb-button">Botón</button>
@@ -156,12 +156,12 @@ Usa clases o atributos HTML según el estado:
 
 | Quiero                               | Clases                                                               |
 | ------------------------------------ | -------------------------------------------------------------------- |
-| Botón primario simple                | `.b-ui-button .b-ui-button--primary`                                     |
-| Botón secundario con borde           | `.b-ui-button .b-ui-button--secondary .b-ui-button--stroke`                |
-| Botón grande de error                | `.b-ui-button .b-ui-button--error .b-ui-button--large`                     |
-| Botón pequeño terciario transparente | `.b-ui-button .b-ui-button--tertiary .b-ui-button--text .b-ui-button--small` |
-| Botón con icono izquierda            | `.b-ui-button .b-ui-button--primary .b-ui-button--icon-left`               |
-| Botón solo icono circular            | `.b-ui-button .b-ui-button--primary .b-ui-button--icon-only`               |
+| Botón primario simple                | `.sb-ui-button .sb-ui-button--primary`                                     |
+| Botón secundario con borde           | `.sb-ui-button .sb-ui-button--secondary .sb-ui-button--stroke`                |
+| Botón grande de error                | `.sb-ui-button .sb-ui-button--error .sb-ui-button--large`                     |
+| Botón pequeño terciario transparente | `.sb-ui-button .sb-ui-button--tertiary .sb-ui-button--text .sb-ui-button--small` |
+| Botón con icono izquierda            | `.sb-ui-button .sb-ui-button--primary .sb-ui-button--icon-left`               |
+| Botón solo icono circular            | `.sb-ui-button .sb-ui-button--primary .sb-ui-button--icon-only`               |
 
 ---
 

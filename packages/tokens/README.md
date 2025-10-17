@@ -1,6 +1,6 @@
-# 🎨 @bolivar-ui/tokens
+# 🎨 @seguros-bolivar-ui/tokens
 
-> Design Tokens para el Bolivar UI Design System
+> Design Tokens para el Seguros Bolivar UI Design System
 
 Tokens de diseño generados con Style Dictionary para 6 marcas × 2 temas = 12 combinaciones.
 
@@ -9,7 +9,7 @@ Tokens de diseño generados con Style Dictionary para 6 marcas × 2 temas = 12 c
 ## 📦 Instalación
 
 ```bash
-pnpm add @bolivar-ui/tokens
+pnpm add @seguros-bolivar-ui/tokens
 ```
 
 ## 🎨 Marcas y Temas
@@ -40,13 +40,13 @@ pnpm add @bolivar-ui/tokens
 ### Import en JavaScript
 
 ```javascript
-import '@bolivar-ui/tokens/jelpit-light.css';
+import '@seguros-bolivar-ui/tokens/jelpit-light.css';
 ```
 
 ### TypeScript
 
 ```typescript
-import { BRANDS, THEMES, type Brand, type Theme } from '@bolivar-ui/tokens';
+import { BRANDS, THEMES, type Brand, type Theme } from '@seguros-bolivar-ui/tokens';
 
 const brand: Brand = 'jelpit';
 const theme: Theme = 'light';
@@ -57,61 +57,61 @@ console.log(THEMES); // ['light', 'dark']
 
 ## 📋 Variables CSS Generadas
 
-Todas las variables tienen el prefijo `--b-ui-` para evitar colisiones:
+Todas las variables tienen el prefijo `--sb-ui-` para evitar colisiones:
 
 ### Colores
 
 ```css
 /* Primary, Secondary, Tertiary */
---b-ui-color-primary-D400
---b-ui-color-primary-D300
---b-ui-color-primary-D200
---b-ui-color-primary-D100
---b-ui-color-primary-base
---b-ui-color-primary-L100
---b-ui-color-primary-L200
---b-ui-color-primary-L300
---b-ui-color-primary-L400
+--sb-ui-color-primary-D400
+--sb-ui-color-primary-D300
+--sb-ui-color-primary-D200
+--sb-ui-color-primary-D100
+--sb-ui-color-primary-base
+--sb-ui-color-primary-L100
+--sb-ui-color-primary-L200
+--sb-ui-color-primary-L300
+--sb-ui-color-primary-L400
 
 /* Feedback Colors */
---b-ui-color-feedback-error-base
---b-ui-color-feedback-success-base
---b-ui-color-feedback-warning-base
---b-ui-color-feedback-info-base
+--sb-ui-color-feedback-error-base
+--sb-ui-color-feedback-success-base
+--sb-ui-color-feedback-warning-base
+--sb-ui-color-feedback-info-base
 
 /* Grayscale */
---b-ui-color-grayscale-black
---b-ui-color-grayscale-white
---b-ui-color-grayscale-base
+--sb-ui-color-grayscale-black
+--sb-ui-color-grayscale-white
+--sb-ui-color-grayscale-base
 ```
 
 ### Tipografía
 
 ```css
---b-ui-typography-fontFamily
---b-ui-typography-fontSize-h1
---b-ui-typography-fontSize-h2
---b-ui-typography-fontSize-body
---b-ui-typography-fontSize-label
---b-ui-typography-fontSize-caption
+--sb-ui-typography-fontFamily
+--sb-ui-typography-fontSize-h1
+--sb-ui-typography-fontSize-h2
+--sb-ui-typography-fontSize-body
+--sb-ui-typography-fontSize-label
+--sb-ui-typography-fontSize-caption
 ```
 
 ### Sombras
 
 ```css
---b-ui-shadow-xs
---b-ui-shadow-s
---b-ui-shadow-m
---b-ui-shadow-l
---b-ui-shadow-xl
+--sb-ui-shadow-xs
+--sb-ui-shadow-s
+--sb-ui-shadow-m
+--sb-ui-shadow-l
+--sb-ui-shadow-xl
 ```
 
 ### Gradientes
 
 ```css
---b-ui-gradient-primary-dark
---b-ui-gradient-primary-base
---b-ui-gradient-primary-light
+--sb-ui-gradient-primary-dark
+--sb-ui-gradient-primary-base
+--sb-ui-gradient-primary-light
 ```
 
 ## 🛠️ Desarrollo
@@ -214,7 +214,7 @@ pnpm dev
 
 - ✅ **6 marcas predefinidas** con colores corporativos reales
 - ✅ **12 temas** (6 marcas × 2 temas)
-- ✅ **Prefijo --b-ui-** para evitar colisiones
+- ✅ **Prefijo --sb-ui-** para evitar colisiones
 - ✅ **Type-safe** con TypeScript
 - ✅ **Optimizado** (~1KB gzip por marca)
 - ✅ **Style Dictionary** para generación automática
@@ -254,4 +254,4 @@ Primitives (por marca)
 
 ## 📄 Licencia
 
-MIT © Bolivar UI
+MIT © Seguros Bolivar UI

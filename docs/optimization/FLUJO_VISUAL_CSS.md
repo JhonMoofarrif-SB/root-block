@@ -37,10 +37,10 @@
 │                                                                             │
 │  📤 Output: packages/tokens/dist/seguros-bolivar-light.css                 │
 │  [data-brand="seguros-bolivar"][data-theme="light"] {                      │
-│    --b-ui-color-primary-base: #009056;      ← De JSON                        │
-│    --b-ui-color-primary-D100: #05794A;                                       │
-│    --b-ui-color-secondary-base: #FFE16F;                                     │
-│    --b-ui-color-secondary-D100: #FFC918;                                     │
+│    --sb-ui-color-primary-base: #009056;      ← De JSON                        │
+│    --sb-ui-color-primary-D100: #05794A;                                       │
+│    --sb-ui-color-secondary-base: #FFE16F;                                     │
+│    --sb-ui-color-secondary-D100: #FFC918;                                     │
 │  }                                                                          │
 │                                                                             │
 │  📊 Size: ~4KB (117 variables)                                             │
@@ -54,7 +54,7 @@
 │                                                                             │
 │  /* BASE: Define estructura y comportamiento */                            │
 │  @layer base {                                                              │
-│    .b-ui-button {                                                             │
+│    .sb-ui-button {                                                             │
 │      padding: 12px 24px;                                                    │
 │      border-radius: 8px;                                                    │
 │      cursor: pointer;                                                       │
@@ -64,22 +64,22 @@
 │                                                                             │
 │  /* SECONDARY STROKE (usa tokens SECONDARY = amarillo) */                  │
 │  @layer variants {                                                          │
-│    .b-ui-button--secondary.b-ui-button--stroke {                               │
-│      --b-ui-button-text-color: var(--b-ui-color-secondary-D100);  ← Amarillo  │
-│      --b-ui-button-border-color: var(--b-ui-color-secondary-D100);             │
+│    .sb-ui-button--secondary.sb-ui-button--stroke {                               │
+│      --sb-ui-button-text-color: var(--sb-ui-color-secondary-D100);  ← Amarillo  │
+│      --sb-ui-button-border-color: var(--sb-ui-color-secondary-D100);             │
 │                                                                             │
 │      background: transparent;                                               │
-│      color: var(--b-ui-button-text-color);                                   │
-│      border: 2px solid var(--b-ui-button-border-color);                      │
+│      color: var(--sb-ui-button-text-color);                                   │
+│      border: 2px solid var(--sb-ui-button-border-color);                      │
 │    }                                                                        │
 │                                                                             │
 │    /* ESTADOS */                                                            │
-│    .b-ui-button--secondary.b-ui-button--stroke:hover {                         │
-│      --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400);   ← Amarillo   │
-│      background: var(--b-ui-button-bg-hover);                                │
+│    .sb-ui-button--secondary.sb-ui-button--stroke:hover {                         │
+│      --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-L400);   ← Amarillo   │
+│      background: var(--sb-ui-button-bg-hover);                                │
 │    }                                                                        │
 │                                                                             │
-│    .b-ui-button--secondary.b-ui-button--stroke:disabled {                      │
+│    .sb-ui-button--secondary.sb-ui-button--stroke:disabled {                      │
 │      cursor: not-allowed;                                                   │
 │      opacity: 0.5;                                                          │
 │      outline: none;  ← Comportamiento general                              │
@@ -103,32 +103,32 @@
 │                                                                             │
 │    /* SECONDARY STROKE - Cambiar SECONDARY (amarillo) a PRIMARY (verde) */│
 │    :where([data-brand='seguros-bolivar'])                                  │
-│      .b-ui-button--secondary.b-ui-button--stroke {                             │
+│      .sb-ui-button--secondary.sb-ui-button--stroke {                             │
 │                                                                             │
 │      /* REMAPPING: secondary → primary */                                  │
-│      --b-ui-button-text-color: var(--b-ui-color-primary-D100);   ← Verde!     │
-│      --b-ui-button-border-color: var(--b-ui-color-primary-D100);               │
+│      --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);   ← Verde!     │
+│      --sb-ui-button-border-color: var(--sb-ui-color-primary-D100);               │
 │                                                                             │
-│      --b-ui-button-bg-hover: var(--b-ui-color-primary-L400);     ← Verde!     │
-│      --b-ui-button-text-hover: var(--b-ui-color-primary-D200);                 │
-│      --b-ui-button-border-hover: var(--b-ui-color-primary-D200);               │
+│      --sb-ui-button-bg-hover: var(--sb-ui-color-primary-L400);     ← Verde!     │
+│      --sb-ui-button-text-hover: var(--sb-ui-color-primary-D200);                 │
+│      --sb-ui-button-border-hover: var(--sb-ui-color-primary-D200);               │
 │    }                                                                        │
 │                                                                             │
 │    /* Focus outline - Verde en vez de amarillo */                          │
 │    :where([data-brand='seguros-bolivar'])                                  │
-│      .b-ui-button--secondary.b-ui-button--stroke:focus-visible {               │
-│      outline-color: var(--b-ui-color-primary-L100);  ← Verde!               │
+│      .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible {               │
+│      outline-color: var(--sb-ui-color-primary-L100);  ← Verde!               │
 │    }                                                                        │
 │                                                                             │
 │    /* SECONDARY FILL - También usa verde */                                │
 │    :where([data-brand='seguros-bolivar'])                                  │
-│      .b-ui-button--secondary.b-ui-button--fill {                               │
-│      --b-ui-button-bg-color: var(--b-ui-color-primary-L400);     ← Verde!     │
-│      --b-ui-button-text-color: var(--b-ui-color-primary-D100);                 │
+│      .sb-ui-button--secondary.sb-ui-button--fill {                               │
+│      --sb-ui-button-bg-color: var(--sb-ui-color-primary-L400);     ← Verde!     │
+│      --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);                 │
 │    }                                                                        │
 │                                                                             │
 │    /* SECONDARY TEXT - Sigue usando amarillo (no override) */             │
-│    /* ❌ NO override para .b-ui-button--text = usa base (amarillo) */        │
+│    /* ❌ NO override para .sb-ui-button--text = usa base (amarillo) */        │
 │  }                                                                          │
 │                                                                             │
 │  💡 ¿Por qué :where()?                                                     │
@@ -157,10 +157,10 @@
 │    const minified = minify(combined);                                      │
 │                                                                             │
 │    // Save multiple formats                                                │
-│    await save(`b-ui-${brand}-${theme}.css`, combined);                       │
-│    await save(`b-ui-${brand}-${theme}.min.css`, minified);                   │
-│    await save(`b-ui-${brand}-${theme}.min.css.gz`, gzip(minified));          │
-│    await save(`b-ui-${brand}-${theme}.min.css.br`, brotli(minified));        │
+│    await save(`sb-ui-${brand}-${theme}.css`, combined);                       │
+│    await save(`sb-ui-${brand}-${theme}.min.css`, minified);                   │
+│    await save(`sb-ui-${brand}-${theme}.min.css.gz`, gzip(minified));          │
+│    await save(`sb-ui-${brand}-${theme}.min.css.br`, brotli(minified));        │
 │  }                                                                          │
 │                                                                             │
 │  📂 Output: packages/bundle/dist/                                          │
@@ -244,27 +244,27 @@
 ```css
 /* 1️⃣ TOKENS (más específico: [data-brand][data-theme]) */
 [data-brand='seguros-bolivar'][data-theme='light'] {
-  --b-ui-color-primary-D100: #05794a; /* Verde */
-  --b-ui-color-secondary-D100: #ffc918; /* Amarillo */
+  --sb-ui-color-primary-D100: #05794a; /* Verde */
+  --sb-ui-color-secondary-D100: #ffc918; /* Amarillo */
 }
 
 /* 2️⃣ BASE (@layer base, menos específico) */
 @layer base {
-  .b-ui-button--secondary.b-ui-button--stroke {
-    --b-ui-button-text-color: var(--b-ui-color-secondary-D100); /* Amarillo */
-    color: var(--b-ui-button-text-color);
+  .sb-ui-button--secondary.sb-ui-button--stroke {
+    --sb-ui-button-text-color: var(--sb-ui-color-secondary-D100); /* Amarillo */
+    color: var(--sb-ui-button-text-color);
   }
 }
 
 /* 3️⃣ OVERRIDE (@layer brand-overrides, gana por layer order) */
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke {
-    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde! ✅ */
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--stroke {
+    --sb-ui-button-text-color: var(--sb-ui-color-primary-D100); /* Verde! ✅ */
   }
 }
 
 /* RESULTADO FINAL: */
-/* --b-ui-button-text-color = var(--b-ui-color-primary-D100) = #05794A (verde) */
+/* --sb-ui-button-text-color = var(--sb-ui-color-primary-D100) = #05794A (verde) */
 ```
 
 ### Specificity Breakdown:
@@ -275,12 +275,12 @@
    → (0, 2, 0) = 2 attributes
 
 2️⃣ Base:
-   @layer base .b-ui-button--secondary.b-ui-button--stroke
+   @layer base .sb-ui-button--secondary.sb-ui-button--stroke
    → (0, 2, 0) = 2 classes
    → Pero dentro de @layer base (lower priority)
 
 3️⃣ Override:
-   @layer brand-overrides :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke
+   @layer brand-overrides :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--stroke
    → (0, 2, 0) = 2 classes (mismo que base)
    → Pero dentro de @layer brand-overrides (higher priority) ✅
    → :where() reduce specificity del [data-brand] a 0

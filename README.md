@@ -1,20 +1,20 @@
-# 🎨 Bolivar UI Design System
+# 🎨 Seguros Bolivar UI Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/github/v/release/JhonMoofarrif-SB/bolivar-ui)](https://github.com/JhonMoofarrif-SB/bolivar-ui/releases)
-[![CI](https://github.com/JhonMoofarrif-SB/bolivar-ui/workflows/CI/badge.svg)](https://github.com/JhonMoofarrif-SB/bolivar-ui/actions)
+[![Release](https://img.shields.io/github/v/release/JhonMoofarrif-SB/seguros-bolivar-ui)](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/releases)
+[![CI](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/workflows/CI/badge.svg)](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/actions)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 > 🚀 Enterprise Multi-Brand Design System con soporte para 6 marcas, 2 temas y overrides personalizados
 
 **✨ v1.1.0 Nuevo:** Sistema de overrides por marca + Animación especial Davivienda
 
-[Demo en Vivo](https://jhonmoofarrif-sb.github.io/bolivar-ui/) | [Documentación](./docs/) | [Changelog](./CHANGELOG.md) | [Releases](https://github.com/JhonMoofarrif-SB/bolivar-ui/releases)
+[Demo en Vivo](https://jhonmoofarrif-sb.github.io/seguros-bolivar-ui/) | [Documentación](./docs/) | [Changelog](./CHANGELOG.md) | [Releases](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/releases)
 
 ## 🏗️ Arquitectura
 
 ```
-bolivar-ui/
+seguros-bolivar-ui/
 ├── packages/
 │   ├── tokens/              # 🎨 Design Tokens (colores, tipografía, sombras)
 │   ├── atoms/               # ⚛️ Componentes CSS simples (Button, Input, etc.)
@@ -47,22 +47,22 @@ packages/brand-overrides/
 
 ## 📦 Packages
 
-### 🎨 [@bolivar-ui/tokens](./packages/tokens)
+### 🎨 [@seguros-bolivar-ui/tokens](./packages/tokens)
 
 Design tokens para 6 marcas × 2 temas = 12 combinaciones
 
 - White Label, Jelpit, Davivienda, Cien Cuadras, Doctor Aki, Seguros Bolívar
 - Light y Dark themes
 
-### ⚛️ [@bolivar-ui/atoms](./packages/atoms)
+### ⚛️ [@seguros-bolivar-ui/atoms](./packages/atoms)
 
-Componentes CSS simples con variables `--b-ui-*`
+Componentes CSS simples con variables `--sb-ui-*`
 
 - Cada componente resuelve todo su CSS (sin dependencias externas)
 - **Button** con múltiples variantes y estados (incluyendo loading)
 - Más componentes en desarrollo: Badge, Card, Alert
 
-### 🧬 [@bolivar-ui/molecules](./packages/molecules)
+### 🧬 [@seguros-bolivar-ui/molecules](./packages/molecules)
 
 Web Components complejos con Lit
 
@@ -71,7 +71,7 @@ Web Components complejos con Lit
 - **Dropdown**: Menús desplegables
 - Más componentes en desarrollo: Data Table, Charts
 
-### ✨ [@bolivar-ui/brand-overrides](./packages/brand-overrides) 🆕
+### ✨ [@seguros-bolivar-ui/brand-overrides](./packages/brand-overrides) 🆕
 
 Estilos específicos por marca que extienden o modifican componentes base
 
@@ -79,7 +79,7 @@ Estilos específicos por marca que extienden o modifican componentes base
 - Arquitectura extensible para cualquier marca
 - Se combinan automáticamente en el bundle final
 
-### 📦 [@bolivar-ui/bundle](./packages/bundle)
+### 📦 [@seguros-bolivar-ui/bundle](./packages/bundle)
 
 Generador de bundles CDN optimizados - **Complete bundle per brand**
 
@@ -94,8 +94,8 @@ Generador de bundles CDN optimizados - **Complete bundle per brand**
 
 ```bash
 # 1. Clonar repositorio
-git clone https://github.com/JhonMoofarrif-SB/bolivar-ui.git
-cd bolivar-ui
+git clone https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui.git
+cd seguros-bolivar-ui
 
 # 2. Instalar dependencias
 pnpm install
@@ -132,7 +132,7 @@ pnpm run storybook
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi App con Bolivar UI</title>
+    <title>Mi App con Seguros Bolivar UI</title>
 
     <!-- 1. Bundle completo de marca (tokens + atoms + overrides) - ~2.4KB gzip -->
     <link rel="stylesheet" href="https://cdn.rootblock.com/rb-davivienda-light.min.css" />
@@ -198,31 +198,31 @@ changeBrand('cien-cuadras', 'light'); // 🔵 Azul inmobiliario
 
 ## 🎨 Variables CSS
 
-**TODAS las variables tienen prefijo `--b-ui-`** para evitar colisiones:
+**TODAS las variables tienen prefijo `--sb-ui-`** para evitar colisiones:
 
 ### Tokens de Marca
 
 ```css
---b-ui-color-primary-base
---b-ui-color-secondary-base
---b-ui-typography-fontFamily
---b-ui-shadow-m
+--sb-ui-color-primary-base
+--sb-ui-color-secondary-base
+--sb-ui-typography-fontFamily
+--sb-ui-shadow-m
 ```
 
 ### Variables de Componente
 
 ```css
---b-ui-button-bg-color
---b-ui-button-padding
---b-ui-button-border-radius
+--sb-ui-button-bg-color
+--sb-ui-button-padding
+--sb-ui-button-border-radius
 ```
 
 ## 📚 Documentación
 
 ### 🌐 Documentación Online
 
-- **Storybook**: [bolivar-ui.vercel.app](https://bolivar-ui.vercel.app) - Documentación completa
-- **Demo Interactivo**: [bolivar-ui.vercel.app/examples](https://bolivar-ui.vercel.app/examples) - Prueba en vivo
+- **Storybook**: [seguros-bolivar-ui.vercel.app](https://seguros-bolivar-ui.vercel.app) - Documentación completa
+- **Demo Interactivo**: [seguros-bolivar-ui.vercel.app/examples](https://seguros-bolivar-ui.vercel.app/examples) - Prueba en vivo
 
 ### Storybook Interactivo (Local)
 
@@ -281,8 +281,8 @@ El proyecto sigue estándares CSS modernos con **Cursor AI**:
 - ✅ `@layer` para control de cascada predecible
 - ✅ Logical Properties (RTL/LTR ready)
 - ✅ `clamp()` para responsive fluido sin media queries
-- ✅ Variables CSS con prefijo `--b-ui-`
-- ✅ Nomenclatura BEM con prefijo `b-ui-`
+- ✅ Variables CSS con prefijo `--sb-ui-`
+- ✅ Nomenclatura BEM con prefijo `sb-ui-`
 - ✅ Accesibilidad completa (WCAG AA)
 - ✅ **Cursor AI aplica reglas automáticamente desde la carpeta `.cursor/`**
 
@@ -358,10 +358,10 @@ pnpm run build
 
 | Archivo                       | Marca       | Minificado | Gzip   | Contenido                     |
 | ----------------------------- | ----------- | ---------- | ------ | ----------------------------- |
-| `b-ui-jelpit-light.min.css`     | Jelpit      | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
-| `b-ui-davivienda-light.min.css` | Davivienda  | 13.5 KB    | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
-| `b-ui-white-label-dark.min.css` | White Label | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
-| `b-ui-components.min.js`        | Universal   | 29.7 KB    | 8.6 KB | Todos los Web Components      |
+| `sb-ui-jelpit-light.min.css`     | Jelpit      | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
+| `sb-ui-davivienda-light.min.css` | Davivienda  | 13.5 KB    | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
+| `sb-ui-white-label-dark.min.css` | White Label | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
+| `sb-ui-components.min.js`        | Universal   | 29.7 KB    | 8.6 KB | Todos los Web Components      |
 
 ### Total por Usuario
 
@@ -432,7 +432,7 @@ Ejemplo:
 
 ```css
 /* packages/brand-overrides/src/mi-marca/button.css */
-[data-brand='mi-marca'] .b-ui-button--primary {
+[data-brand='mi-marca'] .sb-ui-button--primary {
   /* Tus estilos personalizados */
 }
 ```
@@ -462,15 +462,15 @@ Ejemplo:
 
 ## 📄 Licencia
 
-MIT © Bolivar UI - ver [LICENSE](./LICENSE) para más detalles
+MIT © Seguros Bolivar UI - ver [LICENSE](./LICENSE) para más detalles
 
 ## 💬 Soporte
 
 - 📧 Email: support@rootblock.com
-- 🐛 Issues: [GitHub Issues](https://github.com/JhonMoofarrif-SB/bolivar-ui/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/JhonMoofarrif-SB/bolivar-ui/discussions)
-- 📦 Releases: [GitHub Releases](https://github.com/JhonMoofarrif-SB/bolivar-ui/releases)
+- 🐛 Issues: [GitHub Issues](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/discussions)
+- 📦 Releases: [GitHub Releases](https://github.com/JhonMoofarrif-SB/seguros-bolivar-ui/releases)
 
 ---
 
-Hecho con ❤️ por el equipo de Bolivar UI | **v1.1.0** - Brand Overrides System + Optimizations ⚡
+Hecho con ❤️ por el equipo de Seguros Bolivar UI | **v1.1.0** - Brand Overrides System + Optimizations ⚡

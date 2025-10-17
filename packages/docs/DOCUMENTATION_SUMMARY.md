@@ -1,6 +1,6 @@
 # 📚 Resumen de Documentación de Storybook
 
-Este documento resume toda la documentación creada para el Bolivar UI Design System en Storybook.
+Este documento resume toda la documentación creada para el Seguros Bolivar UI Design System en Storybook.
 
 ---
 
@@ -201,9 +201,9 @@ Este documento resume toda la documentación creada para el Bolivar UI Design Sy
 
 **Cambios**:
 
-- `--b-ui-button-border-radius` ahora es `2.1rem` por defecto (completamente redondeado)
-- Clase `.b-ui-button--rounded` eliminada
-- Nueva clase `.b-ui-button--square` con `border-radius: 8px`
+- `--sb-ui-button-border-radius` ahora es `2.1rem` por defecto (completamente redondeado)
+- Clase `.sb-ui-button--rounded` eliminada
+- Nueva clase `.sb-ui-button--square` con `border-radius: 8px`
 - Documentación actualizada en comentarios del archivo
 
 ---
@@ -271,7 +271,7 @@ Este documento resume toda la documentación creada para el Bolivar UI Design Sy
 
 ```bash
 # Desde la raíz del proyecto
-cd /Users/moofarrif/Documents/sb/front/dev/web-components/bolivar-ui
+cd /Users/moofarrif/Documents/sb/front/dev/web-components/seguros-bolivar-ui
 
 # Build (primera vez o si cambiaste atoms/tokens)
 pnpm run build:all
@@ -330,7 +330,7 @@ Atoms/
 ### 5. Actualizado con Últimos Cambios
 
 - Refleja el cambio de botones redondeados por defecto
-- Nueva clase `b-ui-button--square`
+- Nueva clase `sb-ui-button--square`
 - Documentación del brand override de Davivienda
 
 ---
@@ -360,7 +360,7 @@ Atoms/
 
 ## 🎉 Conclusión
 
-La documentación de Storybook para Bolivar UI está ahora **completa y profesional**:
+La documentación de Storybook para Seguros Bolivar UI está ahora **completa y profesional**:
 
 ✅ README exhaustivo para desarrolladores  
 ✅ 4 páginas MDX de documentación (Introduction, How to Use, Contributing, FAQ)  

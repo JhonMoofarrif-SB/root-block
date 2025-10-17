@@ -18,26 +18,26 @@
   /* ============================================
      SECONDARY FILL - Rojo en lugar de amarillo
      ============================================ */
-  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill {
+  :where([data-brand='davivienda']) .sb-ui-button--secondary.sb-ui-button--fill {
     /* 🔴 Cambiar de SECONDARY (amarillo) a ERROR (rojo) */
-    --b-ui-button-bg-color: var(--b-ui-color-feedback-error-base);
-    --b-ui-button-bg-hover: var(--b-ui-color-feedback-error-D100);
-    --b-ui-button-bg-active: var(--b-ui-color-feedback-error-D200);
+    --sb-ui-button-bg-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-button-bg-hover: var(--sb-ui-color-feedback-error-D100);
+    --sb-ui-button-bg-active: var(--sb-ui-color-feedback-error-D200);
 
     /* ⚪ Texto blanco para mejor contraste sobre rojo */
-    --b-ui-button-text-color: var(--b-ui-color-grayscale-white);
-    --b-ui-button-text-hover: var(--b-ui-color-grayscale-white);
-    --b-ui-button-text-active: var(--b-ui-color-grayscale-white);
+    --sb-ui-button-text-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-text-hover: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-text-active: var(--sb-ui-color-grayscale-white);
 
     /* 🔴 Borde rojo (mismo que background) */
-    --b-ui-button-border-color: var(--b-ui-color-feedback-error-base);
-    --b-ui-button-border-hover: var(--b-ui-color-feedback-error-D100);
-    --b-ui-button-border-active: var(--b-ui-color-feedback-error-D200);
+    --sb-ui-button-border-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-button-border-hover: var(--sb-ui-color-feedback-error-D100);
+    --sb-ui-button-border-active: var(--sb-ui-color-feedback-error-D200);
   }
 
   /* Focus outline - Rojo claro */
-  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
-    outline-color: var(--b-ui-color-feedback-error-L100);
+  :where([data-brand='davivienda']) .sb-ui-button--secondary.sb-ui-button--fill:focus-visible {
+    outline-color: var(--sb-ui-color-feedback-error-L100);
   }
 }
 

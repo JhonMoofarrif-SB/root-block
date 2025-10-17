@@ -1,6 +1,6 @@
 # 🚀 Developer Experience Guide
 
-Esta guía te ayudará a tener la mejor experiencia de desarrollo con Bolivar UI Design System.
+Esta guía te ayudará a tener la mejor experiencia de desarrollo con Seguros Bolivar UI Design System.
 
 ## ⚡ Quick Start
 
@@ -8,8 +8,8 @@ Esta guía te ayudará a tener la mejor experiencia de desarrollo con Bolivar UI
 
 ```bash
 # Clonar y setup automático
-git clone https://github.com/tu-usuario/bolivar-ui.git
-cd bolivar-ui
+git clone https://github.com/tu-usuario/seguros-bolivar-ui.git
+cd seguros-bolivar-ui
 pnpm run setup
 ```
 
@@ -152,7 +152,7 @@ pnpm run dev:storybook
 ```bash
 # En VSCode: F5 → "Debug Bundle Builder"
 # O manual:
-pnpm --filter @bolivar-ui/bundle dev
+pnpm --filter @seguros-bolivar-ui/bundle dev
 ```
 
 **Debugging tips:**
@@ -172,7 +172,7 @@ pnpm --filter @bolivar-ui/bundle dev
 }
 
 /* Debug específico */
-.b-ui-button {
+.sb-ui-button {
   border: 1px solid red; /* Temporal para debug */
 }
 ```
@@ -181,7 +181,7 @@ pnpm --filter @bolivar-ui/bundle dev
 
 ```bash
 # Ver reglas específicas
-pnpm --filter @bolivar-ui/atoms run lint -- --print-config src/button.css
+pnpm --filter @seguros-bolivar-ui/atoms run lint -- --print-config src/button.css
 ```
 
 ## 📊 Performance
@@ -287,7 +287,7 @@ pnpm install
 pnpm run build --verbose
 
 # Bundle logs
-DEBUG=* pnpm --filter @bolivar-ui/bundle dev
+DEBUG=* pnpm --filter @seguros-bolivar-ui/bundle dev
 
 # Storybook logs
 pnpm run dev:storybook --verbose

@@ -42,10 +42,10 @@
       }
 
       body {
-        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
         padding-block: 2rem;
         padding-inline: 2rem;
-        background: var(--b-ui-color-grayscale-L400, #fafafa);
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
       .matrix-container {
@@ -62,13 +62,13 @@
       .matrix-header h1 {
         font-size: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
         font-weight: 700;
-        color: var(--b-ui-color-feedback-error-base, #dc3545);
+        color: var(--sb-ui-color-feedback-error-base, #dc3545);
         margin-block-end: 0.5rem;
       }
 
       .matrix-header p {
         font-size: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
-        color: var(--b-ui-color-grayscale-base, #666);
+        color: var(--sb-ui-color-grayscale-base, #666);
       }
 
       .matrix-section {
@@ -84,12 +84,12 @@
         font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.75rem);
         font-weight: 700;
         margin-block-end: 0.5rem;
-        color: var(--b-ui-color-feedback-error-base, #dc3545);
+        color: var(--sb-ui-color-feedback-error-base, #dc3545);
       }
 
       .matrix-subtitle {
         font-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
-        color: var(--b-ui-color-grayscale-base, #666);
+        color: var(--sb-ui-color-grayscale-base, #666);
         margin-block-end: 2rem;
       }
 
@@ -99,7 +99,7 @@
         border-spacing: 0;
         overflow: hidden;
         border-radius: 8px;
-        border: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
+        border: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th,
@@ -107,12 +107,12 @@
         padding-block: 1.25rem;
         padding-inline: 1rem;
         text-align: center;
-        border-inline-end: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
-        border-block-end: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
+        border-inline-end: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+        border-block-end: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th {
-        background: var(--b-ui-color-feedback-error-base, #dc3545);
+        background: var(--sb-ui-color-feedback-error-base, #dc3545);
         color: white;
         font-weight: 700;
         font-size: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
@@ -121,11 +121,11 @@
       }
 
       .matrix-table td:first-child {
-        background: var(--b-ui-color-grayscale-L300, #f5f5f5);
+        background: var(--sb-ui-color-grayscale-L300, #f5f5f5);
         font-weight: 600;
         text-align: start;
         padding-inline-start: 1.5rem;
-        color: var(--b-ui-color-grayscale-D100, #333);
+        color: var(--sb-ui-color-grayscale-D100, #333);
       }
 
       .matrix-table tr:last-child td {
@@ -144,17 +144,17 @@
         border-radius: 4px;
         font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.875rem);
         font-weight: 600;
-        background: var(--b-ui-color-grayscale-L200, #e0e0e0);
-        color: var(--b-ui-color-grayscale-D200, #222);
+        background: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+        color: var(--sb-ui-color-grayscale-D200, #222);
       }
 
       .state-label.default {
-        background: var(--b-ui-color-feedback-error-L400, #fbebec);
-        color: var(--b-ui-color-feedback-error-D100, #c93241);
+        background: var(--sb-ui-color-feedback-error-L400, #fbebec);
+        color: var(--sb-ui-color-feedback-error-D100, #c93241);
       }
       .state-label.loading {
-        background: var(--b-ui-color-feedback-error-L300, #f5c2c7);
-        color: var(--b-ui-color-feedback-error-base, #dc3545);
+        background: var(--sb-ui-color-feedback-error-L300, #f5c2c7);
+        color: var(--sb-ui-color-feedback-error-base, #dc3545);
       }
       .state-label.disabled {
         background: #eceff1;
@@ -167,8 +167,8 @@
       }
 
       .notes-section {
-        background: var(--b-ui-color-feedback-error-L400, #fbebec);
-        border-inline-start: 4px solid var(--b-ui-color-feedback-error-base, #dc3545);
+        background: var(--sb-ui-color-feedback-error-L400, #fbebec);
+        border-inline-start: 4px solid var(--sb-ui-color-feedback-error-base, #dc3545);
         padding-block: 2rem;
         padding-inline: 2rem;
         border-radius: 12px;
@@ -176,7 +176,7 @@
 
       .notes-section h3 {
         margin-block-start: 0;
-        color: var(--b-ui-color-feedback-error-D100, #c93241);
+        color: var(--sb-ui-color-feedback-error-D100, #c93241);
         font-size: clamp(1.25rem, 1.1rem + 0.4vw, 1.5rem);
         margin-block-end: 1rem;
       }
@@ -209,14 +209,14 @@
         padding: 1.5rem;
         background: linear-gradient(
           135deg,
-          var(--b-ui-color-grayscale-white) 0%,
-          var(--b-ui-color-grayscale-L400) 100%
+          var(--sb-ui-color-grayscale-white) 0%,
+          var(--sb-ui-color-grayscale-L400) 100%
         );
         border-radius: 16px;
         box-shadow:
           0 4px 20px rgba(0, 0, 0, 0.08),
           0 1px 3px rgba(0, 0, 0, 0.05);
-        border: 1px solid var(--b-ui-color-grayscale-L200);
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
         backdrop-filter: blur(10px);
         transition: all 0.3s ease;
       }
@@ -239,7 +239,7 @@
       .brand-controls label {
         font-weight: 600;
         font-size: 0.8125rem;
-        color: var(--b-ui-color-grayscale-D300);
+        color: var(--sb-ui-color-grayscale-D300);
         text-transform: uppercase;
         letter-spacing: 0.5px;
         white-space: nowrap;
@@ -248,10 +248,10 @@
       .theme-toggle {
         display: flex;
         gap: 0.5rem;
-        background: var(--b-ui-color-grayscale-L300);
+        background: var(--sb-ui-color-grayscale-L300);
         padding: 0.25rem;
         border-radius: 50px;
-        border: 1px solid var(--b-ui-color-grayscale-L200);
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
       }
 
       @media (max-width: 768px) {
@@ -277,7 +277,7 @@
       <div class="brand-controls">
         <button
           href="index.html"
-          class="b-ui-button rb-button--tertiary rb-button--small"
+          class="sb-ui-button rb-button--tertiary rb-button--small"
           style="text-decoration: none"
         >
           ← Volver
@@ -285,7 +285,7 @@
 
         <div class="brand-controls-group">
           <label for="brandSelect">📦 Marca:</label>
-          <select id="brandSelect" class="b-ui-button rb-button--tertiary rb-button--small">
+          <select id="brandSelect" class="sb-ui-button rb-button--tertiary rb-button--small">
             <option value="white-label">White Label</option>
             <option value="jelpit">Jelpit</option>
             <option value="davivienda">Davivienda</option>
@@ -296,10 +296,10 @@
 
           <label for="themeToggle">🌓 Tema:</label>
           <div class="theme-toggle">
-            <button id="lightBtn" class="b-ui-button rb-button--primary rb-button--small">
+            <button id="lightBtn" class="sb-ui-button rb-button--primary rb-button--small">
               ☀️ Light
             </button>
-            <button id="darkBtn" class="b-ui-button rb-button--tertiary rb-button--small">
+            <button id="darkBtn" class="sb-ui-button rb-button--tertiary rb-button--small">
               🌙 Dark
             </button>
           </div>
@@ -334,22 +334,22 @@
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--fill rb-button--icon-left">
+                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--icon-left">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--fill rb-button--icon-right">
+                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--icon-right">
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--fill">Error</button>
+                <button class="sb-ui-button rb-button--error rb-button--fill">Error</button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--fill rb-button--icon-only">
+                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--icon-only">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
@@ -362,7 +362,7 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
@@ -370,20 +370,20 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-right"
                 >
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--fill rb-button--loading">
+                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--loading">
                   Error
                 </button>
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
@@ -397,7 +397,7 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
@@ -405,20 +405,20 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-right"
                 >
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--fill rb-button--disabled">
+                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled">
                   Error
                 </button>
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
@@ -451,22 +451,22 @@
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--icon-left">
+                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--icon-left">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--icon-right">
+                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--icon-right">
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--stroke">Error</button>
+                <button class="sb-ui-button rb-button--error rb-button--stroke">Error</button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--icon-only">
+                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--icon-only">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
@@ -479,7 +479,7 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
@@ -487,20 +487,20 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-right"
                 >
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--loading">
+                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading">
                   Error
                 </button>
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
@@ -514,7 +514,7 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
@@ -522,20 +522,20 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-right"
                 >
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled">
+                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled">
                   Error
                 </button>
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
@@ -568,22 +568,22 @@
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--text rb-button--icon-left">
+                <button class="sb-ui-button rb-button--error rb-button--text rb-button--icon-left">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--text rb-button--icon-right">
+                <button class="sb-ui-button rb-button--error rb-button--text rb-button--icon-right">
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--text">Error</button>
+                <button class="sb-ui-button rb-button--error rb-button--text">Error</button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--text rb-button--icon-only">
+                <button class="sb-ui-button rb-button--error rb-button--text rb-button--icon-only">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
@@ -596,7 +596,7 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
@@ -604,20 +604,20 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-right"
                 >
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--text rb-button--loading">
+                <button class="sb-ui-button rb-button--error rb-button--text rb-button--loading">
                   Error
                 </button>
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
@@ -631,7 +631,7 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   Error
@@ -639,20 +639,20 @@
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-right"
                 >
                   Error
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
               </td>
               <td>
-                <button class="b-ui-button rb-button--error rb-button--text rb-button--disabled">
+                <button class="sb-ui-button rb-button--error rb-button--text rb-button--disabled">
                   Error
                 </button>
               </td>
               <td>
                 <button
-                  class="b-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-triangle-exclamation"></i>
                 </button>
@@ -674,9 +674,9 @@
 
       // Leer valores de localStorage o usar defaults
       let currentBrand =
-        localStorage.getItem('b-ui-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
+        localStorage.getItem('sb-ui-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
       let currentTheme =
-        localStorage.getItem('b-ui-theme') || html.getAttribute('data-theme') || 'light';
+        localStorage.getItem('sb-ui-theme') || html.getAttribute('data-theme') || 'light';
 
       function updateBrandAndTheme() {
         // Update HTML attributes
@@ -685,8 +685,8 @@
         body.setAttribute('data-brand', currentBrand);
 
         // Save to localStorage
-        localStorage.setItem('b-ui-brand', currentBrand);
-        localStorage.setItem('b-ui-theme', currentTheme);
+        localStorage.setItem('sb-ui-brand', currentBrand);
+        localStorage.setItem('sb-ui-theme', currentTheme);
 
         // Update CSS bundle (tokens + atoms + overrides)
         brandCss.href = `../dist/rb-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
@@ -696,11 +696,11 @@
 
         // Update button states
         if (currentTheme === 'light') {
-          lightBtn.className = 'b-ui-button rb-button--primary rb-button--small';
-          darkBtn.className = 'b-ui-button rb-button--tertiary rb-button--small';
+          lightBtn.className = 'sb-ui-button rb-button--primary rb-button--small';
+          darkBtn.className = 'sb-ui-button rb-button--tertiary rb-button--small';
         } else {
-          lightBtn.className = 'b-ui-button rb-button--tertiary rb-button--small';
-          darkBtn.className = 'b-ui-button rb-button--primary rb-button--small';
+          lightBtn.className = 'sb-ui-button rb-button--tertiary rb-button--small';
+          darkBtn.className = 'sb-ui-button rb-button--primary rb-button--small';
         }
 
         console.log(`✅ Marca: ${currentBrand} | Tema: ${currentTheme}`);

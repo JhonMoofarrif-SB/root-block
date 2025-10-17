@@ -1,13 +1,13 @@
-# 🧬 @bolivar-ui/molecules
+# 🧬 @seguros-bolivar-ui/molecules
 
-> Web Components complejos para el Bolivar UI Design System
+> Web Components complejos para el Seguros Bolivar UI Design System
 
 Componentes moleculares construidos con Lit. Incluyen lógica JavaScript y estilos encapsulados con Shadow DOM.
 
 ## 📦 Instalación
 
 ```bash
-pnpm add @bolivar-ui/molecules
+pnpm add @seguros-bolivar-ui/molecules
 ```
 
 ## 🧩 Componentes Disponibles
@@ -32,10 +32,10 @@ pnpm add @bolivar-ui/molecules
 ### Import en JavaScript
 
 ```javascript
-import '@bolivar-ui/molecules';
+import '@seguros-bolivar-ui/molecules';
 
 // O componentes individuales
-import '@bolivar-ui/molecules/modal';
+import '@seguros-bolivar-ui/molecules/modal';
 ```
 
 ## 📦 Modal Component
@@ -205,9 +205,9 @@ export class RbMiComponente extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: var(--b-ui-spacing-md, 1rem);
-      background: var(--b-ui-color-grayscale-white);
-      color: var(--b-ui-color-grayscale-black);
+      padding: var(--sb-ui-spacing-md, 1rem);
+      background: var(--sb-ui-color-grayscale-white);
+      color: var(--sb-ui-color-grayscale-black);
     }
   `;
 
@@ -285,4 +285,4 @@ pnpm test
 
 ## 📄 Licencia
 
-MIT © Bolivar UI
+MIT © Seguros Bolivar UI

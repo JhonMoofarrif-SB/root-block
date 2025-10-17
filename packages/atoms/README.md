@@ -1,13 +1,13 @@
-# ⚛️ @bolivar-ui/atoms
+# ⚛️ @seguros-bolivar-ui/atoms
 
-> Componentes CSS simples para el Bolivar UI Design System
+> Componentes CSS simples para el Seguros Bolivar UI Design System
 
 Componentes atómicos construidos con CSS puro. Cada componente es autocontenido y usa variables CSS del sistema de tokens.
 
 ## 📦 Instalación
 
 ```bash
-pnpm add @bolivar-ui/atoms
+pnpm add @seguros-bolivar-ui/atoms
 ```
 
 ## 🎨 Componentes Disponibles
@@ -32,14 +32,14 @@ pnpm add @bolivar-ui/atoms
 
 ```javascript
 // Import solo el componente que necesitas
-import '@bolivar-ui/atoms/button.css';
+import '@seguros-bolivar-ui/atoms/button.css';
 ```
 
 ### Import Completo
 
 ```javascript
 // Import todos los atoms
-import '@bolivar-ui/atoms';
+import '@seguros-bolivar-ui/atoms';
 ```
 
 ## 🔘 Button
@@ -86,10 +86,10 @@ Cada componente expone variables CSS para personalización:
 ```css
 /* Personalizar un botón */
 .mi-boton-custom {
-  --b-ui-button-bg-color: #ff6b6b;
-  --b-ui-button-text-color: white;
-  --b-ui-button-padding: 1rem 2rem;
-  --b-ui-button-border-radius: 8px;
+  --sb-ui-button-bg-color: #ff6b6b;
+  --sb-ui-button-text-color: white;
+  --sb-ui-button-padding: 1rem 2rem;
+  --sb-ui-button-border-radius: 8px;
 }
 ```
 
@@ -98,24 +98,24 @@ Cada componente expone variables CSS para personalización:
 ### Variables de Button
 
 ```css
---b-ui-button-bg-color
---b-ui-button-text-color
---b-ui-button-border-color
---b-ui-button-padding
---b-ui-button-font-size
---b-ui-button-border-radius
---b-ui-button-transition
+--sb-ui-button-bg-color
+--sb-ui-button-text-color
+--sb-ui-button-border-color
+--sb-ui-button-padding
+--sb-ui-button-font-size
+--sb-ui-button-border-radius
+--sb-ui-button-transition
 ```
 
-### Variables Globales (de @bolivar-ui/tokens)
+### Variables Globales (de @seguros-bolivar-ui/tokens)
 
 Los componentes usan automáticamente las variables de tokens:
 
 ```css
---b-ui-color-primary-base
---b-ui-color-secondary-base
---b-ui-typography-fontFamily
---b-ui-shadow-m
+--sb-ui-color-primary-base
+--sb-ui-color-secondary-base
+--sb-ui-typography-fontFamily
+--sb-ui-shadow-m
 ```
 
 ## 🏗️ Arquitectura
@@ -155,21 +155,21 @@ touch src/mi-componente.css
 ```css
 /* src/mi-componente.css */
 
-.b-ui-mi-componente {
+.sb-ui-mi-componente {
   /* Usa variables de tokens */
-  background: var(--b-ui-color-grayscale-white);
-  color: var(--b-ui-color-grayscale-black);
-  padding: var(--b-ui-spacing-md, 1rem);
+  background: var(--sb-ui-color-grayscale-white);
+  color: var(--sb-ui-color-grayscale-black);
+  padding: var(--sb-ui-spacing-md, 1rem);
   border-radius: 8px;
 
   /* Expón variables para personalización */
-  --b-ui-mi-componente-bg: var(--b-ui-color-grayscale-white);
-  --b-ui-mi-componente-padding: 1rem;
+  --sb-ui-mi-componente-bg: var(--sb-ui-color-grayscale-white);
+  --sb-ui-mi-componente-padding: 1rem;
 }
 
 /* Variantes */
-.b-ui-mi-componente--variante {
-  background: var(--b-ui-color-primary-base);
+.sb-ui-mi-componente--variante {
+  background: var(--sb-ui-color-primary-base);
   color: white;
 }
 ```
@@ -223,4 +223,4 @@ Ver [ejemplos completos](../../examples/bootstrap-style.html).
 
 ## 📄 Licencia
 
-MIT © Bolivar UI
+MIT © Seguros Bolivar UI

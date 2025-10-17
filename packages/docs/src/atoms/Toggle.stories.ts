@@ -4,33 +4,33 @@ import { html } from 'lit';
 /**
  * # Toggle Component
  *
- * Componente de toggle/switch versátil del Bolivar UI Design System con diferentes estilos, animaciones y estados.
+ * Componente de toggle/switch versátil del Seguros Bolivar UI Design System con diferentes estilos, animaciones y estados.
  *
  * ## 📋 Referencia Rápida de Clases
  *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | Toggle normal (default) | `.rb-toggle` | `<label class="b-ui-toggle"><input class="b-ui-toggle-input" /><span class="b-ui-toggle-slider"></span></label>` |
- * | Toggle con error | `.rb-toggle--error` | `<label class="b-ui-toggle rb-toggle--error">...</label>` |
- * | Toggle exitoso | `.rb-toggle--success` | `<label class="b-ui-toggle rb-toggle--success">...</label>` |
- * | Toggle con advertencia | `.rb-toggle--warning` | `<label class="b-ui-toggle rb-toggle--warning">...</label>` |
+ * | Toggle normal (default) | `.rb-toggle` | `<label class="sb-ui-toggle"><input class="sb-ui-toggle-input" /><span class="sb-ui-toggle-slider"></span></label>` |
+ * | Toggle con error | `.rb-toggle--error` | `<label class="sb-ui-toggle rb-toggle--error">...</label>` |
+ * | Toggle exitoso | `.rb-toggle--success` | `<label class="sb-ui-toggle rb-toggle--success">...</label>` |
+ * | Toggle con advertencia | `.rb-toggle--warning` | `<label class="sb-ui-toggle rb-toggle--warning">...</label>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-toggle--small` | `<label class="b-ui-toggle rb-toggle--small">...</label>` |
- * | Mediano (default) | `.rb-toggle--medium` o sin clase | `<label class="b-ui-toggle">...</label>` |
- * | Grande | `.rb-toggle--large` | `<label class="b-ui-toggle rb-toggle--large">...</label>` |
+ * | Pequeño | `.rb-toggle--small` | `<label class="sb-ui-toggle rb-toggle--small">...</label>` |
+ * | Mediano (default) | `.rb-toggle--medium` o sin clase | `<label class="sb-ui-toggle">...</label>` |
+ * | Grande | `.rb-toggle--large` | `<label class="sb-ui-toggle rb-toggle--large">...</label>` |
  * | **Estilos** | | |
- * | Switch (default) | Sin clase adicional | `<label class="b-ui-toggle">...</label>` |
- * | Botón | `.rb-toggle--button` | `<label class="b-ui-toggle rb-toggle--button">...</label>` |
- * | Checkbox | `.rb-toggle--checkbox` | `<label class="b-ui-toggle rb-toggle--checkbox">...</label>` |
+ * | Switch (default) | Sin clase adicional | `<label class="sb-ui-toggle">...</label>` |
+ * | Botón | `.rb-toggle--button` | `<label class="sb-ui-toggle rb-toggle--button">...</label>` |
+ * | Checkbox | `.rb-toggle--checkbox` | `<label class="sb-ui-toggle rb-toggle--checkbox">...</label>` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-toggle--rounded` | `<label class="b-ui-toggle rb-toggle--rounded">...</label>` |
- * | Minimal | `.rb-toggle--minimal` | `<label class="b-ui-toggle rb-toggle--minimal">...</label>` |
+ * | Bordes redondeados | `.rb-toggle--rounded` | `<label class="sb-ui-toggle rb-toggle--rounded">...</label>` |
+ * | Minimal | `.rb-toggle--minimal` | `<label class="sb-ui-toggle rb-toggle--minimal">...</label>` |
  *
  * ## 💡 Notas Importantes
  *
- * - **Estructura HTML**: Usa `<label class="b-ui-toggle">` conteniendo `<input class="b-ui-toggle-input">` y `<span class="b-ui-toggle-slider">`
- * - **Label de texto**: Usa `<span class="b-ui-toggle-label">` dentro del label principal
+ * - **Estructura HTML**: Usa `<label class="sb-ui-toggle">` conteniendo `<input class="sb-ui-toggle-input">` y `<span class="sb-ui-toggle-slider">`
+ * - **Label de texto**: Usa `<span class="sb-ui-toggle-label">` dentro del label principal
  * - **Input oculto**: El input real está oculto visualmente pero accesible para lectores de pantalla
  * - **Estilo por defecto**: SWITCH - botón deslizante circular
  * - **Interactividad**: Funciona con clicks en cualquier parte del label
@@ -38,13 +38,13 @@ import { html } from 'lit';
  * ## 🎯 Ejemplo de Estructura Completa
  *
  * ```html
- * <div class="b-ui-toggle-container">
- *   <label class="b-ui-toggle rb-toggle--large rb-toggle--success">
- *     <input type="checkbox" class="b-ui-toggle-input" checked />
- *     <span class="b-ui-toggle-slider"></span>
- *     <span class="b-ui-toggle-label">Activar notificaciones</span>
+ * <div class="sb-ui-toggle-container">
+ *   <label class="sb-ui-toggle rb-toggle--large rb-toggle--success">
+ *     <input type="checkbox" class="sb-ui-toggle-input" checked />
+ *     <span class="sb-ui-toggle-slider"></span>
+ *     <span class="sb-ui-toggle-label">Activar notificaciones</span>
  *   </label>
- *   <div class="b-ui-toggle-helper">Descripción del toggle</div>
+ *   <div class="sb-ui-toggle-helper">Descripción del toggle</div>
  * </div>
  * ```
  */
@@ -178,19 +178,19 @@ export const Playground: Story = {
   },
   render: (args) => {
     const toggleClasses = [
-      'b-ui-toggle',
+      'sb-ui-toggle',
       args.state !== 'normal' ? `rb-toggle--${args.state}` : '',
       args.size !== 'medium' ? `rb-toggle--${args.size}` : '',
       args.style !== 'switch' ? `rb-toggle--${args.style}` : '',
-      args.rounded ? 'b-ui-toggle--rounded' : '',
-      args.minimal ? 'b-ui-toggle--minimal' : '',
+      args.rounded ? 'sb-ui-toggle--rounded' : '',
+      args.minimal ? 'sb-ui-toggle--minimal' : '',
       args.animation !== 'none' ? `rb-toggle--${args.animation}` : '',
     ]
       .filter(Boolean)
       .join(' ');
 
     const helperClasses = [
-      'b-ui-toggle-helper',
+      'sb-ui-toggle-helper',
       args.state !== 'normal' ? `rb-toggle-helper--${args.state}` : '',
     ]
       .filter(Boolean)
@@ -198,21 +198,21 @@ export const Playground: Story = {
 
     return html`
       <div style="max-width: 400px;">
-        <div class="b-ui-toggle-container">
+        <div class="sb-ui-toggle-container">
           <label class="${toggleClasses}">
             <input
               type="checkbox"
-              class="b-ui-toggle-input"
+              class="sb-ui-toggle-input"
               ?checked="${args.checked}"
               ?required="${args.required}"
               ?disabled="${args.disabled}"
             />
             ${args.style === 'button'
-              ? html` <span class="b-ui-toggle-slider"></span> `
+              ? html` <span class="sb-ui-toggle-slider"></span> `
               : html`
-                  <span class="b-ui-toggle-slider"></span>
+                  <span class="sb-ui-toggle-slider"></span>
                   ${args.label && args.style !== 'button'
-                    ? html` <span class="b-ui-toggle-label">${args.label}</span> `
+                    ? html` <span class="sb-ui-toggle-label">${args.label}</span> `
                     : ''}
                 `}
           </label>
@@ -236,12 +236,12 @@ export const Estados: Story = {
   render: () => html`
     <style>
       .toggle-matrix {
-        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
         padding: 2rem;
-        background: var(--b-ui-color-grayscale-L400, #fafafa);
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
       .toggle-demo {
@@ -255,7 +255,7 @@ export const Estados: Story = {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
-        color: var(--b-ui-color-primary-base, #007acc);
+        color: var(--sb-ui-color-primary-base, #007acc);
       }
 
       .toggle-demo > div {
@@ -272,36 +272,36 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Estados Básicos</h3>
         <div>
-          <label class="b-ui-toggle">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Normal</span>
+          <label class="sb-ui-toggle">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Normal</span>
           </label>
-          <div class="b-ui-toggle-helper">Estado normal</div>
+          <div class="sb-ui-toggle-helper">Estado normal</div>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--error">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Error</span>
+          <label class="sb-ui-toggle rb-toggle--error">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Error</span>
           </label>
-          <div class="b-ui-toggle-helper rb-toggle-helper--error">Campo con error</div>
+          <div class="sb-ui-toggle-helper rb-toggle-helper--error">Campo con error</div>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--success">
-            <input type="checkbox" class="b-ui-toggle-input" checked />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Success</span>
+          <label class="sb-ui-toggle rb-toggle--success">
+            <input type="checkbox" class="sb-ui-toggle-input" checked />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Success</span>
           </label>
-          <div class="b-ui-toggle-helper rb-toggle-helper--success">Campo válido</div>
+          <div class="sb-ui-toggle-helper rb-toggle-helper--success">Campo válido</div>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--warning">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Warning</span>
+          <label class="sb-ui-toggle rb-toggle--warning">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Warning</span>
           </label>
-          <div class="b-ui-toggle-helper rb-toggle-helper--warning">Revisa este toggle</div>
+          <div class="sb-ui-toggle-helper rb-toggle-helper--warning">Revisa este toggle</div>
         </div>
       </div>
 
@@ -309,24 +309,24 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Tamaños</h3>
         <div>
-          <label class="b-ui-toggle rb-toggle--small">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Small</span>
+          <label class="sb-ui-toggle rb-toggle--small">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Small</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--medium">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Medium</span>
+          <label class="sb-ui-toggle rb-toggle--medium">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Medium</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--large">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Large</span>
+          <label class="sb-ui-toggle rb-toggle--large">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Large</span>
           </label>
         </div>
       </div>
@@ -335,24 +335,24 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Estilos</h3>
         <div>
-          <label class="b-ui-toggle">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Switch (default)</span>
+          <label class="sb-ui-toggle">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Switch (default)</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--button">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
+          <label class="sb-ui-toggle rb-toggle--button">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
           </label>
           <span style="margin-left: 1rem; font-size: 0.875rem; color: #666;">Button style</span>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--checkbox">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Checkbox style</span>
+          <label class="sb-ui-toggle rb-toggle--checkbox">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Checkbox style</span>
           </label>
         </div>
       </div>
@@ -361,26 +361,26 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Estados Especiales</h3>
         <div>
-          <label class="b-ui-toggle">
-            <input type="checkbox" class="b-ui-toggle-input" required />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Requerido *</span>
+          <label class="sb-ui-toggle">
+            <input type="checkbox" class="sb-ui-toggle-input" required />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Requerido *</span>
           </label>
-          <div class="b-ui-toggle-helper">Campo obligatorio</div>
+          <div class="sb-ui-toggle-helper">Campo obligatorio</div>
         </div>
         <div>
-          <label class="b-ui-toggle">
-            <input type="checkbox" class="b-ui-toggle-input" disabled />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Deshabilitado</span>
+          <label class="sb-ui-toggle">
+            <input type="checkbox" class="sb-ui-toggle-input" disabled />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Deshabilitado</span>
           </label>
-          <div class="b-ui-toggle-helper">Este toggle está deshabilitado</div>
+          <div class="sb-ui-toggle-helper">Este toggle está deshabilitado</div>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--rounded">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Rounded</span>
+          <label class="sb-ui-toggle rb-toggle--rounded">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Rounded</span>
           </label>
         </div>
       </div>
@@ -389,24 +389,24 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Modificadores</h3>
         <div>
-          <label class="b-ui-toggle rb-toggle--minimal">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Minimal</span>
+          <label class="sb-ui-toggle rb-toggle--minimal">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Minimal</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--filled">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Filled</span>
+          <label class="sb-ui-toggle rb-toggle--filled">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Filled</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--outlined">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Outlined</span>
+          <label class="sb-ui-toggle rb-toggle--outlined">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Outlined</span>
           </label>
         </div>
       </div>
@@ -415,17 +415,17 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Animaciones</h3>
         <div>
-          <label class="b-ui-toggle rb-toggle--bounce">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Bounce</span>
+          <label class="sb-ui-toggle rb-toggle--bounce">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Bounce</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--pulse">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Pulse</span>
+          <label class="sb-ui-toggle rb-toggle--pulse">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Pulse</span>
           </label>
         </div>
       </div>
@@ -434,24 +434,24 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Grupos de Toggles</h3>
         <div>
-          <div class="b-ui-toggle-group rb-toggle-group--vertical">
-            <label class="b-ui-toggle">
-              <input type="checkbox" class="b-ui-toggle-input" />
-              <span class="b-ui-toggle-slider"></span>
-              <span class="b-ui-toggle-label">Notificaciones push</span>
+          <div class="sb-ui-toggle-group rb-toggle-group--vertical">
+            <label class="sb-ui-toggle">
+              <input type="checkbox" class="sb-ui-toggle-input" />
+              <span class="sb-ui-toggle-slider"></span>
+              <span class="sb-ui-toggle-label">Notificaciones push</span>
             </label>
-            <label class="b-ui-toggle">
-              <input type="checkbox" class="b-ui-toggle-input" />
-              <span class="b-ui-toggle-slider"></span>
-              <span class="b-ui-toggle-label">Notificaciones email</span>
+            <label class="sb-ui-toggle">
+              <input type="checkbox" class="sb-ui-toggle-input" />
+              <span class="sb-ui-toggle-slider"></span>
+              <span class="sb-ui-toggle-label">Notificaciones email</span>
             </label>
-            <label class="b-ui-toggle">
-              <input type="checkbox" class="b-ui-toggle-input" />
-              <span class="b-ui-toggle-slider"></span>
-              <span class="b-ui-toggle-label">Notificaciones SMS</span>
+            <label class="sb-ui-toggle">
+              <input type="checkbox" class="sb-ui-toggle-input" />
+              <span class="sb-ui-toggle-slider"></span>
+              <span class="sb-ui-toggle-label">Notificaciones SMS</span>
             </label>
           </div>
-          <div class="b-ui-toggle-helper">Toggles agrupados</div>
+          <div class="sb-ui-toggle-helper">Toggles agrupados</div>
         </div>
       </div>
 
@@ -459,17 +459,17 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Tamaños Especiales</h3>
         <div>
-          <label class="b-ui-toggle rb-toggle--compact">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Compact</span>
+          <label class="sb-ui-toggle rb-toggle--compact">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Compact</span>
           </label>
         </div>
         <div>
-          <label class="b-ui-toggle rb-toggle--prominent">
-            <input type="checkbox" class="b-ui-toggle-input" />
-            <span class="b-ui-toggle-slider"></span>
-            <span class="b-ui-toggle-label">Prominent</span>
+          <label class="sb-ui-toggle rb-toggle--prominent">
+            <input type="checkbox" class="sb-ui-toggle-input" />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Prominent</span>
           </label>
         </div>
       </div>

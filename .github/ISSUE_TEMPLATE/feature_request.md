@@ -37,11 +37,11 @@ assignees: ''
 
 <!-- ¿En qué package debería implementarse? -->
 
-- [ ] @bolivar-ui/tokens
-- [ ] @bolivar-ui/atoms
-- [ ] @bolivar-ui/molecules
-- [ ] @bolivar-ui/bundle
-- [ ] @bolivar-ui/docs
+- [ ] @seguros-bolivar-ui/tokens
+- [ ] @seguros-bolivar-ui/atoms
+- [ ] @seguros-bolivar-ui/molecules
+- [ ] @seguros-bolivar-ui/bundle
+- [ ] @seguros-bolivar-ui/docs
 - [ ] Nuevo package
 
 ## 🔄 Alternativas Consideradas

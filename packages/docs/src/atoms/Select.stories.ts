@@ -4,26 +4,26 @@ import { html } from 'lit';
 /**
  * # Select Component
  *
- * Componente de select versátil del Bolivar UI Design System con diferentes estados, tamaños y opciones de iconos.
+ * Componente de select versátil del Seguros Bolivar UI Design System con diferentes estados, tamaños y opciones de iconos.
  *
  * ## 📋 Referencia Rápida de Clases
  *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | Select normal (default) | `.rb-select` | `<select class="b-ui-select">...</select>` |
- * | Select con error | `.rb-select--error` | `<select class="b-ui-select rb-select--error">...</select>` |
- * | Select exitoso | `.rb-select--success` | `<select class="b-ui-select rb-select--success">...</select>` |
- * | Select con advertencia | `.rb-select--warning` | `<select class="b-ui-select rb-select--warning">...</select>` |
+ * | Select normal (default) | `.rb-select` | `<select class="sb-ui-select">...</select>` |
+ * | Select con error | `.rb-select--error` | `<select class="sb-ui-select rb-select--error">...</select>` |
+ * | Select exitoso | `.rb-select--success` | `<select class="sb-ui-select rb-select--success">...</select>` |
+ * | Select con advertencia | `.rb-select--warning` | `<select class="sb-ui-select rb-select--warning">...</select>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-select--small` | `<select class="b-ui-select rb-select--small">...</select>` |
- * | Mediano (default) | `.rb-select--medium` o sin clase | `<select class="b-ui-select">...</select>` |
- * | Grande | `.rb-select--large` | `<select class="b-ui-select rb-select--large">...</select>` |
+ * | Pequeño | `.rb-select--small` | `<select class="sb-ui-select rb-select--small">...</select>` |
+ * | Mediano (default) | `.rb-select--medium` o sin clase | `<select class="sb-ui-select">...</select>` |
+ * | Grande | `.rb-select--large` | `<select class="sb-ui-select rb-select--large">...</select>` |
  * | **Con Iconos** | | |
  * | Icono izquierdo | `.rb-select--with-icon-left` | En un `.rb-select-container` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-select--rounded` | `<select class="b-ui-select rb-select--rounded">...</select>` |
- * | Inline (auto width) | `.rb-select--inline` | `<select class="b-ui-select rb-select--inline">...</select>` |
+ * | Bordes redondeados | `.rb-select--rounded` | `<select class="sb-ui-select rb-select--rounded">...</select>` |
+ * | Inline (auto width) | `.rb-select--inline` | `<select class="sb-ui-select rb-select--inline">...</select>` |
  *
  * ## 💡 Notas Importantes
  *
@@ -144,21 +144,21 @@ export const Playground: Story = {
   },
   render: (args) => {
     const selectClasses = [
-      'b-ui-select',
+      'sb-ui-select',
       args.state !== 'normal' ? `rb-select--${args.state}` : '',
       args.size !== 'medium' ? `rb-select--${args.size}` : '',
-      args.rounded ? 'b-ui-select--rounded' : '',
-      args.hasIcon ? 'b-ui-select--with-icon-left' : '',
+      args.rounded ? 'sb-ui-select--rounded' : '',
+      args.hasIcon ? 'sb-ui-select--with-icon-left' : '',
     ]
       .filter(Boolean)
       .join(' ');
 
-    const labelClasses = ['b-ui-select-label', args.required ? 'b-ui-select-label--required' : '']
+    const labelClasses = ['sb-ui-select-label', args.required ? 'sb-ui-select-label--required' : '']
       .filter(Boolean)
       .join(' ');
 
     const helperClasses = [
-      'b-ui-select-helper',
+      'sb-ui-select-helper',
       args.state !== 'normal' ? `rb-select-helper--${args.state}` : '',
     ]
       .filter(Boolean)
@@ -174,7 +174,7 @@ export const Playground: Story = {
             : ''}
           ${args.hasIcon
             ? html`
-                <div class="b-ui-select-container">
+                <div class="sb-ui-select-container">
                   <select
                     id="${selectId}"
                     class="${selectClasses}"
@@ -189,7 +189,7 @@ export const Playground: Story = {
                     <option value="marketing">Marketing</option>
                     <option value="sales">Ventas</option>
                   </select>
-                  <span class="b-ui-select-icon rb-select-icon--left">📂</span>
+                  <span class="sb-ui-select-icon rb-select-icon--left">📂</span>
                 </div>
               `
             : html`
@@ -227,12 +227,12 @@ export const Estados: Story = {
   render: () => html`
     <style>
       .select-matrix {
-        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
         padding: 2rem;
-        background: var(--b-ui-color-grayscale-L400, #fafafa);
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
       .select-demo {
@@ -246,7 +246,7 @@ export const Estados: Story = {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
-        color: var(--b-ui-color-primary-base, #007acc);
+        color: var(--sb-ui-color-primary-base, #007acc);
       }
 
       .select-demo > div {
@@ -263,37 +263,37 @@ export const Estados: Story = {
       <div class="select-demo">
         <h3>Estados Básicos</h3>
         <div>
-          <label class="b-ui-select-label">Normal</label>
-          <select class="b-ui-select">
+          <label class="sb-ui-select-label">Normal</label>
+          <select class="sb-ui-select">
             <option value="">Select normal</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
           </select>
-          <div class="b-ui-select-helper">Estado normal</div>
+          <div class="sb-ui-select-helper">Estado normal</div>
         </div>
         <div>
-          <label class="b-ui-select-label">Error</label>
-          <select class="b-ui-select rb-select--error">
+          <label class="sb-ui-select-label">Error</label>
+          <select class="sb-ui-select rb-select--error">
             <option value="">Con error</option>
             <option value="1">Opción inválida</option>
           </select>
-          <div class="b-ui-select-helper rb-select-helper--error">Campo con error</div>
+          <div class="sb-ui-select-helper rb-select-helper--error">Campo con error</div>
         </div>
         <div>
-          <label class="b-ui-select-label">Success</label>
-          <select class="b-ui-select rb-select--success">
+          <label class="sb-ui-select-label">Success</label>
+          <select class="sb-ui-select rb-select--success">
             <option value="">Selección exitosa</option>
             <option value="1" selected>Opción válida</option>
           </select>
-          <div class="b-ui-select-helper rb-select-helper--success">Campo válido</div>
+          <div class="sb-ui-select-helper rb-select-helper--success">Campo válido</div>
         </div>
         <div>
-          <label class="b-ui-select-label">Warning</label>
-          <select class="b-ui-select rb-select--warning">
+          <label class="sb-ui-select-label">Warning</label>
+          <select class="sb-ui-select rb-select--warning">
             <option value="">Con advertencia</option>
             <option value="1">Revisar opción</option>
           </select>
-          <div class="b-ui-select-helper rb-select-helper--warning">Revisa esta selección</div>
+          <div class="sb-ui-select-helper rb-select-helper--warning">Revisa esta selección</div>
         </div>
       </div>
 
@@ -301,22 +301,22 @@ export const Estados: Story = {
       <div class="select-demo">
         <h3>Tamaños</h3>
         <div>
-          <label class="b-ui-select-label">Small</label>
-          <select class="b-ui-select rb-select--small">
+          <label class="sb-ui-select-label">Small</label>
+          <select class="sb-ui-select rb-select--small">
             <option value="">Select pequeño</option>
             <option value="1">Opción 1</option>
           </select>
         </div>
         <div>
-          <label class="b-ui-select-label">Medium</label>
-          <select class="b-ui-select rb-select--medium">
+          <label class="sb-ui-select-label">Medium</label>
+          <select class="sb-ui-select rb-select--medium">
             <option value="">Select mediano</option>
             <option value="1">Opción 1</option>
           </select>
         </div>
         <div>
-          <label class="b-ui-select-label">Large</label>
-          <select class="b-ui-select rb-select--large">
+          <label class="sb-ui-select-label">Large</label>
+          <select class="sb-ui-select rb-select--large">
             <option value="">Select grande</option>
             <option value="1">Opción 1</option>
           </select>
@@ -327,14 +327,14 @@ export const Estados: Story = {
       <div class="select-demo">
         <h3>Con Iconos</h3>
         <div>
-          <label class="b-ui-select-label">Con Icono</label>
-          <div class="b-ui-select-container">
-            <select class="b-ui-select rb-select--with-icon-left">
+          <label class="sb-ui-select-label">Con Icono</label>
+          <div class="sb-ui-select-container">
+            <select class="sb-ui-select rb-select--with-icon-left">
               <option value="">Selecciona país</option>
               <option value="co">🇨🇴 Colombia</option>
               <option value="mx">🇲🇽 México</option>
             </select>
-            <span class="b-ui-select-icon rb-select-icon--left">🌍</span>
+            <span class="sb-ui-select-icon rb-select-icon--left">🌍</span>
           </div>
         </div>
       </div>
@@ -343,14 +343,14 @@ export const Estados: Story = {
       <div class="select-demo">
         <h3>Select Múltiple</h3>
         <div>
-          <label class="b-ui-select-label">Múltiple</label>
-          <select class="b-ui-select" multiple>
+          <label class="sb-ui-select-label">Múltiple</label>
+          <select class="sb-ui-select" multiple>
             <option value="1">Opción 1</option>
             <option value="2" selected>Opción 2</option>
             <option value="3">Opción 3</option>
             <option value="4" selected>Opción 4</option>
           </select>
-          <div class="b-ui-select-helper">Mantén Ctrl/Cmd para múltiples</div>
+          <div class="sb-ui-select-helper">Mantén Ctrl/Cmd para múltiples</div>
         </div>
       </div>
 
@@ -358,23 +358,23 @@ export const Estados: Story = {
       <div class="select-demo">
         <h3>Estados Especiales</h3>
         <div>
-          <label class="b-ui-select-label rb-select-label--required">Requerido</label>
-          <select class="b-ui-select" required>
+          <label class="sb-ui-select-label rb-select-label--required">Requerido</label>
+          <select class="sb-ui-select" required>
             <option value="">Campo obligatorio</option>
             <option value="1">Opción A</option>
           </select>
-          <div class="b-ui-select-helper">Campo obligatorio</div>
+          <div class="sb-ui-select-helper">Campo obligatorio</div>
         </div>
         <div>
-          <label class="b-ui-select-label">Deshabilitado</label>
-          <select class="b-ui-select" disabled>
+          <label class="sb-ui-select-label">Deshabilitado</label>
+          <select class="sb-ui-select" disabled>
             <option value="">Campo deshabilitado</option>
           </select>
-          <div class="b-ui-select-helper">Este campo está deshabilitado</div>
+          <div class="sb-ui-select-helper">Este campo está deshabilitado</div>
         </div>
         <div>
-          <label class="b-ui-select-label">Rounded</label>
-          <select class="b-ui-select rb-select--rounded">
+          <label class="sb-ui-select-label">Rounded</label>
+          <select class="sb-ui-select rb-select--rounded">
             <option value="">Bordes redondeados</option>
             <option value="1">Opción 1</option>
           </select>
@@ -385,8 +385,8 @@ export const Estados: Story = {
       <div class="select-demo">
         <h3>Con Grupos</h3>
         <div>
-          <label class="b-ui-select-label">Grupos</label>
-          <select class="b-ui-select">
+          <label class="sb-ui-select-label">Grupos</label>
+          <select class="sb-ui-select">
             <option value="">Selecciona una opción</option>
             <optgroup label="Categoría A">
               <option value="a1">Opción A1</option>
@@ -397,7 +397,7 @@ export const Estados: Story = {
               <option value="b2">Opción B2</option>
             </optgroup>
           </select>
-          <div class="b-ui-select-helper">Select con grupos</div>
+          <div class="sb-ui-select-helper">Select con grupos</div>
         </div>
       </div>
     </div>

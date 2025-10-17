@@ -1,4 +1,4 @@
-# 🎨 Guía de Font Awesome en Bolivar UI Design System
+# 🎨 Guía de Font Awesome en Seguros Bolivar UI Design System
 
 ## 📋 Configuración
 
@@ -34,9 +34,9 @@ packages/docs/.storybook/preview.ts
 
 | Clase CSS                | Descripción                    | Uso                          |
 | ------------------------ | ------------------------------ | ---------------------------- |
-| `.b-ui-button--icon-left`  | Icono a la izquierda del texto | Acciones principales         |
-| `.b-ui-button--icon-right` | Icono a la derecha del texto   | Navegación, enlaces externos |
-| `.b-ui-button--icon-only`  | Solo icono (circular 40x40px)  | Acciones compactas           |
+| `.sb-ui-button--icon-left`  | Icono a la izquierda del texto | Acciones principales         |
+| `.sb-ui-button--icon-right` | Icono a la derecha del texto   | Navegación, enlaces externos |
+| `.sb-ui-button--icon-only`  | Solo icono (circular 40x40px)  | Acciones compactas           |
 
 ---
 
@@ -290,7 +290,7 @@ Esta historia incluye:
 
 ### Los iconos se ven mal o desalineados
 
-- Asegúrate de usar las clases correctas del sistema Bolivar UI: `.b-ui-button--icon-left`, `.b-ui-button--icon-right`, o `.b-ui-button--icon-only`
+- Asegúrate de usar las clases correctas del sistema Seguros Bolivar UI: `.sb-ui-button--icon-left`, `.sb-ui-button--icon-right`, o `.sb-ui-button--icon-only`
 - Los iconos deben estar dentro de un elemento `<i>` con las clases de Font Awesome
 
 ### Quiero usar Font Awesome Pro
@@ -317,4 +317,4 @@ Esta historia incluye:
 - [Font Awesome Docs](https://fontawesome.com/docs)
 - [Font Awesome Icons Search](https://fontawesome.com/search)
 - [Font Awesome Accessibility](https://fontawesome.com/docs/web/dig-deeper/accessibility)
-- [Bolivar UI Button Component](./src/atoms/Button.stories.ts)
+- [Seguros Bolivar UI Button Component](./src/atoms/Button.stories.ts)

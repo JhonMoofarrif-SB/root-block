@@ -1,8 +1,8 @@
-# 📚 @bolivar-ui/docs - Storybook Documentation
+# 📚 @seguros-bolivar-ui/docs - Storybook Documentation
 
-> Documentación interactiva y completa del **Bolivar UI Design System**
+> Documentación interactiva y completa del **Seguros Bolivar UI Design System**
 
-Sistema de documentación construido con Storybook 7 para el design system multi-marca Bolivar UI. Incluye componentes, tokens de diseño, guías de uso y ejemplos interactivos.
+Sistema de documentación construido con Storybook 7 para el design system multi-marca Seguros Bolivar UI. Incluye componentes, tokens de diseño, guías de uso y ejemplos interactivos.
 
 ---
 
@@ -25,7 +25,7 @@ Sistema de documentación construido con Storybook 7 para el design system multi
 pnpm storybook
 
 # Directo sin build previo (útil para iteración rápida)
-pnpm --filter @bolivar-ui/docs storybook
+pnpm --filter @seguros-bolivar-ui/docs storybook
 ```
 
 **Puerto**: http://localhost:6006
@@ -43,7 +43,7 @@ pnpm build-storybook
 ### Limpiar
 
 ```bash
-pnpm --filter @bolivar-ui/docs clean
+pnpm --filter @seguros-bolivar-ui/docs clean
 ```
 
 ---
@@ -290,7 +290,7 @@ Genera carpeta `storybook-static/` lista para servir.
 
 ```json
 {
-  "buildCommand": "pnpm run build:all && pnpm --filter @bolivar-ui/docs build-storybook",
+  "buildCommand": "pnpm run build:all && pnpm --filter @seguros-bolivar-ui/docs build-storybook",
   "outputDirectory": "packages/docs/storybook-static"
 }
 ```
@@ -326,7 +326,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 - [Storybook Docs](https://storybook.js.org/docs/web-components/get-started/introduction)
 - [Lit HTML](https://lit.dev/)
 - [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
-- [Bolivar UI Design System](../../README.md)
+- [Seguros Bolivar UI Design System](../../README.md)
 
 ---
 
@@ -344,4 +344,4 @@ Para añadir o mejorar documentación:
 
 ## 📄 Licencia
 
-MIT © Bolivar UI
+MIT © Seguros Bolivar UI

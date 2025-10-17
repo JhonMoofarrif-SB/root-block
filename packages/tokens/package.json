@@ -1,7 +1,7 @@
 {
-  "name": "@bolivar-ui/tokens",
+  "name": "@seguros-bolivar-ui/tokens",
   "version": "1.0.0",
-  "description": "Design tokens multi-brand para Bolivar UI Design System",
+  "description": "Design tokens multi-brand para Seguros Bolivar UI Design System",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -35,7 +35,7 @@
     "multi-brand",
     "multi-theme"
   ],
-  "author": "Bolivar UI",
+  "author": "Seguros Bolivar UI",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.19",

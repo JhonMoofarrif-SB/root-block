@@ -1,6 +1,6 @@
 /**
  * TextArea Component - Root Block Design System
- * Componente CSS puro con variables --b-ui-* personalizables por marca
+ * Componente CSS puro con variables --sb-ui-* personalizables por marca
  * Incluye contador de caracteres y auto-resize
  * 
  * Uso:
@@ -13,44 +13,44 @@
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
    ======================================== */
 
-.b-ui-textarea {
+.sb-ui-textarea {
   /* Colores - Pueden ser sobreescritos por marca */
-  --b-ui-textarea-bg-color: var(--b-ui-color-grayscale-white, #ffffff);
-  --b-ui-textarea-bg-disabled: var(--b-ui-color-grayscale-L300, #f2f3f5);
-  --b-ui-textarea-text-color: var(--b-ui-color-grayscale-D300, #404040);
-  --b-ui-textarea-text-placeholder: var(--b-ui-color-grayscale-base, #d9d9d9);
-  --b-ui-textarea-text-disabled: var(--b-ui-color-grayscale-base, #d9d9d9);
-  --b-ui-textarea-border-color: var(--b-ui-color-grayscale-L200, #edeef0);
-  --b-ui-textarea-border-color-focus: var(--b-ui-color-primary-base, #007acc);
-  --b-ui-textarea-border-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
-  --b-ui-textarea-border-color-success: var(--b-ui-color-feedback-success-base, #28a745);
-  --b-ui-textarea-border-width: 1px;
-  --b-ui-textarea-border-radius: 8px;
+  --sb-ui-textarea-bg-color: var(--sb-ui-color-grayscale-white, #ffffff);
+  --sb-ui-textarea-bg-disabled: var(--sb-ui-color-grayscale-L300, #f2f3f5);
+  --sb-ui-textarea-text-color: var(--sb-ui-color-grayscale-D300, #404040);
+  --sb-ui-textarea-text-placeholder: var(--sb-ui-color-grayscale-base, #d9d9d9);
+  --sb-ui-textarea-text-disabled: var(--sb-ui-color-grayscale-base, #d9d9d9);
+  --sb-ui-textarea-border-color: var(--sb-ui-color-grayscale-L200, #edeef0);
+  --sb-ui-textarea-border-color-focus: var(--sb-ui-color-primary-base, #007acc);
+  --sb-ui-textarea-border-color-error: var(--sb-ui-color-feedback-error-base, #dc3545);
+  --sb-ui-textarea-border-color-success: var(--sb-ui-color-feedback-success-base, #28a745);
+  --sb-ui-textarea-border-width: 1px;
+  --sb-ui-textarea-border-radius: 8px;
 
   /* Espaciado */
-  --b-ui-textarea-padding-x: 1rem;
-  --b-ui-textarea-padding-y: 0.75rem;
-  --b-ui-textarea-padding-bottom-counter: 2.5rem;
+  --sb-ui-textarea-padding-x: 1rem;
+  --sb-ui-textarea-padding-y: 0.75rem;
+  --sb-ui-textarea-padding-bottom-counter: 2.5rem;
 
   /* Tipografía */
-  --b-ui-textarea-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
-  --b-ui-textarea-font-size: 1rem;
-  --b-ui-textarea-font-weight: 400;
-  --b-ui-textarea-line-height: 1.5;
+  --sb-ui-textarea-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+  --sb-ui-textarea-font-size: 1rem;
+  --sb-ui-textarea-font-weight: 400;
+  --sb-ui-textarea-line-height: 1.5;
 
   /* Tamaños */
-  --b-ui-textarea-min-height: 80px;
-  --b-ui-textarea-max-height: 200px;
+  --sb-ui-textarea-min-height: 80px;
+  --sb-ui-textarea-max-height: 200px;
 
   /* Sombras */
-  --b-ui-textarea-shadow: none;
-  --b-ui-textarea-shadow-focus: 0 0 0 3px var(--b-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
+  --sb-ui-textarea-shadow: none;
+  --sb-ui-textarea-shadow-focus: 0 0 0 3px var(--sb-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
 
   /* Transiciones */
-  --b-ui-textarea-transition: all 0.2s ease;
+  --sb-ui-textarea-transition: all 0.2s ease;
 
   /* Resize */
-  --b-ui-textarea-resize: vertical;
+  --sb-ui-textarea-resize: vertical;
 
   /* Layout */
   display: block;
@@ -59,71 +59,71 @@
   box-sizing: border-box;
 
   /* Spacing */
-  padding: var(--b-ui-textarea-padding-y) var(--b-ui-textarea-padding-x);
+  padding: var(--sb-ui-textarea-padding-y) var(--sb-ui-textarea-padding-x);
 
   /* Sizing */
-  min-height: var(--b-ui-textarea-min-height);
-  max-height: var(--b-ui-textarea-max-height);
+  min-height: var(--sb-ui-textarea-min-height);
+  max-height: var(--sb-ui-textarea-max-height);
 
   /* Typography */
-  font-family: var(--b-ui-textarea-font-family);
+  font-family: var(--sb-ui-textarea-font-family);
   font-style: normal;
-  font-weight: var(--b-ui-textarea-font-weight);
-  font-size: var(--b-ui-textarea-font-size);
-  line-height: var(--b-ui-textarea-line-height);
+  font-weight: var(--sb-ui-textarea-font-weight);
+  font-size: var(--sb-ui-textarea-font-size);
+  line-height: var(--sb-ui-textarea-line-height);
 
   /* Appearance */
-  background-color: var(--b-ui-textarea-bg-color);
-  color: var(--b-ui-textarea-text-color);
-  border: var(--b-ui-textarea-border-width) solid var(--b-ui-textarea-border-color);
-  border-radius: var(--b-ui-textarea-border-radius);
-  box-shadow: var(--b-ui-textarea-shadow);
+  background-color: var(--sb-ui-textarea-bg-color);
+  color: var(--sb-ui-textarea-text-color);
+  border: var(--sb-ui-textarea-border-width) solid var(--sb-ui-textarea-border-color);
+  border-radius: var(--sb-ui-textarea-border-radius);
+  box-shadow: var(--sb-ui-textarea-shadow);
   outline: none;
-  resize: var(--b-ui-textarea-resize);
+  resize: var(--sb-ui-textarea-resize);
 
   /* Animation */
-  transition: var(--b-ui-textarea-transition);
+  transition: var(--sb-ui-textarea-transition);
 }
 
 /* Placeholder styling */
-.b-ui-textarea::placeholder {
-  color: var(--b-ui-textarea-text-placeholder);
+.sb-ui-textarea::placeholder {
+  color: var(--sb-ui-textarea-text-placeholder);
   opacity: 1;
 }
 
-.b-ui-textarea::-webkit-input-placeholder {
-  color: var(--b-ui-textarea-text-placeholder);
+.sb-ui-textarea::-webkit-input-placeholder {
+  color: var(--sb-ui-textarea-text-placeholder);
   opacity: 1;
 }
 
-.b-ui-textarea::-moz-placeholder {
-  color: var(--b-ui-textarea-text-placeholder);
+.sb-ui-textarea::-moz-placeholder {
+  color: var(--sb-ui-textarea-text-placeholder);
   opacity: 1;
 }
 
-.b-ui-textarea:-ms-input-placeholder {
-  color: var(--b-ui-textarea-text-placeholder);
+.sb-ui-textarea:-ms-input-placeholder {
+  color: var(--sb-ui-textarea-text-placeholder);
   opacity: 1;
 }
 
 /* Focus state */
-.b-ui-textarea:focus {
-  border-color: var(--b-ui-textarea-border-color-focus);
-  box-shadow: var(--b-ui-textarea-shadow-focus);
+.sb-ui-textarea:focus {
+  border-color: var(--sb-ui-textarea-border-color-focus);
+  box-shadow: var(--sb-ui-textarea-shadow-focus);
 }
 
 /* Disabled state */
-.b-ui-textarea:disabled {
-  background-color: var(--b-ui-textarea-bg-disabled);
-  color: var(--b-ui-textarea-text-disabled);
-  border-color: var(--b-ui-textarea-bg-disabled);
+.sb-ui-textarea:disabled {
+  background-color: var(--sb-ui-textarea-bg-disabled);
+  color: var(--sb-ui-textarea-text-disabled);
+  border-color: var(--sb-ui-textarea-bg-disabled);
   cursor: not-allowed;
   opacity: 0.6;
   resize: none;
 }
 
-.b-ui-textarea:disabled::placeholder {
-  color: var(--b-ui-textarea-text-disabled);
+.sb-ui-textarea:disabled::placeholder {
+  color: var(--sb-ui-textarea-text-disabled);
 }
 
 /* ========================================
@@ -131,7 +131,7 @@
    ======================================== */
 
 /* Default textarea (no specific variant) */
-.b-ui-textarea {
+.sb-ui-textarea {
   /* Usa estilos base */
 }
 
@@ -140,75 +140,75 @@
    ======================================== */
 
 /* Error state */
-.b-ui-textarea--error {
-  --b-ui-textarea-border-color: var(--b-ui-textarea-border-color-error);
-  --b-ui-textarea-border-color-focus: var(--b-ui-textarea-border-color-error);
-  --b-ui-textarea-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+.sb-ui-textarea--error {
+  --sb-ui-textarea-border-color: var(--sb-ui-textarea-border-color-error);
+  --sb-ui-textarea-border-color-focus: var(--sb-ui-textarea-border-color-error);
+  --sb-ui-textarea-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 }
 
-.b-ui-textarea--error:focus {
-  border-color: var(--b-ui-textarea-border-color-error);
-  box-shadow: var(--b-ui-textarea-shadow-focus);
+.sb-ui-textarea--error:focus {
+  border-color: var(--sb-ui-textarea-border-color-error);
+  box-shadow: var(--sb-ui-textarea-shadow-focus);
 }
 
 /* Success state */
-.b-ui-textarea--success {
-  --b-ui-textarea-border-color: var(--b-ui-textarea-border-color-success);
-  --b-ui-textarea-border-color-focus: var(--b-ui-textarea-border-color-success);
-  --b-ui-textarea-shadow-focus: 0 0 0 3px
-    var(--b-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+.sb-ui-textarea--success {
+  --sb-ui-textarea-border-color: var(--sb-ui-textarea-border-color-success);
+  --sb-ui-textarea-border-color-focus: var(--sb-ui-textarea-border-color-success);
+  --sb-ui-textarea-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
-.b-ui-textarea--success:focus {
-  border-color: var(--b-ui-textarea-border-color-success);
-  box-shadow: var(--b-ui-textarea-shadow-focus);
+.sb-ui-textarea--success:focus {
+  border-color: var(--sb-ui-textarea-border-color-success);
+  box-shadow: var(--sb-ui-textarea-shadow-focus);
 }
 
 /* Warning state */
-.b-ui-textarea--warning {
-  --b-ui-textarea-border-color: var(--b-ui-color-feedback-warning-base, #ffc107);
-  --b-ui-textarea-border-color-focus: var(--b-ui-color-feedback-warning-base, #ffc107);
-  --b-ui-textarea-shadow-focus: 0 0 0 3px
-    var(--b-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+.sb-ui-textarea--warning {
+  --sb-ui-textarea-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  --sb-ui-textarea-border-color-focus: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  --sb-ui-textarea-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
-.b-ui-textarea--warning:focus {
-  border-color: var(--b-ui-color-feedback-warning-base, #ffc107);
-  box-shadow: var(--b-ui-textarea-shadow-focus);
+.sb-ui-textarea--warning:focus {
+  border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  box-shadow: var(--sb-ui-textarea-shadow-focus);
 }
 
 /* ========================================
    TEXTAREA SIZES
    ======================================== */
 
-.b-ui-textarea--small {
-  --b-ui-textarea-padding-x: 0.75rem;
-  --b-ui-textarea-padding-y: 0.5rem;
-  --b-ui-textarea-font-size: 0.875rem;
-  --b-ui-textarea-min-height: 60px;
-  --b-ui-textarea-max-height: 150px;
-  --b-ui-textarea-line-height: 1.25;
-  --b-ui-textarea-padding-bottom-counter: 2rem;
+.sb-ui-textarea--small {
+  --sb-ui-textarea-padding-x: 0.75rem;
+  --sb-ui-textarea-padding-y: 0.5rem;
+  --sb-ui-textarea-font-size: 0.875rem;
+  --sb-ui-textarea-min-height: 60px;
+  --sb-ui-textarea-max-height: 150px;
+  --sb-ui-textarea-line-height: 1.25;
+  --sb-ui-textarea-padding-bottom-counter: 2rem;
 }
 
-.b-ui-textarea--medium {
-  --b-ui-textarea-padding-x: 1rem;
-  --b-ui-textarea-padding-y: 0.75rem;
-  --b-ui-textarea-font-size: 1rem;
-  --b-ui-textarea-min-height: 80px;
-  --b-ui-textarea-max-height: 200px;
-  --b-ui-textarea-line-height: 1.5;
-  --b-ui-textarea-padding-bottom-counter: 2.5rem;
+.sb-ui-textarea--medium {
+  --sb-ui-textarea-padding-x: 1rem;
+  --sb-ui-textarea-padding-y: 0.75rem;
+  --sb-ui-textarea-font-size: 1rem;
+  --sb-ui-textarea-min-height: 80px;
+  --sb-ui-textarea-max-height: 200px;
+  --sb-ui-textarea-line-height: 1.5;
+  --sb-ui-textarea-padding-bottom-counter: 2.5rem;
 }
 
-.b-ui-textarea--large {
-  --b-ui-textarea-padding-x: 1.25rem;
-  --b-ui-textarea-padding-y: 1rem;
-  --b-ui-textarea-font-size: 1.125rem;
-  --b-ui-textarea-min-height: 100px;
-  --b-ui-textarea-max-height: 250px;
-  --b-ui-textarea-line-height: 1.5;
-  --b-ui-textarea-padding-bottom-counter: 3rem;
+.sb-ui-textarea--large {
+  --sb-ui-textarea-padding-x: 1.25rem;
+  --sb-ui-textarea-padding-y: 1rem;
+  --sb-ui-textarea-font-size: 1.125rem;
+  --sb-ui-textarea-min-height: 100px;
+  --sb-ui-textarea-max-height: 250px;
+  --sb-ui-textarea-line-height: 1.5;
+  --sb-ui-textarea-padding-bottom-counter: 3rem;
 }
 
 /* ========================================
@@ -216,39 +216,39 @@
    ======================================== */
 
 /* Rounded corners */
-.b-ui-textarea--rounded {
-  --b-ui-textarea-border-radius: 2.1rem;
+.sb-ui-textarea--rounded {
+  --sb-ui-textarea-border-radius: 2.1rem;
 }
 
 /* Block (full width) - ya es por defecto */
-.b-ui-textarea--block {
+.sb-ui-textarea--block {
   width: 100%;
 }
 
 /* Inline (auto width) */
-.b-ui-textarea--inline {
+.sb-ui-textarea--inline {
   width: auto;
   min-width: 200px;
 }
 
 /* No resize */
-.b-ui-textarea--no-resize {
-  --b-ui-textarea-resize: none;
+.sb-ui-textarea--no-resize {
+  --sb-ui-textarea-resize: none;
 }
 
 /* Both resize */
-.b-ui-textarea--resize-both {
-  --b-ui-textarea-resize: both;
+.sb-ui-textarea--resize-both {
+  --sb-ui-textarea-resize: both;
 }
 
 /* Horizontal resize */
-.b-ui-textarea--resize-horizontal {
-  --b-ui-textarea-resize: horizontal;
+.sb-ui-textarea--resize-horizontal {
+  --sb-ui-textarea-resize: horizontal;
 }
 
 /* Auto resize (requires JavaScript) */
-.b-ui-textarea--auto-resize {
-  --b-ui-textarea-resize: none;
+.sb-ui-textarea--auto-resize {
+  --sb-ui-textarea-resize: none;
   overflow: hidden;
 }
 
@@ -256,13 +256,13 @@
    TEXTAREA CONTAINER (for counter and labels)
    ======================================== */
 
-.b-ui-textarea-container {
+.sb-ui-textarea-container {
   position: relative;
   display: block;
   width: 100%;
 }
 
-.b-ui-textarea-container--inline {
+.sb-ui-textarea-container--inline {
   display: inline-block;
   width: auto;
 }
@@ -271,91 +271,91 @@
    CHARACTER COUNTER
    ======================================== */
 
-.b-ui-textarea-counter {
+.sb-ui-textarea-counter {
   position: absolute;
   bottom: 0.5rem;
   right: 0.75rem;
-  font-family: var(--b-ui-textarea-font-family);
+  font-family: var(--sb-ui-textarea-font-family);
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
   line-height: 1;
   pointer-events: none;
   z-index: 2;
-  transition: var(--b-ui-textarea-transition);
-  background-color: var(--b-ui-textarea-bg-color, #ffffff);
+  transition: var(--sb-ui-textarea-transition);
+  background-color: var(--sb-ui-textarea-bg-color, #ffffff);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 /* Counter states */
-.b-ui-textarea-counter--warning {
-  color: var(--b-ui-color-feedback-warning-base, #ffc107);
+.sb-ui-textarea-counter--warning {
+  color: var(--sb-ui-color-feedback-warning-base, #ffc107);
   font-weight: 600;
 }
 
-.b-ui-textarea-counter--error {
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+.sb-ui-textarea-counter--error {
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
   font-weight: 600;
 }
 
-.b-ui-textarea-counter--success {
-  color: var(--b-ui-color-feedback-success-base, #28a745);
+.sb-ui-textarea-counter--success {
+  color: var(--sb-ui-color-feedback-success-base, #28a745);
   font-weight: 600;
 }
 
 /* Counter with background for better visibility */
-.b-ui-textarea-counter--with-bg {
-  background-color: var(--b-ui-color-grayscale-L400, #f7f7f7);
-  border: 1px solid var(--b-ui-color-grayscale-L200, #edeef0);
+.sb-ui-textarea-counter--with-bg {
+  background-color: var(--sb-ui-color-grayscale-L400, #f7f7f7);
+  border: 1px solid var(--sb-ui-color-grayscale-L200, #edeef0);
 }
 
-.b-ui-textarea-counter--warning.b-ui-textarea-counter--with-bg {
-  background-color: var(--b-ui-color-feedback-warning-L400, #feeee5);
-  border-color: var(--b-ui-color-feedback-warning-L300, #ffbb88);
+.sb-ui-textarea-counter--warning.sb-ui-textarea-counter--with-bg {
+  background-color: var(--sb-ui-color-feedback-warning-L400, #feeee5);
+  border-color: var(--sb-ui-color-feedback-warning-L300, #ffbb88);
 }
 
-.b-ui-textarea-counter--error.b-ui-textarea-counter--with-bg {
-  background-color: var(--b-ui-color-feedback-error-L400, #fbe7e8);
-  border-color: var(--b-ui-color-feedback-error-L300, #f5c2c7);
+.sb-ui-textarea-counter--error.sb-ui-textarea-counter--with-bg {
+  background-color: var(--sb-ui-color-feedback-error-L400, #fbe7e8);
+  border-color: var(--sb-ui-color-feedback-error-L300, #f5c2c7);
 }
 
-.b-ui-textarea-counter--success.b-ui-textarea-counter--with-bg {
-  background-color: var(--b-ui-color-feedback-success-L400, #e5f3ec);
-  border-color: var(--b-ui-color-feedback-success-L300, #7ed8ac);
+.sb-ui-textarea-counter--success.sb-ui-textarea-counter--with-bg {
+  background-color: var(--sb-ui-color-feedback-success-L400, #e5f3ec);
+  border-color: var(--sb-ui-color-feedback-success-L300, #7ed8ac);
 }
 
 /* ========================================
    TEXTAREA WITH COUNTER
    ======================================== */
 
-.b-ui-textarea--with-counter {
-  padding-bottom: var(--b-ui-textarea-padding-bottom-counter);
+.sb-ui-textarea--with-counter {
+  padding-bottom: var(--sb-ui-textarea-padding-bottom-counter);
 }
 
 /* ========================================
    TEXTAREA LABEL
    ======================================== */
 
-.b-ui-textarea-label {
+.sb-ui-textarea-label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: var(--b-ui-textarea-font-family);
+  font-family: var(--sb-ui-textarea-font-family);
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--b-ui-color-grayscale-D300, #404040);
+  color: var(--sb-ui-color-grayscale-D300, #404040);
   line-height: 1.25;
 }
 
-.b-ui-textarea-label--required::after {
+.sb-ui-textarea-label--required::after {
   content: ' *';
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
 
-.b-ui-textarea-label--optional::after {
+.sb-ui-textarea-label--optional::after {
   content: ' (opcional)';
-  color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
   font-weight: 400;
 }
 
@@ -363,44 +363,44 @@
    TEXTAREA HELPER TEXT
    ======================================== */
 
-.b-ui-textarea-helper {
+.sb-ui-textarea-helper {
   display: block;
   margin-top: 0.25rem;
-  font-family: var(--b-ui-textarea-font-family);
+  font-family: var(--sb-ui-textarea-font-family);
   font-size: 0.75rem;
-  color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
   line-height: 1.25;
 }
 
-.b-ui-textarea-helper--error {
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+.sb-ui-textarea-helper--error {
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
 
-.b-ui-textarea-helper--success {
-  color: var(--b-ui-color-feedback-success-base, #28a745);
+.sb-ui-textarea-helper--success {
+  color: var(--sb-ui-color-feedback-success-base, #28a745);
 }
 
-.b-ui-textarea-helper--warning {
-  color: var(--b-ui-color-feedback-warning-base, #ffc107);
+.sb-ui-textarea-helper--warning {
+  color: var(--sb-ui-color-feedback-warning-base, #ffc107);
 }
 
 /* ========================================
    TEXTAREA GROUP (multiple textareas)
    ======================================== */
 
-.b-ui-textarea-group {
+.sb-ui-textarea-group {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
 }
 
-.b-ui-textarea-group--horizontal {
+.sb-ui-textarea-group--horizontal {
   flex-direction: row;
   gap: 1rem;
 }
 
-.b-ui-textarea-group--horizontal .b-ui-textarea {
+.sb-ui-textarea-group--horizontal .sb-ui-textarea {
   flex: 1;
 }
 
@@ -410,37 +410,37 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .b-ui-textarea {
-    --b-ui-textarea-border-width: 2px;
+  .sb-ui-textarea {
+    --sb-ui-textarea-border-width: 2px;
   }
 
-  .b-ui-textarea-counter {
-    border: 1px solid var(--b-ui-color-grayscale-D200, #6e6e6e);
+  .sb-ui-textarea-counter {
+    border: 1px solid var(--sb-ui-color-grayscale-D200, #6e6e6e);
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .b-ui-textarea {
-    --b-ui-textarea-transition: none;
+  .sb-ui-textarea {
+    --sb-ui-textarea-transition: none;
   }
 }
 
 /* Mobile optimizations */
 @media (width <= 640px) {
-  .b-ui-textarea {
+  .sb-ui-textarea {
     font-size: 16px; /* Prevents zoom on iOS */
   }
 
-  .b-ui-textarea--small {
+  .sb-ui-textarea--small {
     font-size: 16px;
   }
 
-  .b-ui-textarea-group--horizontal {
+  .sb-ui-textarea-group--horizontal {
     flex-direction: column;
   }
 
-  .b-ui-textarea-counter {
+  .sb-ui-textarea-counter {
     position: static;
     margin-top: 0.5rem;
     text-align: right;
@@ -452,14 +452,14 @@
 
 /* Desktop optimizations */
 @media (width >= 641px) {
-  .b-ui-textarea--inline {
+  .sb-ui-textarea--inline {
     min-width: 250px;
   }
 }
 
 /* Print styles */
 @media print {
-  .b-ui-textarea {
+  .sb-ui-textarea {
     background: transparent !important;
     color: black !important;
     border: 1px solid black !important;
@@ -467,11 +467,11 @@
     resize: none !important;
   }
 
-  .b-ui-textarea::placeholder {
+  .sb-ui-textarea::placeholder {
     color: #666 !important;
   }
 
-  .b-ui-textarea-counter {
+  .sb-ui-textarea-counter {
     display: none;
   }
 }
@@ -480,8 +480,8 @@
    FOCUS VISIBLE (keyboard navigation)
    ======================================== */
 
-.b-ui-textarea:focus-visible {
-  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
+.sb-ui-textarea:focus-visible {
+  outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
@@ -489,17 +489,17 @@
    VALIDATION STYLES
    ======================================== */
 
-.b-ui-textarea:valid:not(:placeholder-shown) {
+.sb-ui-textarea:valid:not(:placeholder-shown) {
   /* Success styling for valid textareas */
 }
 
-.b-ui-textarea:invalid:not(:placeholder-shown) {
+.sb-ui-textarea:invalid:not(:placeholder-shown) {
   /* Error styling for invalid textareas */
 }
 
 /* Custom validation message styling */
-.b-ui-textarea:invalid:not(:placeholder-shown) + .b-ui-textarea-helper {
-  color: var(--b-ui-color-feedback-error-base, #dc3545);
+.sb-ui-textarea:invalid:not(:placeholder-shown) + .sb-ui-textarea-helper {
+  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
 
 /* ========================================
@@ -507,10 +507,10 @@
    ======================================== */
 
 /* This requires JavaScript to work properly, but we provide the CSS structure */
-.b-ui-textarea--auto-resize {
+.sb-ui-textarea--auto-resize {
   resize: none;
   overflow: hidden;
-  min-height: var(--b-ui-textarea-min-height);
+  min-height: var(--sb-ui-textarea-min-height);
   max-height: none;
 }
 
@@ -518,7 +518,7 @@
    COUNTER ANIMATIONS
    ======================================== */
 
-.b-ui-textarea-counter--pulse {
+.sb-ui-textarea-counter--pulse {
   animation: rb-textarea-counter-pulse 0.3s ease-in-out;
 }
 
@@ -538,13 +538,13 @@
    LOADING STATE
    ======================================== */
 
-.b-ui-textarea--loading {
+.sb-ui-textarea--loading {
   position: relative;
   pointer-events: none;
   opacity: 0.7;
 }
 
-.b-ui-textarea--loading::after {
+.sb-ui-textarea--loading::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -552,8 +552,8 @@
   width: 20px;
   height: 20px;
   margin: -10px 0 0 -10px;
-  border: 2px solid var(--b-ui-color-grayscale-L200, #edeef0);
-  border-top-color: var(--b-ui-color-primary-base, #007acc);
+  border: 2px solid var(--sb-ui-color-grayscale-L200, #edeef0);
+  border-top-color: var(--sb-ui-color-primary-base, #007acc);
   border-radius: 50%;
   animation: rb-textarea-spinner 1s linear infinite;
   z-index: 3;
@@ -570,13 +570,13 @@
    ======================================== */
 
 @media (prefers-color-scheme: dark) {
-  .b-ui-textarea-counter {
-    background-color: var(--b-ui-color-grayscale-D300, #404040);
-    color: var(--b-ui-color-grayscale-L200, #edeef0);
+  .sb-ui-textarea-counter {
+    background-color: var(--sb-ui-color-grayscale-D300, #404040);
+    color: var(--sb-ui-color-grayscale-L200, #edeef0);
   }
 
-  .b-ui-textarea-counter--with-bg {
-    background-color: var(--b-ui-color-grayscale-D200, #6e6e6e);
-    border-color: var(--b-ui-color-grayscale-D100, #8c8c8c);
+  .sb-ui-textarea-counter--with-bg {
+    background-color: var(--sb-ui-color-grayscale-D200, #6e6e6e);
+    border-color: var(--sb-ui-color-grayscale-D100, #8c8c8c);
   }
 }

@@ -30,21 +30,21 @@ Primitives (por marca)
 #### Archivos:
 
 - `packages/tokens/src/primitives/brands/seguros-bolivar.json`
-- `packages/atoms/src/button.css` (usa `--b-ui-color-primary-*`)
+- `packages/atoms/src/button.css` (usa `--sb-ui-color-primary-*`)
 - `packages/brand-overrides/src/seguros-bolivar/button.css` (override)
 
 #### Ejemplo:
 
 ```css
 /* BASE */
-.b-ui-button--secondary {
-  --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
+.sb-ui-button--secondary {
+  --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);
 }
 
 /* OVERRIDE (Seguros Bolívar) */
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300);
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300);
   }
 }
 ```
@@ -78,7 +78,7 @@ Primitives (por marca)
 
 - `packages/tokens/src/semantic/light.json` (genérico)
 - `packages/tokens/src/semantic/seguros-bolivar-light.json` (específico)
-- `packages/atoms/src/button.css` (usa `--b-ui-component-button-secondary-bg`)
+- `packages/atoms/src/button.css` (usa `--sb-ui-component-button-secondary-bg`)
 
 #### Ejemplo:
 
@@ -108,8 +108,8 @@ Primitives (por marca)
 
 ```css
 /* BASE usa semantic tokens */
-.b-ui-button--secondary {
-  --b-ui-button-bg-color: var(--b-ui-component-button-secondary-bg);
+.sb-ui-button--secondary {
+  --sb-ui-button-bg-color: var(--sb-ui-component-button-secondary-bg);
 }
 
 /* NO necesita override CSS */
@@ -183,9 +183,9 @@ Semantic tokens solo permiten:
 ```css
 /* Override es explícito */
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
     /* 👀 Se VE qué cambia y por qué */
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300);
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300);
   }
 }
 ```
@@ -235,8 +235,8 @@ vs
 **CSS BASE:**
 
 ```css
-.b-ui-button--secondary {
-  --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
+.sb-ui-button--secondary {
+  --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);
 }
 ```
 
@@ -269,8 +269,8 @@ vs
 **CSS BASE:**
 
 ```css
-.b-ui-button--secondary {
-  --b-ui-button-bg-color: var(--b-ui-color-secondary-base);  // Amarillo
+.sb-ui-button--secondary {
+  --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);  // Amarillo
 }
 ```
 
@@ -278,8 +278,8 @@ vs
 
 ```css
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary {
-    --b-ui-button-bg-color: var(--b-ui-color-primary-L300);  // Verde
+  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary {
+    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300);  // Verde
   }
 }
 ```
@@ -340,14 +340,14 @@ Si 4 de 5 marcas necesitaran remapping similar:
 │  BUILDER                                                │
 │  - Combina primitives + semantic                        │
 │  - Genera CSS variables                                 │
-│  - Salida: --b-ui-color-primary-base, etc.               │
+│  - Salida: --sb-ui-color-primary-base, etc.               │
 └─────────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────────┐
 │  BASE CSS (packages/atoms/src/button.css)               │
 │                                                         │
-│  .b-ui-button--secondary {                                │
-│    --b-ui-button-bg-color: var(--b-ui-color-secondary-base);│
+│  .sb-ui-button--secondary {                                │
+│    --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);│
 │  }                                                      │
 │                                                         │
 │  Usa: Primitive tokens directamente                    │
@@ -359,9 +359,9 @@ Si 4 de 5 marcas necesitaran remapping similar:
 │                                                         │
 │  @layer brand-overrides {                               │
 │    :where([data-brand='seguros-bolivar'])               │
-│      .b-ui-button--secondary {                            │
-│      --b-ui-button-bg-color:                              │
-│        var(--b-ui-color-primary-L300);                    │
+│      .sb-ui-button--secondary {                            │
+│      --sb-ui-button-bg-color:                              │
+│        var(--sb-ui-color-primary-L300);                    │
 │    }                                                    │
 │  }                                                      │
 │                                                         │
@@ -382,7 +382,7 @@ Si 4 de 5 marcas necesitaran remapping similar:
 
 ### Para BASE CSS:
 
-1. ✅ Usa primitive tokens directamente (`--b-ui-color-secondary-base`)
+1. ✅ Usa primitive tokens directamente (`--sb-ui-color-secondary-base`)
 2. ✅ Patrón universal para todas las marcas
 3. ✅ **NO** hace suposiciones de marca específica
 

@@ -1,6 +1,6 @@
-# 🤝 Contributing to Bolivar UI Design System
+# 🤝 Contributing to Seguros Bolivar UI Design System
 
-¡Gracias por tu interés en contribuir al Bolivar UI Design System! Este documento te guiará a través del proceso de contribución.
+¡Gracias por tu interés en contribuir al Seguros Bolivar UI Design System! Este documento te guiará a través del proceso de contribución.
 
 ## 🚀 Quick Start
 
@@ -8,8 +8,8 @@
 
 ```bash
 # 1. Fork y clonar el repositorio
-git clone https://github.com/tu-usuario/bolivar-ui.git
-cd bolivar-ui
+git clone https://github.com/tu-usuario/seguros-bolivar-ui.git
+cd seguros-bolivar-ui
 
 # 2. Setup automático
 pnpm run setup
@@ -40,7 +40,7 @@ pnpm run dev:test       # Tests en watch
 ## 📁 Estructura del Proyecto
 
 ```
-bolivar-ui/
+seguros-bolivar-ui/
 ├── packages/
 │   ├── tokens/         # 🎨 Design tokens
 │   ├── atoms/          # ⚛️ Componentes CSS
@@ -82,20 +82,20 @@ bolivar-ui/
 
 ### CSS/Styling
 
-- **Prefijo**: Todas las clases CSS usan `b-ui-` (ej: `.b-ui-button`)
-- **Variables**: Todas las CSS variables usan `--b-ui-` (ej: `--b-ui-color-primary`)
+- **Prefijo**: Todas las clases CSS usan `sb-ui-` (ej: `.sb-ui-button`)
+- **Variables**: Todas las CSS variables usan `--sb-ui-` (ej: `--sb-ui-color-primary`)
 - **BEM**: Usa metodología BEM para naming
 - **Nesting**: CSS nativo con `&` permitido
 - **Logical Properties**: Usa `inline-start` en lugar de `left`
 
 ```css
 /* ✅ Correcto */
-.b-ui-button {
-  --b-ui-button-padding: var(--b-ui-space-m);
-  padding-inline: var(--b-ui-button-padding);
+.sb-ui-button {
+  --sb-ui-button-padding: var(--sb-ui-space-m);
+  padding-inline: var(--sb-ui-button-padding);
 
   &--primary {
-    background-color: var(--b-ui-color-primary-base);
+    background-color: var(--sb-ui-color-primary-base);
   }
 }
 
@@ -213,7 +213,7 @@ Estructura básica:
 
 ```css
 /* packages/atoms/src/mi-componente.css */
-.b-ui-mi-componente {
+.sb-ui-mi-componente {
   /* Estilos base */
 
   &--variant {
@@ -320,10 +320,10 @@ pnpm exec husky install
 
 ### Contacto
 
-- 🐛 **Bugs**: [GitHub Issues](https://github.com/tu-usuario/bolivar-ui/issues)
-- 💬 **Preguntas**: [GitHub Discussions](https://github.com/tu-usuario/bolivar-ui/discussions)
+- 🐛 **Bugs**: [GitHub Issues](https://github.com/tu-usuario/seguros-bolivar-ui/issues)
+- 💬 **Preguntas**: [GitHub Discussions](https://github.com/tu-usuario/seguros-bolivar-ui/discussions)
 - 📧 **Email**: support@rootblock.com
 
 ---
 
-¡Gracias por contribuir al Bolivar UI Design System! 🎨✨
+¡Gracias por contribuir al Seguros Bolivar UI Design System! 🎨✨
