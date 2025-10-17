@@ -1,7 +1,7 @@
 /**
  * Input Component - Root Block Design System
  * Componente CSS puro con variables --sb-ui-* personalizables por marca
- * 
+ *
  * Uso:
  * <input class="rb-input" type="text" placeholder="Ingresa tu texto">
  * <input class="rb-input rb-input--error" type="email" placeholder="Email">
@@ -183,7 +183,8 @@
 .sb-ui-input--error {
   --sb-ui-input-border-color: var(--sb-ui-input-border-color-error);
   --sb-ui-input-border-color-focus: var(--sb-ui-input-border-color-error);
-  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+  --sb-ui-input-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 }
 
 .sb-ui-input--error:focus {
@@ -195,7 +196,8 @@
 .sb-ui-input--success {
   --sb-ui-input-border-color: var(--sb-ui-input-border-color-success);
   --sb-ui-input-border-color-focus: var(--sb-ui-input-border-color-success);
-  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+  --sb-ui-input-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
 .sb-ui-input--success:focus {
@@ -207,7 +209,8 @@
 .sb-ui-input--warning {
   --sb-ui-input-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
   --sb-ui-input-border-color-focus: var(--sb-ui-color-feedback-warning-base, #ffc107);
-  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+  --sb-ui-input-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
 .sb-ui-input--warning:focus {

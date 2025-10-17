@@ -11,21 +11,21 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | Toggle normal (default) | `.rb-toggle` | `<label class="sb-ui-toggle"><input class="sb-ui-toggle-input" /><span class="sb-ui-toggle-slider"></span></label>` |
- * | Toggle con error | `.rb-toggle--error` | `<label class="sb-ui-toggle rb-toggle--error">...</label>` |
- * | Toggle exitoso | `.rb-toggle--success` | `<label class="sb-ui-toggle rb-toggle--success">...</label>` |
- * | Toggle con advertencia | `.rb-toggle--warning` | `<label class="sb-ui-toggle rb-toggle--warning">...</label>` |
+ * | Toggle normal (default) | `.sb-ui-toggle` | `<label class="sb-ui-toggle"><input class="sb-ui-toggle-input" /><span class="sb-ui-toggle-slider"></span></label>` |
+ * | Toggle con error | `.sb-ui-toggle--error` | `<label class="sb-ui-toggle rb-toggle--error">...</label>` |
+ * | Toggle exitoso | `.sb-ui-toggle--success` | `<label class="sb-ui-toggle rb-toggle--success">...</label>` |
+ * | Toggle con advertencia | `.sb-ui-toggle--warning` | `<label class="sb-ui-toggle rb-toggle--warning">...</label>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-toggle--small` | `<label class="sb-ui-toggle rb-toggle--small">...</label>` |
- * | Mediano (default) | `.rb-toggle--medium` o sin clase | `<label class="sb-ui-toggle">...</label>` |
- * | Grande | `.rb-toggle--large` | `<label class="sb-ui-toggle rb-toggle--large">...</label>` |
+ * | Pequeño | `.sb-ui-toggle--small` | `<label class="sb-ui-toggle rb-toggle--small">...</label>` |
+ * | Mediano (default) | `.sb-ui-toggle--medium` o sin clase | `<label class="sb-ui-toggle">...</label>` |
+ * | Grande | `.sb-ui-toggle--large` | `<label class="sb-ui-toggle rb-toggle--large">...</label>` |
  * | **Estilos** | | |
  * | Switch (default) | Sin clase adicional | `<label class="sb-ui-toggle">...</label>` |
- * | Botón | `.rb-toggle--button` | `<label class="sb-ui-toggle rb-toggle--button">...</label>` |
- * | Checkbox | `.rb-toggle--checkbox` | `<label class="sb-ui-toggle rb-toggle--checkbox">...</label>` |
+ * | Botón | `.sb-ui-toggle--button` | `<label class="sb-ui-toggle rb-toggle--button">...</label>` |
+ * | Checkbox | `.sb-ui-toggle--checkbox` | `<label class="sb-ui-toggle rb-toggle--checkbox">...</label>` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-toggle--rounded` | `<label class="sb-ui-toggle rb-toggle--rounded">...</label>` |
- * | Minimal | `.rb-toggle--minimal` | `<label class="sb-ui-toggle rb-toggle--minimal">...</label>` |
+ * | Bordes redondeados | `.sb-ui-toggle--rounded` | `<label class="sb-ui-toggle rb-toggle--rounded">...</label>` |
+ * | Minimal | `.sb-ui-toggle--minimal` | `<label class="sb-ui-toggle rb-toggle--minimal">...</label>` |
  *
  * ## 💡 Notas Importantes
  *

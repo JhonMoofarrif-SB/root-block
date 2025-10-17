@@ -11,20 +11,20 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | TextArea normal (default) | `.rb-textarea` | `<textarea class="sb-ui-textarea"></textarea>` |
- * | TextArea con error | `.rb-textarea--error` | `<textarea class="sb-ui-textarea rb-textarea--error"></textarea>` |
- * | TextArea exitoso | `.rb-textarea--success` | `<textarea class="sb-ui-textarea rb-textarea--success"></textarea>` |
- * | TextArea con advertencia | `.rb-textarea--warning` | `<textarea class="sb-ui-textarea rb-textarea--warning"></textarea>` |
+ * | TextArea normal (default) | `.sb-ui-textarea` | `<textarea class="sb-ui-textarea"></textarea>` |
+ * | TextArea con error | `.sb-ui-textarea--error` | `<textarea class="sb-ui-textarea rb-textarea--error"></textarea>` |
+ * | TextArea exitoso | `.sb-ui-textarea--success` | `<textarea class="sb-ui-textarea rb-textarea--success"></textarea>` |
+ * | TextArea con advertencia | `.sb-ui-textarea--warning` | `<textarea class="sb-ui-textarea rb-textarea--warning"></textarea>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-textarea--small` | `<textarea class="sb-ui-textarea rb-textarea--small"></textarea>` |
- * | Mediano (default) | `.rb-textarea--medium` o sin clase | `<textarea class="sb-ui-textarea"></textarea>` |
- * | Grande | `.rb-textarea--large` | `<textarea class="sb-ui-textarea rb-textarea--large"></textarea>` |
+ * | Pequeño | `.sb-ui-textarea--small` | `<textarea class="sb-ui-textarea rb-textarea--small"></textarea>` |
+ * | Mediano (default) | `.sb-ui-textarea--medium` o sin clase | `<textarea class="sb-ui-textarea"></textarea>` |
+ * | Grande | `.sb-ui-textarea--large` | `<textarea class="sb-ui-textarea rb-textarea--large"></textarea>` |
  * | **Resize** | | |
- * | Sin resize | `.rb-textarea--no-resize` | `<textarea class="sb-ui-textarea rb-textarea--no-resize"></textarea>` |
- * | Auto resize | `.rb-textarea--auto-resize` | `<textarea class="sb-ui-textarea rb-textarea--auto-resize"></textarea>` |
+ * | Sin resize | `.sb-ui-textarea--no-resize` | `<textarea class="sb-ui-textarea rb-textarea--no-resize"></textarea>` |
+ * | Auto resize | `.sb-ui-textarea--auto-resize` | `<textarea class="sb-ui-textarea rb-textarea--auto-resize"></textarea>` |
  * | **Modificadores** | | |
- * | Con contador | `.rb-textarea--with-counter` | En un `.rb-textarea-container` |
- * | Bordes redondeados | `.rb-textarea--rounded` | `<textarea class="sb-ui-textarea rb-textarea--rounded"></textarea>` |
+ * | Con contador | `.sb-ui-textarea--with-counter` | En un `.sb-ui-textarea-container` |
+ * | Bordes redondeados | `.sb-ui-textarea--rounded` | `<textarea class="sb-ui-textarea rb-textarea--rounded"></textarea>` |
  */
 const meta: Meta = {
   title: 'Atoms/TextArea',

@@ -11,26 +11,26 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Variantes de Estado** | | |
- * | Alerta informativa (default) | `.rb-alert` | `<div class="sb-ui-alert">Info</div>` |
- * | Alerta de éxito | `.rb-alert--success` | `<div class="sb-ui-alert rb-alert--success">Success</div>` |
- * | Alerta de advertencia | `.rb-alert--warning` | `<div class="sb-ui-alert rb-alert--warning">Warning</div>` |
- * | Alerta de error | `.rb-alert--error` | `<div class="sb-ui-alert rb-alert--error">Error</div>` |
+ * | Alerta informativa (default) | `.sb-ui-alert` | `<div class="sb-ui-alert">Info</div>` |
+ * | Alerta de éxito | `.sb-ui-alert--success` | `<div class="sb-ui-alert rb-alert--success">Success</div>` |
+ * | Alerta de advertencia | `.sb-ui-alert--warning` | `<div class="sb-ui-alert rb-alert--warning">Warning</div>` |
+ * | Alerta de error | `.sb-ui-alert--error` | `<div class="sb-ui-alert rb-alert--error">Error</div>` |
  * | **Variantes de Estilo** | | |
  * | Con fondo (default) | Sin clase adicional | `<div class="sb-ui-alert">Default</div>` |
- * | Sin fondo, solo borde | `.rb-alert--no-bg` | `<div class="sb-ui-alert rb-alert--no-bg">No BG</div>` |
- * | Solo borde exterior | `.rb-alert--outlined` | `<div class="sb-ui-alert rb-alert--outlined">Outlined</div>` |
- * | Fondo sólido | `.rb-alert--filled` | `<div class="sb-ui-alert rb-alert--filled">Filled</div>` |
+ * | Sin fondo, solo borde | `.sb-ui-alert--no-bg` | `<div class="sb-ui-alert rb-alert--no-bg">No BG</div>` |
+ * | Solo borde exterior | `.sb-ui-alert--outlined` | `<div class="sb-ui-alert rb-alert--outlined">Outlined</div>` |
+ * | Fondo sólido | `.sb-ui-alert--filled` | `<div class="sb-ui-alert rb-alert--filled">Filled</div>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-alert--small` | `<div class="sb-ui-alert rb-alert--small">Small</div>` |
- * | Mediano (default) | `.rb-alert--medium` o sin clase | `<div class="sb-ui-alert">Medium</div>` |
- * | Grande | `.rb-alert--large` | `<div class="sb-ui-alert rb-alert--large">Large</div>` |
+ * | Pequeño | `.sb-ui-alert--small` | `<div class="sb-ui-alert rb-alert--small">Small</div>` |
+ * | Mediano (default) | `.sb-ui-alert--medium` o sin clase | `<div class="sb-ui-alert">Medium</div>` |
+ * | Grande | `.sb-ui-alert--large` | `<div class="sb-ui-alert rb-alert--large">Large</div>` |
  * | **Interactividad** | | |
- * | Con botón cerrar | `.rb-alert--dismissible` | `<div class="sb-ui-alert rb-alert--dismissible">...</div>` |
+ * | Con botón cerrar | `.sb-ui-alert--dismissible` | `<div class="sb-ui-alert rb-alert--dismissible">...</div>` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-alert--rounded` | `<div class="sb-ui-alert rb-alert--rounded">Rounded</div>` |
- * | Estilo minimal | `.rb-alert--minimal` | `<div class="sb-ui-alert rb-alert--minimal">Minimal</div>` |
- * | Tipo toast | `.rb-alert--toast` | `<div class="sb-ui-alert rb-alert--toast">Toast</div>` |
- * | Tipo banner | `.rb-alert--banner` | `<div class="sb-ui-alert rb-alert--banner">Banner</div>` |
+ * | Bordes redondeados | `.sb-ui-alert--rounded` | `<div class="sb-ui-alert rb-alert--rounded">Rounded</div>` |
+ * | Estilo minimal | `.sb-ui-alert--minimal` | `<div class="sb-ui-alert rb-alert--minimal">Minimal</div>` |
+ * | Tipo toast | `.sb-ui-alert--toast` | `<div class="sb-ui-alert rb-alert--toast">Toast</div>` |
+ * | Tipo banner | `.sb-ui-alert--banner` | `<div class="sb-ui-alert rb-alert--banner">Banner</div>` |
  *
  * ## 💡 Notas Importantes
  *
@@ -205,7 +205,7 @@ export const Playground: Story = {
                   type="button"
                   aria-label="Cerrar"
                   @click="${(e: Event) => {
-                    const alertEl = (e.target as HTMLElement).closest('.rb-alert');
+                    const alertEl = (e.target as HTMLElement).closest('.sb-ui-alert');
                     if (alertEl) {
                       alertEl.style.display = 'none';
                     }
@@ -510,7 +510,7 @@ export const Estados: Story = {
         <ul style="line-height: 1.8; color: #333;">
           <li>
             <strong>Estado por defecto:</strong> INFO es el estado por defecto (no necesitas
-            especificar <code>.rb-alert--info</code>).
+            especificar <code>.sb-ui-alert--info</code>).
           </li>
           <li><strong>Estilo por defecto:</strong> Con fondo suave es el estilo por defecto.</li>
           <li>
@@ -526,7 +526,7 @@ export const Estados: Story = {
             agregan automáticamente.
           </li>
           <li>
-            <strong>Botón cerrar:</strong> Usa <code>.rb-alert--dismissible</code> para mostrar el
+            <strong>Botón cerrar:</strong> Usa <code>.sb-ui-alert--dismissible</code> para mostrar el
             botón cerrar.
           </li>
           <li>

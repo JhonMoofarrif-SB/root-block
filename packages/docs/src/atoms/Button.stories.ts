@@ -11,32 +11,32 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Variantes de Color** | | |
- * | Botón primario | `.rb-button--primary` | `<button class="sb-ui-button rb-button--primary">Primary</button>` |
- * | Botón secundario | `.rb-button--secondary` | `<button class="sb-ui-button rb-button--secondary">Secondary</button>` |
- * | Botón terciario | `.rb-button--tertiary` | `<button class="sb-ui-button rb-button--tertiary">Tertiary</button>` |
- * | Botón error | `.rb-button--error` | `<button class="sb-ui-button rb-button--error">Error</button>` |
+ * | Botón primario | `.sb-ui-button--primary` | `<button class="sb-ui-button rb-button--primary">Primary</button>` |
+ * | Botón secundario | `.sb-ui-button--secondary` | `<button class="sb-ui-button rb-button--secondary">Secondary</button>` |
+ * | Botón terciario | `.sb-ui-button--tertiary` | `<button class="sb-ui-button rb-button--tertiary">Tertiary</button>` |
+ * | Botón error | `.sb-ui-button--error` | `<button class="sb-ui-button rb-button--error">Error</button>` |
  * | **Variantes de Estilo** | | |
- * | Outline/borde (default) | `.rb-button--stroke` o sin clase | `<button class="sb-ui-button rb-button--primary">Default</button>` |
- * | Fondo sólido | `.rb-button--fill` | `<button class="sb-ui-button rb-button--primary rb-button--fill">Filled</button>` |
- * | Transparente sin borde | `.rb-button--text` | `<button class="sb-ui-button rb-button--primary rb-button--text">Text</button>` |
+ * | Outline/borde (default) | `.sb-ui-button--stroke` o sin clase | `<button class="sb-ui-button rb-button--primary">Default</button>` |
+ * | Fondo sólido | `.sb-ui-button--fill` | `<button class="sb-ui-button rb-button--primary rb-button--fill">Filled</button>` |
+ * | Transparente sin borde | `.sb-ui-button--text` | `<button class="sb-ui-button rb-button--primary rb-button--text">Text</button>` |
  * | **Posiciones de Icono** | | |
- * | Icono a la izquierda | `.rb-button--icon-left` | `<button class="sb-ui-button rb-button--primary rb-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
- * | Icono a la derecha | `.rb-button--icon-right` | `<button class="sb-ui-button rb-button--primary rb-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
- * | Solo icono | `.rb-button--icon-only` | `<button class="sb-ui-button rb-button--primary rb-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
+ * | Icono a la izquierda | `.sb-ui-button--icon-left` | `<button class="sb-ui-button rb-button--primary rb-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
+ * | Icono a la derecha | `.sb-ui-button--icon-right` | `<button class="sb-ui-button rb-button--primary rb-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
+ * | Solo icono | `.sb-ui-button--icon-only` | `<button class="sb-ui-button rb-button--primary rb-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-button--small` | `<button class="sb-ui-button rb-button--primary rb-button--small">Small</button>` |
- * | Mediano (default) | `.rb-button--medium` o sin clase | `<button class="sb-ui-button rb-button--primary">Medium</button>` |
- * | Grande | `.rb-button--large` | `<button class="sb-ui-button rb-button--primary rb-button--large">Large</button>` |
+ * | Pequeño | `.sb-ui-button--small` | `<button class="sb-ui-button rb-button--primary rb-button--small">Small</button>` |
+ * | Mediano (default) | `.sb-ui-button--medium` o sin clase | `<button class="sb-ui-button rb-button--primary">Medium</button>` |
+ * | Grande | `.sb-ui-button--large` | `<button class="sb-ui-button rb-button--primary rb-button--large">Large</button>` |
  * | **Estados** | | |
- * | Estado cargando | `.rb-button--loading` | `<button class="sb-ui-button rb-button--primary rb-button--loading">Loading...</button>` |
- * | Estado deshabilitado | `.rb-button--disabled` | `<button class="sb-ui-button rb-button--primary rb-button--disabled">Disabled</button>` |
+ * | Estado cargando | `.sb-ui-button--loading` | `<button class="sb-ui-button rb-button--primary rb-button--loading">Loading...</button>` |
+ * | Estado deshabilitado | `.sb-ui-button--disabled` | `<button class="sb-ui-button rb-button--primary rb-button--disabled">Disabled</button>` |
  * | **Modificadores** | | |
- * | Ancho completo | `.rb-button--block` | `<button class="sb-ui-button rb-button--primary rb-button--block">Full Width</button>` |
- * | Esquinas cuadradas | `.rb-button--square` | `<button class="sb-ui-button rb-button--primary rb-button--square">Square</button>` |
+ * | Ancho completo | `.sb-ui-button--block` | `<button class="sb-ui-button rb-button--primary rb-button--block">Full Width</button>` |
+ * | Esquinas cuadradas | `.sb-ui-button--square` | `<button class="sb-ui-button rb-button--primary rb-button--square">Square</button>` |
  *
  * ## 💡 Notas Importantes
  *
- * - **Estilo por defecto**: FILL (relleno sólido) - usa `.rb-button--stroke` para outline
+ * - **Estilo por defecto**: FILL (relleno sólido) - usa `.sb-ui-button--stroke` para outline
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
  * - **Icon Only**: Es completamente circular (40x40px) por defecto
  * - **Loading con iconos**: El spinner reemplaza automáticamente el icono en su posición

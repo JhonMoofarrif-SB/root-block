@@ -11,21 +11,21 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | Input normal (default) | `.rb-input` | `<input class="sb-ui-input" type="text" />` |
- * | Input con error | `.rb-input--error` | `<input class="sb-ui-input rb-input--error" type="text" />` |
- * | Input exitoso | `.rb-input--success` | `<input class="sb-ui-input rb-input--success" type="text" />` |
- * | Input con advertencia | `.rb-input--warning` | `<input class="sb-ui-input rb-input--warning" type="text" />` |
+ * | Input normal (default) | `.sb-ui-input` | `<input class="sb-ui-input" type="text" />` |
+ * | Input con error | `.sb-ui-input--error` | `<input class="sb-ui-input rb-input--error" type="text" />` |
+ * | Input exitoso | `.sb-ui-input--success` | `<input class="sb-ui-input rb-input--success" type="text" />` |
+ * | Input con advertencia | `.sb-ui-input--warning` | `<input class="sb-ui-input rb-input--warning" type="text" />` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-input--small` | `<input class="sb-ui-input rb-input--small" type="text" />` |
- * | Mediano (default) | `.rb-input--medium` o sin clase | `<input class="sb-ui-input" type="text" />` |
- * | Grande | `.rb-input--large` | `<input class="sb-ui-input rb-input--large" type="text" />` |
+ * | Pequeño | `.sb-ui-input--small` | `<input class="sb-ui-input rb-input--small" type="text" />` |
+ * | Mediano (default) | `.sb-ui-input--medium` o sin clase | `<input class="sb-ui-input" type="text" />` |
+ * | Grande | `.sb-ui-input--large` | `<input class="sb-ui-input rb-input--large" type="text" />` |
  * | **Con Iconos** | | |
- * | Icono izquierdo | `.rb-input--with-icon-left` | En un `.rb-input-container` |
- * | Icono derecho | `.rb-input--with-icon-right` | En un `.rb-input-container` |
- * | Ambos iconos | `.rb-input--with-icon-both` | En un `.rb-input-container` |
+ * | Icono izquierdo | `.sb-ui-input--with-icon-left` | En un `.sb-ui-input-container` |
+ * | Icono derecho | `.sb-ui-input--with-icon-right` | En un `.sb-ui-input-container` |
+ * | Ambos iconos | `.sb-ui-input--with-icon-both` | En un `.sb-ui-input-container` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-input--rounded` | `<input class="sb-ui-input rb-input--rounded" type="text" />` |
- * | Inline (auto width) | `.rb-input--inline` | `<input class="sb-ui-input rb-input--inline" type="text" />` |
+ * | Bordes redondeados | `.sb-ui-input--rounded` | `<input class="sb-ui-input rb-input--rounded" type="text" />` |
+ * | Inline (auto width) | `.sb-ui-input--inline` | `<input class="sb-ui-input rb-input--inline" type="text" />` |
  *
  * ## 💡 Notas Importantes
  *

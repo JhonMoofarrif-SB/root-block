@@ -11,19 +11,19 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Estados** | | |
- * | Select normal (default) | `.rb-select` | `<select class="sb-ui-select">...</select>` |
- * | Select con error | `.rb-select--error` | `<select class="sb-ui-select rb-select--error">...</select>` |
- * | Select exitoso | `.rb-select--success` | `<select class="sb-ui-select rb-select--success">...</select>` |
- * | Select con advertencia | `.rb-select--warning` | `<select class="sb-ui-select rb-select--warning">...</select>` |
+ * | Select normal (default) | `.sb-ui-select` | `<select class="sb-ui-select">...</select>` |
+ * | Select con error | `.sb-ui-select--error` | `<select class="sb-ui-select rb-select--error">...</select>` |
+ * | Select exitoso | `.sb-ui-select--success` | `<select class="sb-ui-select rb-select--success">...</select>` |
+ * | Select con advertencia | `.sb-ui-select--warning` | `<select class="sb-ui-select rb-select--warning">...</select>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-select--small` | `<select class="sb-ui-select rb-select--small">...</select>` |
- * | Mediano (default) | `.rb-select--medium` o sin clase | `<select class="sb-ui-select">...</select>` |
- * | Grande | `.rb-select--large` | `<select class="sb-ui-select rb-select--large">...</select>` |
+ * | Pequeño | `.sb-ui-select--small` | `<select class="sb-ui-select rb-select--small">...</select>` |
+ * | Mediano (default) | `.sb-ui-select--medium` o sin clase | `<select class="sb-ui-select">...</select>` |
+ * | Grande | `.sb-ui-select--large` | `<select class="sb-ui-select rb-select--large">...</select>` |
  * | **Con Iconos** | | |
- * | Icono izquierdo | `.rb-select--with-icon-left` | En un `.rb-select-container` |
+ * | Icono izquierdo | `.sb-ui-select--with-icon-left` | En un `.sb-ui-select-container` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-select--rounded` | `<select class="sb-ui-select rb-select--rounded">...</select>` |
- * | Inline (auto width) | `.rb-select--inline` | `<select class="sb-ui-select rb-select--inline">...</select>` |
+ * | Bordes redondeados | `.sb-ui-select--rounded` | `<select class="sb-ui-select rb-select--rounded">...</select>` |
+ * | Inline (auto width) | `.sb-ui-select--inline` | `<select class="sb-ui-select rb-select--inline">...</select>` |
  *
  * ## 💡 Notas Importantes
  *
