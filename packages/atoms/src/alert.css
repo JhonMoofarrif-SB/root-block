@@ -1,6 +1,6 @@
 /**
  * Alert Component - Root Block Design System
- * Componente CSS puro con variables --rb-* personalizables por marca
+ * Componente CSS puro con variables --b-ui-* personalizables por marca
  * Incluye estilos para alertas tipo toast, inline y banner
  * 
  * Uso:
@@ -18,88 +18,88 @@
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
    ======================================== */
 
-.rb-alert {
+.b-ui-alert {
   /* Colores - Pueden ser sobreescritos por marca */
-  --rb-alert-bg-color: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-bg-color-success: var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
-  --rb-alert-bg-color-info: var(--rb-color-feedback-info-L400, rgba(0, 122, 204, 0.1));
-  --rb-alert-bg-color-warning: var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
-  --rb-alert-bg-color-error: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+  --b-ui-alert-bg-color: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-bg-color-success: var(--b-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+  --b-ui-alert-bg-color-info: var(--b-ui-color-feedback-info-L400, rgba(0, 122, 204, 0.1));
+  --b-ui-alert-bg-color-warning: var(--b-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+  --b-ui-alert-bg-color-error: var(--b-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 
-  --rb-alert-border-color: var(--rb-color-grayscale-L200, #edeef0);
-  --rb-alert-border-color-success: var(--rb-color-feedback-success-base, #28a745);
-  --rb-alert-border-color-info: var(--rb-color-feedback-info-base, #007acc);
-  --rb-alert-border-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-alert-border-color-error: var(--rb-color-feedback-error-base, #dc3545);
+  --b-ui-alert-border-color: var(--b-ui-color-grayscale-L200, #edeef0);
+  --b-ui-alert-border-color-success: var(--b-ui-color-feedback-success-base, #28a745);
+  --b-ui-alert-border-color-info: var(--b-ui-color-feedback-info-base, #007acc);
+  --b-ui-alert-border-color-warning: var(--b-ui-color-feedback-warning-base, #ffc107);
+  --b-ui-alert-border-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
 
-  --rb-alert-text-color: var(--rb-color-grayscale-D300, #404040);
-  --rb-alert-text-color-success: var(--rb-color-feedback-success-base, #28a745);
-  --rb-alert-text-color-info: var(--rb-color-feedback-info-base, #007acc);
-  --rb-alert-text-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-alert-text-color-error: var(--rb-color-feedback-error-base, #dc3545);
+  --b-ui-alert-text-color: var(--b-ui-color-grayscale-D300, #404040);
+  --b-ui-alert-text-color-success: var(--b-ui-color-feedback-success-base, #28a745);
+  --b-ui-alert-text-color-info: var(--b-ui-color-feedback-info-base, #007acc);
+  --b-ui-alert-text-color-warning: var(--b-ui-color-feedback-warning-base, #ffc107);
+  --b-ui-alert-text-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
 
-  --rb-alert-icon-color: var(--rb-color-grayscale-base, #d9d9d9);
-  --rb-alert-icon-color-success: var(--rb-color-feedback-success-base, #28a745);
-  --rb-alert-icon-color-info: var(--rb-color-feedback-info-base, #007acc);
-  --rb-alert-icon-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-alert-icon-color-error: var(--rb-color-feedback-error-base, #dc3545);
+  --b-ui-alert-icon-color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  --b-ui-alert-icon-color-success: var(--b-ui-color-feedback-success-base, #28a745);
+  --b-ui-alert-icon-color-info: var(--b-ui-color-feedback-info-base, #007acc);
+  --b-ui-alert-icon-color-warning: var(--b-ui-color-feedback-warning-base, #ffc107);
+  --b-ui-alert-icon-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
 
-  --rb-alert-close-color: var(--rb-color-grayscale-base, #d9d9d9);
-  --rb-alert-close-color-hover: var(--rb-color-grayscale-D300, #404040);
+  --b-ui-alert-close-color: var(--b-ui-color-grayscale-base, #d9d9d9);
+  --b-ui-alert-close-color-hover: var(--b-ui-color-grayscale-D300, #404040);
 
   /* Espaciado */
-  --rb-alert-padding: 1rem;
-  --rb-alert-padding-compact: 0.75rem;
-  --rb-alert-padding-large: 1.25rem;
-  --rb-alert-gap: 0.75rem;
-  --rb-alert-border-width: 1px;
-  --rb-alert-border-left-width: 4px;
+  --b-ui-alert-padding: 1rem;
+  --b-ui-alert-padding-compact: 0.75rem;
+  --b-ui-alert-padding-large: 1.25rem;
+  --b-ui-alert-gap: 0.75rem;
+  --b-ui-alert-border-width: 1px;
+  --b-ui-alert-border-left-width: 4px;
 
   /* Tipografía */
-  --rb-alert-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
-  --rb-alert-title-font-size: 0.875rem;
-  --rb-alert-title-font-weight: 600;
-  --rb-alert-message-font-size: 0.875rem;
-  --rb-alert-message-font-weight: 400;
-  --rb-alert-line-height: 1.25;
+  --b-ui-alert-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+  --b-ui-alert-title-font-size: 0.875rem;
+  --b-ui-alert-title-font-weight: 600;
+  --b-ui-alert-message-font-size: 0.875rem;
+  --b-ui-alert-message-font-weight: 400;
+  --b-ui-alert-line-height: 1.25;
 
   /* Tamaños */
-  --rb-alert-min-height: 3rem;
-  --rb-alert-border-radius: 8px;
-  --rb-alert-icon-size: 1.25rem;
-  --rb-alert-close-size: 1.5rem;
+  --b-ui-alert-min-height: 3rem;
+  --b-ui-alert-border-radius: 8px;
+  --b-ui-alert-icon-size: 1.25rem;
+  --b-ui-alert-close-size: 1.5rem;
 
   /* Sombras */
-  --rb-alert-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --rb-alert-shadow-toast: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --b-ui-alert-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --b-ui-alert-shadow-toast: 0 4px 16px rgba(0, 0, 0, 0.15);
 
   /* Transiciones */
-  --rb-alert-transition: all 0.2s ease;
+  --b-ui-alert-transition: all 0.2s ease;
 
   /* Layout */
   display: flex;
   align-items: flex-start;
-  gap: var(--rb-alert-gap);
+  gap: var(--b-ui-alert-gap);
   position: relative;
   box-sizing: border-box;
-  min-height: var(--rb-alert-min-height);
-  padding: var(--rb-alert-padding);
-  background-color: var(--rb-alert-bg-color);
-  border: var(--rb-alert-border-width) solid var(--rb-alert-border-color);
-  border-left: var(--rb-alert-border-left-width) solid var(--rb-alert-border-color);
-  border-radius: var(--rb-alert-border-radius);
-  box-shadow: var(--rb-alert-shadow);
-  font-family: var(--rb-alert-font-family);
-  line-height: var(--rb-alert-line-height);
-  color: var(--rb-alert-text-color);
-  transition: var(--rb-alert-transition);
+  min-height: var(--b-ui-alert-min-height);
+  padding: var(--b-ui-alert-padding);
+  background-color: var(--b-ui-alert-bg-color);
+  border: var(--b-ui-alert-border-width) solid var(--b-ui-alert-border-color);
+  border-left: var(--b-ui-alert-border-left-width) solid var(--b-ui-alert-border-color);
+  border-radius: var(--b-ui-alert-border-radius);
+  box-shadow: var(--b-ui-alert-shadow);
+  font-family: var(--b-ui-alert-font-family);
+  line-height: var(--b-ui-alert-line-height);
+  color: var(--b-ui-alert-text-color);
+  transition: var(--b-ui-alert-transition);
 }
 
 /* ========================================
    ALERT CONTENT
    ======================================== */
 
-.rb-alert-content {
+.b-ui-alert-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -107,18 +107,18 @@
   min-width: 0; /* Permite que el contenido se encoja */
 }
 
-.rb-alert-title {
-  font-size: var(--rb-alert-title-font-size);
-  font-weight: var(--rb-alert-title-font-weight);
-  line-height: var(--rb-alert-line-height);
+.b-ui-alert-title {
+  font-size: var(--b-ui-alert-title-font-size);
+  font-weight: var(--b-ui-alert-title-font-weight);
+  line-height: var(--b-ui-alert-line-height);
   margin: 0;
   color: inherit;
 }
 
-.rb-alert-message {
-  font-size: var(--rb-alert-message-font-size);
-  font-weight: var(--rb-alert-message-font-weight);
-  line-height: var(--rb-alert-line-height);
+.b-ui-alert-message {
+  font-size: var(--b-ui-alert-message-font-size);
+  font-weight: var(--b-ui-alert-message-font-weight);
+  line-height: var(--b-ui-alert-line-height);
   margin: 0;
   color: inherit;
   opacity: 0.8;
@@ -128,14 +128,14 @@
    ALERT ICON
    ======================================== */
 
-.rb-alert-icon {
+.b-ui-alert-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--rb-alert-icon-size);
-  height: var(--rb-alert-icon-size);
-  font-size: var(--rb-alert-icon-size);
-  color: var(--rb-alert-icon-color);
+  width: var(--b-ui-alert-icon-size);
+  height: var(--b-ui-alert-icon-size);
+  font-size: var(--b-ui-alert-icon-size);
+  color: var(--b-ui-alert-icon-color);
   flex-shrink: 0;
   margin-top: 0.125rem; /* Alineación visual con el texto */
 }
@@ -144,33 +144,33 @@
    ALERT CLOSE BUTTON
    ======================================== */
 
-.rb-alert-close {
+.b-ui-alert-close {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--rb-alert-close-size);
-  height: var(--rb-alert-close-size);
+  width: var(--b-ui-alert-close-size);
+  height: var(--b-ui-alert-close-size);
   background: none;
   border: none;
-  color: var(--rb-alert-close-color);
+  color: var(--b-ui-alert-close-color);
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1;
   cursor: pointer;
   border-radius: 4px;
-  transition: var(--rb-alert-transition);
+  transition: var(--b-ui-alert-transition);
   flex-shrink: 0;
   margin-top: -0.125rem; /* Alineación visual */
   margin-right: -0.25rem; /* Espaciado visual */
 }
 
-.rb-alert-close:hover {
-  color: var(--rb-alert-close-color-hover);
-  background-color: var(--rb-color-grayscale-L400, rgba(247, 247, 247, 0.5));
+.b-ui-alert-close:hover {
+  color: var(--b-ui-alert-close-color-hover);
+  background-color: var(--b-ui-color-grayscale-L400, rgba(247, 247, 247, 0.5));
 }
 
-.rb-alert-close:focus {
-  outline: 2px solid var(--rb-color-primary-base, #007acc);
+.b-ui-alert-close:focus {
+  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
@@ -179,52 +179,52 @@
    ======================================== */
 
 /* Success state */
-.rb-alert--success {
-  --rb-alert-bg-color: var(--rb-alert-bg-color-success);
-  --rb-alert-border-color: var(--rb-alert-border-color-success);
-  --rb-alert-text-color: var(--rb-alert-text-color-success);
-  --rb-alert-icon-color: var(--rb-alert-icon-color-success);
+.b-ui-alert--success {
+  --b-ui-alert-bg-color: var(--b-ui-alert-bg-color-success);
+  --b-ui-alert-border-color: var(--b-ui-alert-border-color-success);
+  --b-ui-alert-text-color: var(--b-ui-alert-text-color-success);
+  --b-ui-alert-icon-color: var(--b-ui-alert-icon-color-success);
 }
 
-.rb-alert--success .rb-alert-icon::before {
+.b-ui-alert--success .b-ui-alert-icon::before {
   content: '✓';
 }
 
 /* Info state */
-.rb-alert--info {
-  --rb-alert-bg-color: var(--rb-alert-bg-color-info);
-  --rb-alert-border-color: var(--rb-alert-border-color-info);
-  --rb-alert-text-color: var(--rb-alert-text-color-info);
-  --rb-alert-icon-color: var(--rb-alert-icon-color-info);
+.b-ui-alert--info {
+  --b-ui-alert-bg-color: var(--b-ui-alert-bg-color-info);
+  --b-ui-alert-border-color: var(--b-ui-alert-border-color-info);
+  --b-ui-alert-text-color: var(--b-ui-alert-text-color-info);
+  --b-ui-alert-icon-color: var(--b-ui-alert-icon-color-info);
 }
 
-.rb-alert--info .rb-alert-icon::before {
+.b-ui-alert--info .b-ui-alert-icon::before {
   content: 'i';
   font-style: italic;
   font-weight: 600;
 }
 
 /* Warning state */
-.rb-alert--warning {
-  --rb-alert-bg-color: var(--rb-alert-bg-color-warning);
-  --rb-alert-border-color: var(--rb-alert-border-color-warning);
-  --rb-alert-text-color: var(--rb-alert-text-color-warning);
-  --rb-alert-icon-color: var(--rb-alert-icon-color-warning);
+.b-ui-alert--warning {
+  --b-ui-alert-bg-color: var(--b-ui-alert-bg-color-warning);
+  --b-ui-alert-border-color: var(--b-ui-alert-border-color-warning);
+  --b-ui-alert-text-color: var(--b-ui-alert-text-color-warning);
+  --b-ui-alert-icon-color: var(--b-ui-alert-icon-color-warning);
 }
 
-.rb-alert--warning .rb-alert-icon::before {
+.b-ui-alert--warning .b-ui-alert-icon::before {
   content: '⚠';
 }
 
 /* Error state */
-.rb-alert--error {
-  --rb-alert-bg-color: var(--rb-alert-bg-color-error);
-  --rb-alert-border-color: var(--rb-alert-border-color-error);
-  --rb-alert-text-color: var(--rb-alert-text-color-error);
-  --rb-alert-icon-color: var(--rb-alert-icon-color-error);
+.b-ui-alert--error {
+  --b-ui-alert-bg-color: var(--b-ui-alert-bg-color-error);
+  --b-ui-alert-border-color: var(--b-ui-alert-border-color-error);
+  --b-ui-alert-text-color: var(--b-ui-alert-text-color-error);
+  --b-ui-alert-icon-color: var(--b-ui-alert-icon-color-error);
 }
 
-.rb-alert--error .rb-alert-icon::before {
+.b-ui-alert--error .b-ui-alert-icon::before {
   content: '✕';
 }
 
@@ -233,26 +233,26 @@
    ======================================== */
 
 /* With background (default) */
-.rb-alert--with-bg {
+.b-ui-alert--with-bg {
   /* Ya es el comportamiento por defecto */
 }
 
 /* Without background (bordered only) */
-.rb-alert--no-bg {
-  --rb-alert-bg-color: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-bg-color-success: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-bg-color-info: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-bg-color-warning: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-bg-color-error: var(--rb-color-grayscale-white, #ffffff);
+.b-ui-alert--no-bg {
+  --b-ui-alert-bg-color: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-bg-color-success: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-bg-color-info: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-bg-color-warning: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-bg-color-error: var(--b-ui-color-grayscale-white, #ffffff);
 }
 
 /* With close icon (default) */
-.rb-alert--with-close {
+.b-ui-alert--with-close {
   /* Ya es el comportamiento por defecto */
 }
 
 /* Without close icon */
-.rb-alert--no-close .rb-alert-close {
+.b-ui-alert--no-close .b-ui-alert-close {
   display: none;
 }
 
@@ -260,78 +260,78 @@
    ALERT SIZES
    ======================================== */
 
-.rb-alert--small {
-  --rb-alert-padding: 0.75rem;
-  --rb-alert-min-height: 2.5rem;
-  --rb-alert-title-font-size: 0.8125rem;
-  --rb-alert-message-font-size: 0.8125rem;
-  --rb-alert-icon-size: 1rem;
-  --rb-alert-close-size: 1.25rem;
-  --rb-alert-gap: 0.5rem;
+.b-ui-alert--small {
+  --b-ui-alert-padding: 0.75rem;
+  --b-ui-alert-min-height: 2.5rem;
+  --b-ui-alert-title-font-size: 0.8125rem;
+  --b-ui-alert-message-font-size: 0.8125rem;
+  --b-ui-alert-icon-size: 1rem;
+  --b-ui-alert-close-size: 1.25rem;
+  --b-ui-alert-gap: 0.5rem;
 }
 
-.rb-alert--medium {
-  --rb-alert-padding: 1rem;
-  --rb-alert-min-height: 3rem;
-  --rb-alert-title-font-size: 0.875rem;
-  --rb-alert-message-font-size: 0.875rem;
-  --rb-alert-icon-size: 1.25rem;
-  --rb-alert-close-size: 1.5rem;
-  --rb-alert-gap: 0.75rem;
+.b-ui-alert--medium {
+  --b-ui-alert-padding: 1rem;
+  --b-ui-alert-min-height: 3rem;
+  --b-ui-alert-title-font-size: 0.875rem;
+  --b-ui-alert-message-font-size: 0.875rem;
+  --b-ui-alert-icon-size: 1.25rem;
+  --b-ui-alert-close-size: 1.5rem;
+  --b-ui-alert-gap: 0.75rem;
 }
 
-.rb-alert--large {
-  --rb-alert-padding: 1.25rem;
-  --rb-alert-min-height: 3.5rem;
-  --rb-alert-title-font-size: 1rem;
-  --rb-alert-message-font-size: 0.9375rem;
-  --rb-alert-icon-size: 1.5rem;
-  --rb-alert-close-size: 1.75rem;
-  --rb-alert-gap: 1rem;
+.b-ui-alert--large {
+  --b-ui-alert-padding: 1.25rem;
+  --b-ui-alert-min-height: 3.5rem;
+  --b-ui-alert-title-font-size: 1rem;
+  --b-ui-alert-message-font-size: 0.9375rem;
+  --b-ui-alert-icon-size: 1.5rem;
+  --b-ui-alert-close-size: 1.75rem;
+  --b-ui-alert-gap: 1rem;
 }
 
 /* ========================================
    ALERT POSITIONING (TOAST)
    ======================================== */
 
-.rb-alert--toast {
+.b-ui-alert--toast {
   position: fixed;
   top: 1rem;
   right: 1rem;
   z-index: 1000;
   max-width: 400px;
   min-width: 300px;
-  box-shadow: var(--rb-alert-shadow-toast);
+  box-shadow: var(--b-ui-alert-shadow-toast);
   animation: rb-alert-slide-in 0.3s ease;
 }
 
-.rb-alert--toast-top-left {
+.b-ui-alert--toast-top-left {
   top: 1rem;
   left: 1rem;
   right: auto;
 }
 
-.rb-alert--toast-top-center {
+.b-ui-alert--toast-top-center {
   top: 1rem;
   left: 50%;
   right: auto;
   transform: translateX(-50%);
 }
 
-.rb-alert--toast-bottom-right {
+.b-ui-alert--toast-bottom-right {
   top: auto;
   bottom: 1rem;
   right: 1rem;
 }
 
-.rb-alert--toast-bottom-left {
+.b-ui-alert--toast-bottom-left {
   top: auto;
   bottom: 1rem;
   left: 1rem;
   right: auto;
 }
 
-.rb-alert--toast-bottom-center {
+.b-ui-alert--toast-bottom-center {
   top: auto;
   bottom: 1rem;
   left: 50%;
@@ -388,15 +388,15 @@
 }
 
 /* Animation classes */
-.rb-alert--fade-in {
+.b-ui-alert--fade-in {
   animation: rb-alert-fade-in 0.3s ease;
 }
 
-.rb-alert--fade-out {
+.b-ui-alert--fade-out {
   animation: rb-alert-fade-out 0.3s ease;
 }
 
-.rb-alert--slide-out {
+.b-ui-alert--slide-out {
   animation: rb-alert-slide-out 0.3s ease;
 }
 
@@ -405,37 +405,37 @@
    ======================================== */
 
 /* Rounded corners */
-.rb-alert--rounded {
-  --rb-alert-border-radius: 1rem;
+.b-ui-alert--rounded {
+  --b-ui-alert-border-radius: 1rem;
 }
 
 /* Compact spacing */
-.rb-alert--compact {
-  --rb-alert-padding: 0.75rem;
-  --rb-alert-gap: 0.5rem;
+.b-ui-alert--compact {
+  --b-ui-alert-padding: 0.75rem;
+  --b-ui-alert-gap: 0.5rem;
 }
 
 /* Dense spacing */
-.rb-alert--dense {
-  --rb-alert-padding: 0.5rem;
-  --rb-alert-gap: 0.375rem;
-  --rb-alert-min-height: 2rem;
+.b-ui-alert--dense {
+  --b-ui-alert-padding: 0.5rem;
+  --b-ui-alert-gap: 0.375rem;
+  --b-ui-alert-min-height: 2rem;
 }
 
 /* Full width */
-.rb-alert--full-width {
+.b-ui-alert--full-width {
   width: 100%;
 }
 
 /* Inline alert */
-.rb-alert--inline {
+.b-ui-alert--inline {
   display: inline-flex;
   width: auto;
   max-width: none;
 }
 
 /* Banner alert */
-.rb-alert--banner {
+.b-ui-alert--banner {
   border-radius: 0;
   border-left: none;
   border-right: none;
@@ -447,7 +447,7 @@
    ALERT CONTAINER
    ======================================== */
 
-.rb-alert-container {
+.b-ui-alert-container {
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -459,33 +459,33 @@
   min-width: 300px;
 }
 
-.rb-alert-container--top-left {
+.b-ui-alert-container--top-left {
   top: 1rem;
   left: 1rem;
   right: auto;
 }
 
-.rb-alert-container--top-center {
+.b-ui-alert-container--top-center {
   top: 1rem;
   left: 50%;
   right: auto;
   transform: translateX(-50%);
 }
 
-.rb-alert-container--bottom-right {
+.b-ui-alert-container--bottom-right {
   top: auto;
   bottom: 1rem;
   right: 1rem;
 }
 
-.rb-alert-container--bottom-left {
+.b-ui-alert-container--bottom-left {
   top: auto;
   bottom: 1rem;
   left: 1rem;
   right: auto;
 }
 
-.rb-alert-container--bottom-center {
+.b-ui-alert-container--bottom-center {
   top: auto;
   bottom: 1rem;
   left: 50%;
@@ -497,13 +497,13 @@
    ALERT GROUP
    ======================================== */
 
-.rb-alert-group {
+.b-ui-alert-group {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.rb-alert-group--horizontal {
+.b-ui-alert-group--horizontal {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
@@ -515,29 +515,29 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .rb-alert {
-    --rb-alert-border-width: 2px;
-    --rb-alert-border-left-width: 6px;
+  .b-ui-alert {
+    --b-ui-alert-border-width: 2px;
+    --b-ui-alert-border-left-width: 6px;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .rb-alert {
-    --rb-alert-transition: none;
+  .b-ui-alert {
+    --b-ui-alert-transition: none;
   }
 
-  .rb-alert--toast,
-  .rb-alert--fade-in,
-  .rb-alert--fade-out,
-  .rb-alert--slide-out {
+  .b-ui-alert--toast,
+  .b-ui-alert--fade-in,
+  .b-ui-alert--fade-out,
+  .b-ui-alert--slide-out {
     animation: none;
   }
 }
 
 /* Mobile optimizations */
 @media (width <= 640px) {
-  .rb-alert--toast {
+  .b-ui-alert--toast {
     top: 0.5rem;
     right: 0.5rem;
     left: 0.5rem;
@@ -545,7 +545,7 @@
     min-width: auto;
   }
 
-  .rb-alert-container {
+  .b-ui-alert-container {
     top: 0.5rem;
     right: 0.5rem;
     left: 0.5rem;
@@ -553,25 +553,25 @@
     min-width: auto;
   }
 
-  .rb-alert-group--horizontal {
+  .b-ui-alert-group--horizontal {
     flex-direction: column;
   }
 }
 
 /* Desktop optimizations */
 @media (width >= 641px) {
-  .rb-alert--toast {
+  .b-ui-alert--toast {
     max-width: 450px;
   }
 
-  .rb-alert-container {
+  .b-ui-alert-container {
     max-width: 450px;
   }
 }
 
 /* Print styles */
 @media print {
-  .rb-alert {
+  .b-ui-alert {
     background: transparent !important;
     color: black !important;
     border: 1px solid black !important;
@@ -579,7 +579,7 @@
     position: static !important;
   }
 
-  .rb-alert-close {
+  .b-ui-alert-close {
     display: none !important;
   }
 }
@@ -588,8 +588,8 @@
    FOCUS VISIBLE (keyboard navigation)
    ======================================== */
 
-.rb-alert-close:focus-visible {
-  outline: 2px solid var(--rb-color-primary-base, #007acc);
+.b-ui-alert-close:focus-visible {
+  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
@@ -597,12 +597,12 @@
    LOADING STATE
    ======================================== */
 
-.rb-alert--loading {
+.b-ui-alert--loading {
   position: relative;
   pointer-events: none;
 }
 
-.rb-alert--loading::after {
+.b-ui-alert--loading::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -610,14 +610,14 @@
   width: 16px;
   height: 16px;
   margin-top: -8px;
-  border: 2px solid var(--rb-color-grayscale-L200, #edeef0);
-  border-top-color: var(--rb-color-primary-base, #007acc);
+  border: 2px solid var(--b-ui-color-grayscale-L200, #edeef0);
+  border-top-color: var(--b-ui-color-primary-base, #007acc);
   border-radius: 50%;
   animation: rb-alert-spinner 1s linear infinite;
   z-index: 3;
 }
 
-.rb-alert--loading .rb-alert-close {
+.b-ui-alert--loading .b-ui-alert-close {
   display: none;
 }
 
@@ -632,18 +632,18 @@
    ======================================== */
 
 @media (prefers-color-scheme: dark) {
-  .rb-alert {
-    --rb-alert-bg-color: var(--rb-color-grayscale-D200, #6e6e6e);
-    --rb-alert-text-color: var(--rb-color-grayscale-L200, #edeef0);
-    --rb-alert-border-color: var(--rb-color-grayscale-D100, #4a4a4a);
+  .b-ui-alert {
+    --b-ui-alert-bg-color: var(--b-ui-color-grayscale-D200, #6e6e6e);
+    --b-ui-alert-text-color: var(--b-ui-color-grayscale-L200, #edeef0);
+    --b-ui-alert-border-color: var(--b-ui-color-grayscale-D100, #4a4a4a);
   }
 
-  .rb-alert--no-bg {
-    --rb-alert-bg-color: var(--rb-color-grayscale-D200, #6e6e6e);
+  .b-ui-alert--no-bg {
+    --b-ui-alert-bg-color: var(--b-ui-color-grayscale-D200, #6e6e6e);
   }
 
-  .rb-alert-close:hover {
-    background-color: var(--rb-color-grayscale-D100, rgba(74, 74, 74, 0.5));
+  .b-ui-alert-close:hover {
+    background-color: var(--b-ui-color-grayscale-D100, rgba(74, 74, 74, 0.5));
   }
 }
 
@@ -652,54 +652,54 @@
    ======================================== */
 
 /* Minimal alert */
-.rb-alert--minimal {
-  --rb-alert-border-width: 0;
-  --rb-alert-border-left-width: 0;
-  --rb-alert-shadow: none;
-  --rb-alert-shadow-toast: none;
+.b-ui-alert--minimal {
+  --b-ui-alert-border-width: 0;
+  --b-ui-alert-border-left-width: 0;
+  --b-ui-alert-shadow: none;
+  --b-ui-alert-shadow-toast: none;
 }
 
 /* Outlined alert */
-.rb-alert--outlined {
-  --rb-alert-bg-color: transparent;
-  --rb-alert-bg-color-success: transparent;
-  --rb-alert-bg-color-info: transparent;
-  --rb-alert-bg-color-warning: transparent;
-  --rb-alert-bg-color-error: transparent;
-  --rb-alert-border-width: 2px;
+.b-ui-alert--outlined {
+  --b-ui-alert-bg-color: transparent;
+  --b-ui-alert-bg-color-success: transparent;
+  --b-ui-alert-bg-color-info: transparent;
+  --b-ui-alert-bg-color-warning: transparent;
+  --b-ui-alert-bg-color-error: transparent;
+  --b-ui-alert-border-width: 2px;
 }
 
 /* Filled alert */
-.rb-alert--filled {
-  --rb-alert-bg-color-success: var(--rb-color-feedback-success-base, #28a745);
-  --rb-alert-bg-color-info: var(--rb-color-feedback-info-base, #007acc);
-  --rb-alert-bg-color-warning: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-alert-bg-color-error: var(--rb-color-feedback-error-base, #dc3545);
-  --rb-alert-text-color-success: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-text-color-info: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-text-color-warning: var(--rb-color-grayscale-D300, #404040);
-  --rb-alert-text-color-error: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-icon-color-success: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-icon-color-info: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-icon-color-warning: var(--rb-color-grayscale-D300, #404040);
-  --rb-alert-icon-color-error: var(--rb-color-grayscale-white, #ffffff);
-  --rb-alert-border-color: transparent;
+.b-ui-alert--filled {
+  --b-ui-alert-bg-color-success: var(--b-ui-color-feedback-success-base, #28a745);
+  --b-ui-alert-bg-color-info: var(--b-ui-color-feedback-info-base, #007acc);
+  --b-ui-alert-bg-color-warning: var(--b-ui-color-feedback-warning-base, #ffc107);
+  --b-ui-alert-bg-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
+  --b-ui-alert-text-color-success: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-text-color-info: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-text-color-warning: var(--b-ui-color-grayscale-D300, #404040);
+  --b-ui-alert-text-color-error: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-icon-color-success: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-icon-color-info: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-icon-color-warning: var(--b-ui-color-grayscale-D300, #404040);
+  --b-ui-alert-icon-color-error: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-alert-border-color: transparent;
 }
 
 /* ========================================
    ALERT INTERACTIVE STATES
    ======================================== */
 
-.rb-alert--dismissible {
+.b-ui-alert--dismissible {
   cursor: pointer;
 }
 
-.rb-alert--dismissible:hover {
+.b-ui-alert--dismissible:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.rb-alert--dismissible:active {
+.b-ui-alert--dismissible:active {
   transform: translateY(0);
 }
 
@@ -708,7 +708,7 @@
    ======================================== */
 
 /* Screen reader only text */
-.rb-alert-sr-only {
+.b-ui-alert-sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -721,7 +721,7 @@
 }
 
 /* Focus trap for keyboard navigation */
-.rb-alert:focus-within {
+.b-ui-alert:focus-within {
   z-index: 1001;
 }
 
@@ -729,11 +729,11 @@
    ALERT VALIDATION STYLES
    ======================================== */
 
-.rb-alert--valid {
+.b-ui-alert--valid {
   /* Success styling for valid alerts */
 }
 
-.rb-alert--invalid {
+.b-ui-alert--invalid {
   /* Error styling for invalid alerts */
 }
 
@@ -741,13 +741,13 @@
    ALERT CUSTOM ICONS
    ======================================== */
 
-.rb-alert-icon--custom {
+.b-ui-alert-icon--custom {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.rb-alert-icon--custom::before {
+.b-ui-alert-icon--custom::before {
   display: none;
 }
 
@@ -755,28 +755,28 @@
    ALERT PROGRESS BAR
    ======================================== */
 
-.rb-alert-progress {
+.b-ui-alert-progress {
   position: absolute;
   bottom: 0;
   left: 0;
   height: 3px;
-  background-color: var(--rb-color-primary-base, #007acc);
-  border-radius: 0 0 var(--rb-alert-border-radius) var(--rb-alert-border-radius);
+  background-color: var(--b-ui-color-primary-base, #007acc);
+  border-radius: 0 0 var(--b-ui-alert-border-radius) var(--b-ui-alert-border-radius);
   transition: width linear;
 }
 
-.rb-alert-progress--success {
-  background-color: var(--rb-color-feedback-success-base, #28a745);
+.b-ui-alert-progress--success {
+  background-color: var(--b-ui-color-feedback-success-base, #28a745);
 }
 
-.rb-alert-progress--info {
-  background-color: var(--rb-color-feedback-info-base, #007acc);
+.b-ui-alert-progress--info {
+  background-color: var(--b-ui-color-feedback-info-base, #007acc);
 }
 
-.rb-alert-progress--warning {
-  background-color: var(--rb-color-feedback-warning-base, #ffc107);
+.b-ui-alert-progress--warning {
+  background-color: var(--b-ui-color-feedback-warning-base, #ffc107);
 }
 
-.rb-alert-progress--error {
-  background-color: var(--rb-color-feedback-error-base, #dc3545);
+.b-ui-alert-progress--error {
+  background-color: var(--b-ui-color-feedback-error-base, #dc3545);
 }

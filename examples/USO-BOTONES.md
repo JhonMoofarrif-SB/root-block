@@ -4,7 +4,7 @@
 
 ### 1. **Clase Base (OBLIGATORIA)**
 
-Todos los botones deben tener la clase `.rb-button`:
+Todos los botones deben tener la clase `.b-ui-button`:
 
 ```html
 <button class="rb-button">Botón</button>
@@ -156,12 +156,12 @@ Usa clases o atributos HTML según el estado:
 
 | Quiero                               | Clases                                                               |
 | ------------------------------------ | -------------------------------------------------------------------- |
-| Botón primario simple                | `.rb-button .rb-button--primary`                                     |
-| Botón secundario con borde           | `.rb-button .rb-button--secondary .rb-button--stroke`                |
-| Botón grande de error                | `.rb-button .rb-button--error .rb-button--large`                     |
-| Botón pequeño terciario transparente | `.rb-button .rb-button--tertiary .rb-button--text .rb-button--small` |
-| Botón con icono izquierda            | `.rb-button .rb-button--primary .rb-button--icon-left`               |
-| Botón solo icono circular            | `.rb-button .rb-button--primary .rb-button--icon-only`               |
+| Botón primario simple                | `.b-ui-button .b-ui-button--primary`                                     |
+| Botón secundario con borde           | `.b-ui-button .b-ui-button--secondary .b-ui-button--stroke`                |
+| Botón grande de error                | `.b-ui-button .b-ui-button--error .b-ui-button--large`                     |
+| Botón pequeño terciario transparente | `.b-ui-button .b-ui-button--tertiary .b-ui-button--text .b-ui-button--small` |
+| Botón con icono izquierda            | `.b-ui-button .b-ui-button--primary .b-ui-button--icon-left`               |
+| Botón solo icono circular            | `.b-ui-button .b-ui-button--primary .b-ui-button--icon-only`               |
 
 ---
 

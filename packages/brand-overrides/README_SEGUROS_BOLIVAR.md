@@ -31,13 +31,13 @@ Abre `button.css` y reemplaza:
 
 ```css
 /* ANTES (Seguros Bolívar) */
-[data-brand='seguros-bolivar'] .rb-button {
-  --rb-button-border-radius: 50px;
+[data-brand='seguros-bolivar'] .b-ui-button {
+  --b-ui-button-border-radius: 50px;
 }
 
 /* DESPUÉS (Tu Marca) */
-[data-brand='tu-marca'] .rb-button {
-  --rb-button-border-radius: 20px; /* 👈 Ajusta según diseño */
+[data-brand='tu-marca'] .b-ui-button {
+  --b-ui-button-border-radius: 20px; /* 👈 Ajusta según diseño */
 }
 ```
 
@@ -108,10 +108,10 @@ Abre `http://localhost:3000/button.html` y verifica con:
 **Ejemplo:**
 
 ```css
-[data-brand='jelpit'] .rb-button {
-  --rb-button-border-radius: 8px; /* Menos redondeado */
-  --rb-button-padding-inline: 20px; /* Más padding */
-  --rb-button-min-block-size: 44px; /* Más alto */
+[data-brand='jelpit'] .b-ui-button {
+  --b-ui-button-border-radius: 8px; /* Menos redondeado */
+  --b-ui-button-padding-inline: 20px; /* Más padding */
+  --b-ui-button-min-block-size: 44px; /* Más alto */
 }
 ```
 
@@ -128,8 +128,8 @@ Abre `http://localhost:3000/button.html` y verifica con:
 
 ```css
 /* Jelpit: outline naranja */
-[data-brand='jelpit'] .rb-button--primary:focus-visible {
-  outline: 3px solid var(--rb-color-primary-L100);
+[data-brand='jelpit'] .b-ui-button--primary:focus-visible {
+  outline: 3px solid var(--b-ui-color-primary-L100);
   outline-offset: 2px;
 }
 ```
@@ -140,14 +140,14 @@ Abre `http://localhost:3000/button.html` y verifica con:
 
 **Cuándo usarla:**
 
-- Siempre que uses botones TEXT (`.rb-button--text`)
+- Siempre que uses botones TEXT (`.b-ui-button--text`)
 - Para que el underline use tu color de marca
 
 **Ejemplo:**
 
 ```css
-[data-brand='davivienda'] .rb-button--primary.rb-button--text {
-  text-decoration-color: var(--rb-color-primary-base) !important;
+[data-brand='davivienda'] .b-ui-button--primary.b-ui-button--text {
+  text-decoration-color: var(--b-ui-color-primary-base) !important;
 }
 ```
 
@@ -164,13 +164,13 @@ Abre `http://localhost:3000/button.html` y verifica con:
 
 ```css
 /* Opción 1: Aparece fondo gris claro */
---rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 */
+--b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* #F5F5F5 */
 
 /* Opción 2: Aparece fondo gris medio */
---rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200); /* #E1E1E1 */
+--b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L200); /* #E1E1E1 */
 
 /* Opción 3: Sin cambio */
---rb-button-bg-disabled-hover: transparent;
+--b-ui-button-bg-disabled-hover: transparent;
 ```
 
 ---
@@ -187,13 +187,13 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ```css
 @layer brand-overrides {
   /* Cambiar hover de PRIMARY STROKE */
-  [data-brand='tu-marca'] .rb-button--primary.rb-button--stroke {
-    --rb-button-bg-hover: var(--rb-color-primary-L400);
+  [data-brand='tu-marca'] .b-ui-button--primary.b-ui-button--stroke {
+    --b-ui-button-bg-hover: var(--b-ui-color-primary-L400);
   }
 
   /* Cambiar disabled-hover de PRIMARY FILL */
-  [data-brand='tu-marca'] .rb-button--primary.rb-button--fill {
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100);
+  [data-brand='tu-marca'] .b-ui-button--primary.b-ui-button--fill {
+    --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-L100);
   }
 }
 ```
@@ -209,11 +209,11 @@ Abre `http://localhost:3000/button.html` y verifica con:
 ```css
 /* ❌ Lógica de hover/active (ya está en base) */
 &:hover {
-  background-color: var(--rb-button-bg-hover);
+  background-color: var(--b-ui-button-bg-hover);
 }
 
 /* ❌ Variables de color (vienen de tokens) */
---rb-color-primary-D100: #038450;
+--b-ui-color-primary-D100: #038450;
 
 /* ❌ Estados disabled genéricos (ya están en base) */
 &:disabled {
@@ -225,13 +225,13 @@ Abre `http://localhost:3000/button.html` y verifica con:
 
 ```css
 /* ✅ Estructura específica */
---rb-button-border-radius: 20px;
+--b-ui-button-border-radius: 20px;
 
 /* ✅ Colores de tokens */
-text-decoration-color: var(--rb-color-primary-D100);
+text-decoration-color: var(--b-ui-color-primary-D100);
 
 /* ✅ Overrides específicos */
---rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200);
+--b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L200);
 ```
 
 ---
@@ -240,16 +240,16 @@ text-decoration-color: var(--rb-color-primary-D100);
 
 ```css
 /* ESTRUCTURA (override fijos) */
---rb-button-border-radius: 50px;
---rb-button-padding-inline: 16px;
---rb-button-padding-block: 8px;
---rb-button-gap: 8px;
---rb-button-min-block-size: 40px;
+--b-ui-button-border-radius: 50px;
+--b-ui-button-padding-inline: 16px;
+--b-ui-button-padding-block: 8px;
+--b-ui-button-gap: 8px;
+--b-ui-button-min-block-size: 40px;
 
 /* COLORES (vienen de tokens) */
---rb-color-primary-D100: #038450 /* Verde oscuro */ --rb-color-secondary-L100: #ffea9a
-  /* Amarillo claro */ --rb-color-grayscale-L300: #f5f5f5 /* Gris muy claro */
-  --rb-color-grayscale-base: #9b9b9b /* Gris medio */;
+--b-ui-color-primary-D100: #038450 /* Verde oscuro */ --b-ui-color-secondary-L100: #ffea9a
+  /* Amarillo claro */ --b-ui-color-grayscale-L300: #f5f5f5 /* Gris muy claro */
+  --b-ui-color-grayscale-base: #9b9b9b /* Gris medio */;
 ```
 
 ---

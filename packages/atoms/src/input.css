@@ -1,6 +1,6 @@
 /**
  * Input Component - Root Block Design System
- * Componente CSS puro con variables --rb-* personalizables por marca
+ * Componente CSS puro con variables --b-ui-* personalizables por marca
  * 
  * Uso:
  * <input class="rb-input" type="text" placeholder="Ingresa tu texto">
@@ -12,41 +12,41 @@
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
    ======================================== */
 
-.rb-input {
+.b-ui-input {
   /* Colores - Pueden ser sobreescritos por marca */
-  --rb-input-bg-color: var(--rb-color-grayscale-white, #ffffff);
-  --rb-input-bg-disabled: var(--rb-color-grayscale-L300, #f2f3f5);
-  --rb-input-text-color: var(--rb-color-grayscale-D300, #404040);
-  --rb-input-text-placeholder: var(--rb-color-grayscale-base, #d9d9d9);
-  --rb-input-text-disabled: var(--rb-color-grayscale-base, #d9d9d9);
-  --rb-input-border-color: var(--rb-color-grayscale-L200, #edeef0);
-  --rb-input-border-color-focus: var(--rb-color-primary-base, #007acc);
-  --rb-input-border-color-error: var(--rb-color-feedback-error-base, #dc3545);
-  --rb-input-border-color-success: var(--rb-color-feedback-success-base, #28a745);
-  --rb-input-border-width: 1px;
-  --rb-input-border-radius: 8px;
+  --b-ui-input-bg-color: var(--b-ui-color-grayscale-white, #ffffff);
+  --b-ui-input-bg-disabled: var(--b-ui-color-grayscale-L300, #f2f3f5);
+  --b-ui-input-text-color: var(--b-ui-color-grayscale-D300, #404040);
+  --b-ui-input-text-placeholder: var(--b-ui-color-grayscale-base, #d9d9d9);
+  --b-ui-input-text-disabled: var(--b-ui-color-grayscale-base, #d9d9d9);
+  --b-ui-input-border-color: var(--b-ui-color-grayscale-L200, #edeef0);
+  --b-ui-input-border-color-focus: var(--b-ui-color-primary-base, #007acc);
+  --b-ui-input-border-color-error: var(--b-ui-color-feedback-error-base, #dc3545);
+  --b-ui-input-border-color-success: var(--b-ui-color-feedback-success-base, #28a745);
+  --b-ui-input-border-width: 1px;
+  --b-ui-input-border-radius: 8px;
 
   /* Espaciado */
-  --rb-input-padding-x: 1rem;
-  --rb-input-padding-y: 0.75rem;
-  --rb-input-padding-icon-left: 2.5rem;
-  --rb-input-padding-icon-right: 2.5rem;
+  --b-ui-input-padding-x: 1rem;
+  --b-ui-input-padding-y: 0.75rem;
+  --b-ui-input-padding-icon-left: 2.5rem;
+  --b-ui-input-padding-icon-right: 2.5rem;
 
   /* Tipografía */
-  --rb-input-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
-  --rb-input-font-size: 1rem;
-  --rb-input-font-weight: 400;
-  --rb-input-line-height: 1.5;
+  --b-ui-input-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+  --b-ui-input-font-size: 1rem;
+  --b-ui-input-font-weight: 400;
+  --b-ui-input-line-height: 1.5;
 
   /* Tamaños */
-  --rb-input-min-height: 40px;
+  --b-ui-input-min-height: 40px;
 
   /* Sombras */
-  --rb-input-shadow: none;
-  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-primary-L400, rgba(0, 122, 204, 0.1));
+  --b-ui-input-shadow: none;
+  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
 
   /* Transiciones */
-  --rb-input-transition: all 0.2s ease;
+  --b-ui-input-transition: all 0.2s ease;
 
   /* Layout */
   display: block;
@@ -55,85 +55,85 @@
   box-sizing: border-box;
 
   /* Spacing */
-  padding: var(--rb-input-padding-y) var(--rb-input-padding-x);
+  padding: var(--b-ui-input-padding-y) var(--b-ui-input-padding-x);
 
   /* Sizing */
-  min-height: var(--rb-input-min-height);
+  min-height: var(--b-ui-input-min-height);
 
   /* Typography */
-  font-family: var(--rb-input-font-family);
+  font-family: var(--b-ui-input-font-family);
   font-style: normal;
-  font-weight: var(--rb-input-font-weight);
-  font-size: var(--rb-input-font-size);
-  line-height: var(--rb-input-line-height);
+  font-weight: var(--b-ui-input-font-weight);
+  font-size: var(--b-ui-input-font-size);
+  line-height: var(--b-ui-input-line-height);
 
   /* Appearance */
-  background-color: var(--rb-input-bg-color);
-  color: var(--rb-input-text-color);
-  border: var(--rb-input-border-width) solid var(--rb-input-border-color);
-  border-radius: var(--rb-input-border-radius);
-  box-shadow: var(--rb-input-shadow);
+  background-color: var(--b-ui-input-bg-color);
+  color: var(--b-ui-input-text-color);
+  border: var(--b-ui-input-border-width) solid var(--b-ui-input-border-color);
+  border-radius: var(--b-ui-input-border-radius);
+  box-shadow: var(--b-ui-input-shadow);
   outline: none;
 
   /* Animation */
-  transition: var(--rb-input-transition);
+  transition: var(--b-ui-input-transition);
 }
 
 /* Placeholder styling */
-.rb-input::placeholder {
-  color: var(--rb-input-text-placeholder);
+.b-ui-input::placeholder {
+  color: var(--b-ui-input-text-placeholder);
   opacity: 1;
 }
 
-.rb-input::-webkit-input-placeholder {
-  color: var(--rb-input-text-placeholder);
+.b-ui-input::-webkit-input-placeholder {
+  color: var(--b-ui-input-text-placeholder);
   opacity: 1;
 }
 
-.rb-input::-moz-placeholder {
-  color: var(--rb-input-text-placeholder);
+.b-ui-input::-moz-placeholder {
+  color: var(--b-ui-input-text-placeholder);
   opacity: 1;
 }
 
-.rb-input:-ms-input-placeholder {
-  color: var(--rb-input-text-placeholder);
+.b-ui-input:-ms-input-placeholder {
+  color: var(--b-ui-input-text-placeholder);
   opacity: 1;
 }
 
 /* Hover state */
-.rb-input:hover:not(:disabled) {
-  border-color: var(--rb-input-border-color-focus);
+.b-ui-input:hover:not(:disabled) {
+  border-color: var(--b-ui-input-border-color-focus);
 }
 
 /* Active state */
-.rb-input:active:not(:disabled) {
-  border-color: var(--rb-input-border-color-focus);
-  box-shadow: var(--rb-input-shadow-focus);
+.b-ui-input:active:not(:disabled) {
+  border-color: var(--b-ui-input-border-color-focus);
+  box-shadow: var(--b-ui-input-shadow-focus);
 }
 
 /* Focus state */
-.rb-input:focus {
-  border-color: var(--rb-input-border-color-focus);
-  box-shadow: var(--rb-input-shadow-focus);
+.b-ui-input:focus {
+  border-color: var(--b-ui-input-border-color-focus);
+  box-shadow: var(--b-ui-input-shadow-focus);
 }
 
 /* Focus visible state */
-.rb-input:focus-visible:not(:disabled) {
-  outline: 2px solid var(--rb-color-primary-base, #007acc);
+.b-ui-input:focus-visible:not(:disabled) {
+  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
 /* Disabled state */
-.rb-input:disabled {
-  background-color: var(--rb-input-bg-disabled);
-  color: var(--rb-input-text-disabled);
-  border-color: var(--rb-input-bg-disabled);
+.b-ui-input:disabled {
+  background-color: var(--b-ui-input-bg-disabled);
+  color: var(--b-ui-input-text-disabled);
+  border-color: var(--b-ui-input-bg-disabled);
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-.rb-input:disabled::placeholder {
-  color: var(--rb-input-text-disabled);
+.b-ui-input:disabled::placeholder {
+  color: var(--b-ui-input-text-disabled);
 }
 
 /* ========================================
@@ -141,37 +141,37 @@
    ======================================== */
 
 /* Text input (default) */
-.rb-input--text {
+.b-ui-input--text {
   /* Usa estilos base */
 }
 
 /* Email input */
-.rb-input--email {
+.b-ui-input--email {
   /* Usa estilos base */
 }
 
 /* Password input */
-.rb-input--password {
+.b-ui-input--password {
   /* Usa estilos base */
 }
 
 /* Number input */
-.rb-input--number {
+.b-ui-input--number {
   /* Usa estilos base */
 }
 
 /* Search input */
-.rb-input--search {
+.b-ui-input--search {
   /* Usa estilos base */
 }
 
 /* URL input */
-.rb-input--url {
+.b-ui-input--url {
   /* Usa estilos base */
 }
 
 /* Tel input */
-.rb-input--tel {
+.b-ui-input--tel {
   /* Usa estilos base */
 }
 
@@ -180,73 +180,73 @@
    ======================================== */
 
 /* Error state */
-.rb-input--error {
-  --rb-input-border-color: var(--rb-input-border-color-error);
-  --rb-input-border-color-focus: var(--rb-input-border-color-error);
-  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+.b-ui-input--error {
+  --b-ui-input-border-color: var(--b-ui-input-border-color-error);
+  --b-ui-input-border-color-focus: var(--b-ui-input-border-color-error);
+  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 }
 
-.rb-input--error:focus {
-  border-color: var(--rb-input-border-color-error);
-  box-shadow: var(--rb-input-shadow-focus);
+.b-ui-input--error:focus {
+  border-color: var(--b-ui-input-border-color-error);
+  box-shadow: var(--b-ui-input-shadow-focus);
 }
 
 /* Success state */
-.rb-input--success {
-  --rb-input-border-color: var(--rb-input-border-color-success);
-  --rb-input-border-color-focus: var(--rb-input-border-color-success);
-  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+.b-ui-input--success {
+  --b-ui-input-border-color: var(--b-ui-input-border-color-success);
+  --b-ui-input-border-color-focus: var(--b-ui-input-border-color-success);
+  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
-.rb-input--success:focus {
-  border-color: var(--rb-input-border-color-success);
-  box-shadow: var(--rb-input-shadow-focus);
+.b-ui-input--success:focus {
+  border-color: var(--b-ui-input-border-color-success);
+  box-shadow: var(--b-ui-input-shadow-focus);
 }
 
 /* Warning state */
-.rb-input--warning {
-  --rb-input-border-color: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-input-border-color-focus: var(--rb-color-feedback-warning-base, #ffc107);
-  --rb-input-shadow-focus: 0 0 0 3px var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+.b-ui-input--warning {
+  --b-ui-input-border-color: var(--b-ui-color-feedback-warning-base, #ffc107);
+  --b-ui-input-border-color-focus: var(--b-ui-color-feedback-warning-base, #ffc107);
+  --b-ui-input-shadow-focus: 0 0 0 3px var(--b-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
-.rb-input--warning:focus {
-  border-color: var(--rb-color-feedback-warning-base, #ffc107);
-  box-shadow: var(--rb-input-shadow-focus);
+.b-ui-input--warning:focus {
+  border-color: var(--b-ui-color-feedback-warning-base, #ffc107);
+  box-shadow: var(--b-ui-input-shadow-focus);
 }
 
 /* ========================================
    INPUT SIZES
    ======================================== */
 
-.rb-input--small {
-  --rb-input-padding-x: 0.75rem;
-  --rb-input-padding-y: 0.5rem;
-  --rb-input-font-size: 0.875rem;
-  --rb-input-min-height: 32px;
-  --rb-input-line-height: 1.25;
-  --rb-input-padding-icon-left: 2rem;
-  --rb-input-padding-icon-right: 2rem;
+.b-ui-input--small {
+  --b-ui-input-padding-x: 0.75rem;
+  --b-ui-input-padding-y: 0.5rem;
+  --b-ui-input-font-size: 0.875rem;
+  --b-ui-input-min-height: 32px;
+  --b-ui-input-line-height: 1.25;
+  --b-ui-input-padding-icon-left: 2rem;
+  --b-ui-input-padding-icon-right: 2rem;
 }
 
-.rb-input--medium {
-  --rb-input-padding-x: 1rem;
-  --rb-input-padding-y: 0.75rem;
-  --rb-input-font-size: 1rem;
-  --rb-input-min-height: 40px;
-  --rb-input-line-height: 1.5;
-  --rb-input-padding-icon-left: 2.5rem;
-  --rb-input-padding-icon-right: 2.5rem;
+.b-ui-input--medium {
+  --b-ui-input-padding-x: 1rem;
+  --b-ui-input-padding-y: 0.75rem;
+  --b-ui-input-font-size: 1rem;
+  --b-ui-input-min-height: 40px;
+  --b-ui-input-line-height: 1.5;
+  --b-ui-input-padding-icon-left: 2.5rem;
+  --b-ui-input-padding-icon-right: 2.5rem;
 }
 
-.rb-input--large {
-  --rb-input-padding-x: 1.25rem;
-  --rb-input-padding-y: 1rem;
-  --rb-input-font-size: 1.125rem;
-  --rb-input-min-height: 48px;
-  --rb-input-line-height: 1.5;
-  --rb-input-padding-icon-left: 3rem;
-  --rb-input-padding-icon-right: 3rem;
+.b-ui-input--large {
+  --b-ui-input-padding-x: 1.25rem;
+  --b-ui-input-padding-y: 1rem;
+  --b-ui-input-font-size: 1.125rem;
+  --b-ui-input-min-height: 48px;
+  --b-ui-input-line-height: 1.5;
+  --b-ui-input-padding-icon-left: 3rem;
+  --b-ui-input-padding-icon-right: 3rem;
 }
 
 /* ========================================
@@ -254,112 +254,112 @@
    ======================================== */
 
 /* Rounded corners */
-.rb-input--rounded {
-  --rb-input-border-radius: 2.1rem;
+.b-ui-input--rounded {
+  --b-ui-input-border-radius: 2.1rem;
 }
 
 /* Block (full width) - ya es por defecto */
-.rb-input--block {
+.b-ui-input--block {
   width: 100%;
 }
 
 /* Inline (auto width) */
-.rb-input--inline {
+.b-ui-input--inline {
   width: auto;
   min-width: 200px;
 }
 
 /* With left icon */
-.rb-input--with-icon-left {
-  padding-left: var(--rb-input-padding-icon-left);
+.b-ui-input--with-icon-left {
+  padding-left: var(--b-ui-input-padding-icon-left);
 }
 
 /* With right icon */
-.rb-input--with-icon-right {
-  padding-right: var(--rb-input-padding-icon-right);
+.b-ui-input--with-icon-right {
+  padding-right: var(--b-ui-input-padding-icon-right);
 }
 
 /* With both icons */
-.rb-input--with-icon-both {
-  padding-left: var(--rb-input-padding-icon-left);
-  padding-right: var(--rb-input-padding-icon-right);
+.b-ui-input--with-icon-both {
+  padding-left: var(--b-ui-input-padding-icon-left);
+  padding-right: var(--b-ui-input-padding-icon-right);
 }
 
 /* ========================================
    INPUT CONTAINER (for icons and labels)
    ======================================== */
 
-.rb-input-container {
+.b-ui-input-container {
   position: relative;
   display: block;
   width: 100%;
 }
 
-.rb-input-container--inline {
+.b-ui-input-container--inline {
   display: inline-block;
   width: auto;
 }
 
 /* Input icon positioning */
-.rb-input-icon {
+.b-ui-input-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--rb-color-grayscale-base, #d9d9d9);
+  color: var(--b-ui-color-grayscale-base, #d9d9d9);
   font-size: 1rem;
   pointer-events: none;
   z-index: 2;
-  transition: var(--rb-input-transition);
+  transition: var(--b-ui-input-transition);
 }
 
-.rb-input-icon--left {
+.b-ui-input-icon--left {
   left: 0.75rem;
 }
 
-.rb-input-icon--right {
+.b-ui-input-icon--right {
   right: 0.75rem;
 }
 
 /* Icon color changes on focus */
-.rb-input:focus + .rb-input-icon,
-.rb-input-container:focus-within .rb-input-icon {
-  color: var(--rb-color-primary-base, #007acc);
+.b-ui-input:focus + .b-ui-input-icon,
+.b-ui-input-container:focus-within .b-ui-input-icon {
+  color: var(--b-ui-color-primary-base, #007acc);
 }
 
 /* Icon color for error state */
-.rb-input--error + .rb-input-icon,
-.rb-input-container:has(.rb-input--error) .rb-input-icon {
-  color: var(--rb-color-feedback-error-base, #dc3545);
+.b-ui-input--error + .b-ui-input-icon,
+.b-ui-input-container:has(.b-ui-input--error) .b-ui-input-icon {
+  color: var(--b-ui-color-feedback-error-base, #dc3545);
 }
 
 /* Icon color for success state */
-.rb-input--success + .rb-input-icon,
-.rb-input-container:has(.rb-input--success) .rb-input-icon {
-  color: var(--rb-color-feedback-success-base, #28a745);
+.b-ui-input--success + .b-ui-input-icon,
+.b-ui-input-container:has(.b-ui-input--success) .b-ui-input-icon {
+  color: var(--b-ui-color-feedback-success-base, #28a745);
 }
 
 /* ========================================
    INPUT LABEL
    ======================================== */
 
-.rb-input-label {
+.b-ui-input-label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: var(--rb-input-font-family);
+  font-family: var(--b-ui-input-font-family);
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--rb-color-grayscale-D300, #404040);
+  color: var(--b-ui-color-grayscale-D300, #404040);
   line-height: 1.25;
 }
 
-.rb-input-label--required::after {
+.b-ui-input-label--required::after {
   content: ' *';
-  color: var(--rb-color-feedback-error-base, #dc3545);
+  color: var(--b-ui-color-feedback-error-base, #dc3545);
 }
 
-.rb-input-label--optional::after {
+.b-ui-input-label--optional::after {
   content: ' (opcional)';
-  color: var(--rb-color-grayscale-base, #d9d9d9);
+  color: var(--b-ui-color-grayscale-base, #d9d9d9);
   font-weight: 400;
 }
 
@@ -367,53 +367,53 @@
    INPUT HELPER TEXT
    ======================================== */
 
-.rb-input-helper {
+.b-ui-input-helper {
   display: block;
   margin-top: 0.25rem;
-  font-family: var(--rb-input-font-family);
+  font-family: var(--b-ui-input-font-family);
   font-size: 0.75rem;
-  color: var(--rb-color-grayscale-base, #d9d9d9);
+  color: var(--b-ui-color-grayscale-base, #d9d9d9);
   line-height: 1.25;
 }
 
-.rb-input-helper--error {
-  color: var(--rb-color-feedback-error-base, #dc3545);
+.b-ui-input-helper--error {
+  color: var(--b-ui-color-feedback-error-base, #dc3545);
 }
 
-.rb-input-helper--success {
-  color: var(--rb-color-feedback-success-base, #28a745);
+.b-ui-input-helper--success {
+  color: var(--b-ui-color-feedback-success-base, #28a745);
 }
 
-.rb-input-helper--warning {
-  color: var(--rb-color-feedback-warning-base, #ffc107);
+.b-ui-input-helper--warning {
+  color: var(--b-ui-color-feedback-warning-base, #ffc107);
 }
 
 /* ========================================
    INPUT GROUP (multiple inputs)
    ======================================== */
 
-.rb-input-group {
+.b-ui-input-group {
   display: flex;
   width: 100%;
 }
 
-.rb-input-group .rb-input {
+.b-ui-input-group .b-ui-input {
   border-radius: 0;
   border-right-width: 0;
 }
 
-.rb-input-group .rb-input:first-child {
-  border-top-left-radius: var(--rb-input-border-radius);
-  border-bottom-left-radius: var(--rb-input-border-radius);
+.b-ui-input-group .b-ui-input:first-child {
+  border-top-left-radius: var(--b-ui-input-border-radius);
+  border-bottom-left-radius: var(--b-ui-input-border-radius);
 }
 
-.rb-input-group .rb-input:last-child {
-  border-top-right-radius: var(--rb-input-border-radius);
-  border-bottom-right-radius: var(--rb-input-border-radius);
-  border-right-width: var(--rb-input-border-width);
+.b-ui-input-group .b-ui-input:last-child {
+  border-top-right-radius: var(--b-ui-input-border-radius);
+  border-bottom-right-radius: var(--b-ui-input-border-radius);
+  border-right-width: var(--b-ui-input-border-width);
 }
 
-.rb-input-group .rb-input:focus {
+.b-ui-input-group .b-ui-input:focus {
   z-index: 1;
   position: relative;
 }
@@ -424,46 +424,46 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .rb-input {
-    --rb-input-border-width: 2px;
+  .b-ui-input {
+    --b-ui-input-border-width: 2px;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .rb-input {
-    --rb-input-transition: none;
+  .b-ui-input {
+    --b-ui-input-transition: none;
   }
 }
 
 /* Mobile optimizations */
 @media (width <= 640px) {
-  .rb-input {
+  .b-ui-input {
     font-size: 16px; /* Prevents zoom on iOS */
   }
 
-  .rb-input--small {
+  .b-ui-input--small {
     font-size: 16px;
   }
 }
 
 /* Desktop optimizations */
 @media (width >= 641px) {
-  .rb-input--inline {
+  .b-ui-input--inline {
     min-width: 250px;
   }
 }
 
 /* Print styles */
 @media print {
-  .rb-input {
+  .b-ui-input {
     background: transparent !important;
     color: black !important;
     border: 1px solid black !important;
     box-shadow: none !important;
   }
 
-  .rb-input::placeholder {
+  .b-ui-input::placeholder {
     color: #666 !important;
   }
 }
@@ -472,8 +472,8 @@
    FOCUS VISIBLE (keyboard navigation)
    ======================================== */
 
-.rb-input:focus-visible {
-  outline: 2px solid var(--rb-color-primary-base, #007acc);
+.b-ui-input:focus-visible {
+  outline: 2px solid var(--b-ui-color-primary-base, #007acc);
   outline-offset: 2px;
 }
 
@@ -484,10 +484,10 @@
 /* Input focus animation */
 @keyframes rb-input-focus {
   0% {
-    box-shadow: var(--rb-input-shadow);
+    box-shadow: var(--b-ui-input-shadow);
   }
   100% {
-    box-shadow: var(--rb-input-shadow-focus);
+    box-shadow: var(--b-ui-input-shadow-focus);
   }
 }
 
@@ -513,7 +513,7 @@
 }
 
 /* Apply shake animation to error inputs */
-.rb-input--error {
+.b-ui-input--error {
   animation: rb-input-shake 0.5s ease-in-out;
 }
 
@@ -521,12 +521,12 @@
    AUTOFILL STYLES
    ======================================== */
 
-.rb-input:-webkit-autofill,
-.rb-input:-webkit-autofill:hover,
-.rb-input:-webkit-autofill:focus,
-.rb-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px var(--rb-input-bg-color) inset !important;
-  -webkit-text-fill-color: var(--rb-input-text-color) !important;
+.b-ui-input:-webkit-autofill,
+.b-ui-input:-webkit-autofill:hover,
+.b-ui-input:-webkit-autofill:focus,
+.b-ui-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--b-ui-input-bg-color) inset !important;
+  -webkit-text-fill-color: var(--b-ui-input-text-color) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -534,15 +534,15 @@
    VALIDATION STYLES
    ======================================== */
 
-.rb-input:valid:not(:placeholder-shown) {
+.b-ui-input:valid:not(:placeholder-shown) {
   /* Success styling for valid inputs */
 }
 
-.rb-input:invalid:not(:placeholder-shown) {
+.b-ui-input:invalid:not(:placeholder-shown) {
   /* Error styling for invalid inputs */
 }
 
 /* Custom validation message styling */
-.rb-input:invalid:not(:placeholder-shown) + .rb-input-helper {
-  color: var(--rb-color-feedback-error-base, #dc3545);
+.b-ui-input:invalid:not(:placeholder-shown) + .b-ui-input-helper {
+  color: var(--b-ui-color-feedback-error-base, #dc3545);
 }

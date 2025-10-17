@@ -1,4 +1,4 @@
-# 🎨 Guía de Font Awesome en Root Block Design System
+# 🎨 Guía de Font Awesome en Bolivar UI Design System
 
 ## 📋 Configuración
 
@@ -34,9 +34,9 @@ packages/docs/.storybook/preview.ts
 
 | Clase CSS                | Descripción                    | Uso                          |
 | ------------------------ | ------------------------------ | ---------------------------- |
-| `.rb-button--icon-left`  | Icono a la izquierda del texto | Acciones principales         |
-| `.rb-button--icon-right` | Icono a la derecha del texto   | Navegación, enlaces externos |
-| `.rb-button--icon-only`  | Solo icono (circular 40x40px)  | Acciones compactas           |
+| `.b-ui-button--icon-left`  | Icono a la izquierda del texto | Acciones principales         |
+| `.b-ui-button--icon-right` | Icono a la derecha del texto   | Navegación, enlaces externos |
+| `.b-ui-button--icon-only`  | Solo icono (circular 40x40px)  | Acciones compactas           |
 
 ---
 
@@ -290,7 +290,7 @@ Esta historia incluye:
 
 ### Los iconos se ven mal o desalineados
 
-- Asegúrate de usar las clases correctas del sistema Root Block: `.rb-button--icon-left`, `.rb-button--icon-right`, o `.rb-button--icon-only`
+- Asegúrate de usar las clases correctas del sistema Bolivar UI: `.b-ui-button--icon-left`, `.b-ui-button--icon-right`, o `.b-ui-button--icon-only`
 - Los iconos deben estar dentro de un elemento `<i>` con las clases de Font Awesome
 
 ### Quiero usar Font Awesome Pro
@@ -317,4 +317,4 @@ Esta historia incluye:
 - [Font Awesome Docs](https://fontawesome.com/docs)
 - [Font Awesome Icons Search](https://fontawesome.com/search)
 - [Font Awesome Accessibility](https://fontawesome.com/docs/web/dig-deeper/accessibility)
-- [Root Block Button Component](./src/atoms/Button.stories.ts)
+- [Bolivar UI Button Component](./src/atoms/Button.stories.ts)

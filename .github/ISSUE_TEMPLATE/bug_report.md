@@ -31,7 +31,7 @@ assignees: ''
 
 ## 🌍 Entorno
 
-- **Package**: @rb/... (tokens, atoms, molecules, etc.)
+- **Package**: @bolivar-ui/... (tokens, atoms, molecules, etc.)
 - **Marca**: jelpit / davivienda / cien-cuadras / etc.
 - **Tema**: light / dark
 - **Navegador**: Chrome / Firefox / Safari

@@ -1,7 +1,7 @@
 {
-  "name": "@rb/docs",
+  "name": "@bolivar-ui/docs",
   "version": "1.0.0",
-  "description": "Storybook documentation for Root Block Design System",
+  "description": "Storybook documentation for Bolivar UI Design System",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,9 +10,9 @@
     "clean": "rm -rf storybook-static"
   },
   "dependencies": {
-    "@rb/atoms": "workspace:*",
-    "@rb/molecules": "workspace:*",
-    "@rb/tokens": "workspace:*",
+    "@bolivar-ui/atoms": "workspace:*",
+    "@bolivar-ui/molecules": "workspace:*",
+    "@bolivar-ui/tokens": "workspace:*",
     "lit": "^3.1.2"
   },
   "devDependencies": {

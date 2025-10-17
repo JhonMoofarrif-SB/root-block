@@ -1,8 +1,8 @@
-# 🎨 CSS Standards - Root Block Design System
+# 🎨 CSS Standards - Bolivar UI Design System
 
 ## 📋 Estructura Estándar para Componentes CSS
 
-Este documento define las reglas y estructura estándar que **TODOS** los desarrolladores deben seguir al crear componentes CSS en el Root Block Design System.
+Este documento define las reglas y estructura estándar que **TODOS** los desarrolladores deben seguir al crear componentes CSS en el Bolivar UI Design System.
 
 ---
 
@@ -12,8 +12,8 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 ```css
 /**
- * [ComponentName] Component - Root Block Design System
- * Componente CSS puro con variables --rb-* personalizables por marca
+ * [ComponentName] Component - Bolivar UI Design System
+ * Componente CSS puro con variables --b-ui-* personalizables por marca
  * [Descripción específica del componente]
  * 
  * Uso:
@@ -29,40 +29,40 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
    ======================================== */
 
-.rb-[component] {
+.b-ui-[component] {
   /* Colores - Pueden ser sobreescritos por marca */
-  --rb-[component]-bg-color: var(--rb-color-primary-base, #007acc);
-  --rb-[component]-bg-hover: var(--rb-color-primary-D100, #005a9e);
-  --rb-[component]-bg-active: var(--rb-color-primary-D200, #004578);
-  --rb-[component]-bg-disabled: var(--rb-color-grayscale-L200, #e1e1e1);
-  --rb-[component]-text-color: var(--rb-color-grayscale-white, #fff);
-  --rb-[component]-text-disabled: var(--rb-color-grayscale-base, #9b9b9b);
-  --rb-[component]-border-color: var(--rb-color-primary-base, #007acc);
-  --rb-[component]-border-width: 1px;
-  --rb-[component]-border-radius: 8px;
+  --b-ui-[component]-bg-color: var(--b-ui-color-primary-base, #007acc);
+  --b-ui-[component]-bg-hover: var(--b-ui-color-primary-D100, #005a9e);
+  --b-ui-[component]-bg-active: var(--b-ui-color-primary-D200, #004578);
+  --b-ui-[component]-bg-disabled: var(--b-ui-color-grayscale-L200, #e1e1e1);
+  --b-ui-[component]-text-color: var(--b-ui-color-grayscale-white, #fff);
+  --b-ui-[component]-text-disabled: var(--b-ui-color-grayscale-base, #9b9b9b);
+  --b-ui-[component]-border-color: var(--b-ui-color-primary-base, #007acc);
+  --b-ui-[component]-border-width: 1px;
+  --b-ui-[component]-border-radius: 8px;
 
   /* Espaciado */
-  --rb-[component]-padding-x: 1.5rem;
-  --rb-[component]-padding-y: 0.657rem;
-  --rb-[component]-gap: 0.5rem;
+  --b-ui-[component]-padding-x: 1.5rem;
+  --b-ui-[component]-padding-y: 0.657rem;
+  --b-ui-[component]-gap: 0.5rem;
 
   /* Tipografía */
-  --rb-[component]-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
-  --rb-[component]-font-size: 1rem;
-  --rb-[component]-font-weight: 700;
-  --rb-[component]-line-height: 1.188rem;
+  --b-ui-[component]-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+  --b-ui-[component]-font-size: 1rem;
+  --b-ui-[component]-font-weight: 700;
+  --b-ui-[component]-line-height: 1.188rem;
 
   /* Tamaños */
-  --rb-[component]-min-width: 91px;
-  --rb-[component]-min-height: 40px;
+  --b-ui-[component]-min-width: 91px;
+  --b-ui-[component]-min-height: 40px;
 
   /* Sombras */
-  --rb-[component]-shadow: none;
-  --rb-[component]-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-  --rb-[component]-shadow-active: inset 2px 4px 8px rgb(0 0 0 / 16%);
+  --b-ui-[component]-shadow: none;
+  --b-ui-[component]-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+  --b-ui-[component]-shadow-active: inset 2px 4px 8px rgb(0 0 0 / 16%);
 
   /* Transiciones */
-  --rb-[component]-transition: all 0.2s ease;
+  --b-ui-[component]-transition: all 0.2s ease;
 
   /* [Otras variables específicas del componente] */
 }
@@ -71,7 +71,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 ### 3. **Estilos Base del Componente** (OBLIGATORIO)
 
 ```css
-.rb-[component] {
+.b-ui-[component] {
   /* Layout */
   display: inline-flex;
   align-items: center;
@@ -79,63 +79,63 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
   position: relative;
 
   /* Spacing */
-  padding: var(--rb-[component]-padding-y) var(--rb-[component]-padding-x);
-  gap: var(--rb-[component]-gap);
+  padding: var(--b-ui-[component]-padding-y) var(--b-ui-[component]-padding-x);
+  gap: var(--b-ui-[component]-gap);
 
   /* Sizing */
-  min-width: var(--rb-[component]-min-width);
-  min-height: var(--rb-[component]-min-height);
+  min-width: var(--b-ui-[component]-min-width);
+  min-height: var(--b-ui-[component]-min-height);
   width: auto;
 
   /* Typography */
-  font-family: var(--rb-[component]-font-family);
+  font-family: var(--b-ui-[component]-font-family);
   font-style: normal;
-  font-weight: var(--rb-[component]-font-weight);
-  font-size: var(--rb-[component]-font-size);
-  line-height: var(--rb-[component]-line-height);
+  font-weight: var(--b-ui-[component]-font-weight);
+  font-size: var(--b-ui-[component]-font-size);
+  line-height: var(--b-ui-[component]-line-height);
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
 
   /* Appearance */
-  background-color: var(--rb-[component]-bg-color);
-  color: var(--rb-[component]-text-color);
-  border: var(--rb-[component]-border-width) solid var(--rb-[component]-border-color);
-  border-radius: var(--rb-[component]-border-radius);
-  box-shadow: var(--rb-[component]-shadow);
+  background-color: var(--b-ui-[component]-bg-color);
+  color: var(--b-ui-[component]-text-color);
+  border: var(--b-ui-[component]-border-width) solid var(--b-ui-[component]-border-color);
+  border-radius: var(--b-ui-[component]-border-radius);
+  box-shadow: var(--b-ui-[component]-shadow);
   cursor: pointer;
   user-select: none;
   box-sizing: border-box;
 
   /* Animation */
-  transition: var(--rb-[component]-transition);
+  transition: var(--b-ui-[component]-transition);
 }
 ```
 
 ### 4. **Estados Interactivos** (OBLIGATORIO)
 
 ```css
-.rb-[component]:hover:not(:disabled) {
-  background-color: var(--rb-[component]-bg-hover);
-  border-color: var(--rb-[component]-bg-hover);
-  box-shadow: var(--rb-[component]-shadow-hover);
+.b-ui-[component]:hover:not(:disabled) {
+  background-color: var(--b-ui-[component]-bg-hover);
+  border-color: var(--b-ui-[component]-bg-hover);
+  box-shadow: var(--b-ui-[component]-shadow-hover);
 }
 
-.rb-[component]:active:not(:disabled) {
-  background-color: var(--rb-[component]-bg-active);
-  border-color: var(--rb-[component]-bg-active);
-  box-shadow: var(--rb-[component]-shadow-active);
+.b-ui-[component]:active:not(:disabled) {
+  background-color: var(--b-ui-[component]-bg-active);
+  border-color: var(--b-ui-[component]-bg-active);
+  box-shadow: var(--b-ui-[component]-shadow-active);
 }
 
-.rb-[component]:focus-visible:not(:disabled) {
-  outline: 2px solid var(--rb-color-primary-L100, #80bfff);
+.b-ui-[component]:focus-visible:not(:disabled) {
+  outline: 2px solid var(--b-ui-color-primary-L100, #80bfff);
   outline-offset: 2px;
 }
 
-.rb-[component]:disabled {
-  background-color: var(--rb-[component]-bg-disabled);
-  color: var(--rb-[component]-text-disabled);
-  border-color: var(--rb-[component]-bg-disabled);
+.b-ui-[component]:disabled {
+  background-color: var(--b-ui-[component]-bg-disabled);
+  color: var(--b-ui-[component]-text-disabled);
+  border-color: var(--b-ui-[component]-bg-disabled);
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -149,21 +149,21 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    ======================================== */
 
 /* Primary (default) */
-.rb-[component]--primary {
-  --rb-[component]-bg-color: var(--rb-color-primary-base);
-  --rb-[component]-bg-hover: var(--rb-color-primary-D100);
-  --rb-[component]-bg-active: var(--rb-color-primary-D200);
-  --rb-[component]-border-color: var(--rb-color-primary-base);
-  --rb-[component]-text-color: var(--rb-color-grayscale-white, #fff);
+.b-ui-[component]--primary {
+  --b-ui-[component]-bg-color: var(--b-ui-color-primary-base);
+  --b-ui-[component]-bg-hover: var(--b-ui-color-primary-D100);
+  --b-ui-[component]-bg-active: var(--b-ui-color-primary-D200);
+  --b-ui-[component]-border-color: var(--b-ui-color-primary-base);
+  --b-ui-[component]-text-color: var(--b-ui-color-grayscale-white, #fff);
 }
 
 /* Secondary */
-.rb-[component]--secondary {
-  --rb-[component]-bg-color: var(--rb-color-secondary-base);
-  --rb-[component]-bg-hover: var(--rb-color-secondary-D100);
-  --rb-[component]-bg-active: var(--rb-color-secondary-D200);
-  --rb-[component]-border-color: var(--rb-color-secondary-base);
-  --rb-[component]-text-color: var(--rb-color-primary-base);
+.b-ui-[component]--secondary {
+  --b-ui-[component]-bg-color: var(--b-ui-color-secondary-base);
+  --b-ui-[component]-bg-hover: var(--b-ui-color-secondary-D100);
+  --b-ui-[component]-bg-active: var(--b-ui-color-secondary-D200);
+  --b-ui-[component]-border-color: var(--b-ui-color-secondary-base);
+  --b-ui-[component]-text-color: var(--b-ui-color-primary-base);
 }
 
 /* [Otras variantes según el componente] */
@@ -176,28 +176,28 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    [COMPONENT] SIZES
    ======================================== */
 
-.rb-[component]--small {
-  --rb-[component]-padding-x: 0.8rem;
-  --rb-[component]-padding-y: 0.4rem;
-  --rb-[component]-font-size: 0.875rem;
-  --rb-[component]-min-height: 32px;
-  --rb-[component]-line-height: 1rem;
+.b-ui-[component]--small {
+  --b-ui-[component]-padding-x: 0.8rem;
+  --b-ui-[component]-padding-y: 0.4rem;
+  --b-ui-[component]-font-size: 0.875rem;
+  --b-ui-[component]-min-height: 32px;
+  --b-ui-[component]-line-height: 1rem;
 }
 
-.rb-[component]--medium {
-  --rb-[component]-padding-x: 1.5rem;
-  --rb-[component]-padding-y: 0.657rem;
-  --rb-[component]-font-size: 1rem;
-  --rb-[component]-min-height: 40px;
-  --rb-[component]-line-height: 1.188rem;
+.b-ui-[component]--medium {
+  --b-ui-[component]-padding-x: 1.5rem;
+  --b-ui-[component]-padding-y: 0.657rem;
+  --b-ui-[component]-font-size: 1rem;
+  --b-ui-[component]-min-height: 40px;
+  --b-ui-[component]-line-height: 1.188rem;
 }
 
-.rb-[component]--large {
-  --rb-[component]-padding-x: 2rem;
-  --rb-[component]-padding-y: 0.875rem;
-  --rb-[component]-font-size: 1.125rem;
-  --rb-[component]-min-height: 48px;
-  --rb-[component]-line-height: 1.375rem;
+.b-ui-[component]--large {
+  --b-ui-[component]-padding-x: 2rem;
+  --b-ui-[component]-padding-y: 0.875rem;
+  --b-ui-[component]-font-size: 1.125rem;
+  --b-ui-[component]-min-height: 48px;
+  --b-ui-[component]-line-height: 1.375rem;
 }
 ```
 
@@ -209,12 +209,12 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    ======================================== */
 
 /* Rounded corners */
-.rb-[component]--rounded {
-  --rb-[component]-border-radius: 2.1rem;
+.b-ui-[component]--rounded {
+  --b-ui-[component]-border-radius: 2.1rem;
 }
 
 /* Block (full width) */
-.rb-[component]--block {
+.b-ui-[component]--block {
   display: flex;
   width: 100%;
 }
@@ -230,9 +230,9 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
    ======================================== */
 
 /* Loading state */
-.rb-[component]--loading {
-  --rb-[component]-loading-animation-duration: 0.6s;
-  --rb-[component]-loading-bg-animation: none;
+.b-ui-[component]--loading {
+  --b-ui-[component]-loading-animation-duration: 0.6s;
+  --b-ui-[component]-loading-bg-animation: none;
 
   color: transparent;
   pointer-events: none;
@@ -267,39 +267,39 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .rb-[component] {
-    --rb-[component]-border-width: 2px;
+  .b-ui-[component] {
+    --b-ui-[component]-border-width: 2px;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .rb-[component] {
-    --rb-[component]-transition: none;
+  .b-ui-[component] {
+    --b-ui-[component]-transition: none;
   }
 
-  .rb-[component]--loading::after {
+  .b-ui-[component]--loading::after {
     animation: none;
   }
 }
 
 /* Mobile optimizations */
 @media (width <= 640px) {
-  .rb-[component] {
+  .b-ui-[component] {
     width: 100%;
   }
 }
 
 /* Desktop optimizations */
 @media (width >= 641px) {
-  .rb-[component] {
+  .b-ui-[component] {
     width: auto;
   }
 }
 
 /* Print styles */
 @media print {
-  .rb-[component] {
+  .b-ui-[component] {
     background: transparent !important;
     color: black !important;
     border: 1px solid black !important;
@@ -314,22 +314,22 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 ### Variables CSS
 
-- **Prefijo obligatorio**: `--rb-`
-- **Formato**: `--rb-[component]-[property]-[state]`
+- **Prefijo obligatorio**: `--b-ui-`
+- **Formato**: `--b-ui-[component]-[property]-[state]`
 - **Ejemplos**:
-  - `--rb-button-bg-color`
-  - `--rb-input-border-color-focus`
-  - `--rb-alert-text-color-error`
+  - `--b-ui-button-bg-color`
+  - `--b-ui-input-border-color-focus`
+  - `--b-ui-alert-text-color-error`
 
 ### Clases CSS
 
-- **Prefijo obligatorio**: `rb-`
-- **Formato**: `rb-[component]` o `rb-[component]--[modifier]`
+- **Prefijo obligatorio**: `b-ui-`
+- **Formato**: `b-ui-[component]` o `b-ui-[component]--[modifier]`
 - **Ejemplos**:
-  - `rb-button`
-  - `rb-button--primary`
-  - `rb-input--error`
-  - `rb-alert--dismissible`
+  - `b-ui-button`
+  - `b-ui-button--primary`
+  - `b-ui-input--error`
+  - `b-ui-alert--dismissible`
 
 ### Estados
 
@@ -345,7 +345,7 @@ Este documento define las reglas y estructura estándar que **TODOS** los desarr
 
 ### 1. **Variables CSS**
 
-- ✅ **SIEMPRE** usar variables CSS con prefijo `--rb-`
+- ✅ **SIEMPRE** usar variables CSS con prefijo `--b-ui-`
 - ✅ **SIEMPRE** incluir fallbacks con valores por defecto
 - ✅ **SIEMPRE** usar tokens del design system cuando estén disponibles
 - ❌ **NUNCA** usar valores hardcodeados sin variables
@@ -404,7 +404,7 @@ packages/atoms/src/
 Antes de crear un componente, verificar:
 
 - [ ] ✅ Comentario de cabecera con descripción y ejemplos de uso
-- [ ] ✅ Variables CSS con prefijo `--rb-` y fallbacks
+- [ ] ✅ Variables CSS con prefijo `--b-ui-` y fallbacks
 - [ ] ✅ Estilos base del componente
 - [ ] ✅ Estados interactivos (hover, active, focus, disabled)
 - [ ] ✅ Variantes (primary, secondary, etc.)
@@ -449,4 +449,4 @@ Si tienes dudas sobre la implementación:
 
 **Última actualización**: 2024-01-09  
 **Versión**: 1.0.0  
-**Mantenedor**: Root Block Design System Team
+**Mantenedor**: Bolivar UI Design System Team

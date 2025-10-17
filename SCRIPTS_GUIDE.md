@@ -1,4 +1,4 @@
-# 📚 Guía de Scripts NPM - Root Block Design System
+# 📚 Guía de Scripts NPM - Bolivar UI Design System
 
 ## 🎯 Scripts Esenciales (Uso Diario)
 
@@ -314,10 +314,10 @@ pnpm build
 
 Estos scripts se ejecutan automáticamente por Turbo:
 
-- `@rb/tokens build` - Genera tokens CSS
-- `@rb/atoms build` - Compila atoms CSS
-- `@rb/bundle build` - Genera bundles por marca
-- `@rb/bundle copy:all` - Copia a examples/ y Storybook
+- `@bolivar-ui/tokens build` - Genera tokens CSS
+- `@bolivar-ui/atoms build` - Compila atoms CSS
+- `@bolivar-ui/bundle build` - Genera bundles por marca
+- `@bolivar-ui/bundle copy:all` - Copia a examples/ y Storybook
 
 **No es necesario ejecutarlos manualmente.**
 
@@ -325,5 +325,5 @@ Estos scripts se ejecutan automáticamente por Turbo:
 
 **Última actualización:** $(date +%Y-%m-%d)  
 **Versión:** 1.0.0  
-**Autor:** Root Block Design System Team
+**Autor:** Bolivar UI Design System Team
 

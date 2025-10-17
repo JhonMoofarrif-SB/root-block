@@ -51,11 +51,11 @@ Closes #
 
 <!-- Marca los packages que modificaste -->
 
-- [ ] @rb/tokens
-- [ ] @rb/atoms
-- [ ] @rb/molecules
-- [ ] @rb/bundle
-- [ ] @rb/docs
+- [ ] @bolivar-ui/tokens
+- [ ] @bolivar-ui/atoms
+- [ ] @bolivar-ui/molecules
+- [ ] @bolivar-ui/bundle
+- [ ] @bolivar-ui/docs
 - [ ] examples
 
 ## 🌐 Marcas Afectadas

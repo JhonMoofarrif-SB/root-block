@@ -1,7 +1,7 @@
 {
-  "name": "@rb/tokens",
+  "name": "@bolivar-ui/tokens",
   "version": "1.0.0",
-  "description": "Design tokens multi-brand para Root Block Design System",
+  "description": "Design tokens multi-brand para Bolivar UI Design System",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -35,7 +35,7 @@
     "multi-brand",
     "multi-theme"
   ],
-  "author": "Root Block",
+  "author": "Bolivar UI",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.19",

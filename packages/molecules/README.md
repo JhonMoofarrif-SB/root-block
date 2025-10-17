@@ -1,13 +1,13 @@
-# 🧬 @rb/molecules
+# 🧬 @bolivar-ui/molecules
 
-> Web Components complejos para el Root Block Design System
+> Web Components complejos para el Bolivar UI Design System
 
 Componentes moleculares construidos con Lit. Incluyen lógica JavaScript y estilos encapsulados con Shadow DOM.
 
 ## 📦 Instalación
 
 ```bash
-pnpm add @rb/molecules
+pnpm add @bolivar-ui/molecules
 ```
 
 ## 🧩 Componentes Disponibles
@@ -32,10 +32,10 @@ pnpm add @rb/molecules
 ### Import en JavaScript
 
 ```javascript
-import '@rb/molecules';
+import '@bolivar-ui/molecules';
 
 // O componentes individuales
-import '@rb/molecules/modal';
+import '@bolivar-ui/molecules/modal';
 ```
 
 ## 📦 Modal Component
@@ -205,9 +205,9 @@ export class RbMiComponente extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: var(--rb-spacing-md, 1rem);
-      background: var(--rb-color-grayscale-white);
-      color: var(--rb-color-grayscale-black);
+      padding: var(--b-ui-spacing-md, 1rem);
+      background: var(--b-ui-color-grayscale-white);
+      color: var(--b-ui-color-grayscale-black);
     }
   `;
 
@@ -285,4 +285,4 @@ pnpm test
 
 ## 📄 Licencia
 
-MIT © Root Block
+MIT © Bolivar UI

@@ -18,26 +18,26 @@
   /* ============================================
      SECONDARY FILL - Rojo en lugar de amarillo
      ============================================ */
-  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill {
+  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill {
     /* 🔴 Cambiar de SECONDARY (amarillo) a ERROR (rojo) */
-    --rb-button-bg-color: var(--rb-color-feedback-error-base);
-    --rb-button-bg-hover: var(--rb-color-feedback-error-D100);
-    --rb-button-bg-active: var(--rb-color-feedback-error-D200);
+    --b-ui-button-bg-color: var(--b-ui-color-feedback-error-base);
+    --b-ui-button-bg-hover: var(--b-ui-color-feedback-error-D100);
+    --b-ui-button-bg-active: var(--b-ui-color-feedback-error-D200);
 
     /* ⚪ Texto blanco para mejor contraste sobre rojo */
-    --rb-button-text-color: var(--rb-color-grayscale-white);
-    --rb-button-text-hover: var(--rb-color-grayscale-white);
-    --rb-button-text-active: var(--rb-color-grayscale-white);
+    --b-ui-button-text-color: var(--b-ui-color-grayscale-white);
+    --b-ui-button-text-hover: var(--b-ui-color-grayscale-white);
+    --b-ui-button-text-active: var(--b-ui-color-grayscale-white);
 
     /* 🔴 Borde rojo (mismo que background) */
-    --rb-button-border-color: var(--rb-color-feedback-error-base);
-    --rb-button-border-hover: var(--rb-color-feedback-error-D100);
-    --rb-button-border-active: var(--rb-color-feedback-error-D200);
+    --b-ui-button-border-color: var(--b-ui-color-feedback-error-base);
+    --b-ui-button-border-hover: var(--b-ui-color-feedback-error-D100);
+    --b-ui-button-border-active: var(--b-ui-color-feedback-error-D200);
   }
 
   /* Focus outline - Rojo claro */
-  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-feedback-error-L100);
+  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-feedback-error-L100);
   }
 }
 

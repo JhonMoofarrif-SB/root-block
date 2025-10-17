@@ -1,6 +1,6 @@
 # 🚀 Developer Experience Guide
 
-Esta guía te ayudará a tener la mejor experiencia de desarrollo con Root Block Design System.
+Esta guía te ayudará a tener la mejor experiencia de desarrollo con Bolivar UI Design System.
 
 ## ⚡ Quick Start
 
@@ -8,8 +8,8 @@ Esta guía te ayudará a tener la mejor experiencia de desarrollo con Root Block
 
 ```bash
 # Clonar y setup automático
-git clone https://github.com/tu-usuario/root-bloock.git
-cd root-bloock
+git clone https://github.com/tu-usuario/bolivar-ui.git
+cd bolivar-ui
 pnpm run setup
 ```
 
@@ -152,7 +152,7 @@ pnpm run dev:storybook
 ```bash
 # En VSCode: F5 → "Debug Bundle Builder"
 # O manual:
-pnpm --filter @rb/bundle dev
+pnpm --filter @bolivar-ui/bundle dev
 ```
 
 **Debugging tips:**
@@ -172,7 +172,7 @@ pnpm --filter @rb/bundle dev
 }
 
 /* Debug específico */
-.rb-button {
+.b-ui-button {
   border: 1px solid red; /* Temporal para debug */
 }
 ```
@@ -181,7 +181,7 @@ pnpm --filter @rb/bundle dev
 
 ```bash
 # Ver reglas específicas
-pnpm --filter @rb/atoms run lint -- --print-config src/button.css
+pnpm --filter @bolivar-ui/atoms run lint -- --print-config src/button.css
 ```
 
 ## 📊 Performance
@@ -287,7 +287,7 @@ pnpm install
 pnpm run build --verbose
 
 # Bundle logs
-DEBUG=* pnpm --filter @rb/bundle dev
+DEBUG=* pnpm --filter @bolivar-ui/bundle dev
 
 # Storybook logs
 pnpm run dev:storybook --verbose

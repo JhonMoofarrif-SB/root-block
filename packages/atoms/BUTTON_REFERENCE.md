@@ -256,46 +256,46 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 | Tipo           | STROKE (default)         | FILL                                      | TEXT                                      |
 | -------------- | ------------------------ | ----------------------------------------- | ----------------------------------------- |
-| **Primary**    | `.rb-button--primary`    | `.rb-button--primary .rb-button--fill`    | `.rb-button--primary .rb-button--text`    |
-| **Secondary**  | `.rb-button--secondary`  | `.rb-button--secondary .rb-button--fill`  | `.rb-button--secondary .rb-button--text`  |
-| **Tertiary**   | `.rb-button--tertiary`   | `.rb-button--tertiary .rb-button--fill`   | `.rb-button--tertiary .rb-button--text`   |
-| **Danger**     | `.rb-button--danger`     | `.rb-button--danger .rb-button--fill`     | `.rb-button--danger .rb-button--text`     |
-| **Success**    | `.rb-button--success`    | `.rb-button--success .rb-button--fill`    | `.rb-button--success .rb-button--text`    |
-| **Quinary**    | `.rb-button--quinary`    | `.rb-button--quinary .rb-button--fill`    | `.rb-button--quinary .rb-button--text`    |
-| **Quaternary** | `.rb-button--quaternary` | `.rb-button--quaternary .rb-button--fill` | `.rb-button--quaternary .rb-button--text` |
+| **Primary**    | `.b-ui-button--primary`    | `.b-ui-button--primary .b-ui-button--fill`    | `.b-ui-button--primary .b-ui-button--text`    |
+| **Secondary**  | `.b-ui-button--secondary`  | `.b-ui-button--secondary .b-ui-button--fill`  | `.b-ui-button--secondary .b-ui-button--text`  |
+| **Tertiary**   | `.b-ui-button--tertiary`   | `.b-ui-button--tertiary .b-ui-button--fill`   | `.b-ui-button--tertiary .b-ui-button--text`   |
+| **Danger**     | `.b-ui-button--danger`     | `.b-ui-button--danger .b-ui-button--fill`     | `.b-ui-button--danger .b-ui-button--text`     |
+| **Success**    | `.b-ui-button--success`    | `.b-ui-button--success .b-ui-button--fill`    | `.b-ui-button--success .b-ui-button--text`    |
+| **Quinary**    | `.b-ui-button--quinary`    | `.b-ui-button--quinary .b-ui-button--fill`    | `.b-ui-button--quinary .b-ui-button--text`    |
+| **Quaternary** | `.b-ui-button--quaternary` | `.b-ui-button--quaternary .b-ui-button--fill` | `.b-ui-button--quaternary .b-ui-button--text` |
 
 ---
 
 ## 🎯 Nomenclatura BEM Completa
 
 ```
-.rb-button                          ← Base
-.rb-button--primary                 ← Tipo de color
-.rb-button--secondary               ← Tipo de color
-.rb-button--tertiary                ← Tipo de color
-.rb-button--danger                  ← Tipo de color
-.rb-button--success                 ← Tipo de color
-.rb-button--quinary                 ← Tipo de color
-.rb-button--quaternary              ← Tipo de color
+.b-ui-button                          ← Base
+.b-ui-button--primary                 ← Tipo de color
+.b-ui-button--secondary               ← Tipo de color
+.b-ui-button--tertiary                ← Tipo de color
+.b-ui-button--danger                  ← Tipo de color
+.b-ui-button--success                 ← Tipo de color
+.b-ui-button--quinary                 ← Tipo de color
+.b-ui-button--quaternary              ← Tipo de color
 
-.rb-button--stroke                  ← Estilo (opcional, es default)
-.rb-button--fill                    ← Estilo sólido
-.rb-button--text                    ← Estilo texto
+.b-ui-button--stroke                  ← Estilo (opcional, es default)
+.b-ui-button--fill                    ← Estilo sólido
+.b-ui-button--text                    ← Estilo texto
 
-.rb-button--small                   ← Tamaño
-.rb-button--medium                  ← Tamaño (default)
-.rb-button--large                   ← Tamaño
+.b-ui-button--small                   ← Tamaño
+.b-ui-button--medium                  ← Tamaño (default)
+.b-ui-button--large                   ← Tamaño
 
-.rb-button--icon-left               ← Posición icono
-.rb-button--icon-right              ← Posición icono
-.rb-button--icon-only               ← Posición icono
+.b-ui-button--icon-left               ← Posición icono
+.b-ui-button--icon-right              ← Posición icono
+.b-ui-button--icon-only               ← Posición icono
 
-.rb-button--square                  ← Modificador
-.rb-button--circle                  ← Modificador
-.rb-button--block                   ← Modificador
+.b-ui-button--square                  ← Modificador
+.b-ui-button--circle                  ← Modificador
+.b-ui-button--block                   ← Modificador
 
-.rb-button--loading                 ← Estado
-.rb-button--loading-right           ← Modificador de loading
+.b-ui-button--loading                 ← Estado
+.b-ui-button--loading-right           ← Modificador de loading
 ```
 
 ---
@@ -308,16 +308,16 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 - ✅ `@layer` para control de cascada (10 capas)
 - ✅ Logical Properties (inline-size, padding-inline, etc.)
 - ✅ `clamp()` para responsive fluido
-- ✅ Variables CSS con prefijo `--rb-`
-- ✅ Nomenclatura BEM con prefijo `rb-`
+- ✅ Variables CSS con prefijo `--b-ui-`
+- ✅ Nomenclatura BEM con prefijo `b-ui-`
 - ✅ Accesibilidad completa
 
 ### ❌ NUNCA Usar:
 
 - ❌ Physical properties
 - ❌ Media queries para tamaños
-- ❌ Selectores sin prefijo `rb-`
-- ❌ Variables sin prefijo `--rb-`
+- ❌ Selectores sin prefijo `b-ui-`
+- ❌ Variables sin prefijo `--b-ui-`
 - ❌ Repetir selectores
 - ❌ `!important`
 

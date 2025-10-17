@@ -74,25 +74,25 @@ touch packages/brand-overrides/src/davivienda/button.css
 
 @layer brand-overrides {
   /* SECONDARY FILL - Rojo en lugar de amarillo */
-  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill {
+  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill {
     /* Cambiar de amarillo (secondary) a rojo (error) */
-    --rb-button-bg-color: var(--rb-color-feedback-error-base);
-    --rb-button-bg-hover: var(--rb-color-feedback-error-D100);
-    --rb-button-bg-active: var(--rb-color-feedback-error-D200);
+    --b-ui-button-bg-color: var(--b-ui-color-feedback-error-base);
+    --b-ui-button-bg-hover: var(--b-ui-color-feedback-error-D100);
+    --b-ui-button-bg-active: var(--b-ui-color-feedback-error-D200);
 
     /* Texto blanco para mejor contraste */
-    --rb-button-text-color: var(--rb-color-grayscale-white);
-    --rb-button-text-hover: var(--rb-color-grayscale-white);
-    --rb-button-text-active: var(--rb-color-grayscale-white);
+    --b-ui-button-text-color: var(--b-ui-color-grayscale-white);
+    --b-ui-button-text-hover: var(--b-ui-color-grayscale-white);
+    --b-ui-button-text-active: var(--b-ui-color-grayscale-white);
 
-    --rb-button-border-color: var(--rb-color-feedback-error-base);
-    --rb-button-border-hover: var(--rb-color-feedback-error-D100);
-    --rb-button-border-active: var(--rb-color-feedback-error-D200);
+    --b-ui-button-border-color: var(--b-ui-color-feedback-error-base);
+    --b-ui-button-border-hover: var(--b-ui-color-feedback-error-D100);
+    --b-ui-button-border-active: var(--b-ui-color-feedback-error-D200);
   }
 
   /* Focus outline - Rojo claro */
-  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-feedback-error-L100);
+  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-feedback-error-L100);
   }
 }
 ```
@@ -145,64 +145,64 @@ Reemplazar: tertiary
 ```css
 @layer brand-overrides {
   /* SECONDARY STROKE - Solo cambios de color TERTIARY vs SECONDARY */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke,
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke,
   :where([data-brand='doctor-aki'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text) {
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
     /* Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
-    --rb-button-text-color: var(--rb-color-tertiary-D100);
-    --rb-button-border-color: var(--rb-color-tertiary-D100);
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-border-color: var(--b-ui-color-tertiary-D100);
 
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-text-hover: var(--rb-color-tertiary-D200);
-    --rb-button-border-hover: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-hover: var(--b-ui-color-tertiary-D200);
 
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-border-active: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-active: var(--b-ui-color-tertiary-D200);
   }
 
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
   :where([data-brand='doctor-aki'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
-    outline-color: var(--rb-color-tertiary-L100);
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
+    outline-color: var(--b-ui-color-tertiary-L100);
   }
 }
 
 @layer brand-overrides {
   /* SECONDARY FILL - Solo cambios de color TERTIARY vs SECONDARY */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill {
-    --rb-button-bg-color: var(--rb-color-tertiary-L300);
-    --rb-button-text-color: var(--rb-color-tertiary-D200);
-    --rb-button-border-color: var(--rb-color-tertiary-L300);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill {
+    --b-ui-button-bg-color: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-color: var(--b-ui-color-tertiary-L300);
 
-    --rb-button-bg-hover: var(--rb-color-tertiary-L200);
-    --rb-button-text-hover: var(--rb-color-tertiary-D300);
-    --rb-button-border-hover: var(--rb-color-tertiary-L200);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L200);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D300);
+    --b-ui-button-border-hover: var(--b-ui-color-tertiary-L200);
 
-    --rb-button-bg-active: var(--rb-color-tertiary-L200);
-    --rb-button-text-active: var(--rb-color-tertiary-D300);
-    --rb-button-border-active: var(--rb-color-tertiary-L200);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L200);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D300);
+    --b-ui-button-border-active: var(--b-ui-color-tertiary-L200);
   }
 
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-tertiary-L100);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-L100);
   }
 }
 
 @layer brand-overrides {
   /* SECONDARY TEXT - Solo cambios de color TERTIARY vs SECONDARY */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text {
-    --rb-button-text-color: var(--rb-color-tertiary-D100);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text {
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
 
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-text-hover: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D200);
 
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
   }
 
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text:focus-visible {
-    outline-color: var(--rb-color-tertiary-L100);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-L100);
   }
 }
 ```
@@ -228,22 +228,22 @@ Reemplazar: tertiary
 
 @layer brand-overrides {
   /* Focus outline más grueso para TODAS las variantes secondary */
-  :where([data-brand='cien-cuadras']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
   :where([data-brand='cien-cuadras'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
-    outline-color: var(--rb-color-tertiary-base);
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
+    outline-color: var(--b-ui-color-tertiary-base);
     outline-width: 4px; /* Más grueso que el base (2px) */
     outline-offset: 4px; /* Más separado */
   }
 
-  :where([data-brand='cien-cuadras']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-base);
     outline-width: 4px;
     outline-offset: 4px;
   }
 
-  :where([data-brand='cien-cuadras']) .rb-button--secondary.rb-button--text:focus-visible {
-    outline-color: var(--rb-color-tertiary-base);
+  :where([data-brand='cien-cuadras']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-base);
     outline-width: 4px;
     outline-offset: 4px;
   }
@@ -280,26 +280,26 @@ Reemplazar: tertiary
   /* ============================================
      SECONDARY STROKE
      ============================================ */
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke,
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke,
   :where([data-brand='tu-marca'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text) {
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
     /* Solo definir lo que CAMBIA vs BASE */
-    --rb-button-text-color: var(--rb-color-???);
-    --rb-button-border-color: var(--rb-color-???);
+    --b-ui-button-text-color: var(--b-ui-color-???);
+    --b-ui-button-border-color: var(--b-ui-color-???);
 
-    --rb-button-bg-hover: var(--rb-color-???);
-    --rb-button-text-hover: var(--rb-color-???);
-    --rb-button-border-hover: var(--rb-color-???);
+    --b-ui-button-bg-hover: var(--b-ui-color-???);
+    --b-ui-button-text-hover: var(--b-ui-color-???);
+    --b-ui-button-border-hover: var(--b-ui-color-???);
 
-    --rb-button-bg-active: var(--rb-color-???);
-    --rb-button-text-active: var(--rb-color-???);
-    --rb-button-border-active: var(--rb-color-???);
+    --b-ui-button-bg-active: var(--b-ui-color-???);
+    --b-ui-button-text-active: var(--b-ui-color-???);
+    --b-ui-button-border-active: var(--b-ui-color-???);
   }
 
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
   :where([data-brand='tu-marca'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
-    outline-color: var(--rb-color-???);
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
+    outline-color: var(--b-ui-color-???);
   }
 }
 
@@ -307,22 +307,22 @@ Reemplazar: tertiary
   /* ============================================
      SECONDARY FILL
      ============================================ */
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--fill {
-    --rb-button-bg-color: var(--rb-color-???);
-    --rb-button-text-color: var(--rb-color-???);
-    --rb-button-border-color: var(--rb-color-???);
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill {
+    --b-ui-button-bg-color: var(--b-ui-color-???);
+    --b-ui-button-text-color: var(--b-ui-color-???);
+    --b-ui-button-border-color: var(--b-ui-color-???);
 
-    --rb-button-bg-hover: var(--rb-color-???);
-    --rb-button-text-hover: var(--rb-color-???);
-    --rb-button-border-hover: var(--rb-color-???);
+    --b-ui-button-bg-hover: var(--b-ui-color-???);
+    --b-ui-button-text-hover: var(--b-ui-color-???);
+    --b-ui-button-border-hover: var(--b-ui-color-???);
 
-    --rb-button-bg-active: var(--rb-color-???);
-    --rb-button-text-active: var(--rb-color-???);
-    --rb-button-border-active: var(--rb-color-???);
+    --b-ui-button-bg-active: var(--b-ui-color-???);
+    --b-ui-button-text-active: var(--b-ui-color-???);
+    --b-ui-button-border-active: var(--b-ui-color-???);
   }
 
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-???);
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-???);
   }
 }
 
@@ -330,18 +330,18 @@ Reemplazar: tertiary
   /* ============================================
      SECONDARY TEXT
      ============================================ */
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--text {
-    --rb-button-text-color: var(--rb-color-???);
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--text {
+    --b-ui-button-text-color: var(--b-ui-color-???);
 
-    --rb-button-bg-hover: var(--rb-color-???);
-    --rb-button-text-hover: var(--rb-color-???);
+    --b-ui-button-bg-hover: var(--b-ui-color-???);
+    --b-ui-button-text-hover: var(--b-ui-color-???);
 
-    --rb-button-bg-active: var(--rb-color-???);
-    --rb-button-text-active: var(--rb-color-???);
+    --b-ui-button-bg-active: var(--b-ui-color-???);
+    --b-ui-button-text-active: var(--b-ui-color-???);
   }
 
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--text:focus-visible {
-    outline-color: var(--rb-color-???);
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
+    outline-color: var(--b-ui-color-???);
   }
 }
 ```
@@ -356,36 +356,36 @@ Cada marca tiene estos tokens disponibles (revisar en `packages/tokens/src/primi
 
 ```css
 /* Primary (color principal de marca) */
-var(--rb-color-primary-D400)  /* Muy muy oscuro */
-var(--rb-color-primary-D300)  /* Muy oscuro */
-var(--rb-color-primary-D200)  /* Oscuro */
-var(--rb-color-primary-D100)  /* Medio oscuro */
-var(--rb-color-primary-base)  /* Base */
-var(--rb-color-primary-L100)  /* Claro medio */
-var(--rb-color-primary-L200)  /* Claro */
-var(--rb-color-primary-L300)  /* Muy claro */
-var(--rb-color-primary-L400)  /* Casi blanco */
+var(--b-ui-color-primary-D400)  /* Muy muy oscuro */
+var(--b-ui-color-primary-D300)  /* Muy oscuro */
+var(--b-ui-color-primary-D200)  /* Oscuro */
+var(--b-ui-color-primary-D100)  /* Medio oscuro */
+var(--b-ui-color-primary-base)  /* Base */
+var(--b-ui-color-primary-L100)  /* Claro medio */
+var(--b-ui-color-primary-L200)  /* Claro */
+var(--b-ui-color-primary-L300)  /* Muy claro */
+var(--b-ui-color-primary-L400)  /* Casi blanco */
 
 /* Secondary (color secundario de marca) */
-var(--rb-color-secondary-D400) /* ... misma escala ... */
-var(--rb-color-secondary-base)
-var(--rb-color-secondary-L400)
+var(--b-ui-color-secondary-D400) /* ... misma escala ... */
+var(--b-ui-color-secondary-base)
+var(--b-ui-color-secondary-L400)
 
 /* Tertiary (color terciario de marca) */
-var(--rb-color-tertiary-D400) /* ... misma escala ... */
-var(--rb-color-tertiary-base)
-var(--rb-color-tertiary-L400)
+var(--b-ui-color-tertiary-D400) /* ... misma escala ... */
+var(--b-ui-color-tertiary-base)
+var(--b-ui-color-tertiary-L400)
 
 /* Grayscale (grises neutrales) */
-var(--rb-color-grayscale-black)
-var(--rb-color-grayscale-base)
-var(--rb-color-grayscale-white)
+var(--b-ui-color-grayscale-black)
+var(--b-ui-color-grayscale-base)
+var(--b-ui-color-grayscale-white)
 
 /* Feedback (estados) */
-var(--rb-color-feedback-error-base)
-var(--rb-color-feedback-success-base)
-var(--rb-color-feedback-warning-base)
-var(--rb-color-feedback-info-base)
+var(--b-ui-color-feedback-error-base)
+var(--b-ui-color-feedback-success-base)
+var(--b-ui-color-feedback-warning-base)
+var(--b-ui-color-feedback-info-base)
 ```
 
 ---

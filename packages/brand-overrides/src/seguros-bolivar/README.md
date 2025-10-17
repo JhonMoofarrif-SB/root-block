@@ -2,7 +2,7 @@
 
 ## 📋 Resumen
 
-Este directorio contiene los **overrides específicos** de la marca **Seguros Bolívar** para el Design System Root Block. Los overrides permiten personalizar componentes sin modificar el código base, manteniendo la compatibilidad con otras marcas.
+Este directorio contiene los **overrides específicos** de la marca **Seguros Bolívar** para el Design System Bolivar UI. Los overrides permiten personalizar componentes sin modificar el código base, manteniendo la compatibilidad con otras marcas.
 
 ---
 
@@ -45,18 +45,18 @@ Archivo completo de personalización de botones con documentación detallada par
 
 ```css
 /* PRIMARY (Verde) */
---rb-color-primary-D300: #086d44 /* Muy oscuro */ --rb-color-primary-D200: #05794a /* Oscuro */
-  --rb-color-primary-D100: #038450 /* Medio oscuro */ --rb-color-primary-base: #009056 /* Base */
-  --rb-color-primary-L100: #66bc9a /* Claro medio */ --rb-color-primary-L200: #cce9dd /* Claro */
-  --rb-color-primary-L300: #e5f4ee /* Muy claro */ --rb-color-primary-L400: #f2f9f6
-  /* Casi blanco */ /* SECONDARY (Amarillo) */ --rb-color-secondary-D400: #ffc918 /* Muy oscuro */
-  --rb-color-secondary-D200: #ffd543 /* Oscuro */ --rb-color-secondary-D100: #ffda55
-  /* Medio oscuro */ --rb-color-secondary-base: #ffe16f /* Base */
-  --rb-color-secondary-L100: #ffea9a /* Claro */ --rb-color-secondary-L200: #fff0b7
-  /* Claro medio */ --rb-color-secondary-L300: #fff6d4 /* Muy claro */
-  --rb-color-secondary-L400: #fffcf0 /* Casi blanco */ /* GRAYSCALE (Grises para disabled) */
-  --rb-color-grayscale-L300: #f5f5f5 /* Muy claro */ --rb-color-grayscale-L200: #e1e1e1 /* Claro */
-  --rb-color-grayscale-L100: #b9b9b9 /* Claro medio */ --rb-color-grayscale-base: #9b9b9b
+--b-ui-color-primary-D300: #086d44 /* Muy oscuro */ --b-ui-color-primary-D200: #05794a /* Oscuro */
+  --b-ui-color-primary-D100: #038450 /* Medio oscuro */ --b-ui-color-primary-base: #009056 /* Base */
+  --b-ui-color-primary-L100: #66bc9a /* Claro medio */ --b-ui-color-primary-L200: #cce9dd /* Claro */
+  --b-ui-color-primary-L300: #e5f4ee /* Muy claro */ --b-ui-color-primary-L400: #f2f9f6
+  /* Casi blanco */ /* SECONDARY (Amarillo) */ --b-ui-color-secondary-D400: #ffc918 /* Muy oscuro */
+  --b-ui-color-secondary-D200: #ffd543 /* Oscuro */ --b-ui-color-secondary-D100: #ffda55
+  /* Medio oscuro */ --b-ui-color-secondary-base: #ffe16f /* Base */
+  --b-ui-color-secondary-L100: #ffea9a /* Claro */ --b-ui-color-secondary-L200: #fff0b7
+  /* Claro medio */ --b-ui-color-secondary-L300: #fff6d4 /* Muy claro */
+  --b-ui-color-secondary-L400: #fffcf0 /* Casi blanco */ /* GRAYSCALE (Grises para disabled) */
+  --b-ui-color-grayscale-L300: #f5f5f5 /* Muy claro */ --b-ui-color-grayscale-L200: #e1e1e1 /* Claro */
+  --b-ui-color-grayscale-L100: #b9b9b9 /* Claro medio */ --b-ui-color-grayscale-base: #9b9b9b
   /* Medio */;
 ```
 
@@ -69,12 +69,12 @@ Archivo completo de personalización de botones con documentación detallada par
 **Aplica a:** Todos los botones
 
 ```css
-[data-brand='seguros-bolivar'] .rb-button {
-  --rb-button-border-radius: 50px; /* Muy redondeado */
-  --rb-button-padding-inline: 16px; /* Fijo (no responsive) */
-  --rb-button-padding-block: 8px;
-  --rb-button-gap: 8px;
-  --rb-button-min-block-size: 40px;
+[data-brand='seguros-bolivar'] .b-ui-button {
+  --b-ui-button-border-radius: 50px; /* Muy redondeado */
+  --b-ui-button-padding-inline: 16px; /* Fijo (no responsive) */
+  --b-ui-button-padding-block: 8px;
+  --b-ui-button-gap: 8px;
+  --b-ui-button-min-block-size: 40px;
 }
 ```
 
@@ -87,8 +87,8 @@ Archivo completo de personalización de botones con documentación detallada par
 **Aplica a:** Primary TEXT button
 
 ```css
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:focus-visible {
-  outline: 2px solid var(--rb-color-secondary-L100); /* #FFEA9A amarillo claro */
+[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text:focus-visible {
+  outline: 2px solid var(--b-ui-color-secondary-L100); /* #FFEA9A amarillo claro */
   outline-offset: 2px;
 }
 ```
@@ -102,8 +102,8 @@ Archivo completo de personalización de botones con documentación detallada par
 **Aplica a:** Primary TEXT button
 
 ```css
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:not(:disabled) {
-  text-decoration-color: var(--rb-color-primary-D100) !important; /* #038450 verde */
+[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text:not(:disabled) {
+  text-decoration-color: var(--b-ui-color-primary-D100) !important; /* #038450 verde */
 }
 ```
 
@@ -117,16 +117,16 @@ Archivo completo de personalización de botones con documentación detallada par
 
 ```css
 /* Disabled (sin hover) */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:disabled {
-  color: var(--rb-color-grayscale-base) !important; /* #9B9B9B gris */
-  text-decoration-color: var(--rb-color-grayscale-base) !important;
+[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text:disabled {
+  color: var(--b-ui-color-grayscale-base) !important; /* #9B9B9B gris */
+  text-decoration-color: var(--b-ui-color-grayscale-base) !important;
 }
 
 /* Disabled + Hover (aparece fondo gris) */
-[data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text:disabled:hover {
-  background-color: var(--rb-color-grayscale-L300) !important; /* #F5F5F5 gris claro */
-  color: var(--rb-color-grayscale-base) !important; /* #9B9B9B mantiene */
-  text-decoration-color: var(--rb-color-grayscale-base) !important;
+[data-brand='seguros-bolivar'] .b-ui-button--primary.b-ui-button--text:disabled:hover {
+  background-color: var(--b-ui-color-grayscale-L300) !important; /* #F5F5F5 gris claro */
+  color: var(--b-ui-color-grayscale-base) !important; /* #9B9B9B mantiene */
+  text-decoration-color: var(--b-ui-color-grayscale-base) !important;
 }
 ```
 
@@ -181,41 +181,41 @@ DISABLED+HOVER: bg=grayscale-L300, text=grayscale-base, underline=grayscale-base
 
 ```css
 @layer brand-overrides {
-  [data-brand='seguros-bolivar'] .rb-button--secondary.rb-button--fill {
+  [data-brand='seguros-bolivar'] .b-ui-button--secondary.b-ui-button--fill {
     /* DEFAULT STATE - Verde muy claro */
-    --rb-button-bg-color: var(--rb-color-primary-L300); /* #E5F4EE */
-    --rb-button-text-color: var(--rb-color-primary-D200); /* #05794A */
-    --rb-button-border-color: var(--rb-color-primary-L300); /* #E5F4EE */
+    --b-ui-button-bg-color: var(--b-ui-color-primary-L300); /* #E5F4EE */
+    --b-ui-button-text-color: var(--b-ui-color-primary-D200); /* #05794A */
+    --b-ui-button-border-color: var(--b-ui-color-primary-L300); /* #E5F4EE */
 
     /* HOVER STATE - Verde claro + texto muy oscuro */
-    --rb-button-bg-hover: var(--rb-color-primary-L200); /* #CCE9DD */
-    --rb-button-text-hover: var(--rb-color-primary-D300); /* #086D44 */
-    --rb-button-border-hover: var(--rb-color-primary-L200); /* #CCE9DD */
+    --b-ui-button-bg-hover: var(--b-ui-color-primary-L200); /* #CCE9DD */
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D300); /* #086D44 */
+    --b-ui-button-border-hover: var(--b-ui-color-primary-L200); /* #CCE9DD */
 
     /* PRESSED/ACTIVE STATE - Mantiene hover + shadow inset */
-    --rb-button-bg-active: var(--rb-color-primary-L200); /* #CCE9DD */
-    --rb-button-text-active: var(--rb-color-primary-D300); /* #086D44 */
-    --rb-button-border-active: var(--rb-color-primary-L200); /* #CCE9DD */
-    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --b-ui-button-bg-active: var(--b-ui-color-primary-L200); /* #CCE9DD */
+    --b-ui-button-text-active: var(--b-ui-color-primary-D300); /* #086D44 */
+    --b-ui-button-border-active: var(--b-ui-color-primary-L200); /* #CCE9DD */
+    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
     /* DISABLED STATE - Gris */
-    --rb-button-bg-disabled: var(--rb-color-grayscale-L300); /* #F5F5F5 */
-    --rb-button-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
-    --rb-button-border-disabled: var(--rb-color-grayscale-L300);
+    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300); /* #F5F5F5 */
+    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-L300);
 
     /* DISABLED + HOVER STATE - Texto se oscurece */
-    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene */
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B más oscuro */
-    --rb-button-border-disabled-hover: var(--rb-color-grayscale-L300);
+    --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* #F5F5F5 mantiene */
+    --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B más oscuro */
+    --b-ui-button-border-disabled-hover: var(--b-ui-color-grayscale-L300);
 
     /* SHADOW - Solo en hover, no en active (ya tiene inset) */
-    --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-    --rb-button-shadow-active: none;
+    --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+    --b-ui-button-shadow-active: none;
   }
 
   /* FOCUS OUTLINE - Outline verde claro */
-  [data-brand='seguros-bolivar'] .rb-button--secondary.rb-button--fill:focus-visible {
-    outline: 2px solid var(--rb-color-primary-L100); /* #66BC9A */
+  [data-brand='seguros-bolivar'] .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline: 2px solid var(--b-ui-color-primary-L100); /* #66BC9A */
     outline-offset: 2px;
   }
 }
@@ -396,11 +396,11 @@ seguros-bolivar/
         border-radius: 12px;
       }
       h1 {
-        color: var(--rb-color-secondary-base);
+        color: var(--b-ui-color-secondary-base);
         margin-block-end: 2rem;
       }
       h2 {
-        color: var(--rb-color-primary-base);
+        color: var(--b-ui-color-primary-base);
         margin-block-end: 1.5rem;
         font-size: 1.25rem;
       }
@@ -418,46 +418,46 @@ seguros-bolivar/
 #### Estructura Base (Requerido)
 
 ```css
-.rb-button                    /* Clase base (siempre requerida) */
-.rb-button--secondary         /* Tipo: secondary button */
+.b-ui-button                    /* Clase base (siempre requerida) */
+.b-ui-button--secondary         /* Tipo: secondary button */
 ```
 
 #### Variantes de Estilo (Una de estas, STROKE es default)
 
 ```css
-.rb-button--stroke           /* Borde con fondo blanco (default, opcional) */
-.rb-button--fill             /* Fondo sólido verde claro (Seguros Bolívar) */
-.rb-button--text             /* Sin borde ni fondo, solo texto + underline */
+.b-ui-button--stroke           /* Borde con fondo blanco (default, opcional) */
+.b-ui-button--fill             /* Fondo sólido verde claro (Seguros Bolívar) */
+.b-ui-button--text             /* Sin borde ni fondo, solo texto + underline */
 ```
 
 #### Posición de Iconos (Opcional)
 
 ```css
-.rb-button--icon-left        /* Icono a la izquierda del texto */
-.rb-button--icon-right       /* Icono a la derecha del texto */
-.rb-button--icon-only        /* Solo icono, sin texto (botón circular) */
+.b-ui-button--icon-left        /* Icono a la izquierda del texto */
+.b-ui-button--icon-right       /* Icono a la derecha del texto */
+.b-ui-button--icon-only        /* Solo icono, sin texto (botón circular) */
 ```
 
 #### Estados (Opcional)
 
 ```css
-.rb-button--loading          /* Estado de carga (con spinner) */
-.rb-button--disabled         /* Estado deshabilitado (alternativa a :disabled) */
+.b-ui-button--loading          /* Estado de carga (con spinner) */
+.b-ui-button--disabled         /* Estado deshabilitado (alternativa a :disabled) */
 ```
 
 #### Tamaños (Opcional)
 
 ```css
-.rb-button--small            /* Botón pequeño */
-.rb-button--medium           /* Botón mediano (default) */
-.rb-button--large            /* Botón grande */
+.b-ui-button--small            /* Botón pequeño */
+.b-ui-button--medium           /* Botón mediano (default) */
+.b-ui-button--large            /* Botón grande */
 ```
 
 #### Modificadores (Opcional)
 
 ```css
-.rb-button--square           /* Esquinas menos redondeadas */
-.rb-button--block            /* Ancho completo (100%) */
+.b-ui-button--square           /* Esquinas menos redondeadas */
+.b-ui-button--block            /* Ancho completo (100%) */
 ```
 
 ---
@@ -572,4 +572,4 @@ Para preguntas o problemas:
 
 **Última actualización:** Enero 2025  
 **Versión:** 1.0.0  
-**Autor:** Root Block Design System Team
+**Autor:** Bolivar UI Design System Team

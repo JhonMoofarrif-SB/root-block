@@ -21,27 +21,27 @@
   /* ============================================
      SECONDARY STROKE - TERTIARY colors
      ============================================ */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke,
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke,
   :where([data-brand='doctor-aki'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text) {
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
     /* 🟣 Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
-    --rb-button-text-color: var(--rb-color-tertiary-D100);
-    --rb-button-border-color: var(--rb-color-tertiary-D100);
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-border-color: var(--b-ui-color-tertiary-D100);
 
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-text-hover: var(--rb-color-tertiary-D200);
-    --rb-button-border-hover: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-hover: var(--b-ui-color-tertiary-D200);
 
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-border-active: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-active: var(--b-ui-color-tertiary-D200);
   }
 
   /* Focus outline - Violeta claro */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
   :where([data-brand='doctor-aki'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
-    outline-color: var(--rb-color-tertiary-L100);
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
+    outline-color: var(--b-ui-color-tertiary-L100);
   }
 }
 
@@ -49,24 +49,24 @@
   /* ============================================
      SECONDARY FILL - TERTIARY colors
      ============================================ */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill {
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill {
     /* 🟣 Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
-    --rb-button-bg-color: var(--rb-color-tertiary-L300);
-    --rb-button-text-color: var(--rb-color-tertiary-D200);
-    --rb-button-border-color: var(--rb-color-tertiary-L300);
+    --b-ui-button-bg-color: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-color: var(--b-ui-color-tertiary-L300);
 
-    --rb-button-bg-hover: var(--rb-color-tertiary-L200);
-    --rb-button-text-hover: var(--rb-color-tertiary-D300);
-    --rb-button-border-hover: var(--rb-color-tertiary-L200);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L200);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D300);
+    --b-ui-button-border-hover: var(--b-ui-color-tertiary-L200);
 
-    --rb-button-bg-active: var(--rb-color-tertiary-L200);
-    --rb-button-text-active: var(--rb-color-tertiary-D300);
-    --rb-button-border-active: var(--rb-color-tertiary-L200);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L200);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D300);
+    --b-ui-button-border-active: var(--b-ui-color-tertiary-L200);
   }
 
   /* Focus outline - Violeta claro */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-tertiary-L100);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-L100);
   }
 }
 
@@ -74,20 +74,20 @@
   /* ============================================
      SECONDARY TEXT - TERTIARY colors
      ============================================ */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text {
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text {
     /* 🟣 Cambiar de SECONDARY (amarillo) a TERTIARY (violeta) */
-    --rb-button-text-color: var(--rb-color-tertiary-D100);
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
 
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-text-hover: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D200);
 
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
   }
 
   /* Focus outline - Violeta claro */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text:focus-visible {
-    outline-color: var(--rb-color-tertiary-L100);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-L100);
   }
 }
 

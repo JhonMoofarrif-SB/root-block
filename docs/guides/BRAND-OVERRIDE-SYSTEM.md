@@ -29,7 +29,7 @@ Este sistema permite personalizar componentes para diferentes marcas sin duplica
 
 1. **CSS Puro**: Sin dependencias de JavaScript o JSON
 2. **Data Attributes**: `[data-brand="nombre-marca"]`
-3. **Variables CSS**: Patrón consistente `--rb-{componente}-{tipo}-{variante}-{propiedad}-{estado}`
+3. **Variables CSS**: Patrón consistente `--b-ui-{componente}-{tipo}-{variante}-{propiedad}-{estado}`
 4. **Cascada Controlada**: Los overrides tienen mayor especificidad
 
 ---
@@ -77,7 +77,7 @@ packages/
 ### Nomenclatura
 
 ```
---rb-{componente}-{tipo}-{variante}-{propiedad}-{estado}
+--b-ui-{componente}-{tipo}-{variante}-{propiedad}-{estado}
 ```
 
 ### Ejemplo: Button
@@ -89,20 +89,20 @@ packages/
 /* PROPIEDAD: bg, text, border */
 /* ESTADO: (default), hover, active, disabled */
 
---rb-button-primary-stroke-bg                  /* default */
---rb-button-primary-stroke-bg-hover
---rb-button-primary-stroke-bg-active
---rb-button-primary-stroke-bg-disabled
+--b-ui-button-primary-stroke-bg                  /* default */
+--b-ui-button-primary-stroke-bg-hover
+--b-ui-button-primary-stroke-bg-active
+--b-ui-button-primary-stroke-bg-disabled
 
---rb-button-primary-stroke-text
---rb-button-primary-stroke-text-hover
---rb-button-primary-stroke-text-active
---rb-button-primary-stroke-text-disabled
+--b-ui-button-primary-stroke-text
+--b-ui-button-primary-stroke-text-hover
+--b-ui-button-primary-stroke-text-active
+--b-ui-button-primary-stroke-text-disabled
 
---rb-button-primary-stroke-border
---rb-button-primary-stroke-border-hover
---rb-button-primary-stroke-border-active
---rb-button-primary-stroke-border-disabled
+--b-ui-button-primary-stroke-border
+--b-ui-button-primary-stroke-border-hover
+--b-ui-button-primary-stroke-border-active
+--b-ui-button-primary-stroke-border-disabled
 ```
 
 ### Matriz Completa para Button
@@ -125,28 +125,28 @@ Define las variables con valores por defecto:
 
 ```css
 @layer variants {
-  .rb-button--primary {
+  .b-ui-button--primary {
     /* Define variables STROKE (default) */
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
+    --b-ui-button-primary-stroke-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-stroke-border: var(--b-ui-color-secondary-base);
 
     /* Aplica las variables */
-    --rb-button-bg-color: var(--rb-button-primary-stroke-bg);
-    --rb-button-text-color: var(--rb-button-primary-stroke-text);
-    --rb-button-border-color: var(--rb-button-primary-stroke-border);
+    --b-ui-button-bg-color: var(--b-ui-button-primary-stroke-bg);
+    --b-ui-button-text-color: var(--b-ui-button-primary-stroke-text);
+    --b-ui-button-border-color: var(--b-ui-button-primary-stroke-border);
   }
 }
 
 @layer style-variants {
-  .rb-button--fill.rb-button--primary {
+  .b-ui-button--fill.b-ui-button--primary {
     /* Define variables FILL */
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
+    --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
 
     /* Sobreescribe las aplicadas */
-    --rb-button-bg-color: var(--rb-button-primary-fill-bg);
-    --rb-button-text-color: var(--rb-button-primary-fill-text);
+    --b-ui-button-bg-color: var(--b-ui-button-primary-fill-bg);
+    --b-ui-button-text-color: var(--b-ui-button-primary-fill-text);
   }
 }
 ```
@@ -157,15 +157,15 @@ Redefine solo las variables que quiere cambiar:
 
 ```css
 [data-brand='seguros-bolivar'] {
-  .rb-button--primary {
+  .b-ui-button--primary {
     /* Solo redefine lo que cambia */
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-stroke-border: var(--b-ui-color-secondary-base);
   }
 
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
+  .b-ui-button--fill.b-ui-button--primary {
+    --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
   }
 }
 ```
@@ -196,7 +196,7 @@ Redefine solo las variables que quiere cambiar:
 3. Resultado: Base + Override
 ```
 
-La especificidad de `[data-brand="seguros-bolivar"] .rb-button--primary` es mayor que `.rb-button--primary`, por lo que los overrides siempre ganan.
+La especificidad de `[data-brand="seguros-bolivar"] .b-ui-button--primary` es mayor que `.b-ui-button--primary`, por lo que los overrides siempre ganan.
 
 ---
 
@@ -235,16 +235,16 @@ touch nueva-marca/button.css
 
 [data-brand='nueva-marca'] {
   /* PRIMARY - STROKE */
-  .rb-button--primary {
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-text: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-border: var(--rb-color-primary-base);
+  .b-ui-button--primary {
+    --b-ui-button-primary-stroke-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-base);
+    --b-ui-button-primary-stroke-border: var(--b-ui-color-primary-base);
   }
 
   /* PRIMARY - FILL */
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-primary-base);
-    --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
+  .b-ui-button--fill.b-ui-button--primary {
+    --b-ui-button-primary-fill-bg: var(--b-ui-color-primary-base);
+    --b-ui-button-primary-fill-text: var(--b-ui-color-grayscale-white);
   }
 
   /* Agregar más overrides según necesidad */
@@ -278,16 +278,16 @@ pnpm run build:all
 @layer reset, tokens, base, variants, states, utilities;
 
 @layer variants {
-  .rb-card--primary {
+  .b-ui-card--primary {
     /* Define variables */
-    --rb-card-primary-bg: var(--rb-color-grayscale-white);
-    --rb-card-primary-text: var(--rb-color-grayscale-black);
-    --rb-card-primary-border: var(--rb-color-primary-base);
+    --b-ui-card-primary-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-card-primary-text: var(--b-ui-color-grayscale-black);
+    --b-ui-card-primary-border: var(--b-ui-color-primary-base);
 
     /* Aplica variables */
-    background-color: var(--rb-card-primary-bg);
-    color: var(--rb-card-primary-text);
-    border: 1px solid var(--rb-card-primary-border);
+    background-color: var(--b-ui-card-primary-bg);
+    color: var(--b-ui-card-primary-text);
+    border: 1px solid var(--b-ui-card-primary-border);
   }
 }
 ```
@@ -298,8 +298,8 @@ pnpm run build:all
 
 ```css
 [data-brand='seguros-bolivar'] {
-  .rb-card--primary {
-    --rb-card-primary-border: var(--rb-color-secondary-base);
+  .b-ui-card--primary {
+    --b-ui-card-primary-border: var(--b-ui-color-secondary-base);
   }
 }
 ```
@@ -327,16 +327,16 @@ pnpm run build:all
 
 ```css
 [data-brand='seguros-bolivar'] {
-  .rb-button--primary {
+  .b-ui-button--primary {
     /* STROKE: Borde amarillo, texto verde */
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
+    --b-ui-button-primary-stroke-border: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D100);
   }
 
-  .rb-button--fill.rb-button--primary {
+  .b-ui-button--fill.b-ui-button--primary {
     /* FILL: Fondo amarillo, texto verde */
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
+    --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
   }
 }
 ```
@@ -347,12 +347,12 @@ pnpm run build:all
 
 ```css
 [data-brand='davivienda'] {
-  .rb-button--secondary {
-    --rb-button-secondary-stroke-border: var(--rb-color-primary-base);
+  .b-ui-button--secondary {
+    --b-ui-button-secondary-stroke-border: var(--b-ui-color-primary-base);
   }
 
-  .rb-button--fill.rb-button--error {
-    --rb-button-error-fill-bg: var(--rb-color-feedback-error-base);
+  .b-ui-button--fill.b-ui-button--error {
+    --b-ui-button-error-fill-bg: var(--b-ui-color-feedback-error-base);
   }
 }
 ```
@@ -363,9 +363,9 @@ pnpm run build:all
 
 ```css
 [data-brand='jelpit'] {
-  .rb-button--text.rb-button--primary {
-    --rb-button-primary-text-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-primary-text-text: var(--rb-color-primary-D100);
+  .b-ui-button--text.b-ui-button--primary {
+    --b-ui-button-primary-text-bg-hover: var(--b-ui-color-primary-L400);
+    --b-ui-button-primary-text-text: var(--b-ui-color-primary-D100);
   }
 }
 ```
@@ -376,12 +376,12 @@ pnpm run build:all
 
 ```css
 [data-brand='cien-cuadras'] {
-  .rb-button--primary {
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D200);
+  .b-ui-button--primary {
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D200);
   }
 
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-text: var(--rb-color-primary-D300);
+  .b-ui-button--fill.b-ui-button--primary {
+    --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D300);
   }
 }
 ```
@@ -392,9 +392,9 @@ pnpm run build:all
 
 ```css
 [data-brand='doctor-aki'] {
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-primary-base);
-    --rb-button-primary-fill-text: var(--rb-color-grayscale-white);
+  .b-ui-button--fill.b-ui-button--primary {
+    --b-ui-button-primary-fill-bg: var(--b-ui-color-primary-base);
+    --b-ui-button-primary-fill-text: var(--b-ui-color-grayscale-white);
   }
 }
 ```
@@ -471,17 +471,17 @@ Los archivos generados están en:
 
 ### Nombres de Variables
 
-- ✅ Usar guiones: `--rb-button-primary-stroke-bg`
+- ✅ Usar guiones: `--b-ui-button-primary-stroke-bg`
 - ❌ No camelCase: `--rbButtonPrimaryStrokeBg`
-- ✅ Prefijo `--rb-`: `--rb-card-border`
+- ✅ Prefijo `--b-ui-`: `--b-ui-card-border`
 - ❌ Sin prefijo: `--card-border`
 
 ### Nombres de Clases
 
-- ✅ BEM con prefijo: `.rb-button--primary`
+- ✅ BEM con prefijo: `.b-ui-button--primary`
 - ❌ Sin prefijo: `.button--primary`
-- ✅ Doble guión para modificadores: `.rb-button--fill`
-- ❌ Guión simple: `.rb-button-fill`
+- ✅ Doble guión para modificadores: `.b-ui-button--fill`
+- ❌ Guión simple: `.b-ui-button-fill`
 
 ### Data Attributes
 
@@ -507,13 +507,13 @@ Los archivos generados están en:
 
 ### Variable no existe
 
-**Problema:** `var(--rb-button-xxx)` no tiene valor.
+**Problema:** `var(--b-ui-button-xxx)` no tiene valor.
 
 **Solución:**
 
 1. Verificar que la variable está definida en `button.css`
 2. Verificar el patrón de nombre (tipo-variante-propiedad-estado)
-3. Verificar que el selector coincide (`.rb-button--primary`, `.rb-button--fill.rb-button--primary`)
+3. Verificar que el selector coincide (`.b-ui-button--primary`, `.b-ui-button--fill.b-ui-button--primary`)
 
 ### Build falla
 
@@ -534,14 +534,14 @@ Los archivos generados están en:
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
 │  TOKENS (JSON)                                              │
-│  └─> CSS Variables: --rb-color-primary-base, etc.          │
+│  └─> CSS Variables: --b-ui-color-primary-base, etc.          │
 │                                                             │
 │  ▼                                                          │
 │                                                             │
 │  ATOMS (button.css)                                         │
 │  └─> Componente base con variables:                        │
-│      --rb-button-primary-stroke-bg                          │
-│      --rb-button-primary-fill-bg                            │
+│      --b-ui-button-primary-stroke-bg                          │
+│      --b-ui-button-primary-fill-bg                            │
 │      etc.                                                   │
 │                                                             │
 │  ▼                                                          │
@@ -549,7 +549,7 @@ Los archivos generados están en:
 │  BRAND OVERRIDES (seguros-bolivar/button.css)              │
 │  └─> Redefine solo lo necesario:                           │
 │      [data-brand="seguros-bolivar"] {                       │
-│        --rb-button-primary-stroke-bg: ...                   │
+│        --b-ui-button-primary-stroke-bg: ...                   │
 │      }                                                      │
 │                                                             │
 │  ▼                                                          │
@@ -584,4 +584,4 @@ Los archivos generados están en:
 
 **Última actualización:** 2025-01-10  
 **Versión:** 1.0.0  
-**Sistema:** Root Block Design System
+**Sistema:** Bolivar UI Design System

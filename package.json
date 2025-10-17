@@ -1,8 +1,8 @@
 {
-  "name": "@rb/root",
+  "name": "@bolivar-ui/root",
   "version": "1.0.0",
   "private": true,
-  "description": "Root Block Design System - Multi-brand Enterprise Design System",
+  "description": "Bolivar UI Design System - Multi-brand Enterprise Design System",
   "keywords": [
     "design-system",
     "multi-brand",
@@ -11,26 +11,26 @@
     "css",
     "design-tokens"
   ],
-  "homepage": "https://github.com/tu-usuario/root-bloock#readme",
+  "homepage": "https://github.com/tu-usuario/bolivar-ui#readme",
   "bugs": {
-    "url": "https://github.com/tu-usuario/root-bloock/issues"
+    "url": "https://github.com/tu-usuario/bolivar-ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tu-usuario/root-bloock.git"
+    "url": "https://github.com/tu-usuario/bolivar-ui.git"
   },
   "license": "MIT",
-  "author": "Root Block",
+  "author": "Bolivar UI",
   "type": "module",
   "scripts": {
-    "build": "pnpm run clean && turbo run build --force --no-cache && pnpm --filter @rb/bundle run copy:all",
+    "build": "pnpm run clean && turbo run build --force --no-cache && pnpm --filter @bolivar-ui/bundle run copy:all",
     "check": "pnpm run lint && pnpm run format:check && pnpm run test",
     "clean": "turbo run clean && rm -rf .turbo node_modules/.cache examples/dist/*.min.* packages/docs/.storybook/*.min.css",
     "demo": "pnpm run build && cd examples && npx serve -p 3000",
     "dev": "./scripts/dev.sh",
-    "dev:bundle": "pnpm --filter @rb/bundle dev",
+    "dev:bundle": "pnpm --filter @bolivar-ui/bundle dev",
     "dev:demo": "pnpm run build && cd examples && npx serve -p 3000",
-    "dev:storybook": "pnpm run build && pnpm --filter @rb/docs storybook",
+    "dev:storybook": "pnpm run build && pnpm --filter @bolivar-ui/docs storybook",
     "dev:test": "vitest --watch",
     "format": "prettier --write \"**/*.{html,ts,tsx,js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{html,ts,tsx,js,jsx,json,css,md}\"",
@@ -39,7 +39,7 @@
     "prepare": "husky",
     "release": "changeset publish",
     "setup": "./scripts/setup.sh",
-    "storybook": "pnpm run build && pnpm --filter @rb/docs storybook",
+    "storybook": "pnpm run build && pnpm --filter @bolivar-ui/docs storybook",
     "test": "turbo run test",
     "test:ui": "vitest --ui",
     "test:watch": "vitest --watch",

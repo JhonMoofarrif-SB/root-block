@@ -16,37 +16,37 @@
      PRIMARY - STROKE
      Borde primary, texto primary para Jelpit
      ======================================== */
-  .rb-button--primary {
+  .b-ui-button--primary {
     /* Background */
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-primary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+    --b-ui-button-primary-stroke-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-button-primary-stroke-bg-hover: var(--b-ui-color-primary-L400);
+    --b-ui-button-primary-stroke-bg-active: var(--b-ui-color-primary-L300);
+    --b-ui-button-primary-stroke-bg-disabled: var(--b-ui-color-grayscale-white);
 
     /* Text */
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-stroke-text-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-stroke-text-active: var(--b-ui-color-primary-D200);
+    --b-ui-button-primary-stroke-text-disabled: var(--b-ui-color-grayscale-base);
 
     /* Border */
-    --rb-button-primary-stroke-border: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-primary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-primary-stroke-border: var(--b-ui-color-primary-base);
+    --b-ui-button-primary-stroke-border-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-stroke-border-active: var(--b-ui-color-primary-D200);
+    --b-ui-button-primary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
   }
 
   /* ========================================
      PRIMARY - TEXT
      Background personalizado para Jelpit
      ======================================== */
-  .rb-button--text.rb-button--primary {
-    --rb-button-primary-text-bg: transparent;
-    --rb-button-primary-text-bg-hover: var(--rb-color-primary-L400);
-    --rb-button-primary-text-bg-active: var(--rb-color-primary-L300);
+  .b-ui-button--text.b-ui-button--primary {
+    --b-ui-button-primary-text-bg: transparent;
+    --b-ui-button-primary-text-bg-hover: var(--b-ui-color-primary-L400);
+    --b-ui-button-primary-text-bg-active: var(--b-ui-color-primary-L300);
 
-    --rb-button-primary-text-text: var(--rb-color-primary-D100);
-    --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
+    --b-ui-button-primary-text-text: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-text-text-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-text-text-active: var(--b-ui-color-primary-D200);
   }
 }

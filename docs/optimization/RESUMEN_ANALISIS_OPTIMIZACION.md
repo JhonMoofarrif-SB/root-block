@@ -176,9 +176,9 @@ LCP:       1,200ms (-600ms, 33% mejor) ✅
 
 ```javascript
 // Solo cargar lo necesario
-import '@rb/tokens/seguros-bolivar-light.css';
-import '@rb/atoms/button.css';
-import '@rb/overrides/seguros-bolivar/button.css';
+import '@bolivar-ui/tokens/seguros-bolivar-light.css';
+import '@bolivar-ui/atoms/button.css';
+import '@bolivar-ui/overrides/seguros-bolivar/button.css';
 
 // Total: 4KB + 20KB + 2KB = 26KB (en lugar de 99KB)
 ```

@@ -165,7 +165,7 @@
    ======================================== */
 
 @layer reset {
-  .rb-button {
+  .b-ui-button {
     all: unset;
     box-sizing: border-box;
   }
@@ -177,44 +177,44 @@
    ======================================== */
 
 @layer tokens {
-  .rb-button {
+  .b-ui-button {
     /* Colores BASE - FILL por defecto (relleno sólido) */
-    --rb-button-bg-color: var(--rb-color-secondary-base);
-    --rb-button-bg-hover: var(--rb-color-secondary-D100);
-    --rb-button-bg-active: var(--rb-color-secondary-D200);
-    --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-    --rb-button-text-color: var(--rb-color-primary-D100);
-    --rb-button-text-hover: var(--rb-color-primary-D100);
-    --rb-button-text-active: var(--rb-color-primary-D100);
-    --rb-button-text-disabled: var(--rb-color-grayscale-base, #9b9b9b);
-    --rb-button-border-color: var(--rb-color-secondary-base);
-    --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
-    --rb-button-border-width: 1px;
-    --rb-button-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+    --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
+    --b-ui-button-bg-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-bg-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-text-color: var(--b-ui-color-primary-D100);
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-text-active: var(--b-ui-color-primary-D100);
+    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base, #9b9b9b);
+    --b-ui-button-border-color: var(--b-ui-color-secondary-base);
+    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-border-width: 1px;
+    --b-ui-button-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
 
     /* Espaciado - Fluido con clamp() */
-    --rb-button-padding-inline: clamp(0.8rem, 0.5rem + 1.5vw, 2rem);
-    --rb-button-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.875rem);
-    --rb-button-gap: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+    --b-ui-button-padding-inline: clamp(0.8rem, 0.5rem + 1.5vw, 2rem);
+    --b-ui-button-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.875rem);
+    --b-ui-button-gap: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
 
     /* Tipografía - Fluido con clamp() */
-    --rb-button-font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
-    --rb-button-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
-    --rb-button-font-weight: 700;
-    --rb-button-line-height: 1.2;
+    --b-ui-button-font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --b-ui-button-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --b-ui-button-font-weight: 700;
+    --b-ui-button-line-height: 1.2;
 
     /* Tamaños - Logical properties */
-    --rb-button-min-inline-size: clamp(80px, 15vw, 120px);
-    --rb-button-min-block-size: clamp(36px, 8vw, 44px);
+    --b-ui-button-min-inline-size: clamp(80px, 15vw, 120px);
+    --b-ui-button-min-block-size: clamp(36px, 8vw, 44px);
 
     /* Sombras */
-    --rb-button-shadow: none;
-    --rb-button-shadow-hover: none;
-    --rb-button-shadow-active: none;
-    --rb-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    --b-ui-button-shadow: none;
+    --b-ui-button-shadow-hover: none;
+    --b-ui-button-shadow-active: none;
+    --b-ui-button-shadow-pressed: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
     /* Transiciones - NO incluir outline para evitar destellos en focus */
-    --rb-button-transition:
+    --b-ui-button-transition:
       background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
       transform 0.2s ease;
   }
@@ -225,7 +225,7 @@
    ======================================== */
 
 @layer base {
-  .rb-button {
+  .b-ui-button {
     /* Layout */
     display: inline-flex;
     align-items: center;
@@ -233,65 +233,65 @@
     position: relative;
 
     /* Spacing - Logical Properties */
-    padding-inline: var(--rb-button-padding-inline);
-    padding-block: var(--rb-button-padding-block);
-    gap: var(--rb-button-gap);
+    padding-inline: var(--b-ui-button-padding-inline);
+    padding-block: var(--b-ui-button-padding-block);
+    gap: var(--b-ui-button-gap);
 
     /* Sizing - Logical Properties */
-    min-inline-size: var(--rb-button-min-inline-size);
-    min-block-size: var(--rb-button-min-block-size);
+    min-inline-size: var(--b-ui-button-min-inline-size);
+    min-block-size: var(--b-ui-button-min-block-size);
     inline-size: auto;
 
     /* Typography */
-    font-family: var(--rb-button-font-family);
+    font-family: var(--b-ui-button-font-family);
     font-style: normal;
-    font-weight: var(--rb-button-font-weight);
-    font-size: var(--rb-button-font-size);
-    line-height: var(--rb-button-line-height);
+    font-weight: var(--b-ui-button-font-weight);
+    font-size: var(--b-ui-button-font-size);
+    line-height: var(--b-ui-button-line-height);
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
 
     /* Appearance - STROKE por defecto */
-    background-color: var(--rb-button-bg-color);
-    color: var(--rb-button-text-color);
-    border: var(--rb-button-border-width) solid var(--rb-button-border-color);
-    border-radius: var(--rb-button-border-radius);
-    box-shadow: var(--rb-button-shadow);
+    background-color: var(--b-ui-button-bg-color);
+    color: var(--b-ui-button-text-color);
+    border: var(--b-ui-button-border-width) solid var(--b-ui-button-border-color);
+    border-radius: var(--b-ui-button-border-radius);
+    box-shadow: var(--b-ui-button-shadow);
     cursor: pointer;
     user-select: none;
 
     /* Animation */
-    transition: var(--rb-button-transition);
+    transition: var(--b-ui-button-transition);
 
     /* Nested Pseudo-classes - Estados interactivos */
-    &:hover:not(:disabled):not(.rb-button--disabled) {
-      background-color: var(--rb-button-bg-hover);
-      color: var(--rb-button-text-hover, var(--rb-button-text-color));
-      border-color: var(--rb-button-border-hover, var(--rb-button-border-color));
-      box-shadow: var(--rb-button-shadow-hover);
+    &:hover:not(:disabled):not(.b-ui-button--disabled) {
+      background-color: var(--b-ui-button-bg-hover);
+      color: var(--b-ui-button-text-hover, var(--b-ui-button-text-color));
+      border-color: var(--b-ui-button-border-hover, var(--b-ui-button-border-color));
+      box-shadow: var(--b-ui-button-shadow-hover);
       cursor: pointer;
     }
 
-    &:active:not(:disabled):not(.rb-button--disabled) {
-      background-color: var(--rb-button-bg-active);
-      color: var(--rb-button-text-active, var(--rb-button-text-color));
-      border-color: var(--rb-button-border-active, var(--rb-button-border-color));
-      box-shadow: var(--rb-button-shadow-pressed, var(--rb-button-shadow-active));
+    &:active:not(:disabled):not(.b-ui-button--disabled) {
+      background-color: var(--b-ui-button-bg-active);
+      color: var(--b-ui-button-text-active, var(--b-ui-button-text-color));
+      border-color: var(--b-ui-button-border-active, var(--b-ui-button-border-color));
+      box-shadow: var(--b-ui-button-shadow-pressed, var(--b-ui-button-shadow-active));
       cursor: pointer;
     }
 
-    &:focus-visible:not(:disabled):not(.rb-button--disabled) {
-      outline: 3px solid var(--rb-color-secondary-L100);
+    &:focus-visible:not(:disabled):not(.b-ui-button--disabled) {
+      outline: 3px solid var(--b-ui-color-secondary-L100);
       outline-offset: 2px;
       animation: rb-button-focus-pulse 0.3s ease-out;
     }
 
     &:disabled,
-    &.rb-button--disabled {
-      background-color: var(--rb-button-bg-disabled);
-      color: var(--rb-button-text-disabled);
-      border-color: var(--rb-button-border-disabled);
+    &.b-ui-button--disabled {
+      background-color: var(--b-ui-button-bg-disabled);
+      color: var(--b-ui-button-text-disabled);
+      border-color: var(--b-ui-button-border-disabled);
       cursor: not-allowed;
       box-shadow: none;
       outline: none;
@@ -299,12 +299,12 @@
 
     /* Disabled hover - usar variables específicas para disabled-hover */
     &:disabled:hover,
-    &.rb-button--disabled:hover {
-      background-color: var(--rb-button-bg-disabled-hover, var(--rb-button-bg-disabled)) !important;
-      color: var(--rb-button-text-disabled-hover, var(--rb-button-text-disabled)) !important;
+    &.b-ui-button--disabled:hover {
+      background-color: var(--b-ui-button-bg-disabled-hover, var(--b-ui-button-bg-disabled)) !important;
+      color: var(--b-ui-button-text-disabled-hover, var(--b-ui-button-text-disabled)) !important;
       border-color: var(
-        --rb-button-border-disabled-hover,
-        var(--rb-button-border-disabled)
+        --b-ui-button-border-disabled-hover,
+        var(--b-ui-button-border-disabled)
       ) !important;
       cursor: not-allowed;
       box-shadow: none;
@@ -314,8 +314,8 @@
     /* Disabled focus - sin outline */
     &:disabled:focus,
     &:disabled:focus-visible,
-    &.rb-button--disabled:focus,
-    &.rb-button--disabled:focus-visible {
+    &.b-ui-button--disabled:focus,
+    &.b-ui-button--disabled:focus-visible {
       outline: none;
     }
   }
@@ -330,346 +330,346 @@
      PRIMARY - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .rb-button--primary {
+  .b-ui-button--primary {
     /* ========================================
        STROKE (default) - Fondo blanco, borde amarillo, texto verde (SIEMPRE)
        Patrón Seguros Bolívar: texto mantiene color primary en hover/active
        ======================================== */
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-stroke-bg-disabled: transparent;
+    --b-ui-button-primary-stroke-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-button-primary-stroke-bg-hover: var(--b-ui-color-secondary-L400);
+    --b-ui-button-primary-stroke-bg-active: var(--b-ui-color-secondary-L300);
+    --b-ui-button-primary-stroke-bg-disabled: transparent;
 
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-primary-stroke-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --b-ui-button-primary-stroke-text: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-stroke-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-primary-stroke-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-primary-stroke-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-primary-stroke-border: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-stroke-border-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-primary-stroke-border-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-primary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
 
     /* ========================================
        FILL - Fondo amarillo, texto verde
        ======================================== */
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-fill-bg-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-primary-fill-bg-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-primary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-fill-text-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-fill-text-active: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-fill-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-primary-fill-border: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-primary-fill-border: var(--b-ui-color-secondary-base);
+    --b-ui-button-primary-fill-border-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-primary-fill-border-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-primary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto verde
        ======================================== */
-    --rb-button-primary-text-bg: transparent;
-    --rb-button-primary-text-bg-hover: transparent;
-    --rb-button-primary-text-bg-active: transparent;
-    --rb-button-primary-text-bg-disabled: transparent;
+    --b-ui-button-primary-text-bg: transparent;
+    --b-ui-button-primary-text-bg-hover: transparent;
+    --b-ui-button-primary-text-bg-active: transparent;
+    --b-ui-button-primary-text-bg-disabled: transparent;
 
-    --rb-button-primary-text-text: var(--rb-color-primary-base);
-    --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
-    --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --b-ui-button-primary-text-text: var(--b-ui-color-primary-base);
+    --b-ui-button-primary-text-text-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-primary-text-text-active: var(--b-ui-color-primary-D200);
+    --b-ui-button-primary-text-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-    --rb-button-primary-text-border: transparent;
-    --rb-button-primary-text-border-hover: transparent;
-    --rb-button-primary-text-border-active: transparent;
-    --rb-button-primary-text-border-disabled: transparent;
+    --b-ui-button-primary-text-border: transparent;
+    --b-ui-button-primary-text-border-hover: transparent;
+    --b-ui-button-primary-text-border-active: transparent;
+    --b-ui-button-primary-text-border-disabled: transparent;
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        Patrón Seguros Bolívar: texto mantiene color primary
        ======================================== */
-    --rb-button-bg-color: var(--rb-color-grayscale-white);
-    --rb-button-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-bg-disabled: transparent;
+    --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
+    --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400);
+    --b-ui-button-bg-active: var(--b-ui-color-secondary-L300);
+    --b-ui-button-bg-disabled: transparent;
 
-    --rb-button-text-color: var(--rb-color-primary-D100);
-    --rb-button-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --b-ui-button-text-color: var(--b-ui-color-primary-D100);
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-    --rb-button-border-color: var(--rb-color-secondary-base);
-    --rb-button-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-border-active: var(--rb-color-secondary-D200);
-    --rb-button-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-border-color: var(--b-ui-color-secondary-base);
+    --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-border-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);
 
-    --rb-button-border-width: 1px;
-    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --b-ui-button-border-width: 1px;
+    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
     /* Disabled Hover - Patrón Seguros Bolívar: aparece fondo gris */
-    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200); /* #E1E1E1 aparece */
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
-    --rb-button-border-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
+    --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L200); /* #E1E1E1 aparece */
+    --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B mantiene */
+    --b-ui-button-border-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B mantiene */
   }
 
   /* ============================================
      SECONDARY - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .rb-button--secondary {
+  .b-ui-button--secondary {
     /* ========================================
        STROKE (default) - Fondo blanco, borde amarillo, texto verde
        Patrón Seguros Bolívar: SECONDARY usa color primary (verde)
        ======================================== */
-    --rb-button-secondary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-secondary-stroke-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-secondary-stroke-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-secondary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+    --b-ui-button-secondary-stroke-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-button-secondary-stroke-bg-hover: var(--b-ui-color-secondary-L400);
+    --b-ui-button-secondary-stroke-bg-active: var(--b-ui-color-secondary-L300);
+    --b-ui-button-secondary-stroke-bg-disabled: var(--b-ui-color-grayscale-white);
 
-    --rb-button-secondary-stroke-text: var(--rb-color-primary-D100); /* Verde */
-    --rb-button-secondary-stroke-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-secondary-stroke-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-secondary-stroke-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --b-ui-button-secondary-stroke-text: var(--b-ui-color-primary-D100); /* Verde */
+    --b-ui-button-secondary-stroke-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-secondary-stroke-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-secondary-stroke-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-    --rb-button-secondary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-secondary-stroke-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-secondary-stroke-border-active: var(--rb-color-secondary-D200);
-    --rb-button-secondary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-secondary-stroke-border: var(--b-ui-color-secondary-base);
+    --b-ui-button-secondary-stroke-border-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-secondary-stroke-border-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-secondary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
 
     /* ========================================
        FILL - Fondo amarillo, texto verde
        ======================================== */
-    --rb-button-secondary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-secondary-fill-bg-hover: var(--rb-color-secondary-D100);
-    --rb-button-secondary-fill-bg-active: var(--rb-color-secondary-D200);
-    --rb-button-secondary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-secondary-fill-bg: var(--b-ui-color-secondary-base);
+    --b-ui-button-secondary-fill-bg-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-secondary-fill-bg-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-secondary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-secondary-fill-text: var(--rb-color-primary-base);
-    --rb-button-secondary-fill-text-hover: var(--rb-color-primary-D100);
-    --rb-button-secondary-fill-text-active: var(--rb-color-primary-D200);
-    --rb-button-secondary-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-secondary-fill-text: var(--b-ui-color-primary-base);
+    --b-ui-button-secondary-fill-text-hover: var(--b-ui-color-primary-D100);
+    --b-ui-button-secondary-fill-text-active: var(--b-ui-color-primary-D200);
+    --b-ui-button-secondary-fill-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-secondary-fill-border: var(--rb-color-secondary-base);
-    --rb-button-secondary-fill-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-secondary-fill-border-active: var(--rb-color-secondary-D200);
-    --rb-button-secondary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-secondary-fill-border: var(--b-ui-color-secondary-base);
+    --b-ui-button-secondary-fill-border-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-secondary-fill-border-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-secondary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto amarillo
        ======================================== */
-    --rb-button-secondary-text-bg: transparent;
-    --rb-button-secondary-text-bg-hover: transparent;
-    --rb-button-secondary-text-bg-active: transparent;
-    --rb-button-secondary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-secondary-text-bg: transparent;
+    --b-ui-button-secondary-text-bg-hover: transparent;
+    --b-ui-button-secondary-text-bg-active: transparent;
+    --b-ui-button-secondary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-secondary-text-text: var(--rb-color-secondary-base);
-    --rb-button-secondary-text-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-secondary-text-text-active: var(--rb-color-secondary-D200);
-    --rb-button-secondary-text-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-secondary-text-text: var(--b-ui-color-secondary-base);
+    --b-ui-button-secondary-text-text-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-secondary-text-text-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-secondary-text-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-secondary-text-border: transparent;
-    --rb-button-secondary-text-border-hover: transparent;
-    --rb-button-secondary-text-border-active: transparent;
-    --rb-button-secondary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-secondary-text-border: transparent;
+    --b-ui-button-secondary-text-border-hover: transparent;
+    --b-ui-button-secondary-text-border-active: transparent;
+    --b-ui-button-secondary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        Patrón Seguros Bolívar: SECONDARY usa primary-D100 (verde)
        ======================================== */
-    --rb-button-bg-color: var(--rb-color-grayscale-white);
-    --rb-button-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-bg-disabled: var(--rb-color-grayscale-white);
+    --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
+    --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400);
+    --b-ui-button-bg-active: var(--b-ui-color-secondary-L300);
+    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-white);
 
-    --rb-button-text-color: var(--rb-color-primary-D100); /* Verde */
-    --rb-button-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde */
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
+    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-    --rb-button-border-color: var(--rb-color-secondary-base);
-    --rb-button-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-border-active: var(--rb-color-secondary-D200);
-    --rb-button-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-border-color: var(--b-ui-color-secondary-base);
+    --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
+    --b-ui-button-border-active: var(--b-ui-color-secondary-D200);
+    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);
 
-    --rb-button-border-width: 1px;
-    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --b-ui-button-border-width: 1px;
+    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
      TERTIARY - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .rb-button--tertiary {
+  .b-ui-button--tertiary {
     /* ========================================
        STROKE (default) - Fondo blanco, borde tertiary, texto tertiary
        ======================================== */
-    --rb-button-tertiary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-tertiary-stroke-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-tertiary-stroke-bg-active: var(--rb-color-tertiary-L300);
-    --rb-button-tertiary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+    --b-ui-button-tertiary-stroke-bg: var(--b-ui-color-grayscale-white);
+    --b-ui-button-tertiary-stroke-bg-hover: var(--b-ui-color-tertiary-L400);
+    --b-ui-button-tertiary-stroke-bg-active: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-tertiary-stroke-bg-disabled: var(--b-ui-color-grayscale-white);
 
-    --rb-button-tertiary-stroke-text: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-stroke-text-hover: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-stroke-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-tertiary-stroke-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-tertiary-stroke-text: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-tertiary-stroke-text-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-tertiary-stroke-text-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-tertiary-stroke-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-tertiary-stroke-border: var(--rb-color-tertiary-base);
-    --rb-button-tertiary-stroke-border-hover: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-stroke-border-active: var(--rb-color-tertiary-D200);
-    --rb-button-tertiary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-tertiary-stroke-border: var(--b-ui-color-tertiary-base);
+    --b-ui-button-tertiary-stroke-border-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-tertiary-stroke-border-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-tertiary-stroke-border-disabled: var(--b-ui-color-grayscale-base);
 
     /* ========================================
        FILL - Fondo tertiary, texto blanco
        ======================================== */
-    --rb-button-tertiary-fill-bg: var(--rb-color-tertiary-base);
-    --rb-button-tertiary-fill-bg-hover: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-fill-bg-active: var(--rb-color-tertiary-D200);
-    --rb-button-tertiary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-tertiary-fill-bg: var(--b-ui-color-tertiary-base);
+    --b-ui-button-tertiary-fill-bg-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-tertiary-fill-bg-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-tertiary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-tertiary-fill-text: var(--rb-color-grayscale-white, #fff);
-    --rb-button-tertiary-fill-text-hover: var(--rb-color-grayscale-white, #fff);
-    --rb-button-tertiary-fill-text-active: var(--rb-color-grayscale-white, #fff);
-    --rb-button-tertiary-fill-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-tertiary-fill-text: var(--b-ui-color-grayscale-white, #fff);
+    --b-ui-button-tertiary-fill-text-hover: var(--b-ui-color-grayscale-white, #fff);
+    --b-ui-button-tertiary-fill-text-active: var(--b-ui-color-grayscale-white, #fff);
+    --b-ui-button-tertiary-fill-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-tertiary-fill-border: var(--rb-color-tertiary-base);
-    --rb-button-tertiary-fill-border-hover: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-fill-border-active: var(--rb-color-tertiary-D200);
-    --rb-button-tertiary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-tertiary-fill-border: var(--b-ui-color-tertiary-base);
+    --b-ui-button-tertiary-fill-border-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-tertiary-fill-border-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-tertiary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto tertiary
        ======================================== */
-    --rb-button-tertiary-text-bg: transparent;
-    --rb-button-tertiary-text-bg-hover: transparent;
-    --rb-button-tertiary-text-bg-active: transparent;
-    --rb-button-tertiary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-tertiary-text-bg: transparent;
+    --b-ui-button-tertiary-text-bg-hover: transparent;
+    --b-ui-button-tertiary-text-bg-active: transparent;
+    --b-ui-button-tertiary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-    --rb-button-tertiary-text-text: var(--rb-color-tertiary-base);
-    --rb-button-tertiary-text-text-hover: var(--rb-color-tertiary-D100);
-    --rb-button-tertiary-text-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-tertiary-text-text-disabled: var(--rb-color-grayscale-L100); /* #B9B9B9 */
+    --b-ui-button-tertiary-text-text: var(--b-ui-color-tertiary-base);
+    --b-ui-button-tertiary-text-text-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-tertiary-text-text-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-tertiary-text-text-disabled: var(--b-ui-color-grayscale-L100); /* #B9B9B9 */
 
-    --rb-button-tertiary-text-border: transparent;
-    --rb-button-tertiary-text-border-hover: transparent;
-    --rb-button-tertiary-text-border-active: transparent;
-    --rb-button-tertiary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+    --b-ui-button-tertiary-text-border: transparent;
+    --b-ui-button-tertiary-text-border-hover: transparent;
+    --b-ui-button-tertiary-text-border-active: transparent;
+    --b-ui-button-tertiary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        ======================================== */
-    --rb-button-bg-color: var(--rb-color-grayscale-white);
-    --rb-button-bg-hover: var(--rb-color-tertiary-L400);
-    --rb-button-bg-active: var(--rb-color-tertiary-L300);
-    --rb-button-bg-disabled: var(--rb-color-grayscale-white);
+    --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
+    --b-ui-button-bg-hover: var(--b-ui-color-tertiary-L400);
+    --b-ui-button-bg-active: var(--b-ui-color-tertiary-L300);
+    --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-white);
 
-    --rb-button-text-color: var(--rb-color-tertiary-D100);
-    --rb-button-text-hover: var(--rb-color-tertiary-D100);
-    --rb-button-text-active: var(--rb-color-tertiary-D200);
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+    --b-ui-button-text-color: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-text-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-text-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-    --rb-button-border-color: var(--rb-color-tertiary-base);
-    --rb-button-border-hover: var(--rb-color-tertiary-D100);
-    --rb-button-border-active: var(--rb-color-tertiary-D200);
-    --rb-button-border-disabled: var(--rb-color-grayscale-base);
+    --b-ui-button-border-color: var(--b-ui-color-tertiary-base);
+    --b-ui-button-border-hover: var(--b-ui-color-tertiary-D100);
+    --b-ui-button-border-active: var(--b-ui-color-tertiary-D200);
+    --b-ui-button-border-disabled: var(--b-ui-color-grayscale-base);
 
-    --rb-button-border-width: 1px;
-    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --b-ui-button-border-width: 1px;
+    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
   }
 
   /* ============================================
      ERROR - Todas las variantes de estilo
      Agrupa: STROKE (default), FILL, TEXT
      ============================================ */
-  .rb-button--error {
+  .b-ui-button--error {
     /* ========================================
        STROKE (default) - Fondo transparente, borde rojo, texto rojo
        ======================================== */
-    --rb-button-error-stroke-bg: transparent;
-    --rb-button-error-stroke-bg-hover: transparent;
-    --rb-button-error-stroke-bg-active: transparent;
-    --rb-button-error-stroke-bg-disabled: transparent;
-    --rb-button-error-stroke-bg-disabled-hover: var(--rb-color-feedback-error-L400, #fbebec);
+    --b-ui-button-error-stroke-bg: transparent;
+    --b-ui-button-error-stroke-bg-hover: transparent;
+    --b-ui-button-error-stroke-bg-active: transparent;
+    --b-ui-button-error-stroke-bg-disabled: transparent;
+    --b-ui-button-error-stroke-bg-disabled-hover: var(--b-ui-color-feedback-error-L400, #fbebec);
 
-    --rb-button-error-stroke-text: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-stroke-text-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-stroke-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-stroke-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
-    --rb-button-error-stroke-text-disabled-hover: var(--rb-color-feedback-error-L200, #ee9aa2);
+    --b-ui-button-error-stroke-text: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-stroke-text-hover: var(--b-ui-color-feedback-error-D100, #c93241);
+    --b-ui-button-error-stroke-text-active: var(--b-ui-color-feedback-error-D200, #b5303d);
+    --b-ui-button-error-stroke-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+    --b-ui-button-error-stroke-text-disabled-hover: var(--b-ui-color-feedback-error-L200, #ee9aa2);
 
-    --rb-button-error-stroke-border: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-stroke-border-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-stroke-border-active: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-stroke-border-disabled: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-stroke-border-disabled-hover: var(--rb-color-feedback-error-L200, #ee9aa2);
+    --b-ui-button-error-stroke-border: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-stroke-border-hover: var(--b-ui-color-feedback-error-D100, #c93241);
+    --b-ui-button-error-stroke-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-stroke-border-disabled: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-stroke-border-disabled-hover: var(--b-ui-color-feedback-error-L200, #ee9aa2);
 
     /* ========================================
        FILL - Fondo rojo, texto blanco
        ======================================== */
-    --rb-button-error-fill-bg: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-fill-bg-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-fill-bg-active: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-fill-bg-disabled: var(--rb-color-feedback-error-L400, #fbebec);
-    --rb-button-error-fill-bg-disabled-hover: var(--rb-color-feedback-error-L300, #f5c2c7);
+    --b-ui-button-error-fill-bg: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-fill-bg-hover: var(--b-ui-color-feedback-error-D100, #c93241);
+    --b-ui-button-error-fill-bg-active: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-fill-bg-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
+    --b-ui-button-error-fill-bg-disabled-hover: var(--b-ui-color-feedback-error-L300, #f5c2c7);
 
-    --rb-button-error-fill-text: var(--rb-color-grayscale-white, #ffffff);
-    --rb-button-error-fill-text-hover: var(--rb-color-grayscale-white, #ffffff);
-    --rb-button-error-fill-text-active: var(--rb-color-grayscale-white, #ffffff);
-    --rb-button-error-fill-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
-    --rb-button-error-fill-text-disabled-hover: var(--rb-color-feedback-error-L200, #ee9aa2);
+    --b-ui-button-error-fill-text: var(--b-ui-color-grayscale-white, #ffffff);
+    --b-ui-button-error-fill-text-hover: var(--b-ui-color-grayscale-white, #ffffff);
+    --b-ui-button-error-fill-text-active: var(--b-ui-color-grayscale-white, #ffffff);
+    --b-ui-button-error-fill-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
+    --b-ui-button-error-fill-text-disabled-hover: var(--b-ui-color-feedback-error-L200, #ee9aa2);
 
-    --rb-button-error-fill-border: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-fill-border-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-fill-border-active: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-fill-border-disabled: var(--rb-color-feedback-error-L400, #fbebec);
-    --rb-button-error-fill-border-disabled-hover: var(--rb-color-feedback-error-L300, #f5c2c7);
+    --b-ui-button-error-fill-border: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-fill-border-hover: var(--b-ui-color-feedback-error-D100, #c93241);
+    --b-ui-button-error-fill-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-fill-border-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
+    --b-ui-button-error-fill-border-disabled-hover: var(--b-ui-color-feedback-error-L300, #f5c2c7);
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto rojo con underline
        ======================================== */
-    --rb-button-error-text-bg: transparent;
-    --rb-button-error-text-bg-hover: transparent;
-    --rb-button-error-text-bg-active: transparent;
-    --rb-button-error-text-bg-disabled: var(--rb-color-feedback-error-L400, #fbebec);
+    --b-ui-button-error-text-bg: transparent;
+    --b-ui-button-error-text-bg-hover: transparent;
+    --b-ui-button-error-text-bg-active: transparent;
+    --b-ui-button-error-text-bg-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
 
-    --rb-button-error-text-text: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-text-text-hover: var(--rb-color-feedback-error-D100, #c93241);
-    --rb-button-error-text-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-    --rb-button-error-text-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
+    --b-ui-button-error-text-text: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-text-text-hover: var(--b-ui-color-feedback-error-D100, #c93241);
+    --b-ui-button-error-text-text-active: var(--b-ui-color-feedback-error-D200, #b5303d);
+    --b-ui-button-error-text-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
 
-    --rb-button-error-text-border: transparent;
-    --rb-button-error-text-border-hover: transparent;
-    --rb-button-error-text-border-active: var(--rb-color-feedback-error-base, #dc3545);
-    --rb-button-error-text-border-disabled: transparent;
+    --b-ui-button-error-text-border: transparent;
+    --b-ui-button-error-text-border-hover: transparent;
+    --b-ui-button-error-text-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
+    --b-ui-button-error-text-border-disabled: transparent;
 
     /* ========================================
        Aplicar STROKE como default - VALORES DIRECTOS
        ======================================== */
-    --rb-button-bg-color: var(--rb-button-error-stroke-bg);
-    --rb-button-bg-hover: var(--rb-button-error-stroke-bg-hover);
-    --rb-button-bg-active: var(--rb-button-error-stroke-bg-active);
-    --rb-button-bg-disabled: var(--rb-button-error-stroke-bg-disabled);
-    --rb-button-bg-disabled-hover: var(--rb-button-error-stroke-bg-disabled-hover);
+    --b-ui-button-bg-color: var(--b-ui-button-error-stroke-bg);
+    --b-ui-button-bg-hover: var(--b-ui-button-error-stroke-bg-hover);
+    --b-ui-button-bg-active: var(--b-ui-button-error-stroke-bg-active);
+    --b-ui-button-bg-disabled: var(--b-ui-button-error-stroke-bg-disabled);
+    --b-ui-button-bg-disabled-hover: var(--b-ui-button-error-stroke-bg-disabled-hover);
 
-    --rb-button-text-color: var(--rb-button-error-stroke-text);
-    --rb-button-text-hover: var(--rb-button-error-stroke-text-hover);
-    --rb-button-text-active: var(--rb-button-error-stroke-text-active);
-    --rb-button-text-disabled: var(--rb-button-error-stroke-text-disabled);
-    --rb-button-text-disabled-hover: var(--rb-button-error-stroke-text-disabled-hover);
+    --b-ui-button-text-color: var(--b-ui-button-error-stroke-text);
+    --b-ui-button-text-hover: var(--b-ui-button-error-stroke-text-hover);
+    --b-ui-button-text-active: var(--b-ui-button-error-stroke-text-active);
+    --b-ui-button-text-disabled: var(--b-ui-button-error-stroke-text-disabled);
+    --b-ui-button-text-disabled-hover: var(--b-ui-button-error-stroke-text-disabled-hover);
 
-    --rb-button-border-color: var(--rb-button-error-stroke-border);
-    --rb-button-border-hover: var(--rb-button-error-stroke-border-hover);
-    --rb-button-border-active: var(--rb-button-error-stroke-border-active);
-    --rb-button-border-disabled: var(--rb-button-error-stroke-border-disabled);
-    --rb-button-border-disabled-hover: var(--rb-button-error-stroke-border-disabled-hover);
+    --b-ui-button-border-color: var(--b-ui-button-error-stroke-border);
+    --b-ui-button-border-hover: var(--b-ui-button-error-stroke-border-hover);
+    --b-ui-button-border-active: var(--b-ui-button-error-stroke-border-active);
+    --b-ui-button-border-disabled: var(--b-ui-button-error-stroke-border-disabled);
+    --b-ui-button-border-disabled-hover: var(--b-ui-button-error-stroke-border-disabled-hover);
 
-    --rb-button-border-width: 1px;
-    --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+    --b-ui-button-border-width: 1px;
+    --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
     /* Focus outline - ERROR usa color error-L100 en lugar de secondary-L100 */
-    &:focus-visible:not(:disabled):not(.rb-button--disabled) {
-      outline: 2px solid var(--rb-color-feedback-error-L100, #e7727d);
+    &:focus-visible:not(:disabled):not(.b-ui-button--disabled) {
+      outline: 2px solid var(--b-ui-color-feedback-error-L100, #e7727d);
       outline-offset: 2px;
     }
   }
@@ -685,170 +685,170 @@
      STROKE - Outline con borde (DEFAULT)
      Se puede usar explícitamente o es el default
      ============================================ */
-  .rb-button--stroke {
+  .b-ui-button--stroke {
     /* Ya es el default, esta clase es opcional para claridad */
-    --rb-button-bg-color: transparent;
+    --b-ui-button-bg-color: transparent;
   }
 
   /* ============================================
      FILL - Sólido con fondo de color
      ============================================ */
-  .rb-button--fill {
+  .b-ui-button--fill {
     /* PRIMARY FILL - fondo secondary (amarillo), texto primary-D100 (verde) */
-    &.rb-button--primary {
+    &.b-ui-button--primary {
       /* Define las variables específicas FILL (documentación) */
-      --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-      --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
-      --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
-      --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-primary-fill-bg: var(--b-ui-color-secondary-base);
+      --b-ui-button-primary-fill-bg-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-primary-fill-bg-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-primary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-primary-fill-text: var(--rb-color-primary-D100);
-      --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
-      --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
-      --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+      --b-ui-button-primary-fill-text: var(--b-ui-color-primary-D100);
+      --b-ui-button-primary-fill-text-hover: var(--b-ui-color-primary-D100);
+      --b-ui-button-primary-fill-text-active: var(--b-ui-color-primary-D100);
+      --b-ui-button-primary-fill-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-      --rb-button-primary-fill-border: var(--rb-color-secondary-base);
-      --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
-      --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
-      --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-primary-fill-border: var(--b-ui-color-secondary-base);
+      --b-ui-button-primary-fill-border-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-primary-fill-border-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-primary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables FILL - VALORES DIRECTOS (no referencias) */
-      --rb-button-bg-color: var(--rb-color-secondary-base);
-      --rb-button-bg-hover: var(--rb-color-secondary-D100);
-      --rb-button-bg-active: var(--rb-color-secondary-D200);
-      --rb-button-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-bg-color: var(--b-ui-color-secondary-base);
+      --b-ui-button-bg-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-bg-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-text-color: var(--rb-color-primary-D100);
-      --rb-button-text-hover: var(--rb-color-primary-D100);
-      --rb-button-text-active: var(--rb-color-primary-D100);
-      --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
+      --b-ui-button-text-color: var(--b-ui-color-primary-D100);
+      --b-ui-button-text-hover: var(--b-ui-color-primary-D100);
+      --b-ui-button-text-active: var(--b-ui-color-primary-D100);
+      --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base); /* #9B9B9B */
 
-      --rb-button-border-color: var(--rb-color-secondary-base);
-      --rb-button-border-hover: var(--rb-color-secondary-D100);
-      --rb-button-border-active: var(--rb-color-secondary-D200);
-      --rb-button-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-border-color: var(--b-ui-color-secondary-base);
+      --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-border-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none;
+      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --b-ui-button-shadow-active: none;
 
       /* Disabled hover - Patrón Seguros Bolívar: texto se aclara */
-      --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene */
-      --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100); /* #B9B9B9 más claro */
-      --rb-button-border-disabled-hover: var(--rb-color-grayscale-L300);
+      --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* #F5F5F5 mantiene */
+      --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-L100); /* #B9B9B9 más claro */
+      --b-ui-button-border-disabled-hover: var(--b-ui-color-grayscale-L300);
     }
 
     /* SECONDARY FILL */
-    &.rb-button--secondary {
+    &.b-ui-button--secondary {
       /* Define las variables específicas FILL */
-      --rb-button-secondary-fill-bg: var(--rb-color-secondary-base);
-      --rb-button-secondary-fill-bg-hover: var(--rb-color-secondary-D100);
-      --rb-button-secondary-fill-bg-active: var(--rb-color-secondary-D200);
-      --rb-button-secondary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-secondary-fill-bg: var(--b-ui-color-secondary-base);
+      --b-ui-button-secondary-fill-bg-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-secondary-fill-bg-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-secondary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-secondary-fill-text: var(--rb-color-primary-base);
-      --rb-button-secondary-fill-text-hover: var(--rb-color-primary-D100);
-      --rb-button-secondary-fill-text-active: var(--rb-color-primary-D200);
-      --rb-button-secondary-fill-text-disabled: var(--rb-color-grayscale-L100);
+      --b-ui-button-secondary-fill-text: var(--b-ui-color-primary-base);
+      --b-ui-button-secondary-fill-text-hover: var(--b-ui-color-primary-D100);
+      --b-ui-button-secondary-fill-text-active: var(--b-ui-color-primary-D200);
+      --b-ui-button-secondary-fill-text-disabled: var(--b-ui-color-grayscale-L100);
 
-      --rb-button-secondary-fill-border: var(--rb-color-secondary-base);
-      --rb-button-secondary-fill-border-hover: var(--rb-color-secondary-D100);
-      --rb-button-secondary-fill-border-active: var(--rb-color-secondary-D200);
-      --rb-button-secondary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-secondary-fill-border: var(--b-ui-color-secondary-base);
+      --b-ui-button-secondary-fill-border-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-secondary-fill-border-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-secondary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables FILL */
-      --rb-button-bg-color: var(--rb-button-secondary-fill-bg);
-      --rb-button-bg-hover: var(--rb-button-secondary-fill-bg-hover);
-      --rb-button-bg-active: var(--rb-button-secondary-fill-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-secondary-fill-bg-disabled);
+      --b-ui-button-bg-color: var(--b-ui-button-secondary-fill-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-secondary-fill-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-secondary-fill-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-secondary-fill-bg-disabled);
 
-      --rb-button-text-color: var(--rb-button-secondary-fill-text);
-      --rb-button-text-hover: var(--rb-button-secondary-fill-text-hover);
-      --rb-button-text-active: var(--rb-button-secondary-fill-text-active);
-      --rb-button-text-disabled: var(--rb-button-secondary-fill-text-disabled);
+      --b-ui-button-text-color: var(--b-ui-button-secondary-fill-text);
+      --b-ui-button-text-hover: var(--b-ui-button-secondary-fill-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-secondary-fill-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-secondary-fill-text-disabled);
 
-      --rb-button-border-color: var(--rb-button-secondary-fill-border);
-      --rb-button-border-hover: var(--rb-button-secondary-fill-border-hover);
-      --rb-button-border-active: var(--rb-button-secondary-fill-border-active);
-      --rb-button-border-disabled: var(--rb-button-secondary-fill-border-disabled);
+      --b-ui-button-border-color: var(--b-ui-button-secondary-fill-border);
+      --b-ui-button-border-hover: var(--b-ui-button-secondary-fill-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-secondary-fill-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-secondary-fill-border-disabled);
 
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none;
+      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --b-ui-button-shadow-active: none;
     }
 
     /* TERTIARY FILL */
-    &.rb-button--tertiary {
+    &.b-ui-button--tertiary {
       /* Define las variables específicas FILL */
-      --rb-button-tertiary-fill-bg: var(--rb-color-tertiary-base);
-      --rb-button-tertiary-fill-bg-hover: var(--rb-color-tertiary-D100);
-      --rb-button-tertiary-fill-bg-active: var(--rb-color-tertiary-D200);
-      --rb-button-tertiary-fill-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-tertiary-fill-bg: var(--b-ui-color-tertiary-base);
+      --b-ui-button-tertiary-fill-bg-hover: var(--b-ui-color-tertiary-D100);
+      --b-ui-button-tertiary-fill-bg-active: var(--b-ui-color-tertiary-D200);
+      --b-ui-button-tertiary-fill-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-tertiary-fill-text: var(--rb-color-grayscale-white, #fff);
-      --rb-button-tertiary-fill-text-hover: var(--rb-color-grayscale-white, #fff);
-      --rb-button-tertiary-fill-text-active: var(--rb-color-grayscale-white, #fff);
-      --rb-button-tertiary-fill-text-disabled: var(--rb-color-grayscale-L100);
+      --b-ui-button-tertiary-fill-text: var(--b-ui-color-grayscale-white, #fff);
+      --b-ui-button-tertiary-fill-text-hover: var(--b-ui-color-grayscale-white, #fff);
+      --b-ui-button-tertiary-fill-text-active: var(--b-ui-color-grayscale-white, #fff);
+      --b-ui-button-tertiary-fill-text-disabled: var(--b-ui-color-grayscale-L100);
 
-      --rb-button-tertiary-fill-border: var(--rb-color-tertiary-base);
-      --rb-button-tertiary-fill-border-hover: var(--rb-color-tertiary-D100);
-      --rb-button-tertiary-fill-border-active: var(--rb-color-tertiary-D200);
-      --rb-button-tertiary-fill-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-tertiary-fill-border: var(--b-ui-color-tertiary-base);
+      --b-ui-button-tertiary-fill-border-hover: var(--b-ui-color-tertiary-D100);
+      --b-ui-button-tertiary-fill-border-active: var(--b-ui-color-tertiary-D200);
+      --b-ui-button-tertiary-fill-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables FILL */
-      --rb-button-bg-color: var(--rb-button-tertiary-fill-bg);
-      --rb-button-bg-hover: var(--rb-button-tertiary-fill-bg-hover);
-      --rb-button-bg-active: var(--rb-button-tertiary-fill-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-tertiary-fill-bg-disabled);
+      --b-ui-button-bg-color: var(--b-ui-button-tertiary-fill-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-tertiary-fill-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-tertiary-fill-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-tertiary-fill-bg-disabled);
 
-      --rb-button-text-color: var(--rb-button-tertiary-fill-text);
-      --rb-button-text-hover: var(--rb-button-tertiary-fill-text-hover);
-      --rb-button-text-active: var(--rb-button-tertiary-fill-text-active);
-      --rb-button-text-disabled: var(--rb-button-tertiary-fill-text-disabled);
+      --b-ui-button-text-color: var(--b-ui-button-tertiary-fill-text);
+      --b-ui-button-text-hover: var(--b-ui-button-tertiary-fill-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-tertiary-fill-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-tertiary-fill-text-disabled);
 
-      --rb-button-border-color: var(--rb-button-tertiary-fill-border);
-      --rb-button-border-hover: var(--rb-button-tertiary-fill-border-hover);
-      --rb-button-border-active: var(--rb-button-tertiary-fill-border-active);
-      --rb-button-border-disabled: var(--rb-button-tertiary-fill-border-disabled);
+      --b-ui-button-border-color: var(--b-ui-button-tertiary-fill-border);
+      --b-ui-button-border-hover: var(--b-ui-button-tertiary-fill-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-tertiary-fill-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-tertiary-fill-border-disabled);
 
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none;
+      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --b-ui-button-shadow-active: none;
     }
 
     /* ERROR FILL */
-    &.rb-button--error {
+    &.b-ui-button--error {
       /* Aplicar las variables FILL (ya definidas arriba en type-variants) */
-      --rb-button-bg-color: var(--rb-button-error-fill-bg);
-      --rb-button-bg-hover: var(--rb-button-error-fill-bg-hover);
-      --rb-button-bg-active: var(--rb-button-error-fill-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-error-fill-bg-disabled);
-      --rb-button-bg-disabled-hover: var(--rb-button-error-fill-bg-disabled-hover);
+      --b-ui-button-bg-color: var(--b-ui-button-error-fill-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-error-fill-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-error-fill-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-error-fill-bg-disabled);
+      --b-ui-button-bg-disabled-hover: var(--b-ui-button-error-fill-bg-disabled-hover);
 
-      --rb-button-text-color: var(--rb-button-error-fill-text);
-      --rb-button-text-hover: var(--rb-button-error-fill-text-hover);
-      --rb-button-text-active: var(--rb-button-error-fill-text-active);
-      --rb-button-text-disabled: var(--rb-button-error-fill-text-disabled);
-      --rb-button-text-disabled-hover: var(--rb-button-error-fill-text-disabled-hover);
+      --b-ui-button-text-color: var(--b-ui-button-error-fill-text);
+      --b-ui-button-text-hover: var(--b-ui-button-error-fill-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-error-fill-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-error-fill-text-disabled);
+      --b-ui-button-text-disabled-hover: var(--b-ui-button-error-fill-text-disabled-hover);
 
-      --rb-button-border-color: var(--rb-button-error-fill-border);
-      --rb-button-border-hover: var(--rb-button-error-fill-border-hover);
-      --rb-button-border-active: var(--rb-button-error-fill-border-active);
-      --rb-button-border-disabled: var(--rb-button-error-fill-border-disabled);
-      --rb-button-border-disabled-hover: var(--rb-button-error-fill-border-disabled-hover);
+      --b-ui-button-border-color: var(--b-ui-button-error-fill-border);
+      --b-ui-button-border-hover: var(--b-ui-button-error-fill-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-error-fill-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-error-fill-border-disabled);
+      --b-ui-button-border-disabled-hover: var(--b-ui-button-error-fill-border-disabled-hover);
 
-      --rb-button-shadow-hover: var(--rb-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
-      --rb-button-shadow-active: none;
+      --b-ui-button-shadow-hover: var(--b-ui-shadow-s, 0 2px 4px rgb(0 0 0 / 10%));
+      --b-ui-button-shadow-active: none;
     }
   }
 
   /* ============================================
      TEXT - Sin fondo ni borde
      ============================================ */
-  .rb-button--text {
+  .b-ui-button--text {
     /* Estilos base para TEXT (transparente) */
-    --rb-button-border-width: 0;
-    --rb-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
-    --rb-button-shadow: none;
-    --rb-button-shadow-hover: none;
-    --rb-button-shadow-active: none;
+    --b-ui-button-border-width: 0;
+    --b-ui-button-padding-inline: clamp(0.4rem, 0.3rem + 0.5vw, 0.8rem);
+    --b-ui-button-shadow: none;
+    --b-ui-button-shadow-hover: none;
+    --b-ui-button-shadow-active: none;
 
     /* Underline SIEMPRE visible en TEXT buttons */
     text-decoration: underline;
@@ -874,180 +874,180 @@
 
     /* En disabled, mantener underline con color gris #9B9B9B */
     &:disabled,
-    &.rb-button--disabled {
+    &.b-ui-button--disabled {
       text-decoration: underline;
-      text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
     }
 
     /* PRIMARY TEXT - Patrón Seguros Bolívar */
-    &.rb-button--primary {
+    &.b-ui-button--primary {
       /* Define las variables específicas TEXT */
-      --rb-button-primary-text-bg: transparent;
-      --rb-button-primary-text-bg-hover: var(--rb-color-secondary-L400); /* #FFFCF0 aparece */
-      --rb-button-primary-text-bg-active: var(--rb-color-secondary-L300); /* #FFF6D4 aparece */
-      --rb-button-primary-text-bg-disabled: transparent;
+      --b-ui-button-primary-text-bg: transparent;
+      --b-ui-button-primary-text-bg-hover: var(--b-ui-color-secondary-L400); /* #FFFCF0 aparece */
+      --b-ui-button-primary-text-bg-active: var(--b-ui-color-secondary-L300); /* #FFF6D4 aparece */
+      --b-ui-button-primary-text-bg-disabled: transparent;
 
-      --rb-button-primary-text-text: var(--rb-color-primary-D100); /* Verde */
-      --rb-button-primary-text-text-hover: var(--rb-color-primary-D100); /* Verde mantiene */
-      --rb-button-primary-text-text-active: var(--rb-color-primary-D100); /* Verde mantiene */
-      --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
+      --b-ui-button-primary-text-text: var(--b-ui-color-primary-D100); /* Verde */
+      --b-ui-button-primary-text-text-hover: var(--b-ui-color-primary-D100); /* Verde mantiene */
+      --b-ui-button-primary-text-text-active: var(--b-ui-color-primary-D100); /* Verde mantiene */
+      --b-ui-button-primary-text-text-disabled: var(--b-ui-color-grayscale-base);
 
-      --rb-button-primary-text-border: transparent;
-      --rb-button-primary-text-border-hover: transparent;
-      --rb-button-primary-text-border-active: transparent;
-      --rb-button-primary-text-border-disabled: transparent;
+      --b-ui-button-primary-text-border: transparent;
+      --b-ui-button-primary-text-border-hover: transparent;
+      --b-ui-button-primary-text-border-active: transparent;
+      --b-ui-button-primary-text-border-disabled: transparent;
 
       /* Aplicar las variables TEXT */
-      --rb-button-bg-color: var(--rb-button-primary-text-bg);
-      --rb-button-bg-hover: var(--rb-button-primary-text-bg-hover);
-      --rb-button-bg-active: var(--rb-button-primary-text-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-primary-text-bg-disabled);
+      --b-ui-button-bg-color: var(--b-ui-button-primary-text-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-primary-text-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-primary-text-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-primary-text-bg-disabled);
 
-      --rb-button-text-color: var(--rb-button-primary-text-text);
-      --rb-button-text-hover: var(--rb-button-primary-text-text-hover);
-      --rb-button-text-active: var(--rb-button-primary-text-text-active);
-      --rb-button-text-disabled: var(--rb-button-primary-text-text-disabled);
+      --b-ui-button-text-color: var(--b-ui-button-primary-text-text);
+      --b-ui-button-text-hover: var(--b-ui-button-primary-text-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-primary-text-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-primary-text-text-disabled);
 
-      --rb-button-border-color: var(--rb-button-primary-text-border);
-      --rb-button-border-hover: var(--rb-button-primary-text-border-hover);
-      --rb-button-border-active: var(--rb-button-primary-text-border-active);
-      --rb-button-border-disabled: var(--rb-button-primary-text-border-disabled);
+      --b-ui-button-border-color: var(--b-ui-button-primary-text-border);
+      --b-ui-button-border-hover: var(--b-ui-button-primary-text-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-primary-text-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-primary-text-border-disabled);
 
       /* Sombra inset en pressed (patrón Seguros Bolívar) */
-      --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+      --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
       /* Disabled hover: aparece fondo gris */
-      --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 aparece */
-      --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
+      --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* #F5F5F5 aparece */
+      --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-base); /* #9B9B9B mantiene */
 
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
-      &.rb-button--disabled {
-        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      &.b-ui-button--disabled {
+        text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
       }
     }
 
     /* SECONDARY TEXT */
-    &.rb-button--secondary {
+    &.b-ui-button--secondary {
       /* Define las variables específicas TEXT */
-      --rb-button-secondary-text-bg: transparent;
-      --rb-button-secondary-text-bg-hover: transparent;
-      --rb-button-secondary-text-bg-active: transparent;
-      --rb-button-secondary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-secondary-text-bg: transparent;
+      --b-ui-button-secondary-text-bg-hover: transparent;
+      --b-ui-button-secondary-text-bg-active: transparent;
+      --b-ui-button-secondary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-secondary-text-text: var(--rb-color-secondary-base);
-      --rb-button-secondary-text-text-hover: var(--rb-color-secondary-D100);
-      --rb-button-secondary-text-text-active: var(--rb-color-secondary-D200);
-      --rb-button-secondary-text-text-disabled: var(--rb-color-grayscale-base);
+      --b-ui-button-secondary-text-text: var(--b-ui-color-secondary-base);
+      --b-ui-button-secondary-text-text-hover: var(--b-ui-color-secondary-D100);
+      --b-ui-button-secondary-text-text-active: var(--b-ui-color-secondary-D200);
+      --b-ui-button-secondary-text-text-disabled: var(--b-ui-color-grayscale-base);
 
-      --rb-button-secondary-text-border: transparent;
-      --rb-button-secondary-text-border-hover: transparent;
-      --rb-button-secondary-text-border-active: transparent;
-      --rb-button-secondary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-secondary-text-border: transparent;
+      --b-ui-button-secondary-text-border-hover: transparent;
+      --b-ui-button-secondary-text-border-active: transparent;
+      --b-ui-button-secondary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables TEXT */
-      --rb-button-bg-color: var(--rb-button-secondary-text-bg);
-      --rb-button-bg-hover: var(--rb-button-secondary-text-bg-hover);
-      --rb-button-bg-active: var(--rb-button-secondary-text-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-secondary-text-bg-disabled);
+      --b-ui-button-bg-color: var(--b-ui-button-secondary-text-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-secondary-text-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-secondary-text-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-secondary-text-bg-disabled);
 
-      --rb-button-text-color: var(--rb-button-secondary-text-text);
-      --rb-button-text-hover: var(--rb-button-secondary-text-text-hover);
-      --rb-button-text-active: var(--rb-button-secondary-text-text-active);
-      --rb-button-text-disabled: var(--rb-button-secondary-text-text-disabled);
+      --b-ui-button-text-color: var(--b-ui-button-secondary-text-text);
+      --b-ui-button-text-hover: var(--b-ui-button-secondary-text-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-secondary-text-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-secondary-text-text-disabled);
 
-      --rb-button-border-color: var(--rb-button-secondary-text-border);
-      --rb-button-border-hover: var(--rb-button-secondary-text-border-hover);
-      --rb-button-border-active: var(--rb-button-secondary-text-border-active);
-      --rb-button-border-disabled: var(--rb-button-secondary-text-border-disabled);
+      --b-ui-button-border-color: var(--b-ui-button-secondary-text-border);
+      --b-ui-button-border-hover: var(--b-ui-button-secondary-text-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-secondary-text-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-secondary-text-border-disabled);
 
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
-      &.rb-button--disabled {
-        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      &.b-ui-button--disabled {
+        text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
       }
     }
 
     /* TERTIARY TEXT */
-    &.rb-button--tertiary {
+    &.b-ui-button--tertiary {
       /* Define las variables específicas TEXT */
-      --rb-button-tertiary-text-bg: transparent;
-      --rb-button-tertiary-text-bg-hover: transparent;
-      --rb-button-tertiary-text-bg-active: transparent;
-      --rb-button-tertiary-text-bg-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-tertiary-text-bg: transparent;
+      --b-ui-button-tertiary-text-bg-hover: transparent;
+      --b-ui-button-tertiary-text-bg-active: transparent;
+      --b-ui-button-tertiary-text-bg-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
-      --rb-button-tertiary-text-text: var(--rb-color-tertiary-base);
-      --rb-button-tertiary-text-text-hover: var(--rb-color-tertiary-D100);
-      --rb-button-tertiary-text-text-active: var(--rb-color-tertiary-D200);
-      --rb-button-tertiary-text-text-disabled: var(--rb-color-grayscale-base);
+      --b-ui-button-tertiary-text-text: var(--b-ui-color-tertiary-base);
+      --b-ui-button-tertiary-text-text-hover: var(--b-ui-color-tertiary-D100);
+      --b-ui-button-tertiary-text-text-active: var(--b-ui-color-tertiary-D200);
+      --b-ui-button-tertiary-text-text-disabled: var(--b-ui-color-grayscale-base);
 
-      --rb-button-tertiary-text-border: transparent;
-      --rb-button-tertiary-text-border-hover: transparent;
-      --rb-button-tertiary-text-border-active: transparent;
-      --rb-button-tertiary-text-border-disabled: var(--rb-color-grayscale-L300, #f5f5f5);
+      --b-ui-button-tertiary-text-border: transparent;
+      --b-ui-button-tertiary-text-border-hover: transparent;
+      --b-ui-button-tertiary-text-border-active: transparent;
+      --b-ui-button-tertiary-text-border-disabled: var(--b-ui-color-grayscale-L300, #f5f5f5);
 
       /* Aplicar las variables TEXT */
-      --rb-button-bg-color: var(--rb-button-tertiary-text-bg);
-      --rb-button-bg-hover: var(--rb-button-tertiary-text-bg-hover);
-      --rb-button-bg-active: var(--rb-button-tertiary-text-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-tertiary-text-bg-disabled);
+      --b-ui-button-bg-color: var(--b-ui-button-tertiary-text-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-tertiary-text-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-tertiary-text-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-tertiary-text-bg-disabled);
 
-      --rb-button-text-color: var(--rb-button-tertiary-text-text);
-      --rb-button-text-hover: var(--rb-button-tertiary-text-text-hover);
-      --rb-button-text-active: var(--rb-button-tertiary-text-text-active);
-      --rb-button-text-disabled: var(--rb-button-tertiary-text-text-disabled);
+      --b-ui-button-text-color: var(--b-ui-button-tertiary-text-text);
+      --b-ui-button-text-hover: var(--b-ui-button-tertiary-text-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-tertiary-text-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-tertiary-text-text-disabled);
 
-      --rb-button-border-color: var(--rb-button-tertiary-text-border);
-      --rb-button-border-hover: var(--rb-button-tertiary-text-border-hover);
-      --rb-button-border-active: var(--rb-button-tertiary-text-border-active);
-      --rb-button-border-disabled: var(--rb-button-tertiary-text-border-disabled);
+      --b-ui-button-border-color: var(--b-ui-button-tertiary-text-border);
+      --b-ui-button-border-hover: var(--b-ui-button-tertiary-text-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-tertiary-text-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-tertiary-text-border-disabled);
 
       /* Text decoration color en disabled - debe coincidir con el color del texto */
       &:disabled,
-      &.rb-button--disabled {
-        text-decoration-color: var(--rb-color-grayscale-base); /* #9B9B9B */
+      &.b-ui-button--disabled {
+        text-decoration-color: var(--b-ui-color-grayscale-base); /* #9B9B9B */
       }
     }
 
     /* ERROR TEXT */
-    &.rb-button--error {
+    &.b-ui-button--error {
       /* Define las variables específicas TEXT */
-      --rb-button-error-text-bg: transparent;
-      --rb-button-error-text-bg-hover: transparent;
-      --rb-button-error-text-bg-active: transparent;
-      --rb-button-error-text-bg-disabled: var(--rb-color-feedback-error-L400, #fbebec);
+      --b-ui-button-error-text-bg: transparent;
+      --b-ui-button-error-text-bg-hover: transparent;
+      --b-ui-button-error-text-bg-active: transparent;
+      --b-ui-button-error-text-bg-disabled: var(--b-ui-color-feedback-error-L400, #fbebec);
 
-      --rb-button-error-text-text: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-error-text-text-hover: var(--rb-color-feedback-error-D100, #c93241);
-      --rb-button-error-text-text-active: var(--rb-color-feedback-error-D200, #b5303d);
-      --rb-button-error-text-text-disabled: var(--rb-color-feedback-error-L200, #ee9aa2);
+      --b-ui-button-error-text-text: var(--b-ui-color-feedback-error-base, #dc3545);
+      --b-ui-button-error-text-text-hover: var(--b-ui-color-feedback-error-D100, #c93241);
+      --b-ui-button-error-text-text-active: var(--b-ui-color-feedback-error-D200, #b5303d);
+      --b-ui-button-error-text-text-disabled: var(--b-ui-color-feedback-error-L200, #ee9aa2);
 
-      --rb-button-error-text-border: transparent;
-      --rb-button-error-text-border-hover: transparent;
-      --rb-button-error-text-border-active: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-button-error-text-border-disabled: transparent;
+      --b-ui-button-error-text-border: transparent;
+      --b-ui-button-error-text-border-hover: transparent;
+      --b-ui-button-error-text-border-active: var(--b-ui-color-feedback-error-base, #dc3545);
+      --b-ui-button-error-text-border-disabled: transparent;
 
       /* Aplicar las variables TEXT */
-      --rb-button-bg-color: var(--rb-button-error-text-bg);
-      --rb-button-bg-hover: var(--rb-button-error-text-bg-hover);
-      --rb-button-bg-active: var(--rb-button-error-text-bg-active);
-      --rb-button-bg-disabled: var(--rb-button-error-text-bg-disabled);
+      --b-ui-button-bg-color: var(--b-ui-button-error-text-bg);
+      --b-ui-button-bg-hover: var(--b-ui-button-error-text-bg-hover);
+      --b-ui-button-bg-active: var(--b-ui-button-error-text-bg-active);
+      --b-ui-button-bg-disabled: var(--b-ui-button-error-text-bg-disabled);
 
-      --rb-button-text-color: var(--rb-button-error-text-text);
-      --rb-button-text-hover: var(--rb-button-error-text-text-hover);
-      --rb-button-text-active: var(--rb-button-error-text-text-active);
-      --rb-button-text-disabled: var(--rb-button-error-text-text-disabled);
+      --b-ui-button-text-color: var(--b-ui-button-error-text-text);
+      --b-ui-button-text-hover: var(--b-ui-button-error-text-text-hover);
+      --b-ui-button-text-active: var(--b-ui-button-error-text-text-active);
+      --b-ui-button-text-disabled: var(--b-ui-button-error-text-text-disabled);
 
-      --rb-button-border-color: var(--rb-button-error-text-border);
-      --rb-button-border-hover: var(--rb-button-error-text-border-hover);
-      --rb-button-border-active: var(--rb-button-error-text-border-active);
-      --rb-button-border-disabled: var(--rb-button-error-text-border-disabled);
+      --b-ui-button-border-color: var(--b-ui-button-error-text-border);
+      --b-ui-button-border-hover: var(--b-ui-button-error-text-border-hover);
+      --b-ui-button-border-active: var(--b-ui-button-error-text-border-active);
+      --b-ui-button-border-disabled: var(--b-ui-button-error-text-border-disabled);
 
       /* Border width para pressed/active (1px) */
-      --rb-button-border-width: 1px;
+      --b-ui-button-border-width: 1px;
 
       /* Box-shadow pressed para TEXT variant */
-      --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+      --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
       /* Underline siempre visible, color coincide con el texto */
       text-decoration: underline;
@@ -1055,8 +1055,8 @@
 
       /* Text decoration color en disabled - debe coincidir con el color del texto disabled */
       &:disabled,
-      &.rb-button--disabled {
-        text-decoration-color: var(--rb-color-feedback-error-L200, #ee9aa2);
+      &.b-ui-button--disabled {
+        text-decoration-color: var(--b-ui-color-feedback-error-L200, #ee9aa2);
       }
     }
   }
@@ -1067,26 +1067,26 @@
    ======================================== */
 
 @layer sizes {
-  .rb-button--small {
-    --rb-button-padding-inline: clamp(0.5rem, 0.3rem + 0.8vw, 1rem);
-    --rb-button-padding-block: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
-    --rb-button-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-    --rb-button-min-inline-size: clamp(60px, 12vw, 100px);
-    --rb-button-min-block-size: clamp(28px, 6vw, 36px);
-    --rb-button-gap: clamp(0.2rem, 0.15rem + 0.2vw, 0.4rem);
+  .b-ui-button--small {
+    --b-ui-button-padding-inline: clamp(0.5rem, 0.3rem + 0.8vw, 1rem);
+    --b-ui-button-padding-block: clamp(0.25rem, 0.2rem + 0.3vw, 0.5rem);
+    --b-ui-button-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --b-ui-button-min-inline-size: clamp(60px, 12vw, 100px);
+    --b-ui-button-min-block-size: clamp(28px, 6vw, 36px);
+    --b-ui-button-gap: clamp(0.2rem, 0.15rem + 0.2vw, 0.4rem);
   }
 
-  .rb-button--medium {
+  .b-ui-button--medium {
     /* Default - ya definido en tokens */
   }
 
-  .rb-button--large {
-    --rb-button-padding-inline: clamp(1.2rem, 0.8rem + 2vw, 2.5rem);
-    --rb-button-padding-block: clamp(0.5rem, 0.4rem + 0.8vw, 1.125rem);
-    --rb-button-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
-    --rb-button-min-inline-size: clamp(100px, 18vw, 140px);
-    --rb-button-min-block-size: clamp(44px, 10vw, 56px);
-    --rb-button-gap: clamp(0.3rem, 0.25rem + 0.4vw, 0.6rem);
+  .b-ui-button--large {
+    --b-ui-button-padding-inline: clamp(1.2rem, 0.8rem + 2vw, 2.5rem);
+    --b-ui-button-padding-block: clamp(0.5rem, 0.4rem + 0.8vw, 1.125rem);
+    --b-ui-button-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+    --b-ui-button-min-inline-size: clamp(100px, 18vw, 140px);
+    --b-ui-button-min-block-size: clamp(44px, 10vw, 56px);
+    --b-ui-button-gap: clamp(0.3rem, 0.25rem + 0.4vw, 0.6rem);
   }
 }
 
@@ -1096,12 +1096,12 @@
 
 @layer modifiers {
   /* Square corners - esquinas menos redondeadas */
-  .rb-button--square {
-    --rb-button-border-radius: clamp(6px, 0.4rem + 0.3vw, 10px);
+  .b-ui-button--square {
+    --b-ui-button-border-radius: clamp(6px, 0.4rem + 0.3vw, 10px);
   }
 
   /* Block (full width) */
-  .rb-button--block {
+  .b-ui-button--block {
     display: flex;
     inline-size: 100%;
   }
@@ -1114,7 +1114,7 @@
 
 @layer icon-positions {
   /* Icon Left - icono a la izquierda del texto */
-  .rb-button--icon-left {
+  .b-ui-button--icon-left {
     flex-direction: row;
 
     /* SVG/Icon styles - tamaño responsive 18px base */
@@ -1122,7 +1122,7 @@
     & > i:first-child,
     & > span:first-child,
     & > [class*='icon']:first-child {
-      margin-inline-end: var(--rb-button-gap);
+      margin-inline-end: var(--b-ui-button-gap);
       inline-size: clamp(16px, 1.125rem, 20px);
       block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
@@ -1131,7 +1131,7 @@
   }
 
   /* Icon Right - icono a la derecha del texto */
-  .rb-button--icon-right {
+  .b-ui-button--icon-right {
     flex-direction: row;
 
     /* SVG/Icon styles - tamaño responsive 18px base */
@@ -1139,7 +1139,7 @@
     & > i:last-child,
     & > span:last-child,
     & > [class*='icon']:last-child {
-      margin-inline-start: var(--rb-button-gap);
+      margin-inline-start: var(--b-ui-button-gap);
       inline-size: clamp(16px, 1.125rem, 20px);
       block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
@@ -1149,11 +1149,11 @@
 
   /* Icon Only - solo icono, sin texto, completamente redondo
      Estructura: icono 18px + padding 11px = 40x40px total circular */
-  .rb-button--icon-only {
-    --rb-button-padding-inline: 11px;
-    --rb-button-padding-block: 11px;
-    --rb-button-min-inline-size: 40px;
-    --rb-button-border-radius: 50%; /* Completamente redondo */
+  .b-ui-button--icon-only {
+    --b-ui-button-padding-inline: 11px;
+    --b-ui-button-padding-block: 11px;
+    --b-ui-button-min-inline-size: 40px;
+    --b-ui-button-border-radius: 50%; /* Completamente redondo */
 
     /* Forzar tamaño exacto 40x40px */
     inline-size: 40px !important;
@@ -1181,9 +1181,9 @@
     }
 
     /* Small size: 32x32 (icono 14px + padding 9px) */
-    &.rb-button--small {
-      --rb-button-padding-inline: 9px;
-      --rb-button-padding-block: 9px;
+    &.b-ui-button--small {
+      --b-ui-button-padding-inline: 9px;
+      --b-ui-button-padding-block: 9px;
 
       inline-size: 32px !important;
       block-size: 32px !important;
@@ -1204,9 +1204,9 @@
     }
 
     /* Large size: 48x48 (icono 22px + padding 13px) */
-    &.rb-button--large {
-      --rb-button-padding-inline: 13px;
-      --rb-button-padding-block: 13px;
+    &.b-ui-button--large {
+      --b-ui-button-padding-inline: 13px;
+      --b-ui-button-padding-block: 13px;
 
       inline-size: 48px !important;
       block-size: 48px !important;
@@ -1236,15 +1236,15 @@
   /* ============================================
      LOADING STATE
      ============================================ */
-  .rb-button--loading {
-    --rb-button-loading-animation-duration: 0.6s;
-    --rb-button-loading-spinner-size: clamp(14px, 3vw, 18px);
+  .b-ui-button--loading {
+    --b-ui-button-loading-animation-duration: 0.6s;
+    --b-ui-button-loading-spinner-size: clamp(14px, 3vw, 18px);
 
     pointer-events: none;
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: var(--rb-button-gap);
+    gap: var(--b-ui-button-gap);
 
     /* Ocultar iconos cuando está en loading - reemplazar por spinner */
     & > svg,
@@ -1255,47 +1255,47 @@
     }
 
     /* Mantener underline en botones TEXT cuando están en loading */
-    &.rb-button--text {
+    &.b-ui-button--text {
       text-decoration: underline;
       text-underline-offset: 1px;
     }
 
     /* Los spinners (::before y ::after) NO deben tener underline */
-    &.rb-button--text::before,
-    &.rb-button--text::after {
+    &.b-ui-button--text::before,
+    &.b-ui-button--text::after {
       text-decoration: none;
       display: inline-block;
     }
 
     /* Loading con icono a la izquierda (default o icon-left) */
-    &:not(.rb-button--icon-right):not(.rb-button--icon-only)::before,
-    &.rb-button--icon-left::before {
+    &:not(.b-ui-button--icon-right):not(.b-ui-button--icon-only)::before,
+    &.b-ui-button--icon-left::before {
       content: '';
-      inline-size: var(--rb-button-loading-spinner-size);
-      block-size: var(--rb-button-loading-spinner-size);
+      inline-size: var(--b-ui-button-loading-spinner-size);
+      block-size: var(--b-ui-button-loading-spinner-size);
       border: 2px solid currentcolor;
       border-radius: 50%;
       border-top-color: transparent;
-      animation: rb-button-spinner var(--rb-button-loading-animation-duration) linear infinite;
+      animation: rb-button-spinner var(--b-ui-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
-      margin-inline-end: var(--rb-button-gap);
+      margin-inline-end: var(--b-ui-button-gap);
     }
 
     /* Loading con icono a la derecha (icon-right) */
-    &.rb-button--icon-right::after {
+    &.b-ui-button--icon-right::after {
       content: '';
-      inline-size: var(--rb-button-loading-spinner-size);
-      block-size: var(--rb-button-loading-spinner-size);
+      inline-size: var(--b-ui-button-loading-spinner-size);
+      block-size: var(--b-ui-button-loading-spinner-size);
       border: 2px solid currentcolor;
       border-radius: 50%;
       border-top-color: transparent;
-      animation: rb-button-spinner var(--rb-button-loading-animation-duration) linear infinite;
+      animation: rb-button-spinner var(--b-ui-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
-      margin-inline-start: var(--rb-button-gap);
+      margin-inline-start: var(--b-ui-button-gap);
     }
 
     /* Loading solo icono (icon-only) - spinner centrado absolutamente */
-    &.rb-button--icon-only {
+    &.b-ui-button--icon-only {
       /* Remover el icono completamente */
       & > svg,
       & > i,
@@ -1307,16 +1307,16 @@
       &::after {
         content: '';
         position: absolute;
-        inline-size: var(--rb-button-loading-spinner-size);
-        block-size: var(--rb-button-loading-spinner-size);
+        inline-size: var(--b-ui-button-loading-spinner-size);
+        block-size: var(--b-ui-button-loading-spinner-size);
         inset-block-start: 50%;
         inset-inline-start: 50%;
-        margin-inline-start: calc(var(--rb-button-loading-spinner-size) / -2);
-        margin-block-start: calc(var(--rb-button-loading-spinner-size) / -2);
+        margin-inline-start: calc(var(--b-ui-button-loading-spinner-size) / -2);
+        margin-block-start: calc(var(--b-ui-button-loading-spinner-size) / -2);
         border: 2px solid currentcolor;
         border-radius: 50%;
         border-top-color: transparent;
-        animation: rb-button-spinner var(--rb-button-loading-animation-duration) linear infinite;
+        animation: rb-button-spinner var(--b-ui-button-loading-animation-duration) linear infinite;
         z-index: 2;
       }
     }
@@ -1325,50 +1325,50 @@
   /* Spinner colors por variante de estilo */
 
   /* STROKE y TEXT - spinner color del texto */
-  .rb-button--loading:not(.rb-button--fill)::before,
-  .rb-button--loading:not(.rb-button--fill)::after {
+  .b-ui-button--loading:not(.b-ui-button--fill)::before,
+  .b-ui-button--loading:not(.b-ui-button--fill)::after {
     border-color: currentcolor;
     border-top-color: transparent;
   }
 
   /* FILL PRIMARY, TERTIARY - spinner color primary-D100 (verde oscuro) */
-  .rb-button--fill.rb-button--primary.rb-button--loading::before,
-  .rb-button--fill.rb-button--primary.rb-button--loading::after,
-  .rb-button--fill.rb-button--tertiary.rb-button--loading::before,
-  .rb-button--fill.rb-button--tertiary.rb-button--loading::after {
-    border-color: var(--rb-color-primary-D100, black);
+  .b-ui-button--fill.b-ui-button--primary.b-ui-button--loading::before,
+  .b-ui-button--fill.b-ui-button--primary.b-ui-button--loading::after,
+  .b-ui-button--fill.b-ui-button--tertiary.b-ui-button--loading::before,
+  .b-ui-button--fill.b-ui-button--tertiary.b-ui-button--loading::after {
+    border-color: var(--b-ui-color-primary-D100, black);
     border-top-color: transparent;
   }
 
   /* FILL SECONDARY - spinner color primary-base */
-  .rb-button--fill.rb-button--secondary.rb-button--loading::before,
-  .rb-button--fill.rb-button--secondary.rb-button--loading::after {
-    border-color: var(--rb-color-primary-base);
+  .b-ui-button--fill.b-ui-button--secondary.b-ui-button--loading::before,
+  .b-ui-button--fill.b-ui-button--secondary.b-ui-button--loading::after {
+    border-color: var(--b-ui-color-primary-base);
     border-top-color: transparent;
   }
 
   /* FILL ERROR - spinner color WHITE */
-  .rb-button--fill.rb-button--error.rb-button--loading::before,
-  .rb-button--fill.rb-button--error.rb-button--loading::after {
-    border-color: var(--rb-color-grayscale-white, white);
+  .b-ui-button--fill.b-ui-button--error.b-ui-button--loading::before,
+  .b-ui-button--fill.b-ui-button--error.b-ui-button--loading::after {
+    border-color: var(--b-ui-color-grayscale-white, white);
     border-top-color: transparent;
   }
 
   /* Disabled spinner - usar color grayscale */
-  .rb-button:disabled.rb-button--loading::before,
-  .rb-button:disabled.rb-button--loading::after,
-  .rb-button.rb-button--disabled.rb-button--loading::before,
-  .rb-button.rb-button--disabled.rb-button--loading::after {
-    border-color: var(--rb-color-grayscale-base, #9b9b9b);
+  .b-ui-button:disabled.b-ui-button--loading::before,
+  .b-ui-button:disabled.b-ui-button--loading::after,
+  .b-ui-button.b-ui-button--disabled.b-ui-button--loading::before,
+  .b-ui-button.b-ui-button--disabled.b-ui-button--loading::after {
+    border-color: var(--b-ui-color-grayscale-base, #9b9b9b);
     border-top-color: transparent;
   }
 
   /* ERROR FILL Disabled - spinner color error-L200 */
-  .rb-button--fill.rb-button--error:disabled.rb-button--loading::before,
-  .rb-button--fill.rb-button--error:disabled.rb-button--loading::after,
-  .rb-button--fill.rb-button--error.rb-button--disabled.rb-button--loading::before,
-  .rb-button--fill.rb-button--error.rb-button--disabled.rb-button--loading::after {
-    border-color: var(--rb-color-feedback-error-L200, #ee9aa2);
+  .b-ui-button--fill.b-ui-button--error:disabled.b-ui-button--loading::before,
+  .b-ui-button--fill.b-ui-button--error:disabled.b-ui-button--loading::after,
+  .b-ui-button--fill.b-ui-button--error.b-ui-button--disabled.b-ui-button--loading::before,
+  .b-ui-button--fill.b-ui-button--error.b-ui-button--disabled.b-ui-button--loading::after {
+    border-color: var(--b-ui-color-feedback-error-L200, #ee9aa2);
     border-top-color: transparent;
   }
 }
@@ -1405,11 +1405,11 @@
 @layer utilities {
   /* High contrast mode support */
   @media (prefers-contrast: high) {
-    .rb-button {
-      --rb-button-border-width: 3px;
+    .b-ui-button {
+      --b-ui-button-border-width: 3px;
     }
 
-    .rb-button--text {
+    .b-ui-button--text {
       text-decoration: underline;
       text-underline-offset: 1px;
     }
@@ -1417,33 +1417,33 @@
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .rb-button {
-      --rb-button-transition: none;
+    .b-ui-button {
+      --b-ui-button-transition: none;
     }
 
-    .rb-button--loading::before,
-    .rb-button--loading::after {
+    .b-ui-button--loading::before,
+    .b-ui-button--loading::after {
       animation: none;
     }
   }
 
   /* Mobile - Full width by default (excepto icon-only y circle) */
   @media (inline-size <= 640px) {
-    .rb-button:not(.rb-button--icon-only):not(.rb-button--circle) {
+    .b-ui-button:not(.b-ui-button--icon-only):not(.b-ui-button--circle) {
       inline-size: 100%;
     }
   }
 
   /* Desktop - Auto width */
   @media (inline-size >= 641px) {
-    .rb-button:not(.rb-button--block) {
+    .b-ui-button:not(.b-ui-button--block) {
       inline-size: auto;
     }
   }
 
   /* Print styles */
   @media print {
-    .rb-button {
+    .b-ui-button {
       background: transparent;
       color: black;
       border: 1px solid black;

@@ -1,20 +1,20 @@
-# 🎨 Root Block Design System
+# 🎨 Bolivar UI Design System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/github/v/release/JhonMoofarrif-SB/root-block)](https://github.com/JhonMoofarrif-SB/root-block/releases)
-[![CI](https://github.com/JhonMoofarrif-SB/root-block/workflows/CI/badge.svg)](https://github.com/JhonMoofarrif-SB/root-block/actions)
+[![Release](https://img.shields.io/github/v/release/JhonMoofarrif-SB/bolivar-ui)](https://github.com/JhonMoofarrif-SB/bolivar-ui/releases)
+[![CI](https://github.com/JhonMoofarrif-SB/bolivar-ui/workflows/CI/badge.svg)](https://github.com/JhonMoofarrif-SB/bolivar-ui/actions)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 > 🚀 Enterprise Multi-Brand Design System con soporte para 6 marcas, 2 temas y overrides personalizados
 
 **✨ v1.1.0 Nuevo:** Sistema de overrides por marca + Animación especial Davivienda
 
-[Demo en Vivo](https://jhonmoofarrif-sb.github.io/root-block/) | [Documentación](./docs/) | [Changelog](./CHANGELOG.md) | [Releases](https://github.com/JhonMoofarrif-SB/root-block/releases)
+[Demo en Vivo](https://jhonmoofarrif-sb.github.io/bolivar-ui/) | [Documentación](./docs/) | [Changelog](./CHANGELOG.md) | [Releases](https://github.com/JhonMoofarrif-SB/bolivar-ui/releases)
 
 ## 🏗️ Arquitectura
 
 ```
-root-bloock/
+bolivar-ui/
 ├── packages/
 │   ├── tokens/              # 🎨 Design Tokens (colores, tipografía, sombras)
 │   ├── atoms/               # ⚛️ Componentes CSS simples (Button, Input, etc.)
@@ -47,22 +47,22 @@ packages/brand-overrides/
 
 ## 📦 Packages
 
-### 🎨 [@rb/tokens](./packages/tokens)
+### 🎨 [@bolivar-ui/tokens](./packages/tokens)
 
 Design tokens para 6 marcas × 2 temas = 12 combinaciones
 
 - White Label, Jelpit, Davivienda, Cien Cuadras, Doctor Aki, Seguros Bolívar
 - Light y Dark themes
 
-### ⚛️ [@rb/atoms](./packages/atoms)
+### ⚛️ [@bolivar-ui/atoms](./packages/atoms)
 
-Componentes CSS simples con variables `--rb-*`
+Componentes CSS simples con variables `--b-ui-*`
 
 - Cada componente resuelve todo su CSS (sin dependencias externas)
 - **Button** con múltiples variantes y estados (incluyendo loading)
 - Más componentes en desarrollo: Badge, Card, Alert
 
-### 🧬 [@rb/molecules](./packages/molecules)
+### 🧬 [@bolivar-ui/molecules](./packages/molecules)
 
 Web Components complejos con Lit
 
@@ -71,7 +71,7 @@ Web Components complejos con Lit
 - **Dropdown**: Menús desplegables
 - Más componentes en desarrollo: Data Table, Charts
 
-### ✨ [@rb/brand-overrides](./packages/brand-overrides) 🆕
+### ✨ [@bolivar-ui/brand-overrides](./packages/brand-overrides) 🆕
 
 Estilos específicos por marca que extienden o modifican componentes base
 
@@ -79,7 +79,7 @@ Estilos específicos por marca que extienden o modifican componentes base
 - Arquitectura extensible para cualquier marca
 - Se combinan automáticamente en el bundle final
 
-### 📦 [@rb/bundle](./packages/bundle)
+### 📦 [@bolivar-ui/bundle](./packages/bundle)
 
 Generador de bundles CDN optimizados - **Complete bundle per brand**
 
@@ -94,8 +94,8 @@ Generador de bundles CDN optimizados - **Complete bundle per brand**
 
 ```bash
 # 1. Clonar repositorio
-git clone https://github.com/JhonMoofarrif-SB/root-block.git
-cd root-block
+git clone https://github.com/JhonMoofarrif-SB/bolivar-ui.git
+cd bolivar-ui
 
 # 2. Instalar dependencias
 pnpm install
@@ -132,7 +132,7 @@ pnpm run storybook
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi App con Root Block</title>
+    <title>Mi App con Bolivar UI</title>
 
     <!-- 1. Bundle completo de marca (tokens + atoms + overrides) - ~2.4KB gzip -->
     <link rel="stylesheet" href="https://cdn.rootblock.com/rb-davivienda-light.min.css" />
@@ -198,31 +198,31 @@ changeBrand('cien-cuadras', 'light'); // 🔵 Azul inmobiliario
 
 ## 🎨 Variables CSS
 
-**TODAS las variables tienen prefijo `--rb-`** para evitar colisiones:
+**TODAS las variables tienen prefijo `--b-ui-`** para evitar colisiones:
 
 ### Tokens de Marca
 
 ```css
---rb-color-primary-base
---rb-color-secondary-base
---rb-typography-fontFamily
---rb-shadow-m
+--b-ui-color-primary-base
+--b-ui-color-secondary-base
+--b-ui-typography-fontFamily
+--b-ui-shadow-m
 ```
 
 ### Variables de Componente
 
 ```css
---rb-button-bg-color
---rb-button-padding
---rb-button-border-radius
+--b-ui-button-bg-color
+--b-ui-button-padding
+--b-ui-button-border-radius
 ```
 
 ## 📚 Documentación
 
 ### 🌐 Documentación Online
 
-- **Storybook**: [root-bloock.vercel.app](https://root-bloock.vercel.app) - Documentación completa
-- **Demo Interactivo**: [root-bloock.vercel.app/examples](https://root-bloock.vercel.app/examples) - Prueba en vivo
+- **Storybook**: [bolivar-ui.vercel.app](https://bolivar-ui.vercel.app) - Documentación completa
+- **Demo Interactivo**: [bolivar-ui.vercel.app/examples](https://bolivar-ui.vercel.app/examples) - Prueba en vivo
 
 ### Storybook Interactivo (Local)
 
@@ -281,8 +281,8 @@ El proyecto sigue estándares CSS modernos con **Cursor AI**:
 - ✅ `@layer` para control de cascada predecible
 - ✅ Logical Properties (RTL/LTR ready)
 - ✅ `clamp()` para responsive fluido sin media queries
-- ✅ Variables CSS con prefijo `--rb-`
-- ✅ Nomenclatura BEM con prefijo `rb-`
+- ✅ Variables CSS con prefijo `--b-ui-`
+- ✅ Nomenclatura BEM con prefijo `b-ui-`
 - ✅ Accesibilidad completa (WCAG AA)
 - ✅ **Cursor AI aplica reglas automáticamente desde la carpeta `.cursor/`**
 
@@ -358,10 +358,10 @@ pnpm run build
 
 | Archivo                       | Marca       | Minificado | Gzip   | Contenido                     |
 | ----------------------------- | ----------- | ---------- | ------ | ----------------------------- |
-| `rb-jelpit-light.min.css`     | Jelpit      | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
-| `rb-davivienda-light.min.css` | Davivienda  | 13.5 KB    | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
-| `rb-white-label-dark.min.css` | White Label | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
-| `rb-components.min.js`        | Universal   | 29.7 KB    | 8.6 KB | Todos los Web Components      |
+| `b-ui-jelpit-light.min.css`     | Jelpit      | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
+| `b-ui-davivienda-light.min.css` | Davivienda  | 13.5 KB    | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
+| `b-ui-white-label-dark.min.css` | White Label | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
+| `b-ui-components.min.js`        | Universal   | 29.7 KB    | 8.6 KB | Todos los Web Components      |
 
 ### Total por Usuario
 
@@ -432,7 +432,7 @@ Ejemplo:
 
 ```css
 /* packages/brand-overrides/src/mi-marca/button.css */
-[data-brand='mi-marca'] .rb-button--primary {
+[data-brand='mi-marca'] .b-ui-button--primary {
   /* Tus estilos personalizados */
 }
 ```
@@ -462,15 +462,15 @@ Ejemplo:
 
 ## 📄 Licencia
 
-MIT © Root Block - ver [LICENSE](./LICENSE) para más detalles
+MIT © Bolivar UI - ver [LICENSE](./LICENSE) para más detalles
 
 ## 💬 Soporte
 
 - 📧 Email: support@rootblock.com
-- 🐛 Issues: [GitHub Issues](https://github.com/JhonMoofarrif-SB/root-block/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/JhonMoofarrif-SB/root-block/discussions)
-- 📦 Releases: [GitHub Releases](https://github.com/JhonMoofarrif-SB/root-block/releases)
+- 🐛 Issues: [GitHub Issues](https://github.com/JhonMoofarrif-SB/bolivar-ui/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/JhonMoofarrif-SB/bolivar-ui/discussions)
+- 📦 Releases: [GitHub Releases](https://github.com/JhonMoofarrif-SB/bolivar-ui/releases)
 
 ---
 
-Hecho con ❤️ por el equipo de Root Block | **v1.1.0** - Brand Overrides System + Optimizations ⚡
+Hecho con ❤️ por el equipo de Bolivar UI | **v1.1.0** - Brand Overrides System + Optimizations ⚡

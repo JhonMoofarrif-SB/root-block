@@ -1,6 +1,6 @@
-# 🤝 Contributing to Root Block Design System
+# 🤝 Contributing to Bolivar UI Design System
 
-¡Gracias por tu interés en contribuir al Root Block Design System! Este documento te guiará a través del proceso de contribución.
+¡Gracias por tu interés en contribuir al Bolivar UI Design System! Este documento te guiará a través del proceso de contribución.
 
 ## 🚀 Quick Start
 
@@ -8,8 +8,8 @@
 
 ```bash
 # 1. Fork y clonar el repositorio
-git clone https://github.com/tu-usuario/root-bloock.git
-cd root-bloock
+git clone https://github.com/tu-usuario/bolivar-ui.git
+cd bolivar-ui
 
 # 2. Setup automático
 pnpm run setup
@@ -40,7 +40,7 @@ pnpm run dev:test       # Tests en watch
 ## 📁 Estructura del Proyecto
 
 ```
-root-bloock/
+bolivar-ui/
 ├── packages/
 │   ├── tokens/         # 🎨 Design tokens
 │   ├── atoms/          # ⚛️ Componentes CSS
@@ -82,20 +82,20 @@ root-bloock/
 
 ### CSS/Styling
 
-- **Prefijo**: Todas las clases CSS usan `rb-` (ej: `.rb-button`)
-- **Variables**: Todas las CSS variables usan `--rb-` (ej: `--rb-color-primary`)
+- **Prefijo**: Todas las clases CSS usan `b-ui-` (ej: `.b-ui-button`)
+- **Variables**: Todas las CSS variables usan `--b-ui-` (ej: `--b-ui-color-primary`)
 - **BEM**: Usa metodología BEM para naming
 - **Nesting**: CSS nativo con `&` permitido
 - **Logical Properties**: Usa `inline-start` en lugar de `left`
 
 ```css
 /* ✅ Correcto */
-.rb-button {
-  --rb-button-padding: var(--rb-space-m);
-  padding-inline: var(--rb-button-padding);
+.b-ui-button {
+  --b-ui-button-padding: var(--b-ui-space-m);
+  padding-inline: var(--b-ui-button-padding);
 
   &--primary {
-    background-color: var(--rb-color-primary-base);
+    background-color: var(--b-ui-color-primary-base);
   }
 }
 
@@ -213,7 +213,7 @@ Estructura básica:
 
 ```css
 /* packages/atoms/src/mi-componente.css */
-.rb-mi-componente {
+.b-ui-mi-componente {
   /* Estilos base */
 
   &--variant {
@@ -320,10 +320,10 @@ pnpm exec husky install
 
 ### Contacto
 
-- 🐛 **Bugs**: [GitHub Issues](https://github.com/tu-usuario/root-bloock/issues)
-- 💬 **Preguntas**: [GitHub Discussions](https://github.com/tu-usuario/root-bloock/discussions)
+- 🐛 **Bugs**: [GitHub Issues](https://github.com/tu-usuario/bolivar-ui/issues)
+- 💬 **Preguntas**: [GitHub Discussions](https://github.com/tu-usuario/bolivar-ui/discussions)
 - 📧 **Email**: support@rootblock.com
 
 ---
 
-¡Gracias por contribuir al Root Block Design System! 🎨✨
+¡Gracias por contribuir al Bolivar UI Design System! 🎨✨

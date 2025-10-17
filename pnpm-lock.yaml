@@ -82,13 +82,13 @@ importers:
 
   packages/bundle:
     dependencies:
-      '@rb/atoms':
+      '@bolivar-ui/atoms':
         specifier: workspace:*
         version: link:../atoms
-      '@rb/molecules':
+      '@bolivar-ui/molecules':
         specifier: workspace:*
         version: link:../molecules
-      '@rb/tokens':
+      '@bolivar-ui/tokens':
         specifier: workspace:*
         version: link:../tokens
     devDependencies:
@@ -125,13 +125,13 @@ importers:
 
   packages/docs:
     dependencies:
-      '@rb/atoms':
+      '@bolivar-ui/atoms':
         specifier: workspace:*
         version: link:../atoms
-      '@rb/molecules':
+      '@bolivar-ui/molecules':
         specifier: workspace:*
         version: link:../molecules
-      '@rb/tokens':
+      '@bolivar-ui/tokens':
         specifier: workspace:*
         version: link:../tokens
       lit:

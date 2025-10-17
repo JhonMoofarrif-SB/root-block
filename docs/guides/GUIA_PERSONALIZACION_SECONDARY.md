@@ -46,7 +46,7 @@ El botón **SECONDARY** ya viene completamente implementado en el BASE con:
    - border-width
 
 2. **Solo cambia el valor del token, no el token usado**
-   - Si el base usa `--rb-color-secondary-base` y tu marca también, NO necesitas override
+   - Si el base usa `--b-ui-color-secondary-base` y tu marca también, NO necesitas override
    - El valor del token ya está en tu archivo JSON de primitivas
 
 ---
@@ -58,77 +58,77 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 ### SECONDARY STROKE (default)
 
 ```css
-.rb-button--secondary {
+.b-ui-button--secondary {
   /* Default */
-  --rb-button-bg-color: var(--rb-color-grayscale-white);
-  --rb-button-text-color: var(--rb-color-primary-D100); /* Verde */
-  --rb-button-border-color: var(--rb-color-secondary-base); /* Amarillo */
+  --b-ui-button-bg-color: var(--b-ui-color-grayscale-white);
+  --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde */
+  --b-ui-button-border-color: var(--b-ui-color-secondary-base); /* Amarillo */
 
   /* Hover */
-  --rb-button-bg-hover: var(--rb-color-secondary-L400); /* Amarillo casi blanco */
-  --rb-button-text-hover: var(--rb-color-primary-D100);
-  --rb-button-border-hover: var(--rb-color-secondary-D100);
+  --b-ui-button-bg-hover: var(--b-ui-color-secondary-L400); /* Amarillo casi blanco */
+  --b-ui-button-text-hover: var(--b-ui-color-primary-D100);
+  --b-ui-button-border-hover: var(--b-ui-color-secondary-D100);
 
   /* Pressed */
-  --rb-button-bg-active: var(--rb-color-secondary-L300);
-  --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+  --b-ui-button-bg-active: var(--b-ui-color-secondary-L300);
+  --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
   /* Disabled */
-  --rb-button-bg-disabled: var(--rb-color-grayscale-white);
-  --rb-button-text-disabled: var(--rb-color-grayscale-base);
+  --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-white);
+  --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base);
 
   /* Disabled + Hover */
-  --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200); /* Aparece gris */
+  --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L200); /* Aparece gris */
 }
 ```
 
 ### SECONDARY FILL
 
 ```css
-&.rb-button--fill {
+&.b-ui-button--fill {
   /* Default */
-  --rb-button-bg-color: var(--rb-color-secondary-base); /* Amarillo */
-  --rb-button-text-color: var(--rb-color-primary-base); /* Verde */
+  --b-ui-button-bg-color: var(--b-ui-color-secondary-base); /* Amarillo */
+  --b-ui-button-text-color: var(--b-ui-color-primary-base); /* Verde */
 
   /* Hover */
-  --rb-button-bg-hover: var(--rb-color-secondary-D100);
-  --rb-button-text-hover: var(--rb-color-primary-D100);
+  --b-ui-button-bg-hover: var(--b-ui-color-secondary-D100);
+  --b-ui-button-text-hover: var(--b-ui-color-primary-D100);
 
   /* Pressed */
-  --rb-button-bg-active: var(--rb-color-secondary-D200);
-  --rb-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
+  --b-ui-button-bg-active: var(--b-ui-color-secondary-D200);
+  --b-ui-button-shadow-pressed: inset 2px 2px 3px 0px rgba(27, 27, 27, 0.16);
 
   /* Disabled */
-  --rb-button-bg-disabled: var(--rb-color-grayscale-L300);
-  --rb-button-text-disabled: var(--rb-color-grayscale-L100);
+  --b-ui-button-bg-disabled: var(--b-ui-color-grayscale-L300);
+  --b-ui-button-text-disabled: var(--b-ui-color-grayscale-L100);
 
   /* Disabled + Hover */
-  --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* Se oscurece */
+  --b-ui-button-text-disabled-hover: var(--b-ui-color-grayscale-base); /* Se oscurece */
 }
 ```
 
 ### SECONDARY TEXT
 
 ```css
-&.rb-button--text {
+&.b-ui-button--text {
   /* Default */
-  --rb-button-bg-color: transparent;
-  --rb-button-text-color: var(--rb-color-secondary-base); /* Amarillo */
+  --b-ui-button-bg-color: transparent;
+  --b-ui-button-text-color: var(--b-ui-color-secondary-base); /* Amarillo */
 
   /* Hover */
-  --rb-button-bg-hover: transparent;
-  --rb-button-text-hover: var(--rb-color-secondary-D100);
+  --b-ui-button-bg-hover: transparent;
+  --b-ui-button-text-hover: var(--b-ui-color-secondary-D100);
 
   /* Pressed */
-  --rb-button-bg-active: transparent;
-  --rb-button-text-active: var(--rb-color-secondary-D200);
+  --b-ui-button-bg-active: transparent;
+  --b-ui-button-text-active: var(--b-ui-color-secondary-D200);
 
   /* Disabled */
-  --rb-button-bg-disabled: transparent;
-  --rb-button-text-disabled: var(--rb-color-grayscale-base);
+  --b-ui-button-bg-disabled: transparent;
+  --b-ui-button-text-disabled: var(--b-ui-color-grayscale-base);
 
   /* Disabled + Hover */
-  --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* Aparece gris */
+  --b-ui-button-bg-disabled-hover: var(--b-ui-color-grayscale-L300); /* Aparece gris */
 }
 ```
 
@@ -140,28 +140,28 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 | Variable                            | Descripción                | Cuándo se aplica                           |
 | ----------------------------------- | -------------------------- | ------------------------------------------ |
-| `--rb-button-bg-color`              | Background default         | Estado normal                              |
-| `--rb-button-bg-hover`              | Background hover           | Al pasar el mouse                          |
-| `--rb-button-bg-active`             | Background pressed         | Al presionar (`:active`)                   |
-| `--rb-button-bg-disabled`           | Background disabled        | Cuando `disabled` o `.rb-button--disabled` |
-| `--rb-button-bg-disabled-hover`     | Background disabled+hover  | Hover sobre botón deshabilitado            |
-| `--rb-button-text-color`            | Color de texto default     | Estado normal                              |
-| `--rb-button-text-hover`            | Color de texto hover       | Al pasar el mouse                          |
-| `--rb-button-text-active`           | Color de texto pressed     | Al presionar                               |
-| `--rb-button-text-disabled`         | Color de texto disabled    | Cuando deshabilitado                       |
-| `--rb-button-text-disabled-hover`   | Color texto disabled+hover | Hover sobre deshabilitado                  |
-| `--rb-button-border-color`          | Color de borde default     | Estado normal                              |
-| `--rb-button-border-hover`          | Color de borde hover       | Al pasar el mouse                          |
-| `--rb-button-border-active`         | Color de borde pressed     | Al presionar                               |
-| `--rb-button-border-disabled`       | Color de borde disabled    | Cuando deshabilitado                       |
-| `--rb-button-border-disabled-hover` | Color borde disabled+hover | Hover sobre deshabilitado                  |
-| `--rb-button-shadow-pressed`        | Sombra interna pressed     | Solo en `:active`                          |
+| `--b-ui-button-bg-color`              | Background default         | Estado normal                              |
+| `--b-ui-button-bg-hover`              | Background hover           | Al pasar el mouse                          |
+| `--b-ui-button-bg-active`             | Background pressed         | Al presionar (`:active`)                   |
+| `--b-ui-button-bg-disabled`           | Background disabled        | Cuando `disabled` o `.b-ui-button--disabled` |
+| `--b-ui-button-bg-disabled-hover`     | Background disabled+hover  | Hover sobre botón deshabilitado            |
+| `--b-ui-button-text-color`            | Color de texto default     | Estado normal                              |
+| `--b-ui-button-text-hover`            | Color de texto hover       | Al pasar el mouse                          |
+| `--b-ui-button-text-active`           | Color de texto pressed     | Al presionar                               |
+| `--b-ui-button-text-disabled`         | Color de texto disabled    | Cuando deshabilitado                       |
+| `--b-ui-button-text-disabled-hover`   | Color texto disabled+hover | Hover sobre deshabilitado                  |
+| `--b-ui-button-border-color`          | Color de borde default     | Estado normal                              |
+| `--b-ui-button-border-hover`          | Color de borde hover       | Al pasar el mouse                          |
+| `--b-ui-button-border-active`         | Color de borde pressed     | Al presionar                               |
+| `--b-ui-button-border-disabled`       | Color de borde disabled    | Cuando deshabilitado                       |
+| `--b-ui-button-border-disabled-hover` | Color borde disabled+hover | Hover sobre deshabilitado                  |
+| `--b-ui-button-shadow-pressed`        | Sombra interna pressed     | Solo en `:active`                          |
 
 ### Para Focus:
 
 ```css
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke:focus-visible {
-  outline-color: var(--rb-color-secondary-L100); /* O el color que necesites */
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible {
+  outline-color: var(--b-ui-color-secondary-L100); /* O el color que necesites */
 }
 ```
 
@@ -197,27 +197,27 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 ```css
 @layer brand-overrides {
   /* Solo cambios de color PRIMARY vs SECONDARY */
-  :where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--stroke,
+  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke,
   :where([data-brand='seguros-bolivar'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text) {
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text) {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --rb-button-text-color: var(--rb-color-primary-D100); /* Verde en vez de amarillo */
-    --rb-button-border-color: var(--rb-color-primary-D100);
+    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde en vez de amarillo */
+    --b-ui-button-border-color: var(--b-ui-color-primary-D100);
 
-    --rb-button-bg-hover: var(--rb-color-primary-L400); /* Verde claro en vez de amarillo */
-    --rb-button-text-hover: var(--rb-color-primary-D200);
-    --rb-button-border-hover: var(--rb-color-primary-D200);
+    --b-ui-button-bg-hover: var(--b-ui-color-primary-L400); /* Verde claro en vez de amarillo */
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D200);
+    --b-ui-button-border-hover: var(--b-ui-color-primary-D200);
 
-    --rb-button-bg-active: var(--rb-color-primary-L300);
-    --rb-button-text-active: var(--rb-color-primary-D200);
-    --rb-button-border-active: var(--rb-color-primary-D200);
+    --b-ui-button-bg-active: var(--b-ui-color-primary-L300);
+    --b-ui-button-text-active: var(--b-ui-color-primary-D200);
+    --b-ui-button-border-active: var(--b-ui-color-primary-D200);
   }
 
   /* Focus outline - Verde en vez de amarillo */
-  :where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
   :where([data-brand='seguros-bolivar'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
-    outline-color: var(--rb-color-primary-L100); /* Verde claro */
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
+    outline-color: var(--b-ui-color-primary-L100); /* Verde claro */
   }
 }
 ```
@@ -226,23 +226,23 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--fill {
+  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--fill {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --rb-button-bg-color: var(--rb-color-primary-L300); /* Verde muy claro en vez de amarillo */
-    --rb-button-text-color: var(--rb-color-primary-D200); /* Verde oscuro */
-    --rb-button-border-color: var(--rb-color-primary-L300);
+    --b-ui-button-bg-color: var(--b-ui-color-primary-L300); /* Verde muy claro en vez de amarillo */
+    --b-ui-button-text-color: var(--b-ui-color-primary-D200); /* Verde oscuro */
+    --b-ui-button-border-color: var(--b-ui-color-primary-L300);
 
-    --rb-button-bg-hover: var(--rb-color-primary-L200); /* Verde claro */
-    --rb-button-text-hover: var(--rb-color-primary-D300); /* Verde muy oscuro */
-    --rb-button-border-hover: var(--rb-color-primary-L200);
+    --b-ui-button-bg-hover: var(--b-ui-color-primary-L200); /* Verde claro */
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D300); /* Verde muy oscuro */
+    --b-ui-button-border-hover: var(--b-ui-color-primary-L200);
 
-    --rb-button-bg-active: var(--rb-color-primary-L200);
-    --rb-button-text-active: var(--rb-color-primary-D300);
-    --rb-button-border-active: var(--rb-color-primary-L200);
+    --b-ui-button-bg-active: var(--b-ui-color-primary-L200);
+    --b-ui-button-text-active: var(--b-ui-color-primary-D300);
+    --b-ui-button-border-active: var(--b-ui-color-primary-L200);
   }
 
-  :where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-primary-L100);
+  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-primary-L100);
   }
 }
 ```
@@ -251,19 +251,19 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 @layer brand-overrides {
-  :where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--text {
+  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--text {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --rb-button-text-color: var(--rb-color-primary-D100); /* Verde en vez de amarillo */
+    --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde en vez de amarillo */
 
-    --rb-button-bg-hover: var(--rb-color-primary-L400); /* Verde casi blanco (aparece en hover) */
-    --rb-button-text-hover: var(--rb-color-primary-D200);
+    --b-ui-button-bg-hover: var(--b-ui-color-primary-L400); /* Verde casi blanco (aparece en hover) */
+    --b-ui-button-text-hover: var(--b-ui-color-primary-D200);
 
-    --rb-button-bg-active: var(--rb-color-primary-L300); /* Verde claro (aparece en pressed) */
-    --rb-button-text-active: var(--rb-color-primary-D200);
+    --b-ui-button-bg-active: var(--b-ui-color-primary-L300); /* Verde claro (aparece en pressed) */
+    --b-ui-button-text-active: var(--b-ui-color-primary-D200);
   }
 
-  :where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--text:focus-visible {
-    outline-color: var(--rb-color-primary-L100);
+  :where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
+    outline-color: var(--b-ui-color-primary-L100);
   }
 }
 ```
@@ -279,20 +279,20 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 ```css
 @layer brand-overrides {
   /* Solo personalizar FILL, stroke y text usan el BASE */
-  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill {
+  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill {
     /* Cambiar a rojo (error) */
-    --rb-button-bg-color: var(--rb-color-error-base); /* Rojo */
-    --rb-button-bg-hover: var(--rb-color-error-D100);
-    --rb-button-bg-active: var(--rb-color-error-D200);
+    --b-ui-button-bg-color: var(--b-ui-color-error-base); /* Rojo */
+    --b-ui-button-bg-hover: var(--b-ui-color-error-D100);
+    --b-ui-button-bg-active: var(--b-ui-color-error-D200);
 
     /* Texto blanco para contraste */
-    --rb-button-text-color: var(--rb-color-grayscale-white);
-    --rb-button-text-hover: var(--rb-color-grayscale-white);
-    --rb-button-text-active: var(--rb-color-grayscale-white);
+    --b-ui-button-text-color: var(--b-ui-color-grayscale-white);
+    --b-ui-button-text-hover: var(--b-ui-color-grayscale-white);
+    --b-ui-button-text-active: var(--b-ui-color-grayscale-white);
   }
 
-  :where([data-brand='davivienda']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-error-L100); /* Rojo claro */
+  :where([data-brand='davivienda']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-error-L100); /* Rojo claro */
   }
 }
 ```
@@ -306,18 +306,18 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 ```css
 @layer brand-overrides {
   /* Solo personalizar focus outline */
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--stroke:focus-visible,
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible,
   :where([data-brand='doctor-aki'])
-    .rb-button--secondary:not(.rb-button--fill):not(.rb-button--text):focus-visible {
-    outline-color: var(--rb-color-tertiary-base); /* Violeta */
+    .b-ui-button--secondary:not(.b-ui-button--fill):not(.b-ui-button--text):focus-visible {
+    outline-color: var(--b-ui-color-tertiary-base); /* Violeta */
   }
 
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--fill:focus-visible {
-    outline-color: var(--rb-color-tertiary-base);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-base);
   }
 
-  :where([data-brand='doctor-aki']) .rb-button--secondary.rb-button--text:focus-visible {
-    outline-color: var(--rb-color-tertiary-base);
+  :where([data-brand='doctor-aki']) .b-ui-button--secondary.b-ui-button--text:focus-visible {
+    outline-color: var(--b-ui-color-tertiary-base);
   }
 }
 ```
@@ -335,14 +335,14 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
      2. Solo definir las variables que cambian
      3. Comentar QUÉ cambia vs el BASE
   */
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--VARIANTE {
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--VARIANTE {
     /* Solo las variables que DIFIEREN del BASE */
-    --rb-button-bg-color: var(--tu-token-especifico);
-    --rb-button-text-color: var(--tu-token-especifico);
+    --b-ui-button-bg-color: var(--tu-token-especifico);
+    --b-ui-button-text-color: var(--tu-token-especifico);
   }
 
   /* Focus outline separado */
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--VARIANTE:focus-visible {
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--VARIANTE:focus-visible {
     outline-color: var(--tu-color-focus);
   }
 }
@@ -367,11 +367,11 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 /* BASE usa secondary, TÚ usas primary */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke {
   /* Solo reemplazar SECONDARY → PRIMARY */
-  --rb-button-border-color: var(--rb-color-primary-D100);
-  --rb-button-border-hover: var(--rb-color-primary-D200);
-  --rb-button-bg-hover: var(--rb-color-primary-L400);
+  --b-ui-button-border-color: var(--b-ui-color-primary-D100);
+  --b-ui-button-border-hover: var(--b-ui-color-primary-D200);
+  --b-ui-button-bg-hover: var(--b-ui-color-primary-L400);
 }
 ```
 
@@ -383,10 +383,10 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 /* BASE: transparent, TÚ: color en hover */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--text {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--text {
   /* Solo hover/active backgrounds */
-  --rb-button-bg-hover: var(--rb-color-primary-L400);
-  --rb-button-bg-active: var(--rb-color-primary-L300);
+  --b-ui-button-bg-hover: var(--b-ui-color-primary-L400);
+  --b-ui-button-bg-active: var(--b-ui-color-primary-L300);
 }
 ```
 
@@ -398,8 +398,8 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 /* Solo personalizar outline, nada más */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--fill:focus-visible {
-  outline-color: var(--rb-color-tertiary-base);
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill:focus-visible {
+  outline-color: var(--b-ui-color-tertiary-base);
 }
 ```
 
@@ -410,11 +410,11 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 **Caso:** Tu background requiere texto blanco en lugar de primary.
 
 ```css
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--fill {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill {
   /* Solo cambiar texto para mejor contraste */
-  --rb-button-text-color: var(--rb-color-grayscale-white);
-  --rb-button-text-hover: var(--rb-color-grayscale-white);
-  --rb-button-text-active: var(--rb-color-grayscale-white);
+  --b-ui-button-text-color: var(--b-ui-color-grayscale-white);
+  --b-ui-button-text-hover: var(--b-ui-color-grayscale-white);
+  --b-ui-button-text-active: var(--b-ui-color-grayscale-white);
 }
 ```
 
@@ -430,12 +430,12 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 /* ❌ MAL - Alta especificidad */
-[data-brand='tu-marca'] .rb-button--secondary.rb-button--fill {
+[data-brand='tu-marca'] .b-ui-button--secondary.b-ui-button--fill {
   ...
 }
 
 /* ✅ BIEN - Baja especificidad */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--fill {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--fill {
   ...
 }
 ```
@@ -450,14 +450,14 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 /* ❌ MAL - Duplicando lógica de disabled */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke:disabled {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke:disabled {
   outline: none; /* ❌ No hagas esto */
 }
 
 /* ✅ BIEN - El BASE ya maneja disabled */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke {
   /* Solo colores, no comportamiento */
-  --rb-button-text-color: var(--tu-color);
+  --b-ui-button-text-color: var(--tu-color);
 }
 ```
 
@@ -472,8 +472,8 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 ```css
 /* ✅ Estructura correcta */
 @layer brand-overrides {
-  :where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke {
-    --rb-button-text-color: var(--rb-color-primary-D100);
+  :where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke {
+    --b-ui-button-text-color: var(--b-ui-color-primary-D100);
   }
 }
 ```
@@ -488,7 +488,7 @@ El archivo `/packages/atoms/src/button.css` ya tiene **todo esto implementado**:
 
 ```css
 /* ✅ Agregar focus outline */
-:where([data-brand='tu-marca']) .rb-button--secondary.rb-button--stroke:focus-visible {
+:where([data-brand='tu-marca']) .b-ui-button--secondary.b-ui-button--stroke:focus-visible {
   outline-color: var(--tu-color-focus);
 }
 ```
@@ -522,5 +522,5 @@ Antes de implementar, verifica:
 
 **Fecha:** Octubre 16, 2025  
 **Versión:** 1.0  
-**Autor:** Root Block Team  
+**Autor:** Bolivar UI Team  
 **Última actualización:** Migración SECONDARY a BASE

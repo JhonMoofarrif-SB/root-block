@@ -1,6 +1,6 @@
-# 🎨 @rb/tokens
+# 🎨 @bolivar-ui/tokens
 
-> Design Tokens para el Root Block Design System
+> Design Tokens para el Bolivar UI Design System
 
 Tokens de diseño generados con Style Dictionary para 6 marcas × 2 temas = 12 combinaciones.
 
@@ -9,7 +9,7 @@ Tokens de diseño generados con Style Dictionary para 6 marcas × 2 temas = 12 c
 ## 📦 Instalación
 
 ```bash
-pnpm add @rb/tokens
+pnpm add @bolivar-ui/tokens
 ```
 
 ## 🎨 Marcas y Temas
@@ -40,13 +40,13 @@ pnpm add @rb/tokens
 ### Import en JavaScript
 
 ```javascript
-import '@rb/tokens/jelpit-light.css';
+import '@bolivar-ui/tokens/jelpit-light.css';
 ```
 
 ### TypeScript
 
 ```typescript
-import { BRANDS, THEMES, type Brand, type Theme } from '@rb/tokens';
+import { BRANDS, THEMES, type Brand, type Theme } from '@bolivar-ui/tokens';
 
 const brand: Brand = 'jelpit';
 const theme: Theme = 'light';
@@ -57,61 +57,61 @@ console.log(THEMES); // ['light', 'dark']
 
 ## 📋 Variables CSS Generadas
 
-Todas las variables tienen el prefijo `--rb-` para evitar colisiones:
+Todas las variables tienen el prefijo `--b-ui-` para evitar colisiones:
 
 ### Colores
 
 ```css
 /* Primary, Secondary, Tertiary */
---rb-color-primary-D400
---rb-color-primary-D300
---rb-color-primary-D200
---rb-color-primary-D100
---rb-color-primary-base
---rb-color-primary-L100
---rb-color-primary-L200
---rb-color-primary-L300
---rb-color-primary-L400
+--b-ui-color-primary-D400
+--b-ui-color-primary-D300
+--b-ui-color-primary-D200
+--b-ui-color-primary-D100
+--b-ui-color-primary-base
+--b-ui-color-primary-L100
+--b-ui-color-primary-L200
+--b-ui-color-primary-L300
+--b-ui-color-primary-L400
 
 /* Feedback Colors */
---rb-color-feedback-error-base
---rb-color-feedback-success-base
---rb-color-feedback-warning-base
---rb-color-feedback-info-base
+--b-ui-color-feedback-error-base
+--b-ui-color-feedback-success-base
+--b-ui-color-feedback-warning-base
+--b-ui-color-feedback-info-base
 
 /* Grayscale */
---rb-color-grayscale-black
---rb-color-grayscale-white
---rb-color-grayscale-base
+--b-ui-color-grayscale-black
+--b-ui-color-grayscale-white
+--b-ui-color-grayscale-base
 ```
 
 ### Tipografía
 
 ```css
---rb-typography-fontFamily
---rb-typography-fontSize-h1
---rb-typography-fontSize-h2
---rb-typography-fontSize-body
---rb-typography-fontSize-label
---rb-typography-fontSize-caption
+--b-ui-typography-fontFamily
+--b-ui-typography-fontSize-h1
+--b-ui-typography-fontSize-h2
+--b-ui-typography-fontSize-body
+--b-ui-typography-fontSize-label
+--b-ui-typography-fontSize-caption
 ```
 
 ### Sombras
 
 ```css
---rb-shadow-xs
---rb-shadow-s
---rb-shadow-m
---rb-shadow-l
---rb-shadow-xl
+--b-ui-shadow-xs
+--b-ui-shadow-s
+--b-ui-shadow-m
+--b-ui-shadow-l
+--b-ui-shadow-xl
 ```
 
 ### Gradientes
 
 ```css
---rb-gradient-primary-dark
---rb-gradient-primary-base
---rb-gradient-primary-light
+--b-ui-gradient-primary-dark
+--b-ui-gradient-primary-base
+--b-ui-gradient-primary-light
 ```
 
 ## 🛠️ Desarrollo
@@ -214,7 +214,7 @@ pnpm dev
 
 - ✅ **6 marcas predefinidas** con colores corporativos reales
 - ✅ **12 temas** (6 marcas × 2 temas)
-- ✅ **Prefijo --rb-** para evitar colisiones
+- ✅ **Prefijo --b-ui-** para evitar colisiones
 - ✅ **Type-safe** con TypeScript
 - ✅ **Optimizado** (~1KB gzip por marca)
 - ✅ **Style Dictionary** para generación automática
@@ -254,4 +254,4 @@ Primitives (por marca)
 
 ## 📄 Licencia
 
-MIT © Root Block
+MIT © Bolivar UI

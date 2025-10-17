@@ -4,35 +4,35 @@ import { html } from 'lit';
 /**
  * # Button Component
  *
- * Componente de botón CSS puro del Root Block Design System.
+ * Componente de botón CSS puro del Bolivar UI Design System.
  *
  * ## 📋 Referencia Rápida de Clases
  *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Variantes de Color** | | |
- * | Botón primario | `.rb-button--primary` | `<button class="rb-button rb-button--primary">Primary</button>` |
- * | Botón secundario | `.rb-button--secondary` | `<button class="rb-button rb-button--secondary">Secondary</button>` |
- * | Botón terciario | `.rb-button--tertiary` | `<button class="rb-button rb-button--tertiary">Tertiary</button>` |
- * | Botón error | `.rb-button--error` | `<button class="rb-button rb-button--error">Error</button>` |
+ * | Botón primario | `.rb-button--primary` | `<button class="b-ui-button rb-button--primary">Primary</button>` |
+ * | Botón secundario | `.rb-button--secondary` | `<button class="b-ui-button rb-button--secondary">Secondary</button>` |
+ * | Botón terciario | `.rb-button--tertiary` | `<button class="b-ui-button rb-button--tertiary">Tertiary</button>` |
+ * | Botón error | `.rb-button--error` | `<button class="b-ui-button rb-button--error">Error</button>` |
  * | **Variantes de Estilo** | | |
- * | Outline/borde (default) | `.rb-button--stroke` o sin clase | `<button class="rb-button rb-button--primary">Default</button>` |
- * | Fondo sólido | `.rb-button--fill` | `<button class="rb-button rb-button--primary rb-button--fill">Filled</button>` |
- * | Transparente sin borde | `.rb-button--text` | `<button class="rb-button rb-button--primary rb-button--text">Text</button>` |
+ * | Outline/borde (default) | `.rb-button--stroke` o sin clase | `<button class="b-ui-button rb-button--primary">Default</button>` |
+ * | Fondo sólido | `.rb-button--fill` | `<button class="b-ui-button rb-button--primary rb-button--fill">Filled</button>` |
+ * | Transparente sin borde | `.rb-button--text` | `<button class="b-ui-button rb-button--primary rb-button--text">Text</button>` |
  * | **Posiciones de Icono** | | |
- * | Icono a la izquierda | `.rb-button--icon-left` | `<button class="rb-button rb-button--primary rb-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
- * | Icono a la derecha | `.rb-button--icon-right` | `<button class="rb-button rb-button--primary rb-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
- * | Solo icono | `.rb-button--icon-only` | `<button class="rb-button rb-button--primary rb-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
+ * | Icono a la izquierda | `.rb-button--icon-left` | `<button class="b-ui-button rb-button--primary rb-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
+ * | Icono a la derecha | `.rb-button--icon-right` | `<button class="b-ui-button rb-button--primary rb-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
+ * | Solo icono | `.rb-button--icon-only` | `<button class="b-ui-button rb-button--primary rb-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-button--small` | `<button class="rb-button rb-button--primary rb-button--small">Small</button>` |
- * | Mediano (default) | `.rb-button--medium` o sin clase | `<button class="rb-button rb-button--primary">Medium</button>` |
- * | Grande | `.rb-button--large` | `<button class="rb-button rb-button--primary rb-button--large">Large</button>` |
+ * | Pequeño | `.rb-button--small` | `<button class="b-ui-button rb-button--primary rb-button--small">Small</button>` |
+ * | Mediano (default) | `.rb-button--medium` o sin clase | `<button class="b-ui-button rb-button--primary">Medium</button>` |
+ * | Grande | `.rb-button--large` | `<button class="b-ui-button rb-button--primary rb-button--large">Large</button>` |
  * | **Estados** | | |
- * | Estado cargando | `.rb-button--loading` | `<button class="rb-button rb-button--primary rb-button--loading">Loading...</button>` |
- * | Estado deshabilitado | `.rb-button--disabled` | `<button class="rb-button rb-button--primary rb-button--disabled">Disabled</button>` |
+ * | Estado cargando | `.rb-button--loading` | `<button class="b-ui-button rb-button--primary rb-button--loading">Loading...</button>` |
+ * | Estado deshabilitado | `.rb-button--disabled` | `<button class="b-ui-button rb-button--primary rb-button--disabled">Disabled</button>` |
  * | **Modificadores** | | |
- * | Ancho completo | `.rb-button--block` | `<button class="rb-button rb-button--primary rb-button--block">Full Width</button>` |
- * | Esquinas cuadradas | `.rb-button--square` | `<button class="rb-button rb-button--primary rb-button--square">Square</button>` |
+ * | Ancho completo | `.rb-button--block` | `<button class="b-ui-button rb-button--primary rb-button--block">Full Width</button>` |
+ * | Esquinas cuadradas | `.rb-button--square` | `<button class="b-ui-button rb-button--primary rb-button--square">Square</button>` |
  *
  * ## 💡 Notas Importantes
  *
@@ -47,7 +47,7 @@ import { html } from 'lit';
  * ## 🎯 Ejemplo de Combinación Completa
  *
  * ```html
- * <button class="rb-button rb-button--primary rb-button--fill rb-button--large rb-button--icon-left">
+ * <button class="b-ui-button rb-button--primary rb-button--fill rb-button--large rb-button--icon-left">
  *   <i class="fa-solid fa-user"></i>
  *   Guardar Cambios
  * </button>
@@ -175,17 +175,17 @@ export const Playground: Story = {
   render: (args) => {
     // Determinar las clases del botón
     const classes = [
-      'rb-button',
+      'b-ui-button',
       `rb-button--${args.variant}`,
       `rb-button--${args.size}`,
       args.styleVariant ? `rb-button--${args.styleVariant}` : '',
-      args.loading ? 'rb-button--loading' : '',
-      args.disabled ? 'rb-button--disabled' : '',
-      args.iconPosition === 'left' ? 'rb-button--icon-left' : '',
-      args.iconPosition === 'right' ? 'rb-button--icon-right' : '',
-      args.iconPosition === 'only' ? 'rb-button--icon-only' : '',
-      args.square ? 'rb-button--square' : '',
-      args.block ? 'rb-button--block' : '',
+      args.loading ? 'b-ui-button--loading' : '',
+      args.disabled ? 'b-ui-button--disabled' : '',
+      args.iconPosition === 'left' ? 'b-ui-button--icon-left' : '',
+      args.iconPosition === 'right' ? 'b-ui-button--icon-right' : '',
+      args.iconPosition === 'only' ? 'b-ui-button--icon-only' : '',
+      args.square ? 'b-ui-button--square' : '',
+      args.block ? 'b-ui-button--block' : '',
     ]
       .filter(Boolean)
       .join(' ');
@@ -243,9 +243,9 @@ export const Primary: Story = {
   render: () => html`
     <style>
       .matrix-container {
-        font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
         padding: 2rem;
-        background: var(--rb-color-grayscale-L400, #fafafa);
+        background: var(--b-ui-color-grayscale-L400, #fafafa);
       }
 
       .matrix-section {
@@ -260,12 +260,12 @@ export const Primary: Story = {
         font-size: 1.75rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        color: var(--rb-color-primary-base, #007acc);
+        color: var(--b-ui-color-primary-base, #007acc);
       }
 
       .matrix-subtitle {
         font-size: 1rem;
-        color: var(--rb-color-grayscale-base, #666);
+        color: var(--b-ui-color-grayscale-base, #666);
         margin-bottom: 2rem;
       }
 
@@ -275,19 +275,19 @@ export const Primary: Story = {
         border-spacing: 0;
         overflow: hidden;
         border-radius: 8px;
-        border: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th,
       .matrix-table td {
         padding: 1.25rem 1rem;
         text-align: center;
-        border-right: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
-        border-bottom: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border-right: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
+        border-bottom: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th {
-        background: var(--rb-color-primary-base, #007acc);
+        background: var(--b-ui-color-primary-base, #007acc);
         color: white;
         font-weight: 700;
         font-size: 0.95rem;
@@ -296,11 +296,11 @@ export const Primary: Story = {
       }
 
       .matrix-table td:first-child {
-        background: var(--rb-color-grayscale-L300, #f5f5f5);
+        background: var(--b-ui-color-grayscale-L300, #f5f5f5);
         font-weight: 600;
         text-align: left;
         padding-left: 1.5rem;
-        color: var(--rb-color-grayscale-D100, #333);
+        color: var(--b-ui-color-grayscale-D100, #333);
       }
 
       .matrix-table tr:last-child td {
@@ -318,8 +318,8 @@ export const Primary: Story = {
         border-radius: 4px;
         font-size: 0.875rem;
         font-weight: 600;
-        background: var(--rb-color-grayscale-L200, #e0e0e0);
-        color: var(--rb-color-grayscale-D200, #222);
+        background: var(--b-ui-color-grayscale-L200, #e0e0e0);
+        color: var(--b-ui-color-grayscale-D200, #222);
       }
 
       .state-label.default {
@@ -366,22 +366,22 @@ export const Primary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--fill rb-button--icon-left">
+                <button class="b-ui-button rb-button--primary rb-button--fill rb-button--icon-left">
                   <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--fill rb-button--icon-right">
+                <button class="b-ui-button rb-button--primary rb-button--fill rb-button--icon-right">
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--fill">Action</button>
+                <button class="b-ui-button rb-button--primary rb-button--fill">Action</button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--fill rb-button--icon-only">
+                <button class="b-ui-button rb-button--primary rb-button--fill rb-button--icon-only">
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
@@ -394,7 +394,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -402,20 +402,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--fill rb-button--loading">
+                <button class="b-ui-button rb-button--primary rb-button--fill rb-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -429,7 +429,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -437,20 +437,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--fill rb-button--disabled">
+                <button class="b-ui-button rb-button--primary rb-button--fill rb-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -486,24 +486,24 @@ export const Primary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--stroke rb-button--icon-left">
+                <button class="b-ui-button rb-button--primary rb-button--stroke rb-button--icon-left">
                   <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--stroke">Action</button>
+                <button class="b-ui-button rb-button--primary rb-button--stroke">Action</button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--stroke rb-button--icon-only">
+                <button class="b-ui-button rb-button--primary rb-button--stroke rb-button--icon-only">
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
@@ -516,7 +516,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -524,20 +524,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--stroke rb-button--loading">
+                <button class="b-ui-button rb-button--primary rb-button--stroke rb-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -551,7 +551,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -559,20 +559,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--stroke rb-button--disabled">
+                <button class="b-ui-button rb-button--primary rb-button--stroke rb-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -606,22 +606,22 @@ export const Primary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--text rb-button--icon-left">
+                <button class="b-ui-button rb-button--primary rb-button--text rb-button--icon-left">
                   <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--text rb-button--icon-right">
+                <button class="b-ui-button rb-button--primary rb-button--text rb-button--icon-right">
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--text">Action</button>
+                <button class="b-ui-button rb-button--primary rb-button--text">Action</button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--text rb-button--icon-only">
+                <button class="b-ui-button rb-button--primary rb-button--text rb-button--icon-only">
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
@@ -634,7 +634,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -642,20 +642,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--text rb-button--loading">
+                <button class="b-ui-button rb-button--primary rb-button--text rb-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -669,7 +669,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -677,20 +677,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--primary rb-button--text rb-button--disabled">
+                <button class="b-ui-button rb-button--primary rb-button--text rb-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -727,9 +727,9 @@ export const Secondary: Story = {
   render: () => html`
     <style>
       .matrix-container {
-        font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
         padding: 2rem;
-        background: var(--rb-color-grayscale-L400, #fafafa);
+        background: var(--b-ui-color-grayscale-L400, #fafafa);
       }
 
       .matrix-section {
@@ -744,12 +744,12 @@ export const Secondary: Story = {
         font-size: 1.75rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        color: var(--rb-color-secondary-base, #82e778);
+        color: var(--b-ui-color-secondary-base, #82e778);
       }
 
       .matrix-subtitle {
         font-size: 1rem;
-        color: var(--rb-color-grayscale-base, #666);
+        color: var(--b-ui-color-grayscale-base, #666);
         margin-bottom: 2rem;
       }
 
@@ -759,20 +759,20 @@ export const Secondary: Story = {
         border-spacing: 0;
         overflow: hidden;
         border-radius: 8px;
-        border: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th,
       .matrix-table td {
         padding: 1.25rem 1rem;
         text-align: center;
-        border-right: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
-        border-bottom: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border-right: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
+        border-bottom: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th {
-        background: var(--rb-color-secondary-base, #82e778);
-        color: var(--rb-color-grayscale-D300, #000);
+        background: var(--b-ui-color-secondary-base, #82e778);
+        color: var(--b-ui-color-grayscale-D300, #000);
         font-weight: 700;
         font-size: 0.95rem;
         text-transform: uppercase;
@@ -780,11 +780,11 @@ export const Secondary: Story = {
       }
 
       .matrix-table td:first-child {
-        background: var(--rb-color-grayscale-L300, #f5f5f5);
+        background: var(--b-ui-color-grayscale-L300, #f5f5f5);
         font-weight: 600;
         text-align: left;
         padding-left: 1.5rem;
-        color: var(--rb-color-grayscale-D100, #333);
+        color: var(--b-ui-color-grayscale-D100, #333);
       }
 
       .matrix-table tr:last-child td {
@@ -802,8 +802,8 @@ export const Secondary: Story = {
         border-radius: 4px;
         font-size: 0.875rem;
         font-weight: 600;
-        background: var(--rb-color-grayscale-L200, #e0e0e0);
-        color: var(--rb-color-grayscale-D200, #222);
+        background: var(--b-ui-color-grayscale-L200, #e0e0e0);
+        color: var(--b-ui-color-grayscale-D200, #222);
       }
 
       .state-label.default {
@@ -850,24 +850,24 @@ export const Secondary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--fill rb-button--icon-left">
+                <button class="b-ui-button rb-button--secondary rb-button--fill rb-button--icon-left">
                   <i class="fa-solid fa-star"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--fill">Action</button>
+                <button class="b-ui-button rb-button--secondary rb-button--fill">Action</button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--fill rb-button--icon-only">
+                <button class="b-ui-button rb-button--secondary rb-button--fill rb-button--icon-only">
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
@@ -880,7 +880,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -888,20 +888,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--fill rb-button--loading">
+                <button class="b-ui-button rb-button--secondary rb-button--fill rb-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -915,7 +915,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -923,20 +923,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--fill rb-button--disabled">
+                <button class="b-ui-button rb-button--secondary rb-button--fill rb-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -973,7 +973,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -981,18 +981,18 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--stroke">Action</button>
+                <button class="b-ui-button rb-button--secondary rb-button--stroke">Action</button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1006,7 +1006,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1014,20 +1014,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--stroke rb-button--loading">
+                <button class="b-ui-button rb-button--secondary rb-button--stroke rb-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1041,7 +1041,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1049,7 +1049,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
@@ -1057,14 +1057,14 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--disabled"
                 >
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1100,24 +1100,24 @@ export const Secondary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--text rb-button--icon-left">
+                <button class="b-ui-button rb-button--secondary rb-button--text rb-button--icon-left">
                   <i class="fa-solid fa-star"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--text">Action</button>
+                <button class="b-ui-button rb-button--secondary rb-button--text">Action</button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--text rb-button--icon-only">
+                <button class="b-ui-button rb-button--secondary rb-button--text rb-button--icon-only">
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
@@ -1130,7 +1130,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1138,20 +1138,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--text rb-button--loading">
+                <button class="b-ui-button rb-button--secondary rb-button--text rb-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1165,7 +1165,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1173,20 +1173,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--secondary rb-button--text rb-button--disabled">
+                <button class="b-ui-button rb-button--secondary rb-button--text rb-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1224,9 +1224,9 @@ export const Error: Story = {
   render: () => html`
     <style>
       .matrix-container {
-        font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
         padding: 2rem;
-        background: var(--rb-color-grayscale-L400, #fafafa);
+        background: var(--b-ui-color-grayscale-L400, #fafafa);
       }
 
       .matrix-section {
@@ -1241,12 +1241,12 @@ export const Error: Story = {
         font-size: 1.75rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        color: var(--rb-color-feedback-error-base, #dc3545);
+        color: var(--b-ui-color-feedback-error-base, #dc3545);
       }
 
       .matrix-subtitle {
         font-size: 1rem;
-        color: var(--rb-color-grayscale-base, #666);
+        color: var(--b-ui-color-grayscale-base, #666);
         margin-bottom: 2rem;
       }
 
@@ -1256,19 +1256,19 @@ export const Error: Story = {
         border-spacing: 0;
         overflow: hidden;
         border-radius: 8px;
-        border: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th,
       .matrix-table td {
         padding: 1.25rem 1rem;
         text-align: center;
-        border-right: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
-        border-bottom: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border-right: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
+        border-bottom: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
       }
 
       .matrix-table th {
-        background: var(--rb-color-feedback-error-base, #dc3545);
+        background: var(--b-ui-color-feedback-error-base, #dc3545);
         color: white;
         font-weight: 700;
         font-size: 0.95rem;
@@ -1277,11 +1277,11 @@ export const Error: Story = {
       }
 
       .matrix-table td:first-child {
-        background: var(--rb-color-grayscale-L300, #f5f5f5);
+        background: var(--b-ui-color-grayscale-L300, #f5f5f5);
         font-weight: 600;
         text-align: left;
         padding-left: 1.5rem;
-        color: var(--rb-color-grayscale-D100, #333);
+        color: var(--b-ui-color-grayscale-D100, #333);
       }
 
       .matrix-table tr:last-child td {
@@ -1299,8 +1299,8 @@ export const Error: Story = {
         border-radius: 4px;
         font-size: 0.875rem;
         font-weight: 600;
-        background: var(--rb-color-grayscale-L200, #e0e0e0);
-        color: var(--rb-color-grayscale-D200, #222);
+        background: var(--b-ui-color-grayscale-L200, #e0e0e0);
+        color: var(--b-ui-color-grayscale-D200, #222);
       }
 
       .state-label.default {
@@ -1348,22 +1348,22 @@ export const Error: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--fill rb-button--icon-left">
+                <button class="b-ui-button rb-button--error rb-button--fill rb-button--icon-left">
                   <i class="fa-solid fa-trash"></i>
                   Delete
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--fill rb-button--icon-right">
+                <button class="b-ui-button rb-button--error rb-button--fill rb-button--icon-right">
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--fill">Delete</button>
+                <button class="b-ui-button rb-button--error rb-button--fill">Delete</button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--fill rb-button--icon-only">
+                <button class="b-ui-button rb-button--error rb-button--fill rb-button--icon-only">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
@@ -1376,7 +1376,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1384,20 +1384,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--fill rb-button--loading">
+                <button class="b-ui-button rb-button--error rb-button--fill rb-button--loading">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1411,7 +1411,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1419,20 +1419,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--fill rb-button--disabled">
+                <button class="b-ui-button rb-button--error rb-button--fill rb-button--disabled">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1469,22 +1469,22 @@ export const Error: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--stroke rb-button--icon-left">
+                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--icon-left">
                   <i class="fa-solid fa-trash"></i>
                   Delete
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--stroke rb-button--icon-right">
+                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--icon-right">
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--stroke">Delete</button>
+                <button class="b-ui-button rb-button--error rb-button--stroke">Delete</button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--stroke rb-button--icon-only">
+                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--icon-only">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
@@ -1497,7 +1497,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1505,20 +1505,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--stroke rb-button--loading">
+                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--loading">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1532,7 +1532,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1540,20 +1540,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--stroke rb-button--disabled">
+                <button class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1589,22 +1589,22 @@ export const Error: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--text rb-button--icon-left">
+                <button class="b-ui-button rb-button--error rb-button--text rb-button--icon-left">
                   <i class="fa-solid fa-trash"></i>
                   Delete
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--text rb-button--icon-right">
+                <button class="b-ui-button rb-button--error rb-button--text rb-button--icon-right">
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--text">Delete</button>
+                <button class="b-ui-button rb-button--error rb-button--text">Delete</button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--text rb-button--icon-only">
+                <button class="b-ui-button rb-button--error rb-button--text rb-button--icon-only">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
@@ -1617,7 +1617,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--text rb-button--loading rb-button--icon-left"
+                  class="b-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1625,20 +1625,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--text rb-button--loading rb-button--icon-right"
+                  class="b-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--text rb-button--loading">
+                <button class="b-ui-button rb-button--error rb-button--text rb-button--loading">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--text rb-button--loading rb-button--icon-only"
+                  class="b-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1652,7 +1652,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="b-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1660,20 +1660,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="b-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="rb-button rb-button--error rb-button--text rb-button--disabled">
+                <button class="b-ui-button rb-button--error rb-button--text rb-button--disabled">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="rb-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="b-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>

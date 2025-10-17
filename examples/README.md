@@ -1,4 +1,4 @@
-# 🎨 Root Block Design System - Examples
+# 🎨 Bolivar UI Design System - Examples
 
 Ejemplos interactivos del sistema de diseño.
 

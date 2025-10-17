@@ -15,7 +15,7 @@ Reducir **First Paint** y **LCP** cargando solo CSS crítico inicialmente.
 ```typescript
 import { promises as fs } from 'fs';
 import path from 'path';
-import { BRANDS, THEMES } from '@rb/tokens';
+import { BRANDS, THEMES } from '@bolivar-ui/tokens';
 import CleanCSS from 'clean-css';
 
 /**
@@ -176,12 +176,12 @@ export async function buildAll(config: BuildConfig) {
   await fs.mkdir(distDir, { recursive: true });
 
   // Guardar Critical CSS
-  const criticalPath = path.join(distDir, `rb-${brand}-${theme}.critical.min.css`);
+  const criticalPath = path.join(distDir, `b-ui-${brand}-${theme}.critical.min.css`);
   await fs.writeFile(criticalPath, critical);
   console.log(`\n📄 Saved: ${criticalPath}`);
 
   // Guardar Deferred CSS
-  const deferredPath = path.join(distDir, `rb-${brand}-${theme}.deferred.min.css`);
+  const deferredPath = path.join(distDir, `b-ui-${brand}-${theme}.deferred.min.css`);
   await fs.writeFile(deferredPath, deferred);
   console.log(`📄 Saved: ${deferredPath}`);
 
@@ -263,7 +263,7 @@ export default { buildCritical, buildDeferred, buildAll };
 
 ```json
 {
-  "name": "@rb/bundle",
+  "name": "@bolivar-ui/bundle",
   "scripts": {
     "build": "tsx src/builder.ts",
     "build:critical": "tsx src/critical-builder.ts",

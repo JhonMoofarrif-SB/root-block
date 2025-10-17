@@ -1,13 +1,13 @@
-# ⚛️ @rb/atoms
+# ⚛️ @bolivar-ui/atoms
 
-> Componentes CSS simples para el Root Block Design System
+> Componentes CSS simples para el Bolivar UI Design System
 
 Componentes atómicos construidos con CSS puro. Cada componente es autocontenido y usa variables CSS del sistema de tokens.
 
 ## 📦 Instalación
 
 ```bash
-pnpm add @rb/atoms
+pnpm add @bolivar-ui/atoms
 ```
 
 ## 🎨 Componentes Disponibles
@@ -32,14 +32,14 @@ pnpm add @rb/atoms
 
 ```javascript
 // Import solo el componente que necesitas
-import '@rb/atoms/button.css';
+import '@bolivar-ui/atoms/button.css';
 ```
 
 ### Import Completo
 
 ```javascript
 // Import todos los atoms
-import '@rb/atoms';
+import '@bolivar-ui/atoms';
 ```
 
 ## 🔘 Button
@@ -86,10 +86,10 @@ Cada componente expone variables CSS para personalización:
 ```css
 /* Personalizar un botón */
 .mi-boton-custom {
-  --rb-button-bg-color: #ff6b6b;
-  --rb-button-text-color: white;
-  --rb-button-padding: 1rem 2rem;
-  --rb-button-border-radius: 8px;
+  --b-ui-button-bg-color: #ff6b6b;
+  --b-ui-button-text-color: white;
+  --b-ui-button-padding: 1rem 2rem;
+  --b-ui-button-border-radius: 8px;
 }
 ```
 
@@ -98,24 +98,24 @@ Cada componente expone variables CSS para personalización:
 ### Variables de Button
 
 ```css
---rb-button-bg-color
---rb-button-text-color
---rb-button-border-color
---rb-button-padding
---rb-button-font-size
---rb-button-border-radius
---rb-button-transition
+--b-ui-button-bg-color
+--b-ui-button-text-color
+--b-ui-button-border-color
+--b-ui-button-padding
+--b-ui-button-font-size
+--b-ui-button-border-radius
+--b-ui-button-transition
 ```
 
-### Variables Globales (de @rb/tokens)
+### Variables Globales (de @bolivar-ui/tokens)
 
 Los componentes usan automáticamente las variables de tokens:
 
 ```css
---rb-color-primary-base
---rb-color-secondary-base
---rb-typography-fontFamily
---rb-shadow-m
+--b-ui-color-primary-base
+--b-ui-color-secondary-base
+--b-ui-typography-fontFamily
+--b-ui-shadow-m
 ```
 
 ## 🏗️ Arquitectura
@@ -155,21 +155,21 @@ touch src/mi-componente.css
 ```css
 /* src/mi-componente.css */
 
-.rb-mi-componente {
+.b-ui-mi-componente {
   /* Usa variables de tokens */
-  background: var(--rb-color-grayscale-white);
-  color: var(--rb-color-grayscale-black);
-  padding: var(--rb-spacing-md, 1rem);
+  background: var(--b-ui-color-grayscale-white);
+  color: var(--b-ui-color-grayscale-black);
+  padding: var(--b-ui-spacing-md, 1rem);
   border-radius: 8px;
 
   /* Expón variables para personalización */
-  --rb-mi-componente-bg: var(--rb-color-grayscale-white);
-  --rb-mi-componente-padding: 1rem;
+  --b-ui-mi-componente-bg: var(--b-ui-color-grayscale-white);
+  --b-ui-mi-componente-padding: 1rem;
 }
 
 /* Variantes */
-.rb-mi-componente--variante {
-  background: var(--rb-color-primary-base);
+.b-ui-mi-componente--variante {
+  background: var(--b-ui-color-primary-base);
   color: white;
 }
 ```
@@ -223,4 +223,4 @@ Ver [ejemplos completos](../../examples/bootstrap-style.html).
 
 ## 📄 Licencia
 
-MIT © Root Block
+MIT © Bolivar UI

@@ -1,6 +1,6 @@
-# 🎨 @rb/brand-overrides
+# 🎨 @bolivar-ui/brand-overrides
 
-> Customizaciones específicas de marca para el Root Block Design System
+> Customizaciones específicas de marca para el Bolivar UI Design System
 
 Este package contiene estilos adicionales específicos para marcas que necesitan comportamientos o estilos diferentes a los componentes base.
 
@@ -60,7 +60,7 @@ touch packages/brand-overrides/src/mi-marca/index.css
  */
 
 /* Ejemplo: Animación especial en loading */
-.rb-button--loading.rb-button--mi-marca-special::before {
+.b-ui-button--loading.b-ui-button--mi-marca-special::before {
   animation: mi-marca-pulse 1s infinite;
 }
 
@@ -105,9 +105,9 @@ Seguros Bolívar usa colores PRIMARY (verde) donde el base usa SECONDARY (amaril
 
 ```css
 /* Solo personaliza colores, el comportamiento viene del BASE */
-:where([data-brand='seguros-bolivar']) .rb-button--secondary.rb-button--stroke {
-  --rb-button-text-color: var(--rb-color-primary-D100); /* Verde */
-  --rb-button-border-color: var(--rb-color-primary-D100);
+:where([data-brand='seguros-bolivar']) .b-ui-button--secondary.b-ui-button--stroke {
+  --b-ui-button-text-color: var(--b-ui-color-primary-D100); /* Verde */
+  --b-ui-button-border-color: var(--b-ui-color-primary-D100);
 }
 ```
 
@@ -138,7 +138,7 @@ Ver: `src/davivienda/button.css`
 
 ❌ **NO usar override cuando:**
 
-- El estilo beneficia a TODAS las marcas → Agregar a `@rb/atoms`
+- El estilo beneficia a TODAS las marcas → Agregar a `@bolivar-ui/atoms`
 - Es solo un cambio de color/token → Usar variables CSS en tokens
 - Es una variante común → Agregar modificador en componente base
 
@@ -146,10 +146,10 @@ Ver: `src/davivienda/button.css`
 
 ```css
 /* ✅ Bueno: Específico y claro */
-.rb-button--loading.rb-button--davivienda-animation
+.b-ui-button--loading.b-ui-button--davivienda-animation
 
 /* ❌ Malo: Genérico, debería estar en atoms */
-.rb-button--animated
+.b-ui-button--animated
 ```
 
 ### Variables CSS
@@ -157,10 +157,10 @@ Ver: `src/davivienda/button.css`
 Los overrides pueden usar y extender variables:
 
 ```css
-.rb-button--loading {
+.b-ui-button--loading {
   /* Override puede definir nuevas variables */
-  --rb-btn-loading-animation-duration: 2s;
-  --rb-btn-bg-loading-animation: linear-gradient(90deg, ...);
+  --b-ui-btn-loading-animation-duration: 2s;
+  --b-ui-btn-bg-loading-animation: linear-gradient(90deg, ...);
 }
 ```
 
@@ -192,4 +192,4 @@ Los overrides agregan ~0.5-1KB por marca (minificado y gzip):
 
 ## 📄 Licencia
 
-MIT © Root Block
+MIT © Bolivar UI

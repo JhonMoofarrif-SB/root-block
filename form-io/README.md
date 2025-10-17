@@ -1,10 +1,10 @@
-# 🎨 Root Block Design System - Form.io Integration
+# 🎨 Bolivar UI Design System - Form.io Integration
 
-> Integración completa del Root Block Design System con Form.io, incluyendo componentes personalizados y estilos optimizados.
+> Integración completa del Bolivar UI Design System con Form.io, incluyendo componentes personalizados y estilos optimizados.
 
 ## 🚀 Características
 
-- ✅ **Componente Button** completo con todas las variantes del Root Block Design System
+- ✅ **Componente Button** completo con todas las variantes del Bolivar UI Design System
 - ✅ **Integración nativa** con Form.io sin conflictos
 - ✅ **Multi-marca** - Soporte para 6 marcas diferentes
 - ✅ **Multi-tema** - Light y Dark themes
@@ -19,7 +19,7 @@
 ### Opción 1: NPM Package (Recomendado)
 
 ```bash
-npm install @rb/formio
+npm install @bolivar-ui/formio
 ```
 
 ### Opción 2: CDN
@@ -28,12 +28,12 @@ npm install @rb/formio
 <!-- Cargar Form.io primero -->
 <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
-<!-- Cargar Root Block Form.io Bundle -->
+<!-- Cargar Bolivar UI Form.io Bundle -->
 <link
   rel="stylesheet"
-  href="https://cdn.rootblock.com/formio/root-block-formio-davivienda-light.min.css"
+  href="https://cdn.rootblock.com/formio/bolivar-ui-formio-davivienda-light.min.css"
 />
-<script src="https://cdn.rootblock.com/formio/root-block-formio.min.js"></script>
+<script src="https://cdn.rootblock.com/formio/bolivar-ui-formio.min.js"></script>
 ```
 
 ### Opción 3: Bundle Completo (CSS + JS)
@@ -43,7 +43,7 @@ npm install @rb/formio
 <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
 <!-- Bundle completo en un archivo -->
-<script src="https://cdn.rootblock.com/formio/root-block-formio-complete-davivienda.bundle.js"></script>
+<script src="https://cdn.rootblock.com/formio/bolivar-ui-formio-complete-davivienda.bundle.js"></script>
 ```
 
 ## 🎯 Uso Básico
@@ -52,7 +52,7 @@ npm install @rb/formio
 
 ```javascript
 import { Formio } from 'formiojs';
-import '@rb/formio'; // Auto-registra los componentes
+import '@bolivar-ui/formio'; // Auto-registra los componentes
 
 const form = await Formio.createForm(document.getElementById('formio'), {
   components: [
@@ -77,13 +77,13 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 <html data-rb-brand="davivienda" data-rb-theme="light">
   <head>
     <meta name="rb-css-base-url" content="/assets/css" />
-    <link rel="stylesheet" href="root-block-formio-davivienda-light.min.css" />
+    <link rel="stylesheet" href="bolivar-ui-formio-davivienda-light.min.css" />
   </head>
   <body>
     <div id="formio"></div>
 
     <script src="formio.full.min.js"></script>
-    <script src="root-block-formio.min.js"></script>
+    <script src="bolivar-ui-formio.min.js"></script>
     <script>
       // El tema se aplica automáticamente
       Formio.createForm(document.getElementById('formio'), formSchema);
@@ -171,7 +171,7 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 ### Cambio Dinámico de Tema
 
 ```javascript
-import { themeManager } from '@rb/formio';
+import { themeManager } from '@bolivar-ui/formio';
 
 // Cambiar marca
 themeManager.setBrand('davivienda');
@@ -193,7 +193,7 @@ document.addEventListener('rb:theme-change', (event) => {
 ### Event Bus
 
 ```javascript
-import { EventBus } from '@rb/formio';
+import { EventBus } from '@bolivar-ui/formio';
 
 // Escuchar eventos de botón
 EventBus.on('button:click', (data) => {
@@ -207,7 +207,7 @@ EventBus.emit('custom:event', { message: 'Hello' });
 ### Validaciones
 
 ```javascript
-import { Validator } from '@rb/formio';
+import { Validator } from '@bolivar-ui/formio';
 
 // Validar email
 const isValid = Validator.email('user@example.com');
@@ -224,7 +224,7 @@ console.log(result.isValid, result.errors);
 ### Componente Personalizado
 
 ```javascript
-import { BaseComponent } from '@rb/formio';
+import { BaseComponent } from '@bolivar-ui/formio';
 
 class CustomComponent extends BaseComponent {
   static schema = {
@@ -247,11 +247,11 @@ Components.setComponent('custom', CustomComponent);
 ```
 form-io/
 ├── dist/                                    # Archivos compilados
-│   ├── root-block-formio-{brand}-{theme}.min.css  # CSS por marca
-│   ├── root-block-formio.min.css                  # CSS universal
-│   ├── root-block-formio.min.js                   # JS minificado
-│   ├── root-block-formio.bundle.js                # JS desarrollo
-│   ├── root-block-formio-complete-{brand}.bundle.js # Bundle completo
+│   ├── bolivar-ui-formio-{brand}-{theme}.min.css  # CSS por marca
+│   ├── bolivar-ui-formio.min.css                  # CSS universal
+│   ├── bolivar-ui-formio.min.js                   # JS minificado
+│   ├── bolivar-ui-formio.bundle.js                # JS desarrollo
+│   ├── bolivar-ui-formio-complete-{brand}.bundle.js # Bundle completo
 │   └── INSTRUCTIONS.md                             # Instrucciones
 ├── src/
 │   ├── components/
@@ -305,9 +305,9 @@ npm run build
 
 | Archivo                                     | Tamaño | Gzip  | Descripción           |
 | ------------------------------------------- | ------ | ----- | --------------------- |
-| `root-block-formio.min.css`                 | ~15KB  | ~3KB  | CSS universal         |
-| `root-block-formio-{brand}-{theme}.min.css` | ~18KB  | ~4KB  | CSS con tokens        |
-| `root-block-formio.min.js`                  | ~25KB  | ~8KB  | JavaScript minificado |
+| `bolivar-ui-formio.min.css`                 | ~15KB  | ~3KB  | CSS universal         |
+| `bolivar-ui-formio-{brand}-{theme}.min.css` | ~18KB  | ~4KB  | CSS con tokens        |
+| `bolivar-ui-formio.min.js`                  | ~25KB  | ~8KB  | JavaScript minificado |
 | Bundle completo                             | ~43KB  | ~12KB | CSS + JS combinado    |
 
 ## 🔧 Configuración Avanzada
@@ -317,12 +317,12 @@ npm run build
 ```css
 /* Sobrescribir variables CSS */
 :root {
-  --rb-button-border-radius: 8px;
-  --rb-button-font-weight: 600;
+  --b-ui-button-border-radius: 8px;
+  --b-ui-button-font-weight: 600;
 }
 
 /* Estilos específicos para Form.io */
-.formio-component-button .rb-button {
+.formio-component-button .b-ui-button {
   margin-bottom: 1rem;
 }
 ```
@@ -330,7 +330,7 @@ npm run build
 ### Configuración de Form.io
 
 ```javascript
-// Configurar Form.io para usar Root Block
+// Configurar Form.io para usar Bolivar UI
 Formio.use({
   framework: 'rootblock',
   iconset: 'fontawesome',
@@ -355,7 +355,7 @@ Formio.validators.rootblock = {
    - Comprobar que `data-rb-brand` está en el HTML
 
 2. **Componentes no aparecen**
-   - Asegurar que Form.io se carga antes que Root Block
+   - Asegurar que Form.io se carga antes que Bolivar UI
    - Verificar que el componente está registrado correctamente
 
 3. **Temas no cambian**
@@ -378,7 +378,7 @@ EventBus.on('*', (data) => console.log('Event:', data));
 ## 📚 Recursos
 
 - [Form.io Documentation](https://help.form.io/)
-- [Root Block Design System](../README.md)
+- [Bolivar UI Design System](../README.md)
 - [Storybook Components](https://rootblock-storybook.netlify.app/)
 
 ## 🤝 Contribuir
@@ -395,4 +395,4 @@ MIT License - ver [LICENSE](../LICENSE) para detalles.
 
 ---
 
-**Desarrollado con ❤️ por el equipo de Root Block Design System**
+**Desarrollado con ❤️ por el equipo de Bolivar UI Design System**

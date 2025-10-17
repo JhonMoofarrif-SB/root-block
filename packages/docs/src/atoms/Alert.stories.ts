@@ -4,33 +4,33 @@ import { html } from 'lit';
 /**
  * # Alert Component
  *
- * Componente de alerta versátil del Root Block Design System con diferentes estados, estilos y opciones de interactividad.
+ * Componente de alerta versátil del Bolivar UI Design System con diferentes estados, estilos y opciones de interactividad.
  *
  * ## 📋 Referencia Rápida de Clases
  *
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Variantes de Estado** | | |
- * | Alerta informativa (default) | `.rb-alert` | `<div class="rb-alert">Info</div>` |
- * | Alerta de éxito | `.rb-alert--success` | `<div class="rb-alert rb-alert--success">Success</div>` |
- * | Alerta de advertencia | `.rb-alert--warning` | `<div class="rb-alert rb-alert--warning">Warning</div>` |
- * | Alerta de error | `.rb-alert--error` | `<div class="rb-alert rb-alert--error">Error</div>` |
+ * | Alerta informativa (default) | `.rb-alert` | `<div class="b-ui-alert">Info</div>` |
+ * | Alerta de éxito | `.rb-alert--success` | `<div class="b-ui-alert rb-alert--success">Success</div>` |
+ * | Alerta de advertencia | `.rb-alert--warning` | `<div class="b-ui-alert rb-alert--warning">Warning</div>` |
+ * | Alerta de error | `.rb-alert--error` | `<div class="b-ui-alert rb-alert--error">Error</div>` |
  * | **Variantes de Estilo** | | |
- * | Con fondo (default) | Sin clase adicional | `<div class="rb-alert">Default</div>` |
- * | Sin fondo, solo borde | `.rb-alert--no-bg` | `<div class="rb-alert rb-alert--no-bg">No BG</div>` |
- * | Solo borde exterior | `.rb-alert--outlined` | `<div class="rb-alert rb-alert--outlined">Outlined</div>` |
- * | Fondo sólido | `.rb-alert--filled` | `<div class="rb-alert rb-alert--filled">Filled</div>` |
+ * | Con fondo (default) | Sin clase adicional | `<div class="b-ui-alert">Default</div>` |
+ * | Sin fondo, solo borde | `.rb-alert--no-bg` | `<div class="b-ui-alert rb-alert--no-bg">No BG</div>` |
+ * | Solo borde exterior | `.rb-alert--outlined` | `<div class="b-ui-alert rb-alert--outlined">Outlined</div>` |
+ * | Fondo sólido | `.rb-alert--filled` | `<div class="b-ui-alert rb-alert--filled">Filled</div>` |
  * | **Tamaños** | | |
- * | Pequeño | `.rb-alert--small` | `<div class="rb-alert rb-alert--small">Small</div>` |
- * | Mediano (default) | `.rb-alert--medium` o sin clase | `<div class="rb-alert">Medium</div>` |
- * | Grande | `.rb-alert--large` | `<div class="rb-alert rb-alert--large">Large</div>` |
+ * | Pequeño | `.rb-alert--small` | `<div class="b-ui-alert rb-alert--small">Small</div>` |
+ * | Mediano (default) | `.rb-alert--medium` o sin clase | `<div class="b-ui-alert">Medium</div>` |
+ * | Grande | `.rb-alert--large` | `<div class="b-ui-alert rb-alert--large">Large</div>` |
  * | **Interactividad** | | |
- * | Con botón cerrar | `.rb-alert--dismissible` | `<div class="rb-alert rb-alert--dismissible">...</div>` |
+ * | Con botón cerrar | `.rb-alert--dismissible` | `<div class="b-ui-alert rb-alert--dismissible">...</div>` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.rb-alert--rounded` | `<div class="rb-alert rb-alert--rounded">Rounded</div>` |
- * | Estilo minimal | `.rb-alert--minimal` | `<div class="rb-alert rb-alert--minimal">Minimal</div>` |
- * | Tipo toast | `.rb-alert--toast` | `<div class="rb-alert rb-alert--toast">Toast</div>` |
- * | Tipo banner | `.rb-alert--banner` | `<div class="rb-alert rb-alert--banner">Banner</div>` |
+ * | Bordes redondeados | `.rb-alert--rounded` | `<div class="b-ui-alert rb-alert--rounded">Rounded</div>` |
+ * | Estilo minimal | `.rb-alert--minimal` | `<div class="b-ui-alert rb-alert--minimal">Minimal</div>` |
+ * | Tipo toast | `.rb-alert--toast` | `<div class="b-ui-alert rb-alert--toast">Toast</div>` |
+ * | Tipo banner | `.rb-alert--banner` | `<div class="b-ui-alert rb-alert--banner">Banner</div>` |
  *
  * ## 💡 Notas Importantes
  *
@@ -38,20 +38,20 @@ import { html } from 'lit';
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
  * - **Estructura**: Usa `rb-alert-icon`, `rb-alert-content`, `rb-alert-title`, `rb-alert-message`
  * - **Iconos automáticos**: Los iconos se agregan automáticamente por CSS según el estado (✓, i, ⚠, ✕)
- * - **Elemento de icono vacío**: El `<div class="rb-alert-icon">` debe estar vacío, el CSS agrega el contenido
+ * - **Elemento de icono vacío**: El `<div class="b-ui-alert-icon">` debe estar vacío, el CSS agrega el contenido
  * - **Botón cerrar**: Usa `rb-alert-close` con `aria-label="Cerrar"`
  * - **Combinaciones**: Puedes combinar estado + estilo + tamaño + modificadores
  *
  * ## 🎯 Ejemplo de Estructura Completa
  *
  * ```html
- * <div class="rb-alert rb-alert--success rb-alert--large rb-alert--dismissible">
- *   <div class="rb-alert-icon"></div> <!-- ¡Vacío! El CSS agrega ✓ automáticamente -->
- *   <div class="rb-alert-content">
- *     <div class="rb-alert-title">Éxito</div>
- *     <div class="rb-alert-message">Operación completada correctamente.</div>
+ * <div class="b-ui-alert rb-alert--success rb-alert--large rb-alert--dismissible">
+ *   <div class="b-ui-alert-icon"></div> <!-- ¡Vacío! El CSS agrega ✓ automáticamente -->
+ *   <div class="b-ui-alert-content">
+ *     <div class="b-ui-alert-title">Éxito</div>
+ *     <div class="b-ui-alert-message">Operación completada correctamente.</div>
  *   </div>
- *   <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+ *   <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
  * </div>
  * ```
  */
@@ -168,19 +168,19 @@ export const Playground: Story = {
   render: (args) => {
     // Determinar las clases de la alerta
     const classes = [
-      'rb-alert',
+      'b-ui-alert',
       `rb-alert--${args.variant}`, // Siempre incluir la variante, incluso si es 'info'
       args.size !== 'medium' ? `rb-alert--${args.size}` : '',
       args.styleVariant !== 'default' ? `rb-alert--${args.styleVariant}` : '',
-      args.dismissible ? 'rb-alert--dismissible' : '',
-      args.rounded ? 'rb-alert--rounded' : '',
+      args.dismissible ? 'b-ui-alert--dismissible' : '',
+      args.rounded ? 'b-ui-alert--rounded' : '',
       args.modifier !== 'none' ? `rb-alert--${args.modifier}` : '',
     ]
       .filter(Boolean)
       .join(' ');
 
     // Determinar el icono según la variante
-    const getIcon = (variant: string) => {
+    const getIcon = (_variant: string) => {
       // El CSS ya maneja los iconos automáticamente con ::before
       // Solo retornamos un div vacío que será poblado por CSS
       return '';
@@ -189,17 +189,17 @@ export const Playground: Story = {
     return html`
       <div style="max-width: 600px;">
         <div class="${classes}">
-          ${args.showIcon ? html` <div class="rb-alert-icon">${getIcon(args.variant)}</div> ` : ''}
+          ${args.showIcon ? html` <div class="b-ui-alert-icon">${getIcon(args.variant)}</div> ` : ''}
 
-          <div class="rb-alert-content">
-            ${args.title ? html` <div class="rb-alert-title">${args.title}</div> ` : ''}
-            ${args.message ? html` <div class="rb-alert-message">${args.message}</div> ` : ''}
+          <div class="b-ui-alert-content">
+            ${args.title ? html` <div class="b-ui-alert-title">${args.title}</div> ` : ''}
+            ${args.message ? html` <div class="b-ui-alert-message">${args.message}</div> ` : ''}
           </div>
 
           ${args.dismissible
             ? html`
                 <button
-                  class="rb-alert-close"
+                  class="b-ui-alert-close"
                   type="button"
                   aria-label="Cerrar"
                   @click="${(e: Event) => {
@@ -233,9 +233,9 @@ export const Estados: Story = {
   render: () => html`
     <style>
       .matrix-container {
-        font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+        font-family: var(--b-ui-typography-fontFamily, 'Roboto', sans-serif);
         padding: 2rem;
-        background: var(--rb-color-grayscale-L400, #fafafa);
+        background: var(--b-ui-color-grayscale-L400, #fafafa);
       }
 
       .matrix-section {
@@ -250,12 +250,12 @@ export const Estados: Story = {
         font-size: 1.75rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        color: var(--rb-color-primary-base, #007acc);
+        color: var(--b-ui-color-primary-base, #007acc);
       }
 
       .matrix-subtitle {
         font-size: 1rem;
-        color: var(--rb-color-grayscale-base, #666);
+        color: var(--b-ui-color-grayscale-base, #666);
         margin-bottom: 2rem;
       }
 
@@ -268,16 +268,16 @@ export const Estados: Story = {
 
       .alert-demo {
         padding: 1rem;
-        border: 1px solid var(--rb-color-grayscale-L200, #e0e0e0);
+        border: 1px solid var(--b-ui-color-grayscale-L200, #e0e0e0);
         border-radius: 8px;
-        background: var(--rb-color-grayscale-white, #fff);
+        background: var(--b-ui-color-grayscale-white, #fff);
       }
 
       .alert-demo-title {
         font-size: 0.875rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
-        color: var(--rb-color-grayscale-D100, #333);
+        color: var(--b-ui-color-grayscale-D100, #333);
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
@@ -297,96 +297,96 @@ export const Estados: Story = {
           <!-- INFO DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Info - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--info">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Información</div>
-                <div class="rb-alert-message">Este es un mensaje informativo.</div>
+            <div class="b-ui-alert rb-alert--info">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Información</div>
+                <div class="b-ui-alert-message">Este es un mensaje informativo.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Info - Con Cerrar</div>
-            <div class="rb-alert rb-alert--info rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Información</div>
-                <div class="rb-alert-message">Mensaje con botón cerrar.</div>
+            <div class="b-ui-alert rb-alert--info rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Información</div>
+                <div class="b-ui-alert-message">Mensaje con botón cerrar.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
 
           <!-- SUCCESS DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Success - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--success">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Éxito</div>
-                <div class="rb-alert-message">Operación completada.</div>
+            <div class="b-ui-alert rb-alert--success">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Éxito</div>
+                <div class="b-ui-alert-message">Operación completada.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Success - Con Cerrar</div>
-            <div class="rb-alert rb-alert--success rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Éxito</div>
-                <div class="rb-alert-message">Operación exitosa.</div>
+            <div class="b-ui-alert rb-alert--success rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Éxito</div>
+                <div class="b-ui-alert-message">Operación exitosa.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
 
           <!-- WARNING DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Warning - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--warning">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Advertencia</div>
-                <div class="rb-alert-message">Revisa la información.</div>
+            <div class="b-ui-alert rb-alert--warning">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Advertencia</div>
+                <div class="b-ui-alert-message">Revisa la información.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Warning - Con Cerrar</div>
-            <div class="rb-alert rb-alert--warning rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Advertencia</div>
-                <div class="rb-alert-message">Revisa los datos.</div>
+            <div class="b-ui-alert rb-alert--warning rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Advertencia</div>
+                <div class="b-ui-alert-message">Revisa los datos.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
 
           <!-- ERROR DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Error - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--error">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Error</div>
-                <div class="rb-alert-message">Ha ocurrido un error.</div>
+            <div class="b-ui-alert rb-alert--error">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Error</div>
+                <div class="b-ui-alert-message">Ha ocurrido un error.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Error - Con Cerrar</div>
-            <div class="rb-alert rb-alert--error rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Error</div>
-                <div class="rb-alert-message">Error crítico.</div>
+            <div class="b-ui-alert rb-alert--error rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Error</div>
+                <div class="b-ui-alert-message">Error crítico.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
         </div>
@@ -405,96 +405,96 @@ export const Estados: Story = {
           <!-- INFO NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Info No-BG - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--info rb-alert--no-bg">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Información</div>
-                <div class="rb-alert-message">Sin fondo, solo borde.</div>
+            <div class="b-ui-alert rb-alert--info rb-alert--no-bg">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Información</div>
+                <div class="b-ui-alert-message">Sin fondo, solo borde.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Info No-BG - Con Cerrar</div>
-            <div class="rb-alert rb-alert--info rb-alert--no-bg rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Información</div>
-                <div class="rb-alert-message">Sin fondo con cerrar.</div>
+            <div class="b-ui-alert rb-alert--info rb-alert--no-bg rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Información</div>
+                <div class="b-ui-alert-message">Sin fondo con cerrar.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
 
           <!-- SUCCESS NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Success No-BG - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--success rb-alert--no-bg">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Éxito</div>
-                <div class="rb-alert-message">Éxito sin fondo.</div>
+            <div class="b-ui-alert rb-alert--success rb-alert--no-bg">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Éxito</div>
+                <div class="b-ui-alert-message">Éxito sin fondo.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Success No-BG - Con Cerrar</div>
-            <div class="rb-alert rb-alert--success rb-alert--no-bg rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Éxito</div>
-                <div class="rb-alert-message">Éxito sin fondo.</div>
+            <div class="b-ui-alert rb-alert--success rb-alert--no-bg rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Éxito</div>
+                <div class="b-ui-alert-message">Éxito sin fondo.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
 
           <!-- WARNING NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Warning No-BG - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--warning rb-alert--no-bg">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Advertencia</div>
-                <div class="rb-alert-message">Advertencia sin fondo.</div>
+            <div class="b-ui-alert rb-alert--warning rb-alert--no-bg">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Advertencia</div>
+                <div class="b-ui-alert-message">Advertencia sin fondo.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Warning No-BG - Con Cerrar</div>
-            <div class="rb-alert rb-alert--warning rb-alert--no-bg rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Advertencia</div>
-                <div class="rb-alert-message">Advertencia sin fondo.</div>
+            <div class="b-ui-alert rb-alert--warning rb-alert--no-bg rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Advertencia</div>
+                <div class="b-ui-alert-message">Advertencia sin fondo.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
 
           <!-- ERROR NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Error No-BG - Sin Cerrar</div>
-            <div class="rb-alert rb-alert--error rb-alert--no-bg">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Error</div>
-                <div class="rb-alert-message">Error sin fondo.</div>
+            <div class="b-ui-alert rb-alert--error rb-alert--no-bg">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Error</div>
+                <div class="b-ui-alert-message">Error sin fondo.</div>
               </div>
             </div>
           </div>
 
           <div class="alert-demo">
             <div class="alert-demo-title">Error No-BG - Con Cerrar</div>
-            <div class="rb-alert rb-alert--error rb-alert--no-bg rb-alert--dismissible">
-              <div class="rb-alert-icon"></div>
-              <div class="rb-alert-content">
-                <div class="rb-alert-title">Error</div>
-                <div class="rb-alert-message">Error sin fondo.</div>
+            <div class="b-ui-alert rb-alert--error rb-alert--no-bg rb-alert--dismissible">
+              <div class="b-ui-alert-icon"></div>
+              <div class="b-ui-alert-content">
+                <div class="b-ui-alert-title">Error</div>
+                <div class="b-ui-alert-message">Error sin fondo.</div>
               </div>
-              <button class="rb-alert-close" type="button" aria-label="Cerrar">×</button>
+              <button class="b-ui-alert-close" type="button" aria-label="Cerrar">×</button>
             </div>
           </div>
         </div>
@@ -517,7 +517,7 @@ export const Estados: Story = {
           </li>
           <li>
             <strong>Contenedor de icono vacío:</strong> El elemento
-            <code>&lt;div class="rb-alert-icon"&gt;</code> debe estar completamente vacío.
+            <code>&lt;div class="b-ui-alert-icon"&gt;</code> debe estar completamente vacío.
           </li>
           <li>
             <strong>Iconos por estado:</strong> Info (i), Success (✓), Warning (⚠), Error (✕) se

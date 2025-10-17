@@ -6,7 +6,7 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Root Block Design System - Sistema de diseño empresarial multi-marca',
+        component: 'Bolivar UI Design System - Sistema de diseño empresarial multi-marca',
       },
     },
   },
@@ -21,7 +21,7 @@ export const Welcome: Story = {
       <!-- Hero -->
       <div
         style="
-          background: linear-gradient(135deg, var(--rb-color-primary-base) 0%, var(--rb-color-secondary-base) 100%);
+          background: linear-gradient(135deg, var(--b-ui-color-primary-base) 0%, var(--b-ui-color-secondary-base) 100%);
           color: white;
           padding: 3rem 2rem;
           border-radius: 16px;
@@ -29,7 +29,7 @@ export const Welcome: Story = {
           text-align: center;
         "
       >
-        <h1 style="margin: 0 0 1rem 0; font-size: 3rem;">🎨 Root Block Design System</h1>
+        <h1 style="margin: 0 0 1rem 0; font-size: 3rem;">🎨 Bolivar UI Design System</h1>
         <p style="margin: 0; font-size: 1.25rem; opacity: 0.95;">
           Sistema de diseño empresarial multi-marca
         </p>
@@ -37,7 +37,7 @@ export const Welcome: Story = {
 
       <!-- Features -->
       <div style="margin-bottom: 3rem;">
-        <h2 style="color: var(--rb-color-primary-base); margin-bottom: 1.5rem;">
+        <h2 style="color: var(--b-ui-color-primary-base); margin-bottom: 1.5rem;">
           🌟 Características
         </h2>
         <div
@@ -46,13 +46,13 @@ export const Welcome: Story = {
           <div
             style="
               padding: 1.5rem;
-              background: var(--rb-color-grayscale-L400);
+              background: var(--b-ui-color-grayscale-L400);
               border-radius: 12px;
-              border-left: 4px solid var(--rb-color-primary-base);
+              border-left: 4px solid var(--b-ui-color-primary-base);
             "
           >
             <h3 style="margin: 0 0 0.5rem 0;">Multi-Marca</h3>
-            <p style="margin: 0; color: var(--rb-color-grayscale-D100);">
+            <p style="margin: 0; color: var(--b-ui-color-grayscale-D100);">
               6 marcas por 2 temas = 12 combinaciones
             </p>
           </div>
@@ -60,13 +60,13 @@ export const Welcome: Story = {
           <div
             style="
               padding: 1.5rem;
-              background: var(--rb-color-grayscale-L400);
+              background: var(--b-ui-color-grayscale-L400);
               border-radius: 12px;
-              border-left: 4px solid var(--rb-color-secondary-base);
+              border-left: 4px solid var(--b-ui-color-secondary-base);
             "
           >
             <h3 style="margin: 0 0 0.5rem 0;">Bundle Completo</h3>
-            <p style="margin: 0; color: var(--rb-color-grayscale-D100);">
+            <p style="margin: 0; color: var(--b-ui-color-grayscale-D100);">
               1 archivo CSS incluye todo
             </p>
           </div>
@@ -74,13 +74,13 @@ export const Welcome: Story = {
           <div
             style="
               padding: 1.5rem;
-              background: var(--rb-color-grayscale-L400);
+              background: var(--b-ui-color-grayscale-L400);
               border-radius: 12px;
-              border-left: 4px solid var(--rb-color-tertiary-base);
+              border-left: 4px solid var(--b-ui-color-tertiary-base);
             "
           >
             <h3 style="margin: 0 0 0.5rem 0;">Brand Overrides</h3>
-            <p style="margin: 0; color: var(--rb-color-grayscale-D100);">
+            <p style="margin: 0; color: var(--b-ui-color-grayscale-D100);">
               Estilos específicos por marca
             </p>
           </div>
@@ -91,35 +91,35 @@ export const Welcome: Story = {
       <div
         style="
           padding: 2rem;
-          background: var(--rb-color-secondary-L400);
+          background: var(--b-ui-color-secondary-L400);
           border-radius: 12px;
           margin-bottom: 3rem;
         "
       >
-        <h2 style="color: var(--rb-color-primary-base); margin-top: 0;">🚀 Quick Start</h2>
-        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 1.5rem;">
+        <h2 style="color: var(--b-ui-color-primary-base); margin-top: 0;">🚀 Quick Start</h2>
+        <p style="color: var(--b-ui-color-grayscale-D100); margin-bottom: 1.5rem;">
           Carga solo 1 archivo CSS con todo incluido:
         </p>
         <pre
           style="
-            background: var(--rb-color-grayscale-white);
+            background: var(--b-ui-color-grayscale-white);
             padding: 1rem;
             border-radius: 8px;
             overflow-x: auto;
-            border: 1px solid var(--rb-color-grayscale-L200);
+            border: 1px solid var(--b-ui-color-grayscale-L200);
           "
-        ><code>&lt;link rel="stylesheet" href="rb-jelpit-light.min.css"&gt;
-&lt;script type="module" src="rb-components.min.js"&gt;&lt;/script&gt;
+        ><code>&lt;link rel="stylesheet" href="b-ui-jelpit-light.min.css"&gt;
+&lt;script type="module" src="b-ui-components.min.js"&gt;&lt;/script&gt;
 
-&lt;button class="rb-button rb-button--primary"&gt;Click me&lt;/button&gt;</code></pre>
+&lt;button class="b-ui-button rb-button--primary"&gt;Click me&lt;/button&gt;</code></pre>
       </div>
 
       <!-- Brands -->
       <div style="margin-bottom: 3rem;">
-        <h2 style="color: var(--rb-color-primary-base); margin-bottom: 1.5rem;">
+        <h2 style="color: var(--b-ui-color-primary-base); margin-bottom: 1.5rem;">
           🌐 Marcas Disponibles
         </h2>
-        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 1.5rem;">
+        <p style="color: var(--b-ui-color-grayscale-D100); margin-bottom: 1.5rem;">
           <strong>💡 Tip:</strong> Usa el selector de <strong>Brand</strong> en la toolbar (arriba a
           la derecha) para ver cómo se adaptan los componentes
         </p>
@@ -139,8 +139,8 @@ export const Welcome: Story = {
               <div
                 style="
                   padding: 1rem;
-                  background: var(--rb-color-grayscale-white);
-                  border: 1px solid var(--rb-color-grayscale-L200);
+                  background: var(--b-ui-color-grayscale-white);
+                  border: 1px solid var(--b-ui-color-grayscale-L200);
                   border-radius: 8px;
                   text-align: center;
                 "
@@ -176,17 +176,17 @@ export const Welcome: Story = {
           padding: 2rem;
           background: linear-gradient(135deg, rgba(225, 17, 28, 0.1) 0%, rgba(75, 92, 111, 0.1) 100%);
           border-radius: 12px;
-          border: 2px solid var(--rb-color-primary-L300);
+          border: 2px solid var(--b-ui-color-primary-L300);
           margin-bottom: 3rem;
         "
       >
-        <h2 style="color: var(--rb-color-primary-base); margin-top: 0;">
+        <h2 style="color: var(--b-ui-color-primary-base); margin-top: 0;">
           ✨ Brand Overrides Especiales
         </h2>
 
         <div style="margin-bottom: 1.5rem;">
           <h3 style="color: #e1111c; margin: 0 0 0.5rem 0; font-size: 1.1rem;">🔴 Davivienda</h3>
-          <p style="color: var(--rb-color-grayscale-D100); margin: 0;">
+          <p style="color: var(--b-ui-color-grayscale-D100); margin: 0;">
             <strong>Loading Animation:</strong> Gradiente negro deslizante de izquierda a derecha
           </p>
         </div>
@@ -195,16 +195,16 @@ export const Welcome: Story = {
           <h3 style="color: #009056; margin: 0 0 0.5rem 0; font-size: 1.1rem;">
             💚 Seguros Bolívar
           </h3>
-          <p style="color: var(--rb-color-grayscale-D100); margin: 0;">
+          <p style="color: var(--b-ui-color-grayscale-D100); margin: 0;">
             <strong>Color Swap:</strong> Botón Primary usa amarillo, Secondary usa verde
             (invertidos)
           </p>
         </div>
 
-        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 0.5rem;">
+        <p style="color: var(--b-ui-color-grayscale-D100); margin-bottom: 0.5rem;">
           <strong>Para verlo en acción:</strong>
         </p>
-        <ol style="color: var(--rb-color-grayscale-D100); margin: 0; padding-left: 1.5rem;">
+        <ol style="color: var(--b-ui-color-grayscale-D100); margin: 0; padding-left: 1.5rem;">
           <li>Selecciona una marca en el selector de Brand (toolbar)</li>
           <li>Ve a "Atoms → Button"</li>
           <li>Observa los overrides específicos de cada marca</li>
@@ -214,33 +214,33 @@ export const Welcome: Story = {
 
       <!-- Navigation -->
       <div>
-        <h2 style="color: var(--rb-color-primary-base); margin-bottom: 1.5rem;">📚 Navegación</h2>
+        <h2 style="color: var(--b-ui-color-primary-base); margin-bottom: 1.5rem;">📚 Navegación</h2>
         <div
           style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"
         >
           <div
-            style="padding: 1rem; background: var(--rb-color-grayscale-L400); border-radius: 8px;"
+            style="padding: 1rem; background: var(--b-ui-color-grayscale-L400); border-radius: 8px;"
           >
             <h3 style="margin: 0 0 0.5rem 0;">Foundations</h3>
-            <p style="margin: 0; font-size: 0.875rem; color: var(--rb-color-grayscale-D100);">
+            <p style="margin: 0; font-size: 0.875rem; color: var(--b-ui-color-grayscale-D100);">
               Colores y fundamentos del sistema
             </p>
           </div>
 
           <div
-            style="padding: 1rem; background: var(--rb-color-grayscale-L400); border-radius: 8px;"
+            style="padding: 1rem; background: var(--b-ui-color-grayscale-L400); border-radius: 8px;"
           >
             <h3 style="margin: 0 0 0.5rem 0;">Atoms</h3>
-            <p style="margin: 0; font-size: 0.875rem; color: var(--rb-color-grayscale-D100);">
+            <p style="margin: 0; font-size: 0.875rem; color: var(--b-ui-color-grayscale-D100);">
               Componentes CSS simples (Button)
             </p>
           </div>
 
           <div
-            style="padding: 1rem; background: var(--rb-color-grayscale-L400); border-radius: 8px;"
+            style="padding: 1rem; background: var(--b-ui-color-grayscale-L400); border-radius: 8px;"
           >
             <h3 style="margin: 0 0 0.5rem 0;">Molecules</h3>
-            <p style="margin: 0; font-size: 0.875rem; color: var(--rb-color-grayscale-D100);">
+            <p style="margin: 0; font-size: 0.875rem; color: var(--b-ui-color-grayscale-D100);">
               Web Components complejos
             </p>
           </div>
@@ -252,13 +252,13 @@ export const Welcome: Story = {
         style="
           margin-top: 2rem;
           padding: 2rem;
-          background: linear-gradient(135deg, var(--rb-color-primary-L400) 0%, var(--rb-color-secondary-L400) 100%);
+          background: linear-gradient(135deg, var(--b-ui-color-primary-L400) 0%, var(--b-ui-color-secondary-L400) 100%);
           border-radius: 12px;
           text-align: center;
         "
       >
-        <h2 style="color: var(--rb-color-primary-base); margin-top: 0;">🎮 Demo Interactivo</h2>
-        <p style="color: var(--rb-color-grayscale-D100); margin-bottom: 1.5rem;">
+        <h2 style="color: var(--b-ui-color-primary-base); margin-top: 0;">🎮 Demo Interactivo</h2>
+        <p style="color: var(--b-ui-color-grayscale-D100); margin-bottom: 1.5rem;">
           Prueba todos los componentes en acción con cambio dinámico de marca y tema
         </p>
         <a
@@ -267,7 +267,7 @@ export const Welcome: Story = {
           style="
             display: inline-block;
             padding: 0.75rem 2rem;
-            background: var(--rb-color-primary-base);
+            background: var(--b-ui-color-primary-base);
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -283,9 +283,9 @@ export const Welcome: Story = {
 
       <!-- Footer -->
       <div
-        style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--rb-color-grayscale-L200); text-align: center;"
+        style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--b-ui-color-grayscale-L200); text-align: center;"
       >
-        <p style="color: var(--rb-color-grayscale-base; margin: 0;">
+        <p style="color: var(--b-ui-color-grayscale-base; margin: 0;">
           <strong>Happy coding! 🚀</strong>
         </p>
       </div>

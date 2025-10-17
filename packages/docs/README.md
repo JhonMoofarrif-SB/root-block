@@ -1,8 +1,8 @@
-# 📚 @rb/docs - Storybook Documentation
+# 📚 @bolivar-ui/docs - Storybook Documentation
 
-> Documentación interactiva y completa del **Root Block Design System**
+> Documentación interactiva y completa del **Bolivar UI Design System**
 
-Sistema de documentación construido con Storybook 7 para el design system multi-marca Root Block. Incluye componentes, tokens de diseño, guías de uso y ejemplos interactivos.
+Sistema de documentación construido con Storybook 7 para el design system multi-marca Bolivar UI. Incluye componentes, tokens de diseño, guías de uso y ejemplos interactivos.
 
 ---
 
@@ -25,7 +25,7 @@ Sistema de documentación construido con Storybook 7 para el design system multi
 pnpm storybook
 
 # Directo sin build previo (útil para iteración rápida)
-pnpm --filter @rb/docs storybook
+pnpm --filter @bolivar-ui/docs storybook
 ```
 
 **Puerto**: http://localhost:6006
@@ -43,7 +43,7 @@ pnpm build-storybook
 ### Limpiar
 
 ```bash
-pnpm --filter @rb/docs clean
+pnpm --filter @bolivar-ui/docs clean
 ```
 
 ---
@@ -290,7 +290,7 @@ Genera carpeta `storybook-static/` lista para servir.
 
 ```json
 {
-  "buildCommand": "pnpm run build:all && pnpm --filter @rb/docs build-storybook",
+  "buildCommand": "pnpm run build:all && pnpm --filter @bolivar-ui/docs build-storybook",
   "outputDirectory": "packages/docs/storybook-static"
 }
 ```
@@ -326,7 +326,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 - [Storybook Docs](https://storybook.js.org/docs/web-components/get-started/introduction)
 - [Lit HTML](https://lit.dev/)
 - [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
-- [Root Block Design System](../../README.md)
+- [Bolivar UI Design System](../../README.md)
 
 ---
 
@@ -344,4 +344,4 @@ Para añadir o mejorar documentación:
 
 ## 📄 Licencia
 
-MIT © Root Block
+MIT © Bolivar UI

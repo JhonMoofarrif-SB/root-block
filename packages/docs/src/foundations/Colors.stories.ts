@@ -8,7 +8,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          'Sistema de colores del Root Block Design System. Cada marca tiene su propia paleta de colores que se adapta automáticamente según los tokens cargados.',
+          'Sistema de colores del Bolivar UI Design System. Cada marca tiene su propia paleta de colores que se adapta automáticamente según los tokens cargados.',
       },
     },
   },
@@ -28,19 +28,19 @@ const renderColorSwatch = (name: string, varName: string, description?: string) 
         height: 80px;
         background: var(${varName});
         border-radius: 8px;
-        border: 1px solid var(--rb-color-grayscale-L200);
+        border: 1px solid var(--b-ui-color-grayscale-L200);
         margin-bottom: 0.5rem;
       "
     ></div>
     <div style="font-weight: 600; margin-bottom: 0.25rem;">${name}</div>
     <div
-      style="font-size: 0.875rem; color: var(--rb-color-grayscale-base); font-family: monospace;"
+      style="font-size: 0.875rem; color: var(--b-ui-color-grayscale-base); font-family: monospace;"
     >
       ${varName}
     </div>
     ${description
       ? html`<div
-          style="font-size: 0.75rem; color: var(--rb-color-grayscale-D100); margin-top: 0.25rem;"
+          style="font-size: 0.75rem; color: var(--b-ui-color-grayscale-D100); margin-top: 0.25rem;"
         >
           ${description}
         </div>`
@@ -50,14 +50,14 @@ const renderColorSwatch = (name: string, varName: string, description?: string) 
 
 const renderColorScale = (colorName: string, scales: string[]) => html`
   <div style="margin-bottom: 2rem;">
-    <h3 style="margin-bottom: 1rem; color: var(--rb-color-primary-base);">${colorName}</h3>
+    <h3 style="margin-bottom: 1rem; color: var(--b-ui-color-primary-base);">${colorName}</h3>
     <div
       style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;"
     >
       ${scales.map((scale) =>
         renderColorSwatch(
           scale,
-          `--rb-color-${colorName.toLowerCase()}-${scale}`,
+          `--b-ui-color-${colorName.toLowerCase()}-${scale}`,
           scale === 'base' ? 'Color principal' : ''
         )
       )}
@@ -69,7 +69,7 @@ export const Primary: Story = {
   render: () => html`
     <div style="padding: 2rem;">
       <h2 style="margin-bottom: 1rem;">Colores Primarios</h2>
-      <p style="margin-bottom: 2rem; color: var(--rb-color-grayscale-D100);">
+      <p style="margin-bottom: 2rem; color: var(--b-ui-color-grayscale-D100);">
         Color principal de la marca. Se adapta automáticamente según la marca seleccionada en el
         toolbar.
       </p>
@@ -92,7 +92,7 @@ export const Secondary: Story = {
   render: () => html`
     <div style="padding: 2rem;">
       <h2 style="margin-bottom: 1rem;">Colores Secundarios</h2>
-      <p style="margin-bottom: 2rem; color: var(--rb-color-grayscale-D100);">
+      <p style="margin-bottom: 2rem; color: var(--b-ui-color-grayscale-D100);">
         Color secundario de la marca, usado para acentos y elementos complementarios.
       </p>
       ${renderColorScale('Secondary', [
@@ -114,7 +114,7 @@ export const Tertiary: Story = {
   render: () => html`
     <div style="padding: 2rem;">
       <h2 style="margin-bottom: 1rem;">Colores Terciarios</h2>
-      <p style="margin-bottom: 2rem; color: var(--rb-color-grayscale-D100);">
+      <p style="margin-bottom: 2rem; color: var(--b-ui-color-grayscale-D100);">
         Color terciario de la marca, usado para elementos adicionales.
       </p>
       ${renderColorScale('Tertiary', [
@@ -136,7 +136,7 @@ export const Grayscale: Story = {
   render: () => html`
     <div style="padding: 2rem;">
       <h2 style="margin-bottom: 1rem;">Escala de Grises</h2>
-      <p style="margin-bottom: 2rem; color: var(--rb-color-grayscale-D100);">
+      <p style="margin-bottom: 2rem; color: var(--b-ui-color-grayscale-D100);">
         Escala neutral usada para textos, fondos y bordes.
       </p>
       ${renderColorScale('Grayscale', [
@@ -160,12 +160,12 @@ export const Feedback: Story = {
   render: () => html`
     <div style="padding: 2rem;">
       <h2 style="margin-bottom: 1rem;">Colores de Feedback</h2>
-      <p style="margin-bottom: 2rem; color: var(--rb-color-grayscale-D100);">
+      <p style="margin-bottom: 2rem; color: var(--b-ui-color-grayscale-D100);">
         Colores semánticos usados para indicar estados: error, éxito, advertencia e información.
       </p>
 
       <h3
-        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--rb-color-feedback-error-base);"
+        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--b-ui-color-feedback-error-base);"
       >
         Error
       </h3>
@@ -173,12 +173,12 @@ export const Feedback: Story = {
         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;"
       >
         ${['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'].map((scale) =>
-          renderColorSwatch(scale, `--rb-color-feedback-error-${scale}`)
+          renderColorSwatch(scale, `--b-ui-color-feedback-error-${scale}`)
         )}
       </div>
 
       <h3
-        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--rb-color-feedback-success-base);"
+        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--b-ui-color-feedback-success-base);"
       >
         Success
       </h3>
@@ -186,12 +186,12 @@ export const Feedback: Story = {
         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;"
       >
         ${['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'].map((scale) =>
-          renderColorSwatch(scale, `--rb-color-feedback-success-${scale}`)
+          renderColorSwatch(scale, `--b-ui-color-feedback-success-${scale}`)
         )}
       </div>
 
       <h3
-        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--rb-color-feedback-warning-base);"
+        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--b-ui-color-feedback-warning-base);"
       >
         Warning
       </h3>
@@ -199,18 +199,18 @@ export const Feedback: Story = {
         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;"
       >
         ${['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'].map((scale) =>
-          renderColorSwatch(scale, `--rb-color-feedback-warning-${scale}`)
+          renderColorSwatch(scale, `--b-ui-color-feedback-warning-${scale}`)
         )}
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--rb-color-feedback-info-base);">
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--b-ui-color-feedback-info-base);">
         Info
       </h3>
       <div
         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;"
       >
         ${['D400', 'D300', 'D200', 'D100', 'base', 'L100', 'L200', 'L300', 'L400'].map((scale) =>
-          renderColorSwatch(scale, `--rb-color-feedback-info-${scale}`)
+          renderColorSwatch(scale, `--b-ui-color-feedback-info-${scale}`)
         )}
       </div>
     </div>
@@ -225,7 +225,7 @@ export const AllColors: Story = {
         style="
           padding: 1.5rem;
           margin-bottom: 2rem;
-          background: linear-gradient(135deg, var(--rb-color-primary-base) 0%, var(--rb-color-secondary-base) 100%);
+          background: linear-gradient(135deg, var(--b-ui-color-primary-base) 0%, var(--b-ui-color-secondary-base) 100%);
           color: white;
           border-radius: 12px;
         "
@@ -247,7 +247,7 @@ export const AllColors: Story = {
           gap: 1rem;
           margin-bottom: 2rem;
           padding: 1rem;
-          background: var(--rb-color-grayscale-L400);
+          background: var(--b-ui-color-grayscale-L400);
           border-radius: 8px;
         "
       >
