@@ -12,40 +12,40 @@ import { html } from 'lit';
  * |-----------|-----------|---------|
  * | **Variantes de Estado** | | |
  * | Alerta informativa (default) | `.sb-ui-alert` | `<div class="sb-ui-alert">Info</div>` |
- * | Alerta de éxito | `.sb-ui-alert--success` | `<div class="sb-ui-alert rb-alert--success">Success</div>` |
- * | Alerta de advertencia | `.sb-ui-alert--warning` | `<div class="sb-ui-alert rb-alert--warning">Warning</div>` |
- * | Alerta de error | `.sb-ui-alert--error` | `<div class="sb-ui-alert rb-alert--error">Error</div>` |
+ * | Alerta de éxito | `.sb-ui-alert--success` | `<div class="sb-ui-alert sb-ui-alert--success">Success</div>` |
+ * | Alerta de advertencia | `.sb-ui-alert--warning` | `<div class="sb-ui-alert sb-ui-alert--warning">Warning</div>` |
+ * | Alerta de error | `.sb-ui-alert--error` | `<div class="sb-ui-alert sb-ui-alert--error">Error</div>` |
  * | **Variantes de Estilo** | | |
  * | Con fondo (default) | Sin clase adicional | `<div class="sb-ui-alert">Default</div>` |
- * | Sin fondo, solo borde | `.sb-ui-alert--no-bg` | `<div class="sb-ui-alert rb-alert--no-bg">No BG</div>` |
- * | Solo borde exterior | `.sb-ui-alert--outlined` | `<div class="sb-ui-alert rb-alert--outlined">Outlined</div>` |
- * | Fondo sólido | `.sb-ui-alert--filled` | `<div class="sb-ui-alert rb-alert--filled">Filled</div>` |
+ * | Sin fondo, solo borde | `.sb-ui-alert--no-bg` | `<div class="sb-ui-alert sb-ui-alert--no-bg">No BG</div>` |
+ * | Solo borde exterior | `.sb-ui-alert--outlined` | `<div class="sb-ui-alert sb-ui-alert--outlined">Outlined</div>` |
+ * | Fondo sólido | `.sb-ui-alert--filled` | `<div class="sb-ui-alert sb-ui-alert--filled">Filled</div>` |
  * | **Tamaños** | | |
- * | Pequeño | `.sb-ui-alert--small` | `<div class="sb-ui-alert rb-alert--small">Small</div>` |
+ * | Pequeño | `.sb-ui-alert--small` | `<div class="sb-ui-alert sb-ui-alert--small">Small</div>` |
  * | Mediano (default) | `.sb-ui-alert--medium` o sin clase | `<div class="sb-ui-alert">Medium</div>` |
- * | Grande | `.sb-ui-alert--large` | `<div class="sb-ui-alert rb-alert--large">Large</div>` |
+ * | Grande | `.sb-ui-alert--large` | `<div class="sb-ui-alert sb-ui-alert--large">Large</div>` |
  * | **Interactividad** | | |
- * | Con botón cerrar | `.sb-ui-alert--dismissible` | `<div class="sb-ui-alert rb-alert--dismissible">...</div>` |
+ * | Con botón cerrar | `.sb-ui-alert--dismissible` | `<div class="sb-ui-alert sb-ui-alert--dismissible">...</div>` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.sb-ui-alert--rounded` | `<div class="sb-ui-alert rb-alert--rounded">Rounded</div>` |
- * | Estilo minimal | `.sb-ui-alert--minimal` | `<div class="sb-ui-alert rb-alert--minimal">Minimal</div>` |
- * | Tipo toast | `.sb-ui-alert--toast` | `<div class="sb-ui-alert rb-alert--toast">Toast</div>` |
- * | Tipo banner | `.sb-ui-alert--banner` | `<div class="sb-ui-alert rb-alert--banner">Banner</div>` |
+ * | Bordes redondeados | `.sb-ui-alert--rounded` | `<div class="sb-ui-alert sb-ui-alert--rounded">Rounded</div>` |
+ * | Estilo minimal | `.sb-ui-alert--minimal` | `<div class="sb-ui-alert sb-ui-alert--minimal">Minimal</div>` |
+ * | Tipo toast | `.sb-ui-alert--toast` | `<div class="sb-ui-alert sb-ui-alert--toast">Toast</div>` |
+ * | Tipo banner | `.sb-ui-alert--banner` | `<div class="sb-ui-alert sb-ui-alert--banner">Banner</div>` |
  *
  * ## 💡 Notas Importantes
  *
  * - **Estado por defecto**: INFO - color primario con fondo suave
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
- * - **Estructura**: Usa `rb-alert-icon`, `rb-alert-content`, `rb-alert-title`, `rb-alert-message`
+ * - **Estructura**: Usa `sb-ui-alert-icon`, `sb-ui-alert-content`, `sb-ui-alert-title`, `sb-ui-alert-message`
  * - **Iconos automáticos**: Los iconos se agregan automáticamente por CSS según el estado (✓, i, ⚠, ✕)
  * - **Elemento de icono vacío**: El `<div class="sb-ui-alert-icon">` debe estar vacío, el CSS agrega el contenido
- * - **Botón cerrar**: Usa `rb-alert-close` con `aria-label="Cerrar"`
+ * - **Botón cerrar**: Usa `sb-ui-alert-close` con `aria-label="Cerrar"`
  * - **Combinaciones**: Puedes combinar estado + estilo + tamaño + modificadores
  *
  * ## 🎯 Ejemplo de Estructura Completa
  *
  * ```html
- * <div class="sb-ui-alert rb-alert--success rb-alert--large rb-alert--dismissible">
+ * <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--large sb-ui-alert--dismissible">
  *   <div class="sb-ui-alert-icon"></div> <!-- ¡Vacío! El CSS agrega ✓ automáticamente -->
  *   <div class="sb-ui-alert-content">
  *     <div class="sb-ui-alert-title">Éxito</div>
@@ -169,12 +169,12 @@ export const Playground: Story = {
     // Determinar las clases de la alerta
     const classes = [
       'sb-ui-alert',
-      `rb-alert--${args.variant}`, // Siempre incluir la variante, incluso si es 'info'
-      args.size !== 'medium' ? `rb-alert--${args.size}` : '',
-      args.styleVariant !== 'default' ? `rb-alert--${args.styleVariant}` : '',
+      `sb-ui-alert--${args.variant}`, // Siempre incluir la variante, incluso si es 'info'
+      args.size !== 'medium' ? `sb-ui-alert--${args.size}` : '',
+      args.styleVariant !== 'default' ? `sb-ui-alert--${args.styleVariant}` : '',
       args.dismissible ? 'sb-ui-alert--dismissible' : '',
       args.rounded ? 'sb-ui-alert--rounded' : '',
-      args.modifier !== 'none' ? `rb-alert--${args.modifier}` : '',
+      args.modifier !== 'none' ? `sb-ui-alert--${args.modifier}` : '',
     ]
       .filter(Boolean)
       .join(' ');
@@ -299,7 +299,7 @@ export const Estados: Story = {
           <!-- INFO DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Info - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--info">
+            <div class="sb-ui-alert sb-ui-alert--info">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Información</div>
@@ -310,7 +310,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Info - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--info rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Información</div>
@@ -323,7 +323,7 @@ export const Estados: Story = {
           <!-- SUCCESS DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Success - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--success">
+            <div class="sb-ui-alert sb-ui-alert--success">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Éxito</div>
@@ -334,7 +334,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Success - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--success rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Éxito</div>
@@ -347,7 +347,7 @@ export const Estados: Story = {
           <!-- WARNING DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Warning - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--warning">
+            <div class="sb-ui-alert sb-ui-alert--warning">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Advertencia</div>
@@ -358,7 +358,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Warning - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--warning rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Advertencia</div>
@@ -371,7 +371,7 @@ export const Estados: Story = {
           <!-- ERROR DEFAULT -->
           <div class="alert-demo">
             <div class="alert-demo-title">Error - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--error">
+            <div class="sb-ui-alert sb-ui-alert--error">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Error</div>
@@ -382,7 +382,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Error - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--error rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Error</div>
@@ -407,7 +407,7 @@ export const Estados: Story = {
           <!-- INFO NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Info No-BG - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--info rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Información</div>
@@ -418,7 +418,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Info No-BG - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--info rb-alert--no-bg rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--no-bg sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Información</div>
@@ -431,7 +431,7 @@ export const Estados: Story = {
           <!-- SUCCESS NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Success No-BG - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--success rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Éxito</div>
@@ -442,7 +442,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Success No-BG - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--success rb-alert--no-bg rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-bg sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Éxito</div>
@@ -455,7 +455,7 @@ export const Estados: Story = {
           <!-- WARNING NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Warning No-BG - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--warning rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Advertencia</div>
@@ -466,7 +466,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Warning No-BG - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--warning rb-alert--no-bg rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-bg sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Advertencia</div>
@@ -479,7 +479,7 @@ export const Estados: Story = {
           <!-- ERROR NO-BG -->
           <div class="alert-demo">
             <div class="alert-demo-title">Error No-BG - Sin Cerrar</div>
-            <div class="sb-ui-alert rb-alert--error rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Error</div>
@@ -490,7 +490,7 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Error No-BG - Con Cerrar</div>
-            <div class="sb-ui-alert rb-alert--error rb-alert--no-bg rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--no-bg sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Error</div>
@@ -530,9 +530,9 @@ export const Estados: Story = {
             botón cerrar.
           </li>
           <li>
-            <strong>Estructura:</strong> Los iconos y contenido usan <code>rb-alert-icon</code>,
-            <code>rb-alert-content</code>, <code>rb-alert-title</code>,
-            <code>rb-alert-message</code>.
+            <strong>Estructura:</strong> Los iconos y contenido usan <code>sb-ui-alert-icon</code>,
+            <code>sb-ui-alert-content</code>, <code>sb-ui-alert-title</code>,
+            <code>sb-ui-alert-message</code>.
           </li>
           <li>
             <strong>Accesibilidad:</strong> El botón cerrar incluye

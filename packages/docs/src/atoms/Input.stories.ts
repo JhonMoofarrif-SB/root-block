@@ -12,40 +12,40 @@ import { html } from 'lit';
  * |-----------|-----------|---------|
  * | **Estados** | | |
  * | Input normal (default) | `.sb-ui-input` | `<input class="sb-ui-input" type="text" />` |
- * | Input con error | `.sb-ui-input--error` | `<input class="sb-ui-input rb-input--error" type="text" />` |
- * | Input exitoso | `.sb-ui-input--success` | `<input class="sb-ui-input rb-input--success" type="text" />` |
- * | Input con advertencia | `.sb-ui-input--warning` | `<input class="sb-ui-input rb-input--warning" type="text" />` |
+ * | Input con error | `.sb-ui-input--error` | `<input class="sb-ui-input sb-ui-input--error" type="text" />` |
+ * | Input exitoso | `.sb-ui-input--success` | `<input class="sb-ui-input sb-ui-input--success" type="text" />` |
+ * | Input con advertencia | `.sb-ui-input--warning` | `<input class="sb-ui-input sb-ui-input--warning" type="text" />` |
  * | **Tamaños** | | |
- * | Pequeño | `.sb-ui-input--small` | `<input class="sb-ui-input rb-input--small" type="text" />` |
+ * | Pequeño | `.sb-ui-input--small` | `<input class="sb-ui-input sb-ui-input--small" type="text" />` |
  * | Mediano (default) | `.sb-ui-input--medium` o sin clase | `<input class="sb-ui-input" type="text" />` |
- * | Grande | `.sb-ui-input--large` | `<input class="sb-ui-input rb-input--large" type="text" />` |
+ * | Grande | `.sb-ui-input--large` | `<input class="sb-ui-input sb-ui-input--large" type="text" />` |
  * | **Con Iconos** | | |
  * | Icono izquierdo | `.sb-ui-input--with-icon-left` | En un `.sb-ui-input-container` |
  * | Icono derecho | `.sb-ui-input--with-icon-right` | En un `.sb-ui-input-container` |
  * | Ambos iconos | `.sb-ui-input--with-icon-both` | En un `.sb-ui-input-container` |
  * | **Modificadores** | | |
- * | Bordes redondeados | `.sb-ui-input--rounded` | `<input class="sb-ui-input rb-input--rounded" type="text" />` |
- * | Inline (auto width) | `.sb-ui-input--inline` | `<input class="sb-ui-input rb-input--inline" type="text" />` |
+ * | Bordes redondeados | `.sb-ui-input--rounded` | `<input class="sb-ui-input sb-ui-input--rounded" type="text" />` |
+ * | Inline (auto width) | `.sb-ui-input--inline` | `<input class="sb-ui-input sb-ui-input--inline" type="text" />` |
  *
  * ## 💡 Notas Importantes
  *
  * - **Estado por defecto**: NORMAL - sin validación especial
  * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
- * - **Label**: Usa `rb-input-label` y `rb-input-label--required` para requeridos
- * - **Helper text**: Usa `rb-input-helper` con estados `--error`, `--success`, `--warning`
- * - **Iconos**: Requieren contenedor `rb-input-container` y elementos `rb-input-icon`
+ * - **Label**: Usa `sb-ui-input-label` y `sb-ui-input-label--required` para requeridos
+ * - **Helper text**: Usa `sb-ui-input-helper` con estados `--error`, `--success`, `--warning`
+ * - **Iconos**: Requieren contenedor `sb-ui-input-container` y elementos `sb-ui-input-icon`
  * - **Tipos soportados**: text, email, password, number, tel, url, search
  *
  * ## 🎯 Ejemplo de Estructura Completa
  *
  * ```html
  * <div>
- *   <label class="sb-ui-input-label rb-input-label--required">Email</label>
+ *   <label class="sb-ui-input-label sb-ui-input-label--required">Email</label>
  *   <div class="sb-ui-input-container">
- *     <input class="sb-ui-input rb-input--large rb-input--with-icon-left" type="email" />
- *     <span class="sb-ui-input-icon rb-input-icon--left">📧</span>
+ *     <input class="sb-ui-input sb-ui-input--large sb-ui-input--with-icon-left" type="email" />
+ *     <span class="sb-ui-input-icon sb-ui-input-icon--left">📧</span>
  *   </div>
- *   <div class="sb-ui-input-helper rb-input-helper--success">Email válido</div>
+ *   <div class="sb-ui-input-helper sb-ui-input-helper--success">Email válido</div>
  * </div>
  * ```
  */
@@ -188,8 +188,8 @@ export const Playground: Story = {
     // Determinar las clases del input
     const inputClasses = [
       'sb-ui-input',
-      args.state !== 'normal' ? `rb-input--${args.state}` : '',
-      args.size !== 'medium' ? `rb-input--${args.size}` : '',
+      args.state !== 'normal' ? `sb-ui-input--${args.state}` : '',
+      args.size !== 'medium' ? `sb-ui-input--${args.size}` : '',
       args.rounded ? 'sb-ui-input--rounded' : '',
       args.inline ? 'sb-ui-input--inline' : '',
       args.iconPosition === 'left' ? 'sb-ui-input--with-icon-left' : '',
@@ -207,7 +207,7 @@ export const Playground: Story = {
     // Determinar las clases del helper
     const helperClasses = [
       'sb-ui-input-helper',
-      args.state !== 'normal' ? `rb-input-helper--${args.state}` : '',
+      args.state !== 'normal' ? `sb-ui-input-helper--${args.state}` : '',
     ]
       .filter(Boolean)
       .join(' ');
@@ -258,14 +258,14 @@ export const Playground: Story = {
 
                   ${args.iconPosition === 'left' || args.iconPosition === 'both'
                     ? html`
-                        <span class="sb-ui-input-icon rb-input-icon--left">
+                        <span class="sb-ui-input-icon sb-ui-input-icon--left">
                           ${getIcon(args.type, 'left')}
                         </span>
                       `
                     : ''}
                   ${args.iconPosition === 'right' || args.iconPosition === 'both'
                     ? html`
-                        <span class="sb-ui-input-icon rb-input-icon--right">
+                        <span class="sb-ui-input-icon sb-ui-input-icon--right">
                           ${getIcon(args.type, 'right')}
                         </span>
                       `
@@ -273,7 +273,7 @@ export const Playground: Story = {
                 </div>
               `
             : html`
-                <div class="${args.inline ? 'sb-ui-input-container rb-input-container--inline' : ''}">
+                <div class="${args.inline ? 'sb-ui-input-container sb-ui-input-container--inline' : ''}">
                   <input
                     id="${inputId}"
                     class="${inputClasses}"
@@ -346,18 +346,18 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="sb-ui-input-label">Error</label>
-          <input class="sb-ui-input rb-input--error" type="text" placeholder="Con error" />
-          <div class="sb-ui-input-helper rb-input-helper--error">Campo con error</div>
+          <input class="sb-ui-input sb-ui-input--error" type="text" placeholder="Con error" />
+          <div class="sb-ui-input-helper sb-ui-input-helper--error">Campo con error</div>
         </div>
         <div>
           <label class="sb-ui-input-label">Success</label>
-          <input class="sb-ui-input rb-input--success" type="text" value="Válido" />
-          <div class="sb-ui-input-helper rb-input-helper--success">Campo válido</div>
+          <input class="sb-ui-input sb-ui-input--success" type="text" value="Válido" />
+          <div class="sb-ui-input-helper sb-ui-input-helper--success">Campo válido</div>
         </div>
         <div>
           <label class="sb-ui-input-label">Warning</label>
-          <input class="sb-ui-input rb-input--warning" type="text" placeholder="Advertencia" />
-          <div class="sb-ui-input-helper rb-input-helper--warning">Revisa este campo</div>
+          <input class="sb-ui-input sb-ui-input--warning" type="text" placeholder="Advertencia" />
+          <div class="sb-ui-input-helper sb-ui-input-helper--warning">Revisa este campo</div>
         </div>
       </div>
 
@@ -366,15 +366,15 @@ export const Estados: Story = {
         <h3>Tamaños</h3>
         <div>
           <label class="sb-ui-input-label">Small</label>
-          <input class="sb-ui-input rb-input--small" type="text" placeholder="Input pequeño" />
+          <input class="sb-ui-input sb-ui-input--small" type="text" placeholder="Input pequeño" />
         </div>
         <div>
           <label class="sb-ui-input-label">Medium</label>
-          <input class="sb-ui-input rb-input--medium" type="text" placeholder="Input mediano" />
+          <input class="sb-ui-input sb-ui-input--medium" type="text" placeholder="Input mediano" />
         </div>
         <div>
           <label class="sb-ui-input-label">Large</label>
-          <input class="sb-ui-input rb-input--large" type="text" placeholder="Input grande" />
+          <input class="sb-ui-input sb-ui-input--large" type="text" placeholder="Input grande" />
         </div>
       </div>
 
@@ -385,34 +385,34 @@ export const Estados: Story = {
           <label class="sb-ui-input-label">Icono Izquierdo</label>
           <div class="sb-ui-input-container">
             <input
-              class="sb-ui-input rb-input--with-icon-left"
+              class="sb-ui-input sb-ui-input--with-icon-left"
               type="search"
               placeholder="Buscar..."
             />
-            <span class="sb-ui-input-icon rb-input-icon--left">🔍</span>
+            <span class="sb-ui-input-icon sb-ui-input-icon--left">🔍</span>
           </div>
         </div>
         <div>
           <label class="sb-ui-input-label">Icono Derecho</label>
           <div class="sb-ui-input-container">
             <input
-              class="sb-ui-input rb-input--with-icon-right"
+              class="sb-ui-input sb-ui-input--with-icon-right"
               type="password"
               placeholder="Contraseña"
             />
-            <span class="sb-ui-input-icon rb-input-icon--right">👁️</span>
+            <span class="sb-ui-input-icon sb-ui-input-icon--right">👁️</span>
           </div>
         </div>
         <div>
           <label class="sb-ui-input-label">Ambos Iconos</label>
           <div class="sb-ui-input-container">
             <input
-              class="sb-ui-input rb-input--with-icon-both"
+              class="sb-ui-input sb-ui-input--with-icon-both"
               type="email"
               placeholder="email@ejemplo.com"
             />
-            <span class="sb-ui-input-icon rb-input-icon--left">📧</span>
-            <span class="sb-ui-input-icon rb-input-icon--right">✓</span>
+            <span class="sb-ui-input-icon sb-ui-input-icon--left">📧</span>
+            <span class="sb-ui-input-icon sb-ui-input-icon--right">✓</span>
           </div>
         </div>
       </div>
@@ -442,7 +442,7 @@ export const Estados: Story = {
       <div class="input-demo">
         <h3>Estados Especiales</h3>
         <div>
-          <label class="sb-ui-input-label rb-input-label--required">Requerido</label>
+          <label class="sb-ui-input-label sb-ui-input-label--required">Requerido</label>
           <input class="sb-ui-input" type="text" placeholder="Campo obligatorio" required />
           <div class="sb-ui-input-helper">Campo obligatorio</div>
         </div>
@@ -453,7 +453,7 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="sb-ui-input-label">Rounded</label>
-          <input class="sb-ui-input rb-input--rounded" type="text" placeholder="Bordes redondeados" />
+          <input class="sb-ui-input sb-ui-input--rounded" type="text" placeholder="Bordes redondeados" />
         </div>
       </div>
 
@@ -462,15 +462,15 @@ export const Estados: Story = {
         <h3>Grupos de Inputs</h3>
         <div>
           <label class="sb-ui-input-label">Grupo Horizontal</label>
-          <div class="sb-ui-input-group rb-input-group--horizontal">
+          <div class="sb-ui-input-group sb-ui-input-group--horizontal">
             <input class="sb-ui-input" type="text" placeholder="Nombre" />
             <input class="sb-ui-input" type="text" placeholder="Apellido" />
           </div>
         </div>
         <div>
           <label class="sb-ui-input-label">Inline</label>
-          <div class="sb-ui-input-container rb-input-container--inline">
-            <input class="sb-ui-input rb-input--inline" type="text" placeholder="Auto width" />
+          <div class="sb-ui-input-container sb-ui-input-container--inline">
+            <input class="sb-ui-input sb-ui-input--inline" type="text" placeholder="Auto width" />
           </div>
         </div>
       </div>

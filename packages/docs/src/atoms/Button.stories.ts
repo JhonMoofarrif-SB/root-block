@@ -11,28 +11,28 @@ import { html } from 'lit';
  * | Quiero... | Clase CSS | Ejemplo |
  * |-----------|-----------|---------|
  * | **Variantes de Color** | | |
- * | Botón primario | `.sb-ui-button--primary` | `<button class="sb-ui-button rb-button--primary">Primary</button>` |
- * | Botón secundario | `.sb-ui-button--secondary` | `<button class="sb-ui-button rb-button--secondary">Secondary</button>` |
- * | Botón terciario | `.sb-ui-button--tertiary` | `<button class="sb-ui-button rb-button--tertiary">Tertiary</button>` |
- * | Botón error | `.sb-ui-button--error` | `<button class="sb-ui-button rb-button--error">Error</button>` |
+ * | Botón primario | `.sb-ui-button--primary` | `<button class="sb-ui-button sb-ui-button--primary">Primary</button>` |
+ * | Botón secundario | `.sb-ui-button--secondary` | `<button class="sb-ui-button sb-ui-button--secondary">Secondary</button>` |
+ * | Botón terciario | `.sb-ui-button--tertiary` | `<button class="sb-ui-button sb-ui-button--tertiary">Tertiary</button>` |
+ * | Botón error | `.sb-ui-button--error` | `<button class="sb-ui-button sb-ui-button--error">Error</button>` |
  * | **Variantes de Estilo** | | |
- * | Outline/borde (default) | `.sb-ui-button--stroke` o sin clase | `<button class="sb-ui-button rb-button--primary">Default</button>` |
- * | Fondo sólido | `.sb-ui-button--fill` | `<button class="sb-ui-button rb-button--primary rb-button--fill">Filled</button>` |
- * | Transparente sin borde | `.sb-ui-button--text` | `<button class="sb-ui-button rb-button--primary rb-button--text">Text</button>` |
+ * | Outline/borde (default) | `.sb-ui-button--stroke` o sin clase | `<button class="sb-ui-button sb-ui-button--primary">Default</button>` |
+ * | Fondo sólido | `.sb-ui-button--fill` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">Filled</button>` |
+ * | Transparente sin borde | `.sb-ui-button--text` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">Text</button>` |
  * | **Posiciones de Icono** | | |
- * | Icono a la izquierda | `.sb-ui-button--icon-left` | `<button class="sb-ui-button rb-button--primary rb-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
- * | Icono a la derecha | `.sb-ui-button--icon-right` | `<button class="sb-ui-button rb-button--primary rb-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
- * | Solo icono | `.sb-ui-button--icon-only` | `<button class="sb-ui-button rb-button--primary rb-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
+ * | Icono a la izquierda | `.sb-ui-button--icon-left` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-left"><i class="fa-solid fa-user"></i> Action</button>` |
+ * | Icono a la derecha | `.sb-ui-button--icon-right` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-right">Action <i class="fa-solid fa-user"></i></button>` |
+ * | Solo icono | `.sb-ui-button--icon-only` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-only"><i class="fa-solid fa-user"></i></button>` |
  * | **Tamaños** | | |
- * | Pequeño | `.sb-ui-button--small` | `<button class="sb-ui-button rb-button--primary rb-button--small">Small</button>` |
- * | Mediano (default) | `.sb-ui-button--medium` o sin clase | `<button class="sb-ui-button rb-button--primary">Medium</button>` |
- * | Grande | `.sb-ui-button--large` | `<button class="sb-ui-button rb-button--primary rb-button--large">Large</button>` |
+ * | Pequeño | `.sb-ui-button--small` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">Small</button>` |
+ * | Mediano (default) | `.sb-ui-button--medium` o sin clase | `<button class="sb-ui-button sb-ui-button--primary">Medium</button>` |
+ * | Grande | `.sb-ui-button--large` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--large">Large</button>` |
  * | **Estados** | | |
- * | Estado cargando | `.sb-ui-button--loading` | `<button class="sb-ui-button rb-button--primary rb-button--loading">Loading...</button>` |
- * | Estado deshabilitado | `.sb-ui-button--disabled` | `<button class="sb-ui-button rb-button--primary rb-button--disabled">Disabled</button>` |
+ * | Estado cargando | `.sb-ui-button--loading` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading">Loading...</button>` |
+ * | Estado deshabilitado | `.sb-ui-button--disabled` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--disabled">Disabled</button>` |
  * | **Modificadores** | | |
- * | Ancho completo | `.sb-ui-button--block` | `<button class="sb-ui-button rb-button--primary rb-button--block">Full Width</button>` |
- * | Esquinas cuadradas | `.sb-ui-button--square` | `<button class="sb-ui-button rb-button--primary rb-button--square">Square</button>` |
+ * | Ancho completo | `.sb-ui-button--block` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--block">Full Width</button>` |
+ * | Esquinas cuadradas | `.sb-ui-button--square` | `<button class="sb-ui-button sb-ui-button--primary sb-ui-button--square">Square</button>` |
  *
  * ## 💡 Notas Importantes
  *
@@ -47,7 +47,7 @@ import { html } from 'lit';
  * ## 🎯 Ejemplo de Combinación Completa
  *
  * ```html
- * <button class="sb-ui-button rb-button--primary rb-button--fill rb-button--large rb-button--icon-left">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--large sb-ui-button--icon-left">
  *   <i class="fa-solid fa-user"></i>
  *   Guardar Cambios
  * </button>
@@ -176,9 +176,9 @@ export const Playground: Story = {
     // Determinar las clases del botón
     const classes = [
       'sb-ui-button',
-      `rb-button--${args.variant}`,
-      `rb-button--${args.size}`,
-      args.styleVariant ? `rb-button--${args.styleVariant}` : '',
+      `sb-ui-button--${args.variant}`,
+      `sb-ui-button--${args.size}`,
+      args.styleVariant ? `sb-ui-button--${args.styleVariant}` : '',
       args.loading ? 'sb-ui-button--loading' : '',
       args.disabled ? 'sb-ui-button--disabled' : '',
       args.iconPosition === 'left' ? 'sb-ui-button--icon-left' : '',
@@ -366,22 +366,22 @@ export const Primary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--fill rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--icon-left">
                   <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--fill rb-button--icon-right">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--icon-right">
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--fill">Action</button>
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">Action</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--fill rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--icon-only">
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
@@ -394,7 +394,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -402,20 +402,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--fill rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -429,7 +429,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -437,20 +437,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--fill rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -486,24 +486,24 @@ export const Primary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--stroke rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--icon-left">
                   <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--stroke">Action</button>
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke">Action</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--stroke rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--icon-only">
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
@@ -516,7 +516,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -524,20 +524,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--stroke rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -551,7 +551,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -559,20 +559,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--stroke rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -606,22 +606,22 @@ export const Primary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--text rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--icon-left">
                   <i class="fa-solid fa-user"></i>
                   Action
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--text rb-button--icon-right">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--icon-right">
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--text">Action</button>
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">Action</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--text rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--icon-only">
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
@@ -634,7 +634,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -642,20 +642,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--text rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--text rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -669,7 +669,7 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-user"></i>
                   Action
@@ -677,20 +677,20 @@ export const Primary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-user"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--primary rb-button--text rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--primary rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--primary sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-user"></i>
                 </button>
@@ -850,24 +850,24 @@ export const Secondary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--fill rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-left">
                   <i class="fa-solid fa-star"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--fill">Action</button>
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill">Action</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--fill rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-only">
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
@@ -880,7 +880,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -888,20 +888,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--fill rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -915,7 +915,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -923,20 +923,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--fill rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -973,7 +973,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -981,18 +981,18 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--stroke">Action</button>
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke">Action</button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1006,7 +1006,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1014,20 +1014,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1041,7 +1041,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1049,7 +1049,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
@@ -1057,14 +1057,14 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--disabled"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--disabled"
                 >
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1100,24 +1100,24 @@ export const Secondary: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--text rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-left">
                   <i class="fa-solid fa-star"></i>
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--text">Action</button>
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text">Action</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--text rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-only">
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
@@ -1130,7 +1130,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1138,20 +1138,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--text rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--loading">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1165,7 +1165,7 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-star"></i>
                   Action
@@ -1173,20 +1173,20 @@ export const Secondary: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Action
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--secondary rb-button--text rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--disabled">
                   Action
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--secondary rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-star"></i>
                 </button>
@@ -1348,22 +1348,22 @@ export const Error: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--icon-left">
                   <i class="fa-solid fa-trash"></i>
                   Delete
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--icon-right">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--icon-right">
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--fill">Delete</button>
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--fill">Delete</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--icon-only">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
@@ -1376,7 +1376,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1384,20 +1384,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--loading">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--fill rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1411,7 +1411,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1419,20 +1419,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--disabled">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--fill rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--fill sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1469,22 +1469,22 @@ export const Error: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--icon-left">
                   <i class="fa-solid fa-trash"></i>
                   Delete
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--icon-right">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--icon-right">
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--stroke">Delete</button>
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--stroke">Delete</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--icon-only">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
@@ -1497,7 +1497,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1505,20 +1505,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--loading">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1532,7 +1532,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1540,20 +1540,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--disabled">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--stroke rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--stroke sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1589,22 +1589,22 @@ export const Error: Story = {
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--text rb-button--icon-left">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--icon-left">
                   <i class="fa-solid fa-trash"></i>
                   Delete
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--text rb-button--icon-right">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--icon-right">
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--text">Delete</button>
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--text">Delete</button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--text rb-button--icon-only">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--icon-only">
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
@@ -1617,7 +1617,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1625,20 +1625,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--text rb-button--loading">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--loading">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--text rb-button--loading rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--loading sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -1652,7 +1652,7 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-left"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-left"
                 >
                   <i class="fa-solid fa-trash"></i>
                   Delete
@@ -1660,20 +1660,20 @@ export const Error: Story = {
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-right"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-right"
                 >
                   Delete
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button rb-button--error rb-button--text rb-button--disabled">
+                <button class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--disabled">
                   Delete
                 </button>
               </td>
               <td>
                 <button
-                  class="sb-ui-button rb-button--error rb-button--text rb-button--disabled rb-button--icon-only"
+                  class="sb-ui-button sb-ui-button--error sb-ui-button--text sb-ui-button--disabled sb-ui-button--icon-only"
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>

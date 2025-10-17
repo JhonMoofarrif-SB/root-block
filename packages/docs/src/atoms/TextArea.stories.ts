@@ -12,19 +12,19 @@ import { html } from 'lit';
  * |-----------|-----------|---------|
  * | **Estados** | | |
  * | TextArea normal (default) | `.sb-ui-textarea` | `<textarea class="sb-ui-textarea"></textarea>` |
- * | TextArea con error | `.sb-ui-textarea--error` | `<textarea class="sb-ui-textarea rb-textarea--error"></textarea>` |
- * | TextArea exitoso | `.sb-ui-textarea--success` | `<textarea class="sb-ui-textarea rb-textarea--success"></textarea>` |
- * | TextArea con advertencia | `.sb-ui-textarea--warning` | `<textarea class="sb-ui-textarea rb-textarea--warning"></textarea>` |
+ * | TextArea con error | `.sb-ui-textarea--error` | `<textarea class="sb-ui-textarea sb-ui-textarea--error"></textarea>` |
+ * | TextArea exitoso | `.sb-ui-textarea--success` | `<textarea class="sb-ui-textarea sb-ui-textarea--success"></textarea>` |
+ * | TextArea con advertencia | `.sb-ui-textarea--warning` | `<textarea class="sb-ui-textarea sb-ui-textarea--warning"></textarea>` |
  * | **Tamaños** | | |
- * | Pequeño | `.sb-ui-textarea--small` | `<textarea class="sb-ui-textarea rb-textarea--small"></textarea>` |
+ * | Pequeño | `.sb-ui-textarea--small` | `<textarea class="sb-ui-textarea sb-ui-textarea--small"></textarea>` |
  * | Mediano (default) | `.sb-ui-textarea--medium` o sin clase | `<textarea class="sb-ui-textarea"></textarea>` |
- * | Grande | `.sb-ui-textarea--large` | `<textarea class="sb-ui-textarea rb-textarea--large"></textarea>` |
+ * | Grande | `.sb-ui-textarea--large` | `<textarea class="sb-ui-textarea sb-ui-textarea--large"></textarea>` |
  * | **Resize** | | |
- * | Sin resize | `.sb-ui-textarea--no-resize` | `<textarea class="sb-ui-textarea rb-textarea--no-resize"></textarea>` |
- * | Auto resize | `.sb-ui-textarea--auto-resize` | `<textarea class="sb-ui-textarea rb-textarea--auto-resize"></textarea>` |
+ * | Sin resize | `.sb-ui-textarea--no-resize` | `<textarea class="sb-ui-textarea sb-ui-textarea--no-resize"></textarea>` |
+ * | Auto resize | `.sb-ui-textarea--auto-resize` | `<textarea class="sb-ui-textarea sb-ui-textarea--auto-resize"></textarea>` |
  * | **Modificadores** | | |
  * | Con contador | `.sb-ui-textarea--with-counter` | En un `.sb-ui-textarea-container` |
- * | Bordes redondeados | `.sb-ui-textarea--rounded` | `<textarea class="sb-ui-textarea rb-textarea--rounded"></textarea>` |
+ * | Bordes redondeados | `.sb-ui-textarea--rounded` | `<textarea class="sb-ui-textarea sb-ui-textarea--rounded"></textarea>` |
  */
 const meta: Meta = {
   title: 'Atoms/TextArea',
@@ -162,12 +162,12 @@ export const Playground: Story = {
   render: (args) => {
     const textareaClasses = [
       'sb-ui-textarea',
-      args.state !== 'normal' ? `rb-textarea--${args.state}` : '',
-      args.size !== 'medium' ? `rb-textarea--${args.size}` : '',
+      args.state !== 'normal' ? `sb-ui-textarea--${args.state}` : '',
+      args.size !== 'medium' ? `sb-ui-textarea--${args.size}` : '',
       args.rounded ? 'sb-ui-textarea--rounded' : '',
       args.withCounter ? 'sb-ui-textarea--with-counter' : '',
       args.resize !== 'default'
-        ? `rb-textarea--${args.resize === 'none' ? 'no-resize' : args.resize === 'auto' ? 'auto-resize' : `resize-${args.resize}`}`
+        ? `sb-ui-textarea--${args.resize === 'none' ? 'no-resize' : args.resize === 'auto' ? 'auto-resize' : `resize-${args.resize}`}`
         : '',
     ]
       .filter(Boolean)
@@ -179,7 +179,7 @@ export const Playground: Story = {
 
     const helperClasses = [
       'sb-ui-textarea-helper',
-      args.state !== 'normal' ? `rb-textarea-helper--${args.state}` : '',
+      args.state !== 'normal' ? `sb-ui-textarea-helper--${args.state}` : '',
     ]
       .filter(Boolean)
       .join(' ');
@@ -281,21 +281,21 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="sb-ui-textarea-label">Error</label>
-          <textarea class="sb-ui-textarea rb-textarea--error" placeholder="Con error"></textarea>
-          <div class="sb-ui-textarea-helper rb-textarea-helper--error">Campo con error</div>
+          <textarea class="sb-ui-textarea sb-ui-textarea--error" placeholder="Con error"></textarea>
+          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--error">Campo con error</div>
         </div>
         <div>
           <label class="sb-ui-textarea-label">Success</label>
-          <textarea class="sb-ui-textarea rb-textarea--success">Texto válido</textarea>
-          <div class="sb-ui-textarea-helper rb-textarea-helper--success">Campo válido</div>
+          <textarea class="sb-ui-textarea sb-ui-textarea--success">Texto válido</textarea>
+          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--success">Campo válido</div>
         </div>
         <div>
           <label class="sb-ui-textarea-label">Warning</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--warning"
+            class="sb-ui-textarea sb-ui-textarea--warning"
             placeholder="Con advertencia"
           ></textarea>
-          <div class="sb-ui-textarea-helper rb-textarea-helper--warning">Revisa este campo</div>
+          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--warning">Revisa este campo</div>
         </div>
       </div>
 
@@ -305,20 +305,20 @@ export const Estados: Story = {
         <div>
           <label class="sb-ui-textarea-label">Small</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--small"
+            class="sb-ui-textarea sb-ui-textarea--small"
             placeholder="TextArea pequeño"
           ></textarea>
         </div>
         <div>
           <label class="sb-ui-textarea-label">Medium</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--medium"
+            class="sb-ui-textarea sb-ui-textarea--medium"
             placeholder="TextArea mediano"
           ></textarea>
         </div>
         <div>
           <label class="sb-ui-textarea-label">Large</label>
-          <textarea class="sb-ui-textarea rb-textarea--large" placeholder="TextArea grande"></textarea>
+          <textarea class="sb-ui-textarea sb-ui-textarea--large" placeholder="TextArea grande"></textarea>
         </div>
       </div>
 
@@ -329,7 +329,7 @@ export const Estados: Story = {
           <label class="sb-ui-textarea-label">Contador Básico</label>
           <div class="sb-ui-textarea-container">
             <textarea
-              class="sb-ui-textarea rb-textarea--with-counter"
+              class="sb-ui-textarea sb-ui-textarea--with-counter"
               maxlength="100"
               placeholder="Máximo 100 caracteres"
             ></textarea>
@@ -340,7 +340,7 @@ export const Estados: Story = {
           <label class="sb-ui-textarea-label">Contador con Warning</label>
           <div class="sb-ui-textarea-container">
             <textarea
-              class="sb-ui-textarea rb-textarea--with-counter"
+              class="sb-ui-textarea sb-ui-textarea--with-counter"
               maxlength="50"
               placeholder="Máximo 50 caracteres"
             ></textarea>
@@ -355,21 +355,21 @@ export const Estados: Story = {
         <div>
           <label class="sb-ui-textarea-label">No Resize</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--no-resize"
+            class="sb-ui-textarea sb-ui-textarea--no-resize"
             placeholder="Sin redimensionar"
           ></textarea>
         </div>
         <div>
           <label class="sb-ui-textarea-label">Auto Resize</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--auto-resize"
+            class="sb-ui-textarea sb-ui-textarea--auto-resize"
             placeholder="Se ajusta automáticamente"
           ></textarea>
         </div>
         <div>
           <label class="sb-ui-textarea-label">Resize Both</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--resize-both"
+            class="sb-ui-textarea sb-ui-textarea--resize-both"
             placeholder="Ambas direcciones"
           ></textarea>
         </div>
@@ -391,7 +391,7 @@ export const Estados: Story = {
         <div>
           <label class="sb-ui-textarea-label">Rounded</label>
           <textarea
-            class="sb-ui-textarea rb-textarea--rounded"
+            class="sb-ui-textarea sb-ui-textarea--rounded"
             placeholder="Bordes redondeados"
           ></textarea>
         </div>
