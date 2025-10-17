@@ -189,7 +189,9 @@ export const Playground: Story = {
     return html`
       <div style="max-width: 600px;">
         <div class="${classes}">
-          ${args.showIcon ? html` <div class="b-ui-alert-icon">${getIcon(args.variant)}</div> ` : ''}
+          ${args.showIcon
+            ? html` <div class="b-ui-alert-icon">${getIcon(args.variant)}</div> `
+            : ''}
 
           <div class="b-ui-alert-content">
             ${args.title ? html` <div class="b-ui-alert-title">${args.title}</div> ` : ''}
