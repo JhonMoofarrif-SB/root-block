@@ -20,7 +20,7 @@ class FormIOBundleBuilder {
    * Ejecuta el build completo
    */
   async build() {
-    console.log('🚀 Building Root Block Form.io Bundle...\n');
+    console.log('🚀 Building Seguros Bolívar UI Form.io Bundle...\n');
 
     try {
       // Limpiar directorio dist
@@ -118,7 +118,7 @@ class FormIOBundleBuilder {
    * Build CSS para una marca específica
    */
   async buildBrandCSS(brand, theme) {
-    const outputFile = `root-block-formio-${brand}-${theme}.min.css`;
+    const outputFile = `sb-ui-formio-${brand}-${theme}.min.css`;
     const outputPath = path.join(this.distDir, outputFile);
 
     try {
@@ -131,7 +131,7 @@ class FormIOBundleBuilder {
 
       // Combinar CSS
       const combinedCSS = [
-        '/* Root Block Design System - Form.io Bundle */',
+        '/* Seguros Bolívar UI Design System - Form.io Bundle */',
         `/* Brand: ${brand} | Theme: ${theme} */`,
         '',
         '/* === DESIGN TOKENS === */',
@@ -171,7 +171,7 @@ class FormIOBundleBuilder {
    * Build CSS universal (componentes sin tokens)
    */
   async buildUniversalCSS() {
-    const outputFile = 'root-block-formio.min.css';
+    const outputFile = 'sb-ui-formio.min.css';
     const outputPath = path.join(this.distDir, outputFile);
 
     try {
@@ -183,7 +183,7 @@ class FormIOBundleBuilder {
 
       // Combinar CSS
       const combinedCSS = [
-        '/* Root Block Design System - Form.io Universal Bundle */',
+        '/* Seguros Bolívar UI Design System - Form.io Universal Bundle */',
         '/* Use with separate token files for theming */',
         '',
         '/* === BUTTON COMPONENT === */',
@@ -252,16 +252,16 @@ class FormIOBundleBuilder {
       await build({
         entryPoints: [path.join(this.srcDir, 'index.ts')],
         bundle: true,
-        outfile: path.join(this.distDir, 'root-block-formio.bundle.js'),
+        outfile: path.join(this.distDir, 'sb-ui-formio.bundle.js'),
         format: 'iife',
-        globalName: 'RootBlockFormIO',
+        globalName: 'SbUiFormIO',
         platform: 'browser',
         target: 'es2017',
         sourcemap: true,
         external: ['formiojs'], // Form.io será cargado externamente
       });
 
-      console.log('  ✅ root-block-formio.bundle.js');
+      console.log('  ✅ sb-ui-formio.bundle.js');
     } catch (error) {
       console.error('  ❌ Failed to build main JS bundle:', error);
     }
@@ -275,9 +275,9 @@ class FormIOBundleBuilder {
       await build({
         entryPoints: [path.join(this.srcDir, 'index.ts')],
         bundle: true,
-        outfile: path.join(this.distDir, 'root-block-formio.min.js'),
+        outfile: path.join(this.distDir, 'sb-ui-formio.min.js'),
         format: 'iife',
-        globalName: 'RootBlockFormIO',
+        globalName: 'SbUiFormIO',
         platform: 'browser',
         target: 'es2017',
         minify: true,
@@ -285,7 +285,7 @@ class FormIOBundleBuilder {
         external: ['formiojs'], // Form.io será cargado externamente
       });
 
-      console.log('  ✅ root-block-formio.min.js');
+      console.log('  ✅ sb-ui-formio.min.js');
     } catch (error) {
       console.error('  ❌ Failed to build minified JS bundle:', error);
     }
@@ -308,21 +308,21 @@ class FormIOBundleBuilder {
    * Build bundle completo para una marca
    */
   async buildCompleteBrandBundle(brand) {
-    const outputFile = `root-block-formio-complete-${brand}.bundle.js`;
+    const outputFile = `sb-ui-formio-complete-${brand}.bundle.js`;
     const outputPath = path.join(this.distDir, outputFile);
 
     try {
       // Leer JS bundle
-      const jsBundle = await this.readFile(path.join(this.distDir, 'root-block-formio.min.js'));
+      const jsBundle = await this.readFile(path.join(this.distDir, 'sb-ui-formio.min.js'));
 
       // Leer CSS para light theme
       const cssBundle = await this.readFile(
-        path.join(this.distDir, `root-block-formio-${brand}-light.min.css`)
+        path.join(this.distDir, `sb-ui-formio-${brand}-light.min.css`)
       );
 
       // Crear bundle completo que inyecta CSS
       const completeBundle = `
-/* Root Block Form.io Complete Bundle - ${brand} */
+/* Seguros Bolívar UI Form.io Complete Bundle - ${brand} */
 (function() {
   // Inyectar CSS
   var css = ${JSON.stringify(cssBundle)};
@@ -357,20 +357,20 @@ class FormIOBundleBuilder {
    * Crea archivo de instrucciones
    */
   async createInstructions() {
-    const instructions = `# Root Block Form.io Integration
+    const instructions = `# Seguros Bolívar UI Form.io Integration
 
 ## Archivos Generados
 
 ### CSS Bundles (por marca y tema)
-- root-block-formio-{brand}-{theme}.min.css - Bundle completo con tokens
-- root-block-formio.min.css - Bundle universal sin tokens
+- sb-ui-formio-{brand}-{theme}.min.css - Bundle completo con tokens
+- sb-ui-formio.min.css - Bundle universal sin tokens
 
-### JavaScript Bundles  
-- root-block-formio.bundle.js - Bundle desarrollo con sourcemap
-- root-block-formio.min.js - Bundle minificado para producción
+### JavaScript Bundles
+- sb-ui-formio.bundle.js - Bundle desarrollo con sourcemap
+- sb-ui-formio.min.js - Bundle minificado para producción
 
 ### Complete Bundles
-- root-block-formio-complete-{brand}.bundle.js - JS + CSS en un archivo
+- sb-ui-formio-complete-{brand}.bundle.js - JS + CSS en un archivo
 
 ## Uso Básico
 
@@ -379,11 +379,11 @@ class FormIOBundleBuilder {
 <!-- Cargar Form.io primero -->
 <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
-<!-- Cargar estilos de Root Block -->
-<link rel="stylesheet" href="root-block-formio-davivienda-light.min.css">
+<!-- Cargar estilos de Seguros Bolívar UI -->
+<link rel="stylesheet" href="sb-ui-formio-davivienda-light.min.css">
 
-<!-- Cargar componentes de Root Block -->
-<script src="root-block-formio.min.js"></script>
+<!-- Cargar componentes de Seguros Bolívar UI -->
+<script src="sb-ui-formio.min.js"></script>
 \`\`\`
 
 ### Opción 2: Bundle completo
@@ -392,7 +392,7 @@ class FormIOBundleBuilder {
 <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
 <!-- Bundle completo (CSS + JS) -->
-<script src="root-block-formio-complete-davivienda.bundle.js"></script>
+<script src="sb-ui-formio-complete-davivienda.bundle.js"></script>
 \`\`\`
 
 ## Uso en Form.io

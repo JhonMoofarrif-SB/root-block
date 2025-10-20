@@ -173,7 +173,10 @@ export const Playground: Story = {
       .filter(Boolean)
       .join(' ');
 
-    const labelClasses = ['sb-ui-textarea-label', args.required ? 'sb-ui-textarea-label--required' : '']
+    const labelClasses = [
+      'sb-ui-textarea-label',
+      args.required ? 'sb-ui-textarea-label--required' : '',
+    ]
       .filter(Boolean)
       .join(' ');
 
@@ -318,7 +321,10 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="sb-ui-textarea-label">Large</label>
-          <textarea class="sb-ui-textarea sb-ui-textarea--large" placeholder="TextArea grande"></textarea>
+          <textarea
+            class="sb-ui-textarea sb-ui-textarea--large"
+            placeholder="TextArea grande"
+          ></textarea>
         </div>
       </div>
 
@@ -344,7 +350,7 @@ export const Estados: Story = {
               maxlength="50"
               placeholder="Máximo 50 caracteres"
             ></textarea>
-            <div class="sb-ui-textarea-counter rb-textarea-counter--warning">0/50</div>
+            <div class="sb-ui-textarea-counter sb-ui-textarea-counter--warning">0/50</div>
           </div>
         </div>
       </div>
@@ -379,7 +385,7 @@ export const Estados: Story = {
       <div class="textarea-demo">
         <h3>Estados Especiales</h3>
         <div>
-          <label class="sb-ui-textarea-label rb-textarea-label--required">Requerido</label>
+          <label class="sb-ui-textarea-label sb-ui-textarea-label--required">Requerido</label>
           <textarea class="sb-ui-textarea" placeholder="Campo obligatorio" required></textarea>
           <div class="sb-ui-textarea-helper">Campo obligatorio</div>
         </div>
@@ -402,7 +408,7 @@ export const Estados: Story = {
         <h3>Grupos de TextAreas</h3>
         <div>
           <label class="sb-ui-textarea-label">Grupo Vertical</label>
-          <div class="sb-ui-textarea-group rb-textarea-group--vertical">
+          <div class="sb-ui-textarea-group sb-ui-textarea-group--vertical">
             <textarea class="sb-ui-textarea" placeholder="Primer textarea"></textarea>
             <textarea class="sb-ui-textarea" placeholder="Segundo textarea"></textarea>
           </div>

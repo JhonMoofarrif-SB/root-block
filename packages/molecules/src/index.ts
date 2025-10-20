@@ -1,23 +1,23 @@
 /**
- * Root Block Design System - Molecules
+ * Seguros Bolívar UI Design System - Molecules
  * Web Components complejos con Lit
  */
 
-export { RbModal } from './components/modal/modal.js';
-export { RbDatePicker } from './components/date-picker/date-picker.js';
-export { RbToast } from './components/toast/toast.js';
+export { SbDatePicker as SbUiDatePicker } from './components/date-picker/date-picker.js';
+export { SbDropdown as SbUiDropdown } from './components/dropdown/dropdown.js';
+export { SbModal as SbUiModal } from './components/modal/modal.js';
 export {
-  ToastManager,
-  showToast,
-  showSuccess,
-  showError,
-  showWarning,
-  showInfo,
-  hideToast,
-  removeToast,
   hideAllToasts,
+  hideToast,
   removeAllToasts,
-  type ToastOptions,
+  removeToast,
+  showError,
+  showInfo,
+  showSuccess,
+  showToast,
+  showWarning,
+  ToastManager,
   type ToastInstance,
+  type ToastOptions,
 } from './components/toast/toast-manager.js';
-export { RbDropdown } from './components/dropdown/dropdown.js';
+export { SbToast as SbUiToast } from './components/toast/toast.js';

@@ -5,10 +5,13 @@
 ### 🔨 Build
 
 #### `pnpm build`
+
 **Build completo de producción**
+
 ```bash
 pnpm build
 ```
+
 - ✅ Limpia cache y builds anteriores
 - ✅ Regenera tokens desde JSON
 - ✅ Compila atoms (CSS)
@@ -22,10 +25,13 @@ pnpm build
 ### 💻 Desarrollo
 
 #### `pnpm dev`
+
 **Modo watch para desarrollo**
+
 ```bash
 pnpm dev
 ```
+
 - ✅ Watch automático de archivos
 - ✅ Rebuild incremental
 - ✅ Copia automática a examples/
@@ -37,20 +43,26 @@ pnpm dev
 ### 🌐 Demo
 
 #### `pnpm demo`
+
 **Servidor local para ejemplos**
+
 ```bash
 pnpm demo
 ```
+
 - ✅ Hace build completo primero
 - ✅ Levanta servidor en `http://localhost:3000`
 - 📂 Sirve carpeta `examples/`
 - 📝 Usar cuando: Probar componentes en browser
 
 #### `pnpm demo:open` 🆕
+
 **Demo con apertura automática**
+
 ```bash
 pnpm demo:open
 ```
+
 - ✅ Igual que `demo`
 - ✅ Abre browser automáticamente
 - 📝 Usar cuando: UX mejorada, primera vez
@@ -60,10 +72,13 @@ pnpm demo:open
 ### 🧹 Limpieza
 
 #### `pnpm clean`
+
 **Limpia cache y builds**
+
 ```bash
 pnpm clean
 ```
+
 - ✅ Elimina `.turbo` cache
 - ✅ Elimina `node_modules/.cache`
 - ✅ Elimina `examples/dist/*.min.*`
@@ -77,10 +92,13 @@ pnpm clean
 ### 🔍 Linting
 
 #### `pnpm lint`
+
 **Verifica calidad de código**
+
 ```bash
 pnpm lint
 ```
+
 - ✅ ESLint en todos los packages
 - ✅ Verifica TypeScript
 - ✅ Verifica JavaScript
@@ -91,10 +109,13 @@ pnpm lint
 ### ✨ Formateo
 
 #### `pnpm format`
+
 **Formatea código automáticamente**
+
 ```bash
 pnpm format
 ```
+
 - ✅ Prettier en todo el repo
 - ✅ Formatos: HTML, TS, JS, JSON, CSS, MD
 - ✅ Corrige automáticamente
@@ -105,10 +126,13 @@ pnpm format
 ### ✅ Validación CSS
 
 #### `pnpm validate:css`
+
 **Valida estándares CSS**
+
 ```bash
 pnpm validate:css
 ```
+
 - ✅ Verifica nomenclatura BEM
 - ✅ Verifica custom properties
 - ✅ Verifica logical properties
@@ -120,10 +144,13 @@ pnpm validate:css
 ## 🧪 Testing
 
 #### `pnpm test`
+
 **Ejecuta tests unitarios**
+
 ```bash
 pnpm test
 ```
+
 - ✅ Vitest en todos los packages
 - ✅ Tests de componentes
 - ✅ Tests de utilidades
@@ -134,10 +161,13 @@ pnpm test
 ## 📖 Documentación
 
 #### `pnpm storybook`
+
 **Levanta Storybook**
+
 ```bash
 pnpm storybook
 ```
+
 - ✅ Build completo primero
 - ✅ Storybook en `http://localhost:6006`
 - ✅ Documentación interactiva
@@ -225,19 +255,20 @@ pnpm demo
 
 ## 📊 Comparación de Scripts
 
-| Script | Duración | Cache | Uso |
-|--------|----------|-------|-----|
-| `build` | ~60s | ❌ No | Producción, deploy |
-| `dev` | Continuo | ✅ Sí | Desarrollo activo |
-| `demo` | ~65s | ❌ No | Probar componentes |
-| `demo:open` | ~65s | ❌ No | Primera vez |
-| `validate:css` | ~5s | - | Validar estándares CSS |
+| Script         | Duración | Cache | Uso                    |
+| -------------- | -------- | ----- | ---------------------- |
+| `build`        | ~60s     | ❌ No | Producción, deploy     |
+| `dev`          | Continuo | ✅ Sí | Desarrollo activo      |
+| `demo`         | ~65s     | ❌ No | Probar componentes     |
+| `demo:open`    | ~65s     | ❌ No | Primera vez            |
+| `validate:css` | ~5s      | -     | Validar estándares CSS |
 
 ---
 
 ## 💡 Tips de Productividad
 
 ### 🔹 Dos Terminales
+
 ```bash
 # Terminal 1: Watch mode
 pnpm dev
@@ -247,6 +278,7 @@ cd examples && npx serve -p 3000
 ```
 
 ### 🔹 Rebuild Rápido
+
 ```bash
 # Usa dev para cambios incrementales
 pnpm dev
@@ -256,6 +288,7 @@ pnpm build
 ```
 
 ### 🔹 Debugging Build
+
 ```bash
 # Limpia todo y rebuild
 pnpm clean && pnpm build
@@ -269,6 +302,7 @@ rm -rf node_modules && pnpm install && pnpm build
 ## 🆘 Solución de Problemas
 
 ### ❌ "Build falla"
+
 ```bash
 pnpm clean
 pnpm install
@@ -276,6 +310,7 @@ pnpm build
 ```
 
 ### ❌ "CSS no se actualiza"
+
 ```bash
 # Verifica que dev esté corriendo
 pnpm dev
@@ -285,6 +320,7 @@ pnpm build
 ```
 
 ### ❌ "Demo no muestra cambios"
+
 ```bash
 # Ctrl+C para detener demo
 # Rebuild y relanza
@@ -292,6 +328,7 @@ pnpm build && pnpm demo
 ```
 
 ### ❌ "Conflictos de cache"
+
 ```bash
 pnpm clean
 pnpm build
@@ -326,4 +363,3 @@ Estos scripts se ejecutan automáticamente por Turbo:
 **Última actualización:** $(date +%Y-%m-%d)  
 **Versión:** 1.0.0  
 **Autor:** Seguros Bolivar UI Design System Team
-

@@ -1,14 +1,14 @@
 /**
- * Select Component - Root Block Design System
+ * Select Component - Seguros Bolívar UI Design System
  * Componente CSS puro con variables --sb-ui-* personalizables por marca
  * Incluye estilos para select nativo y customizado
- * 
+ *
  * Uso:
  * <select class="rb-select">
  *   <option value="">Selecciona una opción</option>
  *   <option value="1">Opción 1</option>
  * </select>
- * 
+ *
  * <div class="rb-select-container">
  *   <select class="rb-select rb-select--with-icon">
  *     <option value="">Selecciona</option>
@@ -156,7 +156,8 @@
 .sb-ui-select--error {
   --sb-ui-select-border-color: var(--sb-ui-select-border-color-error);
   --sb-ui-select-border-color-focus: var(--sb-ui-select-border-color-error);
-  --sb-ui-select-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+  --sb-ui-select-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 }
 
 .sb-ui-select--error:focus {
@@ -169,7 +170,8 @@
 .sb-ui-select--success {
   --sb-ui-select-border-color: var(--sb-ui-select-border-color-success);
   --sb-ui-select-border-color-focus: var(--sb-ui-select-border-color-success);
-  --sb-ui-select-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+  --sb-ui-select-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
 .sb-ui-select--success:focus {
@@ -182,7 +184,8 @@
 .sb-ui-select--warning {
   --sb-ui-select-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
   --sb-ui-select-border-color-focus: var(--sb-ui-color-feedback-warning-base, #ffc107);
-  --sb-ui-select-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+  --sb-ui-select-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
 .sb-ui-select--warning:focus {

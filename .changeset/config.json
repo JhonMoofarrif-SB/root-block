@@ -3,9 +3,16 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@rb/tokens", "@rb/atoms", "@rb/molecules", "@rb/bundle"]],
+  "linked": [
+    [
+      "@seguros-bolivar-ui/tokens",
+      "@seguros-bolivar-ui/atoms",
+      "@seguros-bolivar-ui/molecules",
+      "@seguros-bolivar-ui/bundle"
+    ]
+  ],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@rb/docs"]
+  "ignore": ["@seguros-bolivar-ui/docs"]
 }

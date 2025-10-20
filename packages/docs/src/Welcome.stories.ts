@@ -111,7 +111,7 @@ export const Welcome: Story = {
         ><code>&lt;link rel="stylesheet" href="sb-ui-jelpit-light.min.css"&gt;
 &lt;script type="module" src="sb-ui-components.min.js"&gt;&lt;/script&gt;
 
-&lt;button class="sb-ui-button rb-button--primary"&gt;Click me&lt;/button&gt;</code></pre>
+&lt;button class="sb-ui-button sb-ui-button--primary"&gt;Click me&lt;/button&gt;</code></pre>
       </div>
 
       <!-- Brands -->
@@ -214,7 +214,9 @@ export const Welcome: Story = {
 
       <!-- Navigation -->
       <div>
-        <h2 style="color: var(--sb-ui-color-primary-base); margin-bottom: 1.5rem;">📚 Navegación</h2>
+        <h2 style="color: var(--sb-ui-color-primary-base); margin-bottom: 1.5rem;">
+          📚 Navegación
+        </h2>
         <div
           style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;"
         >

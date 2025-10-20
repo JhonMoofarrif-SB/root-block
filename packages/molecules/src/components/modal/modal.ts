@@ -1,13 +1,13 @@
-import { LitElement, html, css, PropertyValues } from 'lit';
+import { css, html, LitElement, PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
  * Modal Component
  *
- * @element rb-modal
+ * @element sb-ui-modal
  *
- * @fires rb-modal-open - Fired when modal opens
- * @fires rb-modal-close - Fired when modal closes
+ * @fires sb-ui-modal-open - Fired when modal opens
+ * @fires sb-ui-modal-close - Fired when modal closes
  *
  * @slot - Default slot for modal content
  * @slot header - Slot for custom header content
@@ -22,28 +22,28 @@ import { customElement, property } from 'lit/decorators.js';
  *
  * @example
  * ```html
- * <rb-modal open title="Mi Modal">
+ * <sb-ui-modal open title="Mi Modal">
  *   <p>Contenido del modal</p>
  *   <div slot="footer">
  *     <button>Cancelar</button>
  *     <button>Aceptar</button>
  *   </div>
- * </rb-modal>
+ * </sb-ui-modal>
  * ```
  */
-@customElement('rb-modal')
-export class RbModal extends LitElement {
+@customElement('sb-ui-modal')
+export class SbModal extends LitElement {
   static override styles = css`
     :host {
-      --rb-modal-backdrop-bg: rgba(0, 0, 0, 0.5);
-      --rb-modal-dialog-bg: var(--rb-color-grayscale-white, #ffffff);
-      --rb-modal-dialog-width: 500px;
-      --rb-modal-dialog-max-width: 90vw;
-      --rb-modal-dialog-border-radius: 12px;
-      --rb-modal-dialog-shadow: var(--rb-shadow-xl, 0 20px 25px rgba(0, 0, 0, 0.3));
-      --rb-modal-padding: 1.5rem;
-      --rb-modal-header-border-bottom: 1px solid var(--rb-color-grayscale-L200, #e1e1e1);
-      --rb-modal-footer-border-top: 1px solid var(--rb-color-grayscale-L200, #e1e1e1);
+      --sb-ui-modal-backdrop-bg: rgba(0, 0, 0, 0.5);
+      --sb-ui-modal-dialog-bg: var(--sb-ui-color-grayscale-white, #ffffff);
+      --sb-ui-modal-dialog-width: 500px;
+      --sb-ui-modal-dialog-max-width: 90vw;
+      --sb-ui-modal-dialog-border-radius: 12px;
+      --sb-ui-modal-dialog-shadow: var(--sb-ui-shadow-xl, 0 20px 25px rgba(0, 0, 0, 0.3));
+      --sb-ui-modal-padding: 1.5rem;
+      --sb-ui-modal-header-border-bottom: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+      --sb-ui-modal-footer-border-top: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
     }
 
     :host([hidden]) {
@@ -53,7 +53,7 @@ export class RbModal extends LitElement {
     .backdrop {
       position: fixed;
       inset: 0;
-      background: var(--rb-modal-backdrop-bg);
+      background: var(--sb-ui-modal-backdrop-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -63,20 +63,20 @@ export class RbModal extends LitElement {
     }
 
     .dialog {
-      background: var(--rb-modal-dialog-bg);
-      width: var(--rb-modal-dialog-width);
-      max-width: var(--rb-modal-dialog-max-width);
+      background: var(--sb-ui-modal-dialog-bg);
+      width: var(--sb-ui-modal-dialog-width);
+      max-width: var(--sb-ui-modal-dialog-max-width);
       max-height: 90vh;
-      border-radius: var(--rb-modal-dialog-border-radius);
-      box-shadow: var(--rb-modal-dialog-shadow);
+      border-radius: var(--sb-ui-modal-dialog-border-radius);
+      box-shadow: var(--sb-ui-modal-dialog-shadow);
       display: flex;
       flex-direction: column;
       animation: slideUp 0.3s ease;
     }
 
     .header {
-      padding: var(--rb-modal-padding);
-      border-bottom: var(--rb-modal-header-border-bottom);
+      padding: var(--sb-ui-modal-padding);
+      border-bottom: var(--sb-ui-modal-header-border-bottom);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -86,7 +86,7 @@ export class RbModal extends LitElement {
     .title {
       font-size: 1.25rem;
       font-weight: 600;
-      color: var(--rb-color-grayscale-D400, #282828);
+      color: var(--sb-ui-color-grayscale-D400, #282828);
       margin: 0;
     }
 
@@ -95,25 +95,25 @@ export class RbModal extends LitElement {
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
-      color: var(--rb-color-grayscale-base, #9b9b9b);
+      color: var(--sb-ui-color-grayscale-base, #9b9b9b);
       padding: 0.25rem;
       line-height: 1;
       transition: color 0.2s ease;
     }
 
     .close-button:hover {
-      color: var(--rb-color-grayscale-D400, #282828);
+      color: var(--sb-ui-color-grayscale-D400, #282828);
     }
 
     .body {
-      padding: var(--rb-modal-padding);
+      padding: var(--sb-ui-modal-padding);
       overflow-y: auto;
       flex: 1;
     }
 
     .footer {
-      padding: var(--rb-modal-padding);
-      border-top: var(--rb-modal-footer-border-top);
+      padding: var(--sb-ui-modal-padding);
+      border-top: var(--sb-ui-modal-footer-border-top);
       display: flex;
       gap: 0.75rem;
       justify-content: flex-end;
@@ -175,10 +175,10 @@ export class RbModal extends LitElement {
     if (changedProperties.has('open')) {
       if (this.open) {
         this._lockScroll();
-        this._dispatchEvent('rb-modal-open');
+        this._dispatchEvent('sb-ui-modal-open');
       } else {
         this._unlockScroll();
-        this._dispatchEvent('rb-modal-close');
+        this._dispatchEvent('sb-ui-modal-close');
       }
     }
   }
@@ -280,6 +280,6 @@ export class RbModal extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'rb-modal': RbModal;
+    'sb-ui-modal': SbModal;
   }
 }

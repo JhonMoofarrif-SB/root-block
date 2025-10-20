@@ -70,7 +70,7 @@ export class ThemeManager {
   private detectBrandFromHTML(): void {
     const htmlElement = document.documentElement;
     const brandAttr =
-      htmlElement.getAttribute('data-brand') || htmlElement.getAttribute('data-rb-brand');
+      htmlElement.getAttribute('data-brand') || htmlElement.getAttribute('data-sb-ui-brand');
 
     if (brandAttr && this.brands.includes(brandAttr)) {
       this.currentBrand = brandAttr;
@@ -125,19 +125,19 @@ export class ThemeManager {
 
     // Remover clases anteriores
     this.brands.forEach((brand) => {
-      htmlElement.classList.remove(`rb-brand--${brand}`);
+      htmlElement.classList.remove(`sb-ui-brand--${brand}`);
     });
     this.themes.forEach((theme) => {
-      htmlElement.classList.remove(`rb-theme--${theme}`);
+      htmlElement.classList.remove(`sb-ui-theme--${theme}`);
     });
 
     // Aplicar nuevas clases
-    htmlElement.classList.add(`rb-brand--${this.currentBrand}`);
-    htmlElement.classList.add(`rb-theme--${this.currentTheme}`);
+    htmlElement.classList.add(`sb-ui-brand--${this.currentBrand}`);
+    htmlElement.classList.add(`sb-ui-theme--${this.currentTheme}`);
 
     // Establecer atributos de datos
-    htmlElement.setAttribute('data-rb-brand', this.currentBrand);
-    htmlElement.setAttribute('data-rb-theme', this.currentTheme);
+    htmlElement.setAttribute('data-sb-ui-brand', this.currentBrand);
+    htmlElement.setAttribute('data-sb-ui-theme', this.currentTheme);
 
     // Cargar CSS específico si es necesario
     this.loadThemeCSS();
@@ -147,7 +147,7 @@ export class ThemeManager {
    * Carga el CSS específico del tema
    */
   private loadThemeCSS(): void {
-    const cssId = 'rb-theme-css';
+    const cssId = 'sb-ui-theme-css';
     const existingLink = document.getElementById(cssId) as HTMLLinkElement;
 
     // Construir URL del CSS
@@ -170,7 +170,7 @@ export class ThemeManager {
   private buildCSSUrl(): string {
     // Asume que los archivos CSS están en una CDN o directorio específico
     const baseUrl = this.getCSSBaseUrl();
-    return `${baseUrl}/rb-${this.currentBrand}-${this.currentTheme}.min.css`;
+    return `${baseUrl}/sb-ui-${this.currentBrand}-${this.currentTheme}.min.css`;
   }
 
   /**
@@ -178,7 +178,7 @@ export class ThemeManager {
    */
   private getCSSBaseUrl(): string {
     // Buscar en meta tags o usar default
-    const metaTag = document.querySelector('meta[name="rb-css-base-url"]') as HTMLMetaElement;
+    const metaTag = document.querySelector('meta[name="sb-ui-css-base-url"]') as HTMLMetaElement;
     return metaTag?.content || '/assets/css';
   }
 
@@ -186,7 +186,7 @@ export class ThemeManager {
    * Emite evento de cambio de tema
    */
   private emitThemeChange(): void {
-    const event = new CustomEvent('rb:theme-change', {
+    const event = new CustomEvent('sb-ui:theme-change', {
       detail: {
         brand: this.currentBrand,
         theme: this.currentTheme,

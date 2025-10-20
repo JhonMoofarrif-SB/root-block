@@ -28,7 +28,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'pnpm --filter @rb/bundle serve',
+    command: 'pnpm --filter @seguros-bolivar-ui/bundle serve',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
   },

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 🔥 Root Block Design System - Development Script
+# 🔥 Seguros Bolívar UI Design System - Development Script
 # Script inteligente para desarrollo con watch mode
 
 set -e
 
-echo "🔥 Root Block Design System - Development Mode"
+echo "🔥 Seguros Bolívar UI Design System - Development Mode"
 echo "============================================="
 
 # Función para cleanup al salir
@@ -46,7 +46,7 @@ case $choice in
         ;;
     3)
         echo "🔧 Iniciando Bundle Watch..."
-        pnpm --filter @rb/bundle dev
+        pnpm --filter @seguros-bolivar-ui/bundle dev
         ;;
     4)
         echo "🧪 Iniciando Test Watch..."
@@ -59,7 +59,7 @@ case $choice in
         echo ""
 
         # Bundle watch en background
-        pnpm --filter @rb/bundle dev &
+        pnpm --filter @seguros-bolivar-ui/bundle dev &
 
         # Esperar un poco para que el bundle se genere
         sleep 3

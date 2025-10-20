@@ -1,4 +1,4 @@
-import { RbToast } from './toast.js';
+import { SbToast } from './toast.js';
 
 export interface ToastOptions {
   type?: 'info' | 'success' | 'warning' | 'error';
@@ -20,7 +20,7 @@ export interface ToastOptions {
 
 export interface ToastInstance {
   id: string;
-  element: RbToast;
+  element: SbToast;
   container: HTMLElement;
 }
 
@@ -55,7 +55,7 @@ export class ToastManager {
     const position = options.position || 'top-right';
 
     // Create toast element
-    const toast = document.createElement('rb-toast') as RbToast;
+    const toast = document.createElement('sb-ui-toast') as SbToast;
 
     // Set properties
     if (options.type) toast.type = options.type;
@@ -175,7 +175,7 @@ export class ToastManager {
 
     if (!container) {
       container = document.createElement('div');
-      container.className = `rb-toast-container rb-toast-container--${position}`;
+      container.className = `sb-ui-toast-container sb-ui-toast-container--${position}`;
       container.setAttribute('aria-live', 'polite');
       container.setAttribute('aria-label', `Notificaciones ${position.replace('-', ' ')}`);
 
@@ -271,9 +271,9 @@ export class ToastManager {
     this.applyContainerStyles(container, position);
   }
 
-  private setupToastEventListeners(id: string, toast: RbToast): void {
+  private setupToastEventListeners(id: string, toast: SbToast): void {
     // Auto-remove when hidden
-    toast.addEventListener('rb-toast-hide', () => {
+    toast.addEventListener('sb-ui-toast-hide', () => {
       setTimeout(() => {
         this.remove(id);
       }, 300); // Wait for hide animation

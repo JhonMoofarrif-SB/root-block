@@ -1,8 +1,8 @@
 /**
- * Alert Component - Root Block Design System
+ * Alert Component - Seguros Bolívar UI Design System
  * Componente CSS puro con variables --sb-ui-* personalizables por marca
  * Incluye estilos para alertas tipo toast, inline y banner
- * 
+ *
  * Uso:
  * <div class="rb-alert rb-alert--success">
  *   <div class="rb-alert-icon">✓</div>

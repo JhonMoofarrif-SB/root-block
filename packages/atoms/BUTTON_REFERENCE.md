@@ -47,75 +47,75 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Primary Stroke (default) -->
-<button class="rb-button rb-button--primary">Primary Stroke</button>
+<button class="sb-ui-button sb-ui-button--primary">Primary Stroke</button>
 
 <!-- También explícito -->
-<button class="rb-button rb-button--primary rb-button--stroke">Primary Stroke</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke">Primary Stroke</button>
 
 <!-- Secondary Stroke -->
-<button class="rb-button rb-button--secondary">Secondary Stroke</button>
+<button class="sb-ui-button sb-ui-button--secondary">Secondary Stroke</button>
 
 <!-- Danger Stroke -->
-<button class="rb-button rb-button--danger">Danger Stroke</button>
+<button class="sb-ui-button sb-ui-button--danger">Danger Stroke</button>
 ```
 
 ### 2️⃣ **FILL (Sólido)**
 
 ```html
 <!-- Primary Fill -->
-<button class="rb-button rb-button--primary rb-button--fill">Primary Fill</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">Primary Fill</button>
 
 <!-- Secondary Fill -->
-<button class="rb-button rb-button--secondary rb-button--fill">Secondary Fill</button>
+<button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill">Secondary Fill</button>
 
 <!-- Danger Fill -->
-<button class="rb-button rb-button--danger rb-button--fill">Danger Fill</button>
+<button class="sb-ui-button sb-ui-button--danger sb-ui-button--fill">Danger Fill</button>
 
 <!-- Success Fill -->
-<button class="rb-button rb-button--success rb-button--fill">Success Fill</button>
+<button class="sb-ui-button sb-ui-button--success sb-ui-button--fill">Success Fill</button>
 ```
 
 ### 3️⃣ **TEXT (Sin fondo ni borde)**
 
 ```html
 <!-- Primary Text -->
-<button class="rb-button rb-button--primary rb-button--text">Primary Text</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">Primary Text</button>
 
 <!-- Secondary Text -->
-<button class="rb-button rb-button--secondary rb-button--text">Secondary Text</button>
+<button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text">Secondary Text</button>
 
 <!-- Danger Text -->
-<button class="rb-button rb-button--danger rb-button--text">Danger Text</button>
+<button class="sb-ui-button sb-ui-button--danger sb-ui-button--text">Danger Text</button>
 ```
 
 ### 4️⃣ **ICONOS**
 
 ```html
 <!-- Icon Left -->
-<button class="rb-button rb-button--primary rb-button--icon-left">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-left">
   <svg width="20" height="20">...</svg>
   Icon Left
 </button>
 
 <!-- Icon Right -->
-<button class="rb-button rb-button--primary rb-button--icon-right">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-right">
   Icon Right
   <svg width="20" height="20">...</svg>
 </button>
 
 <!-- Icon Only -->
-<button class="rb-button rb-button--primary rb-button--icon-only">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-only">
   <svg width="20" height="20">...</svg>
 </button>
 
 <!-- Icon Left + Fill -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--icon-left">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--icon-left">
   <svg width="20" height="20">...</svg>
   Icon Left Fill
 </button>
 
 <!-- Icon Right + Text -->
-<button class="rb-button rb-button--danger rb-button--text rb-button--icon-right">
+<button class="sb-ui-button sb-ui-button--danger sb-ui-button--text sb-ui-button--icon-right">
   Delete
   <svg width="20" height="20">...</svg>
 </button>
@@ -125,16 +125,18 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Small -->
-<button class="rb-button rb-button--primary rb-button--small">Small</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">Small</button>
 
 <!-- Medium (default) -->
-<button class="rb-button rb-button--primary">Medium</button>
+<button class="sb-ui-button sb-ui-button--primary">Medium</button>
 
 <!-- Large -->
-<button class="rb-button rb-button--primary rb-button--large">Large</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--large">Large</button>
 
 <!-- Small + Fill + Icon Left -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--small rb-button--icon-left">
+<button
+  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--small sb-ui-button--icon-left"
+>
   <svg>...</svg> Small Fill
 </button>
 ```
@@ -143,22 +145,22 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Square (esquinas menos redondeadas) -->
-<button class="rb-button rb-button--primary rb-button--square">Square</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--square">Square</button>
 
 <!-- Circle (circular perfecto) -->
-<button class="rb-button rb-button--primary rb-button--circle">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--circle">
   <svg>...</svg>
 </button>
 
 <!-- Block (full width) -->
-<button class="rb-button rb-button--primary rb-button--block">Block Full Width</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--block">Block Full Width</button>
 ```
 
 ### 7️⃣ **ESTADOS**
 
 ```html
 <!-- Default (estado normal) -->
-<button class="rb-button rb-button--primary">Default</button>
+<button class="sb-ui-button sb-ui-button--primary">Default</button>
 
 <!-- Hover (automático con CSS :hover) -->
 <!-- No requiere clase adicional -->
@@ -170,20 +172,22 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 <!-- No requiere clase adicional -->
 
 <!-- Loading (clase adicional) -->
-<button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading">Loading...</button>
 
 <!-- Loading con spinner a la derecha -->
-<button class="rb-button rb-button--primary rb-button--loading rb-button--loading-right">
+<button
+  class="sb-ui-button sb-ui-button--primary sb-ui-button--loading sb-ui-button--loading-right"
+>
   Loading Right...
 </button>
 
 <!-- Loading icon-only -->
-<button class="rb-button rb-button--primary rb-button--loading rb-button--icon-only">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading sb-ui-button--icon-only">
   <svg>...</svg>
 </button>
 
 <!-- Disabled (atributo HTML) -->
-<button class="rb-button rb-button--primary" disabled>Disabled</button>
+<button class="sb-ui-button sb-ui-button--primary" disabled>Disabled</button>
 
 <!-- Disabled Hover (automático con CSS :disabled:hover) -->
 <!-- No requiere clase adicional -->
@@ -197,30 +201,32 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- CTA Principal (Fill Primary) -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--large">Get Started</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--large">
+  Get Started
+</button>
 
 <!-- CTA Secundario (Stroke Primary) -->
-<button class="rb-button rb-button--primary rb-button--large">Learn More</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--large">Learn More</button>
 
 <!-- CTA Terciario (Text Primary) -->
-<button class="rb-button rb-button--primary rb-button--text">View Details</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">View Details</button>
 ```
 
 ### Botones con Iconos
 
 ```html
 <!-- Save Button -->
-<button class="rb-button rb-button--success rb-button--fill rb-button--icon-left">
+<button class="sb-ui-button sb-ui-button--success sb-ui-button--fill sb-ui-button--icon-left">
   <svg>💾</svg> Save
 </button>
 
 <!-- Delete Button -->
-<button class="rb-button rb-button--danger rb-button--stroke rb-button--icon-left">
+<button class="sb-ui-button sb-ui-button--danger sb-ui-button--stroke sb-ui-button--icon-left">
   <svg>🗑️</svg> Delete
 </button>
 
 <!-- Icon Only Circle -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--circle">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--circle">
   <svg>+</svg>
 </button>
 ```
@@ -229,33 +235,40 @@ El botón por defecto ahora es **STROKE** (outline), no fill.
 
 ```html
 <!-- Loading Primary Fill -->
-<button class="rb-button rb-button--primary rb-button--fill rb-button--loading">Saving...</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--loading">
+  Saving...
+</button>
 
 <!-- Loading Secondary Stroke -->
-<button class="rb-button rb-button--secondary rb-button--loading">Processing...</button>
+<button class="sb-ui-button sb-ui-button--secondary sb-ui-button--loading">Processing...</button>
 
 <!-- Disabled Danger -->
-<button class="rb-button rb-button--danger rb-button--fill" disabled>Cannot Delete</button>
+<button class="sb-ui-button sb-ui-button--danger sb-ui-button--fill" disabled>Cannot Delete</button>
 ```
 
 ### Formularios
 
 ```html
 <!-- Submit Button -->
-<button type="submit" class="rb-button rb-button--primary rb-button--fill rb-button--block">
+<button
+  type="submit"
+  class="sb-ui-button sb-ui-button--primary sb-ui-button--fill sb-ui-button--block"
+>
   Submit Form
 </button>
 
 <!-- Cancel Button -->
-<button type="button" class="rb-button rb-button--secondary rb-button--text">Cancel</button>
+<button type="button" class="sb-ui-button sb-ui-button--secondary sb-ui-button--text">
+  Cancel
+</button>
 ```
 
 ---
 
 ## 📋 Tabla de Variantes de Estilo
 
-| Tipo           | STROKE (default)         | FILL                                      | TEXT                                      |
-| -------------- | ------------------------ | ----------------------------------------- | ----------------------------------------- |
+| Tipo           | STROKE (default)            | FILL                                            | TEXT                                            |
+| -------------- | --------------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | **Primary**    | `.sb-ui-button--primary`    | `.sb-ui-button--primary .sb-ui-button--fill`    | `.sb-ui-button--primary .sb-ui-button--text`    |
 | **Secondary**  | `.sb-ui-button--secondary`  | `.sb-ui-button--secondary .sb-ui-button--fill`  | `.sb-ui-button--secondary .sb-ui-button--text`  |
 | **Tertiary**   | `.sb-ui-button--tertiary`   | `.sb-ui-button--tertiary .sb-ui-button--fill`   | `.sb-ui-button--tertiary .sb-ui-button--text`   |
@@ -360,6 +373,6 @@ packages/atoms/src/
 
 ---
 
-**Última actualización:** 2025-01-09  
-**Versión:** 2.0.0  
+**Última actualización:** 2025-01-09
+**Versión:** 2.0.0
 **Total de combinaciones:** 1,764

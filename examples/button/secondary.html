@@ -183,7 +183,7 @@
       }
 
       /* Estilos para iconos de Font Awesome */
-      .rb-button i {
+      .sb-ui-button i {
         font-size: 1em;
       }
 
@@ -407,7 +407,9 @@
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-left">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-left"
+                >
                   <i class="fa-solid fa-star"></i>
                   Action
                 </button>
@@ -421,10 +423,14 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill">Action</button>
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill">
+                  Action
+                </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-only">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--icon-only"
+                >
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
@@ -452,7 +458,9 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--loading">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--loading"
+                >
                   Action
                 </button>
               </td>
@@ -487,7 +495,9 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--disabled">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill sb-ui-button--disabled"
+                >
                   Action
                 </button>
               </td>
@@ -542,7 +552,9 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke">Action</button>
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke">
+                  Action
+                </button>
               </td>
               <td>
                 <button
@@ -575,7 +587,9 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--loading">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--loading"
+                >
                   Action
                 </button>
               </td>
@@ -651,7 +665,9 @@
                 <span class="state-label default">Default</span>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-left">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-left"
+                >
                   <i class="fa-solid fa-star"></i>
                   Action
                 </button>
@@ -665,10 +681,14 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text">Action</button>
+                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text">
+                  Action
+                </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-only">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--icon-only"
+                >
                   <i class="fa-solid fa-star"></i>
                 </button>
               </td>
@@ -696,7 +716,9 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--loading">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--loading"
+                >
                   Action
                 </button>
               </td>
@@ -731,7 +753,9 @@
                 </button>
               </td>
               <td>
-                <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--disabled">
+                <button
+                  class="sb-ui-button sb-ui-button--secondary sb-ui-button--text sb-ui-button--disabled"
+                >
                   Action
                 </button>
               </td>
@@ -774,7 +798,7 @@
         localStorage.setItem('sb-ui-theme', currentTheme);
 
         // Update CSS bundle (tokens + atoms + overrides)
-        brandCss.href = `../dist/rb-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
+        brandCss.href = `../dist/sb-ui-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
 
         // Sync select
         brandSelect.value = currentBrand;
@@ -789,7 +813,7 @@
         }
 
         console.log(`✅ Marca: ${currentBrand} | Tema: ${currentTheme}`);
-        console.log(`📦 Bundle: dist/rb-${currentBrand}-${currentTheme}.min.css`);
+        console.log(`📦 Bundle: dist/sb-ui-${currentBrand}-${currentTheme}.min.css`);
         console.log(`💾 Sincronizado con localStorage`);
       }
 

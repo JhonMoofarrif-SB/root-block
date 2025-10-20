@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="es" data-rb-brand="davivienda" data-rb-theme="light">
+<html lang="es" data-sb-ui-brand="davivienda" data-sb-ui-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Root Block Form.io - Integración Completa</title>
-    <meta name="rb-css-base-url" content="./dist" />
+    <title>Seguros Bolívar Form.io - Integración Completa</title>
+    <meta name="sb-ui-css-base-url" content="./dist" />
 
     <!-- IMPORTANTE: Cargar Form.io primero -->
     <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
-    <!-- IMPORTANTE: Cargar CSS de Root Block DESPUÉS de Form.io -->
-    <link rel="stylesheet" href="./dist/root-block-formio-davivienda-light.min.css" />
+    <!-- IMPORTANTE: Cargar CSS de Seguros Bolívar DESPUÉS de Form.io -->
+    <link rel="stylesheet" href="./dist/sb-ui-formio-davivienda-light.min.css" />
 
     <style>
       body {
-        font-family: var(--rb-typography-fontFamily, 'Roboto', Arial, sans-serif);
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', Arial, sans-serif);
         margin: 0;
         padding: 2rem;
         background: #f8f9fa;
@@ -35,7 +35,7 @@
       }
 
       .header h1 {
-        color: var(--rb-color-primary-base, #007acc);
+        color: var(--sb-ui-color-primary-base, #007acc);
         margin-bottom: 0.5rem;
       }
 
@@ -130,8 +130,8 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>🎨 Root Block Form.io - Integración Completa</h1>
-        <p>Botones del Root Block Design System funcionando en Form.io</p>
+        <h1>🎨 Seguros Bolívar Form.io - Integración Completa</h1>
+        <p>Botones del Seguros Bolívar UI Design System funcionando en Form.io</p>
       </div>
 
       <div id="status" class="status">🔄 Inicializando...</div>
@@ -172,22 +172,22 @@
 
         <div class="file-list">
           <strong>JavaScript:</strong><br />
-          📁 form-io/dist/root-block-formio.min.js<br /><br />
+          📁 form-io/dist/sb-ui-formio.min.js<br /><br />
 
           <strong>CSS (elige uno):</strong><br />
-          📁 form-io/dist/root-block-formio-davivienda-light.min.css<br />
-          📁 form-io/dist/root-block-formio-white-label-light.min.css<br />
-          📁 form-io/dist/root-block-formio-seguros-bolivar-light.min.css
+          📁 form-io/dist/sb-ui-formio-davivienda-light.min.css<br />
+          📁 form-io/dist/sb-ui-formio-white-label-light.min.css<br />
+          📁 form-io/dist/sb-ui-formio-seguros-bolivar-light.min.css
         </div>
 
         <p><strong>Código para agregar en Form.io (Custom JavaScript):</strong></p>
         <div class="code-block">
-          // Registrar componentes de Root Block con Form.io if (window.RootBlockFormIO &&
+          // Registrar componentes de Seguros Bolívar con Form.io if (window.SbUiFormIO &&
           window.Formio && window.Formio.Components) {
-          window.RootBlockFormIO.registerComponents(window.Formio.Components); console.log('✅ Root
-          Block components registered'); } // Configurar tema (opcional) if (window.RootBlockFormIO)
-          { window.RootBlockFormIO.utils.ThemeManager.setBrand('davivienda');
-          window.RootBlockFormIO.utils.ThemeManager.setTheme('light'); }
+          window.SbUiFormIO.registerComponents(window.Formio.Components); console.log('✅ Seguros
+          Bolívar components registered'); } // Configurar tema (opcional) if (window.SbUiFormIO) {
+          window.SbUiFormIO.utils.ThemeManager.setBrand('davivienda');
+          window.SbUiFormIO.utils.ThemeManager.setTheme('light'); }
         </div>
 
         <p><strong>Ejemplo de configuración de botón en Form.io:</strong></p>
@@ -195,8 +195,8 @@
       </div>
     </div>
 
-    <!-- IMPORTANTE: Cargar Root Block DESPUÉS de Form.io -->
-    <script src="./dist/root-block-formio.min.js"></script>
+    <!-- IMPORTANTE: Cargar Seguros Bolívar DESPUÉS de Form.io -->
+    <script src="./dist/sb-ui-formio.min.js"></script>
 
     <script>
       let currentForm = null;
@@ -246,14 +246,14 @@
           currentForm = await Formio.createForm(container, formConfig);
 
           updateStatus(
-            '✅ Formulario creado exitosamente - El botón debería verse con los estilos de Root Block',
+            '✅ Formulario creado exitosamente - El botón debería verse con los estilos de Seguros Bolívar',
             'success'
           );
           updateConfigDisplay();
 
           // Escuchar eventos
-          if (window.RootBlockFormIO) {
-            window.RootBlockFormIO.utils.EventBus.on('button:click', (data) => {
+          if (window.SbUiFormIO) {
+            window.SbUiFormIO.utils.EventBus.on('button:click', (data) => {
               console.log('Button clicked:', data);
             });
           }
@@ -388,7 +388,7 @@
 
       // Verificar dependencias e inicializar
       function initialize() {
-        console.log('🚀 Initializing Root Block Form.io Integration');
+        console.log('🚀 Initializing Seguros Bolívar Form.io Integration');
 
         // Verificar Form.io
         if (!window.Formio) {
@@ -396,23 +396,23 @@
           return;
         }
 
-        // Verificar Root Block
-        if (!window.RootBlockFormIO) {
-          updateStatus('❌ Root Block Form.io no está cargado', 'error');
+        // Verificar Seguros Bolívar
+        if (!window.SbUiFormIO) {
+          updateStatus('❌ Seguros Bolívar Form.io no está cargado', 'error');
           return;
         }
 
         // Registrar componentes
         try {
-          window.RootBlockFormIO.registerComponents(window.Formio.Components);
+          window.SbUiFormIO.registerComponents(window.Formio.Components);
           console.log(
             '✅ Components registered:',
             Object.keys(window.Formio.Components.components)
           );
 
           // Configurar tema
-          window.RootBlockFormIO.utils.ThemeManager.setBrand('davivienda');
-          window.RootBlockFormIO.utils.ThemeManager.setTheme('light');
+          window.SbUiFormIO.utils.ThemeManager.setBrand('davivienda');
+          window.SbUiFormIO.utils.ThemeManager.setTheme('light');
 
           // Crear formulario inicial
           createForm();
@@ -427,7 +427,7 @@
 
       // Debug info
       console.log('Form.io loaded:', !!window.Formio);
-      console.log('Root Block FormIO loaded:', !!window.RootBlockFormIO);
+      console.log('Seguros Bolívar FormIO loaded:', !!window.SbUiFormIO);
       console.log(
         'Available components:',
         window.Formio?.Components

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-rb-brand="davivienda" data-rb-theme="light">
+<html lang="es" data-sb-ui-brand="davivienda" data-sb-ui-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +8,8 @@
     <!-- Form.io -->
     <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
 
-    <!-- Root Block CSS con colores hardcodeados -->
-    <link rel="stylesheet" href="./dist/root-block-formio-davivienda-light.min.css" />
+    <!-- Seguros Bolívar UI CSS con colores hardcodeados -->
+    <link rel="stylesheet" href="./dist/sb-ui-formio-davivienda-light.min.css" />
 
     <style>
       body {
@@ -82,14 +82,18 @@
 
       <div class="manual-test">
         <h3>Botones Manuales (para comparar)</h3>
-        <button class="rb-button rb-button--primary">Primary Stroke</button>
-        <button class="rb-button rb-button--primary rb-button--fill">Primary Fill</button>
-        <button class="rb-button rb-button--primary rb-button--text">Primary Text</button>
+        <button class="sb-ui-button sb-ui-button--primary">Primary Stroke</button>
+        <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">Primary Fill</button>
+        <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">Primary Text</button>
         <br />
-        <button class="rb-button rb-button--secondary rb-button--fill">Secondary Fill</button>
-        <button class="rb-button rb-button--success rb-button--fill">Success Fill</button>
-        <button class="rb-button rb-button--danger rb-button--fill">Danger Fill</button>
-        <button class="rb-button rb-button--tertiary rb-button--fill">Tertiary Fill</button>
+        <button class="sb-ui-button sb-ui-button--secondary sb-ui-button--fill">
+          Secondary Fill
+        </button>
+        <button class="sb-ui-button sb-ui-button--success sb-ui-button--fill">Success Fill</button>
+        <button class="sb-ui-button sb-ui-button--danger sb-ui-button--fill">Danger Fill</button>
+        <button class="sb-ui-button sb-ui-button--tertiary sb-ui-button--fill">
+          Tertiary Fill
+        </button>
       </div>
 
       <div id="status" style="margin-top: 2rem; padding: 1rem; border-radius: 8px">
@@ -97,8 +101,8 @@
       </div>
     </div>
 
-    <!-- Root Block JS -->
-    <script src="./dist/root-block-formio.min.js"></script>
+    <!-- Seguros Bolívar UI JS -->
+    <script src="./dist/sb-ui-formio.min.js"></script>
 
     <script>
       function updateStatus(message, success = true) {
@@ -112,8 +116,8 @@
       async function createTestForm() {
         try {
           // Registrar componentes
-          if (window.RootBlockFormIO && window.Formio) {
-            window.RootBlockFormIO.registerComponents(window.Formio.Components);
+          if (window.SbUiFormIO && window.Formio) {
+            window.SbUiFormIO.registerComponents(window.Formio.Components);
             console.log('✅ Components registered');
           }
 
@@ -171,7 +175,7 @@
 
           // Verificar colores después de un momento
           setTimeout(() => {
-            const buttons = document.querySelectorAll('#formio-test .rb-button');
+            const buttons = document.querySelectorAll('#formio-test .sb-ui-button');
             console.log(`Found ${buttons.length} buttons`);
 
             buttons.forEach((btn, index) => {
@@ -197,8 +201,8 @@
           return;
         }
 
-        if (!window.RootBlockFormIO) {
-          updateStatus('❌ Root Block FormIO no cargado', false);
+        if (!window.SbUiFormIO) {
+          updateStatus('❌ Seguros Bolívar FormIO no cargado', false);
           return;
         }
 
@@ -207,7 +211,7 @@
 
       // Debug
       console.log('Form.io:', !!window.Formio);
-      console.log('RootBlockFormIO:', !!window.RootBlockFormIO);
+      console.log('SbUiFormIO:', !!window.SbUiFormIO);
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-# 🔘 Guía Rápida: Uso de Botones rb-button
+# 🔘 Guía Rápida: Uso de Botones sb-ui-button
 
 ## 📋 Reglas Básicas
 
@@ -7,7 +7,7 @@
 Todos los botones deben tener la clase `.sb-ui-button`:
 
 ```html
-<button class="rb-button">Botón</button>
+<button class="sb-ui-button">Botón</button>
 ```
 
 ### 2. **Tipo de Botón (OPCIONAL)**
@@ -15,10 +15,10 @@ Todos los botones deben tener la clase `.sb-ui-button`:
 Define el color/propósito del botón. Si no especificas, usa PRIMARY por defecto:
 
 ```html
-<button class="rb-button rb-button--primary">Primary</button>
-<button class="rb-button rb-button--secondary">Secondary</button>
-<button class="rb-button rb-button--tertiary">Tertiary</button>
-<button class="rb-button rb-button--error">Error</button>
+<button class="sb-ui-button sb-ui-button--primary">Primary</button>
+<button class="sb-ui-button sb-ui-button--secondary">Secondary</button>
+<button class="sb-ui-button sb-ui-button--tertiary">Tertiary</button>
+<button class="sb-ui-button sb-ui-button--error">Error</button>
 ```
 
 ### 3. **Variante de Estilo (OPCIONAL)**
@@ -26,14 +26,10 @@ Define el color/propósito del botón. Si no especificas, usa PRIMARY por defect
 El **default es FILL** (fondo sólido). Solo especifica si quieres STROKE o TEXT:
 
 ```html
-<!-- FILL es el default, no necesitas especificarlo -->
-<button class="rb-button rb-button--primary">Primary Fill</button>
-
-<!-- Especifica solo si quieres STROKE (borde) -->
-<button class="rb-button rb-button--primary rb-button--stroke">Primary Stroke</button>
-
-<!-- Especifica solo si quieres TEXT (sin fondo/borde) -->
-<button class="rb-button rb-button--primary rb-button--text">Primary Text</button>
+<!-- FILL / STROKE / TEXT -->
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">Primary Fill</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke">Primary Stroke</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">Primary Text</button>
 ```
 
 ### 4. **Tamaño (OPCIONAL)**
@@ -41,9 +37,9 @@ El **default es FILL** (fondo sólido). Solo especifica si quieres STROKE o TEXT
 El **default es MEDIUM**. Solo especifica si quieres SMALL o LARGE:
 
 ```html
-<button class="rb-button rb-button--primary rb-button--small">Small</button>
-<button class="rb-button rb-button--primary">Medium (default)</button>
-<button class="rb-button rb-button--primary rb-button--large">Large</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">Small</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--medium">Medium (default)</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--large">Large</button>
 ```
 
 ### 5. **Con Iconos (OPCIONAL)**
@@ -52,19 +48,19 @@ Especifica la posición del icono:
 
 ```html
 <!-- Icono a la izquierda -->
-<button class="rb-button rb-button--primary rb-button--icon-left">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-left">
   <i class="fa-solid fa-save"></i>
   Guardar
 </button>
 
 <!-- Icono a la derecha -->
-<button class="rb-button rb-button--primary rb-button--icon-right">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-right">
   Siguiente
   <i class="fa-solid fa-arrow-right"></i>
 </button>
 
 <!-- Solo icono (automáticamente redondo 40x40px) -->
-<button class="rb-button rb-button--primary rb-button--icon-only" title="Usuario">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-only" title="Usuario">
   <i class="fa-solid fa-user"></i>
 </button>
 ```
@@ -75,10 +71,10 @@ Usa clases o atributos HTML según el estado:
 
 ```html
 <!-- Loading -->
-<button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading">Loading...</button>
 
 <!-- Disabled (usa el atributo HTML) -->
-<button class="rb-button rb-button--primary" disabled>Disabled</button>
+<button class="sb-ui-button sb-ui-button--primary" disabled>Disabled</button>
 ```
 
 ---
@@ -88,7 +84,7 @@ Usa clases o atributos HTML según el estado:
 ### Ejemplo 1: Botón Simple
 
 ```html
-<button class="rb-button rb-button--primary">Aceptar</button>
+<button class="sb-ui-button sb-ui-button--primary">Aceptar</button>
 ```
 
 **Resultado**: Botón PRIMARY, FILL (default), MEDIUM (default)
@@ -97,7 +93,7 @@ Usa clases o atributos HTML según el estado:
 
 ```html
 <button
-  class="rb-button rb-button--secondary rb-button--stroke rb-button--large rb-button--icon-left"
+  class="sb-ui-button sb-ui-button--secondary sb-ui-button--stroke sb-ui-button--large sb-ui-button--icon-left"
 >
   <i class="fa-solid fa-download"></i>
   Descargar
@@ -109,7 +105,7 @@ Usa clases o atributos HTML según el estado:
 ### Ejemplo 3: Botón Icon Only
 
 ```html
-<button class="rb-button rb-button--primary rb-button--icon-only" title="Editar">
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-only" title="Editar">
   <i class="fa-solid fa-edit"></i>
 </button>
 ```
@@ -123,45 +119,37 @@ Usa clases o atributos HTML según el estado:
 ### ❌ Redundancia con `--fill`
 
 ```html
-<!-- MAL: --fill es redundante porque es el default -->
-<button class="rb-button rb-button--primary rb-button--fill">Botón</button>
-
-<!-- BIEN: Omite --fill -->
-<button class="rb-button rb-button--primary">Botón</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">Botón</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke">Botón</button>
 ```
 
 ### ❌ Redundancia con `--medium`
 
 ```html
-<!-- MAL: --medium es redundante porque es el default -->
-<button class="rb-button rb-button--primary rb-button--medium">Botón</button>
-
-<!-- BIEN: Omite --medium -->
-<button class="rb-button rb-button--primary">Botón</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--medium">Botón</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">Botón</button>
 ```
 
 ### ❌ Múltiples variantes de estilo
 
 ```html
 <!-- MAL: No puedes tener STROKE y TEXT al mismo tiempo -->
-<button class="rb-button rb-button--primary rb-button--stroke rb-button--text">Botón</button>
-
-<!-- BIEN: Elige solo una -->
-<button class="rb-button rb-button--primary rb-button--stroke">Botón</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--stroke">Botón</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">Botón</button>
 ```
 
 ---
 
 ## 🎯 Combinaciones Válidas
 
-| Quiero                               | Clases                                                               |
-| ------------------------------------ | -------------------------------------------------------------------- |
-| Botón primario simple                | `.sb-ui-button .sb-ui-button--primary`                                     |
-| Botón secundario con borde           | `.sb-ui-button .sb-ui-button--secondary .sb-ui-button--stroke`                |
-| Botón grande de error                | `.sb-ui-button .sb-ui-button--error .sb-ui-button--large`                     |
+| Quiero                               | Clases                                                                           |
+| ------------------------------------ | -------------------------------------------------------------------------------- |
+| Botón primario simple                | `.sb-ui-button .sb-ui-button--primary`                                           |
+| Botón secundario con borde           | `.sb-ui-button .sb-ui-button--secondary .sb-ui-button--stroke`                   |
+| Botón grande de error                | `.sb-ui-button .sb-ui-button--error .sb-ui-button--large`                        |
 | Botón pequeño terciario transparente | `.sb-ui-button .sb-ui-button--tertiary .sb-ui-button--text .sb-ui-button--small` |
-| Botón con icono izquierda            | `.sb-ui-button .sb-ui-button--primary .sb-ui-button--icon-left`               |
-| Botón solo icono circular            | `.sb-ui-button .sb-ui-button--primary .sb-ui-button--icon-only`               |
+| Botón con icono izquierda            | `.sb-ui-button .sb-ui-button--primary .sb-ui-button--icon-left`                  |
+| Botón solo icono circular            | `.sb-ui-button .sb-ui-button--primary .sb-ui-button--icon-only`                  |
 
 ---
 
@@ -170,13 +158,13 @@ Usa clases o atributos HTML según el estado:
 ### Ancho Completo
 
 ```html
-<button class="rb-button rb-button--primary rb-button--block">Botón Full Width</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--block">Botón Full Width</button>
 ```
 
 ### Esquinas Cuadradas
 
 ```html
-<button class="rb-button rb-button--primary rb-button--square">Botón Cuadrado</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--square">Botón Cuadrado</button>
 ```
 
 ---

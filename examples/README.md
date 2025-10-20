@@ -15,8 +15,8 @@ examples/
 ├── README.md               → Esta guía
 ├── USO-BOTONES.md          → Guía rápida de uso de botones
 └── dist/                   → CSS y JS compilados
-    ├── rb-*.min.css        → Bundles por marca (99KB → 9.9KB brotli)
-    └── rb-components.min.js → Web Components
+    ├── sb-ui-*.min.css     → Bundles por marca (99KB → 9.9KB brotli)
+    └── sb-ui-components.min.js → Web Components
 ```
 
 ## 🎨 Demos Disponibles
@@ -115,7 +115,7 @@ Cada marca tiene su propio bundle que incluye:
 
 ```html
 <!-- Ejemplo: Cargar bundle de Seguros Bolívar Light -->
-<link rel="stylesheet" href="dist/rb-seguros-bolivar-light.min.css" />
+<link rel="stylesheet" href="dist/sb-ui-seguros-bolivar-light.min.css" />
 ```
 
 **Tamaño**: ~34KB minificado, ~4.7KB gzip

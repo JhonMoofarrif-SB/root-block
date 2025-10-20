@@ -1,9 +1,10 @@
 ---
-alwaysApply: false
-version: "2.1.0"
-date: "2025-01-16"
+alwaysApply: true
+version: '2.1.0'
+date: '2025-01-16'
 ---
-# Root Block Design System - Brand Override CSS Standards
+
+# Seguros Bolivar UI Design System - Brand Override CSS Standards
 
 ## 🎯 Contexto
 
@@ -18,16 +19,18 @@ date: "2025-01-16"
 ## 📋 PRINCIPIOS FUNDAMENTALES
 
 ### SIEMPRE Hacer:
+
 - ✅ **Usar `@layer brand-overrides`** para todos los overrides de variables CSS
 - ✅ Usar data attributes: `[data-brand="nombre-marca"]`
 - ✅ Solo definir variables CSS que cambien respecto al default
 - ✅ Mantener la misma estructura de variables que el componente base
-- ✅ Usar prefijo `--rb-` en todas las variables
-- ✅ Seguir el patrón: `--rb-[component]-[variant]-[style]-[property]-[state]`
-- ✅ Usar tokens de la marca: `var(--rb-color-*)`
+- ✅ Usar prefijo `--sb-ui-` en todas las variables
+- ✅ Seguir el patrón: `--sb-ui-[component]-[variant]-[style]-[property]-[state]`
+- ✅ Usar tokens de la marca: `var(--sb-ui-color-*)`
 - ✅ Documentar qué cambia y por qué
 
 ### NUNCA Hacer:
+
 - ❌ **NO usar `!important`** (ya no es necesario con @layer brand-overrides)
 - ❌ Repetir todo el CSS del componente base
 - ❌ Cambiar clases CSS (solo variables)
@@ -45,25 +48,25 @@ date: "2025-01-16"
  * ============================================================================
  * [Nombre Marca] - [Component] Component Overrides
  * ============================================================================
- * 
+ *
  * Nueva Arquitectura con @layer brand-overrides (v2.0.0)
- * 
+ *
  * ESTRUCTURA:
  * 1. Configuración global (fuera de @layer) - padding, border-radius, etc.
  * 2. Overrides por variante (dentro de @layer brand-overrides) - colores
- * 
+ *
  * ORDEN DE LAYERS (menor a mayor prioridad):
  * reset → tokens → base → variants → style-variants → brand-overrides
  * → sizes → modifiers → icon-positions → states → utilities
- * 
+ *
  * TIPOS: primary, secondary, tertiary, error
  * VARIANTES: stroke (default), fill, text
  * ESTADOS: default, hover, active, disabled, focus
- * 
+ *
  * ⚠️ IMPORTANTE:
  * - Usar @layer brand-overrides para overrides de variables CSS
  * - NO usar !important (ya no es necesario)
- * - Usar tokens de la marca: var(--rb-color-*), NO hardcodear
+ * - Usar tokens de la marca: var(--sb-ui-color-*), NO hardcodear
  * - Solo definir las variables que cambian respecto al default
  * ============================================================================
  */
@@ -73,12 +76,12 @@ date: "2025-01-16"
    ============================================================================
    Propiedades estructurales como padding, border-radius, tamaños
    ============================================================================ */
-[data-brand='nombre-marca'] .rb-[component] {
-  --rb-[component]-border-radius: 50px;
-  --rb-[component]-padding-inline: 16px;
-  --rb-[component]-padding-block: 8px;
-  --rb-[component]-gap: 8px;
-  --rb-[component]-min-block-size: 40px;
+[data-brand='nombre-marca'] .sb-ui-[component] {
+  --sb-ui-[component]-border-radius: 50px;
+  --sb-ui-[component]-padding-inline: 16px;
+  --sb-ui-[component]-padding-block: 8px;
+  --sb-ui-[component]-gap: 8px;
+  --sb-ui-[component]-min-block-size: 40px;
 }
 
 /* ============================================================================
@@ -88,103 +91,103 @@ date: "2025-01-16"
    ============================================================================ */
 @layer brand-overrides {
   /* PRIMARY - STROKE (default) */
-  [data-brand='nombre-marca'] .rb-[component]--primary {
+  [data-brand='nombre-marca'] .sb-ui-[component]--primary {
     /* Solo definir las variables que cambian */
-    --rb-[component]-text-hover: var(--rb-color-primary-D100);
-    --rb-[component]-text-active: var(--rb-color-primary-D100);
+    --sb-ui-[component]-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-[component]-text-active: var(--sb-ui-color-primary-D100);
   }
 
   /* ========================================
      PRIMARY - FILL
      Descripción del estilo de la marca
      ======================================== */
-  .rb-[component]--fill.rb-[component]--primary {
+  .sb-ui-[component]--fill.sb-ui-[component]--primary {
     /* Background */
-    --rb-[component]-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-[component]-primary-fill-bg-hover: var(--rb-color-secondary-D100);
-    --rb-[component]-primary-fill-bg-active: var(--rb-color-secondary-D200);
-    --rb-[component]-primary-fill-bg-disabled: var(--rb-color-grayscale-L300);
+    --sb-ui-[component]-primary-fill-bg: var(--sb-ui-color-secondary-base);
+    --sb-ui-[component]-primary-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-[component]-primary-fill-bg-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-[component]-primary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300);
 
     /* Text */
-    --rb-[component]-primary-fill-text: var(--rb-color-primary-D100);
-    --rb-[component]-primary-fill-text-hover: var(--rb-color-primary-D100);
-    --rb-[component]-primary-fill-text-active: var(--rb-color-primary-D100);
-    --rb-[component]-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
+    --sb-ui-[component]-primary-fill-text: var(--sb-ui-color-primary-D100);
+    --sb-ui-[component]-primary-fill-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-[component]-primary-fill-text-active: var(--sb-ui-color-primary-D100);
+    --sb-ui-[component]-primary-fill-text-disabled: var(--sb-ui-color-grayscale-L100);
 
     /* Border */
-    --rb-[component]-primary-fill-border: var(--rb-color-secondary-base);
-    --rb-[component]-primary-fill-border-hover: var(--rb-color-secondary-D100);
-    --rb-[component]-primary-fill-border-active: var(--rb-color-secondary-D200);
-    --rb-[component]-primary-fill-border-disabled: var(--rb-color-grayscale-L300);
+    --sb-ui-[component]-primary-fill-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-[component]-primary-fill-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-[component]-primary-fill-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-[component]-primary-fill-border-disabled: var(--sb-ui-color-grayscale-L300);
   }
 
   /* ========================================
      PRIMARY - TEXT
      Descripción del estilo de la marca
      ======================================== */
-  .rb-[component]--text.rb-[component]--primary {
+  .sb-ui-[component]--text.sb-ui-[component]--primary {
     /* Background */
-    --rb-[component]-primary-text-bg: transparent;
-    --rb-[component]-primary-text-bg-hover: var(--rb-color-secondary-L400);
-    --rb-[component]-primary-text-bg-active: var(--rb-color-secondary-L300);
-    --rb-[component]-primary-text-bg-disabled: transparent;
+    --sb-ui-[component]-primary-text-bg: transparent;
+    --sb-ui-[component]-primary-text-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-[component]-primary-text-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-[component]-primary-text-bg-disabled: transparent;
 
     /* Text */
-    --rb-[component]-primary-text-text: var(--rb-color-primary-base);
-    --rb-[component]-primary-text-text-hover: var(--rb-color-primary-D100);
-    --rb-[component]-primary-text-text-active: var(--rb-color-primary-D200);
-    --rb-[component]-primary-text-text-disabled: var(--rb-color-grayscale-base);
+    --sb-ui-[component]-primary-text-text: var(--sb-ui-color-primary-base);
+    --sb-ui-[component]-primary-text-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-[component]-primary-text-text-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-[component]-primary-text-text-disabled: var(--sb-ui-color-grayscale-base);
   }
 
   /* ========================================
      SECONDARY - STROKE
      Descripción del estilo de la marca
      ======================================== */
-  .rb-[component]--secondary {
+  .sb-ui-[component]--secondary {
     /* Solo definir lo que cambia */
-    --rb-[component]-secondary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-[component]-secondary-stroke-bg-hover: var(--rb-color-primary-L400);
+    --sb-ui-[component]-secondary-stroke-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-[component]-secondary-stroke-bg-hover: var(--sb-ui-color-primary-L400);
 
-    --rb-[component]-secondary-stroke-text: var(--rb-color-primary-D100);
-    --rb-[component]-secondary-stroke-text-hover: var(--rb-color-primary-D100);
+    --sb-ui-[component]-secondary-stroke-text: var(--sb-ui-color-primary-D100);
+    --sb-ui-[component]-secondary-stroke-text-hover: var(--sb-ui-color-primary-D100);
 
-    --rb-[component]-secondary-stroke-border: var(--rb-color-primary-base);
-    --rb-[component]-secondary-stroke-border-hover: var(--rb-color-primary-D100);
+    --sb-ui-[component]-secondary-stroke-border: var(--sb-ui-color-primary-base);
+    --sb-ui-[component]-secondary-stroke-border-hover: var(--sb-ui-color-primary-D100);
   }
 
   /* ========================================
      SECONDARY - FILL
      Descripción del estilo de la marca
      ======================================== */
-  .rb-[component]--fill.rb-[component]--secondary {
-    --rb-[component]-secondary-fill-bg: var(--rb-color-primary-base);
-    --rb-[component]-secondary-fill-bg-hover: var(--rb-color-primary-D100);
+  .sb-ui-[component]--fill.sb-ui-[component]--secondary {
+    --sb-ui-[component]-secondary-fill-bg: var(--sb-ui-color-primary-base);
+    --sb-ui-[component]-secondary-fill-bg-hover: var(--sb-ui-color-primary-D100);
 
-    --rb-[component]-secondary-fill-text: var(--rb-color-grayscale-white);
+    --sb-ui-[component]-secondary-fill-text: var(--sb-ui-color-grayscale-white);
 
-    --rb-[component]-secondary-fill-border: var(--rb-color-primary-base);
+    --sb-ui-[component]-secondary-fill-border: var(--sb-ui-color-primary-base);
   }
 
   /* ========================================
      SECONDARY - TEXT
      Descripción del estilo de la marca
      ======================================== */
-  .rb-[component]--text.rb-[component]--secondary {
-    --rb-[component]-secondary-text-text: var(--rb-color-primary-base);
-    --rb-[component]-secondary-text-text-hover: var(--rb-color-primary-D100);
+  .sb-ui-[component]--text.sb-ui-[component]--secondary {
+    --sb-ui-[component]-secondary-text-text: var(--sb-ui-color-primary-base);
+    --sb-ui-[component]-secondary-text-text-hover: var(--sb-ui-color-primary-D100);
   }
 
   /* ========================================
      TERTIARY - Si la marca lo personaliza
      ======================================== */
-  .rb-[component]--tertiary {
+  .sb-ui-[component]--tertiary {
     /* Solo si hay cambios respecto al default */
   }
 
   /* ========================================
      ERROR - Si la marca lo personaliza
      ======================================== */
-  .rb-[component]--error {
+  .sb-ui-[component]--error {
     /* Solo si hay cambios respecto al default */
   }
 }
@@ -197,25 +200,26 @@ date: "2025-01-16"
 ### Estructura de Nombres
 
 ```
---rb-[component]-[variant]-[style]-[property]-[state]
+--sb-ui-[component]-[variant]-[style]-[property]-[state]
 ```
 
 **Ejemplo completo:**
+
 ```css
---rb-button-primary-stroke-bg-hover
---rb-button-secondary-fill-text-active
---rb-button-tertiary-text-border-disabled
+--sb-ui-button-primary-stroke-bg-hover
+--sb-ui-button-secondary-fill-text-active
+--sb-ui-button-tertiary-text-border-disabled
 ```
 
 ### Desglose:
 
-| Parte | Valores Posibles | Descripción |
-|-------|------------------|-------------|
-| `component` | button, input, select, etc. | Nombre del componente |
-| `variant` | primary, secondary, tertiary, error | Tipo de color/variante |
-| `style` | stroke, fill, text | Variante de estilo |
-| `property` | bg, text, border | Propiedad CSS que afecta |
-| `state` | (default), hover, active, disabled | Estado interactivo |
+| Parte       | Valores Posibles                    | Descripción              |
+| ----------- | ----------------------------------- | ------------------------ |
+| `component` | button, input, select, etc.         | Nombre del componente    |
+| `variant`   | primary, secondary, tertiary, error | Tipo de color/variante   |
+| `style`     | stroke, fill, text                  | Variante de estilo       |
+| `property`  | bg, text, border                    | Propiedad CSS que afecta |
+| `state`     | (default), hover, active, disabled  | Estado interactivo       |
 
 ---
 
@@ -225,14 +229,14 @@ date: "2025-01-16"
 
 ```css
 /* ✅ CORRECTO - Todos los estados incluyendo disabled-hover */
---rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
---rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
---rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
---rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+--sb-ui-button-primary-stroke-bg: var(--sb-ui-color-grayscale-white);
+--sb-ui-button-primary-stroke-bg-hover: var(--sb-ui-color-secondary-L400);
+--sb-ui-button-primary-stroke-bg-active: var(--sb-ui-color-secondary-L300);
+--sb-ui-button-primary-stroke-bg-disabled: var(--sb-ui-color-grayscale-white);
 
 /* ❌ INCORRECTO - Estados incompletos */
---rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
---rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
+--sb-ui-button-primary-stroke-bg: var(--sb-ui-color-grayscale-white);
+--sb-ui-button-primary-stroke-bg-hover: var(--sb-ui-color-secondary-L400);
 /* Falta active y disabled */
 ```
 
@@ -241,131 +245,142 @@ date: "2025-01-16"
 ## 🎨 NUEVO: DISABLED + HOVER (v2.1.0)
 
 ### ¿Qué es `disabled-hover`?
+
 Permite mostrar **visual feedback** cuando el usuario pasa el mouse sobre un componente deshabilitado, mejorando la UX sin cambiar la funcionalidad.
 
 ### Variables Disponibles
+
 ```css
 /* Para cada propiedad (bg, text, border), ahora hay 2 variables disabled: */
---rb-[component]-[variant]-[style]-bg-disabled        /* Sin hover */
---rb-[component]-[variant]-[style]-bg-disabled-hover  /* Con hover (NUEVO) */
+--sb-ui-[component]-[variant]-[style]-bg-disabled        /* Sin hover */
+--sb-ui-[component]-[variant]-[style]-bg-disabled-hover  /* Con hover (NUEVO) */
 
---rb-[component]-[variant]-[style]-text-disabled
---rb-[component]-[variant]-[style]-text-disabled-hover
+--sb-ui-[component]-[variant]-[style]-text-disabled
+--sb-ui-[component]-[variant]-[style]-text-disabled-hover
 
---rb-[component]-[variant]-[style]-border-disabled
---rb-[component]-[variant]-[style]-border-disabled-hover
+--sb-ui-[component]-[variant]-[style]-border-disabled
+--sb-ui-[component]-[variant]-[style]-border-disabled-hover
 ```
 
 ### Fallback Automático
+
 Si NO defines `-disabled-hover`, el sistema usa automáticamente `-disabled`:
+
 ```css
 /* Si solo defines esto: */
---rb-button-bg-disabled: var(--rb-color-grayscale-L300);
+--sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300);
 
 /* El hover usará el mismo valor automáticamente */
-/* NO necesitas definir --rb-button-bg-disabled-hover */
+/* NO necesitas definir --sb-ui-button-bg-disabled-hover */
 ```
 
 ### Ejemplos por Variante
 
 #### PRIMARY STROKE
+
 ```css
 @layer brand-overrides {
-  [data-brand='seguros-bolivar'] .rb-button--primary {
+  [data-brand='seguros-bolivar'] .sb-ui-button--primary {
     /* DISABLED (sin hover) */
-    --rb-button-bg-disabled: transparent;
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
-    --rb-button-border-disabled: var(--rb-color-grayscale-base);
-    
+    --sb-ui-button-bg-disabled: transparent;
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-base);
+
     /* DISABLED + HOVER (aparece fondo gris) */
-    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L200); /* #E1E1E1 */
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
-    --rb-button-border-disabled-hover: var(--rb-color-grayscale-base);
+    --sb-ui-button-bg-disabled-hover: var(--sb-ui-color-grayscale-L200); /* #E1E1E1 */
+    --sb-ui-button-text-disabled-hover: var(--sb-ui-color-grayscale-base); /* #9B9B9B mantiene */
+    --sb-ui-button-border-disabled-hover: var(--sb-ui-color-grayscale-base);
   }
 }
 ```
 
 #### PRIMARY FILL
+
 ```css
 @layer brand-overrides {
-  [data-brand='seguros-bolivar'] .rb-button--primary.rb-button--fill {
+  [data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--fill {
     /* DISABLED (sin hover) */
-    --rb-button-bg-disabled: var(--rb-color-grayscale-L300); /* #F5F5F5 */
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
-    --rb-button-border-disabled: var(--rb-color-grayscale-L300);
-    
+    --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 */
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
+    --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-L300);
+
     /* DISABLED + HOVER (texto se aclara) */
-    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 mantiene */
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-L100); /* #B9B9B9 más claro */
-    --rb-button-border-disabled-hover: var(--rb-color-grayscale-L300);
+    --sb-ui-button-bg-disabled-hover: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 mantiene */
+    --sb-ui-button-text-disabled-hover: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 más claro */
+    --sb-ui-button-border-disabled-hover: var(--sb-ui-color-grayscale-L300);
   }
 }
 ```
 
 #### PRIMARY TEXT
+
 ```css
 @layer brand-overrides {
-  [data-brand='seguros-bolivar'] .rb-button--primary.rb-button--text {
+  [data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text {
     /* DISABLED (sin hover) */
-    --rb-button-bg-disabled: transparent;
-    --rb-button-text-disabled: var(--rb-color-grayscale-base); /* #9B9B9B */
-    
+    --sb-ui-button-bg-disabled: transparent;
+    --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
+
     /* DISABLED + HOVER (aparece fondo gris) */
-    --rb-button-bg-disabled-hover: var(--rb-color-grayscale-L300); /* #F5F5F5 aparece */
-    --rb-button-text-disabled-hover: var(--rb-color-grayscale-base); /* #9B9B9B mantiene */
+    --sb-ui-button-bg-disabled-hover: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 aparece */
+    --sb-ui-button-text-disabled-hover: var(--sb-ui-color-grayscale-base); /* #9B9B9B mantiene */
   }
 }
 ```
 
 ### Patrones Comunes de Feedback Visual
 
-| Variante | Estrategia Disabled + Hover | Feedback Visual |
-|----------|----------------------------|-----------------|
-| **STROKE** | Aparece fondo gris (`transparent` → `#E1E1E1`) | ✨ Fondo aparece |
-| **FILL** | Texto se aclara (`#9B9B9B` → `#B9B9B9`) | ✨ Texto más claro |
-| **TEXT** | Aparece fondo gris (`transparent` → `#F5F5F5`) | ✨ Fondo aparece |
+| Variante   | Estrategia Disabled + Hover                    | Feedback Visual    |
+| ---------- | ---------------------------------------------- | ------------------ |
+| **STROKE** | Aparece fondo gris (`transparent` → `#E1E1E1`) | ✨ Fondo aparece   |
+| **FILL**   | Texto se aclara (`#9B9B9B` → `#B9B9B9`)        | ✨ Texto más claro |
+| **TEXT**   | Aparece fondo gris (`transparent` → `#F5F5F5`) | ✨ Fondo aparece   |
 
 ### Tokens Recomendados
 
-| Token | Hex | Uso Recomendado |
-|-------|-----|-----------------|
-| `--rb-color-grayscale-base` | `#9B9B9B` | Texto/icono disabled (oscuro) |
-| `--rb-color-grayscale-L100` | `#B9B9B9` | Texto/icono disabled hover (más claro) |
-| `--rb-color-grayscale-L200` | `#E1E1E1` | Fondo disabled hover (STROKE) |
-| `--rb-color-grayscale-L300` | `#F5F5F5` | Fondo disabled (FILL) |
+| Token                          | Hex       | Uso Recomendado                        |
+| ------------------------------ | --------- | -------------------------------------- |
+| `--sb-ui-color-grayscale-base` | `#9B9B9B` | Texto/icono disabled (oscuro)          |
+| `--sb-ui-color-grayscale-L100` | `#B9B9B9` | Texto/icono disabled hover (más claro) |
+| `--sb-ui-color-grayscale-L200` | `#E1E1E1` | Fondo disabled hover (STROKE)          |
+| `--sb-ui-color-grayscale-L300` | `#F5F5F5` | Fondo disabled (FILL)                  |
 
 ### Beneficios
-✅ **UX mejorada:** Usuario sabe que el componente detecta hover pero está deshabilitado  
-✅ **Flexible:** Cada marca personaliza su feedback visual  
-✅ **Fallback automático:** Sin `-disabled-hover`, usa `-disabled`  
-✅ **Consistente:** Mismo patrón para todos los componentes  
-✅ **Backward compatible:** No rompe implementaciones existentes  
+
+✅ **UX mejorada:** Usuario sabe que el componente detecta hover pero está deshabilitado
+✅ **Flexible:** Cada marca personaliza su feedback visual
+✅ **Fallback automático:** Sin `-disabled-hover`, usa `-disabled`
+✅ **Consistente:** Mismo patrón para todos los componentes
+✅ **Backward compatible:** No rompe implementaciones existentes
 
 ---
 
 ## 🎯 SELECTORES ESPECÍFICOS POR STYLE-VARIANT
 
 ### STROKE (default)
+
 ```css
-.rb-button--primary {
+.sb-ui-button--primary {
   /* Solo clase variant, sin --stroke ni --fill ni --text */
-  --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
+  --sb-ui-button-primary-stroke-bg: var(--sb-ui-color-grayscale-white);
 }
 ```
 
 ### FILL
+
 ```css
-.rb-button--fill.rb-button--primary {
+.sb-ui-button--fill.sb-ui-button--primary {
   /* Doble clase: --fill + --primary */
-  --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
+  --sb-ui-button-primary-fill-bg: var(--sb-ui-color-secondary-base);
 }
 ```
 
 ### TEXT
+
 ```css
-.rb-button--text.rb-button--primary {
+.sb-ui-button--text.sb-ui-button--primary {
   /* Doble clase: --text + --primary */
-  --rb-button-primary-text-text: var(--rb-color-primary-base);
+  --sb-ui-button-primary-text-text: var(--sb-ui-color-primary-base);
 }
 ```
 
@@ -374,60 +389,63 @@ Si NO defines `-disabled-hover`, el sistema usa automáticamente `-disabled`:
 ## 📊 PROPIEDADES POR STYLE-VARIANT
 
 ### STROKE (outline con borde)
+
 ```css
 /* Background - usualmente white o transparente */
---rb-button-[variant]-stroke-bg: var(--rb-color-grayscale-white);
---rb-button-[variant]-stroke-bg-hover: var(--rb-color-secondary-L400);
---rb-button-[variant]-stroke-bg-active: var(--rb-color-secondary-L300);
---rb-button-[variant]-stroke-bg-disabled: var(--rb-color-grayscale-white);
+--sb-ui-button-[variant]-stroke-bg: var(--sb-ui-color-grayscale-white);
+--sb-ui-button-[variant]-stroke-bg-hover: var(--sb-ui-color-secondary-L400);
+--sb-ui-button-[variant]-stroke-bg-active: var(--sb-ui-color-secondary-L300);
+--sb-ui-button-[variant]-stroke-bg-disabled: var(--sb-ui-color-grayscale-white);
 
 /* Text - color del brand */
---rb-button-[variant]-stroke-text: var(--rb-color-primary-D100);
---rb-button-[variant]-stroke-text-hover: var(--rb-color-secondary-D100);
---rb-button-[variant]-stroke-text-active: var(--rb-color-secondary-D200);
---rb-button-[variant]-stroke-text-disabled: var(--rb-color-grayscale-base);
+--sb-ui-button-[variant]-stroke-text: var(--sb-ui-color-primary-D100);
+--sb-ui-button-[variant]-stroke-text-hover: var(--sb-ui-color-secondary-D100);
+--sb-ui-button-[variant]-stroke-text-active: var(--sb-ui-color-secondary-D200);
+--sb-ui-button-[variant]-stroke-text-disabled: var(--sb-ui-color-grayscale-base);
 
 /* Border - visible y del color del brand */
---rb-button-[variant]-stroke-border: var(--rb-color-secondary-base);
---rb-button-[variant]-stroke-border-hover: var(--rb-color-secondary-D100);
---rb-button-[variant]-stroke-border-active: var(--rb-color-secondary-D200);
---rb-button-[variant]-stroke-border-disabled: var(--rb-color-grayscale-base);
+--sb-ui-button-[variant]-stroke-border: var(--sb-ui-color-secondary-base);
+--sb-ui-button-[variant]-stroke-border-hover: var(--sb-ui-color-secondary-D100);
+--sb-ui-button-[variant]-stroke-border-active: var(--sb-ui-color-secondary-D200);
+--sb-ui-button-[variant]-stroke-border-disabled: var(--sb-ui-color-grayscale-base);
 ```
 
 ### FILL (sólido con fondo)
+
 ```css
 /* Background - color sólido del brand */
---rb-button-[variant]-fill-bg: var(--rb-color-secondary-base);
---rb-button-[variant]-fill-bg-hover: var(--rb-color-secondary-D100);
---rb-button-[variant]-fill-bg-active: var(--rb-color-secondary-D200);
---rb-button-[variant]-fill-bg-disabled: var(--rb-color-grayscale-L300);
+--sb-ui-button-[variant]-fill-bg: var(--sb-ui-color-secondary-base);
+--sb-ui-button-[variant]-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+--sb-ui-button-[variant]-fill-bg-active: var(--sb-ui-color-secondary-D200);
+--sb-ui-button-[variant]-fill-bg-disabled: var(--sb-ui-color-grayscale-L300);
 
 /* Text - contraste con el fondo */
---rb-button-[variant]-fill-text: var(--rb-color-primary-D100);
---rb-button-[variant]-fill-text-hover: var(--rb-color-primary-D100);
---rb-button-[variant]-fill-text-active: var(--rb-color-primary-D100);
---rb-button-[variant]-fill-text-disabled: var(--rb-color-grayscale-L100);
+--sb-ui-button-[variant]-fill-text: var(--sb-ui-color-primary-D100);
+--sb-ui-button-[variant]-fill-text-hover: var(--sb-ui-color-primary-D100);
+--sb-ui-button-[variant]-fill-text-active: var(--sb-ui-color-primary-D100);
+--sb-ui-button-[variant]-fill-text-disabled: var(--sb-ui-color-grayscale-L100);
 
 /* Border - mismo color que el fondo */
---rb-button-[variant]-fill-border: var(--rb-color-secondary-base);
---rb-button-[variant]-fill-border-hover: var(--rb-color-secondary-D100);
---rb-button-[variant]-fill-border-active: var(--rb-color-secondary-D200);
---rb-button-[variant]-fill-border-disabled: var(--rb-color-grayscale-L300);
+--sb-ui-button-[variant]-fill-border: var(--sb-ui-color-secondary-base);
+--sb-ui-button-[variant]-fill-border-hover: var(--sb-ui-color-secondary-D100);
+--sb-ui-button-[variant]-fill-border-active: var(--sb-ui-color-secondary-D200);
+--sb-ui-button-[variant]-fill-border-disabled: var(--sb-ui-color-grayscale-L300);
 ```
 
 ### TEXT (sin fondo ni borde)
+
 ```css
 /* Background - siempre transparente */
---rb-button-[variant]-text-bg: transparent;
---rb-button-[variant]-text-bg-hover: transparent;
---rb-button-[variant]-text-bg-active: transparent;
---rb-button-[variant]-text-bg-disabled: transparent;
+--sb-ui-button-[variant]-text-bg: transparent;
+--sb-ui-button-[variant]-text-bg-hover: transparent;
+--sb-ui-button-[variant]-text-bg-active: transparent;
+--sb-ui-button-[variant]-text-bg-disabled: transparent;
 
 /* Text - color del brand */
---rb-button-[variant]-text-text: var(--rb-color-primary-base);
---rb-button-[variant]-text-text-hover: var(--rb-color-primary-D100);
---rb-button-[variant]-text-text-active: var(--rb-color-primary-D200);
---rb-button-[variant]-text-text-disabled: var(--rb-color-grayscale-base);
+--sb-ui-button-[variant]-text-text: var(--sb-ui-color-primary-base);
+--sb-ui-button-[variant]-text-text-hover: var(--sb-ui-color-primary-D100);
+--sb-ui-button-[variant]-text-text-active: var(--sb-ui-color-primary-D200);
+--sb-ui-button-[variant]-text-text-disabled: var(--sb-ui-color-grayscale-base);
 
 /* Border - transparente (NO se define, se hereda del base) */
 ```
@@ -437,42 +455,45 @@ Si NO defines `-disabled-hover`, el sistema usa automáticamente `-disabled`:
 ## 🎨 ESTRATEGIA DE PERSONALIZACIÓN
 
 ### Nivel 1: Solo cambiar lo esencial
+
 ```css
 /* Si solo cambias colores primary/secondary STROKE */
 [data-brand='mi-marca'] {
-  .rb-button--primary {
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
+  .sb-ui-button--primary {
+    --sb-ui-button-primary-stroke-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-stroke-text: var(--sb-ui-color-primary-D100);
   }
 }
 ```
 
 ### Nivel 2: Personalización completa de una variante
+
 ```css
 /* Todos los estados de primary STROKE */
 [data-brand='mi-marca'] {
-  .rb-button--primary {
+  .sb-ui-button--primary {
     /* Los 4 estados de cada propiedad */
-    --rb-button-primary-stroke-bg: ...;
-    --rb-button-primary-stroke-bg-hover: ...;
-    --rb-button-primary-stroke-bg-active: ...;
-    --rb-button-primary-stroke-bg-disabled: ...;
+    --sb-ui-button-primary-stroke-bg: ...;
+    --sb-ui-button-primary-stroke-bg-hover: ...;
+    --sb-ui-button-primary-stroke-bg-active: ...;
+    --sb-ui-button-primary-stroke-bg-disabled: ...;
   }
 }
 ```
 
 ### Nivel 3: Personalización de todos los style-variants
+
 ```css
 /* STROKE + FILL + TEXT */
 [data-brand='mi-marca'] {
   /* STROKE */
-  .rb-button--primary { ... }
-  
+  .sb-ui-button--primary { ... }
+
   /* FILL */
-  .rb-button--fill.rb-button--primary { ... }
-  
+  .sb-ui-button--fill.sb-ui-button--primary { ... }
+
   /* TEXT */
-  .rb-button--text.rb-button--primary { ... }
+  .sb-ui-button--text.sb-ui-button--primary { ... }
 }
 ```
 
@@ -517,19 +538,17 @@ packages/brand-overrides/src/
 <!-- Aplicar brand mediante data-brand -->
 <div data-brand="seguros-bolivar">
   <!-- Todos los componentes dentro heredan el override -->
-  <button class="rb-button rb-button--primary">
+  <button class="sb-ui-button- sb-ui-button--primary">
     Primary Stroke (override Seguros Bolívar)
   </button>
-  
-  <button class="rb-button rb-button--primary rb-button--fill">
+
+  <button class="sb-ui-button- sb-ui-button--primary- sb-ui-button--fill">
     Primary Fill (override Seguros Bolívar)
   </button>
 </div>
 
 <!-- Sin data-brand, usa el default -->
-<button class="rb-button rb-button--primary">
-  Primary Stroke (default - White Label)
-</button>
+<button class="sb-ui-button- sb-ui-button--primary">Primary Stroke (default - White Label)</button>
 ```
 
 ---
@@ -540,10 +559,10 @@ packages/brand-overrides/src/
 - [ ] ✅ Solo define variables CSS que cambian
 - [ ] ✅ Mantiene la estructura de nombres del componente base
 - [ ] ✅ Define los 4 estados (default, hover, active, disabled) cuando cambia una propiedad
-- [ ] ✅ Usa selectores correctos: `.rb-button--primary` (stroke), `.rb-button--fill.rb-button--primary` (fill)
+- [ ] ✅ Usa selectores correctos: `.sb-ui-button--primary` (stroke), `.sb-ui-button--fill.sb-ui-button--primary` (fill)
 - [ ] ✅ Documenta qué cambia y por qué en comentarios
-- [ ] ✅ Variables usan prefijo `--rb-`
-- [ ] ✅ Usa tokens de color del sistema: `var(--rb-color-*)`
+- [ ] ✅ Variables usan prefijo `--sb-ui-`
+- [ ] ✅ Usa tokens de color del sistema: `var(--sb-ui-color-*)`
 - [ ] ✅ No repite código del componente base
 - [ ] ✅ No usa `!important`
 - [ ] ✅ No modifica clases ni estructura HTML
@@ -553,71 +572,73 @@ packages/brand-overrides/src/
 ## 🎯 EJEMPLOS COMPLETOS
 
 ### Ejemplo 1: Override Mínimo
+
 ```css
 /**
  * Davivienda - Solo cambia primary stroke
  */
 [data-brand='davivienda'] {
-  .rb-button--primary {
-    --rb-button-primary-stroke-border: var(--rb-color-primary-base);
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
+  .sb-ui-button--primary {
+    --sb-ui-button-primary-stroke-border: var(--sb-ui-color-primary-base);
+    --sb-ui-button-primary-stroke-text: var(--sb-ui-color-primary-D100);
   }
 }
 ```
 
 ### Ejemplo 2: Override Completo (Seguros Bolívar)
+
 ```css
 /**
  * Seguros Bolívar - Personalización completa de primary
  */
 [data-brand='seguros-bolivar'] {
   /* PRIMARY - STROKE */
-  .rb-button--primary {
-    --rb-button-primary-stroke-bg: var(--rb-color-grayscale-white);
-    --rb-button-primary-stroke-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-primary-stroke-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-stroke-bg-disabled: var(--rb-color-grayscale-white);
+  .sb-ui-button--primary {
+    --sb-ui-button-primary-stroke-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-button-primary-stroke-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-button-primary-stroke-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-button-primary-stroke-bg-disabled: var(--sb-ui-color-grayscale-white);
 
-    --rb-button-primary-stroke-text: var(--rb-color-primary-D100);
-    --rb-button-primary-stroke-text-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-text-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-text-disabled: var(--rb-color-grayscale-base);
+    --sb-ui-button-primary-stroke-text: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-stroke-text-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-stroke-text-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-stroke-text-disabled: var(--sb-ui-color-grayscale-base);
 
-    --rb-button-primary-stroke-border: var(--rb-color-secondary-base);
-    --rb-button-primary-stroke-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-stroke-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-stroke-border-disabled: var(--rb-color-grayscale-base);
+    --sb-ui-button-primary-stroke-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-stroke-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-stroke-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-stroke-border-disabled: var(--sb-ui-color-grayscale-base);
   }
 
   /* PRIMARY - FILL */
-  .rb-button--fill.rb-button--primary {
-    --rb-button-primary-fill-bg: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-bg-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-fill-bg-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-fill-bg-disabled: var(--rb-color-grayscale-L300);
+  .sb-ui-button--fill.sb-ui-button--primary {
+    --sb-ui-button-primary-fill-bg: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-fill-bg-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-fill-bg-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-fill-bg-disabled: var(--sb-ui-color-grayscale-L300);
 
-    --rb-button-primary-fill-text: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-active: var(--rb-color-primary-D100);
-    --rb-button-primary-fill-text-disabled: var(--rb-color-grayscale-L100);
+    --sb-ui-button-primary-fill-text: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-fill-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-fill-text-active: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-fill-text-disabled: var(--sb-ui-color-grayscale-L100);
 
-    --rb-button-primary-fill-border: var(--rb-color-secondary-base);
-    --rb-button-primary-fill-border-hover: var(--rb-color-secondary-D100);
-    --rb-button-primary-fill-border-active: var(--rb-color-secondary-D200);
-    --rb-button-primary-fill-border-disabled: var(--rb-color-grayscale-L300);
+    --sb-ui-button-primary-fill-border: var(--sb-ui-color-secondary-base);
+    --sb-ui-button-primary-fill-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-button-primary-fill-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-button-primary-fill-border-disabled: var(--sb-ui-color-grayscale-L300);
   }
 
   /* PRIMARY - TEXT */
-  .rb-button--text.rb-button--primary {
-    --rb-button-primary-text-bg: transparent;
-    --rb-button-primary-text-bg-hover: var(--rb-color-secondary-L400);
-    --rb-button-primary-text-bg-active: var(--rb-color-secondary-L300);
-    --rb-button-primary-text-bg-disabled: transparent;
+  .sb-ui-button--text.sb-ui-button--primary {
+    --sb-ui-button-primary-text-bg: transparent;
+    --sb-ui-button-primary-text-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-button-primary-text-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-button-primary-text-bg-disabled: transparent;
 
-    --rb-button-primary-text-text: var(--rb-color-primary-base);
-    --rb-button-primary-text-text-hover: var(--rb-color-primary-D100);
-    --rb-button-primary-text-text-active: var(--rb-color-primary-D200);
-    --rb-button-primary-text-text-disabled: var(--rb-color-grayscale-base);
+    --sb-ui-button-primary-text-text: var(--sb-ui-color-primary-base);
+    --sb-ui-button-primary-text-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-button-primary-text-text-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-button-primary-text-text-disabled: var(--sb-ui-color-grayscale-base);
   }
 }
 ```
@@ -630,7 +651,7 @@ packages/brand-overrides/src/
 
 ```css
 /* En DevTools, buscar las variables computadas */
-[data-brand='mi-marca'] .rb-button--primary {
+[data-brand='mi-marca'] .sb-ui-button--primary {
   /* Debe mostrar los valores override, no los default */
 }
 ```
@@ -638,10 +659,10 @@ packages/brand-overrides/src/
 ### Especificidad correcta
 
 ```
-[data-brand='mi-marca'] .rb-button--primary
+[data-brand='mi-marca'] .sb-ui-button--primary
 ↓ especificidad: (0, 2, 0)
 
-.rb-button--primary
+.sb-ui-button--primary
 ↓ especificidad: (0, 1, 0)
 
 ✅ El override gana por mayor especificidad
@@ -655,8 +676,8 @@ packages/brand-overrides/src/
 2. **Data attribute obligatorio** - `[data-brand="nombre"]`
 3. **Hereda todo lo demás** - Solo define lo que cambia
 4. **4 estados siempre** - default, hover, active, disabled
-5. **Selectores específicos** - `.rb-button--fill.rb-button--primary` para FILL
-6. **Usa tokens del sistema** - `var(--rb-color-*)`
+5. **Selectores específicos** - `.sb-ui-button--fill.sb-ui-button--primary` para FILL
+6. **Usa tokens del sistema** - `var(--sb-ui-color-*)`
 7. **Documenta los cambios** - Comentarios claros sobre qué y por qué
 8. **No uses !important** - La especificidad es suficiente
 9. **Mantén la consistencia** - Sigue el patrón del componente base
@@ -669,7 +690,7 @@ packages/brand-overrides/src/
 ### 🎯 **PROMPT 1: Crear Brand Override desde cero**
 
 ```
-@CSS_OVERRIDE_BRAND.mdc 
+@CSS_OVERRIDE_BRAND.mdc
 
 Necesito crear el brand override para [MARCA] del componente button.
 
@@ -692,7 +713,7 @@ Por favor:
 ### 🔧 **PROMPT 2: Modificar Brand Override existente**
 
 ```
-@CSS_OVERRIDE_BRAND.mdc @button.css 
+@CSS_OVERRIDE_BRAND.mdc @button.css
 
 Necesito modificar el brand override de Seguros Bolívar.
 
@@ -702,7 +723,7 @@ Cambios requeridos:
 - El texto debe permanecer verde (#038450) en todos los estados
 
 Por favor:
-1. Modifica @seguros-bolivar/button.css 
+1. Modifica @seguros-bolivar/button.css
 2. Usa @layer brand-overrides para los cambios
 3. Asegúrate de que el texto permanezca verde incluso en hover/pressed
 4. Reconstruye el bundle y verifica que funcione
@@ -711,9 +732,9 @@ Por favor:
 ### 🐛 **PROMPT 3: Debugging de Brand Override**
 
 ```
-@CSS_OVERRIDE_BRAND.mdc @button.css @seguros-bolivar/button.css 
+@CSS_OVERRIDE_BRAND.mdc @button.css @seguros-bolivar/button.css
 
-El botón Primary Stroke de Seguros Bolívar está cambiando a color amarillo en hover, 
+El botón Primary Stroke de Seguros Bolívar está cambiando a color amarillo en hover,
 pero debería permanecer verde (#038450).
 
 Por favor:
@@ -727,7 +748,7 @@ Por favor:
 ### 📊 **PROMPT 4: Completar todas las variantes de una marca**
 
 ```
-@CSS_OVERRIDE_BRAND.mdc @button.css @seguros-bolivar/button.css 
+@CSS_OVERRIDE_BRAND.mdc @button.css @seguros-bolivar/button.css
 
 Necesito completar TODAS las variantes de botones para Seguros Bolívar:
 
@@ -743,7 +764,7 @@ SECONDARY:
 
 TERTIARY:
 - STROKE (pendiente)
-- FILL (pendiente)  
+- FILL (pendiente)
 - TEXT (pendiente)
 
 ERROR:
@@ -762,7 +783,7 @@ Por favor:
 ### 🎨 **PROMPT 5: Migrar marca existente a nueva arquitectura**
 
 ```
-@CSS_OVERRIDE_BRAND.mdc @button.css @jelpit/button.css 
+@CSS_OVERRIDE_BRAND.mdc @button.css @jelpit/button.css
 
 Necesito migrar el brand override de Jelpit a la nueva arquitectura con @layer brand-overrides.
 
@@ -778,7 +799,7 @@ Por favor:
 ### 🔍 **PROMPT 6: Verificar consistencia entre marcas**
 
 ```
-@CSS_OVERRIDE_BRAND.mdc 
+@CSS_OVERRIDE_BRAND.mdc
 
 Por favor, analiza todos los brand overrides de botones y verifica:
 
@@ -809,8 +830,9 @@ Genera un reporte con:
 ## 🎓 TIPS PARA PROMPTS EFECTIVOS
 
 ### ✅ **Buen Prompt**
+
 ```
-@CSS_OVERRIDE_BRAND.mdc @button.css 
+@CSS_OVERRIDE_BRAND.mdc @button.css
 
 Crear override para Davivienda:
 - Primary Stroke: texto rojo en hover/active
@@ -819,11 +841,13 @@ Crear override para Davivienda:
 ```
 
 ### ❌ **Mal Prompt**
+
 ```
 Cambia el botón de Davivienda a rojo
 ```
 
 **¿Por qué es mejor el primero?**
+
 - ✅ Referencia la regla CSS correcta
 - ✅ Especifica qué componente y variante
 - ✅ Indica usar tokens (no hardcodear)
@@ -831,5 +855,5 @@ Cambia el botón de Davivienda a rojo
 
 ---
 
-**Última actualización:** 2025-01-16  
+**Última actualización:** 2025-01-16
 **Versión:** 2.0.0 - Brand Override Standards con @layer brand-overrides

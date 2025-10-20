@@ -1,15 +1,15 @@
 /**
- * Toggle Component - Root Block Design System
+ * Toggle Component - Seguros Bolívar UI Design System
  * Componente CSS puro con variables --sb-ui-* personalizables por marca
  * Incluye estilos para toggle/switch nativo y customizado
- * 
+ *
  * Uso:
  * <label class="rb-toggle">
  *   <input type="checkbox" class="rb-toggle-input">
  *   <span class="rb-toggle-slider"></span>
  *   <span class="rb-toggle-label">Activar notificaciones</span>
  * </label>
- * 
+ *
  * <label class="rb-toggle rb-toggle--button">
  *   <input type="checkbox" class="rb-toggle-input">
  *   <span class="rb-toggle-button">ON</span>
@@ -126,7 +126,8 @@
   transform: translateY(-50%)
     translateX(
       calc(
-        var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) - var(--sb-ui-toggle-slider-offset) * 2
+        var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) -
+          var(--sb-ui-toggle-slider-offset) * 2
       )
     );
 }
@@ -188,7 +189,8 @@
   --sb-ui-toggle-border-color: var(--sb-ui-toggle-border-color-error);
   --sb-ui-toggle-border-color-active: var(--sb-ui-toggle-border-color-error);
   --sb-ui-toggle-bg-color-active: var(--sb-ui-toggle-border-color-error);
-  --sb-ui-toggle-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+  --sb-ui-toggle-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
 }
 
 .sb-ui-toggle--error .sb-ui-toggle-label {
@@ -200,7 +202,8 @@
   --sb-ui-toggle-border-color: var(--sb-ui-toggle-border-color-success);
   --sb-ui-toggle-border-color-active: var(--sb-ui-toggle-border-color-success);
   --sb-ui-toggle-bg-color-active: var(--sb-ui-toggle-border-color-success);
-  --sb-ui-toggle-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+  --sb-ui-toggle-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 }
 
 .sb-ui-toggle--success .sb-ui-toggle-label {
@@ -212,7 +215,8 @@
   --sb-ui-toggle-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
   --sb-ui-toggle-border-color-active: var(--sb-ui-color-feedback-warning-base, #ffc107);
   --sb-ui-toggle-bg-color-active: var(--sb-ui-color-feedback-warning-base, #ffc107);
-  --sb-ui-toggle-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+  --sb-ui-toggle-shadow-focus: 0 0 0 3px
+    var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
 }
 
 .sb-ui-toggle--warning .sb-ui-toggle-label {
@@ -316,7 +320,8 @@
   transform: translateY(-50%)
     translateX(
       calc(
-        var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) - var(--sb-ui-toggle-slider-offset) * 2
+        var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) -
+          var(--sb-ui-toggle-slider-offset) * 2
       )
     )
     rotate(45deg);
@@ -619,7 +624,8 @@
     transform: translateY(-50%)
       translateX(
         calc(
-          var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) - var(--sb-ui-toggle-slider-offset) * 2
+          var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) -
+            var(--sb-ui-toggle-slider-offset) * 2
         )
       )
       scale(1);
@@ -628,7 +634,8 @@
     transform: translateY(-50%)
       translateX(
         calc(
-          var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) - var(--sb-ui-toggle-slider-offset) * 2
+          var(--sb-ui-toggle-width) - var(--sb-ui-toggle-slider-size) -
+            var(--sb-ui-toggle-slider-offset) * 2
         )
       )
       scale(1.1);

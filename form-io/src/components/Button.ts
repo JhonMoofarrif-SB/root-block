@@ -1,9 +1,9 @@
-import { BaseComponent } from './BaseComponent';
 import { EventBus } from '../utils/EventBus';
+import { BaseComponent } from './BaseComponent';
 
 /**
  * Button Component para Form.io
- * Integra el Root Block Design System con Form.io
+ * Integra el Seguros Bolívar UI Design System con Form.io
  */
 export class Button extends BaseComponent {
   static schema = {
@@ -198,8 +198,8 @@ export class Button extends BaseComponent {
     const content = this.buildContent();
 
     return `
-      <div class="formio-component formio-component-button rb-button-wrapper" ref="component">
-        <button 
+      <div class="formio-component formio-component-button sb-ui-button-wrapper" ref="component">
+        <button
           ${attributes}
           class="${classes}"
           ref="button"
@@ -215,23 +215,23 @@ export class Button extends BaseComponent {
    * Construye las clases CSS del botón
    */
   private buildCSSClasses(): string {
-    const classes = ['rb-button'];
+    const classes = ['sb-ui-button'];
 
     // Variant
     if (this.component.variant && this.component.variant !== 'primary') {
-      classes.push(`rb-button--${this.component.variant}`);
+      classes.push(`sb-ui-button--${this.component.variant}`);
     } else {
-      classes.push('rb-button--primary');
+      classes.push('sb-ui-button--primary');
     }
 
     // Style variant
     if (this.component.styleVariant && this.component.styleVariant !== 'stroke') {
-      classes.push(`rb-button--${this.component.styleVariant}`);
+      classes.push(`sb-ui-button--${this.component.styleVariant}`);
     }
 
     // Size
     if (this.component.size && this.component.size !== 'medium') {
-      classes.push(`rb-button--${this.component.size}`);
+      classes.push(`sb-ui-button--${this.component.size}`);
     }
 
     // Icon position
@@ -240,17 +240,17 @@ export class Button extends BaseComponent {
         this.component.iconPosition === 'only'
           ? 'icon-only'
           : `icon-${this.component.iconPosition}`;
-      classes.push(`rb-button--${iconClass}`);
+      classes.push(`sb-ui-button--${iconClass}`);
     }
 
     // Block
     if (this.component.block) {
-      classes.push('rb-button--block');
+      classes.push('sb-ui-button--block');
     }
 
     // Loading state
     if (this.loading) {
-      classes.push('rb-button--loading');
+      classes.push('sb-ui-button--loading');
     }
 
     return classes.join(' ');
@@ -462,10 +462,10 @@ export class Button extends BaseComponent {
 
     if (this.refs.button) {
       if (loading) {
-        this.refs.button.classList.add('rb-button--loading');
+        this.refs.button.classList.add('sb-ui-button--loading');
         this.refs.button.setAttribute('disabled', 'true');
       } else {
-        this.refs.button.classList.remove('rb-button--loading');
+        this.refs.button.classList.remove('sb-ui-button--loading');
         if (!this.component.disabled && !this.disabled) {
           this.refs.button.removeAttribute('disabled');
         }

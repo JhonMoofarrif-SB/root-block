@@ -1,7 +1,7 @@
 {
-  "name": "@rb/formio",
+  "name": "@seguros-bolivar-ui/formio",
   "version": "1.0.0",
-  "description": "Root Block Design System components for Form.io integration",
+  "description": "Seguros Bolívar UI Design System components for Form.io integration",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -19,12 +19,12 @@
   "keywords": [
     "formio",
     "design-system",
-    "root-block",
+    "seguros-bolivar-ui",
     "components",
     "css",
     "typescript"
   ],
-  "author": "Root Block Design System",
+  "author": "Seguros Bolívar UI Design System",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.0.0",

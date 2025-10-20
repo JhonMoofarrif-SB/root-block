@@ -1,17 +1,17 @@
-import { LitElement, html, css, PropertyValues } from 'lit';
+import { css, html, LitElement, PropertyValues } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
 /**
- * Toast Component - Root Block Design System
+ * Toast Component - Seguros Bolívar UI Design System
  *
  * Componente de notificaciones toast flotantes basado en alert.css
  * Soporta múltiples tipos, posiciones y auto-dismiss
  *
- * @element rb-toast
+ * @element sb-ui-toast
  *
- * @fires rb-toast-show - Fired when toast is shown
- * @fires rb-toast-hide - Fired when toast is hidden
- * @fires rb-toast-click - Fired when toast is clicked
+ * @fires sb-ui-toast-show - Fired when toast is shown
+ * @fires sb-ui-toast-hide - Fired when toast is hidden
+ * @fires sb-ui-toast-click - Fired when toast is clicked
  *
  * @slot - Default slot for toast content
  * @slot title - Slot for custom title content
@@ -27,35 +27,41 @@ import { customElement, property, state } from 'lit/decorators.js';
  *
  * @example
  * ```html
- * <rb-toast
+ * <sb-ui-toast
  *   type="success"
  *   title="¡Éxito!"
  *   message="Operación completada correctamente"
  *   position="top-right"
  *   auto-dismiss="5000">
- * </rb-toast>
+ * </sb-ui-toast>
  * ```
  */
-@customElement('rb-toast')
-export class RbToast extends LitElement {
+@customElement('sb-ui-toast')
+export class SbToast extends LitElement {
   static override styles = css`
     :host {
       /* Importar estilos base de alert.css mediante CSS custom properties */
-      --rb-toast-bg-color: var(--rb-alert-bg-color, var(--rb-color-grayscale-white, #ffffff));
-      --rb-toast-text-color: var(--rb-alert-text-color, var(--rb-color-grayscale-D300, #404040));
-      --rb-toast-border-color: var(
-        --rb-alert-border-color,
-        var(--rb-color-grayscale-L200, #edeef0)
+      --sb-ui-toast-bg-color: var(
+        --sb-ui-alert-bg-color,
+        var(--sb-ui-color-grayscale-white, #ffffff)
       );
-      --rb-toast-shadow: var(--rb-alert-shadow-toast, 0 4px 16px rgba(0, 0, 0, 0.15));
-      --rb-toast-border-radius: var(--rb-alert-border-radius, 8px);
-      --rb-toast-padding: var(--rb-alert-padding, 1rem);
-      --rb-toast-gap: var(--rb-alert-gap, 0.75rem);
-      --rb-toast-font-family: var(
-        --rb-alert-font-family,
-        var(--rb-typography-fontFamily, 'Roboto', sans-serif)
+      --sb-ui-toast-text-color: var(
+        --sb-ui-alert-text-color,
+        var(--sb-ui-color-grayscale-D300, #404040)
       );
-      --rb-toast-transition: var(--rb-alert-transition, all 0.2s ease);
+      --sb-ui-toast-border-color: var(
+        --sb-ui-alert-border-color,
+        var(--sb-ui-color-grayscale-L200, #edeef0)
+      );
+      --sb-ui-toast-shadow: var(--sb-ui-alert-shadow-toast, 0 4px 16px rgba(0, 0, 0, 0.15));
+      --sb-ui-toast-border-radius: var(--sb-ui-alert-border-radius, 8px);
+      --sb-ui-toast-padding: var(--sb-ui-alert-padding, 1rem);
+      --sb-ui-toast-gap: var(--sb-ui-alert-gap, 0.75rem);
+      --sb-ui-toast-font-family: var(
+        --sb-ui-alert-font-family,
+        var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif)
+      );
+      --sb-ui-toast-transition: var(--sb-ui-alert-transition, all 0.2s ease);
 
       /* Posicionamiento */
       position: fixed;
@@ -63,7 +69,7 @@ export class RbToast extends LitElement {
       display: block;
       opacity: 0;
       transform: translateX(100%);
-      transition: var(--rb-toast-transition);
+      transition: var(--sb-ui-toast-transition);
     }
 
     :host([visible]) {
@@ -130,23 +136,23 @@ export class RbToast extends LitElement {
       /* Aplicar estilos base de alert.css */
       display: flex;
       align-items: flex-start;
-      gap: var(--rb-toast-gap);
+      gap: var(--sb-ui-toast-gap);
       position: relative;
       box-sizing: border-box;
       min-height: 3rem;
       min-width: 300px;
       max-width: 400px;
-      padding: var(--rb-toast-padding);
-      background-color: var(--rb-toast-bg-color);
-      border: 1px solid var(--rb-toast-border-color);
-      border-left: 4px solid var(--rb-toast-border-color);
-      border-radius: var(--rb-toast-border-radius);
-      box-shadow: var(--rb-toast-shadow);
-      font-family: var(--rb-toast-font-family);
+      padding: var(--sb-ui-toast-padding);
+      background-color: var(--sb-ui-toast-bg-color);
+      border: 1px solid var(--sb-ui-toast-border-color);
+      border-left: 4px solid var(--sb-ui-toast-border-color);
+      border-radius: var(--sb-ui-toast-border-radius);
+      box-shadow: var(--sb-ui-toast-shadow);
+      font-family: var(--sb-ui-toast-font-family);
       line-height: 1.25;
-      color: var(--rb-toast-text-color);
+      color: var(--sb-ui-toast-text-color);
       cursor: pointer;
-      transition: var(--rb-toast-transition);
+      transition: var(--sb-ui-toast-transition);
     }
 
     .toast:hover {
@@ -198,25 +204,25 @@ export class RbToast extends LitElement {
       height: 1.5rem;
       background: none;
       border: none;
-      color: var(--rb-color-grayscale-base, #d9d9d9);
+      color: var(--sb-ui-color-grayscale-base, #d9d9d9);
       font-size: 1.25rem;
       font-weight: 400;
       line-height: 1;
       cursor: pointer;
       border-radius: 4px;
-      transition: var(--rb-toast-transition);
+      transition: var(--sb-ui-toast-transition);
       flex-shrink: 0;
       margin-top: -0.125rem;
       margin-right: -0.25rem;
     }
 
     .close:hover {
-      color: var(--rb-color-grayscale-D300, #404040);
-      background-color: var(--rb-color-grayscale-L400, rgba(247, 247, 247, 0.5));
+      color: var(--sb-ui-color-grayscale-D300, #404040);
+      background-color: var(--sb-ui-color-grayscale-L400, rgba(247, 247, 247, 0.5));
     }
 
     .close:focus-visible {
-      outline: 2px solid var(--rb-color-primary-base, #007acc);
+      outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
       outline-offset: 2px;
     }
 
@@ -225,73 +231,73 @@ export class RbToast extends LitElement {
       bottom: 0;
       left: 0;
       height: 3px;
-      background-color: var(--rb-color-primary-base, #007acc);
-      border-radius: 0 0 var(--rb-toast-border-radius) var(--rb-toast-border-radius);
+      background-color: var(--sb-ui-color-primary-base, #007acc);
+      border-radius: 0 0 var(--sb-ui-toast-border-radius) var(--sb-ui-toast-border-radius);
       transition: width linear;
       opacity: 0.7;
     }
 
     /* Toast Type Variants */
     :host([type='success']) .toast {
-      --rb-toast-bg-color: var(--rb-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
-      --rb-toast-border-color: var(--rb-color-feedback-success-base, #28a745);
-      --rb-toast-text-color: var(--rb-color-feedback-success-base, #28a745);
+      --sb-ui-toast-bg-color: var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
+      --sb-ui-toast-border-color: var(--sb-ui-color-feedback-success-base, #28a745);
+      --sb-ui-toast-text-color: var(--sb-ui-color-feedback-success-base, #28a745);
     }
 
     :host([type='success']) .icon::before {
       content: '✓';
-      color: var(--rb-color-feedback-success-base, #28a745);
+      color: var(--sb-ui-color-feedback-success-base, #28a745);
     }
 
     :host([type='success']) .progress {
-      background-color: var(--rb-color-feedback-success-base, #28a745);
+      background-color: var(--sb-ui-color-feedback-success-base, #28a745);
     }
 
     :host([type='info']) .toast {
-      --rb-toast-bg-color: var(--rb-color-feedback-info-L400, rgba(0, 122, 204, 0.1));
-      --rb-toast-border-color: var(--rb-color-feedback-info-base, #007acc);
-      --rb-toast-text-color: var(--rb-color-feedback-info-base, #007acc);
+      --sb-ui-toast-bg-color: var(--sb-ui-color-feedback-info-L400, rgba(0, 122, 204, 0.1));
+      --sb-ui-toast-border-color: var(--sb-ui-color-feedback-info-base, #007acc);
+      --sb-ui-toast-text-color: var(--sb-ui-color-feedback-info-base, #007acc);
     }
 
     :host([type='info']) .icon::before {
       content: 'i';
       font-style: italic;
       font-weight: 600;
-      color: var(--rb-color-feedback-info-base, #007acc);
+      color: var(--sb-ui-color-feedback-info-base, #007acc);
     }
 
     :host([type='info']) .progress {
-      background-color: var(--rb-color-feedback-info-base, #007acc);
+      background-color: var(--sb-ui-color-feedback-info-base, #007acc);
     }
 
     :host([type='warning']) .toast {
-      --rb-toast-bg-color: var(--rb-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
-      --rb-toast-border-color: var(--rb-color-feedback-warning-base, #ffc107);
-      --rb-toast-text-color: var(--rb-color-feedback-warning-base, #ffc107);
+      --sb-ui-toast-bg-color: var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+      --sb-ui-toast-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+      --sb-ui-toast-text-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
     }
 
     :host([type='warning']) .icon::before {
       content: '⚠';
-      color: var(--rb-color-feedback-warning-base, #ffc107);
+      color: var(--sb-ui-color-feedback-warning-base, #ffc107);
     }
 
     :host([type='warning']) .progress {
-      background-color: var(--rb-color-feedback-warning-base, #ffc107);
+      background-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
     }
 
     :host([type='error']) .toast {
-      --rb-toast-bg-color: var(--rb-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
-      --rb-toast-border-color: var(--rb-color-feedback-error-base, #dc3545);
-      --rb-toast-text-color: var(--rb-color-feedback-error-base, #dc3545);
+      --sb-ui-toast-bg-color: var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+      --sb-ui-toast-border-color: var(--sb-ui-color-feedback-error-base, #dc3545);
+      --sb-ui-toast-text-color: var(--sb-ui-color-feedback-error-base, #dc3545);
     }
 
     :host([type='error']) .icon::before {
       content: '✕';
-      color: var(--rb-color-feedback-error-base, #dc3545);
+      color: var(--sb-ui-color-feedback-error-base, #dc3545);
     }
 
     :host([type='error']) .progress {
-      background-color: var(--rb-color-feedback-error-base, #dc3545);
+      background-color: var(--sb-ui-color-feedback-error-base, #dc3545);
     }
 
     /* Size Variants */
@@ -453,10 +459,10 @@ export class RbToast extends LitElement {
   override updated(changedProperties: PropertyValues): void {
     if (changedProperties.has('visible')) {
       if (this.visible) {
-        this._dispatchEvent('rb-toast-show');
+        this._dispatchEvent('sb-ui-toast-show');
         this._setupAutoDismiss();
       } else {
-        this._dispatchEvent('rb-toast-hide');
+        this._dispatchEvent('sb-ui-toast-hide');
         this._clearTimers();
       }
     }
@@ -502,7 +508,7 @@ export class RbToast extends LitElement {
 
   private _handleClick(): void {
     if (this.clickable) {
-      this._dispatchEvent('rb-toast-click');
+      this._dispatchEvent('sb-ui-toast-click');
     }
   }
 
@@ -625,6 +631,6 @@ export class RbToast extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'rb-toast': RbToast;
+    'sb-ui-toast': SbToast;
   }
 }

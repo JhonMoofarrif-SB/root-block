@@ -203,7 +203,9 @@ export const Feedback: Story = {
         )}
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--sb-ui-color-feedback-info-base);">
+      <h3
+        style="margin-top: 2rem; margin-bottom: 1rem; color: var(--sb-ui-color-feedback-info-base);"
+      >
         Info
       </h3>
       <div

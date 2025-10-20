@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * Button Component - Root Block Design System
+ * Button Component - Seguros Bolivar UI Design System
  * ============================================================================
  *
  * Componente CSS moderno con:
@@ -100,42 +100,42 @@
  * ============================================================================
  *
  * <!-- STROKE (default) -->
- * <button class="rb-button rb-button--primary">
+ * <button class="sb-ui-button sb-ui-button--primary">
  *   Primary Stroke
  * </button>
  *
  * <!-- FILL -->
- * <button class="rb-button rb-button--primary rb-button--fill">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill">
  *   Primary Fill
  * </button>
  *
  * <!-- TEXT -->
- * <button class="rb-button rb-button--primary rb-button--text">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--text">
  *   Primary Text
  * </button>
  *
  * <!-- Icon Left -->
- * <button class="rb-button rb-button--primary rb-button--icon-left">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-left">
  *   <svg>...</svg> Icon Left
  * </button>
  *
  * <!-- Icon Right -->
- * <button class="rb-button rb-button--primary rb-button--icon-right">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-right">
  *   Icon Right <svg>...</svg>
  * </button>
  *
  * <!-- Icon Only -->
- * <button class="rb-button rb-button--primary rb-button--icon-only">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--icon-only">
  *   <svg>...</svg>
  * </button>
  *
  * <!-- Loading -->
- * <button class="rb-button rb-button--primary rb-button--loading">
+ * <button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading">
  *   Loading...
  * </button>
  *
  * <!-- Disabled -->
- * <button class="rb-button rb-button--primary" disabled>
+ * <button class="sb-ui-button sb-ui-button--primary" disabled>
  *   Disabled
  * </button>
  *
@@ -284,7 +284,7 @@
     &:focus-visible:not(:disabled):not(.sb-ui-button--disabled) {
       outline: 3px solid var(--sb-ui-color-secondary-L100);
       outline-offset: 2px;
-      animation: rb-button-focus-pulse 0.3s ease-out;
+      animation: sb-ui-button-focus-pulse 0.3s ease-out;
     }
 
     &:disabled,
@@ -300,7 +300,10 @@
     /* Disabled hover - usar variables específicas para disabled-hover */
     &:disabled:hover,
     &.sb-ui-button--disabled:hover {
-      background-color: var(--sb-ui-button-bg-disabled-hover, var(--sb-ui-button-bg-disabled)) !important;
+      background-color: var(
+        --sb-ui-button-bg-disabled-hover,
+        var(--sb-ui-button-bg-disabled)
+      ) !important;
       color: var(--sb-ui-button-text-disabled-hover, var(--sb-ui-button-text-disabled)) !important;
       border-color: var(
         --sb-ui-button-border-disabled-hover,
@@ -429,8 +432,12 @@
     --sb-ui-button-secondary-stroke-bg-disabled: var(--sb-ui-color-grayscale-white);
 
     --sb-ui-button-secondary-stroke-text: var(--sb-ui-color-primary-D100); /* Verde */
-    --sb-ui-button-secondary-stroke-text-hover: var(--sb-ui-color-primary-D100); /* Verde mantiene */
-    --sb-ui-button-secondary-stroke-text-active: var(--sb-ui-color-primary-D100); /* Verde mantiene */
+    --sb-ui-button-secondary-stroke-text-hover: var(
+      --sb-ui-color-primary-D100
+    ); /* Verde mantiene */
+    --sb-ui-button-secondary-stroke-text-active: var(
+      --sb-ui-color-primary-D100
+    ); /* Verde mantiene */
     --sb-ui-button-secondary-stroke-text-disabled: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
 
     --sb-ui-button-secondary-stroke-border: var(--sb-ui-color-secondary-base);
@@ -596,13 +603,19 @@
     --sb-ui-button-error-stroke-text-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
     --sb-ui-button-error-stroke-text-active: var(--sb-ui-color-feedback-error-D200, #b5303d);
     --sb-ui-button-error-stroke-text-disabled: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
-    --sb-ui-button-error-stroke-text-disabled-hover: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-stroke-text-disabled-hover: var(
+      --sb-ui-color-feedback-error-L200,
+      #ee9aa2
+    );
 
     --sb-ui-button-error-stroke-border: var(--sb-ui-color-feedback-error-base, #dc3545);
     --sb-ui-button-error-stroke-border-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
     --sb-ui-button-error-stroke-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
     --sb-ui-button-error-stroke-border-disabled: var(--sb-ui-color-feedback-error-base, #dc3545);
-    --sb-ui-button-error-stroke-border-disabled-hover: var(--sb-ui-color-feedback-error-L200, #ee9aa2);
+    --sb-ui-button-error-stroke-border-disabled-hover: var(
+      --sb-ui-color-feedback-error-L200,
+      #ee9aa2
+    );
 
     /* ========================================
        FILL - Fondo rojo, texto blanco
@@ -623,7 +636,10 @@
     --sb-ui-button-error-fill-border-hover: var(--sb-ui-color-feedback-error-D100, #c93241);
     --sb-ui-button-error-fill-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
     --sb-ui-button-error-fill-border-disabled: var(--sb-ui-color-feedback-error-L400, #fbebec);
-    --sb-ui-button-error-fill-border-disabled-hover: var(--sb-ui-color-feedback-error-L300, #f5c2c7);
+    --sb-ui-button-error-fill-border-disabled-hover: var(
+      --sb-ui-color-feedback-error-L300,
+      #f5c2c7
+    );
 
     /* ========================================
        TEXT - Sin fondo ni borde, solo texto rojo con underline
@@ -884,7 +900,9 @@
       /* Define las variables específicas TEXT */
       --sb-ui-button-primary-text-bg: transparent;
       --sb-ui-button-primary-text-bg-hover: var(--sb-ui-color-secondary-L400); /* #FFFCF0 aparece */
-      --sb-ui-button-primary-text-bg-active: var(--sb-ui-color-secondary-L300); /* #FFF6D4 aparece */
+      --sb-ui-button-primary-text-bg-active: var(
+        --sb-ui-color-secondary-L300
+      ); /* #FFF6D4 aparece */
       --sb-ui-button-primary-text-bg-disabled: transparent;
 
       --sb-ui-button-primary-text-text: var(--sb-ui-color-primary-D100); /* Verde */
@@ -1276,7 +1294,7 @@
       border: 2px solid currentcolor;
       border-radius: 50%;
       border-top-color: transparent;
-      animation: rb-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
+      animation: sb-ui-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
       margin-inline-end: var(--sb-ui-button-gap);
     }
@@ -1289,7 +1307,7 @@
       border: 2px solid currentcolor;
       border-radius: 50%;
       border-top-color: transparent;
-      animation: rb-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
+      animation: sb-ui-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
       flex-shrink: 0;
       margin-inline-start: var(--sb-ui-button-gap);
     }
@@ -1316,7 +1334,8 @@
         border: 2px solid currentcolor;
         border-radius: 50%;
         border-top-color: transparent;
-        animation: rb-button-spinner var(--sb-ui-button-loading-animation-duration) linear infinite;
+        animation: sb-ui-button-spinner var(--sb-ui-button-loading-animation-duration) linear
+          infinite;
         z-index: 2;
       }
     }
@@ -1377,14 +1396,14 @@
    ANIMATIONS
    ======================================== */
 
-@keyframes rb-button-spinner {
+@keyframes sb-ui-button-spinner {
   to {
     transform: rotate(360deg);
   }
 }
 
 /* Animación sutil de focus - aparece con un pequeño pulse */
-@keyframes rb-button-focus-pulse {
+@keyframes sb-ui-button-focus-pulse {
   0% {
     outline-width: 0px;
     outline-offset: 0px;

@@ -1,37 +1,37 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
  * Date Picker Component (Placeholder)
  * TODO: Implementar funcionalidad completa
  *
- * @element rb-date-picker
+ * @element sb-ui-date-picker
  */
-@customElement('rb-date-picker')
-export class RbDatePicker extends LitElement {
+@customElement('sb-ui-date-picker')
+export class SbDatePicker extends LitElement {
   static override styles = css`
     :host {
       display: block;
-      --rb-date-picker-border: 1px solid var(--rb-color-grayscale-L200, #e1e1e1);
-      --rb-date-picker-border-radius: 8px;
-      --rb-date-picker-padding: 0.75rem 1rem;
+      --sb-ui-date-picker-border: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+      --sb-ui-date-picker-border-radius: 8px;
+      --sb-ui-date-picker-padding: 0.75rem 1rem;
     }
 
     .date-picker {
-      border: var(--rb-date-picker-border);
-      border-radius: var(--rb-date-picker-border-radius);
-      padding: var(--rb-date-picker-padding);
-      font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+      border: var(--sb-ui-date-picker-border);
+      border-radius: var(--sb-ui-date-picker-border-radius);
+      padding: var(--sb-ui-date-picker-padding);
+      font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
       cursor: pointer;
-      background: var(--rb-color-grayscale-white, #ffffff);
+      background: var(--sb-ui-color-grayscale-white, #ffffff);
     }
 
     .date-picker:hover {
-      border-color: var(--rb-color-primary-base, #007acc);
+      border-color: var(--sb-ui-color-primary-base, #007acc);
     }
 
     .date-picker:focus {
-      outline: 2px solid var(--rb-color-primary-base, #007acc);
+      outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
       outline-offset: 2px;
     }
   `;
@@ -53,6 +53,6 @@ export class RbDatePicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'rb-date-picker': RbDatePicker;
+    'sb-ui-date-picker': SbDatePicker;
   }
 }

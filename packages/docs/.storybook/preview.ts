@@ -56,18 +56,19 @@ const preview: Preview = {
       document.documentElement.setAttribute('data-theme', theme);
 
       // Cargar Font Awesome (solo una vez)
-      const fontAwesomeId = 'rb-fontawesome-styles';
+      const fontAwesomeId = 'sb-ui-fontawesome-styles';
       if (!document.getElementById(fontAwesomeId)) {
         const fontAwesomeLink = document.createElement('link');
         fontAwesomeLink.id = fontAwesomeId;
         fontAwesomeLink.rel = 'stylesheet';
-        fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+        fontAwesomeLink.href =
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
         fontAwesomeLink.crossOrigin = 'anonymous';
         document.head.appendChild(fontAwesomeLink);
       }
 
       // Cargar dinámicamente el bundle completo de la marca
-      const brandStyleId = 'rb-brand-styles';
+      const brandStyleId = 'sb-ui-brand-styles';
       let styleLink = document.getElementById(brandStyleId) as HTMLLinkElement;
 
       if (!styleLink) {
@@ -79,7 +80,7 @@ const preview: Preview = {
 
       // Cargar desde publicDir configurado en main.ts
       // Los archivos están servidos desde el root gracias a Vite
-      styleLink.href = `/rb-${brand}-${theme}.min.css`;
+      styleLink.href = `/sb-ui-${brand}-${theme}.min.css`;
 
       return story();
     },

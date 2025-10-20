@@ -8,10 +8,10 @@ Sistema de documentación construido con Storybook 7 para el design system multi
 
 ## 🎯 Características
 
-✨ **Multi-Marca Interactiva**: 6 marcas × 2 temas = 12 combinaciones visuales  
-🎨 **Toolbar Dinámica**: Cambia marca y tema en tiempo real  
-📖 **Auto-documentación**: Generación automática de docs desde props  
-🧩 **Componentes en Vivo**: Ejemplos interactivos y editables  
+✨ **Multi-Marca Interactiva**: 6 marcas × 2 temas = 12 combinaciones visuales
+🎨 **Toolbar Dinámica**: Cambia marca y tema en tiempo real
+📖 **Auto-documentación**: Generación automática de docs desde props
+🧩 **Componentes en Vivo**: Ejemplos interactivos y editables
 🚀 **Hot Reload**: Ver cambios instantáneos durante desarrollo
 
 ---
@@ -120,12 +120,14 @@ type Story = StoryObj;
 
 // Historia principal
 export const Default: Story = {
-  render: () => html` <button class="rb-button rb-button--primary">Mi Componente</button> `,
+  render: () => html` <button class="sb-ui-button sb-ui-button--primary">Mi Componente</button> `,
 };
 
 // Variantes
 export const Secondary: Story = {
-  render: () => html` <button class="rb-button rb-button--secondary">Variante Secundaria</button> `,
+  render: () => html`
+    <button class="sb-ui-button sb-ui-button--secondary">Variante Secundaria</button>
+  `,
 };
 ```
 
@@ -159,7 +161,7 @@ export const Interactive: Story = {
     disabled: false,
   },
   render: (args) => html`
-    <button class="rb-button rb-button--${args.variant}" ?disabled=${args.disabled}>
+    <button class="sb-ui-button sb-ui-button--${args.variant}" ?disabled=${args.disabled}>
       ${args.text}
     </button>
   `,
@@ -172,9 +174,9 @@ export const Interactive: Story = {
 export const AllVariants: Story = {
   render: () => html`
     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-      <button class="rb-button rb-button--primary">Primary</button>
-      <button class="rb-button rb-button--secondary">Secondary</button>
-      <button class="rb-button rb-button--tertiary">Tertiary</button>
+      <button class="sb-ui-button sb-ui-button--primary">Primary</button>
+      <button class="sb-ui-button sb-ui-button--secondary">Secondary</button>
+      <button class="sb-ui-button sb-ui-button--tertiary">Tertiary</button>
     </div>
   `,
 };

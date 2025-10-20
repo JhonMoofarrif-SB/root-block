@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 🚀 Root Block Design System - Setup Script
+# 🚀 Seguros Bolívar UI Design System - Setup Script
 # Automatiza el setup inicial para nuevos desarrolladores
 
 set -e
 
-echo "🎨 Root Block Design System - Setup"
+echo "🎨 Seguros Bolívar UI Design System - Setup"
 echo "=================================="
 
 # Verificar Node.js

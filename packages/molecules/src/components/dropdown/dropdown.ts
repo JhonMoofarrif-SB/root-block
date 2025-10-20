@@ -1,38 +1,38 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 /**
  * Dropdown Component (Placeholder)
  * TODO: Implementar funcionalidad completa
  *
- * @element rb-dropdown
+ * @element sb-ui-dropdown
  */
-@customElement('rb-dropdown')
-export class RbDropdown extends LitElement {
+@customElement('sb-ui-dropdown')
+export class SbDropdown extends LitElement {
   static override styles = css`
     :host {
       display: inline-block;
-      --rb-dropdown-border: 1px solid var(--rb-color-grayscale-L200, #e1e1e1);
-      --rb-dropdown-border-radius: 8px;
-      --rb-dropdown-padding: 0.75rem 1rem;
+      --sb-ui-dropdown-border: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+      --sb-ui-dropdown-border-radius: 8px;
+      --sb-ui-dropdown-padding: 0.75rem 1rem;
     }
 
     .dropdown {
-      border: var(--rb-dropdown-border);
-      border-radius: var(--rb-dropdown-border-radius);
-      padding: var(--rb-dropdown-padding);
-      font-family: var(--rb-typography-fontFamily, 'Roboto', sans-serif);
+      border: var(--sb-ui-dropdown-border);
+      border-radius: var(--sb-ui-dropdown-border-radius);
+      padding: var(--sb-ui-dropdown-padding);
+      font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
       cursor: pointer;
-      background: var(--rb-color-grayscale-white, #ffffff);
+      background: var(--sb-ui-color-grayscale-white, #ffffff);
       min-width: 200px;
     }
 
     .dropdown:hover {
-      border-color: var(--rb-color-primary-base, #007acc);
+      border-color: var(--sb-ui-color-primary-base, #007acc);
     }
 
     .dropdown:focus {
-      outline: 2px solid var(--rb-color-primary-base, #007acc);
+      outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
       outline-offset: 2px;
     }
   `;
@@ -54,6 +54,6 @@ export class RbDropdown extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'rb-dropdown': RbDropdown;
+    'sb-ui-dropdown': SbDropdown;
   }
 }

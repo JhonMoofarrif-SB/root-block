@@ -2,48 +2,48 @@
  * ============================================================================
  * SEGUROS BOLÍVAR - Button Component Overrides
  * ============================================================================
- * 
+ *
  * 🎯 PROPÓSITO:
  * Este archivo es un **TEMPLATE COMPLETO** para personalizar botones por marca.
  * Cópialo y adáptalo para tu marca (Jelpit, Davivienda, Cien Cuadras, etc.)
- * 
+ *
  * 📚 ¿POR QUÉ EXISTE SI EL BASE YA USA ESTA LÓGICA?
- * 
+ *
  * 1. **TEMPLATE VIVO:** Sirve de ejemplo para otras marcas
  * 2. **ESTABILIDAD:** Cuando base cambie a White Label, esto sigue funcionando
  * 3. **DOCUMENTACIÓN:** Muestra todos los puntos de personalización posibles
  * 4. **MANTENIBILIDAD:** Centraliza las diferencias específicas de Seguros Bolívar
- * 
+ *
  * ============================================================================
  * 📖 GUÍA RÁPIDA PARA COPIAR A OTRA MARCA:
  * ============================================================================
- * 
+ *
  * 1. Copia este archivo a: `packages/brand-overrides/src/tu-marca/button.css`
  * 2. Reemplaza 'seguros-bolivar' por 'tu-marca' en todos los selectores
  * 3. Ajusta valores según necesites (border-radius, padding, colores)
  * 4. Borra las secciones que NO necesites personalizar
  * 5. Los colores vienen de `packages/tokens/src/primitives/brands/tu-marca.json`
- * 
+ *
  * ============================================================================
  */
 
 /* ============================================================================
    SECCIÓN 1: ESTRUCTURA GLOBAL
    ============================================================================
-   
+
    🎨 QUÉ PERSONALIZA:
    - Tamaños fijos en lugar de clamp() fluido del base
    - Border radius específico
    - Padding horizontal y vertical
    - Gap entre texto e icono
    - Altura mínima del botón
-   
+
    ✅ CUÁNDO USAR:
    Si tu marca necesita tamaños fijos (no responsive fluido)
-   
+
    ❌ CUÁNDO NO USAR:
    Si quieres mantener el clamp() responsive del base
-   
+
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
    [data-brand='jelpit'] .sb-ui-button {
@@ -76,18 +76,18 @@
 /* ============================================================================
    SECCIÓN 2: FOCUS OUTLINE PERSONALIZADO
    ============================================================================
-   
+
    🎨 QUÉ PERSONALIZA:
    - Color del outline cuando el botón tiene focus (tabulación o accessibility)
    - Grosor del outline (2px vs 3px del base)
-   
+
    ✅ CUÁNDO USAR:
    Si tu marca usa un color específico para focus que difiere del base
-   
+
    ⚠️ IMPORTANTE:
    Dentro de @layer brand-overrides para respetar la cascada del base
    La lógica de :not(:disabled) está en el base, no aquí
-   
+
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
    @layer brand-overrides {
@@ -96,7 +96,7 @@
      outline: 3px solid var(--sb-ui-color-primary-L100);
      outline-offset: 2px;
    }
-   
+
    // Davivienda: outline rojo
    [data-brand='davivienda'] .sb-ui-button--primary:focus-visible {
      outline: 2px solid var(--sb-ui-color-primary-L200);
@@ -119,24 +119,24 @@
 /* ============================================================================
    SECCIÓN 3: TEXT DECORATION COLOR
    ============================================================================
-   
+
    🎨 QUÉ PERSONALIZA:
    - Color del underline en botones TEXT
    - El underline está aplicado en el base, solo cambiamos color
-   
+
    ✅ CUÁNDO USAR:
    Siempre que tu botón TEXT necesite un color específico de underline
-   
+
    ⚠️ IMPORTANTE:
    Usa !important para sobrescribir el base
-   
+
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
    // Jelpit: underline naranja
    [data-brand='jelpit'] .sb-ui-button--primary.sb-ui-button--text {
      text-decoration-color: var(--sb-ui-color-primary-D100) !important;
    }
-   
+
    // Davivienda: underline rojo
    [data-brand='davivienda'] .sb-ui-button--primary.sb-ui-button--text {
      text-decoration-color: var(--sb-ui-color-primary-base) !important;
@@ -153,23 +153,23 @@
 /* ============================================================================
    SECCIÓN 4: DISABLED + HOVER (OPCIONAL)
    ============================================================================
-   
+
    🎨 QUÉ PERSONALIZA:
    - Comportamiento cuando pasas el mouse sobre un botón disabled
    - Background, color de texto, y color de underline
-   
+
    ✅ CUÁNDO USAR:
    Si quieres feedback visual diferente cuando el usuario hace hover en disabled
-   
+
    ⚠️ IMPORTANTE:
    El base ya tiene disabled-hover genérico, esto solo ajusta valores específicos
-   
+
    📝 VALORES COMUNES:
    - Fondo: var(--sb-ui-color-grayscale-L300) = #F5F5F5 (gris muy claro)
    - Fondo hover: var(--sb-ui-color-grayscale-L200) = #E1E1E1 (gris claro)
    - Texto: var(--sb-ui-color-grayscale-base) = #9B9B9B (gris medio)
    - Texto hover: var(--sb-ui-color-grayscale-L100) = #B9B9B9 (gris claro)
-   
+
    📝 EJEMPLO PARA OTRAS MARCAS:
    ```css
    // Jelpit: fondo más oscuro en hover
@@ -177,7 +177,7 @@
      background-color: var(--sb-ui-color-grayscale-L100) !important;
      color: var(--sb-ui-color-grayscale-base) !important;
    }
-   
+
    // Davivienda: sin cambio de fondo
    [data-brand='davivienda'] .sb-ui-button--primary:disabled:hover {
      background-color: transparent !important;
@@ -196,7 +196,8 @@
 
 /* Disabled + Hover - aparece fondo gris */
 [data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text:disabled:hover,
-[data-brand='seguros-bolivar'] .sb-ui-button--primary.sb-ui-button--text.sb-ui-button--disabled:hover {
+[data-brand='seguros-bolivar']
+  .sb-ui-button--primary.sb-ui-button--text.sb-ui-button--disabled:hover {
   /* 🩶 Gris claro aparece en hover (token grayscale-L300 = #F5F5F5) */
   background-color: var(--sb-ui-color-grayscale-L300) !important;
 
@@ -210,17 +211,17 @@
 /* ============================================================================
    SECCIÓN 5: SECONDARY BUTTON - Todas las variantes (STROKE, FILL, TEXT)
    ============================================================================
-   
+
    🎨 PATRÓN SECUNDARIO (Seguros Bolívar):
    - STROKE: Fondo blanco → amarillo claro al hover, borde amarillo, texto verde
    - FILL: Fondo amarillo, texto verde que oscurece al hover
    - TEXT: Sin fondo ni borde, texto amarillo con underline
-   
+
    ✅ EL BASE YA TIENE TODA LA LÓGICA CORRECTA
    Esta sección es puramente DOCUMENTAL para mostrar cómo funciona SECONDARY
-   
+
    📊 MATRIZ COMPLETA SECONDARY:
-   
+
    STROKE (default):
    - Default:   bg=white, border=secondary-base (#FFE16F), text=primary-D100 (#038450)
    - Hover:     bg=secondary-L400 (#FFFCF0), border=secondary-D100 (#FFDA55), text=primary-D100
@@ -228,7 +229,7 @@
    - Focus:     outline=secondary-L100 (#FFEA9A)
    - Disabled:  bg=white, border=grayscale-base (#9B9B9B), text=grayscale-base
    - Disabled+Hover: bg=grayscale-L200 (#E1E1E1), border/text=grayscale-base
-   
+
    FILL:
    - Default:   bg=secondary-base (#FFE16F), text=primary-base (#009056)
    - Hover:     bg=secondary-D100 (#FFDA55), text=primary-D100 (#038450)
@@ -236,7 +237,7 @@
    - Focus:     outline=secondary-L100 (#FFEA9A)
    - Disabled:  bg=grayscale-L300 (#F5F5F5), text=grayscale-L100 (#B9B9B9)
    - Disabled+Hover: bg=grayscale-L300, text=grayscale-base (#9B9B9B) más oscuro
-   
+
    TEXT:
    - Default:   bg=transparent, text=secondary-base (#FFE16F), underline=secondary-base
    - Hover:     bg=transparent, text=secondary-D100 (#FFDA55), underline=secondary-D100
@@ -244,7 +245,7 @@
    - Focus:     outline=secondary-L100 (#FFEA9A)
    - Disabled:  bg=grayscale-L300 (#F5F5F5), text=grayscale-base (#9B9B9B), underline=grayscale-base
    - Disabled+Hover: bg=grayscale-L300, text=grayscale-base, underline=grayscale-base
-   
+
    ============================================================================ */
 
 /* ============================================
@@ -253,18 +254,18 @@
 /*
 [data-brand='seguros-bolivar'] .sb-ui-button--secondary {
   // Ya definido en el base con estos valores:
-  
+
   // Estados normales
   --sb-ui-button-bg-color: var(--sb-ui-color-grayscale-white);           // #FFFFFF
   --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-L400);            // #FFFCF0
   --sb-ui-button-bg-active: var(--sb-ui-color-secondary-L300);           // #FFF6D4
   --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-white);        // #FFFFFF
-  
+
   --sb-ui-button-text-color: var(--sb-ui-color-primary-D100);            // #038450 (verde)
   --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100);            // #038450 (mantiene)
   --sb-ui-button-text-active: var(--sb-ui-color-primary-D100);           // #038450 (mantiene)
   --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base);       // #9B9B9B
-  
+
   --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);        // #FFE16F (amarillo)
   --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);        // #FFDA55
   --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);       // #FFD543
@@ -278,25 +279,25 @@
 /*
 [data-brand='seguros-bolivar'] .sb-ui-button--secondary.sb-ui-button--fill {
   // Ya definido en el base con estos valores:
-  
+
   // Backgrounds
   --sb-ui-button-bg-color: var(--sb-ui-color-secondary-base);            // #FFE16F (amarillo)
   --sb-ui-button-bg-hover: var(--sb-ui-color-secondary-D100);            // #FFDA55
   --sb-ui-button-bg-active: var(--sb-ui-color-secondary-D200);           // #FFD543
   --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300);         // #F5F5F5
-  
+
   // Textos - Verde que oscurece progresivamente
   --sb-ui-button-text-color: var(--sb-ui-color-primary-base);            // #009056 (verde claro)
   --sb-ui-button-text-hover: var(--sb-ui-color-primary-D100);            // #038450 (verde medio)
   --sb-ui-button-text-active: var(--sb-ui-color-primary-D200);           // #05794A (verde oscuro)
   --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-L100);       // #B9B9B9
-  
+
   // Borders (mismo color que background)
   --sb-ui-button-border-color: var(--sb-ui-color-secondary-base);        // #FFE16F
   --sb-ui-button-border-hover: var(--sb-ui-color-secondary-D100);        // #FFDA55
   --sb-ui-button-border-active: var(--sb-ui-color-secondary-D200);       // #FFD543
   --sb-ui-button-border-disabled: var(--sb-ui-color-grayscale-L300);     // #F5F5F5
-  
+
   // Shadow al hacer hover
   --sb-ui-button-shadow-hover: var(--sb-ui-shadow-s);                    // Sombra sutil
 }
@@ -308,23 +309,23 @@
 /*
 [data-brand='seguros-bolivar'] .sb-ui-button--secondary.sb-ui-button--text {
   // Ya definido en el base con estos valores:
-  
+
   // Backgrounds (todos transparentes excepto disabled)
   --sb-ui-button-bg-color: transparent;
   --sb-ui-button-bg-hover: transparent;
   --sb-ui-button-bg-active: transparent;
   --sb-ui-button-bg-disabled: var(--sb-ui-color-grayscale-L300);         // #F5F5F5 (aparece)
-  
+
   // Textos - Amarillo que oscurece
   --sb-ui-button-text-color: var(--sb-ui-color-secondary-base);          // #FFE16F (amarillo claro)
   --sb-ui-button-text-hover: var(--sb-ui-color-secondary-D100);          // #FFDA55 (amarillo medio)
   --sb-ui-button-text-active: var(--sb-ui-color-secondary-D200);         // #FFD543 (amarillo oscuro)
   --sb-ui-button-text-disabled: var(--sb-ui-color-grayscale-base);       // #9B9B9B
-  
+
   // Underline (siempre visible, color del texto)
   text-decoration: underline;
   text-decoration-color: currentColor;                              // Hereda del color de texto
-  
+
   // En disabled, underline es gris
   &:disabled {
     text-decoration-color: var(--sb-ui-color-grayscale-base);         // #9B9B9B
@@ -335,17 +336,17 @@
 /* ============================================================================
    SECCIÓN 6: SECONDARY STROKE - OVERRIDES ESPECÍFICOS SEGUROS BOLÍVAR
    ============================================================================
-   
+
    🎨 DIFERENCIA CLAVE vs BASE:
    Seguros Bolívar usa colores PRIMARY (verde) donde el base usa SECONDARY (amarillo)
-   
+
    📊 CAMBIOS:
    - Texto y Borde: PRIMARY-D100/D200 (verde) en lugar de SECONDARY
    - Hover backgrounds: PRIMARY-L400/L300 (verde claro) en lugar de SECONDARY-L400/L300
    - Focus outline: PRIMARY-L100 (verde) en lugar de SECONDARY-L100
-   
+
    ✅ TODO LO DEMÁS viene del BASE (disabled, shadows, border-width, etc.)
-   
+
    ============================================================================ */
 
 @layer brand-overrides {
@@ -367,7 +368,8 @@
   }
 
   /* Focus outline - Verde en vez de amarillo */
-  :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
+  :where([data-brand='seguros-bolivar'])
+    .sb-ui-button--secondary.sb-ui-button--stroke:focus-visible,
   :where([data-brand='seguros-bolivar'])
     .sb-ui-button--secondary:not(.sb-ui-button--fill):not(.sb-ui-button--text):focus-visible {
     outline-color: var(--sb-ui-color-primary-L100); /* Verde claro */
@@ -377,24 +379,26 @@
 /* ============================================================================
    SECCIÓN 7: SECONDARY FILL - OVERRIDES ESPECÍFICOS SEGUROS BOLÍVAR
    ============================================================================
-   
+
    🎨 DIFERENCIA CLAVE vs BASE:
    Seguros Bolívar usa colores PRIMARY (verde) donde el base usa SECONDARY (amarillo)
-   
+
    📊 CAMBIOS:
    - Background: PRIMARY-L300/L200 (verde claro) en lugar de SECONDARY-base/D100
    - Texto: PRIMARY-D200/D300 (verde oscuro) en lugar de PRIMARY-base/D100
    - Focus outline: PRIMARY-L100 (verde) en lugar de SECONDARY-L100
-   
+
    ✅ TODO LO DEMÁS viene del BASE (disabled, shadows, etc.)
-   
+
    ============================================================================ */
 
 @layer brand-overrides {
   /* SECONDARY FILL - Solo cambios de color PRIMARY vs SECONDARY */
   :where([data-brand='seguros-bolivar']) .sb-ui-button--secondary.sb-ui-button--fill {
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
-    --sb-ui-button-bg-color: var(--sb-ui-color-primary-L300); /* Verde muy claro en vez de amarillo */
+    --sb-ui-button-bg-color: var(
+      --sb-ui-color-primary-L300
+    ); /* Verde muy claro en vez de amarillo */
     --sb-ui-button-text-color: var(--sb-ui-color-primary-D200); /* Verde oscuro */
     --sb-ui-button-border-color: var(--sb-ui-color-primary-L300);
 
@@ -416,18 +420,18 @@
 /* ============================================================================
    SECCIÓN 8: SECONDARY TEXT - OVERRIDES ESPECÍFICOS SEGUROS BOLÍVAR
    ============================================================================
-   
+
    🎨 DIFERENCIA CLAVE vs BASE:
    Seguros Bolívar usa colores PRIMARY (verde) donde el base usa SECONDARY (amarillo)
-   
+
    📊 CAMBIOS:
    - Texto: PRIMARY-D100/D200 (verde) en lugar de SECONDARY-base/D100
    - Hover background: PRIMARY-L400 (verde casi blanco) en lugar de transparent
-   - Pressed background: PRIMARY-L300 (verde claro) en lugar of transparent  
+   - Pressed background: PRIMARY-L300 (verde claro) en lugar of transparent
    - Focus outline: PRIMARY-L100 (verde) en lugar de SECONDARY-L100
-   
+
    ✅ TODO LO DEMÁS viene del BASE (disabled, borders transparent, etc.)
-   
+
    ============================================================================ */
 
 @layer brand-overrides {
@@ -436,10 +440,14 @@
     /* Cambiar de SECONDARY (amarillo) a PRIMARY (verde) */
     --sb-ui-button-text-color: var(--sb-ui-color-primary-D100); /* Verde en vez de amarillo */
 
-    --sb-ui-button-bg-hover: var(--sb-ui-color-primary-L400); /* Verde casi blanco (aparece en hover) */
+    --sb-ui-button-bg-hover: var(
+      --sb-ui-color-primary-L400
+    ); /* Verde casi blanco (aparece en hover) */
     --sb-ui-button-text-hover: var(--sb-ui-color-primary-D200);
 
-    --sb-ui-button-bg-active: var(--sb-ui-color-primary-L300); /* Verde claro (aparece en pressed) */
+    --sb-ui-button-bg-active: var(
+      --sb-ui-color-primary-L300
+    ); /* Verde claro (aparece en pressed) */
     --sb-ui-button-text-active: var(--sb-ui-color-primary-D200);
   }
 
@@ -452,7 +460,7 @@
 /* ============================================================================
    📝 TOKENS UTILIZADOS (Seguros Bolívar):
    ============================================================================
-   
+
    PRIMARY PALETTE (Verde):
    - primary-D400: #0b613e (muy muy oscuro)
    - primary-D300: #086d44 (muy oscuro) ✅ USADO en hover/pressed texto
@@ -463,43 +471,43 @@
    - primary-L200: #cce9dd (claro) ✅ USADO en hover/pressed background
    - primary-L300: #e5f4ee (muy claro) ✅ USADO en default background
    - primary-L400: #f2f9f6 (casi blanco)
-   
+
    GRAYSCALE (Disabled):
    - grayscale-L300: #f5f5f5 (muy claro) ✅ USADO en disabled background
    - grayscale-L100: #b9b9b9 (claro) ✅ USADO en disabled texto
    - grayscale-base: #9b9b9b (medio) ✅ USADO en disabled-hover texto
-   
+
    ============================================================================ */
 
 /* ============================================================================
    📚 REFERENCIAS Y RECURSOS
    ============================================================================
-   
+
    📖 DOCUMENTACIÓN:
    - @CSS.mdc → Reglas generales CSS (v3.3.0)
    - @CSS_OVERRIDE_BRAND.mdc → Guía de brand overrides (v2.1.0)
    - @DISABLED_HOVER_GUIDE.md → Guía de disabled-hover
    - MIGRATION_BASE_TO_SEGUROS_BOLIVAR.md → Cambios recientes
-   
+
    📁 ARCHIVOS CLAVE:
    - packages/atoms/src/button.css → Base con lógica UX
    - packages/tokens/src/primitives/brands/seguros-bolivar.json → Tokens
-   - packages/bundle/dist/rb-seguros-bolivar-light.css → Bundle compilado
-   
+   - packages/bundle/dist/sb-ui-seguros-bolivar-light.css → Bundle compilado
+
    🎨 TOKENS DISPONIBLES (Seguros Bolívar):
    ```
    PRIMARY:
    - --sb-ui-color-primary-base:  #05A660  (verde base)
    - --sb-ui-color-primary-D100:  #038450  (verde oscuro) ✅ USADO
    - --sb-ui-color-primary-D200:  #026B41  (verde muy oscuro)
-   
+
    SECONDARY:
    - --sb-ui-color-secondary-base:  #FFE16F  (amarillo base)
    - --sb-ui-color-secondary-D100:  #FFDA55  (amarillo oscuro)
    - --sb-ui-color-secondary-L100:  #FFEA9A  (amarillo claro) ✅ USADO
    - --sb-ui-color-secondary-L300:  #FFF6D4  (amarillo muy claro)
    - --sb-ui-color-secondary-L400:  #FFFCF0  (amarillo casi blanco)
-   
+
    GRAYSCALE:
    - --sb-ui-color-grayscale-white:  #FFFFFF  (blanco)
    - --sb-ui-color-grayscale-L300:   #F5F5F5  (gris muy claro) ✅ USADO
@@ -507,34 +515,34 @@
    - --sb-ui-color-grayscale-L100:   #B9B9B9  (gris claro medio)
    - --sb-ui-color-grayscale-base:   #9B9B9B  (gris medio) ✅ USADO
    ```
-   
+
    🚀 TESTING:
    ```bash
    # 1. Build completo
    pnpm build
-   
+
    # 2. Ver demo en navegador
    pnpm demo
    # → http://localhost:3000/button.html
-   
+
    # 3. Inspeccionar bundle compilado
-   cat packages/bundle/dist/rb-seguros-bolivar-light.css
+   cat packages/bundle/dist/sb-ui-seguros-bolivar-light.css
    ```
-   
+
    💡 TIPS:
    1. Usa DevTools para inspeccionar CSS variables aplicadas
    2. Verifica que `data-brand='seguros-bolivar'` esté en el HTML
    3. Los colores vienen de tokens, no los defines aquí
    4. Solo override lo que REALMENTE necesites cambiar
    5. Mantén comentarios claros para futuros desarrolladores
-   
+
    ============================================================================
  */
 
 /* ============================================================================
    ✅ CHECKLIST PARA CREAR OVERRIDE DE OTRA MARCA
    ============================================================================
-   
+
    1. [ ] Copiar este archivo a: `packages/brand-overrides/src/TU-MARCA/button.css`
    2. [ ] Crear tokens en: `packages/tokens/src/primitives/brands/TU-MARCA.json`
    3. [ ] Reemplazar 'seguros-bolivar' por 'tu-marca' en selectores
@@ -547,6 +555,6 @@
    10. [ ] Build y test: `pnpm build && pnpm demo`
    11. [ ] Verificar en navegador con `data-brand='tu-marca'`
    12. [ ] Documentar tus cambios en comentarios
-   
+
    ============================================================================
  */

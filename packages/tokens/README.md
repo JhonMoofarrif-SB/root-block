@@ -34,7 +34,7 @@ pnpm add @seguros-bolivar-ui/tokens
 
 ```html
 <!-- Cargar tokens de una marca específica -->
-<link rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css" />
+<link rel="stylesheet" href="https://cdn.rootblock.com/seguros-bolivar-ui-jelpit-light.min.css" />
 ```
 
 ### Import en JavaScript

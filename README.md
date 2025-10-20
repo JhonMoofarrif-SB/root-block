@@ -135,25 +135,28 @@ pnpm run storybook
     <title>Mi App con Seguros Bolivar UI</title>
 
     <!-- 1. Bundle completo de marca (tokens + atoms + overrides) - ~2.4KB gzip -->
-    <link rel="stylesheet" href="https://cdn.rootblock.com/rb-davivienda-light.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.segurosbolivar-ui.com/sb-ui-davivienda-light.min.css"
+    />
 
     <!-- 2. Web Components (opcional) - ~8.6KB gzip -->
-    <script type="module" src="https://cdn.rootblock.com/rb-components.min.js"></script>
+    <script type="module" src="https://cdn.segurosbolivar-ui.com/sb-ui-components.min.js"></script>
 
     <!-- 💡 Total: ~11KB gzip | Solo 2 archivos! -->
   </head>
   <body>
     <!-- Componentes CSS simples -->
-    <button class="rb-button rb-button--primary">Primary Button</button>
-    <button class="rb-button rb-button--secondary">Secondary Button</button>
+    <button class="sb-ui-button sb-ui-button--primary">Primary Button</button>
+    <button class="sb-ui-button sb-ui-button--secondary">Secondary Button</button>
 
     <!-- Davivienda tiene animación especial de loading automáticamente ✨ -->
-    <button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
+    <button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading">Loading...</button>
 
     <!-- Web Components complejos -->
-    <rb-modal title="Mi Modal">
+    <sb-ui-modal title="Mi Modal">
       <p>Contenido del modal</p>
-    </rb-modal>
+    </sb-ui-modal>
   </body>
 </html>
 ```
@@ -163,14 +166,18 @@ pnpm run storybook
 Con el sistema de bundles completos (v1.1.0), cambiar de marca es **super simple**:
 
 ```html
-<link id="brand-css" rel="stylesheet" href="https://cdn.rootblock.com/rb-jelpit-light.min.css" />
+<link
+  id="brand-css"
+  rel="stylesheet"
+  href="https://cdn.segurosbolivar-ui.com/sb-ui-jelpit-light.min.css"
+/>
 ```
 
 ```javascript
 function changeBrand(brand, theme) {
   // 1. Cambiar bundle completo (tokens + atoms + overrides automáticos)
   const cssLink = document.getElementById('brand-css');
-  cssLink.href = `https://cdn.rootblock.com/rb-${brand}-${theme}.min.css`;
+  cssLink.href = `https://cdn.segurosbolivar-ui.com/sb-ui-${brand}-${theme}.min.css`;
 
   // 2. Actualizar atributos HTML
   document.documentElement.setAttribute('data-brand', brand);
@@ -356,8 +363,8 @@ pnpm run build
 
 ### Por Archivo (v1.1.0)
 
-| Archivo                       | Marca       | Minificado | Gzip   | Contenido                     |
-| ----------------------------- | ----------- | ---------- | ------ | ----------------------------- |
+| Archivo                          | Marca       | Minificado | Gzip   | Contenido                     |
+| -------------------------------- | ----------- | ---------- | ------ | ----------------------------- |
 | `sb-ui-jelpit-light.min.css`     | Jelpit      | 11.6 KB    | 2.5 KB | Tokens + Atoms                |
 | `sb-ui-davivienda-light.min.css` | Davivienda  | 13.5 KB    | 2.7 KB | Tokens + Atoms + Overrides ⚫ |
 | `sb-ui-white-label-dark.min.css` | White Label | 11.6 KB    | 2.5 KB | Tokens + Atoms                |

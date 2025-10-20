@@ -21,11 +21,11 @@ pnpm add @seguros-bolivar-ui/atoms
 
 ```html
 <!-- Carga todos los componentes atoms -->
-<link rel="stylesheet" href="https://cdn.rootblock.com/rb-styles.min.css" />
+<link rel="stylesheet" href="https://cdn.rootblock.com/sb-ui-styles.min.css" />
 
 <!-- Usa las clases CSS -->
-<button class="rb-button rb-button--primary">Primary</button>
-<button class="rb-button rb-button--secondary">Secondary</button>
+<button class="sb-ui-button sb-ui-button--primary">Primary</button>
+<button class="sb-ui-button sb-ui-button--secondary">Secondary</button>
 ```
 
 ### Import Individual
@@ -49,34 +49,34 @@ Componente de botón con múltiples variantes, tamaños y estados.
 ### Variantes
 
 ```html
-<button class="rb-button rb-button--primary">Primary</button>
-<button class="rb-button rb-button--secondary">Secondary</button>
-<button class="rb-button rb-button--tertiary">Tertiary</button>
-<button class="rb-button rb-button--quaternary">Quaternary</button>
-<button class="rb-button rb-button--quinary">Quinary</button>
-<button class="rb-button rb-button--danger">Danger</button>
-<button class="rb-button rb-button--success">Success</button>
+<button class="sb-ui-button sb-ui-button--primary">Primary</button>
+<button class="sb-ui-button sb-ui-button--secondary">Secondary</button>
+<button class="sb-ui-button sb-ui-button--tertiary">Tertiary</button>
+<button class="sb-ui-button sb-ui-button--quaternary">Quaternary</button>
+<button class="sb-ui-button sb-ui-button--quinary">Quinary</button>
+<button class="sb-ui-button sb-ui-button--danger">Danger</button>
+<button class="sb-ui-button sb-ui-button--success">Success</button>
 ```
 
 ### Tamaños
 
 ```html
-<button class="rb-button rb-button--primary rb-button--small">Small</button>
-<button class="rb-button rb-button--primary rb-button--medium">Medium</button>
-<button class="rb-button rb-button--primary rb-button--large">Large</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">Small</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--medium">Medium</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--large">Large</button>
 ```
 
 ### Estados
 
 ```html
 <!-- Loading -->
-<button class="rb-button rb-button--primary rb-button--loading">Loading...</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--loading">Loading...</button>
 
 <!-- Disabled -->
-<button class="rb-button rb-button--primary" disabled>Disabled</button>
+<button class="sb-ui-button sb-ui-button--primary" disabled>Disabled</button>
 
 <!-- Rounded -->
-<button class="rb-button rb-button--primary rb-button--rounded">Rounded</button>
+<button class="sb-ui-button sb-ui-button--primary sb-ui-button--rounded">Rounded</button>
 ```
 
 ### Personalización

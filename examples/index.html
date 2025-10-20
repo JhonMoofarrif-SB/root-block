@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Root Block Design System - Demo (Optimized + Bootstrap Style)</title>
+    <title>Seguros Bolívar UI Design System - Demo (Optimized + Bootstrap Style)</title>
 
     <!-- 🚀 ARCHIVOS OPTIMIZADOS Y MINIFICADOS -->
 
@@ -224,7 +224,7 @@
   <body>
     <!-- Hero Section from main branch -->
     <div class="hero">
-      <h1>🎨 Root Block Design System</h1>
+      <h1>🎨 Seguros Bolívar UI Design System</h1>
       <p>Sistema de Diseño Multi-Marca con Data Attributes</p>
     </div>
 
@@ -320,7 +320,9 @@
               <span class="badge">3 Variantes</span>
               <span class="badge">Base Universal</span>
             </div>
-            <button class="sb-ui-button sb-ui-button--error sb-ui-button--small">Ver Demo Completo →</button>
+            <button class="sb-ui-button sb-ui-button--error sb-ui-button--small">
+              Ver Demo Completo →
+            </button>
           </div>
         </a>
 
@@ -455,7 +457,7 @@
         </div>
 
         <div class="card">
-          <label class="sb-ui-input-label rb-input-label--required">Input Requerido</label>
+          <label class="sb-ui-input-label sb-ui-input-label--required">Input Requerido</label>
           <input class="sb-ui-input" type="email" placeholder="ejemplo@email.com" required />
           <div class="sb-ui-input-helper">Campo obligatorio</div>
         </div>
@@ -463,23 +465,25 @@
         <div class="card">
           <label class="sb-ui-input-label">Input con Error</label>
           <input
-            class="sb-ui-input rb-input--error"
+            class="sb-ui-input sb-ui-input--error"
             type="text"
             placeholder="Texto con error"
             value="valor inválido"
           />
-          <div class="sb-ui-input-helper rb-input-helper--error">Este campo tiene un error</div>
+          <div class="sb-ui-input-helper sb-ui-input-helper--error">Este campo tiene un error</div>
         </div>
 
         <div class="card">
           <label class="sb-ui-input-label">Input Exitoso</label>
           <input
-            class="sb-ui-input rb-input--success"
+            class="sb-ui-input sb-ui-input--success"
             type="text"
             placeholder="Texto exitoso"
             value="valor válido"
           />
-          <div class="sb-ui-input-helper rb-input-helper--success">Campo validado correctamente</div>
+          <div class="sb-ui-input-helper sb-ui-input-helper--success">
+            Campo validado correctamente
+          </div>
         </div>
 
         <div class="card">
@@ -491,11 +495,13 @@
         <div class="card">
           <label class="sb-ui-input-label">Input con Advertencia</label>
           <input
-            class="sb-ui-input rb-input--warning"
+            class="sb-ui-input sb-ui-input--warning"
             type="text"
             placeholder="Texto con advertencia"
           />
-          <div class="sb-ui-input-helper rb-input-helper--warning">Advertencia: revisa este campo</div>
+          <div class="sb-ui-input-helper sb-ui-input-helper--warning">
+            Advertencia: revisa este campo
+          </div>
         </div>
       </div>
 
@@ -503,17 +509,17 @@
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-input-label">Small</label>
-          <input class="sb-ui-input rb-input--small" type="text" placeholder="Input pequeño" />
+          <input class="sb-ui-input sb-ui-input--small" type="text" placeholder="Input pequeño" />
         </div>
 
         <div class="card">
           <label class="sb-ui-input-label">Medium (Default)</label>
-          <input class="sb-ui-input rb-input--medium" type="text" placeholder="Input mediano" />
+          <input class="sb-ui-input sb-ui-input--medium" type="text" placeholder="Input mediano" />
         </div>
 
         <div class="card">
           <label class="sb-ui-input-label">Large</label>
-          <input class="sb-ui-input rb-input--large" type="text" placeholder="Input grande" />
+          <input class="sb-ui-input sb-ui-input--large" type="text" placeholder="Input grande" />
         </div>
       </div>
 
@@ -522,8 +528,12 @@
         <div class="card">
           <label class="sb-ui-input-label">Con Icono Izquierdo</label>
           <div class="sb-ui-input-container">
-            <input class="sb-ui-input rb-input--with-icon-left" type="text" placeholder="Buscar..." />
-            <span class="sb-ui-input-icon rb-input-icon--left">🔍</span>
+            <input
+              class="sb-ui-input sb-ui-input--with-icon-left"
+              type="text"
+              placeholder="Buscar..."
+            />
+            <span class="sb-ui-input-icon sb-ui-input-icon--left">🔍</span>
           </div>
         </div>
 
@@ -531,20 +541,24 @@
           <label class="sb-ui-input-label">Con Icono Derecho</label>
           <div class="sb-ui-input-container">
             <input
-              class="sb-ui-input rb-input--with-icon-right"
+              class="sb-ui-input sb-ui-input--with-icon-right"
               type="password"
               placeholder="Contraseña"
             />
-            <span class="sb-ui-input-icon rb-input-icon--right">👁️</span>
+            <span class="sb-ui-input-icon sb-ui-input-icon--right">👁️</span>
           </div>
         </div>
 
         <div class="card">
           <label class="sb-ui-input-label">Con Ambos Iconos</label>
           <div class="sb-ui-input-container">
-            <input class="sb-ui-input rb-input--with-icon-both" type="text" placeholder="Usuario" />
-            <span class="sb-ui-input-icon rb-input-icon--left">👤</span>
-            <span class="sb-ui-input-icon rb-input-icon--right">✓</span>
+            <input
+              class="sb-ui-input sb-ui-input--with-icon-both"
+              type="text"
+              placeholder="Usuario"
+            />
+            <span class="sb-ui-input-icon sb-ui-input-icon--left">👤</span>
+            <span class="sb-ui-input-icon sb-ui-input-icon--right">✓</span>
           </div>
         </div>
       </div>
@@ -586,12 +600,16 @@
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-input-label">Rounded</label>
-          <input class="sb-ui-input rb-input--rounded" type="text" placeholder="Input redondeado" />
+          <input
+            class="sb-ui-input sb-ui-input--rounded"
+            type="text"
+            placeholder="Input redondeado"
+          />
         </div>
 
         <div class="card">
           <label class="sb-ui-input-label">Inline (Auto Width)</label>
-          <input class="sb-ui-input rb-input--inline" type="text" placeholder="Auto width" />
+          <input class="sb-ui-input sb-ui-input--inline" type="text" placeholder="Auto width" />
         </div>
       </div>
 
@@ -626,9 +644,15 @@
         </div>
 
         <div class="card">
-          <label class="sb-ui-textarea-label sb-ui-textarea-label--required">TextArea Requerido</label>
+          <label class="sb-ui-textarea-label sb-ui-textarea-label--required"
+            >TextArea Requerido</label
+          >
           <div class="sb-ui-textarea-container">
-            <textarea class="sb-ui-textarea" placeholder="Mensaje obligatorio..." required></textarea>
+            <textarea
+              class="sb-ui-textarea"
+              placeholder="Mensaje obligatorio..."
+              required
+            ></textarea>
           </div>
           <div class="sb-ui-textarea-helper">Campo obligatorio</div>
         </div>
@@ -640,7 +664,9 @@
 Contenido inválido</textarea
             >
           </div>
-          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--error">Este campo tiene un error</div>
+          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--error">
+            Este campo tiene un error
+          </div>
         </div>
 
         <div class="card">
@@ -845,7 +871,10 @@ Este texto excede el límite de caracteres permitidos</textarea
         <div class="card">
           <label class="sb-ui-textarea-label">Inline (Auto Width)</label>
           <div class="sb-ui-textarea-container sb-ui-textarea-container--inline">
-            <textarea class="sb-ui-textarea sb-ui-textarea--inline" placeholder="Auto width"></textarea>
+            <textarea
+              class="sb-ui-textarea sb-ui-textarea--inline"
+              placeholder="Auto width"
+            ></textarea>
           </div>
         </div>
       </div>
@@ -869,7 +898,10 @@ Este texto excede el límite de caracteres permitidos</textarea
         <div class="card">
           <label class="sb-ui-textarea-label">Loading State</label>
           <div class="sb-ui-textarea-container">
-            <textarea class="sb-ui-textarea sb-ui-textarea--loading" placeholder="Cargando..."></textarea>
+            <textarea
+              class="sb-ui-textarea sb-ui-textarea--loading"
+              placeholder="Cargando..."
+            ></textarea>
           </div>
           <div class="sb-ui-textarea-helper">Estado de carga</div>
         </div>
@@ -898,7 +930,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-select-label rb-select-label--required">Select Requerido</label>
+          <label class="sb-ui-select-label sb-ui-select-label--required">Select Requerido</label>
           <select class="sb-ui-select" required>
             <option value="">Selecciona obligatorio</option>
             <option value="1">Opción A</option>
@@ -909,20 +941,24 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Select con Error</label>
-          <select class="sb-ui-select rb-select--error">
+          <select class="sb-ui-select sb-ui-select--error">
             <option value="">Selección con error</option>
             <option value="1">Opción inválida</option>
           </select>
-          <div class="sb-ui-select-helper rb-select-helper--error">Este campo tiene un error</div>
+          <div class="sb-ui-select-helper sb-ui-select-helper--error">
+            Este campo tiene un error
+          </div>
         </div>
 
         <div class="card">
           <label class="sb-ui-select-label">Select Exitoso</label>
-          <select class="sb-ui-select rb-select--success">
+          <select class="sb-ui-select sb-ui-select--success">
             <option value="">Selección exitosa</option>
             <option value="1" selected>Opción válida</option>
           </select>
-          <div class="sb-ui-select-helper rb-select-helper--success">Campo validado correctamente</div>
+          <div class="sb-ui-select-helper sb-ui-select-helper--success">
+            Campo validado correctamente
+          </div>
         </div>
 
         <div class="card">
@@ -936,11 +972,11 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Select con Advertencia</label>
-          <select class="sb-ui-select rb-select--warning">
+          <select class="sb-ui-select sb-ui-select--warning">
             <option value="">Selección con advertencia</option>
             <option value="1">Revisar opción</option>
           </select>
-          <div class="sb-ui-select-helper rb-select-helper--warning">
+          <div class="sb-ui-select-helper sb-ui-select-helper--warning">
             Advertencia: revisa esta selección
           </div>
         </div>
@@ -950,7 +986,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-select-label">Small</label>
-          <select class="sb-ui-select rb-select--small">
+          <select class="sb-ui-select sb-ui-select--small">
             <option value="">Select pequeño</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -959,7 +995,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Medium (Default)</label>
-          <select class="sb-ui-select rb-select--medium">
+          <select class="sb-ui-select sb-ui-select--medium">
             <option value="">Select mediano</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -968,7 +1004,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Large</label>
-          <select class="sb-ui-select rb-select--large">
+          <select class="sb-ui-select sb-ui-select--large">
             <option value="">Select grande</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -981,40 +1017,40 @@ Este texto excede el límite de caracteres permitidos</textarea
         <div class="card">
           <label class="sb-ui-select-label">Con Icono Izquierdo</label>
           <div class="sb-ui-select-container">
-            <select class="sb-ui-select rb-select--with-icon-left">
+            <select class="sb-ui-select sb-ui-select--with-icon-left">
               <option value="">Selecciona país</option>
               <option value="co">🇨🇴 Colombia</option>
               <option value="mx">🇲🇽 México</option>
               <option value="ar">🇦🇷 Argentina</option>
             </select>
-            <span class="sb-ui-select-icon rb-select-icon--left">🌍</span>
+            <span class="sb-ui-select-icon sb-ui-select-icon--left">🌍</span>
           </div>
         </div>
 
         <div class="card">
           <label class="sb-ui-select-label">Con Icono Derecho</label>
           <div class="sb-ui-select-container">
-            <select class="sb-ui-select rb-select--with-icon-right">
+            <select class="sb-ui-select sb-ui-select--with-icon-right">
               <option value="">Selecciona categoría</option>
               <option value="tech">Tecnología</option>
               <option value="design">Diseño</option>
               <option value="business">Negocios</option>
             </select>
-            <span class="sb-ui-select-icon rb-select-icon--right">📂</span>
+            <span class="sb-ui-select-icon sb-ui-select-icon--right">📂</span>
           </div>
         </div>
 
         <div class="card">
           <label class="sb-ui-select-label">Con Ambos Iconos</label>
           <div class="sb-ui-select-container">
-            <select class="sb-ui-select rb-select--with-icon-both">
+            <select class="sb-ui-select sb-ui-select--with-icon-both">
               <option value="">Selecciona usuario</option>
               <option value="admin">Administrador</option>
               <option value="user">Usuario</option>
               <option value="guest">Invitado</option>
             </select>
-            <span class="sb-ui-select-icon rb-select-icon--left">👤</span>
-            <span class="sb-ui-select-icon rb-select-icon--right">✓</span>
+            <span class="sb-ui-select-icon sb-ui-select-icon--left">👤</span>
+            <span class="sb-ui-select-icon sb-ui-select-icon--right">✓</span>
           </div>
         </div>
       </div>
@@ -1054,7 +1090,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-select-label">Rounded</label>
-          <select class="sb-ui-select rb-select--rounded">
+          <select class="sb-ui-select sb-ui-select--rounded">
             <option value="">Select redondeado</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -1063,8 +1099,8 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Inline (Auto Width)</label>
-          <div class="sb-ui-select-container rb-select-container--inline">
-            <select class="sb-ui-select rb-select--inline">
+          <div class="sb-ui-select-container sb-ui-select-container--inline">
+            <select class="sb-ui-select sb-ui-select--inline">
               <option value="">Auto width</option>
               <option value="1">Opción 1</option>
             </select>
@@ -1073,7 +1109,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Minimal</label>
-          <select class="sb-ui-select rb-select--minimal">
+          <select class="sb-ui-select sb-ui-select--minimal">
             <option value="">Select minimal</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -1082,7 +1118,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Filled</label>
-          <select class="sb-ui-select rb-select--filled">
+          <select class="sb-ui-select sb-ui-select--filled">
             <option value="">Select filled</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -1094,7 +1130,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-select-label">Compact</label>
-          <select class="sb-ui-select rb-select--compact">
+          <select class="sb-ui-select sb-ui-select--compact">
             <option value="">Select compacto</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -1103,7 +1139,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Prominent</label>
-          <select class="sb-ui-select rb-select--prominent">
+          <select class="sb-ui-select sb-ui-select--prominent">
             <option value="">Select prominente</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -1115,7 +1151,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-select-label">Grupo Horizontal</label>
-          <div class="sb-ui-select-group rb-select-group--horizontal">
+          <div class="sb-ui-select-group sb-ui-select-group--horizontal">
             <select class="sb-ui-select">
               <option value="">País</option>
               <option value="co">Colombia</option>
@@ -1132,7 +1168,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">Grupo Vertical</label>
-          <div class="sb-ui-select-group rb-select-group--vertical">
+          <div class="sb-ui-select-group sb-ui-select-group--vertical">
             <select class="sb-ui-select">
               <option value="">Categoría</option>
               <option value="tech">Tecnología</option>
@@ -1152,7 +1188,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <label class="sb-ui-select-label">Loading State</label>
-          <select class="sb-ui-select rb-select--loading">
+          <select class="sb-ui-select sb-ui-select--loading">
             <option value="">Cargando opciones...</option>
           </select>
           <div class="sb-ui-select-helper">Estado de carga</div>
@@ -1160,7 +1196,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <label class="sb-ui-select-label">No Arrow</label>
-          <select class="sb-ui-select rb-select--no-arrow">
+          <select class="sb-ui-select sb-ui-select--no-arrow">
             <option value="">Sin flecha</option>
             <option value="1">Opción 1</option>
             <option value="2">Opción 2</option>
@@ -1199,21 +1235,23 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--error">
+          <label class="sb-ui-toggle sb-ui-toggle--error">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Toggle con Error</span>
           </label>
-          <div class="sb-ui-toggle-helper rb-toggle-helper--error">Este toggle tiene un error</div>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--error">
+            Este toggle tiene un error
+          </div>
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--success">
+          <label class="sb-ui-toggle sb-ui-toggle--success">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Toggle Exitoso</span>
           </label>
-          <div class="sb-ui-toggle-helper rb-toggle-helper--success">
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--success">
             Toggle validado correctamente
           </div>
         </div>
@@ -1228,12 +1266,12 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--warning">
+          <label class="sb-ui-toggle sb-ui-toggle--warning">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Toggle con Advertencia</span>
           </label>
-          <div class="sb-ui-toggle-helper rb-toggle-helper--warning">
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--warning">
             Advertencia: revisa este toggle
           </div>
         </div>
@@ -1242,7 +1280,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">Tamaños</h3>
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--small">
+          <label class="sb-ui-toggle sb-ui-toggle--small">
             <input type="checkbox" class="sb-ui-toggle-input" />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Small</span>
@@ -1251,7 +1289,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--medium">
+          <label class="sb-ui-toggle sb-ui-toggle--medium">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Medium (Default)</span>
@@ -1260,7 +1298,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--large">
+          <label class="sb-ui-toggle sb-ui-toggle--large">
             <input type="checkbox" class="sb-ui-toggle-input" />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Large</span>
@@ -1281,7 +1319,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--button">
+          <label class="sb-ui-toggle sb-ui-toggle--button">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
           </label>
@@ -1289,7 +1327,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--checkbox">
+          <label class="sb-ui-toggle sb-ui-toggle--checkbox">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Checkbox Style</span>
@@ -1301,7 +1339,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">Modificadores Visuales</h3>
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--rounded">
+          <label class="sb-ui-toggle sb-ui-toggle--rounded">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Rounded</span>
@@ -1310,7 +1348,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--minimal">
+          <label class="sb-ui-toggle sb-ui-toggle--minimal">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Minimal</span>
@@ -1319,7 +1357,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--filled">
+          <label class="sb-ui-toggle sb-ui-toggle--filled">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Filled</span>
@@ -1328,7 +1366,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--outlined">
+          <label class="sb-ui-toggle sb-ui-toggle--outlined">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Outlined</span>
@@ -1340,7 +1378,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">Tamaños Especiales</h3>
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--compact">
+          <label class="sb-ui-toggle sb-ui-toggle--compact">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Compact</span>
@@ -1349,7 +1387,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--prominent">
+          <label class="sb-ui-toggle sb-ui-toggle--prominent">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Prominent</span>
@@ -1361,7 +1399,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">Animaciones</h3>
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--bounce">
+          <label class="sb-ui-toggle sb-ui-toggle--bounce">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Bounce</span>
@@ -1370,7 +1408,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--pulse">
+          <label class="sb-ui-toggle sb-ui-toggle--pulse">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Pulse</span>
@@ -1384,17 +1422,17 @@ Este texto excede el límite de caracteres permitidos</textarea
         <div class="card">
           <div class="sb-ui-toggle-container">
             <div class="sb-ui-toggle-title">Configuración de Notificaciones</div>
-            <label class="sb-ui-toggle rb-toggle--block">
+            <label class="sb-ui-toggle sb-ui-toggle--block">
               <input type="checkbox" class="sb-ui-toggle-input" checked />
               <span class="sb-ui-toggle-slider"></span>
               <span class="sb-ui-toggle-label">Notificaciones por email</span>
             </label>
-            <label class="sb-ui-toggle rb-toggle--block">
+            <label class="sb-ui-toggle sb-ui-toggle--block">
               <input type="checkbox" class="sb-ui-toggle-input" />
               <span class="sb-ui-toggle-slider"></span>
               <span class="sb-ui-toggle-label">Notificaciones push</span>
             </label>
-            <label class="sb-ui-toggle rb-toggle--block">
+            <label class="sb-ui-toggle sb-ui-toggle--block">
               <input type="checkbox" class="sb-ui-toggle-input" checked />
               <span class="sb-ui-toggle-slider"></span>
               <span class="sb-ui-toggle-label">Notificaciones SMS</span>
@@ -1404,7 +1442,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <div class="sb-ui-toggle-container rb-toggle-container--horizontal">
+          <div class="sb-ui-toggle-container sb-ui-toggle-container--horizontal">
             <label class="sb-ui-toggle">
               <input type="checkbox" class="sb-ui-toggle-input" checked />
               <span class="sb-ui-toggle-slider"></span>
@@ -1451,7 +1489,7 @@ Este texto excede el límite de caracteres permitidos</textarea
 
         <div class="card">
           <div class="sb-ui-toggle-title">Configuración de Privacidad</div>
-          <div class="sb-ui-toggle-group rb-toggle-group--horizontal">
+          <div class="sb-ui-toggle-group sb-ui-toggle-group--horizontal">
             <label class="sb-ui-toggle">
               <input type="checkbox" class="sb-ui-toggle-input" checked />
               <span class="sb-ui-toggle-slider"></span>
@@ -1475,7 +1513,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">Estados Especiales</h3>
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--loading">
+          <label class="sb-ui-toggle sb-ui-toggle--loading">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
             <span class="sb-ui-toggle-label">Loading State</span>
@@ -1484,7 +1522,7 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <label class="sb-ui-toggle rb-toggle--no-label">
+          <label class="sb-ui-toggle sb-ui-toggle--no-label">
             <input type="checkbox" class="sb-ui-toggle-input" checked />
             <span class="sb-ui-toggle-slider"></span>
           </label>
@@ -1508,7 +1546,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             Background: True
           </h4>
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success">
+            <div class="sb-ui-alert sb-ui-alert--success">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1517,7 +1555,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info">
+            <div class="sb-ui-alert sb-ui-alert--info">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1526,7 +1564,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning">
+            <div class="sb-ui-alert sb-ui-alert--warning">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1535,7 +1573,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--error">
+            <div class="sb-ui-alert sb-ui-alert--error">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1551,7 +1589,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             Background: False
           </h4>
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1560,7 +1598,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1569,7 +1607,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1578,7 +1616,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--error rb-alert--no-bg">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--no-bg">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1597,7 +1635,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             Background: True
           </h4>
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1605,7 +1643,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1613,7 +1651,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1621,7 +1659,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--error rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1636,7 +1674,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             Background: False
           </h4>
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success rb-alert--no-bg rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-bg sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1644,7 +1682,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info rb-alert--no-bg rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--no-bg sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1652,7 +1690,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning rb-alert--no-bg rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-bg sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1660,7 +1698,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--error rb-alert--no-bg rb-alert--no-close">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--no-bg sb-ui-alert--no-close">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Description info text</div>
@@ -1675,7 +1713,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success rb-alert--small">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--small">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Small Alert</div>
@@ -1684,7 +1722,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info rb-alert--medium">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--medium">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Medium Alert (Default)</div>
@@ -1693,7 +1731,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning rb-alert--large">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--large">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Large Alert</div>
@@ -1709,7 +1747,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success rb-alert--minimal">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--minimal">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Minimal Alert</div>
@@ -1718,7 +1756,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info rb-alert--outlined">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--outlined">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Outlined Alert</div>
@@ -1727,7 +1765,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning rb-alert--filled">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--filled">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Filled Alert</div>
@@ -1736,7 +1774,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--error rb-alert--rounded">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--rounded">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Rounded Alert</div>
@@ -1757,7 +1795,7 @@ Este texto excede el límite de caracteres permitidos</textarea
           </p>
           <div class="sb-ui-alert-group" style="gap: 1rem">
             <div
-              class="sb-ui-alert rb-alert--success rb-alert--toast"
+              class="sb-ui-alert sb-ui-alert--success sb-ui-alert--toast"
               style="position: relative; top: auto; right: auto"
             >
               <div class="sb-ui-alert-icon"></div>
@@ -1769,7 +1807,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             </div>
 
             <div
-              class="sb-ui-alert rb-alert--info rb-alert--toast rb-alert--toast-top-left"
+              class="sb-ui-alert sb-ui-alert--info sb-ui-alert--toast sb-ui-alert--toast-top-left"
               style="position: relative; top: auto; left: auto"
             >
               <div class="sb-ui-alert-icon"></div>
@@ -1781,7 +1819,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             </div>
 
             <div
-              class="sb-ui-alert rb-alert--warning rb-alert--toast rb-alert--toast-bottom-right"
+              class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--toast sb-ui-alert--toast-bottom-right"
               style="position: relative; top: auto; bottom: auto; right: auto"
             >
               <div class="sb-ui-alert-icon"></div>
@@ -1799,7 +1837,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
           <div class="sb-ui-alert-group" style="gap: 1rem">
-            <div class="sb-ui-alert rb-alert--success rb-alert--loading">
+            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--loading">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Loading Alert</div>
@@ -1807,7 +1845,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               </div>
             </div>
 
-            <div class="sb-ui-alert rb-alert--info rb-alert--dismissible">
+            <div class="sb-ui-alert sb-ui-alert--info sb-ui-alert--dismissible">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Dismissible Alert</div>
@@ -1816,7 +1854,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--warning rb-alert--banner">
+            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--banner">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Banner Alert</div>
@@ -1825,7 +1863,7 @@ Este texto excede el límite de caracteres permitidos</textarea
               <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
             </div>
 
-            <div class="sb-ui-alert rb-alert--error rb-alert--compact">
+            <div class="sb-ui-alert sb-ui-alert--error sb-ui-alert--compact">
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Compact Alert</div>
@@ -1848,7 +1886,7 @@ Este texto excede el límite de caracteres permitidos</textarea
           class="sb-ui-alert-container"
           style="position: relative; top: auto; right: auto; max-width: none"
         >
-          <div class="sb-ui-alert rb-alert--success">
+          <div class="sb-ui-alert sb-ui-alert--success">
             <div class="sb-ui-alert-icon"></div>
             <div class="sb-ui-alert-content">
               <div class="sb-ui-alert-title">Primera alerta</div>
@@ -1857,7 +1895,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
           </div>
 
-          <div class="sb-ui-alert rb-alert--info">
+          <div class="sb-ui-alert sb-ui-alert--info">
             <div class="sb-ui-alert-icon"></div>
             <div class="sb-ui-alert-content">
               <div class="sb-ui-alert-title">Segunda alerta</div>
@@ -1866,7 +1904,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             <button class="sb-ui-alert-close" aria-label="Close alert">×</button>
           </div>
 
-          <div class="sb-ui-alert rb-alert--warning">
+          <div class="sb-ui-alert sb-ui-alert--warning">
             <div class="sb-ui-alert-icon"></div>
             <div class="sb-ui-alert-content">
               <div class="sb-ui-alert-title">Tercera alerta</div>
@@ -1887,7 +1925,9 @@ Este texto excede el límite de caracteres permitidos</textarea
         También se adapta automáticamente a los tokens de la marca seleccionada.
       </p>
 
-      <button class="sb-ui-button sb-ui-button--primary" onclick="openModal()">🔍 Abrir Modal</button>
+      <button class="sb-ui-button sb-ui-button--primary" onclick="openModal()">
+        🔍 Abrir Modal
+      </button>
 
       <sb-ui-modal id="demoModal" title="✨ Modal de Ejemplo">
         <p class="mb-4">Este es un <strong>Web Component</strong> construido con Lit.</p>
@@ -1901,7 +1941,9 @@ Este texto excede el límite de caracteres permitidos</textarea
         </p>
 
         <div slot="footer">
-          <button class="sb-ui-button sb-ui-button--tertiary" onclick="closeModal()">✕ Cancelar</button>
+          <button class="sb-ui-button sb-ui-button--tertiary" onclick="closeModal()">
+            ✕ Cancelar
+          </button>
           <button class="sb-ui-button sb-ui-button--primary" onclick="handleConfirm()">
             ✓ Confirmar
           </button>
@@ -1919,10 +1961,14 @@ Este texto excede el límite de caracteres permitidos</textarea
         adapta a los tokens de marca.
       </p>
 
-      <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">Ejemplos Básicos con Click</h3>
+      <h3 class="mb-3" style="color: var(--sb-ui-color-primary-base)">
+        Ejemplos Básicos con Click
+      </h3>
       <div class="demo-grid" style="margin-bottom: 2rem">
         <div class="card">
-          <h4 style="margin-bottom: 1rem; color: var(--sb-ui-color-grayscale-D300)">Tipos de Toast</h4>
+          <h4 style="margin-bottom: 1rem; color: var(--sb-ui-color-grayscale-D300)">
+            Tipos de Toast
+          </h4>
           <div style="display: flex; flex-direction: column; gap: 0.75rem">
             <button class="sb-ui-button sb-ui-button--success" onclick="showSuccessToast()">
               ✅ Success Toast
@@ -2071,7 +2117,9 @@ Este texto excede el límite de caracteres permitidos</textarea
         </div>
 
         <div class="card">
-          <h4 style="margin-bottom: 1rem; color: var(--sb-ui-color-grayscale-D300)">Auto-Dismiss</h4>
+          <h4 style="margin-bottom: 1rem; color: var(--sb-ui-color-grayscale-D300)">
+            Auto-Dismiss
+          </h4>
           <div style="display: flex; flex-direction: column; gap: 0.75rem">
             <button class="sb-ui-button sb-ui-button--primary" onclick="showTimedToast(2000)">
               2 Segundos
@@ -2093,7 +2141,11 @@ Este texto excede el límite de caracteres permitidos</textarea
             Uso Programático
           </h4>
           <p
-            style="font-size: 0.875rem; color: var(--sb-ui-color-grayscale-base); margin-bottom: 1rem"
+            style="
+              font-size: 0.875rem;
+              color: var(--sb-ui-color-grayscale-base);
+              margin-bottom: 1rem;
+            "
           >
             Los toast se pueden crear por JavaScript usando el ToastManager:
           </p>
@@ -2133,7 +2185,9 @@ Este texto excede el límite de caracteres permitidos</textarea
         <h4 style="margin-bottom: 1rem; color: var(--sb-ui-color-grayscale-D300)">
           Integración con Design System
         </h4>
-        <p style="font-size: 0.875rem; color: var(--sb-ui-color-grayscale-base); margin-bottom: 1rem">
+        <p
+          style="font-size: 0.875rem; color: var(--sb-ui-color-grayscale-base); margin-bottom: 1rem"
+        >
           Los toast se adaptan automáticamente a la marca y tema seleccionados. Cambia la marca
           arriba para ver los cambios:
         </p>
@@ -2170,15 +2224,21 @@ Este texto excede el límite de caracteres permitidos</textarea
           class="text-label"
           style="color: var(--sb-ui-color-grayscale-D100); font-weight: 600; margin-bottom: 0.5rem"
         >
-          Root Block Design System v1.0.0
+          Seguros Bolívar UI Design System v1.0.0
         </p>
         <p class="text-caption" style="color: var(--sb-ui-color-grayscale-base)">
           6 marcas · 2 temas · 2 archivos · ~10KB gzip
         </p>
-        <p class="text-caption" style="color: var(--sb-ui-color-grayscale-base); margin-top: 0.5rem">
+        <p
+          class="text-caption"
+          style="color: var(--sb-ui-color-grayscale-base); margin-top: 0.5rem"
+        >
           ✨ Incluye brand overrides automáticos (ej: animación especial Davivienda)
         </p>
-        <p class="text-caption" style="color: var(--sb-ui-color-grayscale-L100); margin-top: 0.5rem">
+        <p
+          class="text-caption"
+          style="color: var(--sb-ui-color-grayscale-L100); margin-top: 0.5rem"
+        >
           Construido con Style Dictionary, Lit, PNPM Workspaces
         </p>
       </div>
@@ -2216,7 +2276,9 @@ Este texto excede el límite de caracteres permitidos</textarea
         }
 
         console.log(`✅ Brand changed to: ${currentBrand} ${currentTheme}`);
-        console.log(`📦 Loading complete bundle: dist/rb-${currentBrand}-${currentTheme}.min.css`);
+        console.log(
+          `📦 Loading complete bundle: dist/sb-ui-${currentBrand}-${currentTheme}.min.css`
+        );
 
         if (currentBrand === 'davivienda') {
           console.log('✨ Davivienda special loading animation enabled!');
@@ -2351,7 +2413,7 @@ Este texto excede el límite de caracteres permitidos</textarea
       // Dynamic import of toast components
       async function initToast() {
         try {
-          const toastModule = await import('./dist/rb-components.min.js');
+          const toastModule = await import('./dist/sb-ui-components.min.js');
 
           // The toast functions should be available globally after component loads
           // We'll access them through window or create simple wrapper functions
@@ -2519,7 +2581,7 @@ Este texto excede el límite de caracteres permitidos</textarea
           window.showInteractiveToast = () => {
             const toast = document.createElement('sb-ui-toast');
             if (!toast) {
-              alert('Toast interactivo requiere el componente rb-toast');
+              alert('Toast interactivo requiere el componente sb-ui-toast');
               return;
             }
 
@@ -2567,7 +2629,7 @@ Este texto excede el límite de caracteres permitidos</textarea
           window.showCustomToast = () => {
             const toast = document.createElement('sb-ui-toast');
             if (!toast) {
-              alert('Toast personalizado requiere el componente rb-toast');
+              alert('Toast personalizado requiere el componente sb-ui-toast');
               return;
             }
 
@@ -2624,7 +2686,7 @@ Este texto excede el límite de caracteres permitidos</textarea
             let countdown = 5;
             const toast = document.createElement('sb-ui-toast');
             if (!toast) {
-              alert('Countdown toast requiere el componente rb-toast');
+              alert('Countdown toast requiere el componente sb-ui-toast');
               return;
             }
 

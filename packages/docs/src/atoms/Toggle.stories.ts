@@ -434,7 +434,7 @@ export const Estados: Story = {
       <div class="toggle-demo">
         <h3>Grupos de Toggles</h3>
         <div>
-          <div class="sb-ui-toggle-group rb-toggle-group--vertical">
+          <div class="sb-ui-toggle-group sb-ui-toggle-group--vertical">
             <label class="sb-ui-toggle">
               <input type="checkbox" class="sb-ui-toggle-input" />
               <span class="sb-ui-toggle-slider"></span>

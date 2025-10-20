@@ -1,5 +1,5 @@
 /**
- * Base class para todos los componentes del Root Block Design System
+ * Base class para todos los componentes del Seguros Bolívar UI Design System
  */
 export abstract class BaseComponent {
   protected loading: boolean = false;
@@ -96,10 +96,10 @@ export abstract class BaseComponent {
    */
   protected getBaseClasses(): string[] {
     return [
-      'rb-component',
-      `rb-component--${this.component.type}`,
-      this.component.disabled ? 'rb-component--disabled' : '',
-      this.loading ? 'rb-component--loading' : '',
+      'sb-ui-component',
+      `sb-ui-component--${this.component.type}`,
+      this.component.disabled ? 'sb-ui-component--disabled' : '',
+      this.loading ? 'sb-ui-component--loading' : '',
     ].filter(Boolean);
   }
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm run build && pnpm --filter @rb/docs run build-storybook && mkdir -p packages/docs/storybook-static/examples && cp -r examples/*.html examples/dist examples/*.md packages/docs/storybook-static/examples/",
+  "buildCommand": "pnpm run build && pnpm --filter @seguros-bolivar-ui/docs run build-storybook && mkdir -p packages/docs/storybook-static/examples && cp -r examples/*.html examples/dist examples/*.md packages/docs/storybook-static/examples/",
   "outputDirectory": "packages/docs/storybook-static",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null,

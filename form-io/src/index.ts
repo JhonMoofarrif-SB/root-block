@@ -8,7 +8,7 @@ export { ThemeManager, themeManager } from './utils/ThemeManager';
 export { Validator } from './utils/Validator';
 
 // Tipos
-export type { ValidationRule, ValidationResult } from './utils/Validator';
+export type { ValidationResult, ValidationRule } from './utils/Validator';
 
 // Registro de componentes con Form.io
 import { Button } from './components/Button';
@@ -22,7 +22,7 @@ export function registerComponents(Components: any): void {
 }
 
 // Configuración global
-export const RootBlockFormIO = {
+export const SbUiFormIO = {
   version: '1.0.0',
   components: {
     Button,
@@ -41,5 +41,5 @@ if (typeof window !== 'undefined') {
   themeManager;
 
   // Exponer globalmente para debugging
-  (window as any).RootBlockFormIO = RootBlockFormIO;
+  (window as any).SbUiFormIO = SbUiFormIO;
 }

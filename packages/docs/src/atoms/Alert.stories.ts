@@ -442,7 +442,9 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Success No-BG - Con Cerrar</div>
-            <div class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-bg sb-ui-alert--dismissible">
+            <div
+              class="sb-ui-alert sb-ui-alert--success sb-ui-alert--no-bg sb-ui-alert--dismissible"
+            >
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Éxito</div>
@@ -466,7 +468,9 @@ export const Estados: Story = {
 
           <div class="alert-demo">
             <div class="alert-demo-title">Warning No-BG - Con Cerrar</div>
-            <div class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-bg sb-ui-alert--dismissible">
+            <div
+              class="sb-ui-alert sb-ui-alert--warning sb-ui-alert--no-bg sb-ui-alert--dismissible"
+            >
               <div class="sb-ui-alert-icon"></div>
               <div class="sb-ui-alert-content">
                 <div class="sb-ui-alert-title">Advertencia</div>
@@ -526,8 +530,8 @@ export const Estados: Story = {
             agregan automáticamente.
           </li>
           <li>
-            <strong>Botón cerrar:</strong> Usa <code>.sb-ui-alert--dismissible</code> para mostrar el
-            botón cerrar.
+            <strong>Botón cerrar:</strong> Usa <code>.sb-ui-alert--dismissible</code> para mostrar
+            el botón cerrar.
           </li>
           <li>
             <strong>Estructura:</strong> Los iconos y contenido usan <code>sb-ui-alert-icon</code>,

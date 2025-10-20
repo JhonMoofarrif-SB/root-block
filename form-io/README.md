@@ -74,9 +74,9 @@ const form = await Formio.createForm(document.getElementById('formio'), {
 
 ```html
 <!DOCTYPE html>
-<html data-rb-brand="davivienda" data-rb-theme="light">
+<html data-sb-ui-brand="davivienda" data-sb-ui-theme="light">
   <head>
-    <meta name="rb-css-base-url" content="/assets/css" />
+    <meta name="sb-ui-css-base-url" content="/assets/css" />
     <link rel="stylesheet" href="seguros-bolivar-ui-formio-davivienda-light.min.css" />
   </head>
   <body>
@@ -183,7 +183,7 @@ themeManager.setTheme('dark');
 themeManager.toggleTheme();
 
 // Escuchar cambios
-document.addEventListener('rb:theme-change', (event) => {
+document.addEventListener('sb-ui:theme-change', (event) => {
   console.log('Nuevo tema:', event.detail);
 });
 ```
@@ -303,12 +303,12 @@ npm run build
 
 ## 📊 Tamaños de Bundle
 
-| Archivo                                     | Tamaño | Gzip  | Descripción           |
-| ------------------------------------------- | ------ | ----- | --------------------- |
+| Archivo                                             | Tamaño | Gzip  | Descripción           |
+| --------------------------------------------------- | ------ | ----- | --------------------- |
 | `seguros-bolivar-ui-formio.min.css`                 | ~15KB  | ~3KB  | CSS universal         |
 | `seguros-bolivar-ui-formio-{brand}-{theme}.min.css` | ~18KB  | ~4KB  | CSS con tokens        |
 | `seguros-bolivar-ui-formio.min.js`                  | ~25KB  | ~8KB  | JavaScript minificado |
-| Bundle completo                             | ~43KB  | ~12KB | CSS + JS combinado    |
+| Bundle completo                                     | ~43KB  | ~12KB | CSS + JS combinado    |
 
 ## 🔧 Configuración Avanzada
 
@@ -352,7 +352,7 @@ Formio.validators.rootblock = {
 
 1. **Estilos no se aplican**
    - Verificar que el CSS se carga antes que el JS
-   - Comprobar que `data-rb-brand` está en el HTML
+   - Comprobar que `data-sb-ui-brand` está en el HTML
 
 2. **Componentes no aparecen**
    - Asegurar que Form.io se carga antes que Seguros Bolivar UI

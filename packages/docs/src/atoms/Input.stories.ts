@@ -245,7 +245,11 @@ export const Playground: Story = {
             : ''}
           ${args.iconPosition !== 'none'
             ? html`
-                <div class="sb-ui-input-container ${args.inline ? 'sb-ui-input-container--inline' : ''}">
+                <div
+                  class="sb-ui-input-container ${args.inline
+                    ? 'sb-ui-input-container--inline'
+                    : ''}"
+                >
                   <input
                     id="${inputId}"
                     class="${inputClasses}"
@@ -273,7 +277,11 @@ export const Playground: Story = {
                 </div>
               `
             : html`
-                <div class="${args.inline ? 'sb-ui-input-container sb-ui-input-container--inline' : ''}">
+                <div
+                  class="${args.inline
+                    ? 'sb-ui-input-container sb-ui-input-container--inline'
+                    : ''}"
+                >
                   <input
                     id="${inputId}"
                     class="${inputClasses}"
@@ -453,7 +461,11 @@ export const Estados: Story = {
         </div>
         <div>
           <label class="sb-ui-input-label">Rounded</label>
-          <input class="sb-ui-input sb-ui-input--rounded" type="text" placeholder="Bordes redondeados" />
+          <input
+            class="sb-ui-input sb-ui-input--rounded"
+            type="text"
+            placeholder="Bordes redondeados"
+          />
         </div>
       </div>
 
