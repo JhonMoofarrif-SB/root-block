@@ -14,6 +14,7 @@
     "./select.css": "./dist/select.css",
     "./toggle.css": "./dist/toggle.css",
     "./alert.css": "./dist/alert.css",
+    "./checkbox.css": "./dist/checkbox.css",
     "./badge.css": "./dist/badge.css",
     "./card.css": "./dist/card.css"
   },
@@ -21,7 +22,7 @@
     "build": "npm run clean && npm run build:copy && npm run build:bundle",
     "clean": "rm -rf dist",
     "build:copy": "mkdir -p dist && cp -r src/* dist/",
-    "build:bundle": "cat src/button.css src/input.css src/textArea.css src/select.css src/toggle.css src/alert.css > dist/index.css",
+    "build:bundle": "cat src/button.css src/input.css src/textArea.css src/select.css src/toggle.css src/alert.css src/checkbox.css > dist/index.css",
     "dev": "npm run build",
     "lint": "stylelint 'src/**/*.css'"
   },
@@ -36,6 +37,7 @@
     "select",
     "toggle",
     "alert",
+    "checkbox",
     "badge",
     "card"
   ],

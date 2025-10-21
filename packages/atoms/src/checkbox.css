@@ -1,0 +1,847 @@
+/**
+ * ============================================================================
+ * Checkbox Component - Seguros Bolivar UI Design System
+ * ============================================================================
+ *
+ * Componente CSS moderno con:
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties para internacionalización (RTL/LTR)
+ * - Variables CSS themables (multi-marca)
+ * - Efecto halo en hover/pressed (Material Design inspired)
+ *
+ * ============================================================================
+ * 📋 ESTRUCTURA HTML
+ * ============================================================================
+ *
+ * <!-- Normal checkbox -->
+ * <label class="sb-ui-checkbox">
+ *   <input type="checkbox" class="sb-ui-checkbox__input">
+ *   <span class="sb-ui-checkbox__box"></span>
+ *   <span class="sb-ui-checkbox__label">Option text</span>
+ * </label>
+ *
+ * <!-- Error state (validation failed) -->
+ * <label class="sb-ui-checkbox sb-ui-checkbox--error">
+ *   <input type="checkbox" class="sb-ui-checkbox__input">
+ *   <span class="sb-ui-checkbox__box"></span>
+ *   <span class="sb-ui-checkbox__label">Required field</span>
+ * </label>
+ *
+ * ============================================================================
+ * 🎨 CLASE ÚNICA
+ * ============================================================================
+ *
+ * .sb-ui-checkbox (una sola clase, sin variantes)
+ *
+ * ============================================================================
+ * 📱 MATRIZ DE ESTADOS (2×2)
+ * ============================================================================
+ *
+ * ┌─────────────────┬──────────────────┬──────────────────┐
+ * │                 │  UNCHECKED       │  CHECKED         │
+ * ├─────────────────┼──────────────────┼──────────────────┤
+ * │ ENABLED         │  State 1         │  State 2         │
+ * │ DISABLED        │  State 3         │  State 4         │
+ * └─────────────────┴──────────────────┴──────────────────┘
+ *
+ * Cada estado tiene: default, hover, active (pressed), focus
+ *
+ * PRINCIPIO FUNDAMENTAL: El box SIEMPRE tiene background BLANCO (#FFF)
+ * cuando está UNCHECKED. Los halos de hover/pressed están DETRÁS (z-index < 0)
+ *
+ * ============================================================================
+ * 🔴 ESTADO ERROR
+ * ============================================================================
+ *
+ * Clase: .sb-ui-checkbox--error
+ *
+ * - Border y label en ROJO (feedback visual de validación)
+ * - Background CHECKED en rojo
+ * - Halos en tonos rojizos (#FFEBEE, #FFCDD2)
+ * - Usado para indicar validación fallida en formularios
+ *
+ * ============================================================================
+ * 📏 TAMAÑOS
+ * ============================================================================
+ *
+ * small (16px), medium (20px - default), large (24px)
+ *
+ * ============================================================================
+ */
+
+@layer reset, tokens, base, sizes, modifiers, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-checkbox {
+    all: unset;
+    box-sizing: border-box;
+
+    & *,
+    & *::before,
+    & *::after {
+      box-sizing: inherit;
+    }
+  }
+
+  .sb-ui-checkbox__input {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-checkbox__box {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-checkbox__label {
+    all: unset;
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-checkbox {
+    /* ===== ESTRUCTURA - Tamaños fijos (según spec) ===== */
+    --sb-ui-checkbox-box-size: 20px; /* Tamaño del cuadro 20x20px */
+    --sb-ui-checkbox-gap: 8px; /* Space between checkbox y label */
+    --sb-ui-checkbox-padding: clamp(4px, 0.3rem, 8px); /* Padding interno del container */
+
+    /* ===== BOX - Colores del cuadro (UNCHECKED) ===== */
+    /* STATE 1: UNCHECKED + ENABLED - SIEMPRE BLANCO, SIEMPRE MISMO BORDE */
+    --sb-ui-checkbox-box-bg: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-checkbox-box-bg-hover: var(--sb-ui-color-grayscale-white, #fff); /* MISMO COLOR */
+    --sb-ui-checkbox-box-bg-active: var(--sb-ui-color-grayscale-white, #fff); /* MISMO COLOR */
+    --sb-ui-checkbox-box-bg-disabled: var(
+      --sb-ui-color-grayscale-white,
+      #fff
+    ); /* BLANCO cuando unchecked disabled */
+    --sb-ui-checkbox-box-bg-disabled-hover: var(--sb-ui-color-grayscale-white, #fff);
+
+    --sb-ui-checkbox-box-border: var(--sb-ui-color-primary-base, #009056);
+    --sb-ui-checkbox-box-border-hover: var(--sb-ui-color-primary-base, #009056); /* MISMO BORDE */
+    --sb-ui-checkbox-box-border-active: var(--sb-ui-color-primary-base, #009056); /* MISMO BORDE */
+    --sb-ui-checkbox-box-border-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-box-border-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== HOVER HALO (círculo de fondo) ===== */
+    --sb-ui-checkbox-hover-halo-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+    --sb-ui-checkbox-hover-halo-size: 32px; /* 32x32px según spec */
+    --sb-ui-checkbox-hover-halo-opacity: 0.7; /* 70% opacidad */
+    --sb-ui-checkbox-hover-halo-top: -7px; /* top: -7px según spec */
+    --sb-ui-checkbox-hover-halo-left: -7px; /* left: -7px según spec */
+
+    /* ===== PRESSED HALOS (doble círculo concéntrico) ===== */
+    /* Halo grande (outer) - más claro, se sobrepone */
+    --sb-ui-checkbox-pressed-halo-outer-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+    --sb-ui-checkbox-pressed-halo-outer-size: 32px; /* 32x32px */
+    --sb-ui-checkbox-pressed-halo-outer-opacity: 0.7; /* 70% opacidad según spec */
+    --sb-ui-checkbox-pressed-halo-outer-top: -7px;
+    --sb-ui-checkbox-pressed-halo-outer-left: -7px;
+
+    /* Halo pequeño (inner) - más oscuro, debajo del outer */
+    --sb-ui-checkbox-pressed-halo-inner-bg: var(--sb-ui-color-primary-L300, #e5f4ee);
+    --sb-ui-checkbox-pressed-halo-inner-size: 28px; /* 28x28px */
+    --sb-ui-checkbox-pressed-halo-inner-opacity: 0.7; /* 70% opacidad según spec */
+    --sb-ui-checkbox-pressed-halo-inner-top: -5px;
+    --sb-ui-checkbox-pressed-halo-inner-left: -5px;
+
+    /* ===== BOX - Colores del cuadro (CHECKED) ===== */
+    /* STATE 2: CHECKED + ENABLED */
+    --sb-ui-checkbox-box-bg-checked: var(--sb-ui-color-primary-base, #009056);
+    --sb-ui-checkbox-box-bg-checked-hover: var(
+      --sb-ui-color-primary-base,
+      #009056
+    ); /* MISMO COLOR en hover */
+    --sb-ui-checkbox-box-bg-checked-active: var(
+      --sb-ui-color-primary-base,
+      #009056
+    ); /* MISMO COLOR en active */
+    --sb-ui-checkbox-box-bg-checked-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-box-bg-checked-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    --sb-ui-checkbox-box-border-checked: var(--sb-ui-color-primary-base, #009056);
+    --sb-ui-checkbox-box-border-checked-hover: var(
+      --sb-ui-color-primary-base,
+      #009056
+    ); /* MISMO COLOR en hover */
+    --sb-ui-checkbox-box-border-checked-active: var(
+      --sb-ui-color-primary-base,
+      #009056
+    ); /* MISMO COLOR en active */
+    --sb-ui-checkbox-box-border-checked-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-box-border-checked-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== CHECKMARK - Color del check ===== */
+    --sb-ui-checkbox-check-color: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-checkbox-check-color-disabled: var(
+      --sb-ui-color-grayscale-white,
+      #fff
+    ); /* BLANCO para contraste sobre fondo gris */
+
+    /* ===== LABEL - Colores del texto ===== */
+    --sb-ui-checkbox-label-color: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-checkbox-label-color-hover: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-checkbox-label-color-active: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-checkbox-label-color-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-label-color-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== TIPOGRAFÍA ===== */
+    --sb-ui-checkbox-font-family:
+      'Bolivar', var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-checkbox-font-size: 16px; /* Tamaño fijo según spec */
+    --sb-ui-checkbox-font-weight: 400; /* Regular */
+    --sb-ui-checkbox-line-height: 1.4; /* 140% = 22.4px */
+    --sb-ui-checkbox-letter-spacing: 0px; /* Sin letter spacing */
+
+    /* ===== BORDES ===== */
+    --sb-ui-checkbox-border-width: 1px; /* 1px según spec */
+    --sb-ui-checkbox-border-radius: 4px; /* 4px border-radius fijo */
+
+    /* ===== TRANSICIONES (sin outline) ===== */
+    --sb-ui-checkbox-transition:
+      background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estructura y estilos base
+   ======================================== */
+@layer base {
+  /* ===== CONTAINER ===== */
+  .sb-ui-checkbox {
+    /* Layout: label como contenedor flex */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sb-ui-checkbox-gap);
+    position: relative;
+
+    /* Padding para área de clic amplia */
+    padding: var(--sb-ui-checkbox-padding);
+
+    /* Cursor: pointer en todo el container */
+    cursor: pointer;
+
+    /* Typography para el label */
+    font-family: var(--sb-ui-checkbox-font-family);
+    font-size: var(--sb-ui-checkbox-font-size);
+    font-weight: var(--sb-ui-checkbox-font-weight);
+    line-height: var(--sb-ui-checkbox-line-height);
+    color: var(--sb-ui-checkbox-label-color);
+
+    /* User select: permitir selección de texto */
+    user-select: none;
+
+    /* Transition */
+    transition: var(--sb-ui-checkbox-transition);
+
+    /* PRESSED HALO INNER - círculo interno (solo visible en pressed) */
+    &::before {
+      content: '';
+      position: absolute;
+      inline-size: var(--sb-ui-checkbox-pressed-halo-inner-size);
+      block-size: var(--sb-ui-checkbox-pressed-halo-inner-size);
+      background-color: var(--sb-ui-checkbox-pressed-halo-inner-bg);
+      border-radius: 50%;
+      opacity: 0; /* Invisible por defecto */
+      transform: scale(0.8);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+      z-index: -1; /* MÁS ATRÁS que el halo outer (z-index: 0) */
+      inset-block-start: calc(
+        var(--sb-ui-checkbox-padding) + var(--sb-ui-checkbox-pressed-halo-inner-top)
+      );
+      inset-inline-start: calc(
+        var(--sb-ui-checkbox-padding) + var(--sb-ui-checkbox-pressed-halo-inner-left)
+      );
+      pointer-events: none;
+    }
+  }
+
+  /* ===== INPUT NATIVO (oculto visualmente, accesible) ===== */
+  .sb-ui-checkbox__input {
+    /* Position: absolute para ocultarlo pero mantener accesibilidad */
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* ===== CHECKBOX BOX (visual custom) ===== */
+  .sb-ui-checkbox__box {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* No shrink para mantener tamaño */
+    position: relative; /* Para posicionar el halo */
+    isolation: isolate; /* Crea nuevo stacking context para z-index */
+
+    /* Tamaño fijo */
+    inline-size: var(--sb-ui-checkbox-box-size);
+    block-size: var(--sb-ui-checkbox-box-size);
+
+    /* Appearance - SIEMPRE BLANCO en unchecked */
+    background-color: var(--sb-ui-checkbox-box-bg);
+    border: var(--sb-ui-checkbox-border-width) solid var(--sb-ui-checkbox-box-border);
+    border-radius: var(--sb-ui-checkbox-border-radius);
+
+    /* Transition */
+    transition: var(--sb-ui-checkbox-transition);
+
+    /* HOVER HALO - círculo de fondo detrás del checkbox */
+    &::before {
+      content: '';
+      position: absolute;
+      inline-size: var(--sb-ui-checkbox-hover-halo-size);
+      block-size: var(--sb-ui-checkbox-hover-halo-size);
+      background-color: var(--sb-ui-checkbox-hover-halo-bg);
+      border-radius: 50%; /* Círculo perfecto */
+      opacity: 0; /* Invisible por defecto */
+      transform: scale(0.8); /* Pequeño por defecto */
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+      z-index: -1; /* DETRÁS del checkbox box (usa isolation: isolate) */
+      inset-block-start: var(--sb-ui-checkbox-hover-halo-top); /* top: -7px */
+      inset-inline-start: var(--sb-ui-checkbox-hover-halo-left); /* left: -7px */
+      pointer-events: none; /* No interfiere con clicks */
+    }
+
+    /* Checkmark (oculto por default) */
+    &::after {
+      content: '';
+      display: block;
+      inline-size: 10px;
+      block-size: 6px;
+      border-inline-start: 2px solid transparent;
+      border-block-end: 2px solid transparent;
+      transform: rotate(-45deg) translateY(-1px);
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 1; /* Arriba del checkbox box (dentro del isolation context) */
+      position: relative; /* Para que z-index funcione */
+    }
+  }
+
+  /* ===== LABEL TEXT ===== */
+  .sb-ui-checkbox__label {
+    /* Display: inline para permitir wrap */
+    display: inline;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+
+  /* ========================================
+     ESTADOS INTERACTIVOS (UNCHECKED)
+     ======================================== */
+
+  /* HOVER */
+  .sb-ui-checkbox:hover:not(:has(.sb-ui-checkbox__input:disabled)) {
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-hover);
+      border-color: var(--sb-ui-checkbox-box-border-hover);
+
+      /* Activar el halo en hover */
+      &::before {
+        opacity: var(--sb-ui-checkbox-hover-halo-opacity);
+        transform: scale(1);
+      }
+    }
+
+    .sb-ui-checkbox__label {
+      color: var(--sb-ui-checkbox-label-color-hover);
+    }
+  }
+
+  /* PRESSED (active) - DOBLE HALO */
+  .sb-ui-checkbox:active:not(:has(.sb-ui-checkbox__input:disabled)) {
+    /* Activar HALO INNER (círculo pequeño) */
+    &::before {
+      opacity: var(--sb-ui-checkbox-pressed-halo-inner-opacity);
+      transform: scale(1);
+    }
+
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-active); /* BLANCO siempre */
+      border-color: var(--sb-ui-checkbox-box-border-active);
+      transform: scale(0.95);
+
+      /* Activar HALO OUTER (círculo grande) */
+      &::before {
+        opacity: var(--sb-ui-checkbox-pressed-halo-outer-opacity);
+        transform: scale(1);
+        inline-size: var(--sb-ui-checkbox-pressed-halo-outer-size);
+        block-size: var(--sb-ui-checkbox-pressed-halo-outer-size);
+        background-color: var(--sb-ui-checkbox-pressed-halo-outer-bg);
+        inset-block-start: var(--sb-ui-checkbox-pressed-halo-outer-top);
+        inset-inline-start: var(--sb-ui-checkbox-pressed-halo-outer-left);
+      }
+    }
+
+    .sb-ui-checkbox__label {
+      color: var(--sb-ui-checkbox-label-color-active);
+    }
+  }
+
+  /* FOCUS VISIBLE - Con halo como en hover */
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:focus-visible) {
+    .sb-ui-checkbox__box {
+      /* Halo de focus - mismo efecto que hover pero con color L300 */
+      &::before {
+        background-color: var(--sb-ui-color-primary-L300, #e5f4ee);
+        opacity: 0.7;
+        transform: scale(1);
+        inline-size: 32px;
+        block-size: 32px;
+        inset-block-start: -7px;
+        inset-inline-start: -7px;
+      }
+    }
+  }
+
+  /* ========================================
+     ESTADOS CHECKED
+     ======================================== */
+
+  /* CHECKED - Default */
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:checked) {
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-checked);
+      border-color: var(--sb-ui-checkbox-box-border-checked);
+
+      &::after {
+        border-inline-start-color: var(--sb-ui-checkbox-check-color);
+        border-block-end-color: var(--sb-ui-checkbox-check-color);
+        opacity: 1;
+      }
+    }
+  }
+
+  /* CHECKED + HOVER */
+  .sb-ui-checkbox:hover:has(.sb-ui-checkbox__input:checked:not(:disabled)) {
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-checked-hover);
+      border-color: var(--sb-ui-checkbox-box-border-checked-hover);
+
+      /* Activar el halo también en checked + hover */
+      &::before {
+        opacity: var(--sb-ui-checkbox-hover-halo-opacity);
+        transform: scale(1);
+      }
+    }
+  }
+
+  /* CHECKED + PRESSED */
+  .sb-ui-checkbox:active:has(.sb-ui-checkbox__input:checked:not(:disabled)) {
+    /* Activar HALO INNER (círculo pequeño) */
+    &::before {
+      opacity: var(--sb-ui-checkbox-pressed-halo-inner-opacity);
+      transform: scale(1);
+    }
+
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-checked-active);
+      border-color: var(--sb-ui-checkbox-box-border-checked-active);
+      transform: scale(0.95);
+
+      /* Activar HALO OUTER (círculo grande) */
+      &::before {
+        opacity: var(--sb-ui-checkbox-pressed-halo-outer-opacity);
+        transform: scale(1);
+        inline-size: var(--sb-ui-checkbox-pressed-halo-outer-size);
+        block-size: var(--sb-ui-checkbox-pressed-halo-outer-size);
+        background-color: var(--sb-ui-checkbox-pressed-halo-outer-bg);
+        inset-block-start: var(--sb-ui-checkbox-pressed-halo-outer-top);
+        inset-inline-start: var(--sb-ui-checkbox-pressed-halo-outer-left);
+      }
+    }
+  }
+
+  /* ========================================
+     ESTADOS DISABLED
+     ======================================== */
+
+  /* DISABLED - Unchecked */
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:disabled) {
+    cursor: not-allowed;
+
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-disabled);
+      border-color: var(--sb-ui-checkbox-box-border-disabled);
+
+      /* Desactivar TODOS los halos cuando está disabled */
+      &::before {
+        opacity: 0 !important;
+        transform: scale(0.8) !important;
+      }
+    }
+
+    .sb-ui-checkbox__label {
+      color: var(--sb-ui-checkbox-label-color-disabled);
+    }
+
+    /* Desactivar halo inner (pressed) cuando está disabled */
+    &::before {
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+    }
+  }
+
+  /* DISABLED + HOVER - Unchecked (sin cambios visuales) */
+  .sb-ui-checkbox:hover:has(.sb-ui-checkbox__input:disabled) {
+    .sb-ui-checkbox__box {
+      background-color: var(
+        --sb-ui-checkbox-box-bg-disabled-hover,
+        var(--sb-ui-checkbox-box-bg-disabled)
+      );
+      border-color: var(
+        --sb-ui-checkbox-box-border-disabled-hover,
+        var(--sb-ui-checkbox-box-border-disabled)
+      );
+
+      /* Asegurar que NO aparezca halo en hover disabled */
+      &::before {
+        opacity: 0 !important;
+        transform: scale(0.8) !important;
+      }
+    }
+
+    .sb-ui-checkbox__label {
+      color: var(
+        --sb-ui-checkbox-label-color-disabled-hover,
+        var(--sb-ui-checkbox-label-color-disabled)
+      );
+    }
+  }
+
+  /* DISABLED + PRESSED - Sin halos */
+  .sb-ui-checkbox:active:has(.sb-ui-checkbox__input:disabled) {
+    /* Desactivar halo inner */
+    &::before {
+      opacity: 0 !important;
+    }
+
+    .sb-ui-checkbox__box {
+      /* Desactivar halo outer */
+      &::before {
+        opacity: 0 !important;
+      }
+    }
+  }
+
+  /* DISABLED + CHECKED */
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:checked:disabled) {
+    cursor: not-allowed;
+
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-checked-disabled);
+      border-color: var(--sb-ui-checkbox-box-border-checked-disabled);
+
+      &::after {
+        border-inline-start-color: var(--sb-ui-checkbox-check-color-disabled);
+        border-block-end-color: var(--sb-ui-checkbox-check-color-disabled);
+        opacity: 1;
+      }
+
+      /* Desactivar halos cuando está checked + disabled */
+      &::before {
+        opacity: 0 !important;
+        transform: scale(0.8) !important;
+      }
+    }
+
+    .sb-ui-checkbox__label {
+      color: var(--sb-ui-checkbox-label-color-disabled);
+    }
+
+    /* Desactivar halo inner cuando está checked + disabled */
+    &::before {
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+    }
+  }
+
+  /* DISABLED + CHECKED + HOVER (sin halos) */
+  .sb-ui-checkbox:hover:has(.sb-ui-checkbox__input:checked:disabled) {
+    .sb-ui-checkbox__box {
+      background-color: var(
+        --sb-ui-checkbox-box-bg-checked-disabled-hover,
+        var(--sb-ui-checkbox-box-bg-checked-disabled)
+      );
+      border-color: var(
+        --sb-ui-checkbox-box-border-checked-disabled-hover,
+        var(--sb-ui-checkbox-box-border-checked-disabled)
+      );
+
+      /* NO halos en hover cuando está disabled */
+      &::before {
+        opacity: 0 !important;
+        transform: scale(0.8) !important;
+      }
+    }
+
+    .sb-ui-checkbox__label {
+      color: var(
+        --sb-ui-checkbox-label-color-disabled-hover,
+        var(--sb-ui-checkbox-label-color-disabled)
+      );
+    }
+  }
+
+  /* DISABLED + CHECKED + PRESSED (sin halos) */
+  .sb-ui-checkbox:active:has(.sb-ui-checkbox__input:checked:disabled) {
+    /* Desactivar halo inner */
+    &::before {
+      opacity: 0 !important;
+    }
+
+    .sb-ui-checkbox__box {
+      /* Desactivar halo outer */
+      &::before {
+        opacity: 0 !important;
+      }
+    }
+  }
+
+  /* DISABLED FOCUS - sin outline ni halo */
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:disabled:focus),
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:disabled:focus-visible) {
+    .sb-ui-checkbox__box {
+      outline: none;
+
+      /* NO halo de focus cuando está disabled */
+      &::before {
+        opacity: 0 !important;
+        transform: scale(0.8) !important;
+      }
+    }
+  }
+
+  /* ========================================
+     INDETERMINATE STATE (opcional)
+     ======================================== */
+  .sb-ui-checkbox:has(.sb-ui-checkbox__input:indeterminate) {
+    .sb-ui-checkbox__box {
+      background-color: var(--sb-ui-checkbox-box-bg-checked);
+      border-color: var(--sb-ui-checkbox-box-border-checked);
+
+      /* Línea horizontal en lugar de check */
+      &::after {
+        inline-size: 10px;
+        block-size: 0;
+        border-inline-start: 0;
+        border-block-end: 2px solid var(--sb-ui-checkbox-check-color);
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* ========================================
+   SIZES LAYER
+   ======================================== */
+@layer sizes {
+  /* SMALL */
+  .sb-ui-checkbox--small {
+    --sb-ui-checkbox-box-size: 16px;
+    --sb-ui-checkbox-gap: 6px;
+    --sb-ui-checkbox-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-checkbox-padding: clamp(2px, 0.2rem, 4px);
+
+    .sb-ui-checkbox__box::after {
+      inline-size: 8px;
+      block-size: 5px;
+    }
+  }
+
+  /* MEDIUM (default - ya definido en tokens) */
+  .sb-ui-checkbox--medium {
+    /* Usa los tamaños por defecto */
+  }
+
+  /* LARGE */
+  .sb-ui-checkbox--large {
+    --sb-ui-checkbox-box-size: 24px;
+    --sb-ui-checkbox-gap: 12px;
+    --sb-ui-checkbox-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+    --sb-ui-checkbox-padding: clamp(6px, 0.4rem, 12px);
+
+    .sb-ui-checkbox__box::after {
+      inline-size: 12px;
+      block-size: 7px;
+    }
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  /* Sin label (solo checkbox) */
+  .sb-ui-checkbox--no-label {
+    gap: 0;
+    padding: var(--sb-ui-checkbox-padding);
+
+    .sb-ui-checkbox__label {
+      display: none;
+    }
+  }
+
+  /* Block layout (ocupa todo el ancho) */
+  .sb-ui-checkbox--block {
+    display: flex;
+    inline-size: 100%;
+  }
+
+  /* Alineación: label arriba (para textos largos) */
+  .sb-ui-checkbox--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  /* ========================================
+     ERROR STATE - Validación de formularios
+     ======================================== */
+  .sb-ui-checkbox--error {
+    /* ===== UNCHECKED STATES ===== */
+    /* Background - SIEMPRE BLANCO en unchecked (incluso disabled) */
+    --sb-ui-checkbox-box-bg: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-checkbox-box-bg-hover: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-checkbox-box-bg-active: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-checkbox-box-bg-disabled: var(
+      --sb-ui-color-grayscale-white,
+      #fff
+    ); /* BLANCO cuando unchecked disabled */
+    --sb-ui-checkbox-box-bg-disabled-hover: var(--sb-ui-color-grayscale-white, #fff);
+
+    /* Hover Halo - color error */
+    --sb-ui-checkbox-hover-halo-bg: var(--sb-ui-color-feedback-error-L400, #fbebec);
+    --sb-ui-checkbox-pressed-halo-outer-bg: var(--sb-ui-color-feedback-error-L400, #fbebec);
+    --sb-ui-checkbox-pressed-halo-inner-bg: var(--sb-ui-color-feedback-error-L300, #f5c2c7);
+
+    /* Border - Error base color */
+    --sb-ui-checkbox-box-border: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-border-hover: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-border-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-border-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-box-border-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== CHECKED STATES ===== */
+    /* Background - ROJO cuando está checked */
+    --sb-ui-checkbox-box-bg-checked: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-bg-checked-hover: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-bg-checked-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-bg-checked-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-box-bg-checked-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* Border */
+    --sb-ui-checkbox-box-border-checked: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-border-checked-hover: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-border-checked-active: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-checkbox-box-border-checked-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-box-border-checked-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== CHECKMARK ===== */
+    --sb-ui-checkbox-check-color: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-checkbox-check-color-disabled: var(
+      --sb-ui-color-grayscale-white,
+      #fff
+    ); /* BLANCO para contraste sobre fondo gris */
+
+    /* ===== LABEL - Mantiene color normal (NO rojo) ===== */
+    --sb-ui-checkbox-label-color: var(
+      --sb-ui-color-grayscale-D100,
+      #757575
+    ); /* Gris normal, NO rojo */
+    --sb-ui-checkbox-label-color-hover: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-checkbox-label-color-active: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-checkbox-label-color-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-checkbox-label-color-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+  }
+
+  /* ========================================
+     LOADING STATE (opcional - async operations)
+     ======================================== */
+  .sb-ui-checkbox--loading {
+    pointer-events: none;
+
+    .sb-ui-checkbox__box {
+      opacity: 0.6;
+      animation: sb-ui-checkbox-pulse 1.5s ease-in-out infinite;
+    }
+  }
+
+  /* ========================================
+     READONLY STATE (visual feedback only)
+     ======================================== */
+  .sb-ui-checkbox--readonly {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER
+   ======================================== */
+@layer utilities {
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-checkbox,
+    .sb-ui-checkbox__box,
+    .sb-ui-checkbox__box::after,
+    .sb-ui-checkbox__label {
+      transition: none;
+      animation: none;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .sb-ui-checkbox__box {
+      --sb-ui-checkbox-border-width: 3px;
+    }
+
+    .sb-ui-checkbox:has(.sb-ui-checkbox__input:focus-visible) .sb-ui-checkbox__box {
+      outline-width: 4px;
+    }
+  }
+
+  /* Dark mode (opcional - si no usas tokens dinámicos) */
+  @media (prefers-color-scheme: dark) {
+    .sb-ui-checkbox {
+      /* Los tokens se manejan por el theme manager */
+    }
+  }
+}
+
+/* ========================================
+   ANIMACIONES (fuera de @layer)
+   ======================================== */
+@keyframes sb-ui-checkbox-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

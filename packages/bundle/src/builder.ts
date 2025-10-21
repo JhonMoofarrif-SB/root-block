@@ -129,6 +129,7 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
     'select.css',
     'toggle.css',
     'alert.css',
+    'checkbox.css',
     'index.css',
   ];
   for (const file of atomsFiles) {

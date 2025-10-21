@@ -1,0 +1,16 @@
+/**
+ * ============================================================================
+ * Atoms Package - Index
+ * ============================================================================
+ * Importa todos los componentes atómicos del Design System
+ * ============================================================================
+ */
+
+@import './alert.css';
+@import './button.css';
+@import './checkbox.css';
+@import './input.css';
+@import './select.css';
+@import './textArea.css';
+@import './toggle.css';
+
