@@ -1,0 +1,550 @@
+/**
+ * ============================================================================
+ * Radio Button Component - Seguros Bolivar UI Design System
+ * ============================================================================
+ *
+ * 🎯 ARQUITECTURA CORRECTA:
+ *
+ * El radio tiene DOS elementos visuales:
+ *
+ * 1️⃣ CONTENEDOR EXTERIOR (18×18px):
+ *    - Background: BLANCO (#FFF)
+ *    - Border: 1px solid #9B9B9B (gris)
+ *    - Actúa como un "outline" o anillo exterior
+ *
+ * 2️⃣ CÍRCULO INTERIOR (12×12px) - SOLO CUANDO SELECTED:
+ *    - Background: VERDE (#009056) - Primary/Base
+ *    - Posición: top: 3px, left: 3px (centrado con espacio de 3px en todas direcciones)
+ *    - Sin border
+ *
+ * LAYOUT:
+ * ┌─────────────────────┐  ← 18×18px contenedor (blanco + border gris)
+ * │  ┌───────────────┐  │  ← 3px espacio en todas direcciones
+ * │  │               │  │
+ * │  │   12×12px     │  │  ← Círculo verde (solo cuando selected)
+ * │  │   #009056     │  │
+ * │  │               │  │
+ * │  └───────────────┘  │
+ * └─────────────────────┘
+ *
+ * ============================================================================
+ */
+
+@layer reset, tokens, base, sizes, modifiers, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-radio,
+  .sb-ui-radio *,
+  .sb-ui-radio *::before,
+  .sb-ui-radio *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-radio {
+    /* ===== ESTRUCTURA - Tamaños fijos ===== */
+    --sb-ui-radio-outer-size: 18px; /* Contenedor exterior 18×18px */
+    --sb-ui-radio-inner-size: 12px; /* Círculo interior 12×12px (cuando selected) */
+    --sb-ui-radio-gap: 8px; /* Space between radio y label */
+    --sb-ui-radio-padding: clamp(4px, 0.3rem, 8px);
+
+    /* ===== CONTENEDOR EXTERIOR - UNSELECTED ===== */
+    --sb-ui-radio-outer-bg: var(--sb-ui-color-grayscale-white, #fff); /* BLANCO siempre */
+    --sb-ui-radio-outer-border: var(
+      --sb-ui-color-grayscale-base,
+      #9b9b9b
+    ); /* GRIS cuando unselected */
+    --sb-ui-radio-outer-border-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== CONTENEDOR EXTERIOR - SELECTED ===== */
+    --sb-ui-radio-outer-border-selected: var(
+      --sb-ui-color-grayscale-base,
+      #9b9b9b
+    ); /* GRIS cuando selected (border se mantiene gris, solo el círculo interior cambia a verde) */
+    --sb-ui-radio-outer-border-selected-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== CÍRCULO INTERIOR (solo cuando selected) ===== */
+    --sb-ui-radio-inner-bg: var(--sb-ui-color-primary-base, #009056); /* Verde */
+    --sb-ui-radio-inner-bg-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b); /* Gris */
+
+    /* ===== HALOS - Hover Effect ===== */
+    --sb-ui-radio-hover-halo-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+    --sb-ui-radio-hover-halo-size: 32px;
+    --sb-ui-radio-hover-halo-opacity: 0.7;
+
+    /* ===== HALOS - Pressed Effect (doble halo) ===== */
+    --sb-ui-radio-pressed-halo-outer-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+    --sb-ui-radio-pressed-halo-outer-size: 32px;
+    --sb-ui-radio-pressed-halo-outer-opacity: 0.7;
+
+    --sb-ui-radio-pressed-halo-inner-bg: var(--sb-ui-color-primary-L300, #e5f4ee);
+    --sb-ui-radio-pressed-halo-inner-size: 28px;
+    --sb-ui-radio-pressed-halo-inner-opacity: 0.7;
+
+    /* ===== LABEL ===== */
+    --sb-ui-radio-label-color: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-radio-label-color-hover: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-radio-label-color-active: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-radio-label-color-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* ===== TIPOGRAFÍA ===== */
+    --sb-ui-radio-font-family: 'Bolivar', var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-radio-font-size: 16px;
+    --sb-ui-radio-font-weight: 400;
+    --sb-ui-radio-line-height: 1.4; /* 140% */
+    --sb-ui-radio-letter-spacing: 0px;
+
+    /* ===== BORDES ===== */
+    --sb-ui-radio-border-width: 1px;
+
+    /* ===== TRANSICIONES ===== */
+    --sb-ui-radio-transition:
+      background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  /* ===== CONTAINER LABEL ===== */
+  .sb-ui-radio {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sb-ui-radio-gap);
+    position: relative;
+    padding: var(--sb-ui-radio-padding);
+
+    /* Typography */
+    font-family: var(--sb-ui-radio-font-family);
+    font-size: var(--sb-ui-radio-font-size);
+    font-weight: var(--sb-ui-radio-font-weight);
+    line-height: var(--sb-ui-radio-line-height);
+    letter-spacing: var(--sb-ui-radio-letter-spacing);
+    color: var(--sb-ui-radio-label-color);
+
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+
+    /* Halo inner (pressed state) - se activa en :active */
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block-start: calc(
+        var(--sb-ui-radio-padding) +
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-pressed-halo-inner-size)) / 2
+      );
+      inset-inline-start: calc(
+        var(--sb-ui-radio-padding) +
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-pressed-halo-inner-size)) / 2
+      );
+      inline-size: var(--sb-ui-radio-pressed-halo-inner-size);
+      block-size: var(--sb-ui-radio-pressed-halo-inner-size);
+      background-color: var(--sb-ui-radio-pressed-halo-inner-bg);
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.8);
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+  /* ===== INPUT OCULTO (pero funcional para a11y) ===== */
+  .sb-ui-radio__input {
+    position: absolute;
+    opacity: 0;
+    inline-size: 0;
+    block-size: 0;
+    pointer-events: none;
+  }
+
+  /* ===== CONTENEDOR EXTERIOR (18×18px - blanco + border gris) ===== */
+  .sb-ui-radio__circle {
+    /* Layout */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    /* Size */
+    inline-size: var(--sb-ui-radio-outer-size);
+    block-size: var(--sb-ui-radio-outer-size);
+
+    /* Appearance - SIEMPRE BLANCO con border GRIS */
+    background-color: var(--sb-ui-radio-outer-bg);
+    border: var(--sb-ui-radio-border-width) solid var(--sb-ui-radio-outer-border);
+    border-radius: 50%;
+
+    /* Animation */
+    transition: var(--sb-ui-radio-transition);
+
+    /* Stacking context para halos */
+    isolation: isolate;
+
+    /* Halo outer (hover/pressed) - ::before */
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block-start: calc(
+        (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-hover-halo-size)) / 2
+      );
+      inset-inline-start: calc(
+        (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-hover-halo-size)) / 2
+      );
+      inline-size: var(--sb-ui-radio-hover-halo-size);
+      block-size: var(--sb-ui-radio-hover-halo-size);
+      background-color: var(--sb-ui-radio-hover-halo-bg);
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.8);
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Círculo interior (12×12px verde) - ::after - solo cuando selected */
+    &::after {
+      content: '';
+      display: block;
+      inline-size: var(--sb-ui-radio-inner-size);
+      block-size: var(--sb-ui-radio-inner-size);
+      background-color: transparent;
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0);
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+      z-index: 1;
+    }
+  }
+
+  /* ===== LABEL TEXT ===== */
+  .sb-ui-radio__label {
+    display: inline;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+
+  /* ========================================
+     ESTADOS INTERACTIVOS (UNSELECTED)
+     ======================================== */
+
+  /* HOVER */
+  .sb-ui-radio:hover:not(:has(.sb-ui-radio__input:disabled)) {
+    .sb-ui-radio__circle {
+      /* Border EXPLÍCITAMENTE NO cambia en hover (mantiene gris) */
+      border-color: var(--sb-ui-radio-outer-border);
+
+      /* Activar el halo en hover */
+      &::before {
+        opacity: var(--sb-ui-radio-hover-halo-opacity);
+        transform: scale(1);
+      }
+    }
+
+    .sb-ui-radio__label {
+      color: var(--sb-ui-radio-label-color-hover);
+    }
+  }
+
+  /* PRESSED (active) - DOBLE HALO */
+  .sb-ui-radio:active:not(:has(.sb-ui-radio__input:disabled)) {
+    /* Activar HALO INNER (círculo pequeño) */
+    &::before {
+      opacity: var(--sb-ui-radio-pressed-halo-inner-opacity);
+      transform: scale(1);
+    }
+
+    .sb-ui-radio__circle {
+      /* Border EXPLÍCITAMENTE NO cambia en pressed (mantiene gris) */
+      border-color: var(--sb-ui-radio-outer-border);
+      transform: scale(0.95);
+
+      /* Activar HALO OUTER (círculo grande) */
+      &::before {
+        opacity: var(--sb-ui-radio-pressed-halo-outer-opacity);
+        transform: scale(1);
+        inline-size: var(--sb-ui-radio-pressed-halo-outer-size);
+        block-size: var(--sb-ui-radio-pressed-halo-outer-size);
+        background-color: var(--sb-ui-radio-pressed-halo-outer-bg);
+        inset-block-start: calc(
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-pressed-halo-outer-size)) / 2
+        );
+        inset-inline-start: calc(
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-pressed-halo-outer-size)) / 2
+        );
+      }
+    }
+
+    .sb-ui-radio__label {
+      color: var(--sb-ui-radio-label-color-active);
+    }
+  }
+
+  /* FOCUS VISIBLE */
+  .sb-ui-radio:has(.sb-ui-radio__input:focus-visible) {
+    .sb-ui-radio__circle {
+      &::before {
+        background-color: var(--sb-ui-color-primary-L300, #e5f4ee);
+        opacity: 0.7;
+        transform: scale(1);
+        inline-size: var(--sb-ui-radio-hover-halo-size);
+        block-size: var(--sb-ui-radio-hover-halo-size);
+        /* Centrado dinámico como hover */
+        inset-block-start: calc(
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-hover-halo-size)) / 2
+        );
+        inset-inline-start: calc(
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-hover-halo-size)) / 2
+        );
+      }
+    }
+  }
+
+  /* ========================================
+     ESTADOS SELECTED (CHECKED)
+     ======================================== */
+
+  /* SELECTED - Default */
+  .sb-ui-radio:has(.sb-ui-radio__input:checked) {
+    .sb-ui-radio__circle {
+      /* Border cambia a VERDE */
+      border-color: var(--sb-ui-radio-outer-border-selected);
+
+      /* Círculo interior VERDE aparece */
+      &::after {
+        background-color: var(--sb-ui-radio-inner-bg);
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  /* SELECTED + HOVER */
+  .sb-ui-radio:hover:has(.sb-ui-radio__input:checked:not(:disabled)) {
+    .sb-ui-radio__circle {
+      /* Border EXPLÍCITAMENTE NO cambia en hover (mantiene el mismo de selected) */
+      border-color: var(--sb-ui-radio-outer-border-selected);
+
+      /* Activar el halo también en selected + hover */
+      &::before {
+        opacity: var(--sb-ui-radio-hover-halo-opacity);
+        transform: scale(1);
+      }
+    }
+  }
+
+  /* SELECTED + PRESSED */
+  .sb-ui-radio:active:has(.sb-ui-radio__input:checked:not(:disabled)) {
+    /* Activar HALO INNER (círculo pequeño) */
+    &::before {
+      opacity: var(--sb-ui-radio-pressed-halo-inner-opacity);
+      transform: scale(1);
+    }
+
+    .sb-ui-radio__circle {
+      /* Border EXPLÍCITAMENTE NO cambia en pressed (mantiene el mismo de selected) */
+      border-color: var(--sb-ui-radio-outer-border-selected);
+      transform: scale(0.95);
+
+      /* Activar HALO OUTER (círculo grande) */
+      &::before {
+        opacity: var(--sb-ui-radio-pressed-halo-outer-opacity);
+        transform: scale(1);
+        inline-size: var(--sb-ui-radio-pressed-halo-outer-size);
+        block-size: var(--sb-ui-radio-pressed-halo-outer-size);
+        background-color: var(--sb-ui-radio-pressed-halo-outer-bg);
+        inset-block-start: calc(
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-pressed-halo-outer-size)) / 2
+        );
+        inset-inline-start: calc(
+          (var(--sb-ui-radio-outer-size) - var(--sb-ui-radio-pressed-halo-outer-size)) / 2
+        );
+      }
+    }
+  }
+
+  /* ========================================
+     ESTADOS DISABLED
+     ======================================== */
+
+  /* DISABLED - Unselected */
+  .sb-ui-radio:has(.sb-ui-radio__input:disabled) {
+    cursor: not-allowed;
+
+    .sb-ui-radio__circle {
+      border-color: var(--sb-ui-radio-outer-border-disabled);
+    }
+
+    .sb-ui-radio__label {
+      color: var(--sb-ui-radio-label-color-disabled);
+    }
+  }
+
+  /* DISABLED + SELECTED */
+  .sb-ui-radio:has(.sb-ui-radio__input:checked:disabled) {
+    cursor: not-allowed;
+
+    .sb-ui-radio__circle {
+      border-color: var(--sb-ui-radio-outer-border-selected-disabled);
+
+      &::after {
+        background-color: var(--sb-ui-radio-inner-bg-disabled); /* Gris */
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .sb-ui-radio__label {
+      color: var(--sb-ui-radio-label-color-disabled);
+    }
+  }
+
+  /* DISABLED - Desactivar TODOS los halos (hover, pressed, focus) */
+  .sb-ui-radio:has(.sb-ui-radio__input:disabled) {
+    /* Halo inner (pressed state - container ::before) */
+    &::before {
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+    }
+
+    /* Halo outer (hover/pressed/focus state - circle ::before) */
+    .sb-ui-radio__circle::before {
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+    }
+  }
+
+  /* DISABLED FOCUS - sin outline ni halo */
+  .sb-ui-radio:has(.sb-ui-radio__input:disabled:focus),
+  .sb-ui-radio:has(.sb-ui-radio__input:disabled:focus-visible) {
+    .sb-ui-radio__circle {
+      outline: none;
+
+      /* NO halo de focus cuando está disabled */
+      &::before {
+        opacity: 0 !important;
+        transform: scale(0.8) !important;
+      }
+    }
+  }
+}
+
+/* ========================================
+   SIZES LAYER
+   ======================================== */
+@layer sizes {
+  /* SMALL */
+  .sb-ui-radio--small {
+    --sb-ui-radio-outer-size: 16px;
+    --sb-ui-radio-inner-size: 10px;
+
+    --sb-ui-radio-gap: 8px;
+    --sb-ui-radio-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-radio-padding: clamp(2px, 0.2rem, 4px);
+  }
+
+  /* MEDIUM (default - ya definido en tokens) */
+  .sb-ui-radio--medium {
+    /* Usa los tamaños por defecto: outer: 18px, inner: 12px, offset: 3px */
+  }
+
+  /* LARGE */
+  .sb-ui-radio--large {
+    --sb-ui-radio-outer-size: 24px;
+    --sb-ui-radio-inner-size: 16px;
+
+    --sb-ui-radio-gap: 8px;
+    --sb-ui-radio-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+    --sb-ui-radio-padding: clamp(6px, 0.4rem, 12px);
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  /* Sin label (solo radio) */
+  .sb-ui-radio--no-label {
+    gap: 0;
+    padding: var(--sb-ui-radio-padding);
+
+    .sb-ui-radio__label {
+      display: none;
+    }
+  }
+
+  /* Block layout (ocupa todo el ancho) */
+  .sb-ui-radio--block {
+    display: flex;
+    inline-size: 100%;
+  }
+
+  /* Alineación: label arriba (para textos largos) */
+  .sb-ui-radio--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  /* ERROR STATE - Validación de formularios */
+  .sb-ui-radio--error {
+    /* Border rojo para el contenedor exterior (en todos los estados) */
+    --sb-ui-radio-outer-border: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-radio-outer-border-selected: var(--sb-ui-color-feedback-error-base, #dc3545);
+
+    /* Cuando está selected + error, el círculo interior es rojo */
+    --sb-ui-radio-inner-bg: var(--sb-ui-color-feedback-error-base, #dc3545);
+
+    /* Label se mantiene gris (NO rojo) */
+    --sb-ui-radio-label-color: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-radio-label-color-hover: var(--sb-ui-color-grayscale-D100, #757575);
+    --sb-ui-radio-label-color-active: var(--sb-ui-color-grayscale-D100, #757575);
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .sb-ui-radio__circle {
+      --sb-ui-radio-border-width: 2px;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-radio,
+    .sb-ui-radio__circle,
+    .sb-ui-radio::before,
+    .sb-ui-radio__circle::before,
+    .sb-ui-radio__circle::after,
+    .sb-ui-radio__label {
+      --sb-ui-radio-transition: none;
+      animation: none;
+      transition: none;
+    }
+  }
+}
