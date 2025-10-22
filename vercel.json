@@ -4,14 +4,6 @@
   "outputDirectory": "packages/docs/storybook-static",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/examples/:path*",
-      "destination": "/examples/:path*"
-    }
-  ],
   "headers": [
     {
       "source": "/examples/dist/(.*)",
@@ -23,15 +15,6 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
-        }
-      ]
-    },
-    {
-      "source": "/examples/(.*)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=utf-8"
         }
       ]
     }
