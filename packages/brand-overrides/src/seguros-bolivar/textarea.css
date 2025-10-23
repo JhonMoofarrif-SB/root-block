@@ -1,0 +1,169 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - TextArea Component Overrides
+ * ============================================================================
+ *
+ * Brand-specific overrides for textarea component following design system specs
+ *
+ * - Border radius: 8px
+ * - Padding: 16px horizontal, 8px vertical
+ * - Font sizes: Label 14px, Helper 12px, Input 16px
+ * - Spacing: 8px between elements
+ * - Colors: Grayscale base for borders, primary for focus
+ * ============================================================================
+ */
+
+/* ============================================================================
+   CONFIGURACIÓN GLOBAL (fuera de @layer)
+   Propiedades estructurales como padding, border-radius, tamaños
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-textarea {
+  --sb-ui-textarea-border-radius: 8px;
+  --sb-ui-textarea-padding-x: 16px; /* Padding horizontal */
+  --sb-ui-textarea-padding-y: 8px; /* Padding vertical */
+  --sb-ui-textarea-font-size: 1rem; /* Body/Regular - 16px */
+  --sb-ui-textarea-font-weight: 400; /* Regular */
+  --sb-ui-textarea-min-height: 80px;
+  --sb-ui-textarea-line-height: 1.5;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-textarea-label {
+  --sb-ui-textarea-label-font-size: 14px; /* Label/Regular - 14px */
+  --sb-ui-textarea-label-font-weight: 400; /* Regular, no bold */
+  --sb-ui-textarea-label-margin-block-end: 8px; /* 8px entre label y textarea */
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-textarea-helper {
+  --sb-ui-textarea-helper-font-size: 12px; /* Caption/Regular - 12px */
+  --sb-ui-textarea-helper-font-weight: 400; /* Regular */
+  --sb-ui-textarea-helper-margin-block-start: 8px; /* 8px entre textarea y helper text */
+  padding-inline-start: 8px; /* Padding izquierdo */
+}
+
+/* Container padding según diseño */
+[data-brand='seguros-bolivar'] .sb-ui-textarea-container {
+  padding: 8px 16px; /* Container padding del diseño */
+}
+
+@layer brand-overrides {
+  /* ========================================
+     DEFAULT STATE
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea {
+    /* Background */
+    --sb-ui-textarea-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-textarea-bg-disabled: var(--sb-ui-color-grayscale-L300);
+
+    /* Text */
+    --sb-ui-textarea-text-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-textarea-text-placeholder: var(--sb-ui-color-grayscale-base);
+    --sb-ui-textarea-text-disabled: var(--sb-ui-color-grayscale-base);
+
+    /* Border */
+    --sb-ui-textarea-border-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-textarea-border-color-focus: var(--sb-ui-color-primary-base);
+
+    /* Shadow - Sin shadow en focus, solo borde verde según diseño */
+    --sb-ui-textarea-shadow: none;
+    --sb-ui-textarea-shadow-focus: none;
+  }
+
+  /* Eliminar outline y box-shadow en focus para evitar doble borde */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea:focus,
+  [data-brand='seguros-bolivar'] .sb-ui-textarea:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ========================================
+     LABEL - Focus state
+     Color verde cuando el textarea tiene foco
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:focus-within .sb-ui-textarea-label {
+    color: var(--sb-ui-color-primary-base);
+  }
+
+  /* ========================================
+     HELPER TEXT - Default
+     Color gris oscuro con icono verde
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-helper {
+    --sb-ui-textarea-helper-color: var(--sb-ui-color-grayscale-D200); /* Color más oscuro: #5b5b5b */
+    color: var(--sb-ui-color-grayscale-D200); /* Texto gris oscuro */
+  }
+
+  /* Icono del helper text en default - verde */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-helper i {
+    color: var(--sb-ui-color-feedback-success-base); /* Icono verde por defecto */
+  }
+
+  /* ========================================
+     SUCCESS STATE
+     Borde verde, helper text verde
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea--success {
+    --sb-ui-textarea-border-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-textarea-border-color-focus: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-textarea-shadow-focus: none;
+  }
+
+  /* Helper text en success - todo verde (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:has(.sb-ui-textarea--success) .sb-ui-textarea-helper {
+    color: var(--sb-ui-color-feedback-success-base) !important;
+  }
+
+  /* Icono en success - verde */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:has(.sb-ui-textarea--success) .sb-ui-textarea-helper i {
+    color: var(--sb-ui-color-feedback-success-base) !important;
+  }
+
+  /* ========================================
+     ERROR STATE
+     Borde rojo, helper text rojo
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea--error {
+    --sb-ui-textarea-border-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-textarea-border-color-focus: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-textarea-shadow-focus: none;
+  }
+
+  /* Helper text en error - todo rojo (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:has(.sb-ui-textarea--error) .sb-ui-textarea-helper {
+    color: var(--sb-ui-color-feedback-error-base) !important;
+  }
+
+  /* Icono en error - rojo */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:has(.sb-ui-textarea--error) .sb-ui-textarea-helper i {
+    color: var(--sb-ui-color-feedback-error-base) !important;
+  }
+
+  /* ========================================
+     WARNING STATE
+     Borde amarillo/naranja
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea--warning {
+    --sb-ui-textarea-border-color: var(--sb-ui-color-feedback-warning-base);
+    --sb-ui-textarea-border-color-focus: var(--sb-ui-color-feedback-warning-base);
+    --sb-ui-textarea-shadow-focus: none;
+  }
+
+  /* Helper text en warning - todo amarillo (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:has(.sb-ui-textarea--warning) .sb-ui-textarea-helper {
+    color: var(--sb-ui-color-feedback-warning-base) !important;
+  }
+
+  /* Icono en warning - amarillo */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea-container:has(.sb-ui-textarea--warning) .sb-ui-textarea-helper i {
+    color: var(--sb-ui-color-feedback-warning-base) !important;
+  }
+
+  /* ========================================
+     DISABLED STATE
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-textarea:disabled {
+    background-color: var(--sb-ui-color-grayscale-L300);
+    color: var(--sb-ui-color-grayscale-base);
+    border-color: var(--sb-ui-color-grayscale-L200);
+  }
+}
+

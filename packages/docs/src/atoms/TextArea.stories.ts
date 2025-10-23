@@ -25,6 +25,31 @@ import { html } from 'lit';
  * | **Modificadores** | | |
  * | Con contador | `.sb-ui-textarea--with-counter` | En un `.sb-ui-textarea-container` |
  * | Bordes redondeados | `.sb-ui-textarea--rounded` | `<textarea class="sb-ui-textarea sb-ui-textarea--rounded"></textarea>` |
+ *
+ * ## 💡 Notas Importantes
+ *
+ * - **Estado por defecto**: NORMAL - sin validación especial
+ * - **Tamaño por defecto**: MEDIUM - no necesitas especificar la clase
+ * - **Label**: Usa `sb-ui-textarea-label` y `sb-ui-textarea-label--required` para requeridos
+ * - **Helper text**: Usa `sb-ui-textarea-helper` con estados `--error`, `--success`, `--warning`
+ * - **Contador de caracteres**: Requiere contenedor `sb-ui-textarea-container` y `maxlength`
+ * - **Auto-resize**: Se ajusta automáticamente al contenido del usuario
+ *
+ * ## 🎯 Ejemplo de Estructura Completa
+ *
+ * ```html
+ * <div class="sb-ui-textarea-container">
+ *   <label class="sb-ui-textarea-label sb-ui-textarea-label--required">Comentarios</label>
+ *   <textarea class="sb-ui-textarea sb-ui-textarea--with-counter" maxlength="500"></textarea>
+ *   <div class="textarea-footer">
+ *     <span class="sb-ui-textarea-helper">
+ *       <i class="fa-solid fa-circle-info"></i>
+ *       Máximo 500 caracteres
+ *     </span>
+ *     <span class="sb-ui-textarea-counter">0 / 500</span>
+ *   </div>
+ * </div>
+ * ```
  */
 const meta: Meta = {
   title: 'Atoms/TextArea',
@@ -33,7 +58,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          'Componente de textarea versátil con contador de caracteres, auto-resize y múltiples estados de validación.',
+          'Componente de textarea versátil con 4 estados de validación (Normal, Error, Success, Warning), 3 tamaños (Small, Medium, Large), contador de caracteres y auto-resize.',
       },
     },
   },
@@ -145,18 +170,26 @@ type Story = StoryObj;
  * en el panel inferior. Puedes ajustar estado, tamaño, contador y más.
  */
 export const Playground: Story = {
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'html',
+      },
+    },
+  },
   args: {
     state: 'normal',
     size: 'medium',
     placeholder: 'Escribe tu mensaje aquí...',
     value: '',
-    label: 'Comentarios',
+    label: 'Label txt',
     required: false,
     disabled: false,
     maxLength: 200,
     withCounter: false,
     resize: 'default',
-    helperText: 'Escribe tus comentarios o sugerencias',
+    helperText: 'Help text',
     rounded: false,
   },
   render: (args) => {
@@ -187,43 +220,63 @@ export const Playground: Story = {
       .filter(Boolean)
       .join(' ');
 
+    const getHelperIcon = (state: string) => {
+      switch (state) {
+        case 'success':
+          return html`<i class="fa-solid fa-circle-check"></i>`;
+        case 'error':
+          return html`<i class="fa-solid fa-circle-xmark"></i>`;
+        case 'warning':
+          return html`<i class="fa-solid fa-triangle-exclamation"></i>`;
+        default:
+          return html`<i class="fa-solid fa-circle-info"></i>`;
+      }
+    };
+
     const textareaId = 'playground-textarea';
 
     return html`
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
       <div style="max-width: 500px;">
-        <div>
+        <div class="sb-ui-textarea-container">
           ${args.label
             ? html` <label class="${labelClasses}" for="${textareaId}"> ${args.label} </label> `
             : ''}
+          <textarea
+            id="${textareaId}"
+            class="${textareaClasses}"
+            placeholder="${args.placeholder || ''}"
+            ?required="${args.required}"
+            ?disabled="${args.disabled}"
+            maxlength="${args.maxLength || ''}"
+          >
+${args.value || ''}</textarea
+          >
           ${args.withCounter
             ? html`
-                <div class="sb-ui-textarea-container">
-                  <textarea
-                    id="${textareaId}"
-                    class="${textareaClasses}"
-                    placeholder="${args.placeholder || ''}"
-                    ?required="${args.required}"
-                    ?disabled="${args.disabled}"
-                    maxlength="${args.maxLength || ''}"
-                  >
-${args.value || ''}</textarea
-                  >
-                  <div class="sb-ui-textarea-counter">0/${args.maxLength || 200}</div>
+                <div class="textarea-footer">
+                  ${args.helperText
+                    ? html`
+                        <span class="${helperClasses}">
+                          ${getHelperIcon(args.state)}
+                          ${args.helperText}
+                        </span>
+                      `
+                    : ''}
+                  <span class="sb-ui-textarea-counter">0 / ${args.maxLength || 200}</span>
                 </div>
               `
-            : html`
-                <textarea
-                  id="${textareaId}"
-                  class="${textareaClasses}"
-                  placeholder="${args.placeholder || ''}"
-                  ?required="${args.required}"
-                  ?disabled="${args.disabled}"
-                  maxlength="${args.maxLength || ''}"
-                >
-${args.value || ''}</textarea
-                >
-              `}
-          ${args.helperText ? html` <div class="${helperClasses}">${args.helperText}</div> ` : ''}
+            : args.helperText
+              ? html`
+                  <span class="${helperClasses}">
+                    ${getHelperIcon(args.state)}
+                    ${args.helperText}
+                  </span>
+                `
+              : ''}
         </div>
       </div>
     `;
@@ -231,188 +284,891 @@ ${args.value || ''}</textarea
 };
 
 /**
- * ## Estados - Matriz de Combinaciones
+ * ## Estados - Matriz Completa de Combinaciones
  *
- * Matriz del textarea mostrando combinaciones de:
- * - **4 Estados**: Normal, Error, Success, Warning
+ * Matriz completa del textarea mostrando todas las combinaciones de:
+ * - **4 Estados**: Normal (Default), Error, Success, Warning
  * - **3 Tamaños**: Small, Medium, Large
- * - **Diferentes opciones**: Con contador, resize, etc.
+ * - **3 Variantes Interactivas**: Default, Hover, Disabled
+ *
+ * **Total: 36 combinaciones** (4 × 3 × 3)
  */
 export const Estados: Story = {
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'html',
+      },
+    },
+  },
   render: () => html`
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-      .textarea-matrix {
+      .matrix-container {
         font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
         padding: 2rem;
         background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
-      .textarea-demo {
+      .matrix-section {
+        margin-bottom: 4rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .matrix-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--sb-ui-color-primary-base, #007acc);
+      }
+
+      .matrix-subtitle {
+        font-size: 1rem;
+        color: var(--sb-ui-color-grayscale-base, #666);
+        margin-bottom: 2rem;
+      }
+
+      .matrix-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+      }
+
+      .matrix-table th,
+      .matrix-table td {
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border-right: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+        border-bottom: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+      }
+
+      .matrix-table th {
+        background: var(--sb-ui-color-primary-base, #007acc);
+        color: white;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .matrix-table td:first-child {
+        background: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+        font-weight: 600;
+        text-align: left;
+        padding-left: 1.5rem;
+        color: var(--sb-ui-color-grayscale-D100, #333);
+      }
+
+      .matrix-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .matrix-table th:last-child,
+      .matrix-table td:last-child {
+        border-right: none;
+      }
+
+      .state-label {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+        color: var(--sb-ui-color-grayscale-D200, #222);
+      }
+
+      .state-label.default {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
+      .state-label.hover {
+        background: #f3e5f5;
+        color: #6a1b9a;
+      }
+      .state-label.disabled {
+        background: #eceff1;
+        color: #546e7a;
+      }
+
+      .textarea-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+    </style>
+
+    <div class="matrix-container">
+      <!-- ========================================
+           SECCIÓN 1: NORMAL STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">📝 Estado NORMAL - TextArea</h2>
+        <p class="matrix-subtitle">
+          Estado por defecto del textarea sin validación específica. Muestra el borde gris por
+          defecto.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--small"
+                    placeholder="Placeholder"
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea" placeholder="Placeholder"></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--large"
+                    placeholder="Placeholder"
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--small"
+                    placeholder="Placeholder"
+                    style="border-color: var(--sb-ui-color-primary-base);"
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea"
+                    placeholder="Placeholder"
+                    style="border-color: var(--sb-ui-color-primary-base);"
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--large"
+                    placeholder="Placeholder"
+                    style="border-color: var(--sb-ui-color-primary-base);"
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--small"
+                    placeholder="Placeholder"
+                    disabled
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea" placeholder="Placeholder" disabled></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--large"
+                    placeholder="Placeholder"
+                    disabled
+                  ></textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Help text
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 2: SUCCESS STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">✅ Estado SUCCESS - TextArea</h2>
+        <p class="matrix-subtitle">
+          Estado de validación exitosa. Muestra borde verde y helper text con icono de check.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--success">
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--success">Valid text</textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--success">
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--success">
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--success">Valid text</textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--success">
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--success"
+                    disabled
+                  >
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--success" disabled>
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--success"
+                    disabled
+                  >
+Valid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 3: ERROR STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">❌ Estado ERROR - TextArea</h2>
+        <p class="matrix-subtitle">
+          Estado de validación fallida. Muestra borde rojo y helper text con icono de error.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--error">
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--error">Invalid text</textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--error">
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--error">
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--error">Invalid text</textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--error">
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--error"
+                    disabled
+                  >
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--error" disabled>
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--error"
+                    disabled
+                  >
+Invalid text</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 4: WARNING STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">⚠️ Estado WARNING - TextArea</h2>
+        <p class="matrix-subtitle">
+          Estado de advertencia. Muestra borde amarillo y helper text con icono de alerta.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--warning">
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--warning">Check this</textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--warning">
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--warning">
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--warning">Check this</textarea>
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--warning">
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--warning"
+                    disabled
+                  >
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea class="sb-ui-textarea sb-ui-textarea--warning" disabled>
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-textarea-container">
+                  <label class="sb-ui-textarea-label">Label txt</label>
+                  <textarea
+                    class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--warning"
+                    disabled
+                  >
+Check this</textarea
+                  >
+                  <span class="sb-ui-textarea-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa este campo
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `,
+};
+
+/**
+ * ## Contador de Caracteres - Matriz
+ *
+ * Muestra textareas con contador de caracteres en diferentes estados.
+ */
+export const ContadorDeCaracteres: Story = {
+  parameters: {
+    docs: {
+      source: {
+        format: 'dedent',
+        language: 'html',
+      },
+    },
+  },
+  render: () => html`
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .counter-container {
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+        padding: 2rem;
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
+      }
+
+      .counter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .counter-demo {
         padding: 1.5rem;
         background: white;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      .textarea-demo h3 {
+      .counter-demo h3 {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
         color: var(--sb-ui-color-primary-base, #007acc);
       }
 
-      .textarea-demo > div {
-        margin-bottom: 1rem;
-      }
-
-      .textarea-demo > div:last-child {
-        margin-bottom: 0;
+      .textarea-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
       }
     </style>
 
-    <div class="textarea-matrix">
-      <!-- Estados Básicos -->
-      <div class="textarea-demo">
-        <h3>Estados Básicos</h3>
-        <div>
-          <label class="sb-ui-textarea-label">Normal</label>
-          <textarea class="sb-ui-textarea" placeholder="TextArea normal"></textarea>
-          <div class="sb-ui-textarea-helper">Estado normal</div>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Error</label>
-          <textarea class="sb-ui-textarea sb-ui-textarea--error" placeholder="Con error"></textarea>
-          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--error">Campo con error</div>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Success</label>
-          <textarea class="sb-ui-textarea sb-ui-textarea--success">Texto válido</textarea>
-          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--success">Campo válido</div>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Warning</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--warning"
-            placeholder="Con advertencia"
-          ></textarea>
-          <div class="sb-ui-textarea-helper sb-ui-textarea-helper--warning">Revisa este campo</div>
-        </div>
-      </div>
-
-      <!-- Tamaños -->
-      <div class="textarea-demo">
-        <h3>Tamaños</h3>
-        <div>
-          <label class="sb-ui-textarea-label">Small</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--small"
-            placeholder="TextArea pequeño"
-          ></textarea>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Medium</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--medium"
-            placeholder="TextArea mediano"
-          ></textarea>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Large</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--large"
-            placeholder="TextArea grande"
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- Con Contador -->
-      <div class="textarea-demo">
-        <h3>Con Contador</h3>
-        <div>
-          <label class="sb-ui-textarea-label">Contador Básico</label>
+    <div class="counter-container">
+      <div class="counter-grid">
+        <!-- Con Contador Normal -->
+        <div class="counter-demo">
+          <h3>Contador Normal (500 max)</h3>
           <div class="sb-ui-textarea-container">
+            <label class="sb-ui-textarea-label">Label txt</label>
+            <textarea
+              class="sb-ui-textarea sb-ui-textarea--with-counter"
+              maxlength="500"
+              placeholder="Escribe aquí..."
+            ></textarea>
+            <div class="textarea-footer">
+              <span class="sb-ui-textarea-helper">
+                <i class="fa-solid fa-circle-info"></i>
+                Máximo 500 caracteres
+              </span>
+              <span class="sb-ui-textarea-counter">0 / 500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contador Small -->
+        <div class="counter-demo">
+          <h3>Contador Small (200 max)</h3>
+          <div class="sb-ui-textarea-container">
+            <label class="sb-ui-textarea-label">Label txt</label>
+            <textarea
+              class="sb-ui-textarea sb-ui-textarea--small sb-ui-textarea--with-counter"
+              maxlength="200"
+              placeholder="Escribe aquí..."
+            ></textarea>
+            <div class="textarea-footer">
+              <span class="sb-ui-textarea-helper">
+                <i class="fa-solid fa-circle-info"></i>
+                Máximo 200 caracteres
+              </span>
+              <span class="sb-ui-textarea-counter">0 / 200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contador Large -->
+        <div class="counter-demo">
+          <h3>Contador Large (1000 max)</h3>
+          <div class="sb-ui-textarea-container">
+            <label class="sb-ui-textarea-label">Label txt</label>
+            <textarea
+              class="sb-ui-textarea sb-ui-textarea--large sb-ui-textarea--with-counter"
+              maxlength="1000"
+              placeholder="Escribe aquí..."
+            ></textarea>
+            <div class="textarea-footer">
+              <span class="sb-ui-textarea-helper">
+                <i class="fa-solid fa-circle-info"></i>
+                Máximo 1000 caracteres
+              </span>
+              <span class="sb-ui-textarea-counter">0 / 1000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Con Warning (cerca del límite) -->
+        <div class="counter-demo">
+          <h3>Con Advertencia (80% usado)</h3>
+          <div class="sb-ui-textarea-container">
+            <label class="sb-ui-textarea-label">Label txt</label>
             <textarea
               class="sb-ui-textarea sb-ui-textarea--with-counter"
               maxlength="100"
-              placeholder="Máximo 100 caracteres"
-            ></textarea>
-            <div class="sb-ui-textarea-counter">0/100</div>
+              placeholder="Escribe aquí..."
+            >
+Este texto ya tiene 81 caracteres y está cerca del límite, por lo que aparece advertencia</textarea
+            >
+            <div class="textarea-footer">
+              <span class="sb-ui-textarea-helper">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Cerca del límite
+              </span>
+              <span class="sb-ui-textarea-counter sb-ui-textarea-counter--warning">81 / 100</span>
+            </div>
           </div>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Contador con Warning</label>
-          <div class="sb-ui-textarea-container">
-            <textarea
-              class="sb-ui-textarea sb-ui-textarea--with-counter"
-              maxlength="50"
-              placeholder="Máximo 50 caracteres"
-            ></textarea>
-            <div class="sb-ui-textarea-counter sb-ui-textarea-counter--warning">0/50</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Resize Options -->
-      <div class="textarea-demo">
-        <h3>Opciones de Resize</h3>
-        <div>
-          <label class="sb-ui-textarea-label">No Resize</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--no-resize"
-            placeholder="Sin redimensionar"
-          ></textarea>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Auto Resize</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--auto-resize"
-            placeholder="Se ajusta automáticamente"
-          ></textarea>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Resize Both</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--resize-both"
-            placeholder="Ambas direcciones"
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- Estados Especiales -->
-      <div class="textarea-demo">
-        <h3>Estados Especiales</h3>
-        <div>
-          <label class="sb-ui-textarea-label sb-ui-textarea-label--required">Requerido</label>
-          <textarea class="sb-ui-textarea" placeholder="Campo obligatorio" required></textarea>
-          <div class="sb-ui-textarea-helper">Campo obligatorio</div>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Deshabilitado</label>
-          <textarea class="sb-ui-textarea" placeholder="Campo deshabilitado" disabled></textarea>
-          <div class="sb-ui-textarea-helper">Este campo está deshabilitado</div>
-        </div>
-        <div>
-          <label class="sb-ui-textarea-label">Rounded</label>
-          <textarea
-            class="sb-ui-textarea sb-ui-textarea--rounded"
-            placeholder="Bordes redondeados"
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- Grupos -->
-      <div class="textarea-demo">
-        <h3>Grupos de TextAreas</h3>
-        <div>
-          <label class="sb-ui-textarea-label">Grupo Vertical</label>
-          <div class="sb-ui-textarea-group sb-ui-textarea-group--vertical">
-            <textarea class="sb-ui-textarea" placeholder="Primer textarea"></textarea>
-            <textarea class="sb-ui-textarea" placeholder="Segundo textarea"></textarea>
-          </div>
-          <div class="sb-ui-textarea-helper">TextAreas agrupados</div>
         </div>
       </div>
     </div>

@@ -219,6 +219,147 @@
         border-radius: 12px;
         box-shadow: var(--sb-ui-shadow-s);
       }
+
+      /* ============================================
+         ESTILOS ADICIONALES PARA INPUTS Y COMPONENTES
+         ============================================ */
+      
+      /* Input Container */
+      .sb-ui-input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      /* Input Label */
+      .sb-ui-input-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--sb-ui-color-grayscale-black);
+        margin-bottom: 0.25rem;
+      }
+
+      .sb-ui-input-label--required::after {
+        content: ' *';
+        color: var(--sb-ui-color-feedback-error-base);
+      }
+
+      .sb-ui-input-label--optional::after {
+        content: ' (opcional)';
+        color: var(--sb-ui-color-grayscale-base);
+        font-weight: 400;
+        font-size: 0.75rem;
+      }
+
+      /* Input Helper Text */
+      .sb-ui-input-helper {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.75rem;
+        color: var(--sb-ui-color-grayscale-base);
+        margin-top: 0.25rem;
+      }
+
+      .sb-ui-input-helper i {
+        font-size: 0.875rem;
+        flex-shrink: 0;
+      }
+
+      /* Input con íconos - posicionamiento relativo */
+      .icon-wrapper {
+        position: relative;
+        display: block;
+        width: 100%;
+      }
+
+      .input-icon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: var(--sb-ui-color-grayscale-base);
+        font-size: 18px;
+        line-height: 1;
+        z-index: 1;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .input-icon i {
+        font-size: 18px;
+      }
+
+      /* Estilos para meta badges en demo-card */
+      .demo-card .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .demo-card .badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--sb-ui-color-primary-L400);
+        color: var(--sb-ui-color-primary-D200);
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      /* Mejoras para responsividad */
+      @media (max-width: 640px) {
+        .demos-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 2rem 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .demo-card {
+          padding: 1.5rem;
+        }
+
+        .card {
+          padding: 1rem;
+        }
+      }
+
+      /* Mejoras para accesibilidad y hover states */
+      .demo-card a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .demo-card button {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      /* Asegurar que los inputs dentro de cards se vean bien */
+      .card .sb-ui-input {
+        width: 100%;
+      }
+
+      .card .sb-ui-input-container {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -364,6 +505,50 @@
               <span class="badge">Selección Única</span>
               <span class="badge">Halos MD</span>
               <span class="badge">3 Tamaños</span>
+            </div>
+            <button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">
+              Ver Demo Completo →
+            </button>
+          </div>
+        </a>
+
+        <!-- Demo: Input Component -->
+        <a href="input/index.html" style="text-decoration: none; color: inherit">
+          <div class="demo-card">
+            <h3>
+              <span class="icon">✏️</span>
+              Input Component
+            </h3>
+            <p>
+              Matriz completa de inputs con todos sus estados (default, hover, focus, disabled, success, 
+              error, warning), tamaños y tipos con Font Awesome icons.
+            </p>
+            <div class="meta">
+              <span class="badge">Input</span>
+              <span class="badge">8 Estados</span>
+              <span class="badge">Font Awesome</span>
+            </div>
+            <button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">
+              Ver Demo Completo →
+            </button>
+          </div>
+        </a>
+
+        <!-- Demo: TextArea Component -->
+        <a href="textarea/index.html" style="text-decoration: none; color: inherit">
+          <div class="demo-card">
+            <h3>
+              <span class="icon">📝</span>
+              TextArea Component
+            </h3>
+            <p>
+              Componente textarea con todos sus estados (default, hover, focus, active, disabled, success, 
+              error), tamaños y modifiers siguiendo el sistema de diseño.
+            </p>
+            <div class="meta">
+              <span class="badge">TextArea</span>
+              <span class="badge">8 Estados</span>
+              <span class="badge">Font Awesome</span>
             </div>
             <button class="sb-ui-button sb-ui-button--primary sb-ui-button--small">
               Ver Demo Completo →

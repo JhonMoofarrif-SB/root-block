@@ -1,0 +1,204 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - Input Component Overrides
+ * ============================================================================
+ *
+ * Nueva Arquitectura con @layer brand-overrides (v2.0.0)
+ *
+ * ESTRUCTURA:
+ * 1. Configuración global (fuera de @layer) - padding, border-radius, etc.
+ * 2. Overrides por estado (dentro de @layer brand-overrides) - colores
+ *
+ * ESTADOS: default, hover, focus, disabled, success, error, warning
+ *
+ * ⚠️ IMPORTANTE:
+ * - Usar @layer brand-overrides para overrides de variables CSS
+ * - NO usar !important (ya no es necesario)
+ * - Usar tokens de la marca: var(--sb-ui-color-*), NO hardcodear
+ * - Solo definir las variables que cambian respecto al default
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL (fuera de @layer)
+   ============================================================================
+   Propiedades estructurales como padding, border-radius, tamaños
+   Basado en las especificaciones del sistema de diseño de Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-input {
+  --sb-ui-input-border-radius: 8px;
+  --sb-ui-input-padding-inline: 16px; /* Inner margin horizontal */
+  --sb-ui-input-padding-block: 8px; /* Padding vertical según diseño */
+  --sb-ui-input-min-block-size: 40px; /* Altura mínima ajustada */
+  --sb-ui-input-padding-inline-end-icon: 48px; /* 16px padding + 24px icon + 8px gap */
+  --sb-ui-input-font-size: 1rem; /* Body/Regular */
+  --sb-ui-input-font-weight: 400; /* Regular */
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-input-label {
+  --sb-ui-input-label-font-size: 14px; /* Label/Regular - 14px exacto */
+  --sb-ui-input-label-font-weight: 400; /* Regular, no bold */
+  --sb-ui-input-label-margin-block-end: 8px; /* 8px entre label e input */
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-input-helper {
+  --sb-ui-input-helper-font-size: 12px; /* Caption/Regular - 12px exacto */
+  --sb-ui-input-helper-font-weight: 400; /* Regular */
+  --sb-ui-input-helper-margin-block-start: 8px; /* 8px entre input y helper text */
+  padding-inline-start: 8px; /* Padding izquierdo ajustado a 8px */
+}
+
+/* Container padding según diseño */
+[data-brand='seguros-bolivar'] .sb-ui-input-container {
+  padding: 8px 16px; /* Container padding del diseño */
+}
+
+/* Ícono derecho: 24px × 24px */
+[data-brand='seguros-bolivar'] .sb-ui-input-icon {
+  --sb-ui-input-icon-size: 24px; /* Tamaño según diseño */
+  --sb-ui-input-icon-inset-inline-end: 16px; /* Posición desde el borde */
+}
+
+/* ============================================================================
+   2. OVERRIDES POR ESTADO (dentro de @layer brand-overrides)
+   ============================================================================
+   Variables de color, estados hover/focus/disabled/success/error
+   ============================================================================ */
+@layer brand-overrides {
+  /* ========================================
+     DEFAULT STATE
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input {
+    /* Background */
+    --sb-ui-input-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-input-bg-hover: var(--sb-ui-color-grayscale-white);
+    --sb-ui-input-bg-focus: var(--sb-ui-color-grayscale-white);
+    --sb-ui-input-bg-disabled: var(--sb-ui-color-grayscale-L300);
+
+    /* Text */
+    --sb-ui-input-text-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-input-text-hover: var(--sb-ui-color-grayscale-black);
+    --sb-ui-input-text-focus: var(--sb-ui-color-grayscale-black);
+    --sb-ui-input-text-disabled: var(--sb-ui-color-grayscale-base);
+    --sb-ui-input-text-placeholder: var(--sb-ui-color-grayscale-base);
+
+    /* Border */
+    --sb-ui-input-border-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-input-border-hover: var(--sb-ui-color-grayscale-base);
+    --sb-ui-input-border-focus: var(--sb-ui-color-primary-base);
+    --sb-ui-input-border-disabled: var(--sb-ui-color-grayscale-L200);
+
+    /* Shadow - Sin shadow en focus, solo borde verde según diseño */
+    --sb-ui-input-shadow-focus: none;
+
+    /* Icon */
+    --sb-ui-input-icon-color: var(--sb-ui-color-grayscale-base);
+  }
+
+  /* Eliminar outline en focus-visible para evitar borde amarillo/verde claro */
+  [data-brand='seguros-bolivar'] .sb-ui-input:focus-visible {
+    outline: none;
+  }
+
+  /* ========================================
+     LABEL - Focus state
+     Color verde cuando el input tiene foco
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input-container:focus-within .sb-ui-input-label {
+    color: var(--sb-ui-color-primary-base);
+  }
+
+  /* ========================================
+     HELPER TEXT - Default
+     Color gris con ícono ℹ️
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input-helper {
+    --sb-ui-input-helper-color: var(--sb-ui-color-grayscale-D200); /* Color más oscuro: #5b5b5b */
+  }
+
+  /* ========================================
+     HELPER TEXT - Focus state
+     El help text permanece gris (no cambia en focus)
+     ======================================== */
+  /* Ya está configurado en default, no necesita override específico */
+
+  /* ========================================
+     SUCCESS STATE
+     Borde verde, ícono verde, helper text verde con ✓
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input--success {
+    --sb-ui-input-border-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-input-border-focus: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-input-shadow-focus: none;
+  }
+
+  /* Ícono del input en success */
+  [data-brand='seguros-bolivar'] .sb-ui-input--success + .sb-ui-input-icon {
+    color: var(--sb-ui-color-feedback-success-base);
+  }
+
+  /* Helper text en success - todo verde (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-input-container:has(.sb-ui-input--success) .sb-ui-input-helper {
+    color: var(--sb-ui-color-feedback-success-base) !important;
+  }
+
+  /* ========================================
+     ERROR STATE
+     Borde rojo, ícono rojo, helper text rojo con ⊗
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input--error {
+    --sb-ui-input-border-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-input-border-focus: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-input-shadow-focus: none;
+  }
+
+  /* Ícono del input en error */
+  [data-brand='seguros-bolivar'] .sb-ui-input--error + .sb-ui-input-icon {
+    color: var(--sb-ui-color-feedback-error-base);
+  }
+
+  /* Helper text en error - todo rojo (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-input-container:has(.sb-ui-input--error) .sb-ui-input-helper {
+    color: var(--sb-ui-color-feedback-error-base) !important;
+  }
+
+  /* ========================================
+     WARNING STATE
+     Borde amarillo/naranja, ícono amarillo
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input--warning {
+    --sb-ui-input-border-color: var(--sb-ui-color-feedback-warning-base);
+    --sb-ui-input-border-focus: var(--sb-ui-color-feedback-warning-base);
+    --sb-ui-input-shadow-focus: none;
+  }
+
+  /* Ícono del input en warning */
+  [data-brand='seguros-bolivar'] .sb-ui-input--warning + .sb-ui-input-icon {
+    color: var(--sb-ui-color-feedback-warning-base);
+  }
+
+  /* Helper text en warning - todo amarillo (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-input-container:has(.sb-ui-input--warning) .sb-ui-input-helper {
+    color: var(--sb-ui-color-feedback-warning-base) !important;
+  }
+
+  /* ========================================
+     ICON - Focus state
+     Color verde cuando el input tiene foco
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input:focus + .sb-ui-input-icon {
+    color: var(--sb-ui-color-primary-base);
+  }
+
+  /* ========================================
+     DISABLED STATE
+     Todo en gris claro
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-input:disabled,
+  [data-brand='seguros-bolivar'] .sb-ui-input.sb-ui-input--disabled {
+    --sb-ui-input-bg-disabled: var(--sb-ui-color-grayscale-L300);
+    --sb-ui-input-text-disabled: var(--sb-ui-color-grayscale-base);
+    --sb-ui-input-border-disabled: var(--sb-ui-color-grayscale-L200);
+  }
+}
+

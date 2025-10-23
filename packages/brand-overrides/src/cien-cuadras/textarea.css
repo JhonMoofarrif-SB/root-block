@@ -1,0 +1,22 @@
+/**
+ * ============================================================================
+ * Cien Cuadras - TextArea Component Overrides
+ * ============================================================================
+ */
+
+@layer brand-overrides {
+  [data-brand='cien-cuadras'] .sb-ui-textarea {
+    --sb-ui-textarea-shadow: none;
+    --sb-ui-textarea-shadow-focus: none;
+    --sb-ui-textarea-border-color: var(--sb-ui-color-grayscale-L100);
+    --sb-ui-textarea-border-color-focus: var(--sb-ui-color-primary-base);
+  }
+
+  /* Eliminar outline en focus-visible para evitar doble borde */
+  [data-brand='cien-cuadras'] .sb-ui-textarea:focus,
+  [data-brand='cien-cuadras'] .sb-ui-textarea:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+

@@ -1,0 +1,48 @@
+/**
+ * ============================================================================
+ * Jelpit - Input Component Overrides
+ * ============================================================================
+ *
+ * Override básico para eliminar sombras y configurar estilos limpios
+ * ============================================================================
+ */
+
+[data-brand='jelpit'] .sb-ui-input {
+  --sb-ui-input-border-radius: 8px;
+  --sb-ui-input-padding-inline: 16px;
+  --sb-ui-input-padding-block: 8px;
+  --sb-ui-input-min-block-size: 40px;
+}
+
+@layer brand-overrides {
+  [data-brand='jelpit'] .sb-ui-input {
+    /* Eliminar sombras que causan efecto de borde doble */
+    --sb-ui-input-shadow: none;
+    --sb-ui-input-shadow-focus: none;
+
+    /* Border */
+    --sb-ui-input-border-color: var(--sb-ui-color-grayscale-L100);
+    --sb-ui-input-border-focus: var(--sb-ui-color-primary-base);
+  }
+
+  /* Eliminar outline en focus-visible para evitar borde doble */
+  [data-brand='jelpit'] .sb-ui-input:focus-visible {
+    outline: none;
+  }
+
+  /* Success State */
+  [data-brand='jelpit'] .sb-ui-input--success {
+    --sb-ui-input-shadow-focus: none;
+  }
+
+  /* Error State */
+  [data-brand='jelpit'] .sb-ui-input--error {
+    --sb-ui-input-shadow-focus: none;
+  }
+
+  /* Warning State */
+  [data-brand='jelpit'] .sb-ui-input--warning {
+    --sb-ui-input-shadow-focus: none;
+  }
+}
+

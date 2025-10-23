@@ -1,529 +1,376 @@
 /**
- * Input Component - Seguros Bolívar UI Design System
- * Componente CSS puro con variables --sb-ui-* personalizables por marca
+ * Input Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
  *
- * Uso:
- * <input class="rb-input" type="text" placeholder="Ingresa tu texto">
- * <input class="rb-input rb-input--error" type="email" placeholder="Email">
- * <input class="rb-input rb-input--large rb-input--with-icon" type="password">
+ * Uso: <input class="sb-ui-input" type="text" placeholder="Placeholder">
  */
 
-/* ========================================
-   VARIABLES CSS PERSONALIZABLES Y ESTILOS BASE
-   ======================================== */
-
-.sb-ui-input {
-  /* Colores - Pueden ser sobreescritos por marca */
-  --sb-ui-input-bg-color: var(--sb-ui-color-grayscale-white, #ffffff);
-  --sb-ui-input-bg-disabled: var(--sb-ui-color-grayscale-L300, #f2f3f5);
-  --sb-ui-input-text-color: var(--sb-ui-color-grayscale-D300, #404040);
-  --sb-ui-input-text-placeholder: var(--sb-ui-color-grayscale-base, #d9d9d9);
-  --sb-ui-input-text-disabled: var(--sb-ui-color-grayscale-base, #d9d9d9);
-  --sb-ui-input-border-color: var(--sb-ui-color-grayscale-L200, #edeef0);
-  --sb-ui-input-border-color-focus: var(--sb-ui-color-primary-base, #007acc);
-  --sb-ui-input-border-color-error: var(--sb-ui-color-feedback-error-base, #dc3545);
-  --sb-ui-input-border-color-success: var(--sb-ui-color-feedback-success-base, #28a745);
-  --sb-ui-input-border-width: 1px;
-  --sb-ui-input-border-radius: 8px;
-
-  /* Espaciado */
-  --sb-ui-input-padding-x: 1rem;
-  --sb-ui-input-padding-y: 0.75rem;
-  --sb-ui-input-padding-icon-left: 2.5rem;
-  --sb-ui-input-padding-icon-right: 2.5rem;
-
-  /* Tipografía */
-  --sb-ui-input-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
-  --sb-ui-input-font-size: 1rem;
-  --sb-ui-input-font-weight: 400;
-  --sb-ui-input-line-height: 1.5;
-
-  /* Tamaños */
-  --sb-ui-input-min-height: 40px;
-
-  /* Sombras */
-  --sb-ui-input-shadow: none;
-  --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
-
-  /* Transiciones */
-  --sb-ui-input-transition: all 0.2s ease;
-
-  /* Layout */
-  display: block;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-
-  /* Spacing */
-  padding: var(--sb-ui-input-padding-y) var(--sb-ui-input-padding-x);
-
-  /* Sizing */
-  min-height: var(--sb-ui-input-min-height);
-
-  /* Typography */
-  font-family: var(--sb-ui-input-font-family);
-  font-style: normal;
-  font-weight: var(--sb-ui-input-font-weight);
-  font-size: var(--sb-ui-input-font-size);
-  line-height: var(--sb-ui-input-line-height);
-
-  /* Appearance */
-  background-color: var(--sb-ui-input-bg-color);
-  color: var(--sb-ui-input-text-color);
-  border: var(--sb-ui-input-border-width) solid var(--sb-ui-input-border-color);
-  border-radius: var(--sb-ui-input-border-radius);
-  box-shadow: var(--sb-ui-input-shadow);
-  outline: none;
-
-  /* Animation */
-  transition: var(--sb-ui-input-transition);
-}
-
-/* Placeholder styling */
-.sb-ui-input::placeholder {
-  color: var(--sb-ui-input-text-placeholder);
-  opacity: 1;
-}
-
-.sb-ui-input::-webkit-input-placeholder {
-  color: var(--sb-ui-input-text-placeholder);
-  opacity: 1;
-}
-
-.sb-ui-input::-moz-placeholder {
-  color: var(--sb-ui-input-text-placeholder);
-  opacity: 1;
-}
-
-.sb-ui-input:-ms-input-placeholder {
-  color: var(--sb-ui-input-text-placeholder);
-  opacity: 1;
-}
-
-/* Hover state */
-.sb-ui-input:hover:not(:disabled) {
-  border-color: var(--sb-ui-input-border-color-focus);
-}
-
-/* Active state */
-.sb-ui-input:active:not(:disabled) {
-  border-color: var(--sb-ui-input-border-color-focus);
-  box-shadow: var(--sb-ui-input-shadow-focus);
-}
-
-/* Focus state */
-.sb-ui-input:focus {
-  border-color: var(--sb-ui-input-border-color-focus);
-  box-shadow: var(--sb-ui-input-shadow-focus);
-}
-
-/* Focus visible state */
-.sb-ui-input:focus-visible:not(:disabled) {
-  outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
-  outline-offset: 2px;
-}
-
-/* Disabled state */
-.sb-ui-input:disabled {
-  background-color: var(--sb-ui-input-bg-disabled);
-  color: var(--sb-ui-input-text-disabled);
-  border-color: var(--sb-ui-input-bg-disabled);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.sb-ui-input:disabled::placeholder {
-  color: var(--sb-ui-input-text-disabled);
-}
+@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;
 
 /* ========================================
-   INPUT VARIANTS (TYPES)
+   RESET LAYER
    ======================================== */
-
-/* Text input (default) */
-.sb-ui-input--text {
-  /* Usa estilos base */
-}
-
-/* Email input */
-.sb-ui-input--email {
-  /* Usa estilos base */
-}
-
-/* Password input */
-.sb-ui-input--password {
-  /* Usa estilos base */
-}
-
-/* Number input */
-.sb-ui-input--number {
-  /* Usa estilos base */
-}
-
-/* Search input */
-.sb-ui-input--search {
-  /* Usa estilos base */
-}
-
-/* URL input */
-.sb-ui-input--url {
-  /* Usa estilos base */
-}
-
-/* Tel input */
-.sb-ui-input--tel {
-  /* Usa estilos base */
-}
-
-/* ========================================
-   INPUT STATES
-   ======================================== */
-
-/* Error state */
-.sb-ui-input--error {
-  --sb-ui-input-border-color: var(--sb-ui-input-border-color-error);
-  --sb-ui-input-border-color-focus: var(--sb-ui-input-border-color-error);
-  --sb-ui-input-shadow-focus: 0 0 0 3px
-    var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
-}
-
-.sb-ui-input--error:focus {
-  border-color: var(--sb-ui-input-border-color-error);
-  box-shadow: var(--sb-ui-input-shadow-focus);
-}
-
-/* Success state */
-.sb-ui-input--success {
-  --sb-ui-input-border-color: var(--sb-ui-input-border-color-success);
-  --sb-ui-input-border-color-focus: var(--sb-ui-input-border-color-success);
-  --sb-ui-input-shadow-focus: 0 0 0 3px
-    var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
-}
-
-.sb-ui-input--success:focus {
-  border-color: var(--sb-ui-input-border-color-success);
-  box-shadow: var(--sb-ui-input-shadow-focus);
-}
-
-/* Warning state */
-.sb-ui-input--warning {
-  --sb-ui-input-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
-  --sb-ui-input-border-color-focus: var(--sb-ui-color-feedback-warning-base, #ffc107);
-  --sb-ui-input-shadow-focus: 0 0 0 3px
-    var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
-}
-
-.sb-ui-input--warning:focus {
-  border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
-  box-shadow: var(--sb-ui-input-shadow-focus);
-}
-
-/* ========================================
-   INPUT SIZES
-   ======================================== */
-
-.sb-ui-input--small {
-  --sb-ui-input-padding-x: 0.75rem;
-  --sb-ui-input-padding-y: 0.5rem;
-  --sb-ui-input-font-size: 0.875rem;
-  --sb-ui-input-min-height: 32px;
-  --sb-ui-input-line-height: 1.25;
-  --sb-ui-input-padding-icon-left: 2rem;
-  --sb-ui-input-padding-icon-right: 2rem;
-}
-
-.sb-ui-input--medium {
-  --sb-ui-input-padding-x: 1rem;
-  --sb-ui-input-padding-y: 0.75rem;
-  --sb-ui-input-font-size: 1rem;
-  --sb-ui-input-min-height: 40px;
-  --sb-ui-input-line-height: 1.5;
-  --sb-ui-input-padding-icon-left: 2.5rem;
-  --sb-ui-input-padding-icon-right: 2.5rem;
-}
-
-.sb-ui-input--large {
-  --sb-ui-input-padding-x: 1.25rem;
-  --sb-ui-input-padding-y: 1rem;
-  --sb-ui-input-font-size: 1.125rem;
-  --sb-ui-input-min-height: 48px;
-  --sb-ui-input-line-height: 1.5;
-  --sb-ui-input-padding-icon-left: 3rem;
-  --sb-ui-input-padding-icon-right: 3rem;
-}
-
-/* ========================================
-   INPUT MODIFIERS
-   ======================================== */
-
-/* Rounded corners */
-.sb-ui-input--rounded {
-  --sb-ui-input-border-radius: 2.1rem;
-}
-
-/* Block (full width) - ya es por defecto */
-.sb-ui-input--block {
-  width: 100%;
-}
-
-/* Inline (auto width) */
-.sb-ui-input--inline {
-  width: auto;
-  min-width: 200px;
-}
-
-/* With left icon */
-.sb-ui-input--with-icon-left {
-  padding-left: var(--sb-ui-input-padding-icon-left);
-}
-
-/* With right icon */
-.sb-ui-input--with-icon-right {
-  padding-right: var(--sb-ui-input-padding-icon-right);
-}
-
-/* With both icons */
-.sb-ui-input--with-icon-both {
-  padding-left: var(--sb-ui-input-padding-icon-left);
-  padding-right: var(--sb-ui-input-padding-icon-right);
-}
-
-/* ========================================
-   INPUT CONTAINER (for icons and labels)
-   ======================================== */
-
-.sb-ui-input-container {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-.sb-ui-input-container--inline {
-  display: inline-block;
-  width: auto;
-}
-
-/* Input icon positioning */
-.sb-ui-input-icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
-  font-size: 1rem;
-  pointer-events: none;
-  z-index: 2;
-  transition: var(--sb-ui-input-transition);
-}
-
-.sb-ui-input-icon--left {
-  left: 0.75rem;
-}
-
-.sb-ui-input-icon--right {
-  right: 0.75rem;
-}
-
-/* Icon color changes on focus */
-.sb-ui-input:focus + .sb-ui-input-icon,
-.sb-ui-input-container:focus-within .sb-ui-input-icon {
-  color: var(--sb-ui-color-primary-base, #007acc);
-}
-
-/* Icon color for error state */
-.sb-ui-input--error + .sb-ui-input-icon,
-.sb-ui-input-container:has(.sb-ui-input--error) .sb-ui-input-icon {
-  color: var(--sb-ui-color-feedback-error-base, #dc3545);
-}
-
-/* Icon color for success state */
-.sb-ui-input--success + .sb-ui-input-icon,
-.sb-ui-input-container:has(.sb-ui-input--success) .sb-ui-input-icon {
-  color: var(--sb-ui-color-feedback-success-base, #28a745);
-}
-
-/* ========================================
-   INPUT LABEL
-   ======================================== */
-
-.sb-ui-input-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--sb-ui-input-font-family);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--sb-ui-color-grayscale-D300, #404040);
-  line-height: 1.25;
-}
-
-.sb-ui-input-label--required::after {
-  content: ' *';
-  color: var(--sb-ui-color-feedback-error-base, #dc3545);
-}
-
-.sb-ui-input-label--optional::after {
-  content: ' (opcional)';
-  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
-  font-weight: 400;
-}
-
-/* ========================================
-   INPUT HELPER TEXT
-   ======================================== */
-
-.sb-ui-input-helper {
-  display: block;
-  margin-top: 0.25rem;
-  font-family: var(--sb-ui-input-font-family);
-  font-size: 0.75rem;
-  color: var(--sb-ui-color-grayscale-base, #d9d9d9);
-  line-height: 1.25;
-}
-
-.sb-ui-input-helper--error {
-  color: var(--sb-ui-color-feedback-error-base, #dc3545);
-}
-
-.sb-ui-input-helper--success {
-  color: var(--sb-ui-color-feedback-success-base, #28a745);
-}
-
-.sb-ui-input-helper--warning {
-  color: var(--sb-ui-color-feedback-warning-base, #ffc107);
-}
-
-/* ========================================
-   INPUT GROUP (multiple inputs)
-   ======================================== */
-
-.sb-ui-input-group {
-  display: flex;
-  width: 100%;
-}
-
-.sb-ui-input-group .sb-ui-input {
-  border-radius: 0;
-  border-right-width: 0;
-}
-
-.sb-ui-input-group .sb-ui-input:first-child {
-  border-top-left-radius: var(--sb-ui-input-border-radius);
-  border-bottom-left-radius: var(--sb-ui-input-border-radius);
-}
-
-.sb-ui-input-group .sb-ui-input:last-child {
-  border-top-right-radius: var(--sb-ui-input-border-radius);
-  border-bottom-right-radius: var(--sb-ui-input-border-radius);
-  border-right-width: var(--sb-ui-input-border-width);
-}
-
-.sb-ui-input-group .sb-ui-input:focus {
-  z-index: 1;
-  position: relative;
-}
-
-/* ========================================
-   ACCESSIBILITY & RESPONSIVE
-   ======================================== */
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
+@layer reset {
   .sb-ui-input {
-    --sb-ui-input-border-width: 2px;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .sb-ui-input {
-    --sb-ui-input-transition: none;
-  }
-}
-
-/* Mobile optimizations */
-@media (width <= 640px) {
-  .sb-ui-input {
-    font-size: 16px; /* Prevents zoom on iOS */
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
-  .sb-ui-input--small {
-    font-size: 16px;
-  }
-}
-
-/* Desktop optimizations */
-@media (width >= 641px) {
-  .sb-ui-input--inline {
-    min-width: 250px;
-  }
-}
-
-/* Print styles */
-@media print {
-  .sb-ui-input {
-    background: transparent !important;
-    color: black !important;
-    border: 1px solid black !important;
-    box-shadow: none !important;
+  .sb-ui-input-container {
+    box-sizing: border-box;
   }
 
-  .sb-ui-input::placeholder {
-    color: #666 !important;
+  .sb-ui-input-label {
+    box-sizing: border-box;
+  }
+
+  .sb-ui-input-helper {
+    box-sizing: border-box;
+  }
+
+  .sb-ui-input-icon {
+    box-sizing: border-box;
   }
 }
 
 /* ========================================
-   FOCUS VISIBLE (keyboard navigation)
+   TOKENS LAYER - Variables CSS
    ======================================== */
+@layer tokens {
+  .sb-ui-input {
+    /* Colores BASE - Estados interactivos */
+    --sb-ui-input-bg-color: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-input-bg-hover: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-input-bg-focus: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-input-bg-disabled: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
-.sb-ui-input:focus-visible {
-  outline: 2px solid var(--sb-ui-color-primary-base, #007acc);
-  outline-offset: 2px;
+    --sb-ui-input-text-color: var(--sb-ui-color-grayscale-black, #000);
+    --sb-ui-input-text-hover: var(--sb-ui-color-grayscale-black, #000);
+    --sb-ui-input-text-focus: var(--sb-ui-color-grayscale-black, #000);
+    --sb-ui-input-text-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-input-text-placeholder: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    --sb-ui-input-border-color: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-input-border-hover: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-input-border-focus: var(--sb-ui-color-primary-base, #007acc);
+    --sb-ui-input-border-disabled: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+
+    /* Espaciado - SIEMPRE con clamp() */
+    --sb-ui-input-padding-inline: clamp(0.8rem, 0.5rem + 1.5vw, 1rem);
+    --sb-ui-input-padding-block: clamp(0.6rem, 0.4rem + 0.8vw, 0.875rem);
+    --sb-ui-input-padding-inline-end-icon: clamp(2rem, 1.8rem + 1vw, 2.5rem);
+
+    /* Tipografía - SIEMPRE con clamp() */
+    --sb-ui-input-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-input-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --sb-ui-input-font-weight: 400;
+    --sb-ui-input-line-height: 1.5;
+
+    /* Label */
+    --sb-ui-input-label-color: var(--sb-ui-color-grayscale-black, #000);
+    --sb-ui-input-label-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-input-label-font-weight: 600;
+    --sb-ui-input-label-margin-block-end: clamp(0.25rem, 0.2rem + 0.2vw, 0.375rem);
+
+    /* Helper text */
+    --sb-ui-input-helper-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-input-helper-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-input-helper-margin-block-start: clamp(0.25rem, 0.2rem + 0.2vw, 0.375rem);
+
+    /* Tamaños - Logical properties */
+    --sb-ui-input-min-block-size: clamp(40px, 8vw, 44px);
+    --sb-ui-input-inline-size: 100%;
+
+    /* Bordes */
+    --sb-ui-input-border-width: 1px;
+    --sb-ui-input-border-radius: clamp(6px, 0.4rem + 0.3vw, 8px);
+
+    /* Sombras */
+    --sb-ui-input-shadow: none;
+    --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-primary-L400, rgba(0, 122, 204, 0.1));
+
+    /* Transiciones - NO incluir outline para evitar destellos en focus */
+    --sb-ui-input-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    /* Íconos */
+    --sb-ui-input-icon-size: clamp(1rem, 0.9rem + 0.3vw, 1.25rem);
+    --sb-ui-input-icon-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-input-icon-inset-inline-end: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+  }
 }
 
 /* ========================================
-   ANIMATIONS
+   BASE LAYER - Estilos base
    ======================================== */
+@layer base {
+  /* Container wrapper */
+  .sb-ui-input-container {
+    display: block;
+    position: relative;
+    inline-size: 100%;
+  }
 
-/* Input focus animation */
-@keyframes rb-input-focus {
-  0% {
+  /* Input field */
+  .sb-ui-input {
+    /* Layout */
+    display: block;
+    position: relative;
+    inline-size: var(--sb-ui-input-inline-size);
+
+    /* Spacing - SOLO Logical Properties */
+    padding-inline: var(--sb-ui-input-padding-inline);
+    padding-block: var(--sb-ui-input-padding-block);
+
+    /* Typography */
+    font-family: var(--sb-ui-input-font-family);
+    font-size: var(--sb-ui-input-font-size);
+    font-weight: var(--sb-ui-input-font-weight);
+    line-height: var(--sb-ui-input-line-height);
+
+    /* Sizing */
+    min-block-size: var(--sb-ui-input-min-block-size);
+
+    /* Appearance */
+    background-color: var(--sb-ui-input-bg-color);
+    color: var(--sb-ui-input-text-color);
+    border: var(--sb-ui-input-border-width) solid var(--sb-ui-input-border-color);
+    border-radius: var(--sb-ui-input-border-radius);
     box-shadow: var(--sb-ui-input-shadow);
-  }
-  100% {
-    box-shadow: var(--sb-ui-input-shadow-focus);
-  }
-}
 
-/* Input error shake animation */
-@keyframes rb-input-shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-2px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(2px);
-  }
-}
+    /* Animation */
+    transition: var(--sb-ui-input-transition);
 
-/* Apply shake animation to error inputs */
-.sb-ui-input--error {
-  animation: rb-input-shake 0.5s ease-in-out;
+    /* Nested Pseudo-classes - SIEMPRE usar & */
+    &::placeholder {
+      color: var(--sb-ui-input-text-placeholder);
+      opacity: 1;
+    }
+
+    &:hover:not(:disabled):not(:focus) {
+      background-color: var(--sb-ui-input-bg-hover);
+      color: var(--sb-ui-input-text-hover, var(--sb-ui-input-text-color));
+      border-color: var(--sb-ui-input-border-hover, var(--sb-ui-input-border-color));
+    }
+
+    &:focus {
+      background-color: var(--sb-ui-input-bg-focus);
+      color: var(--sb-ui-input-text-focus, var(--sb-ui-input-text-color));
+      border-color: var(--sb-ui-input-border-focus);
+      box-shadow: var(--sb-ui-input-shadow-focus);
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-secondary-L100, #66bc9a);
+      outline-offset: 2px;
+    }
+
+    &:disabled,
+    &.sb-ui-input--disabled {
+      background-color: var(--sb-ui-input-bg-disabled);
+      color: var(--sb-ui-input-text-disabled);
+      border-color: var(--sb-ui-input-border-disabled);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    /* Con ícono a la derecha */
+    &.sb-ui-input--with-icon {
+      padding-inline-end: var(--sb-ui-input-padding-inline-end-icon);
+    }
+  }
+
+  /* Label */
+  .sb-ui-input-label {
+    display: block;
+    margin-block-end: var(--sb-ui-input-label-margin-block-end);
+    font-family: var(--sb-ui-input-font-family);
+    font-size: var(--sb-ui-input-label-font-size);
+    font-weight: var(--sb-ui-input-label-font-weight);
+    color: var(--sb-ui-input-label-color);
+    line-height: 1.25;
+
+    &--required::after {
+      content: ' *';
+      color: var(--sb-ui-color-feedback-error-base, #dc3545);
+    }
+
+    &--optional::after {
+      content: ' (opcional)';
+      color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+      font-weight: 400;
+    }
+  }
+
+  /* Helper text */
+  .sb-ui-input-helper {
+    display: block;
+    margin-block-start: var(--sb-ui-input-helper-margin-block-start);
+    font-family: var(--sb-ui-input-font-family);
+    font-size: var(--sb-ui-input-helper-font-size);
+    color: var(--sb-ui-input-helper-color);
+    line-height: 1.25;
+  }
+
+  /* Ícono del input (derecha) */
+  .sb-ui-input-icon {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: var(--sb-ui-input-icon-inset-inline-end);
+    transform: translateY(-50%);
+    font-size: var(--sb-ui-input-icon-size);
+    color: var(--sb-ui-input-icon-color);
+    pointer-events: none;
+    transition: var(--sb-ui-input-transition);
+  }
 }
 
 /* ========================================
-   AUTOFILL STYLES
+   STATES LAYER
    ======================================== */
+@layer states {
+  /* Success state */
+  .sb-ui-input--success {
+    --sb-ui-input-border-color: var(--sb-ui-color-feedback-success-base, #28a745);
+    --sb-ui-input-border-focus: var(--sb-ui-color-feedback-success-base, #28a745);
+    --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-success-L400, rgba(40, 167, 69, 0.1));
 
+    & + .sb-ui-input-icon {
+      color: var(--sb-ui-color-feedback-success-base, #28a745);
+    }
+  }
+
+  .sb-ui-input--success ~ .sb-ui-input-helper {
+    color: var(--sb-ui-color-feedback-success-base, #28a745);
+  }
+
+  /* Error state */
+  .sb-ui-input--error {
+    --sb-ui-input-border-color: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-input-border-focus: var(--sb-ui-color-feedback-error-base, #dc3545);
+    --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-error-L400, rgba(220, 53, 69, 0.1));
+
+    & + .sb-ui-input-icon {
+      color: var(--sb-ui-color-feedback-error-base, #dc3545);
+    }
+  }
+
+  .sb-ui-input--error ~ .sb-ui-input-helper {
+    color: var(--sb-ui-color-feedback-error-base, #dc3545);
+  }
+
+  /* Warning state */
+  .sb-ui-input--warning {
+    --sb-ui-input-border-color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+    --sb-ui-input-border-focus: var(--sb-ui-color-feedback-warning-base, #ffc107);
+    --sb-ui-input-shadow-focus: 0 0 0 3px var(--sb-ui-color-feedback-warning-L400, rgba(255, 193, 7, 0.1));
+
+    & + .sb-ui-input-icon {
+      color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+    }
+  }
+
+  .sb-ui-input--warning ~ .sb-ui-input-helper {
+    color: var(--sb-ui-color-feedback-warning-base, #ffc107);
+  }
+
+  /* Disabled state */
+  .sb-ui-input:disabled ~ .sb-ui-input-helper,
+  .sb-ui-input.sb-ui-input--disabled ~ .sb-ui-input-helper {
+    opacity: 0.6;
+  }
+
+  .sb-ui-input:disabled + .sb-ui-input-icon,
+  .sb-ui-input.sb-ui-input--disabled + .sb-ui-input-icon {
+    opacity: 0.6;
+  }
+
+  /* Focus state - icon color */
+  .sb-ui-input:focus + .sb-ui-input-icon {
+    color: var(--sb-ui-input-border-focus);
+  }
+}
+
+/* ========================================
+   SIZES LAYER
+   ======================================== */
+@layer sizes {
+  .sb-ui-input--small {
+    --sb-ui-input-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-input-padding-inline: clamp(0.6rem, 0.4rem + 0.8vw, 0.75rem);
+    --sb-ui-input-padding-block: clamp(0.4rem, 0.3rem + 0.5vw, 0.5rem);
+    --sb-ui-input-min-block-size: clamp(32px, 6vw, 36px);
+    --sb-ui-input-padding-inline-end-icon: clamp(1.8rem, 1.6rem + 0.8vw, 2rem);
+  }
+
+  .sb-ui-input--large {
+    --sb-ui-input-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+    --sb-ui-input-padding-inline: clamp(1rem, 0.8rem + 1.8vw, 1.25rem);
+    --sb-ui-input-padding-block: clamp(0.8rem, 0.6rem + 1vw, 1rem);
+    --sb-ui-input-min-block-size: clamp(48px, 10vw, 52px);
+    --sb-ui-input-padding-inline-end-icon: clamp(2.5rem, 2.2rem + 1.2vw, 3rem);
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  .sb-ui-input--rounded {
+    --sb-ui-input-border-radius: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  }
+
+  .sb-ui-input--inline {
+    --sb-ui-input-inline-size: auto;
+    min-inline-size: clamp(180px, 30vw, 250px);
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER (máxima prioridad)
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support - OBLIGATORIO */
+  @media (prefers-contrast: high) {
+    .sb-ui-input {
+      --sb-ui-input-border-width: 2px;
+    }
+  }
+
+  /* Reduced motion support - OBLIGATORIO */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-input {
+      --sb-ui-input-transition: none;
+    }
+  }
+
+  /* Mobile styles - Font size 16px para prevenir zoom en iOS */
+  @media (inline-size <= 640px) {
+    .sb-ui-input {
+      font-size: max(16px, var(--sb-ui-input-font-size));
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .sb-ui-input {
+      background: transparent !important;
+      color: black !important;
+      border: 1px solid black !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+/* ========================================
+   AUTOFILL STYLES (fuera de @layer)
+   ======================================== */
 .sb-ui-input:-webkit-autofill,
 .sb-ui-input:-webkit-autofill:hover,
 .sb-ui-input:-webkit-autofill:focus,
@@ -531,21 +378,4 @@
   -webkit-box-shadow: 0 0 0 30px var(--sb-ui-input-bg-color) inset !important;
   -webkit-text-fill-color: var(--sb-ui-input-text-color) !important;
   transition: background-color 5000s ease-in-out 0s;
-}
-
-/* ========================================
-   VALIDATION STYLES
-   ======================================== */
-
-.sb-ui-input:valid:not(:placeholder-shown) {
-  /* Success styling for valid inputs */
-}
-
-.sb-ui-input:invalid:not(:placeholder-shown) {
-  /* Error styling for invalid inputs */
-}
-
-/* Custom validation message styling */
-.sb-ui-input:invalid:not(:placeholder-shown) + .sb-ui-input-helper {
-  color: var(--sb-ui-color-feedback-error-base, #dc3545);
 }
