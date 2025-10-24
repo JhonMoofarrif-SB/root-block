@@ -1,0 +1,258 @@
+/**
+ * Spinner Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * TIPOS:
+ * - basic: Solo spinner circular con gradiente
+ * - integrated: Spinner con doble círculo (verde + amarillo)
+ * - icon: Spinner con icono centrado
+ * - icon-text: Spinner con icono y texto
+ *
+ * TAMAÑO:
+ * - Default: 40x40px (único tamaño, no hay small/medium/large)
+ *
+ * ESTADOS DE PROGRESO:
+ * - data-progress="0-100" (dinámico con CSS variables)
+ * - Ejemplos: 25% (90deg), 50% (180deg), 75% (270deg), 100% (360deg)
+ *
+ * VELOCIDAD:
+ * - Default: 1.2s
+ * - --fast: 0.8s
+ * - --slow: 2s
+ *
+ * Uso: <div class="sb-ui-spinner sb-ui-spinner--basic" data-progress="25"></div>
+ */
+
+@layer reset, tokens, base, variants, modifiers, states, utilities;
+
+/* ========================================
+   KEYFRAMES - Fuera de @layer
+   ======================================== */
+@keyframes sb-ui-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-spinner {
+    all: unset;
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-spinner {
+    /* Colores */
+    --sb-ui-spinner-gradient-start: var(--sb-ui-color-primary-D200, #05794a);
+    --sb-ui-spinner-gradient-end: var(--sb-ui-color-primary-D100, #009056);
+
+    /* Tamaños */
+    --sb-ui-spinner-size: clamp(32px, 6vw, 40px);
+    --sb-ui-spinner-stroke-width: clamp(3px, 0.5vw, 4px);
+    --sb-ui-spinner-border-radius: 50%;
+
+    /* Tipografía */
+    --sb-ui-spinner-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+
+    /* Animation */
+    --sb-ui-spinner-duration: 1.2s;
+
+    /* Progress (0-100) */
+    --sb-ui-spinner-progress: 25;
+    --sb-ui-spinner-angle: calc(var(--sb-ui-spinner-progress) * 3.6deg);
+
+    /* Máscara reutilizable para crear el efecto de anillo */
+    --sb-ui-spinner-mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - var(--sb-ui-spinner-stroke-width) - 1px),
+      #fff calc(100% - var(--sb-ui-spinner-stroke-width))
+    );
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  .sb-ui-spinner {
+    display: inline-flex;
+    place-items: center;
+    position: relative;
+    inline-size: var(--sb-ui-spinner-size);
+    block-size: var(--sb-ui-spinner-size);
+    border-radius: var(--sb-ui-spinner-border-radius);
+    animation: sb-ui-spinner-rotate var(--sb-ui-spinner-duration) linear infinite;
+    will-change: transform;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: conic-gradient(
+        from 0deg,
+        var(--sb-ui-spinner-gradient-start) 0%,
+        var(--sb-ui-spinner-gradient-end) var(--sb-ui-spinner-angle),
+        transparent var(--sb-ui-spinner-angle)
+      );
+      -webkit-mask: var(--sb-ui-spinner-mask);
+      mask: var(--sb-ui-spinner-mask);
+    }
+
+    & .sb-ui-spinner__content {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      gap: 0.25rem;
+    }
+
+    & .sb-ui-spinner__icon {
+      inline-size: calc(var(--sb-ui-spinner-size) * 0.5);
+      block-size: calc(var(--sb-ui-spinner-size) * 0.5);
+      display: flex;
+      place-items: center;
+
+      & svg,
+      & img {
+        inline-size: 100%;
+        block-size: 100%;
+      }
+    }
+
+    & .sb-ui-spinner__label {
+      font-family: var(--sb-ui-spinner-font-family);
+      font-size: calc(var(--sb-ui-spinner-size) * 0.2);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--sb-ui-spinner-gradient-start);
+      text-align: center;
+      max-inline-size: calc(var(--sb-ui-spinner-size) * 0.8);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+/* ========================================
+   VARIANTS LAYER
+   ======================================== */
+@layer variants {
+  /* INTEGRATED - 3 círculos concéntricos con velocidades diferentes */
+  .sb-ui-spinner--integrated {
+    /* Tamaño más grande para acomodar 3 círculos */
+    --sb-ui-spinner-size: clamp(80px, 12vw, 150px);
+
+    /* Desactivar ::before del base (no usa progreso) */
+    &::before {
+      display: none;
+    }
+
+    /* Círculo externo (verde oscuro) - 2s */
+    border: 3px solid transparent;
+    border-top-color: #009056;
+    animation: sb-ui-spinner-rotate 2s linear infinite;
+
+    /* Círculo medio (verde claro) - 3s */
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #02d46f;
+      animation: sb-ui-spinner-rotate 3s linear infinite;
+    }
+
+    /* Círculo interno (amarillo) - 1.5s */
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #ffe16f;
+      animation: sb-ui-spinner-rotate 1.5s linear infinite;
+    }
+  }
+
+  /* ICON & ICON-TEXT - Contenido interno estático (no rota) */
+  .sb-ui-spinner--icon .sb-ui-spinner__content,
+  .sb-ui-spinner--icon-text .sb-ui-spinner__content {
+    animation: sb-ui-spinner-rotate var(--sb-ui-spinner-duration) linear infinite reverse;
+    will-change: transform;
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  .sb-ui-spinner--fast {
+    --sb-ui-spinner-duration: 0.8s;
+  }
+
+  .sb-ui-spinner--slow {
+    --sb-ui-spinner-duration: 2s;
+  }
+
+  .sb-ui-spinner--paused {
+    animation-play-state: paused;
+
+    & .sb-ui-spinner__content {
+      animation-play-state: paused;
+    }
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  .sb-ui-spinner[data-progress='25'] {
+    --sb-ui-spinner-progress: 25;
+  }
+  .sb-ui-spinner[data-progress='50'] {
+    --sb-ui-spinner-progress: 50;
+  }
+  .sb-ui-spinner[data-progress='75'] {
+    --sb-ui-spinner-progress: 75;
+  }
+  .sb-ui-spinner[data-progress='100'] {
+    --sb-ui-spinner-progress: 100;
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER
+   ======================================== */
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-spinner,
+    .sb-ui-spinner .sb-ui-spinner__content,
+    .sb-ui-spinner::before {
+      animation: none;
+    }
+  }
+
+  @media (prefers-contrast: high) {
+    .sb-ui-spinner {
+      --sb-ui-spinner-stroke-width: clamp(4px, 0.6vw, 6px);
+      outline: 1px solid currentColor;
+    }
+  }
+}
