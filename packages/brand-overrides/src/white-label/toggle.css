@@ -1,0 +1,12 @@
+@layer brand-overrides {
+  [data-brand='white-label'] .sb-ui-toggle-slider {
+    --sb-ui-toggle-shadow: none;
+    --sb-ui-toggle-shadow-active: none;
+  }
+
+  [data-brand='white-label'] .sb-ui-toggle-input:focus-visible + .sb-ui-toggle-slider {
+    outline: 2px solid var(--sb-ui-color-primary-base);
+    outline-offset: 2px;
+  }
+}
+

@@ -268,40 +268,77 @@ export const Estados: Story = {
     </style>
 
     <div class="toggle-matrix">
-      <!-- Estados Básicos -->
+      <!-- Estados Básicos - OFF -->
       <div class="toggle-demo">
-        <h3>Estados Básicos</h3>
+        <h3>Estados Básicos (OFF)</h3>
         <div>
           <label class="sb-ui-toggle">
             <input type="checkbox" class="sb-ui-toggle-input" />
             <span class="sb-ui-toggle-slider"></span>
-            <span class="sb-ui-toggle-label">Normal</span>
+            <span class="sb-ui-toggle-label">Normal OFF</span>
           </label>
-          <div class="sb-ui-toggle-helper">Estado normal</div>
+          <div class="sb-ui-toggle-helper">Estado normal desactivado</div>
         </div>
         <div>
           <label class="sb-ui-toggle sb-ui-toggle--error">
             <input type="checkbox" class="sb-ui-toggle-input" />
             <span class="sb-ui-toggle-slider"></span>
-            <span class="sb-ui-toggle-label">Error</span>
+            <span class="sb-ui-toggle-label">Error OFF</span>
           </label>
-          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--error">Campo con error</div>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--error">Campo con error desactivado</div>
         </div>
         <div>
           <label class="sb-ui-toggle sb-ui-toggle--success">
-            <input type="checkbox" class="sb-ui-toggle-input" checked />
+            <input type="checkbox" class="sb-ui-toggle-input" />
             <span class="sb-ui-toggle-slider"></span>
-            <span class="sb-ui-toggle-label">Success</span>
+            <span class="sb-ui-toggle-label">Success OFF</span>
           </label>
-          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--success">Campo válido</div>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--success">Campo válido desactivado</div>
         </div>
         <div>
           <label class="sb-ui-toggle sb-ui-toggle--warning">
             <input type="checkbox" class="sb-ui-toggle-input" />
             <span class="sb-ui-toggle-slider"></span>
-            <span class="sb-ui-toggle-label">Warning</span>
+            <span class="sb-ui-toggle-label">Warning OFF</span>
           </label>
-          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--warning">Revisa este toggle</div>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--warning">Advertencia desactivada</div>
+        </div>
+      </div>
+
+      <!-- Estados Básicos - ON -->
+      <div class="toggle-demo">
+        <h3>Estados Básicos (ON)</h3>
+        <div>
+          <label class="sb-ui-toggle">
+            <input type="checkbox" class="sb-ui-toggle-input" checked />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Normal ON</span>
+          </label>
+          <div class="sb-ui-toggle-helper">Estado normal activado (verde)</div>
+        </div>
+        <div>
+          <label class="sb-ui-toggle sb-ui-toggle--error">
+            <input type="checkbox" class="sb-ui-toggle-input" checked />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Error ON</span>
+          </label>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--error">Campo con error activado (rojo)</div>
+        </div>
+        <div>
+          <label class="sb-ui-toggle sb-ui-toggle--success">
+            <input type="checkbox" class="sb-ui-toggle-input" checked />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Success ON</span>
+          </label>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--success">Campo válido activado (verde success)</div>
+        </div>
+        <div>
+          <label class="sb-ui-toggle sb-ui-toggle--warning">
+            <input type="checkbox" class="sb-ui-toggle-input" checked />
+            <span class="sb-ui-toggle-slider"></span>
+            <span class="sb-ui-toggle-label">Warning ON</span>
+          </label>
+          <div class="sb-ui-toggle-helper sb-ui-toggle-helper--warning">Advertencia activada (amarillo)</div>
         </div>
       </div>
 

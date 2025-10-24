@@ -1,0 +1,354 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - Toggle Component Overrides
+ * ============================================================================
+ *
+ * Overrides específicos para el Toggle Component siguiendo el Design System
+ * de Seguros Bolívar.
+ *
+ * ESTRUCTURA:
+ * 1. Configuración global (fuera de @layer) - estructura y tamaños
+ * 2. Overrides por estado (dentro de @layer brand-overrides) - colores
+ *
+ * ESTADOS:
+ * - Default (off/on)
+ * - Hover (off/on)
+ * - Pressed (off/on)
+ * - Focus (off/on)
+ * - Disabled (off/on)
+ * - Error (off/on)
+ *
+ * ⚠️ IMPORTANTE:
+ * - Usar tokens de la marca: var(--sb-ui-color-*), NO hardcodear
+ * - Solo definir las variables que cambian respecto al default
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL (fuera de @layer)
+   ============================================================================
+   Propiedades estructurales como tamaño, border-radius, etc.
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-toggle {
+  --sb-ui-toggle-width: 3rem; /* 48px - ancho correcto */
+  --sb-ui-toggle-height: 1.5rem; /* 24px - altura correcta */
+  --sb-ui-toggle-slider-size: 1.375rem; /* 22px - círculo más grande que el track */
+  --sb-ui-toggle-slider-offset: -0.1875rem; /* -3px - para centrar y que sobresalga */
+  --sb-ui-toggle-border-radius: 2rem;
+  --sb-ui-toggle-border-width: 0px; /* Sin borde visible en el diseño */
+  --sb-ui-toggle-font-size: 0.875rem; /* 14px para label */
+  --sb-ui-toggle-font-weight: 400;
+  --sb-ui-toggle-gap: 0.75rem;
+}
+
+/* ============================================================================
+   SIZES - Small, Medium, Large (fuera de @layer para mayor especificidad)
+   ============================================================================ */
+
+/* Small - 40px x 20px, círculo 18px */
+[data-brand='seguros-bolivar'] .sb-ui-toggle--small {
+  --sb-ui-toggle-width: 2.5rem; /* 40px */
+  --sb-ui-toggle-height: 1.25rem; /* 20px */
+  --sb-ui-toggle-slider-size: 1.125rem; /* 18px - círculo proporcional */
+  --sb-ui-toggle-slider-offset: -0.0625rem; /* -1px - ajuste para centrar */
+  --sb-ui-toggle-font-size: 0.75rem; /* 12px para label */
+  --sb-ui-toggle-gap: 0.5rem; /* 8px */
+}
+
+/* Medium - Default (48px x 24px, círculo 22px) */
+[data-brand='seguros-bolivar'] .sb-ui-toggle--medium {
+  --sb-ui-toggle-width: 3rem; /* 48px */
+  --sb-ui-toggle-height: 1.5rem; /* 24px */
+  --sb-ui-toggle-slider-size: 1.375rem; /* 22px */
+  --sb-ui-toggle-slider-offset: -0.1875rem; /* -3px */
+  --sb-ui-toggle-font-size: 0.875rem; /* 14px para label */
+  --sb-ui-toggle-gap: 0.75rem; /* 12px */
+}
+
+/* Large - 56px x 28px, círculo 26px */
+[data-brand='seguros-bolivar'] .sb-ui-toggle--large {
+  --sb-ui-toggle-width: 3.5rem; /* 56px */
+  --sb-ui-toggle-height: 1.75rem; /* 28px */
+  --sb-ui-toggle-slider-size: 1.625rem; /* 26px - círculo proporcional */
+  --sb-ui-toggle-slider-offset: -0.0625rem; /* -1px - ajuste para centrar */
+  --sb-ui-toggle-font-size: 1rem; /* 16px para label */
+  --sb-ui-toggle-gap: 1rem; /* 16px */
+}
+
+/* ============================================================================
+   2. OVERRIDES POR ESTADO (dentro de @layer brand-overrides)
+   ============================================================================
+   Variables de color y estados interactivos
+   ============================================================================ */
+@layer brand-overrides {
+  /* ========================================
+     SELECTION: OFF - Estados
+     ======================================== */
+  
+  /* Default OFF */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-slider {
+    /* Fondo gris claro */
+    --sb-ui-toggle-bg-color: var(--sb-ui-color-grayscale-L200); /* #E1E1E1 */
+    --sb-ui-toggle-border-color: transparent;
+    --sb-ui-toggle-shadow: none;
+  }
+
+  /* Círculo gris oscuro cuando está OFF */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
+    opacity: 1; /* Sin opacidad, color sólido */
+  }
+
+  /* Hover OFF - círculo más oscuro (gris muy oscuro) */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-grayscale-D200); /* #5B5B5B - más oscuro en hover */
+    opacity: 1; /* Sin opacidad, color sólido */
+  }
+
+  /* Focus OFF - outline verde SOLO en el círculo (sin espacio blanco) */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:focus-visible + .sb-ui-toggle-slider::before,
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:focus + .sb-ui-toggle-slider::before {
+    outline: 3px solid var(--sb-ui-color-primary-L100);
+    outline-offset: 0;
+    box-shadow: none;
+  }
+
+  /* ========================================
+     SELECTION: ON - Estados
+     ======================================== */
+
+  /* Default ON - fondo verde claro, círculo verde oscuro */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    --sb-ui-toggle-bg-color-active: var(--sb-ui-color-primary-L300); /* #E5F4EE verde claro */
+    --sb-ui-toggle-border-color-active: transparent;
+    --sb-ui-toggle-shadow-active: none;
+    background-color: var(--sb-ui-color-primary-L300);
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-primary-base) !important; /* #009056 verde sólido */
+    opacity: 1 !important; /* Sin opacidad, color sólido */
+  }
+
+  /* Hover ON - fondo verde medio */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-primary-L200); /* #CCE9DD verde medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-primary-D100) !important; /* #038450 verde más oscuro */
+    opacity: 1 !important; /* Sin opacidad, color sólido */
+  }
+
+  /* Focus ON - outline verde SOLO en el círculo (sin espacio blanco) */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:checked:focus-visible + .sb-ui-toggle-slider::before,
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:checked:focus + .sb-ui-toggle-slider::before {
+    outline: 3px solid var(--sb-ui-color-primary-L100);
+    outline-offset: 0;
+    box-shadow: none;
+  }
+
+  /* ========================================
+     DISABLED STATE
+     ======================================== */
+
+  /* Disabled OFF */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:disabled + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 */
+    border-color: transparent;
+    opacity: 1;
+    cursor: not-allowed;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:disabled + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-grayscale-L100); /* #B9B9B9 gris claro */
+  }
+
+  /* Disabled ON */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:disabled:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-grayscale-L300); /* #F5F5F5 */
+    border-color: transparent;
+    opacity: 1;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:disabled:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
+  }
+
+  /* Disabled label */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-input:disabled ~ .sb-ui-toggle-label {
+    color: var(--sb-ui-color-grayscale-base); /* #9B9B9B */
+    cursor: not-allowed;
+  }
+
+  /* ========================================
+     ERROR STATE
+     ======================================== */
+
+  /* Error OFF - fondo rojo claro, círculo rojo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-error-L300) !important; /* Rojo claro */
+    border-color: transparent !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-error-base) !important; /* #DC3545 rojo */
+    opacity: 1 !important;
+  }
+
+  /* Error ON - fondo rojo claro, círculo rojo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-error-L300) !important; /* Rojo claro */
+    border-color: transparent !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-error-base) !important; /* #DC3545 rojo */
+    opacity: 1 !important;
+  }
+
+  /* Error hover OFF - mantener rojo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-error-L200) !important; /* Rojo medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-error-D100) !important; /* Rojo más oscuro */
+    opacity: 1 !important;
+  }
+
+  /* Error hover ON - mantener rojo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-error-L200) !important; /* Rojo medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-error-D100) !important; /* Rojo más oscuro */
+    opacity: 1 !important;
+  }
+
+  /* Error focus - outline rojo SOLO en el círculo (sin espacio blanco) */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error .sb-ui-toggle-input:focus-visible + .sb-ui-toggle-slider::before,
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--error .sb-ui-toggle-input:focus + .sb-ui-toggle-slider::before {
+    outline: 3px solid var(--sb-ui-color-feedback-error-L100);
+    outline-offset: 0;
+  }
+
+  /* ========================================
+     WARNING STATE
+     ======================================== */
+
+  /* Warning OFF - fondo amarillo claro, círculo amarillo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-warning-L300) !important; /* Amarillo claro */
+    border-color: transparent !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-warning-base) !important; /* #FFC100 amarillo */
+    opacity: 1 !important;
+  }
+
+  /* Warning ON - fondo amarillo claro, círculo amarillo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-warning-L300) !important; /* Amarillo claro */
+    border-color: transparent !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-warning-base) !important; /* #FFC100 amarillo */
+    opacity: 1 !important;
+  }
+
+  /* Warning hover OFF - mantener amarillo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-warning-L200) !important; /* Amarillo medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-warning-D100) !important; /* Amarillo más oscuro */
+    opacity: 1 !important;
+  }
+
+  /* Warning hover ON - mantener amarillo */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-warning-L200) !important; /* Amarillo medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-warning-D100) !important; /* Amarillo más oscuro */
+    opacity: 1 !important;
+  }
+
+  /* Warning focus - outline amarillo SOLO en el círculo (sin espacio blanco) */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning .sb-ui-toggle-input:focus-visible + .sb-ui-toggle-slider::before,
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--warning .sb-ui-toggle-input:focus + .sb-ui-toggle-slider::before {
+    outline: 3px solid var(--sb-ui-color-feedback-warning-L100);
+    outline-offset: 0;
+  }
+
+  /* ========================================
+     SUCCESS STATE
+     ======================================== */
+
+  /* Success OFF - fondo verde claro, círculo verde */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-success-L300) !important; /* Verde claro */
+    border-color: transparent !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-success-base) !important; /* #28A745 verde */
+    opacity: 1 !important;
+  }
+
+  /* Success ON - fondo verde claro, círculo verde */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-success-L300) !important; /* Verde claro */
+    border-color: transparent !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-success-base) !important; /* #28A745 verde */
+    opacity: 1 !important;
+  }
+
+  /* Success hover OFF - mantener verde */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-success-L200) !important; /* Verde medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-success-D100) !important; /* Verde más oscuro */
+    opacity: 1 !important;
+  }
+
+  /* Success hover ON - mantener verde */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider {
+    background-color: var(--sb-ui-color-feedback-success-L200) !important; /* Verde medio en hover */
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success:hover:not(:has(.sb-ui-toggle-input:disabled)) .sb-ui-toggle-input:checked + .sb-ui-toggle-slider::before {
+    background-color: var(--sb-ui-color-feedback-success-D100) !important; /* Verde más oscuro */
+    opacity: 1 !important;
+  }
+
+  /* Success focus - outline verde SOLO en el círculo (sin espacio blanco) */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success .sb-ui-toggle-input:focus-visible + .sb-ui-toggle-slider::before,
+  [data-brand='seguros-bolivar'] .sb-ui-toggle--success .sb-ui-toggle-input:focus + .sb-ui-toggle-slider::before {
+    outline: 3px solid var(--sb-ui-color-feedback-success-L100);
+    outline-offset: 0;
+  }
+
+  /* ========================================
+     LABEL
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-toggle-label {
+    color: var(--sb-ui-color-grayscale-black);
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
