@@ -216,188 +216,932 @@ export const Playground: Story = {
 };
 
 /**
- * ## Estados - Matriz de Combinaciones
+ * ## Estados - Matriz Completa de Combinaciones
  *
- * Matriz del select mostrando combinaciones de:
- * - **4 Estados**: Normal, Error, Success, Warning
+ * Matriz completa del select mostrando todas las combinaciones de:
+ * - **4 Estados**: Normal (Default), Error, Success, Warning
  * - **3 Tamaños**: Small, Medium, Large
- * - **Diferentes tipos**: Simple, Múltiple, Con grupos
+ * - **3 Variantes Interactivas**: Default, Hover, Disabled
+ *
+ * **Total: 36 combinaciones** (4 × 3 × 3)
  */
 export const Estados: Story = {
   render: () => html`
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-      .select-matrix {
+      .matrix-container {
         font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
         padding: 2rem;
         background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
-      .select-demo {
+      .matrix-section {
+        margin-bottom: 4rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .matrix-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--sb-ui-color-primary-base, #007acc);
+      }
+
+      .matrix-subtitle {
+        font-size: 1rem;
+        color: var(--sb-ui-color-grayscale-base, #666);
+        margin-bottom: 2rem;
+      }
+
+      .matrix-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+      }
+
+      .matrix-table th,
+      .matrix-table td {
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border-right: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+        border-bottom: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+      }
+
+      .matrix-table th {
+        background: var(--sb-ui-color-primary-base, #007acc);
+        color: white;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .matrix-table td:first-child {
+        background: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+        font-weight: 600;
+        text-align: left;
+        padding-left: 1.5rem;
+        color: var(--sb-ui-color-grayscale-D100, #333);
+      }
+
+      .matrix-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .matrix-table th:last-child,
+      .matrix-table td:last-child {
+        border-right: none;
+      }
+
+      .state-label {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+        color: var(--sb-ui-color-grayscale-D200, #222);
+      }
+
+      .state-label.default {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
+      .state-label.hover {
+        background: #f3e5f5;
+        color: #6a1b9a;
+      }
+      .state-label.disabled {
+        background: #eceff1;
+        color: #546e7a;
+      }
+    </style>
+
+    <div class="matrix-container">
+      <!-- ========================================
+           SECCIÓN 1: NORMAL STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">📝 Estado NORMAL - Select</h2>
+        <p class="matrix-subtitle">
+          Estado por defecto del select sin validación específica. Muestra el borde gris por defecto.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select
+                    class="sb-ui-select sb-ui-select--small"
+                    style="border-color: var(--sb-ui-color-primary-base);"
+                  >
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select
+                    class="sb-ui-select"
+                    style="border-color: var(--sb-ui-color-primary-base);"
+                  >
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select
+                    class="sb-ui-select sb-ui-select--large"
+                    style="border-color: var(--sb-ui-color-primary-base);"
+                  >
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Helper text
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 2: SUCCESS STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">✅ Estado SUCCESS - Select</h2>
+        <p class="matrix-subtitle">
+          Estado de validación exitosa. Muestra borde verde y helper text con icono de check.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--success">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--success">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--success">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--success">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--success">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--success">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--success" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--success" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--success" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción válida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Campo válido
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 3: ERROR STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">❌ Estado ERROR - Select</h2>
+        <p class="matrix-subtitle">
+          Estado de validación fallida. Muestra borde rojo y helper text con icono de error.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--error">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--error">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--error">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--error">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--error">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--error">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--error" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--error" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--error" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Opción inválida</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Campo con error
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========================================
+           SECCIÓN 4: WARNING STATE
+           ======================================== -->
+      <div class="matrix-section">
+        <h2 class="matrix-title">⚠️ Estado WARNING - Select</h2>
+        <p class="matrix-subtitle">
+          Estado de advertencia. Muestra borde amarillo y helper text con icono de alerta.
+        </p>
+
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding-left: 1.5rem;">Estado</th>
+              <th>Small</th>
+              <th>Medium (Default)</th>
+              <th>Large</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Default State -->
+            <tr>
+              <td>
+                <span class="state-label default">Default</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--warning">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--warning">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--warning">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hover State -->
+            <tr>
+              <td>
+                <span class="state-label hover">Hover</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--warning">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--warning">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--warning">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Disabled State -->
+            <tr>
+              <td>
+                <span class="state-label disabled">Disabled</span>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--small sb-ui-select--warning" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--warning" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+              <td>
+                <div class="sb-ui-select-container">
+                  <label class="sb-ui-select-label">Label</label>
+                  <select class="sb-ui-select sb-ui-select--large sb-ui-select--warning" disabled>
+                    <option value="">Selecciona una opción</option>
+                    <option value="1" selected>Revisar opción</option>
+                  </select>
+                  <span class="sb-ui-select-helper">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Revisa esta selección
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `,
+};
+
+/**
+ * ## Características Especiales - Select
+ *
+ * Muestra características adicionales del select: múltiple, grupos, requerido, con iconos, etc.
+ */
+export const CaracteristicasEspeciales: Story = {
+  render: () => html`
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .features-container {
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+        padding: 2rem;
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature-demo {
         padding: 1.5rem;
         background: white;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      .select-demo h3 {
+      .feature-demo h3 {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         font-weight: 600;
         color: var(--sb-ui-color-primary-base, #007acc);
       }
-
-      .select-demo > div {
-        margin-bottom: 1rem;
-      }
-
-      .select-demo > div:last-child {
-        margin-bottom: 0;
-      }
     </style>
 
-    <div class="select-matrix">
-      <!-- Estados Básicos -->
-      <div class="select-demo">
-        <h3>Estados Básicos</h3>
-        <div>
-          <label class="sb-ui-select-label">Normal</label>
-          <select class="sb-ui-select">
-            <option value="">Select normal</option>
-            <option value="1">Opción 1</option>
-            <option value="2">Opción 2</option>
-          </select>
-          <div class="sb-ui-select-helper">Estado normal</div>
-        </div>
-        <div>
-          <label class="sb-ui-select-label">Error</label>
-          <select class="sb-ui-select sb-ui-select--error">
-            <option value="">Con error</option>
-            <option value="1">Opción inválida</option>
-          </select>
-          <div class="sb-ui-select-helper sb-ui-select-helper--error">Campo con error</div>
-        </div>
-        <div>
-          <label class="sb-ui-select-label">Success</label>
-          <select class="sb-ui-select sb-ui-select--success">
-            <option value="">Selección exitosa</option>
-            <option value="1" selected>Opción válida</option>
-          </select>
-          <div class="sb-ui-select-helper sb-ui-select-helper--success">Campo válido</div>
-        </div>
-        <div>
-          <label class="sb-ui-select-label">Warning</label>
-          <select class="sb-ui-select sb-ui-select--warning">
-            <option value="">Con advertencia</option>
-            <option value="1">Revisar opción</option>
-          </select>
-          <div class="sb-ui-select-helper sb-ui-select-helper--warning">Revisa esta selección</div>
-        </div>
-      </div>
-
-      <!-- Tamaños -->
-      <div class="select-demo">
-        <h3>Tamaños</h3>
-        <div>
-          <label class="sb-ui-select-label">Small</label>
-          <select class="sb-ui-select sb-ui-select--small">
-            <option value="">Select pequeño</option>
-            <option value="1">Opción 1</option>
-          </select>
-        </div>
-        <div>
-          <label class="sb-ui-select-label">Medium</label>
-          <select class="sb-ui-select sb-ui-select--medium">
-            <option value="">Select mediano</option>
-            <option value="1">Opción 1</option>
-          </select>
-        </div>
-        <div>
-          <label class="sb-ui-select-label">Large</label>
-          <select class="sb-ui-select sb-ui-select--large">
-            <option value="">Select grande</option>
-            <option value="1">Opción 1</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Con Iconos -->
-      <div class="select-demo">
-        <h3>Con Iconos</h3>
-        <div>
-          <label class="sb-ui-select-label">Con Icono</label>
+    <div class="features-container">
+      <div class="features-grid">
+        <!-- Select Requerido -->
+        <div class="feature-demo">
+          <h3>Requerido</h3>
           <div class="sb-ui-select-container">
-            <select class="sb-ui-select sb-ui-select--with-icon-left">
-              <option value="">Selecciona país</option>
-              <option value="co">🇨🇴 Colombia</option>
-              <option value="mx">🇲🇽 México</option>
+            <label class="sb-ui-select-label sb-ui-select-label--required">Selección obligatoria</label>
+            <select class="sb-ui-select" required>
+              <option value="">Selecciona una opción</option>
+              <option value="1">Opción 1</option>
+              <option value="2">Opción 2</option>
             </select>
-            <span class="sb-ui-select-icon sb-ui-select-icon--left">🌍</span>
+            <span class="sb-ui-select-helper">
+              <i class="fa-solid fa-circle-info"></i>
+              Campo obligatorio
+            </span>
           </div>
         </div>
-      </div>
 
-      <!-- Select Múltiple -->
-      <div class="select-demo">
-        <h3>Select Múltiple</h3>
-        <div>
-          <label class="sb-ui-select-label">Múltiple</label>
-          <select class="sb-ui-select" multiple>
-            <option value="1">Opción 1</option>
-            <option value="2" selected>Opción 2</option>
-            <option value="3">Opción 3</option>
-            <option value="4" selected>Opción 4</option>
-          </select>
-          <div class="sb-ui-select-helper">Mantén Ctrl/Cmd para múltiples</div>
+        <!-- Select Múltiple -->
+        <div class="feature-demo">
+          <h3>Múltiple</h3>
+          <div class="sb-ui-select-container">
+            <label class="sb-ui-select-label">Múltiples opciones</label>
+            <select class="sb-ui-select" multiple size="4">
+              <option value="1">Opción 1</option>
+              <option value="2" selected>Opción 2</option>
+              <option value="3">Opción 3</option>
+              <option value="4" selected>Opción 4</option>
+              <option value="5">Opción 5</option>
+            </select>
+            <span class="sb-ui-select-helper">
+              <i class="fa-solid fa-circle-info"></i>
+              Mantén Ctrl/Cmd para múltiples
+            </span>
+          </div>
         </div>
-      </div>
 
-      <!-- Estados Especiales -->
-      <div class="select-demo">
-        <h3>Estados Especiales</h3>
-        <div>
-          <label class="sb-ui-select-label sb-ui-select-label--required">Requerido</label>
-          <select class="sb-ui-select" required>
-            <option value="">Campo obligatorio</option>
-            <option value="1">Opción A</option>
-          </select>
-          <div class="sb-ui-select-helper">Campo obligatorio</div>
+        <!-- Select con Grupos -->
+        <div class="feature-demo">
+          <h3>Con Grupos</h3>
+          <div class="sb-ui-select-container">
+            <label class="sb-ui-select-label">Opciones agrupadas</label>
+            <select class="sb-ui-select">
+              <option value="">Selecciona una opción</option>
+              <optgroup label="Tecnología">
+                <option value="tech1">Frontend</option>
+                <option value="tech2">Backend</option>
+                <option value="tech3">DevOps</option>
+              </optgroup>
+              <optgroup label="Negocios">
+                <option value="biz1">Ventas</option>
+                <option value="biz2">Marketing</option>
+                <option value="biz3">Finanzas</option>
+              </optgroup>
+            </select>
+            <span class="sb-ui-select-helper">
+              <i class="fa-solid fa-circle-info"></i>
+              Select con optgroup
+            </span>
+          </div>
         </div>
-        <div>
-          <label class="sb-ui-select-label">Deshabilitado</label>
-          <select class="sb-ui-select" disabled>
-            <option value="">Campo deshabilitado</option>
-          </select>
-          <div class="sb-ui-select-helper">Este campo está deshabilitado</div>
-        </div>
-        <div>
-          <label class="sb-ui-select-label">Rounded</label>
-          <select class="sb-ui-select sb-ui-select--rounded">
-            <option value="">Bordes redondeados</option>
-            <option value="1">Opción 1</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- Con Grupos -->
-      <div class="select-demo">
-        <h3>Con Grupos</h3>
-        <div>
-          <label class="sb-ui-select-label">Grupos</label>
-          <select class="sb-ui-select">
-            <option value="">Selecciona una opción</option>
-            <optgroup label="Categoría A">
-              <option value="a1">Opción A1</option>
-              <option value="a2">Opción A2</option>
-            </optgroup>
-            <optgroup label="Categoría B">
-              <option value="b1">Opción B1</option>
-              <option value="b2">Opción B2</option>
-            </optgroup>
-          </select>
-          <div class="sb-ui-select-helper">Select con grupos</div>
+        <!-- Select con Iconos -->
+        <div class="feature-demo">
+          <h3>Con Iconos</h3>
+          <div>
+            <label class="sb-ui-select-label">Selecciona país</label>
+            <select class="sb-ui-select">
+              <option value="">Selecciona un país</option>
+              <option value="co">🇨🇴 Colombia</option>
+              <option value="mx">🇲🇽 México</option>
+              <option value="ar">🇦🇷 Argentina</option>
+              <option value="cl">🇨🇱 Chile</option>
+            </select>
+            <span class="sb-ui-select-helper">
+              <i class="fa-solid fa-circle-info"></i>
+              Select con iconos de países
+            </span>
+          </div>
+        </div>
+
+        <!-- Select Rounded -->
+        <div class="feature-demo">
+          <h3>Bordes Redondeados</h3>
+          <div class="sb-ui-select-container">
+            <label class="sb-ui-select-label">Select con rounded</label>
+            <select class="sb-ui-select sb-ui-select--rounded">
+              <option value="">Selecciona una opción</option>
+              <option value="1">Opción 1</option>
+              <option value="2">Opción 2</option>
+            </select>
+            <span class="sb-ui-select-helper">
+              <i class="fa-solid fa-circle-info"></i>
+              Modifier --rounded
+            </span>
+          </div>
+        </div>
+
+        <!-- Select Inline -->
+        <div class="feature-demo">
+          <h3>Inline (Auto Width)</h3>
+          <div class="sb-ui-select-container">
+            <label class="sb-ui-select-label">Select inline</label>
+            <select class="sb-ui-select sb-ui-select--inline">
+              <option value="">Selecciona</option>
+              <option value="1">Opción A</option>
+              <option value="2">Opción B</option>
+            </select>
+            <span class="sb-ui-select-helper">
+              <i class="fa-solid fa-circle-info"></i>
+              Ancho automático
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,276 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - Select Component Overrides
+ * ============================================================================
+ *
+ * Nueva Arquitectura con @layer brand-overrides (v2.0.0)
+ *
+ * ESTRUCTURA:
+ * 1. Configuración global (fuera de @layer) - padding, border-radius, etc.
+ * 2. Overrides por estado (dentro de @layer brand-overrides) - colores
+ *
+ * ESTADOS: default, hover, focus, active, disabled, success, error, warning
+ *
+ * ⚠️ IMPORTANTE:
+ * - Usar @layer brand-overrides para overrides de variables CSS
+ * - NO usar !important (ya no es necesario)
+ * - Usar tokens de la marca: var(--sb-ui-color-*), NO hardcodear
+ * - Solo definir las variables que cambian respecto al default
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL (fuera de @layer)
+   ============================================================================
+   Propiedades estructurales como padding, border-radius, tamaños
+   Basado en las especificaciones del sistema de diseño de Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-select {
+  --sb-ui-select-border-radius: 8px;
+  --sb-ui-select-padding-x: 16px; /* Inner margin horizontal */
+  --sb-ui-select-padding-y: 8px; /* Padding vertical según diseño */
+  --sb-ui-select-min-height: 40px; /* Altura mínima ajustada */
+  --sb-ui-select-font-size: 1rem; /* Body/Regular */
+  --sb-ui-select-font-weight: 400; /* Regular */
+  --sb-ui-select-arrow-size: 16px; /* Tamaño del ícono de flecha */
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-select-label {
+  font-size: 14px; /* Label/Regular - 14px exacto */
+  font-weight: 400; /* Regular, no bold */
+  margin-bottom: 8px; /* 8px entre label y select */
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-select-helper {
+  font-size: 12px; /* Caption/Regular - 12px exacto */
+  font-weight: 400; /* Regular */
+  margin-top: 8px; /* 8px entre select y helper text */
+  padding-left: 8px; /* Padding izquierdo ajustado a 8px */
+}
+
+/* Container padding según diseño */
+[data-brand='seguros-bolivar'] .sb-ui-select-container {
+  padding: 8px 16px; /* Container padding del diseño */
+}
+
+/* ============================================================================
+   2. OVERRIDES POR ESTADO (dentro de @layer brand-overrides)
+   ============================================================================
+   Variables de color, estados hover/focus/disabled/success/error
+   ============================================================================ */
+@layer brand-overrides {
+  /* ========================================
+     DEFAULT STATE
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select {
+    /* Background */
+    --sb-ui-select-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-select-bg-disabled: var(--sb-ui-color-grayscale-L300);
+
+    /* Text */
+    --sb-ui-select-text-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-select-text-disabled: var(--sb-ui-color-grayscale-base);
+    --sb-ui-select-text-placeholder: var(--sb-ui-color-grayscale-base);
+
+    /* Border */
+    --sb-ui-select-border-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-select-border-color-focus: var(--sb-ui-color-primary-base);
+    --sb-ui-select-border-width: 1px;
+
+    /* Shadow - Sin shadow en focus, solo borde verde según diseño */
+    --sb-ui-select-shadow: none;
+    --sb-ui-select-shadow-focus: none;
+
+    /* Arrow color */
+    --sb-ui-select-arrow-color: var(--sb-ui-color-grayscale-base);
+  }
+
+  /* Eliminar outline en focus y focus-visible para evitar doble borde */
+  [data-brand='seguros-bolivar'] .sb-ui-select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-select:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-select:focus-visible:not(:disabled) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ========================================
+     LABEL - Focus state
+     Color verde cuando el select tiene foco
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select-container:focus-within .sb-ui-select-label {
+    color: var(--sb-ui-color-primary-base);
+  }
+
+  /* ========================================
+     HELPER TEXT - Default
+     Color gris con ícono ℹ️
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select-helper {
+    color: var(--sb-ui-color-grayscale-D200); /* Color más oscuro: #5b5b5b */
+  }
+
+  /* ========================================
+     DEFAULT STATE - Arrow gris
+     Flecha gris (#9B9B9B) en estado default
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%239B9B9B' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* ========================================
+     HOVER STATE
+     Borde se mantiene en el mismo color
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select:hover:not(:disabled) {
+    border-color: var(--sb-ui-color-grayscale-base);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%239B9B9B' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* ========================================
+     FOCUS STATE
+     Borde verde, label verde, flecha verde
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select:focus,
+  [data-brand='seguros-bolivar'] .sb-ui-select:focus-visible,
+  [data-brand='seguros-bolivar'] .sb-ui-select:focus-within {
+    border-color: var(--sb-ui-color-primary-base) !important;
+    box-shadow: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23009056' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* ========================================
+     ACTIVE/EXPANDED STATE
+     Arrow apunta hacia arriba cuando está expandido
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select:active:not(:disabled) {
+    border-color: var(--sb-ui-color-primary-base);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23009056' d='M8 5L3 10h10z'/%3E%3C/svg%3E");
+  }
+
+  /* ========================================
+     DISABLED STATE
+     Todo en gris claro
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select:disabled,
+  [data-brand='seguros-bolivar'] .sb-ui-select.sb-ui-select--disabled {
+    background-color: var(--sb-ui-color-grayscale-L300);
+    color: var(--sb-ui-color-grayscale-base);
+    border-color: var(--sb-ui-color-grayscale-L200);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  /* ========================================
+     SUCCESS STATE
+     Borde verde, helper text verde con ✓, flecha verde
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select--success {
+    --sb-ui-select-border-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-select-border-color-focus: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-select-shadow-focus: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%2328A745' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* Success focus - flecha verde success */
+  [data-brand='seguros-bolivar'] .sb-ui-select--success:focus,
+  [data-brand='seguros-bolivar'] .sb-ui-select--success:focus-visible,
+  [data-brand='seguros-bolivar'] .sb-ui-select--success:focus-within {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%2328A745' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* Helper text en success - todo verde (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-select-container:has(.sb-ui-select--success) .sb-ui-select-helper {
+    color: var(--sb-ui-color-feedback-success-base);
+  }
+
+  /* ========================================
+     ERROR STATE
+     Borde rojo, helper text rojo con ⊗
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select--error {
+    --sb-ui-select-border-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-select-border-color-focus: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-select-shadow-focus: none;
+  }
+
+  /* Helper text en error - todo rojo (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-select-container:has(.sb-ui-select--error) .sb-ui-select-helper {
+    color: var(--sb-ui-color-feedback-error-base);
+  }
+
+  /* Error default y hover - flecha roja */
+  [data-brand='seguros-bolivar'] .sb-ui-select--error {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23DC3545' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* Error focus - flecha roja se mantiene */
+  [data-brand='seguros-bolivar'] .sb-ui-select--error:focus,
+  [data-brand='seguros-bolivar'] .sb-ui-select--error:focus-visible,
+  [data-brand='seguros-bolivar'] .sb-ui-select--error:focus-within {
+    border-color: var(--sb-ui-color-feedback-error-base) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23DC3545' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* ========================================
+     WARNING STATE
+     Borde amarillo/naranja, flecha amarilla (#FFC100)
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-select--warning {
+    --sb-ui-select-border-color: var(--sb-ui-color-feedback-warning-base);
+    --sb-ui-select-border-color-focus: var(--sb-ui-color-feedback-warning-base);
+    --sb-ui-select-shadow-focus: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFC100' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* Warning focus - flecha amarilla se mantiene */
+  [data-brand='seguros-bolivar'] .sb-ui-select--warning:focus,
+  [data-brand='seguros-bolivar'] .sb-ui-select--warning:focus-visible,
+  [data-brand='seguros-bolivar'] .sb-ui-select--warning:focus-within {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23FFC100' d='M8 11L3 6h10z'/%3E%3C/svg%3E") !important;
+  }
+
+  /* Helper text en warning - todo amarillo (ícono + texto) */
+  [data-brand='seguros-bolivar'] .sb-ui-select-container:has(.sb-ui-select--warning) .sb-ui-select-helper {
+    color: var(--sb-ui-color-feedback-warning-base);
+  }
+}
+
+/* ============================================================================
+   SIZES - Small, Medium, Large (fuera de @layer para mayor especificidad)
+   ============================================================================ */
+
+/* Small */
+[data-brand='seguros-bolivar'] .sb-ui-select--small {
+  --sb-ui-select-padding-x: 12px;
+  --sb-ui-select-padding-y: 6px;
+  --sb-ui-select-font-size: 0.875rem; /* 14px */
+  --sb-ui-select-min-height: 32px;
+  --sb-ui-select-arrow-size: 14px;
+}
+
+/* Medium - Default */
+[data-brand='seguros-bolivar'] .sb-ui-select--medium {
+  --sb-ui-select-padding-x: 16px;
+  --sb-ui-select-padding-y: 8px;
+  --sb-ui-select-font-size: 1rem; /* 16px */
+  --sb-ui-select-min-height: 40px;
+  --sb-ui-select-arrow-size: 16px;
+}
+
+/* Large */
+[data-brand='seguros-bolivar'] .sb-ui-select--large {
+  --sb-ui-select-padding-x: 20px;
+  --sb-ui-select-padding-y: 12px;
+  --sb-ui-select-font-size: 1.125rem; /* 18px */
+  --sb-ui-select-min-height: 48px;
+  --sb-ui-select-arrow-size: 18px;
+}
+
