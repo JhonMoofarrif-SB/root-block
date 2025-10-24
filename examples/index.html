@@ -369,27 +369,129 @@
       <p>Sistema de Diseño Multi-Marca con Data Attributes</p>
     </div>
 
-    <!-- Original develop content starts here -->
-    <!-- Header -->
-    <div class="header">
+    <!-- Quick Access Demo Section -->
+    <section style="margin-bottom: 3rem">
       <div
         style="
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          flex-wrap: wrap;
-          gap: 1rem;
+          background: linear-gradient(
+            135deg,
+            var(--sb-ui-color-primary-L400) 0%,
+            var(--sb-ui-color-secondary-L400) 100%
+          );
+          padding: 2rem;
+          border-radius: 16px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         "
       >
+        <!-- Form Demo Card -->
         <a
-          href="../"
-          class="sb-ui-button sb-ui-button--secondary"
-          style="text-decoration: none; white-space: nowrap; align-self: flex-start"
+          href="form-demo.html"
+          style="
+            text-decoration: none;
+            background: linear-gradient(
+              135deg,
+              var(--sb-ui-color-secondary-base) 0%,
+              var(--sb-ui-color-primary-base) 100%
+            );
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+          "
+          onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.2)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'"
         >
-          📚 Ver Documentación
+          <div style="display: flex; align-items: center; gap: 1rem">
+            <span style="font-size: 3rem">📝</span>
+            <h3 style="margin: 0; color: var(--sb-ui-color-grayscale-white); font-size: 2rem">
+              Formulario Completo
+            </h3>
+          </div>
+          <p
+            style="
+              margin: 0;
+              color: var(--sb-ui-color-grayscale-L400);
+              font-size: 1.125rem;
+              line-height: 1.6;
+            "
+          >
+            Explora un formulario de registro completo que integra TODOS los componentes del Design
+            System: inputs, textarea, select, checkbox, radio, buttons, spinner y validaciones en
+            tiempo real con estados visuales (error/success).
+          </p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem">
+            <span
+              style="
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+                background: var(--sb-ui-color-grayscale-white);
+                color: var(--sb-ui-color-primary-base);
+                border-radius: 12px;
+                font-weight: 700;
+              "
+            >
+              🔥 NUEVO
+            </span>
+            <span
+              style="
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+                background: rgba(255, 255, 255, 0.2);
+                color: var(--sb-ui-color-grayscale-white);
+                border-radius: 12px;
+                font-weight: 500;
+              "
+            >
+              ✅ 8 Inputs
+            </span>
+            <span
+              style="
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+                background: rgba(255, 255, 255, 0.2);
+                color: var(--sb-ui-color-grayscale-white);
+                border-radius: 12px;
+                font-weight: 500;
+              "
+            >
+              ✅ Validaciones
+            </span>
+            <span
+              style="
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+                background: rgba(255, 255, 255, 0.2);
+                color: var(--sb-ui-color-grayscale-white);
+                border-radius: 12px;
+                font-weight: 500;
+              "
+            >
+              ✅ Estados Visuales
+            </span>
+          </div>
+          <div style="margin-top: 0.5rem">
+            <span
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--sb-ui-color-grayscale-white);
+                font-size: 1.125rem;
+                font-weight: 600;
+              "
+            >
+              Ver Demo Completo
+              <span style="font-size: 1.5rem">→</span>
+            </span>
+          </div>
         </a>
       </div>
-    </div>
+    </section>
 
     <!-- Demos Navigation -->
     <section style="margin-bottom: 3rem">
@@ -606,7 +708,7 @@
     </section>
 
     <!-- Brand Selector -->
-    <div class="brand-selector">
+    <div class="brand-selector" style="max-width: 1200px; margin: 0 auto 2rem auto">
       <div style="margin-bottom: 1rem">
         <h3 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem">
           🔧 Panel de Control
