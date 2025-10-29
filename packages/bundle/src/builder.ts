@@ -36,6 +36,7 @@ const DIST_DIR = path.resolve(__dirname, '../dist');
 
 const TOKENS_DIST = path.join(PACKAGES_DIR, 'tokens/dist');
 const ATOMS_DIST = path.join(PACKAGES_DIR, 'atoms/dist');
+const MOLECULES_SRC = path.join(PACKAGES_DIR, 'molecules/src');
 const MOLECULES_DIST = path.join(PACKAGES_DIR, 'molecules/dist');
 const BRAND_OVERRIDES_SRC = path.join(PACKAGES_DIR, 'brand-overrides/src');
 
@@ -107,7 +108,7 @@ async function readCSSFile(filePath: string): Promise<string> {
 
 /**
  * Genera bundle COMPLETO para una marca/tema específica
- * Incluye: Tokens + Atoms + Brand Overrides (si existen)
+ * Incluye: Tokens + Atoms + Molecules + Brand Overrides (si existen)
  */
 async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<void> {
   console.log(`\n🎨 Building complete bundle: ${brand}-${theme}`);
@@ -143,7 +144,22 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
     }
   }
 
-  // 3. Leer overrides específicos de la marca (si existen)
+  // 3. Leer componentes moleculares (molecules CSS)
+  // Nota: El index.css de molecules importa automáticamente todos los componentes CSS
+  // Al agregar nuevos componentes, solo actualiza molecules/src/index.css
+  const moleculesIndexPath = path.join(MOLECULES_SRC, 'index.css');
+  try {
+    await fs.access(moleculesIndexPath);
+    const moleculesIndexCSS = await readCSSFile(moleculesIndexPath);
+    if (moleculesIndexCSS) {
+      cssFiles.push(moleculesIndexCSS);
+      console.log(`  ✓ Molecules CSS loaded (via index.css)`);
+    }
+  } catch {
+    console.log(`  ℹ️  No molecules CSS found (molecules/src/index.css not found)`);
+  }
+
+  // 4. Leer overrides específicos de la marca (si existen)
   const overridesPath = path.join(BRAND_OVERRIDES_SRC, brand, 'index.css');
   try {
     await fs.access(overridesPath);
@@ -168,6 +184,7 @@ async function buildCompleteBrandBundle(brand: Brand, theme: Theme): Promise<voi
  * Includes:
  * - Design Tokens (variables CSS)
  * - Base Components (atoms)
+ * - Complex Components (molecules)
  * - Brand Overrides (if any)
  *
  * Usage:
@@ -279,7 +296,8 @@ async function build(): Promise<void> {
   console.log('📦 Packages:');
   console.log(`  - Tokens: ${TOKENS_DIST}`);
   console.log(`  - Atoms: ${ATOMS_DIST}`);
-  console.log(`  - Molecules: ${MOLECULES_DIST}`);
+  console.log(`  - Molecules (CSS): ${MOLECULES_SRC}`);
+  console.log(`  - Molecules (JS): ${MOLECULES_DIST}`);
   console.log(`  - Brand Overrides: ${BRAND_OVERRIDES_SRC}`);
 
   // Crear directorio dist
