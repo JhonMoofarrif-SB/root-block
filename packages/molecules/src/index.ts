@@ -3,7 +3,9 @@
  * Web Components complejos con Lit
  */
 
-export { SbDatePicker as SbUiDatePicker } from './components/date-picker/date-picker.js';
+export { SbUiCalendar } from './components/Calendar.js';
+export { SbUiDatePicker } from './components/DatePicker.js';
+export { SbDatePicker as SbUiDatePickerOld } from './components/date-picker/date-picker.js';
 export { SbDropdown as SbUiDropdown } from './components/dropdown/dropdown.js';
 export { SbModal as SbUiModal } from './components/modal/modal.js';
 export {

@@ -1,502 +1,774 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-brand="seguros-bolivar" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stepper Component - Seguros Bolivar UI</title>
+    <title>Stepper Component - Seguros Bolívar UI</title>
 
-    <!-- Tokens CSS - White Label Light -->
-    <link rel="stylesheet" href="../dist/sb-ui-white-label-light.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS del Design System - Seguros Bolívar Light -->
+    <!-- PRELOAD: Carga el CSS más rápido (-100ms First Paint) -->
+    <link
+      rel="preload"
+      href="../dist/sb-ui-seguros-bolivar-light.min.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="../dist/sb-ui-seguros-bolivar-light.min.css"
+      id="brand-css"
+    />
 
     <!-- Stepper CSS -->
-    <link rel="stylesheet" href="../../packages/molecules/src/components/stepper.css" />
+    <link rel="stylesheet" href="../../packages/molecules/src/components/stepper/stepper.css" />
 
     <style>
       * {
+        margin-block: 0;
+        margin-inline: 0;
+        padding-block: 0;
+        padding-inline: 0;
         box-sizing: border-box;
       }
 
       body {
-        font-family: 'Roboto', sans-serif;
-        padding: 2rem;
-        background-color: #f5f5f5;
-        max-width: 1200px;
-        margin: 0 auto;
+        font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+        padding-block: 2rem;
+        padding-inline: 2rem;
+        background: var(--sb-ui-color-grayscale-L400, #fafafa);
       }
 
-      h1 {
-        color: #038450;
-        margin-bottom: 0.5rem;
+      .matrix-container {
+        max-inline-size: 1400px;
+        margin-block: 0;
+        margin-inline: auto;
       }
 
-      h2 {
-        color: #026f42;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
-        border-bottom: 2px solid #038450;
-        padding-bottom: 0.5rem;
+      .matrix-header {
+        margin-block-end: 2rem;
+        text-align: center;
       }
 
-      .demo-section {
+      .matrix-header h1 {
+        font-size: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+        font-weight: 700;
+        color: var(--sb-ui-color-primary-base, #007acc);
+        margin-block-end: 0.5rem;
+      }
+
+      .matrix-header p {
+        font-size: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
+        color: var(--sb-ui-color-grayscale-base, #666);
+      }
+
+      /* Brand & Theme Controls */
+      .brand-controls {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        margin-block-end: 2rem;
+        padding: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--sb-ui-color-grayscale-white) 0%,
+          var(--sb-ui-color-grayscale-L400) 100%
+        );
+        border-radius: 16px;
+        box-shadow:
+          0 4px 20px rgba(0, 0, 0, 0.08),
+          0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .brand-controls:hover {
+        box-shadow:
+          0 8px 30px rgba(0, 0, 0, 0.12),
+          0 2px 6px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+
+      .brand-controls-group {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .brand-controls label {
+        font-weight: 600;
+        font-size: 0.8125rem;
+        color: var(--sb-ui-color-grayscale-D300);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+
+      .theme-toggle {
+        display: flex;
+        gap: 0.5rem;
+        background: var(--sb-ui-color-grayscale-L300);
+        padding: 0.25rem;
+        border-radius: 50px;
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
+      }
+
+      @media (max-width: 768px) {
+        .brand-controls {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .brand-controls-group {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .theme-toggle {
+          width: 100%;
+        }
+      }
+
+      /* Sections */
+      .matrix-section {
+        margin-block-end: 3rem;
         background: white;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        border-radius: 8px;
+        padding-block: 2rem;
+        padding-inline: 2rem;
+        border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
 
+      .matrix-title {
+        font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.75rem);
+        font-weight: 600;
+        color: var(--sb-ui-color-primary-base, #007acc);
+        margin-block-end: 1.5rem;
+        padding-block-end: 0.75rem;
+        border-block-end: 2px solid var(--sb-ui-color-secondary-L300, #fff6d4);
+      }
+
+      .matrix-subtitle {
+        font-size: 1rem;
+        color: var(--sb-ui-color-grayscale-base, #666);
+        margin-block-end: 1.5rem;
+      }
+
+      /* Demo Controls */
       .demo-controls {
         display: flex;
         gap: 1rem;
-        margin-top: 1.5rem;
+        margin-block-start: 1.5rem;
         flex-wrap: wrap;
       }
 
-      .demo-controls button {
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 24px;
-        background-color: #038450;
-        color: white;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-      }
-
-      .demo-controls button:hover {
-        background-color: #026f42;
-      }
-
-      .demo-controls button:disabled {
-        background-color: #e0e0e0;
-        color: #9b9b9b;
-        cursor: not-allowed;
-      }
-
-      .event-log {
-        background-color: #f9f9f9;
-        padding: 1rem;
-        border-left: 4px solid #038450;
-        border-radius: 4px;
-        margin-top: 1rem;
-        font-family: 'Courier New', monospace;
-        font-size: 0.875rem;
-        max-height: 300px;
-        overflow-y: auto;
-      }
-
-      .event-log pre {
-        margin: 0;
-        white-space: pre-wrap;
-      }
-
-      .form-example {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .form-group label {
-        font-weight: 700;
-        color: #333;
-      }
-
-      .form-group input,
-      .form-group select {
-        padding: 0.75rem;
-        border: 2px solid #e0e0e0;
-        border-radius: 8px;
-        font-size: 1rem;
-      }
-
-      .form-group input:focus,
-      .form-group select:focus {
-        outline: 3px solid #ffd54f;
-        border-color: #038450;
-      }
-
-      .help-text {
-        font-size: 0.875rem;
-        color: #9b9b9b;
-      }
-
-      code {
-        background-color: #f0f0f0;
-        padding: 0.2rem 0.4rem;
-        border-radius: 4px;
-        font-family: 'Courier New', monospace;
-      }
-
+      /* Badge */
       .badge {
         display: inline-block;
-        background-color: #ffd54f;
-        color: #000;
-        padding: 0.25rem 0.5rem;
-        border-radius: 12px;
+        padding-block: 0.25rem;
+        padding-inline: 0.75rem;
+        border-radius: 50px;
         font-size: 0.75rem;
-        font-weight: 700;
-        margin-left: 0.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-inline-end: 0.5rem;
+        margin-block-end: 0.5rem;
+      }
+
+      .badge--success {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .badge--info {
+        background: #d1ecf1;
+        color: #0c5460;
+      }
+
+      .badge--warning {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      .badge--primary {
+        background: var(--sb-ui-color-primary-L400);
+        color: var(--sb-ui-color-primary-D200);
+      }
+
+      /* Info banner */
+      .info-banner {
+        background: var(--sb-ui-color-feedback-info-L400);
+        border-left: 4px solid var(--sb-ui-color-feedback-info-base);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-block-end: 1.5rem;
+      }
+
+      .info-banner strong {
+        color: var(--sb-ui-color-feedback-info-base);
+      }
+
+      /* Demo Wrapper */
+      .stepper-demo-wrapper {
+        padding: 2rem;
+        background: var(--sb-ui-color-grayscale-L400);
+        border-radius: 8px;
+        margin-block-end: 1.5rem;
+      }
+
+      /* Code snippet */
+      .code-snippet {
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+        margin-block-start: 1rem;
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
       }
     </style>
   </head>
   <body>
-    <h1>🚀 Stepper Component</h1>
-    <p class="help-text">Componente de pasos progresivos para formularios y flujos de trabajo</p>
+    <div class="matrix-container">
+      <!-- Brand & Theme Controls -->
+      <div class="brand-controls">
+        <button
+          onclick="window.location.href='../index.html'"
+          class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small"
+          style="text-decoration: none"
+        >
+          ← Volver
+        </button>
 
-    <!-- ============================================
-         EJEMPLO 1: Stepper Number Horizontal
-         ============================================ -->
-    <h2>1. Number Horizontal <span class="badge">Default</span></h2>
-    <div class="demo-section">
-      <p>Stepper con números, orientación horizontal, navegación lineal.</p>
+        <div class="brand-controls-group">
+          <label for="brandSelect">📦 Marca:</label>
+          <select id="brandSelect" class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small">
+            <option value="white-label">White Label</option>
+            <option value="jelpit">Jelpit</option>
+            <option value="davivienda">Davivienda</option>
+            <option value="cien-cuadras">Cien Cuadras</option>
+            <option value="doctor-aki">Doctor Aki</option>
+            <option value="seguros-bolivar" selected>Seguros Bolívar</option>
+          </select>
 
-      <sb-ui-stepper id="stepper1"></sb-ui-stepper>
-
-      <div class="demo-controls">
-        <button onclick="stepperPrev('stepper1')">← Anterior</button>
-        <button onclick="stepperNext('stepper1')">Siguiente →</button>
-        <button onclick="stepperReset('stepper1')">🔄 Reset</button>
+          <label for="themeToggle">🌓 Tema:</label>
+          <div class="theme-toggle">
+            <button id="lightBtn" class="sb-ui-button sb-ui-button--primary sb-ui-button--small">
+              ☀️ Light
+            </button>
+            <button id="darkBtn" class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small">
+              🌙 Dark
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="event-log">
-        <strong>Event Log:</strong>
-        <pre id="log1"></pre>
+      <!-- Header -->
+      <header class="matrix-header">
+        <h1>🚀 Stepper Component</h1>
+        <p>
+          Componente de pasos progresivos para formularios multi-paso, wizards y flujos de trabajo
+          secuenciales. Incluye 3 tipos (Number, Icon, Mix), 2 orientaciones (Horizontal, Vertical)
+          y múltiples estados visuales.
+        </p>
+      </header>
+
+      <!-- Info Banner -->
+      <div class="info-banner">
+        <strong>ℹ️ Nota:</strong> El Stepper es un componente <strong>solo CSS</strong> (HTML + CSS puro).
+        No requiere JavaScript, pero puedes añadir lógica personalizada para cambiar estados y navegar entre pasos.
       </div>
+
+      <!-- SECTION: Horizontal Number (Default) -->
+      <section class="matrix-section">
+        <h2 class="matrix-title">Horizontal Number (Default)</h2>
+        <span class="badge badge--primary">Por defecto</span>
+        <span class="badge badge--info">Horizontal</span>
+        <span class="badge badge--success">Números</span>
+        
+        <p class="matrix-subtitle">
+          Stepper horizontal con números. Estado por defecto del componente.
+        </p>
+
+        <div class="stepper-demo-wrapper">
+          <div class="sb-ui-stepper sb-ui-stepper--horizontal" id="stepper1">
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--filled-default">
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Paso 1</div>
+              <div class="sb-ui-stepper__step-track"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-active">
+              <div class="sb-ui-stepper__step-circle">2</div>
+              <div class="sb-ui-stepper__step-label">Paso 2</div>
+              <div class="sb-ui-stepper__step-track sb-ui-stepper__step-track--dashed"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-default">
+              <div class="sb-ui-stepper__step-circle">3</div>
+              <div class="sb-ui-stepper__step-label">Paso 3</div>
+              <div class="sb-ui-stepper__step-track sb-ui-stepper__step-track--dashed"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-default">
+              <div class="sb-ui-stepper__step-circle">4</div>
+              <div class="sb-ui-stepper__step-label">Paso 4</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-controls">
+          <button class="sb-ui-button sb-ui-button--tertiary" onclick="prevStep('stepper1')">← Anterior</button>
+          <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill" onclick="nextStep('stepper1')">Siguiente →</button>
+          <button class="sb-ui-button sb-ui-button--secondary" onclick="resetStepper('stepper1')">🔄 Reset</button>
+        </div>
+      </section>
+
+      <!-- SECTION: Vertical Number -->
+      <section class="matrix-section">
+        <h2 class="matrix-title">Vertical Number</h2>
+        <span class="badge badge--warning">Vertical</span>
+        <span class="badge badge--success">Números</span>
+        
+        <p class="matrix-subtitle">
+          Stepper vertical con números. Ideal para sidebars y flujos largos.
+        </p>
+
+        <div class="stepper-demo-wrapper">
+          <div class="sb-ui-stepper sb-ui-stepper--vertical" id="stepper2">
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--filled-default">
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Datos Personales</div>
+              <div class="sb-ui-stepper__step-track"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-active">
+              <div class="sb-ui-stepper__step-circle">2</div>
+              <div class="sb-ui-stepper__step-label">Dirección</div>
+              <div class="sb-ui-stepper__step-track sb-ui-stepper__step-track--dashed"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-default">
+              <div class="sb-ui-stepper__step-circle">3</div>
+              <div class="sb-ui-stepper__step-label">Confirmación</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-controls">
+          <button class="sb-ui-button sb-ui-button--tertiary" onclick="prevStep('stepper2')">↑ Anterior</button>
+          <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill" onclick="nextStep('stepper2')">↓ Siguiente</button>
+        </div>
+      </section>
+
+      <!-- SECTION: Horizontal Icon -->
+      <section class="matrix-section">
+        <h2 class="matrix-title">Horizontal Icon</h2>
+        <span class="badge badge--info">Horizontal</span>
+        <span class="badge badge--primary">Iconos</span>
+        
+        <p class="matrix-subtitle">
+          Stepper horizontal con iconos. Agrega <code>.sb-ui-stepper--type-icon</code> para usar iconos en lugar de números.
+        </p>
+
+        <div class="stepper-demo-wrapper">
+          <div class="sb-ui-stepper sb-ui-stepper--horizontal sb-ui-stepper--type-icon" id="stepper3">
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--filled-default">
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Escoger</div>
+              <div class="sb-ui-stepper__step-track"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--filled-default">
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Datos</div>
+              <div class="sb-ui-stepper__step-track"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-active">
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Confirmar</div>
+              <div class="sb-ui-stepper__step-track sb-ui-stepper__step-track--dashed"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-default">
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Pagar</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-controls">
+          <button class="sb-ui-button sb-ui-button--tertiary" onclick="prevStep('stepper3')">← Anterior</button>
+          <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill" onclick="nextStep('stepper3')">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- SECTION: Horizontal Mix (Icon + Badge) -->
+      <section class="matrix-section">
+        <h2 class="matrix-title">Horizontal Mix (Icon + Badge)</h2>
+        <span class="badge badge--info">Horizontal</span>
+        <span class="badge badge--primary">Mix</span>
+        <span class="badge badge--warning">Badge</span>
+        
+        <p class="matrix-subtitle">
+          Stepper horizontal con iconos y badge numérico. Agrega <code>.sb-ui-stepper--type-mix</code> para combinar iconos con números.
+        </p>
+
+        <div class="stepper-demo-wrapper">
+          <div class="sb-ui-stepper sb-ui-stepper--horizontal sb-ui-stepper--type-mix" id="stepper4">
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--filled-default">
+              <div class="sb-ui-stepper__step-badge">1</div>
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Información</div>
+              <div class="sb-ui-stepper__step-track"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-active">
+              <div class="sb-ui-stepper__step-badge">2</div>
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Documentos</div>
+              <div class="sb-ui-stepper__step-track sb-ui-stepper__step-track--dashed"></div>
+            </div>
+
+            <div class="sb-ui-stepper__step sb-ui-stepper__step--empty-default">
+              <div class="sb-ui-stepper__step-badge">3</div>
+              <div class="sb-ui-stepper__step-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                </svg>
+              </div>
+              <div class="sb-ui-stepper__step-label">Revisión</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-controls">
+          <button class="sb-ui-button sb-ui-button--tertiary" onclick="prevStep('stepper4')">← Anterior</button>
+          <button class="sb-ui-button sb-ui-button--primary sb-ui-button--fill" onclick="nextStep('stepper4')">Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- SECTION: Código de Ejemplo -->
+      <section class="matrix-section">
+        <h2 class="matrix-title">💻 Código de Ejemplo</h2>
+        
+        <p class="matrix-subtitle">
+          El Stepper es solo CSS. Para agregar interactividad, actualiza las clases con JavaScript.
+        </p>
+
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--sb-ui-color-primary-base);">
+          HTML Básico
+        </h3>
+        <div class="code-snippet">
+&lt;div class="sb-ui-stepper sb-ui-stepper--horizontal"&gt;
+  &lt;!-- Paso completado --&gt;
+  &lt;div class="sb-ui-stepper__step sb-ui-stepper__step--filled-default"&gt;
+    &lt;div class="sb-ui-stepper__step-circle"&gt;
+      &lt;svg&gt;...check icon...&lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="sb-ui-stepper__step-label"&gt;Paso 1&lt;/div&gt;
+    &lt;div class="sb-ui-stepper__step-track"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Paso actual (activo) --&gt;
+  &lt;div class="sb-ui-stepper__step sb-ui-stepper__step--empty-active"&gt;
+    &lt;div class="sb-ui-stepper__step-circle"&gt;2&lt;/div&gt;
+    &lt;div class="sb-ui-stepper__step-label"&gt;Paso 2&lt;/div&gt;
+    &lt;div class="sb-ui-stepper__step-track sb-ui-stepper__step-track--dashed"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Paso pendiente --&gt;
+  &lt;div class="sb-ui-stepper__step sb-ui-stepper__step--empty-default"&gt;
+    &lt;div class="sb-ui-stepper__step-circle"&gt;3&lt;/div&gt;
+    &lt;div class="sb-ui-stepper__step-label"&gt;Paso 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </div>
+
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--sb-ui-color-primary-base);">
+          JavaScript para Navegar
+        </h3>
+        <div class="code-snippet">
+function updateStepper(stepperId, currentStep) {
+  const stepper = document.getElementById(stepperId);
+  const steps = stepper.querySelectorAll('.sb-ui-stepper__step');
+  
+  steps.forEach((step, index) => {
+    const stepNumber = index + 1;
+    const circle = step.querySelector('.sb-ui-stepper__step-circle');
+    const track = step.querySelector('.sb-ui-stepper__step-track');
+    
+    // Remover todas las clases de estado
+    step.classList.remove(
+      'sb-ui-stepper__step--empty-default',
+      'sb-ui-stepper__step--empty-active',
+      'sb-ui-stepper__step--filled-default'
+    );
+    
+    if (track) {
+      track.classList.remove('sb-ui-stepper__step-track--dashed');
+    }
+    
+    // Aplicar estado según paso actual
+    if (stepNumber < currentStep) {
+      // Paso completado
+      step.classList.add('sb-ui-stepper__step--filled-default');
+      circle.innerHTML = '&lt;svg&gt;...check...&lt;/svg&gt;';
+    } else if (stepNumber === currentStep) {
+      // Paso actual
+      step.classList.add('sb-ui-stepper__step--empty-active');
+      circle.textContent = stepNumber;
+      if (track) track.classList.add('sb-ui-stepper__step-track--dashed');
+    } else {
+      // Paso pendiente
+      step.classList.add('sb-ui-stepper__step--empty-default');
+      circle.textContent = stepNumber;
+      if (track) track.classList.add('sb-ui-stepper__step-track--dashed');
+    }
+  });
+}
+        </div>
+      </section>
+
+      <!-- SECTION: Características -->
+      <section class="matrix-section">
+        <h2 class="matrix-title">✨ Características</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h3 style="margin-bottom: 0.5rem; color: var(--sb-ui-color-primary-base);">🎨 Theming</h3>
+            <p style="color: var(--sb-ui-color-grayscale-base); font-size: 0.875rem;">
+              Compatible con todas las marcas del Design System
+            </p>
+            <span class="badge badge--primary">6 Marcas</span>
+            <span class="badge badge--info">Light/Dark</span>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom: 0.5rem; color: var(--sb-ui-color-primary-base);">♿ Accesibilidad</h3>
+            <p style="color: var(--sb-ui-color-grayscale-base); font-size: 0.875rem;">
+              Soporte completo de navegación y lectores de pantalla
+            </p>
+            <span class="badge badge--success">ARIA</span>
+            <span class="badge badge--success">Keyboard</span>
+            <span class="badge badge--success">Screen Reader</span>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom: 0.5rem; color: var(--sb-ui-color-primary-base);">📱 Responsive</h3>
+            <p style="color: var(--sb-ui-color-grayscale-base); font-size: 0.875rem;">
+              Adaptable a cualquier tamaño de pantalla con clamp()
+            </p>
+            <span class="badge badge--warning">Mobile</span>
+            <span class="badge badge--warning">Tablet</span>
+            <span class="badge badge--warning">Desktop</span>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom: 0.5rem; color: var(--sb-ui-color-primary-base);">🔧 Flexible</h3>
+            <p style="color: var(--sb-ui-color-grayscale-base); font-size: 0.875rem;">
+              Múltiples configuraciones y estilos
+            </p>
+            <span class="badge badge--info">3 Tipos</span>
+            <span class="badge badge--info">2 Orientaciones</span>
+            <span class="badge badge--info">4 Estados</span>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- ============================================
-         EJEMPLO 2: Stepper Icon Horizontal
-         ============================================ -->
-    <h2>2. Icon Horizontal</h2>
-    <div class="demo-section">
-      <p>Stepper con iconos, sin navegación lineal (puede saltar entre pasos).</p>
+    <!-- JavaScript para Brand/Theme Switching y Stepper Logic -->
+    <script>
+      // Referencias
+      const brandSelect = document.getElementById('brandSelect');
+      const lightBtn = document.getElementById('lightBtn');
+      const darkBtn = document.getElementById('darkBtn');
+      const html = document.documentElement;
+      const body = document.body;
+      const brandCss = document.getElementById('brand-css');
 
-      <sb-ui-stepper id="stepper2" type="icon" linear-navigation="false"></sb-ui-stepper>
+      // Load saved values or defaults
+      let currentBrand = localStorage.getItem('sb-ui-brand') || 'seguros-bolivar';
+      let currentTheme = localStorage.getItem('sb-ui-theme') || 'light';
 
-      <div class="demo-controls">
-        <button onclick="stepperGoTo('stepper2', 1)">Ir a paso 1</button>
-        <button onclick="stepperGoTo('stepper2', 2)">Ir a paso 2</button>
-        <button onclick="stepperGoTo('stepper2', 3)">Ir a paso 3</button>
-        <button onclick="stepperGoTo('stepper2', 4)">Ir a paso 4</button>
-      </div>
+      // Function to update everything
+      function updateBrandAndTheme() {
+        html.setAttribute('data-brand', currentBrand);
+        html.setAttribute('data-theme', currentTheme);
+        body.setAttribute('data-brand', currentBrand);
 
-      <div class="event-log">
-        <strong>Event Log:</strong>
-        <pre id="log2"></pre>
-      </div>
-    </div>
+        localStorage.setItem('sb-ui-brand', currentBrand);
+        localStorage.setItem('sb-ui-theme', currentTheme);
 
-    <!-- ============================================
-         EJEMPLO 3: Stepper Mix Horizontal + Dash
-         ============================================ -->
-    <h2>3. Mix Horizontal (Dash Track)</h2>
-    <div class="demo-section">
-      <p>Stepper con iconos + badge numérico, línea punteada (dash).</p>
+        brandCss.href = `../dist/sb-ui-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
+        brandSelect.value = currentBrand;
 
-      <sb-ui-stepper id="stepper3" type="mix" track-style="dash"></sb-ui-stepper>
-
-      <div class="demo-controls">
-        <button onclick="stepperPrev('stepper3')">← Anterior</button>
-        <button onclick="stepperNext('stepper3')">Siguiente →</button>
-        <button onclick="stepperComplete('stepper3')">✓ Completar Paso</button>
-      </div>
-
-      <div class="event-log">
-        <strong>Event Log:</strong>
-        <pre id="log3"></pre>
-      </div>
-    </div>
-
-    <!-- ============================================
-         EJEMPLO 4: Stepper Vertical
-         ============================================ -->
-    <h2>4. Vertical Number</h2>
-    <div class="demo-section">
-      <p>Stepper vertical con números y labels descriptivos.</p>
-
-      <sb-ui-stepper id="stepper4" orientation="vertical"></sb-ui-stepper>
-
-      <div class="demo-controls">
-        <button onclick="stepperPrev('stepper4')">↑ Anterior</button>
-        <button onclick="stepperNext('stepper4')">↓ Siguiente</button>
-      </div>
-
-      <div class="event-log">
-        <strong>Event Log:</strong>
-        <pre id="log4"></pre>
-      </div>
-    </div>
-
-    <!-- ============================================
-         EJEMPLO 5: Formulario con Validación
-         ============================================ -->
-    <h2>5. Formulario Multi-Paso con Validación</h2>
-    <div class="demo-section">
-      <p>Stepper integrado con formulario y validaciones antes de avanzar.</p>
-
-      <sb-ui-stepper id="stepper5"></sb-ui-stepper>
-
-      <!-- Formulario dinámico según el paso -->
-      <div class="form-example" id="formSteps"></div>
-
-      <div class="demo-controls">
-        <button id="btnBack" onclick="stepperPrev('stepper5')">← Volver</button>
-        <button id="btnNext" onclick="validateAndNext()">Siguiente →</button>
-      </div>
-
-      <div class="event-log">
-        <strong>Event Log:</strong>
-        <pre id="log5"></pre>
-      </div>
-    </div>
-
-    <!-- ============================================
-         EJEMPLO 6: Sin Navegación por Teclado
-         ============================================ -->
-    <h2>6. Sin Navegación por Teclado</h2>
-    <div class="demo-section">
-      <p>Stepper con navegación por teclado deshabilitada.</p>
-
-      <sb-ui-stepper id="stepper6" keyboard-navigation="false"></sb-ui-stepper>
-
-      <div class="demo-controls">
-        <button onclick="stepperPrev('stepper6')">← Anterior</button>
-        <button onclick="stepperNext('stepper6')">Siguiente →</button>
-      </div>
-
-      <div class="event-log">
-        <strong>Event Log:</strong>
-        <pre id="log6"></pre>
-      </div>
-    </div>
-
-    <!-- ============================================
-         JAVASCRIPT
-         ============================================ -->
-    <script type="module">
-      import { SbUiStepper } from '../../packages/molecules/src/components/Stepper.ts';
-
-      // ============================================
-      // CONFIGURAR STEPPERS
-      // ============================================
-
-      // Stepper 1: Number Horizontal
-      const stepper1 = document.getElementById('stepper1');
-      stepper1.steps = [
-        { id: 1, label: 'Paso 1' },
-        { id: 2, label: 'Paso 2' },
-        { id: 3, label: 'Paso 3' },
-        { id: 4, label: 'Paso 4' },
-      ];
-
-      // Stepper 2: Icon Horizontal
-      const stepper2 = document.getElementById('stepper2');
-      stepper2.steps = [
-        { id: 1, label: 'Escoger' },
-        { id: 2, label: 'Datos' },
-        { id: 3, label: 'Confirmar' },
-        { id: 4, label: 'Pagar' },
-      ];
-
-      // Stepper 3: Mix Horizontal
-      const stepper3 = document.getElementById('stepper3');
-      stepper3.steps = [
-        { id: 1, label: 'Información' },
-        { id: 2, label: 'Documentos' },
-        { id: 3, label: 'Revisión' },
-      ];
-
-      // Stepper 4: Vertical
-      const stepper4 = document.getElementById('stepper4');
-      stepper4.steps = [
-        { id: 1, label: 'Datos Personales' },
-        { id: 2, label: 'Dirección' },
-        { id: 3, label: 'Confirmación' },
-      ];
-
-      // Stepper 5: Formulario
-      const stepper5 = document.getElementById('stepper5');
-      stepper5.steps = [
-        { id: 1, label: 'Ciudad' },
-        { id: 2, label: 'Fecha de viaje' },
-        { id: 3, label: 'Aerolínea' },
-        { id: 4, label: 'Hotel' },
-      ];
-
-      // Stepper 6: Sin teclado
-      const stepper6 = document.getElementById('stepper6');
-      stepper6.steps = [
-        { id: 1, label: 'Paso 1' },
-        { id: 2, label: 'Paso 2' },
-        { id: 3, label: 'Paso 3' },
-      ];
-
-      // ============================================
-      // EVENT LISTENERS
-      // ============================================
-
-      function setupEventListeners(stepperId, logId) {
-        const stepper = document.getElementById(stepperId);
-        const log = document.getElementById(logId);
-
-        stepper.addEventListener('sb-stepper:before-step-change', (e) => {
-          appendLog(log, `🔄 Before Change: ${e.detail.from} → ${e.detail.to} (${e.detail.direction})`);
-        });
-
-        stepper.addEventListener('sb-stepper:step-changed', (e) => {
-          appendLog(log, `✅ Step Changed: ${e.detail.previousStep} → ${e.detail.currentStep}`);
-        });
-
-        stepper.addEventListener('sb-stepper:validate', (e) => {
-          appendLog(log, `🔍 Validate: Step ${e.detail.step} - Valid: ${e.detail.valid}`);
-        });
-
-        stepper.addEventListener('sb-stepper:step-completed', (e) => {
-          appendLog(log, `✓ Completed: Step ${e.detail.step}`);
-        });
-
-        stepper.addEventListener('sb-stepper:step-clicked', (e) => {
-          appendLog(log, `👆 Clicked: Step ${e.detail.step} (clickable: ${e.detail.clickable})`);
-        });
-
-        stepper.addEventListener('sb-stepper:ready', (e) => {
-          appendLog(log, `🚀 Ready: ${e.detail.totalSteps} steps, current: ${e.detail.currentStep}`);
-        });
+        if (currentTheme === 'light') {
+          lightBtn.className = 'sb-ui-button sb-ui-button--primary sb-ui-button--small';
+          darkBtn.className = 'sb-ui-button sb-ui-button--tertiary sb-ui-button--small';
+        } else {
+          lightBtn.className = 'sb-ui-button sb-ui-button--tertiary sb-ui-button--small';
+          darkBtn.className = 'sb-ui-button sb-ui-button--primary sb-ui-button--small';
+        }
       }
 
-      function appendLog(logElement, message) {
-        const timestamp = new Date().toLocaleTimeString();
-        logElement.textContent += `[${timestamp}] ${message}\n`;
-        logElement.scrollTop = logElement.scrollHeight;
-      }
-
-      // Configurar listeners para todos los steppers
-      setupEventListeners('stepper1', 'log1');
-      setupEventListeners('stepper2', 'log2');
-      setupEventListeners('stepper3', 'log3');
-      setupEventListeners('stepper4', 'log4');
-      setupEventListeners('stepper5', 'log5');
-      setupEventListeners('stepper6', 'log6');
-
-      // ============================================
-      // HELPERS GLOBALES
-      // ============================================
-
-      window.stepperNext = (id) => {
-        const stepper = document.getElementById(id);
-        stepper.next();
-      };
-
-      window.stepperPrev = (id) => {
-        const stepper = document.getElementById(id);
-        stepper.prev();
-      };
-
-      window.stepperReset = (id) => {
-        const stepper = document.getElementById(id);
-        stepper.reset();
-      };
-
-      window.stepperGoTo = (id, step) => {
-        const stepper = document.getElementById(id);
-        stepper.goToStep(step, 'jump');
-      };
-
-      window.stepperComplete = (id) => {
-        const stepper = document.getElementById(id);
-        stepper.completeStep(stepper.currentStep);
-      };
-
-      // ============================================
-      // FORMULARIO CON VALIDACIÓN (Ejemplo 5)
-      // ============================================
-
-      const formSteps = {
-        1: `
-          <div class="form-group">
-            <label for="city">Ciudad</label>
-            <select id="city" required>
-              <option value="">Seleccione una ciudad</option>
-              <option value="bogota">Bogotá</option>
-              <option value="medellin">Medellín</option>
-              <option value="cali">Cali</option>
-            </select>
-            <span class="help-text">Seleccione la ciudad de destino</span>
-          </div>
-        `,
-        2: `
-          <div class="form-group">
-            <label for="date">Fecha de viaje</label>
-            <input type="date" id="date" required />
-            <span class="help-text">Fecha inicio - fecha final</span>
-          </div>
-        `,
-        3: `
-          <div class="form-group">
-            <label for="airline">Aerolínea</label>
-            <select id="airline" required>
-              <option value="">Seleccione una aerolínea</option>
-              <option value="avianca">Avianca</option>
-              <option value="latam">LATAM</option>
-              <option value="wingo">Wingo</option>
-            </select>
-            <span class="help-text">Seleccione su aerolínea preferida</span>
-          </div>
-        `,
-        4: `
-          <div class="form-group">
-            <label for="hotel">Hotel</label>
-            <input type="text" id="hotel" placeholder="Hotel Estelar" required />
-            <span class="help-text">Nombre del hotel</span>
-          </div>
-        `,
-      };
-
-      function renderFormStep(step) {
-        const container = document.getElementById('formSteps');
-        container.innerHTML = formSteps[step] || '<p>No hay formulario para este paso</p>';
-      }
-
-      stepper5.addEventListener('sb-stepper:step-changed', (e) => {
-        renderFormStep(e.detail.currentStep);
+      brandSelect.addEventListener('change', (e) => {
+        currentBrand = e.target.value;
+        updateBrandAndTheme();
       });
 
-      // Renderizar formulario inicial
-      renderFormStep(1);
+      lightBtn.addEventListener('click', () => {
+        currentTheme = 'light';
+        updateBrandAndTheme();
+      });
 
-      // Validación antes de avanzar
-      window.validateAndNext = () => {
-        const currentStep = stepper5.currentStep;
-        const inputs = document.querySelectorAll('#formSteps input, #formSteps select');
-        let isValid = true;
+      darkBtn.addEventListener('click', () => {
+        currentTheme = 'dark';
+        updateBrandAndTheme();
+      });
 
-        inputs.forEach((input) => {
-          if (input.hasAttribute('required') && !input.value) {
-            isValid = false;
-            input.style.borderColor = 'red';
-          } else {
-            input.style.borderColor = '#e0e0e0';
+      updateBrandAndTheme();
+
+      // Stepper Logic
+      const stepperStates = {};
+
+      function initStepper(stepperId) {
+        const stepper = document.getElementById(stepperId);
+        const steps = stepper.querySelectorAll('.sb-ui-stepper__step');
+        
+        let currentStep = 1;
+        steps.forEach((step, index) => {
+          if (step.classList.contains('sb-ui-stepper__step--empty-active')) {
+            currentStep = index + 1;
           }
         });
+        
+        stepperStates[stepperId] = {
+          currentStep,
+          totalSteps: steps.length
+        };
+      }
 
-        stepper5.validateCurrentStep(isValid, isValid ? [] : ['Campos requeridos vacíos']);
+      function updateStepper(stepperId) {
+        const stepper = document.getElementById(stepperId);
+        const steps = stepper.querySelectorAll('.sb-ui-stepper__step');
+        const state = stepperStates[stepperId];
+        
+        steps.forEach((step, index) => {
+          const stepNumber = index + 1;
+          const circle = step.querySelector('.sb-ui-stepper__step-circle');
+          const track = step.querySelector('.sb-ui-stepper__step-track');
+          
+          step.classList.remove(
+            'sb-ui-stepper__step--empty-default',
+            'sb-ui-stepper__step--empty-active',
+            'sb-ui-stepper__step--filled-default'
+          );
+          
+          if (track) {
+            track.classList.remove('sb-ui-stepper__step-track--dashed');
+          }
+          
+          if (stepNumber < state.currentStep) {
+            step.classList.add('sb-ui-stepper__step--filled-default');
+            circle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/></svg>';
+          } else if (stepNumber === state.currentStep) {
+            step.classList.add('sb-ui-stepper__step--empty-active');
+            
+            if (!stepper.classList.contains('sb-ui-stepper--type-icon') && 
+                !stepper.classList.contains('sb-ui-stepper--type-mix')) {
+              circle.textContent = stepNumber;
+            }
+            
+            if (track) {
+              track.classList.add('sb-ui-stepper__step-track--dashed');
+            }
+          } else {
+            step.classList.add('sb-ui-stepper__step--empty-default');
+            
+            if (!stepper.classList.contains('sb-ui-stepper--type-icon') && 
+                !stepper.classList.contains('sb-ui-stepper--type-mix')) {
+              circle.textContent = stepNumber;
+            }
+            
+            if (track) {
+              track.classList.add('sb-ui-stepper__step-track--dashed');
+            }
+          }
+        });
+      }
 
-        if (isValid) {
-          stepper5.completeStep(currentStep);
-          stepper5.next();
-        } else {
-          alert('Por favor complete todos los campos requeridos');
+      function nextStep(stepperId) {
+        const state = stepperStates[stepperId];
+        if (state.currentStep < state.totalSteps) {
+          state.currentStep++;
+          updateStepper(stepperId);
         }
-      };
+      }
+
+      function prevStep(stepperId) {
+        const state = stepperStates[stepperId];
+        if (state.currentStep > 1) {
+          state.currentStep--;
+          updateStepper(stepperId);
+        }
+      }
+
+      function resetStepper(stepperId) {
+        const state = stepperStates[stepperId];
+        state.currentStep = 1;
+        updateStepper(stepperId);
+      }
+
+      // Initialize all steppers
+      ['stepper1', 'stepper2', 'stepper3', 'stepper4'].forEach(id => {
+        initStepper(id);
+      });
     </script>
   </body>
 </html>
-
-

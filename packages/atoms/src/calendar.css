@@ -1,0 +1,462 @@
+/**
+ * Calendar Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * Uso: <div class="sb-ui-calendar" data-variant="single|range|multiple">
+ *
+ * Variantes:
+ * - single: Selección de un solo día
+ * - range: Selección de rango de fechas (inicio-fin)
+ * - multiple: Selección de múltiples días
+ */
+
+@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-calendar {
+    all: unset;
+    box-sizing: border-box;
+    
+    & * {
+      box-sizing: border-box;
+    }
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-calendar {
+    /* Container */
+    --sb-ui-calendar-bg: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-calendar-border-color: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+    --sb-ui-calendar-border-width: 1px;
+    --sb-ui-calendar-border-radius: clamp(8px, 0.5rem + 0.5vw, 16px);
+    --sb-ui-calendar-padding: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+    --sb-ui-calendar-gap: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+    --sb-ui-calendar-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --sb-ui-calendar-inline-size: clamp(280px, 90vw, 350px);
+    
+    /* Header */
+    --sb-ui-calendar-header-padding-block: clamp(0.5rem, 0.4rem + 0.5vw, 0.875rem);
+    --sb-ui-calendar-header-gap: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+    
+    /* Month/Year Display */
+    --sb-ui-calendar-month-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+    --sb-ui-calendar-month-font-weight: 600;
+    --sb-ui-calendar-month-color: var(--sb-ui-color-grayscale-black, #000);
+    
+    /* Navigation Buttons */
+    --sb-ui-calendar-nav-size: clamp(32px, 2rem + 0.5vw, 40px);
+    --sb-ui-calendar-nav-bg: transparent;
+    --sb-ui-calendar-nav-bg-hover: var(--sb-ui-color-grayscale-L400, #f5f5f5);
+    --sb-ui-calendar-nav-bg-active: var(--sb-ui-color-grayscale-L300, #e8e8e8);
+    --sb-ui-calendar-nav-color: var(--sb-ui-color-grayscale-black, #000);
+    --sb-ui-calendar-nav-border-radius: clamp(4px, 0.3rem + 0.3vw, 8px);
+    
+    /* Weekdays */
+    --sb-ui-calendar-weekday-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-calendar-weekday-font-weight: 600;
+    --sb-ui-calendar-weekday-color: var(--sb-ui-color-grayscale-base, #666);
+    --sb-ui-calendar-weekday-padding-block: clamp(0.4rem, 0.3rem + 0.3vw, 0.625rem);
+    
+    /* Days Grid */
+    --sb-ui-calendar-grid-gap: clamp(2px, 0.1rem + 0.2vw, 4px);
+    
+    /* Day Cell */
+    --sb-ui-calendar-day-size: clamp(36px, 2.2rem + 0.5vw, 44px);
+    --sb-ui-calendar-day-font-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+    --sb-ui-calendar-day-font-weight: 400;
+    --sb-ui-calendar-day-color: var(--sb-ui-color-grayscale-black, #000);
+    --sb-ui-calendar-day-bg: transparent;
+    --sb-ui-calendar-day-border-radius: clamp(4px, 0.3rem + 0.3vw, 8px);
+    
+    /* Day States - Default */
+    --sb-ui-calendar-day-bg-hover: var(--sb-ui-color-grayscale-L400, #f5f5f5);
+    --sb-ui-calendar-day-bg-active: var(--sb-ui-color-grayscale-L300, #e8e8e8);
+    
+    /* Day States - Selected (single/multiple) */
+    --sb-ui-calendar-day-selected-bg: var(--sb-ui-color-secondary-base, #ffd700);
+    --sb-ui-calendar-day-selected-bg-hover: var(--sb-ui-color-secondary-D100, #e6c200);
+    --sb-ui-calendar-day-selected-color: var(--sb-ui-color-grayscale-black, #000);
+    
+    /* Day States - Range Start/End */
+    --sb-ui-calendar-day-range-start-bg: var(--sb-ui-color-secondary-base, #ffd700);
+    --sb-ui-calendar-day-range-end-bg: var(--sb-ui-color-secondary-base, #ffd700);
+    --sb-ui-calendar-day-range-start-color: var(--sb-ui-color-grayscale-black, #000);
+    
+    /* Day States - In Range */
+    --sb-ui-calendar-day-in-range-bg: var(--sb-ui-color-secondary-L400, #fff9e6);
+    --sb-ui-calendar-day-in-range-color: var(--sb-ui-color-grayscale-black, #000);
+    
+    /* Day States - Outside Month */
+    --sb-ui-calendar-day-outside-color: var(--sb-ui-color-grayscale-L100, #ccc);
+    --sb-ui-calendar-day-outside-bg-hover: transparent;
+    
+    /* Day States - Disabled */
+    --sb-ui-calendar-day-disabled-color: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+    --sb-ui-calendar-day-disabled-bg: transparent;
+    
+    /* Day States - Today */
+    --sb-ui-calendar-day-today-border: 2px solid var(--sb-ui-color-primary-base, #038450);
+    
+    /* Footer */
+    --sb-ui-calendar-footer-padding-block-start: clamp(0.75rem, 0.6rem + 0.5vw, 1.25rem);
+    --sb-ui-calendar-footer-gap: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+    --sb-ui-calendar-footer-border-block-start: 1px solid var(--sb-ui-color-grayscale-L200, #e0e0e0);
+    
+    /* Transitions */
+    --sb-ui-calendar-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  .sb-ui-calendar {
+    display: inline-block;
+    position: relative;
+    inline-size: var(--sb-ui-calendar-inline-size);
+    background-color: var(--sb-ui-calendar-bg);
+    border: var(--sb-ui-calendar-border-width) solid var(--sb-ui-calendar-border-color);
+    border-radius: var(--sb-ui-calendar-border-radius);
+    padding: var(--sb-ui-calendar-padding);
+    box-shadow: var(--sb-ui-calendar-shadow);
+    font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+  }
+  
+  /* Header */
+  .sb-ui-calendar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block-end: var(--sb-ui-calendar-header-padding-block);
+    margin-block-end: var(--sb-ui-calendar-gap);
+    gap: var(--sb-ui-calendar-header-gap);
+  }
+  
+  .sb-ui-calendar__month-year {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.25rem, 0.2rem + 0.1vw, 0.3rem);
+    overflow: hidden;
+    margin-inline: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+  }
+  
+  /* Selectors de mes y año - usando estilos del componente select */
+  .sb-ui-calendar__month-select,
+  .sb-ui-calendar__year-select {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    max-inline-size: 48%;
+    padding-inline: clamp(0.25rem, 0.2rem + 0.1vw, 0.375rem);
+    padding-block: clamp(0.2rem, 0.15rem + 0.05vw, 0.25rem);
+    padding-inline-end: clamp(1rem, 0.9rem + 0.2vw, 1.25rem);
+    font-size: clamp(0.7rem, 0.65rem + 0.1vw, 0.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+    border-radius: clamp(3px, 0.2rem + 0.1vw, 4px);
+    background-position: right 0.25rem center;
+    background-size: 7px;
+    min-block-size: auto;
+    border-width: 1px;
+  }
+  
+  .sb-ui-calendar__month-select {
+    flex-grow: 1.5;
+  }
+  
+  .sb-ui-calendar__year-select {
+    flex-grow: 1;
+  }
+  
+  /* Navigation Buttons */
+  .sb-ui-calendar__nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--sb-ui-calendar-nav-size);
+    block-size: var(--sb-ui-calendar-nav-size);
+    background-color: var(--sb-ui-calendar-nav-bg);
+    color: var(--sb-ui-calendar-nav-color);
+    border: none;
+    border-radius: var(--sb-ui-calendar-nav-border-radius);
+    cursor: pointer;
+    transition: var(--sb-ui-calendar-transition);
+    padding: 0;
+    
+    &:hover:not(:disabled) {
+      background-color: var(--sb-ui-calendar-nav-bg-hover);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--sb-ui-calendar-nav-bg-active);
+    }
+    
+    &:focus-visible {
+      outline: 3px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 2px;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  
+  /* Weekdays */
+  .sb-ui-calendar__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--sb-ui-calendar-grid-gap);
+    margin-block-end: var(--sb-ui-calendar-gap);
+  }
+  
+  .sb-ui-calendar__weekday {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: var(--sb-ui-calendar-weekday-padding-block);
+    font-size: var(--sb-ui-calendar-weekday-font-size);
+    font-weight: var(--sb-ui-calendar-weekday-font-weight);
+    color: var(--sb-ui-calendar-weekday-color);
+    text-align: center;
+  }
+  
+  /* Days Grid */
+  .sb-ui-calendar__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--sb-ui-calendar-grid-gap);
+  }
+  
+  /* Day Cell */
+  .sb-ui-calendar__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--sb-ui-calendar-day-size);
+    block-size: var(--sb-ui-calendar-day-size);
+    background-color: var(--sb-ui-calendar-day-bg);
+    color: var(--sb-ui-calendar-day-color);
+    font-size: var(--sb-ui-calendar-day-font-size);
+    font-weight: var(--sb-ui-calendar-day-font-weight);
+    border: none;
+    border-radius: var(--sb-ui-calendar-day-border-radius);
+    cursor: pointer;
+    transition: var(--sb-ui-calendar-transition);
+    position: relative;
+    padding: 0;
+    
+    &:hover:not(:disabled):not(.sb-ui-calendar__day--outside):not(.sb-ui-calendar__day--disabled) {
+      background-color: var(--sb-ui-calendar-day-bg-hover);
+    }
+    
+    &:active:not(:disabled):not(.sb-ui-calendar__day--outside):not(.sb-ui-calendar__day--disabled) {
+      background-color: var(--sb-ui-calendar-day-bg-active);
+    }
+    
+    &:focus-visible {
+      outline: 3px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 2px;
+      z-index: 1;
+    }
+    
+    /* Today indicator */
+    &.sb-ui-calendar__day--today {
+      border: var(--sb-ui-calendar-day-today-border);
+    }
+    
+    /* Selected state */
+    &.sb-ui-calendar__day--selected {
+      background-color: var(--sb-ui-calendar-day-selected-bg);
+      color: var(--sb-ui-calendar-day-selected-color);
+      font-weight: 600;
+      
+      &:hover:not(:disabled) {
+        background-color: var(--sb-ui-calendar-day-selected-bg-hover);
+      }
+    }
+    
+    /* Range states */
+    &.sb-ui-calendar__day--range-start,
+    &.sb-ui-calendar__day--range-end {
+      background-color: var(--sb-ui-calendar-day-range-start-bg);
+      color: var(--sb-ui-calendar-day-range-start-color);
+      font-weight: 600;
+      
+      &:hover:not(:disabled) {
+        background-color: var(--sb-ui-calendar-day-selected-bg-hover);
+      }
+    }
+    
+    &.sb-ui-calendar__day--in-range {
+      background-color: var(--sb-ui-calendar-day-in-range-bg);
+      color: var(--sb-ui-calendar-day-in-range-color);
+      border-radius: 0;
+    }
+    
+    /* Outside month */
+    &.sb-ui-calendar__day--outside {
+      color: var(--sb-ui-calendar-day-outside-color);
+      cursor: default;
+      
+      &:hover {
+        background-color: var(--sb-ui-calendar-day-outside-bg-hover);
+      }
+    }
+    
+    /* Disabled state */
+    &:disabled,
+    &.sb-ui-calendar__day--disabled {
+      color: var(--sb-ui-calendar-day-disabled-color);
+      background-color: var(--sb-ui-calendar-day-disabled-bg);
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  
+  /* Footer */
+  .sb-ui-calendar__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--sb-ui-calendar-footer-gap);
+    padding-block-start: var(--sb-ui-calendar-footer-padding-block-start);
+    margin-block-start: var(--sb-ui-calendar-gap);
+    border-block-start: var(--sb-ui-calendar-footer-border-block-start);
+  }
+}
+
+/* ========================================
+   VARIANTS LAYER
+   ======================================== */
+@layer variants {
+  /* Range variant - conectar días en rango */
+  .sb-ui-calendar[data-variant='range'] {
+    .sb-ui-calendar__day--range-start {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+    
+    .sb-ui-calendar__day--range-end {
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+    
+    .sb-ui-calendar__day--in-range:not(.sb-ui-calendar__day--range-start):not(.sb-ui-calendar__day--range-end) {
+      border-radius: 0;
+    }
+  }
+  
+  /* Multiple variant - mantener días independientes */
+  .sb-ui-calendar[data-variant='multiple'] {
+    .sb-ui-calendar__day--selected {
+      border-radius: var(--sb-ui-calendar-day-border-radius);
+    }
+  }
+}
+
+/* ========================================
+   SIZES LAYER
+   ======================================== */
+@layer sizes {
+  .sb-ui-calendar--small {
+    --sb-ui-calendar-inline-size: clamp(240px, 80vw, 300px);
+    --sb-ui-calendar-day-size: clamp(28px, 1.8rem + 0.5vw, 36px);
+    --sb-ui-calendar-month-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  }
+  
+  .sb-ui-calendar--large {
+    --sb-ui-calendar-inline-size: clamp(320px, 95vw, 400px);
+    --sb-ui-calendar-day-size: clamp(44px, 2.6rem + 0.5vw, 52px);
+    --sb-ui-calendar-month-font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  /* Double calendar for range selection */
+  .sb-ui-calendar--double {
+    display: flex;
+    gap: var(--sb-ui-calendar-gap);
+    inline-size: auto;
+  }
+  
+  /* No footer */
+  .sb-ui-calendar--no-footer {
+    .sb-ui-calendar__footer {
+      display: none;
+    }
+  }
+  
+  /* Inline (sin border ni shadow) */
+  .sb-ui-calendar--inline {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  .sb-ui-calendar--loading {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  
+  .sb-ui-calendar--error {
+    border-color: var(--sb-ui-color-feedback-error-base);
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER (máxima prioridad)
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .sb-ui-calendar {
+      --sb-ui-calendar-border-width: 2px;
+    }
+    
+    .sb-ui-calendar__day--today {
+      --sb-ui-calendar-day-today-border: 3px solid var(--sb-ui-color-primary-base);
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-calendar,
+    .sb-ui-calendar__nav-button,
+    .sb-ui-calendar__day {
+      --sb-ui-calendar-transition: none;
+      animation: none;
+    }
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .sb-ui-calendar {
+      --sb-ui-calendar-inline-size: 100%;
+    }
+    
+    .sb-ui-calendar--double {
+      flex-direction: column;
+    }
+  }
+}
+

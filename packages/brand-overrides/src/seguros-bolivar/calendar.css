@@ -1,0 +1,230 @@
+/**
+ * ============================================================================
+ * SEGUROS BOLÍVAR - Calendar Component Overrides
+ * ============================================================================
+ *
+ * 🎯 PROPÓSITO:
+ * Personalización del calendario para Seguros Bolívar con:
+ * - Colores de marca (verde primary, amarillo secondary)
+ * - Border radius específico
+ * - Estados de selección personalizados
+ *
+ * ============================================================================
+ */
+
+/* ============================================================================
+   SECCIÓN 1: ESTRUCTURA GLOBAL
+   ============================================================================
+   
+   🎨 QUÉ PERSONALIZA:
+   - Border radius del calendario
+   - Tamaños y espaciados
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-calendar {
+  /* 🔵 Border radius más redondeado (consistente con botones) */
+  --sb-ui-calendar-border-radius: 16px;
+  
+  /* 🔵 Navegación con border radius redondeado */
+  --sb-ui-calendar-nav-border-radius: 50px;
+  
+  /* 🔵 Días con border radius consistente */
+  --sb-ui-calendar-day-border-radius: 8px;
+}
+
+/* ============================================================================
+   SECCIÓN 2: COLORES Y ESTADOS (dentro de @layer brand-overrides)
+   ============================================================================
+   
+   🎨 QUÉ PERSONALIZA:
+   - Colores de selección usando tokens de Seguros Bolívar
+   - Estados hover, active, selected
+   - Indicador de día actual
+   - Range selection colors
+   ============================================================================ */
+@layer brand-overrides {
+  /* ========================================
+     2.1 NAVEGACIÓN
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-calendar__nav-button {
+    /* Hover con fondo amarillo claro */
+    &:hover:not(:disabled) {
+      background-color: var(--sb-ui-color-secondary-L400, #fffcf0);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--sb-ui-color-secondary-L300, #fff6d4);
+    }
+    
+    /* Focus outline verde (primary) */
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-primary-base, #038450);
+      outline-offset: 2px;
+    }
+  }
+  
+  /* ========================================
+     2.2 DÍAS DEL CALENDARIO
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-calendar__day {
+    /* Hover con fondo amarillo claro */
+    &:hover:not(:disabled):not(.sb-ui-calendar__day--outside):not(.sb-ui-calendar__day--disabled) {
+      background-color: var(--sb-ui-color-secondary-L400, #fffcf0);
+    }
+    
+    &:active:not(:disabled):not(.sb-ui-calendar__day--outside):not(.sb-ui-calendar__day--disabled) {
+      background-color: var(--sb-ui-color-secondary-L300, #fff6d4);
+    }
+    
+    /* Focus outline verde */
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-primary-base, #038450);
+      outline-offset: 2px;
+    }
+    
+    /* ========================================
+       ESTADO: TODAY (Día actual)
+       ======================================== */
+    &.sb-ui-calendar__day--today {
+      border: 2px solid var(--sb-ui-color-primary-base, #038450);
+      font-weight: 600;
+    }
+    
+    /* ========================================
+       ESTADO: SELECTED (Single/Multiple)
+       ======================================== */
+    &.sb-ui-calendar__day--selected {
+      background-color: var(--sb-ui-color-secondary-base, #fcd535);
+      color: var(--sb-ui-color-primary-D100, #026838);
+      font-weight: 600;
+      
+      &:hover:not(:disabled) {
+        background-color: var(--sb-ui-color-secondary-D100, #e3bf2f);
+        color: var(--sb-ui-color-primary-D100, #026838);
+      }
+      
+      &:active:not(:disabled) {
+        background-color: var(--sb-ui-color-secondary-D200, #caa929);
+        color: var(--sb-ui-color-primary-D200, #015029);
+      }
+    }
+    
+    /* ========================================
+       ESTADO: RANGE START/END (Range selection)
+       ======================================== */
+    &.sb-ui-calendar__day--range-start,
+    &.sb-ui-calendar__day--range-end {
+      background-color: var(--sb-ui-color-secondary-base, #fcd535);
+      color: var(--sb-ui-color-primary-D100, #026838);
+      font-weight: 600;
+      
+      &:hover:not(:disabled) {
+        background-color: var(--sb-ui-color-secondary-D100, #e3bf2f);
+        color: var(--sb-ui-color-primary-D100, #026838);
+      }
+      
+      &:active:not(:disabled) {
+        background-color: var(--sb-ui-color-secondary-D200, #caa929);
+        color: var(--sb-ui-color-primary-D200, #015029);
+      }
+    }
+    
+    /* ========================================
+       ESTADO: IN RANGE (Días entre inicio y fin)
+       ======================================== */
+    &.sb-ui-calendar__day--in-range {
+      background-color: var(--sb-ui-color-secondary-L400, #fffcf0);
+      color: var(--sb-ui-color-primary-D100, #026838);
+      
+      &:hover:not(:disabled) {
+        background-color: var(--sb-ui-color-secondary-L300, #fff6d4);
+      }
+    }
+    
+    /* ========================================
+       ESTADO: OUTSIDE MONTH
+       ======================================== */
+    &.sb-ui-calendar__day--outside {
+      color: var(--sb-ui-color-grayscale-L100, #b9b9b9);
+    }
+    
+    /* ========================================
+       ESTADO: DISABLED
+       ======================================== */
+    &:disabled,
+    &.sb-ui-calendar__day--disabled {
+      color: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+      background-color: transparent;
+      
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  
+  /* ========================================
+     2.3 HEADER - Mes/Año
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-calendar__month-year {
+    color: var(--sb-ui-color-primary-D100, #026838);
+    font-weight: 700;
+  }
+  
+  /* ========================================
+     2.4 WEEKDAYS
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-calendar__weekday {
+    color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+  }
+}
+
+/* ============================================================================
+   SECCIÓN 3: RANGE VARIANT ESPECÍFICO
+   ============================================================================
+   
+   🎨 QUÉ PERSONALIZA:
+   - Conexión visual entre días en rango
+   - Border radius para crear continuidad
+   ============================================================================ */
+@layer brand-overrides {
+  [data-brand='seguros-bolivar'] .sb-ui-calendar[data-variant='range'] {
+    /* Días de inicio de rango - sin border radius a la derecha */
+    .sb-ui-calendar__day--range-start:not(.sb-ui-calendar__day--range-end) {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+    
+    /* Días de fin de rango - sin border radius a la izquierda */
+    .sb-ui-calendar__day--range-end:not(.sb-ui-calendar__day--range-start) {
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+    
+    /* Días en medio del rango - sin border radius */
+    .sb-ui-calendar__day--in-range:not(.sb-ui-calendar__day--range-start):not(.sb-ui-calendar__day--range-end) {
+      border-radius: 0;
+    }
+  }
+}
+
+/* ============================================================================
+   SECCIÓN 4: ACCESIBILIDAD MEJORADA
+   ============================================================================ */
+@layer utilities {
+  @media (prefers-contrast: high) {
+    [data-brand='seguros-bolivar'] .sb-ui-calendar {
+      --sb-ui-calendar-border-width: 2px;
+    }
+    
+    [data-brand='seguros-bolivar'] .sb-ui-calendar__day--today {
+      border-width: 3px;
+    }
+    
+    [data-brand='seguros-bolivar'] .sb-ui-calendar__day--selected,
+    [data-brand='seguros-bolivar'] .sb-ui-calendar__day--range-start,
+    [data-brand='seguros-bolivar'] .sb-ui-calendar__day--range-end {
+      outline: 2px solid var(--sb-ui-color-primary-base);
+      outline-offset: -2px;
+    }
+  }
+}
+
