@@ -223,3 +223,4 @@ Ver `index.html` para ejemplos completos de:
 - En móvil (<640px) se auto-colapsa por defecto mostrando solo inicio...final
 
 
+
