@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="es" data-brand="seguros-bolivar" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs Component - Seguros Bolívar UI Design System</title>
+
+    <!-- Google Fonts - Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Complete Seguros Bolívar Bundle (Tokens + Atoms + Brand Overrides) -->
+    <link
+      rel="stylesheet"
+      href="../dist/sb-ui-seguros-bolivar-light.min.css"
+      id="brand-css"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body,
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Bolivar', 'Roboto', sans-serif;
+        padding: 2rem;
+        background: #fafafa;
+      }
+
+      .demo-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #1b1b1b;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: #038450;
+        border-bottom: 2px solid #cce9dd;
+        padding-bottom: 0.5rem;
+      }
+
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .demo-item {
+        padding: 1.5rem;
+        border: 1px solid #f0f0f0;
+        border-radius: 8px;
+        background: #fafafa;
+      }
+
+      .demo-item h3 {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        color: #9b9b9b;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .description {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .code-block {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 1rem;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+        margin-top: 1rem;
+      }
+
+      .code-block code {
+        display: block;
+        white-space: pre;
+      }
+
+      code {
+        background: #f5f5f5;
+        padding: 0.125rem 0.375rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-family: 'Courier New', monospace;
+      }
+
+      /* ============================================
+         BRAND & THEME CONTROLS
+         ============================================ */
+      .brand-controls {
+        position: sticky;
+        top: 1rem;
+        z-index: 100;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--sb-ui-color-grayscale-white) 0%,
+          var(--sb-ui-color-grayscale-L400) 100%
+        );
+        border-radius: 16px;
+        box-shadow:
+          0 4px 20px rgba(0, 0, 0, 0.08),
+          0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .brand-controls:hover {
+        box-shadow:
+          0 8px 30px rgba(0, 0, 0, 0.12),
+          0 2px 6px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+
+      .brand-controls-group {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .brand-controls label {
+        font-weight: 600;
+        font-size: 0.8125rem;
+        color: var(--sb-ui-color-grayscale-D300);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+
+      .theme-toggle {
+        display: flex;
+        gap: 0.5rem;
+        background: var(--sb-ui-color-grayscale-L300);
+        padding: 0.25rem;
+        border-radius: 50px;
+        border: 1px solid var(--sb-ui-color-grayscale-L200);
+      }
+
+      @media (max-width: 768px) {
+        .brand-controls {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .brand-controls-group {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .theme-toggle {
+          width: 100%;
+        }
+      }
+
+      /* Demo specific styles */
+      .tabs-demo-wrapper {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #e1e1e1;
+      }
+    </style>
+  </head>
+  <body data-brand="seguros-bolivar" data-theme="light">
+    <div class="demo-container">
+      <!-- Brand & Theme Controls -->
+      <div class="brand-controls">
+        <button
+          onclick="window.location.href='../index.html'"
+          class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small"
+          style="text-decoration: none"
+        >
+          ← Volver
+        </button>
+
+        <div class="brand-controls-group">
+          <label for="brandSelect">📦 Marca:</label>
+          <select id="brandSelect" class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small">
+            <option value="white-label">White Label</option>
+            <option value="jelpit">Jelpit</option>
+            <option value="davivienda">Davivienda</option>
+            <option value="cien-cuadras">Cien Cuadras</option>
+            <option value="doctor-aki">Doctor Aki</option>
+            <option value="seguros-bolivar" selected>Seguros Bolívar</option>
+          </select>
+
+          <label for="themeToggle">🌓 Tema:</label>
+          <div class="theme-toggle">
+            <button id="lightBtn" class="sb-ui-button sb-ui-button--primary sb-ui-button--small">
+              ☀️ Light
+            </button>
+            <button id="darkBtn" class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small">
+              🌙 Dark
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <h1 style="text-align: center; margin-bottom: 1rem">🗂️ Tabs Component</h1>
+      <p style="margin-bottom: 2rem; color: #757575; text-align: center">
+        Componente de pestañas (tabs) con 3 variantes y 2 layouts (horizontal/vertical). Sigue el
+        design system de Seguros Bolívar con CSS Nesting, @layer y Logical Properties.
+      </p>
+
+      <!-- ========================================
+           EJEMPLO COMPLETO CON CONTENIDO
+           ======================================== -->
+      <h2>Ejemplo Completo con Contenido</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Tabs Track con Tab Panels</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--track" id="example-tabs-1">
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active" data-tab="tab1">
+                <i class="fa-solid fa-home sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Inicio</span>
+                  <span class="sb-ui-tabs__description">Página principal</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item" data-tab="tab2">
+                <i class="fa-solid fa-user sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Perfil</span>
+                  <span class="sb-ui-tabs__description">Tu información</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item" data-tab="tab3">
+                <i class="fa-solid fa-cog sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Configuración</span>
+                  <span class="sb-ui-tabs__description">Ajustes del sistema</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="sb-ui-tabs__panel sb-ui-tabs__panel--active" id="tab1">
+              <h3 style="margin-bottom: 1rem; color: #038450">Bienvenido al Inicio</h3>
+              <p style="margin-bottom: 0.5rem">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur.
+              </p>
+            </div>
+
+            <div class="sb-ui-tabs__panel" id="tab2">
+              <h3 style="margin-bottom: 1rem; color: #038450">Tu Perfil</h3>
+              <p style="margin-bottom: 0.5rem">
+                <strong>Nombre:</strong> Juan Pérez<br />
+                <strong>Email:</strong> juan.perez@example.com<br />
+                <strong>Teléfono:</strong> +57 300 123 4567
+              </p>
+              <p>
+                Aquí puedes ver y editar tu información personal. Mantén tus datos actualizados para
+                una mejor experiencia.
+              </p>
+            </div>
+
+            <div class="sb-ui-tabs__panel" id="tab3">
+              <h3 style="margin-bottom: 1rem; color: #038450">Configuración del Sistema</h3>
+              <p style="margin-bottom: 0.5rem">
+                Personaliza tu experiencia ajustando las siguientes opciones:
+              </p>
+              <ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+                <li>Notificaciones por email</li>
+                <li>Idioma de la interfaz</li>
+                <li>Tema (claro/oscuro)</li>
+                <li>Privacidad y seguridad</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-item">
+          <h3>Tabs Button con Contenido</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--button" id="example-tabs-2">
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active" data-tab="tab4">
+                <i class="fa-solid fa-file-alt sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Documentos</span>
+                  <span class="sb-ui-tabs__description">Ver archivos</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item" data-tab="tab5">
+                <i class="fa-solid fa-images sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Imágenes</span>
+                  <span class="sb-ui-tabs__description">Galería</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item" data-tab="tab6">
+                <i class="fa-solid fa-video sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Videos</span>
+                  <span class="sb-ui-tabs__description">Multimedia</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="sb-ui-tabs__panel sb-ui-tabs__panel--active" id="tab4">
+              <h3 style="margin-bottom: 1rem; color: #038450">Documentos Recientes</h3>
+              <p>
+                Aquí encontrarás todos tus documentos importantes. Puedes organizarlos, compartirlos
+                y descargarlos según tus necesidades.
+              </p>
+            </div>
+
+            <div class="sb-ui-tabs__panel" id="tab5">
+              <h3 style="margin-bottom: 1rem; color: #038450">Galería de Imágenes</h3>
+              <p>
+                Explora tu colección de imágenes. Sube nuevas fotos, crea álbumes y comparte tus
+                mejores momentos.
+              </p>
+            </div>
+
+            <div class="sb-ui-tabs__panel" id="tab6">
+              <h3 style="margin-bottom: 1rem; color: #038450">Videos y Multimedia</h3>
+              <p>
+                Accede a tu biblioteca de videos. Reproduce, organiza y gestiona todo tu contenido
+                multimedia en un solo lugar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           TRACK VARIANT - HORIZONTAL
+           ======================================== -->
+      <h2>Track Variant - Horizontal</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Track Horizontal</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--track">
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           TRACK VARIANT - VERTICAL
+           ======================================== -->
+      <h2>Track Variant - Vertical</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Track Vertical</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--vertical sb-ui-tabs--track">
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           BUTTON VARIANT - HORIZONTAL
+           ======================================== -->
+      <h2>Button Variant - Horizontal</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Button Horizontal</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--button">
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           BUTTON VARIANT - VERTICAL
+           ======================================== -->
+      <h2>Button Variant - Vertical</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Button Vertical</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--vertical sb-ui-tabs--button">
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-square sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           FOLDER VARIANT - HORIZONTAL
+           ======================================== -->
+      <h2>Folder Variant - Horizontal</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Folder Horizontal</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--folder">
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           FOLDER VARIANT - VERTICAL
+           ======================================== -->
+      <h2>Folder Variant - Vertical</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Folder Vertical</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--vertical sb-ui-tabs--folder">
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-folder sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Title</span>
+                  <span class="sb-ui-tabs__description">Description</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           ESTADO DISABLED
+           ======================================== -->
+      <h2>Estado Disabled</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>Tabs con items disabled</h3>
+          <div class="tabs-demo-wrapper">
+            <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--track">
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Active</span>
+                  <span class="sb-ui-tabs__description">Enabled</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item sb-ui-tabs__item--disabled">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Disabled</span>
+                  <span class="sb-ui-tabs__description">No clickable</span>
+                </div>
+              </button>
+              <button class="sb-ui-tabs__item">
+                <i class="fa-solid fa-globe sb-ui-tabs__icon"></i>
+                <div class="sb-ui-tabs__content">
+                  <span class="sb-ui-tabs__title">Normal</span>
+                  <span class="sb-ui-tabs__description">Enabled</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           CÓDIGO DE USO
+           ======================================== -->
+      <h2>Código de Uso</h2>
+      <div class="code-block">
+        <code>&lt;!-- Tabs con Tab Panels (Contenido) --&gt;
+&lt;div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--track" id="my-tabs"&gt;
+  &lt;button class="sb-ui-tabs__item sb-ui-tabs__item--active" data-tab="tab1"&gt;
+    &lt;i class="fa-solid fa-home sb-ui-tabs__icon"&gt;&lt;/i&gt;
+    &lt;div class="sb-ui-tabs__content"&gt;
+      &lt;span class="sb-ui-tabs__title"&gt;Inicio&lt;/span&gt;
+      &lt;span class="sb-ui-tabs__description"&gt;Página principal&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/button&gt;
+  &lt;button class="sb-ui-tabs__item" data-tab="tab2"&gt;
+    &lt;i class="fa-solid fa-user sb-ui-tabs__icon"&gt;&lt;/i&gt;
+    &lt;div class="sb-ui-tabs__content"&gt;
+      &lt;span class="sb-ui-tabs__title"&gt;Perfil&lt;/span&gt;
+      &lt;span class="sb-ui-tabs__description"&gt;Tu información&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Tab Panels (Contenido de cada tab) --&gt;
+&lt;div class="sb-ui-tabs__panel sb-ui-tabs__panel--active" id="tab1"&gt;
+  &lt;h3&gt;Bienvenido al Inicio&lt;/h3&gt;
+  &lt;p&gt;Contenido de la pestaña de inicio...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="sb-ui-tabs__panel" id="tab2"&gt;
+  &lt;h3&gt;Tu Perfil&lt;/h3&gt;
+  &lt;p&gt;Contenido del perfil del usuario...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Variantes --&gt;
+class="sb-ui-tabs sb-ui-tabs--track"    - Con indicador verde
+class="sb-ui-tabs sb-ui-tabs--button"   - Con fondo amarillo activo
+class="sb-ui-tabs sb-ui-tabs--folder"   - Sin indicador
+
+&lt;!-- Layouts --&gt;
+class="sb-ui-tabs--horizontal"  - Horizontal (indicador abajo)
+class="sb-ui-tabs--vertical"    - Vertical (indicador izquierda)
+
+&lt;!-- Estados --&gt;
+class="sb-ui-tabs__item--active"    - Tab activo
+class="sb-ui-tabs__item--disabled"  - Tab deshabilitado
+class="sb-ui-tabs__panel--active"   - Panel visible
+
+&lt;!-- Nota: Requiere JavaScript para funcionalidad de cambio de tabs --&gt;</code>
+      </div>
+    </div>
+
+    <script>
+      // Brand and Theme Switching with localStorage persistence
+      const brandSelect = document.getElementById('brandSelect');
+      const lightBtn = document.getElementById('lightBtn');
+      const darkBtn = document.getElementById('darkBtn');
+      const html = document.documentElement;
+      const body = document.body;
+      const brandCss = document.getElementById('brand-css');
+
+      // Leer valores de localStorage o usar defaults
+      let currentBrand =
+        localStorage.getItem('sb-ui-brand') || html.getAttribute('data-brand') || 'seguros-bolivar';
+      let currentTheme =
+        localStorage.getItem('sb-ui-theme') || html.getAttribute('data-theme') || 'light';
+
+      function updateBrandAndTheme() {
+        // Update HTML attributes
+        html.setAttribute('data-brand', currentBrand);
+        html.setAttribute('data-theme', currentTheme);
+        body.setAttribute('data-brand', currentBrand);
+
+        // Save to localStorage
+        localStorage.setItem('sb-ui-brand', currentBrand);
+        localStorage.setItem('sb-ui-theme', currentTheme);
+
+        // Update CSS bundle (tokens + atoms + overrides)
+        brandCss.href = `../dist/sb-ui-${currentBrand}-${currentTheme}.min.css?v=${Date.now()}`;
+
+        // Sync select
+        brandSelect.value = currentBrand;
+
+        // Update button states
+        if (currentTheme === 'light') {
+          lightBtn.className = 'sb-ui-button sb-ui-button--primary sb-ui-button--small';
+          darkBtn.className = 'sb-ui-button sb-ui-button--tertiary sb-ui-button--small';
+        } else {
+          lightBtn.className = 'sb-ui-button sb-ui-button--tertiary sb-ui-button--small';
+          darkBtn.className = 'sb-ui-button sb-ui-button--primary sb-ui-button--small';
+        }
+
+        console.log(`✅ Marca: ${currentBrand} | Tema: ${currentTheme}`);
+        console.log(`📦 Bundle: dist/sb-ui-${currentBrand}-${currentTheme}.min.css`);
+        console.log(`💾 Sincronizado con localStorage`);
+      }
+
+      // Event Listeners
+      brandSelect.addEventListener('change', (e) => {
+        currentBrand = e.target.value;
+        updateBrandAndTheme();
+      });
+
+      lightBtn.addEventListener('click', () => {
+        currentTheme = 'light';
+        updateBrandAndTheme();
+      });
+
+      darkBtn.addEventListener('click', () => {
+        currentTheme = 'dark';
+        updateBrandAndTheme();
+      });
+
+      // Initialize on page load
+      updateBrandAndTheme();
+
+      // ============================================
+      // TABS FUNCTIONALITY
+      // ============================================
+      function initializeTabs(tabsContainer) {
+        const tabItems = tabsContainer.querySelectorAll('.sb-ui-tabs__item');
+
+        tabItems.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            // Skip if disabled
+            if (tab.classList.contains('sb-ui-tabs__item--disabled') || tab.disabled) {
+              return;
+            }
+
+            const targetTabId = tab.getAttribute('data-tab');
+            const targetPanel = document.getElementById(targetTabId);
+
+            if (!targetPanel) return;
+
+            // Find all panels within the same wrapper
+            const wrapper = tabsContainer.closest('.tabs-demo-wrapper');
+            const allPanels = wrapper.querySelectorAll('.sb-ui-tabs__panel');
+
+            // Remove active from all tabs in this container
+            tabsContainer
+              .querySelectorAll('.sb-ui-tabs__item')
+              .forEach((t) => t.classList.remove('sb-ui-tabs__item--active'));
+
+            // Remove active from all panels
+            allPanels.forEach((p) => p.classList.remove('sb-ui-tabs__panel--active'));
+
+            // Add active to clicked tab and corresponding panel
+            tab.classList.add('sb-ui-tabs__item--active');
+            targetPanel.classList.add('sb-ui-tabs__panel--active');
+
+            console.log(`✅ Tab activo: ${targetTabId}`);
+          });
+        });
+      }
+
+      // Initialize all tabs on the page
+      document.querySelectorAll('.sb-ui-tabs').forEach(initializeTabs);
+    </script>
+  </body>
+</html>
+

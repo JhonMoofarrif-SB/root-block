@@ -1,0 +1,371 @@
+/**
+ * Tabs Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * Uso: <div class="sb-ui-tabs sb-ui-tabs--horizontal sb-ui-tabs--track">
+ *        <button class="sb-ui-tabs__item sb-ui-tabs__item--active">
+ *          <i class="sb-ui-tabs__icon">🌐</i>
+ *          <div class="sb-ui-tabs__content">
+ *            <span class="sb-ui-tabs__title">Title</span>
+ *            <span class="sb-ui-tabs__description">Description</span>
+ *          </div>
+ *        </button>
+ *      </div>
+ */
+
+@layer reset, tokens, base, variants, layouts, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-tabs {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-tabs__item {
+    all: unset;
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-tabs {
+    /* Colores BASE - Estados interactivos */
+    --sb-ui-tabs-bg-color: transparent;
+    --sb-ui-tabs-bg-hover: var(--sb-ui-color-secondary-L400, #fffcf0);
+    --sb-ui-tabs-bg-active: var(--sb-ui-color-secondary-L400, #fffcf0);
+    --sb-ui-tabs-bg-disabled: transparent;
+
+    --sb-ui-tabs-text-color: var(--sb-ui-color-grayscale-D200, #5b5b5b);
+    --sb-ui-tabs-text-hover: var(--sb-ui-color-grayscale-D200, #5b5b5b);
+    --sb-ui-tabs-text-active: var(--sb-ui-color-primary-base, #038450);
+    --sb-ui-tabs-text-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    --sb-ui-tabs-icon-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-tabs-icon-hover: var(--sb-ui-color-primary-base, #038450);
+    --sb-ui-tabs-icon-active: var(--sb-ui-color-primary-base, #038450);
+    --sb-ui-tabs-icon-disabled: var(--sb-ui-color-grayscale-L100, #d0d0d0);
+
+    --sb-ui-tabs-border-color: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-tabs-border-active: var(--sb-ui-color-primary-base, #038450);
+
+    /* Espaciado de tabs (muy compactos según diseño) */
+    --sb-ui-tabs-padding-inline: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+    --sb-ui-tabs-padding-block: clamp(0.375rem, 0.3rem + 0.3vw, 0.5rem);
+    --sb-ui-tabs-gap: clamp(0.25rem, 0.2rem + 0.2vw, 0.375rem);
+    
+    /* Espaciado del panel de contenido (más espacioso) */
+    --sb-ui-tabs-panel-padding-inline: clamp(2rem, 1.5rem + 2vw, 3rem);
+    --sb-ui-tabs-panel-padding-block: clamp(2rem, 1.5rem + 2vw, 3rem);
+    --sb-ui-tabs-panel-margin-block-start: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+
+    /* Tipografía - SIEMPRE con clamp() */
+    --sb-ui-tabs-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-tabs-title-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --sb-ui-tabs-title-font-weight: 500;
+    --sb-ui-tabs-description-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-tabs-description-font-weight: 400;
+    --sb-ui-tabs-line-height: 1.5;
+
+    /* Tamaños - Logical properties */
+    --sb-ui-tabs-min-inline-size: clamp(80px, 15vw, 120px);
+
+    /* Bordes */
+    --sb-ui-tabs-border-width: 1px;
+    --sb-ui-tabs-border-radius: clamp(6px, 0.4rem + 0.3vw, 8px);
+    --sb-ui-tabs-indicator-size: 2px;
+
+    /* Iconos */
+    --sb-ui-tabs-icon-size: clamp(1rem, 0.9rem + 0.3vw, 1.25rem);
+
+    /* Transiciones */
+    --sb-ui-tabs-transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  .sb-ui-tabs {
+    /* Layout */
+    display: flex;
+    position: relative;
+
+    /* Typography */
+    font-family: var(--sb-ui-tabs-font-family);
+  }
+
+  .sb-ui-tabs__item {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    gap: var(--sb-ui-tabs-gap);
+    position: relative;
+
+    /* Spacing */
+    padding-inline: var(--sb-ui-tabs-padding-inline);
+    padding-block: var(--sb-ui-tabs-padding-block);
+
+    /* Typography */
+    font-family: var(--sb-ui-tabs-font-family);
+    text-align: start;
+
+    /* Appearance */
+    background-color: var(--sb-ui-tabs-bg-color);
+    color: var(--sb-ui-tabs-text-color);
+    border: none;
+
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+
+    /* Animation */
+    transition: var(--sb-ui-tabs-transition);
+
+    /* Nested Pseudo-classes */
+    &:hover:not(:disabled):not(.sb-ui-tabs__item--disabled) {
+      background-color: var(--sb-ui-tabs-bg-hover);
+      color: var(--sb-ui-tabs-text-hover);
+
+      & .sb-ui-tabs__icon {
+        color: var(--sb-ui-tabs-icon-hover);
+      }
+    }
+
+    &:active:not(:disabled):not(.sb-ui-tabs__item--disabled) {
+      background-color: var(--sb-ui-tabs-bg-active);
+    }
+
+    &:focus-visible:not(:disabled):not(.sb-ui-tabs__item--disabled) {
+      outline: 3px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 2px;
+    }
+
+    &:disabled,
+    &.sb-ui-tabs__item--disabled {
+      color: var(--sb-ui-tabs-text-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+
+      & .sb-ui-tabs__icon {
+        color: var(--sb-ui-tabs-icon-disabled);
+      }
+    }
+
+    /* Active state */
+    &.sb-ui-tabs__item--active {
+      color: var(--sb-ui-tabs-text-active);
+
+      & .sb-ui-tabs__icon {
+        color: var(--sb-ui-tabs-icon-active);
+      }
+    }
+  }
+
+  .sb-ui-tabs__icon {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    /* Size */
+    inline-size: var(--sb-ui-tabs-icon-size);
+    block-size: var(--sb-ui-tabs-icon-size);
+    font-size: var(--sb-ui-tabs-icon-size);
+
+    /* Color */
+    color: var(--sb-ui-tabs-icon-color);
+
+    /* Animation */
+    transition: var(--sb-ui-tabs-transition);
+  }
+
+  .sb-ui-tabs__content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.0625rem, 0.05rem + 0.1vw, 0.125rem);
+    flex: 1;
+  }
+
+  .sb-ui-tabs__title {
+    /* Typography */
+    font-size: var(--sb-ui-tabs-title-font-size);
+    font-weight: var(--sb-ui-tabs-title-font-weight);
+    line-height: var(--sb-ui-tabs-line-height);
+  }
+
+  .sb-ui-tabs__description {
+    /* Typography */
+    font-size: var(--sb-ui-tabs-description-font-size);
+    font-weight: var(--sb-ui-tabs-description-font-weight);
+    line-height: var(--sb-ui-tabs-line-height);
+    color: var(--sb-ui-tabs-text-color);
+  }
+
+  .sb-ui-tabs__panel {
+    /* Layout */
+    display: none;
+
+    /* Spacing */
+    padding-inline: var(--sb-ui-tabs-panel-padding-inline);
+    padding-block: var(--sb-ui-tabs-panel-padding-block);
+    margin-block-start: var(--sb-ui-tabs-panel-margin-block-start);
+
+    /* Typography */
+    font-family: var(--sb-ui-tabs-font-family);
+    font-size: var(--sb-ui-tabs-title-font-size);
+    line-height: var(--sb-ui-tabs-line-height);
+    color: var(--sb-ui-tabs-text-color);
+
+    /* Appearance */
+    background-color: transparent;
+
+    /* Active panel */
+    &.sb-ui-tabs__panel--active {
+      display: block;
+    }
+  }
+}
+
+/* ========================================
+   VARIANTS LAYER - Track, Button, Folder
+   ======================================== */
+@layer variants {
+  /* Track variant - con línea indicadora */
+  .sb-ui-tabs--track {
+    & .sb-ui-tabs__item {
+      background-color: transparent;
+    }
+  }
+
+  /* Button variant - con fondo en active */
+  .sb-ui-tabs--button {
+    & .sb-ui-tabs__item.sb-ui-tabs__item--active {
+      background-color: var(--sb-ui-tabs-bg-active);
+    }
+  }
+
+  /* Folder variant - sin fondo especial */
+  .sb-ui-tabs--folder {
+    & .sb-ui-tabs__item {
+      background-color: transparent;
+    }
+  }
+}
+
+/* ========================================
+   LAYOUTS LAYER - Horizontal y Vertical
+   ======================================== */
+@layer layouts {
+  /* Horizontal layout */
+  .sb-ui-tabs--horizontal {
+    flex-direction: row;
+    border-block-end: var(--sb-ui-tabs-border-width) solid var(--sb-ui-tabs-border-color);
+
+    & .sb-ui-tabs__item {
+      flex-direction: column;
+      text-align: center;
+
+      /* Indicador inferior */
+      &::after {
+        content: '';
+        position: absolute;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
+        inset-block-end: calc(-1 * var(--sb-ui-tabs-border-width));
+        block-size: var(--sb-ui-tabs-indicator-size);
+        background-color: transparent;
+        transition: background-color 0.2s ease;
+      }
+
+      &.sb-ui-tabs__item--active::after {
+        background-color: var(--sb-ui-tabs-border-active);
+      }
+    }
+
+    & .sb-ui-tabs__content {
+      align-items: center;
+    }
+  }
+
+  /* Vertical layout */
+  .sb-ui-tabs--vertical {
+    flex-direction: column;
+    border-inline-start: var(--sb-ui-tabs-border-width) solid var(--sb-ui-tabs-border-color);
+
+    & .sb-ui-tabs__item {
+      flex-direction: row;
+      inline-size: 100%;
+
+      /* Indicador lateral */
+      &::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: calc(-1 * var(--sb-ui-tabs-border-width));
+        inset-block-start: 0;
+        inset-block-end: 0;
+        inline-size: var(--sb-ui-tabs-indicator-size);
+        background-color: transparent;
+        transition: background-color 0.2s ease;
+      }
+
+      &.sb-ui-tabs__item--active::before {
+        background-color: var(--sb-ui-tabs-border-active);
+      }
+    }
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  .sb-ui-tabs--loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER (máxima prioridad)
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .sb-ui-tabs {
+      --sb-ui-tabs-border-width: 2px;
+      --sb-ui-tabs-indicator-size: 3px;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-tabs {
+      --sb-ui-tabs-transition: none;
+    }
+
+    .sb-ui-tabs__icon {
+      transition: none;
+    }
+  }
+
+  /* Mobile responsive */
+  @media (inline-size <= 640px) {
+    .sb-ui-tabs--horizontal {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+

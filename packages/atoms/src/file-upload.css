@@ -1,0 +1,484 @@
+/**
+ * File Upload Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * Uso:
+ * <div class="sb-ui-file-upload-wrapper">
+ *   <label class="sb-ui-file-upload__label">Etiqueta</label>
+ *   <div class="sb-ui-file-upload-container">
+ *     <div class="sb-ui-file-upload-dropzone">
+ *       [Zona drag & drop]
+ *       <button class="sb-ui-button sb-ui-button--primary">Seleccione un archivo</button>
+ *       <p class="sb-ui-file-upload__help">Texto de ayuda</p>
+ *     </div>
+ *     <div class="sb-ui-file-upload sb-ui-file-upload--[estado]">
+ *       [Item de archivo subido]
+ *     </div>
+ *   </div>
+ * </div>
+ *
+ * Estados: uploading, uploaded, success, error
+ */
+
+@layer reset, tokens, base, variants, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-file-upload-wrapper,
+  .sb-ui-file-upload-container,
+  .sb-ui-file-upload-dropzone,
+  .sb-ui-file-upload {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-file-upload-wrapper *,
+  .sb-ui-file-upload-container *,
+  .sb-ui-file-upload-dropzone *,
+  .sb-ui-file-upload *,
+  .sb-ui-file-upload *::before,
+  .sb-ui-file-upload *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  /* Wrapper */
+  .sb-ui-file-upload-wrapper {
+    --sb-ui-file-upload-wrapper-gap: clamp(0.5rem, 0.3rem + 0.5vw, 0.75rem);
+  }
+
+  /* Label */
+  .sb-ui-file-upload__label {
+    --sb-ui-file-upload-label-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-file-upload-label-font-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+    --sb-ui-file-upload-label-font-weight: 400;
+    --sb-ui-file-upload-label-margin-block-end: 0.5rem;
+  }
+
+  /* Container */
+  .sb-ui-file-upload-container {
+    --sb-ui-file-upload-container-bg: transparent;
+    --sb-ui-file-upload-container-padding: 0;
+    --sb-ui-file-upload-container-border-radius: 0;
+    --sb-ui-file-upload-container-gap: 1rem;
+  }
+
+  /* Dropzone */
+  .sb-ui-file-upload-dropzone {
+    --sb-ui-file-upload-dropzone-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-file-upload-dropzone-border-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-file-upload-dropzone-border-width: 1px;
+    --sb-ui-file-upload-dropzone-border-style: dashed;
+    --sb-ui-file-upload-dropzone-border-radius: 4px;
+    --sb-ui-file-upload-dropzone-padding-block: clamp(1.5rem, 1rem + 1vw, 2rem);
+    --sb-ui-file-upload-dropzone-padding-inline: clamp(1.5rem, 1rem + 1vw, 2rem);
+    --sb-ui-file-upload-dropzone-gap: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --sb-ui-file-upload-dropzone-hover-bg: var(--sb-ui-color-primary-L400);
+    --sb-ui-file-upload-dropzone-hover-border: var(--sb-ui-color-primary-base);
+    --sb-ui-file-upload-dropzone-active-bg: var(--sb-ui-color-primary-L400);
+  }
+
+  /* Dropzone Text */
+  .sb-ui-file-upload-dropzone__text {
+    --sb-ui-file-upload-text-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-file-upload-text-font-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+    --sb-ui-file-upload-text-font-weight: 400;
+  }
+
+  /* Help Text */
+  .sb-ui-file-upload__help {
+    --sb-ui-file-upload-help-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-file-upload-help-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-file-upload-help-font-weight: 400;
+  }
+
+  /* File Item */
+  .sb-ui-file-upload {
+    /* Container */
+    --sb-ui-file-upload-bg: var(--sb-ui-color-grayscale-white);
+    --sb-ui-file-upload-border-color: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+    --sb-ui-file-upload-border-width: 1px;
+    --sb-ui-file-upload-border-radius: 8px;
+    --sb-ui-file-upload-padding-block: 24px;
+    --sb-ui-file-upload-padding-inline: 24px;
+    --sb-ui-file-upload-gap: 16px;
+
+    /* Icon Container - Card gris */
+    --sb-ui-file-upload-icon-size: 40px;
+    --sb-ui-file-upload-icon-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-file-upload-icon-bg: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-file-upload-icon-padding: 12px;
+
+    /* File Name */
+    --sb-ui-file-upload-filename-color: var(--sb-ui-color-grayscale-black);
+    --sb-ui-file-upload-filename-font-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+    --sb-ui-file-upload-filename-font-weight: 400;
+
+    /* Caption */
+    --sb-ui-file-upload-caption-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-file-upload-caption-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-file-upload-caption-font-weight: 400;
+
+    /* Progress Bar */
+    --sb-ui-file-upload-progress-height: 4px;
+    --sb-ui-file-upload-progress-bg: var(--sb-ui-color-grayscale-L200, #e0e0e0);
+    --sb-ui-file-upload-progress-color: var(--sb-ui-color-feedback-warning-base, #ffa726);
+    --sb-ui-file-upload-progress-border-radius: 2px;
+
+    /* Button */
+    --sb-ui-file-upload-button-size: 24px;
+    --sb-ui-file-upload-button-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-file-upload-button-hover: var(--sb-ui-color-feedback-error-base);
+
+    /* Transitions */
+    --sb-ui-file-upload-transition: all 0.2s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  /* Wrapper */
+  .sb-ui-file-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sb-ui-file-upload-wrapper-gap);
+    inline-size: 100%;
+  }
+
+  /* Label */
+  .sb-ui-file-upload__label {
+    display: block;
+    color: var(--sb-ui-file-upload-label-color);
+    font-size: var(--sb-ui-file-upload-label-font-size);
+    font-weight: var(--sb-ui-file-upload-label-font-weight);
+    margin-block-end: var(--sb-ui-file-upload-label-margin-block-end);
+  }
+
+  /* Container */
+  .sb-ui-file-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sb-ui-file-upload-container-gap);
+    padding: var(--sb-ui-file-upload-container-padding);
+    background: var(--sb-ui-file-upload-container-bg);
+    border-radius: var(--sb-ui-file-upload-container-border-radius);
+    inline-size: 100%;
+  }
+
+  /* Dropzone */
+  .sb-ui-file-upload-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sb-ui-file-upload-dropzone-gap);
+    padding-block: var(--sb-ui-file-upload-dropzone-padding-block);
+    padding-inline: var(--sb-ui-file-upload-dropzone-padding-inline);
+    background: var(--sb-ui-file-upload-dropzone-bg);
+    border: var(--sb-ui-file-upload-dropzone-border-width)
+      var(--sb-ui-file-upload-dropzone-border-style)
+      var(--sb-ui-file-upload-dropzone-border-color);
+    border-radius: var(--sb-ui-file-upload-dropzone-border-radius);
+    text-align: center;
+    transition: var(--sb-ui-file-upload-transition);
+    cursor: pointer;
+    position: relative;
+    inline-size: 100%;
+
+    &:hover {
+      background: var(--sb-ui-file-upload-dropzone-hover-bg);
+      border-color: var(--sb-ui-file-upload-dropzone-hover-border);
+    }
+
+    &.is-dragover {
+      background: var(--sb-ui-file-upload-dropzone-active-bg);
+      border-color: var(--sb-ui-file-upload-dropzone-hover-border);
+      border-style: solid;
+    }
+  }
+
+  /* Dropzone Icon */
+  .sb-ui-file-upload-dropzone__icon {
+    font-size: 48px;
+    color: var(--sb-ui-color-feedback-success-base);
+    line-height: 1;
+  }
+
+  /* Dropzone Text */
+  .sb-ui-file-upload-dropzone__text {
+    color: var(--sb-ui-file-upload-text-color);
+    font-size: var(--sb-ui-file-upload-text-font-size);
+    font-weight: var(--sb-ui-file-upload-text-font-weight);
+    margin: 0;
+  }
+
+  /* Help Text */
+  .sb-ui-file-upload__help {
+    color: var(--sb-ui-file-upload-help-color);
+    font-size: var(--sb-ui-file-upload-help-font-size);
+    font-weight: var(--sb-ui-file-upload-help-font-weight);
+    margin: 0;
+    text-align: center;
+  }
+
+  /* File Item */
+  .sb-ui-file-upload {
+    display: flex;
+    align-items: center;
+    gap: var(--sb-ui-file-upload-gap);
+    padding-block: var(--sb-ui-file-upload-padding-block);
+    padding-inline: var(--sb-ui-file-upload-padding-inline);
+    background: var(--sb-ui-file-upload-bg);
+    border: var(--sb-ui-file-upload-border-width) solid var(--sb-ui-file-upload-border-color);
+    border-radius: var(--sb-ui-file-upload-border-radius);
+    position: relative;
+    transition: var(--sb-ui-file-upload-transition);
+    inline-size: 100%;
+  }
+
+  /* Icon Container - Card gris completo */
+  .sb-ui-file-upload__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sb-ui-file-upload-icon-color);
+    background: var(--sb-ui-file-upload-icon-bg, transparent);
+    border-radius: 4px;
+    padding: var(--sb-ui-file-upload-icon-padding);
+    
+    & svg {
+      inline-size: var(--sb-ui-file-upload-icon-size);
+      block-size: var(--sb-ui-file-upload-icon-size);
+    }
+  }
+
+  /* Content Container */
+  .sb-ui-file-upload__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-inline-size: 0;
+  }
+
+  /* File Name */
+  .sb-ui-file-upload__filename {
+    color: var(--sb-ui-file-upload-filename-color);
+    font-size: var(--sb-ui-file-upload-filename-font-size);
+    font-weight: var(--sb-ui-file-upload-filename-font-weight);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Caption / Status */
+  .sb-ui-file-upload__caption {
+    color: var(--sb-ui-file-upload-caption-color);
+    font-size: var(--sb-ui-file-upload-caption-font-size);
+    font-weight: var(--sb-ui-file-upload-caption-font-weight);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Progress Bar Container */
+  .sb-ui-file-upload__progress {
+    inline-size: 100%;
+    block-size: var(--sb-ui-file-upload-progress-height);
+    background: var(--sb-ui-file-upload-progress-bg);
+    border-radius: var(--sb-ui-file-upload-progress-border-radius);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Progress Bar Fill */
+  .sb-ui-file-upload__progress-bar {
+    block-size: 100%;
+    background: var(--sb-ui-file-upload-progress-color);
+    border-radius: var(--sb-ui-file-upload-progress-border-radius);
+    transition: inline-size 0.3s ease;
+    inline-size: 0%;
+  }
+
+  /* Progress Percentage */
+  .sb-ui-file-upload__percentage {
+    color: var(--sb-ui-file-upload-caption-color);
+    font-size: var(--sb-ui-file-upload-caption-font-size);
+    font-weight: 500;
+    margin-inline-start: 0.5rem;
+  }
+
+  /* Actions Container */
+  .sb-ui-file-upload__actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* Action Button */
+  .sb-ui-file-upload__button {
+    inline-size: var(--sb-ui-file-upload-button-size);
+    block-size: var(--sb-ui-file-upload-button-size);
+    border: none;
+    background: transparent;
+    color: var(--sb-ui-file-upload-button-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--sb-ui-file-upload-transition);
+    padding: 0;
+    font-size: 1rem;
+
+    &:hover:not(:disabled) {
+      color: var(--sb-ui-file-upload-button-hover);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Status Indicator Dot */
+  .sb-ui-file-upload__status-dot {
+    inline-size: 8px;
+    block-size: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  /* Uploading State */
+  .sb-ui-file-upload--uploading {
+    --sb-ui-file-upload-icon-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-file-upload-progress-color: var(--sb-ui-color-feedback-warning-base, #ffa726);
+    --sb-ui-file-upload-caption-color: var(--sb-ui-color-grayscale-base);
+  }
+
+  /* Uploaded State */
+  .sb-ui-file-upload--uploaded {
+    --sb-ui-file-upload-icon-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-file-upload-caption-color: var(--sb-ui-color-feedback-success-base);
+
+    .sb-ui-file-upload__progress {
+      display: none;
+    }
+  }
+
+  /* Success State */
+  .sb-ui-file-upload--success {
+    --sb-ui-file-upload-icon-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-file-upload-progress-color: var(--sb-ui-color-feedback-success-base);
+    --sb-ui-file-upload-caption-color: var(--sb-ui-color-feedback-success-base);
+  }
+
+  /* Error State */
+  .sb-ui-file-upload--error {
+    --sb-ui-file-upload-icon-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-file-upload-progress-color: var(--sb-ui-color-feedback-error-base);
+    --sb-ui-file-upload-caption-color: var(--sb-ui-color-feedback-error-base);
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .sb-ui-file-upload {
+      --sb-ui-file-upload-border-width: 2px;
+      --sb-ui-file-upload-border-color: var(--sb-ui-color-grayscale-base);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-file-upload,
+    .sb-ui-file-upload *,
+    .sb-ui-file-upload__icon,
+    .sb-ui-file-upload__progress-bar {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Mobile styles */
+  @media (max-width: 640px) {
+    .sb-ui-file-upload {
+      --sb-ui-file-upload-padding-block: 20px;
+      --sb-ui-file-upload-padding-inline: 20px;
+      --sb-ui-file-upload-gap: 12px;
+      --sb-ui-file-upload-icon-size: 36px;
+      --sb-ui-file-upload-icon-padding: 10px;
+    }
+
+    .sb-ui-file-upload__filename {
+      font-size: 0.875rem;
+    }
+
+    .sb-ui-file-upload__caption {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+/* ========================================
+   ANIMATIONS (fuera de @layer)
+   ======================================== */
+@keyframes sb-ui-file-upload-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes sb-ui-file-upload-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+

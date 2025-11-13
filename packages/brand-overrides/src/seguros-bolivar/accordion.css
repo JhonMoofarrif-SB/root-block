@@ -1,0 +1,99 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - Accordion Component Overrides
+ * ============================================================================
+ *
+ * Nueva Arquitectura con @layer brand-overrides (v2.0.0)
+ *
+ * ESTRUCTURA:
+ * 1. Configuración global (fuera de @layer) - padding, border-radius, etc.
+ * 2. Overrides por variante (dentro de @layer brand-overrides) - colores
+ *
+ * ORDEN DE LAYERS (menor a mayor prioridad):
+ * reset → tokens → base → variants → brand-overrides → sizes → modifiers
+ * → states → utilities
+ *
+ * VARIANTES: primary, secondary
+ * ESTADOS: default, hover, active, disabled, focus, expanded
+ *
+ * ⚠️ IMPORTANTE:
+ * - Usar @layer brand-overrides para overrides de variables CSS
+ * - NO usar !important (ya no es necesario)
+ * - Usar tokens de la marca: var(--sb-ui-color-*), NO hardcodear
+ * - Solo definir las variables que cambian respecto al default
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL (fuera de @layer)
+   ============================================================================
+   Propiedades estructurales como padding, border-radius, tamaños
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-accordion {
+  --sb-ui-accordion-border-radius: 16px;
+  --sb-ui-accordion-padding-inline: 24px;
+  --sb-ui-accordion-padding-block: 12px;
+  --sb-ui-accordion-gap: 12px;
+  --sb-ui-accordion-min-block-size: 56px;
+  --sb-ui-accordion-content-padding-inline: 24px;
+  --sb-ui-accordion-content-padding-block: 20px;
+  --sb-ui-accordion-icon-size: 24px;
+  --sb-ui-accordion-font-size: 16px;
+  --sb-ui-accordion-border-focus-width: 3px;
+}
+
+/* ============================================================================
+   2. OVERRIDES POR VARIANTE (dentro de @layer brand-overrides)
+   ============================================================================
+   Variables de color, estados hover/active/disabled
+   ============================================================================ */
+@layer brand-overrides {
+  /* ========================================
+     PRIMARY - Estados del accordion
+     Fondo blanco, borde verde, texto verde oscuro
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-accordion--primary {
+    /* Background */
+    --sb-ui-accordion-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-accordion-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-accordion-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-accordion-bg-disabled: var(--sb-ui-color-grayscale-L400);
+
+    /* Text */
+    --sb-ui-accordion-text-color: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-active: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-disabled: var(--sb-ui-color-grayscale-base);
+
+    /* Border */
+    --sb-ui-accordion-border-color: var(--sb-ui-color-primary-base);
+    --sb-ui-accordion-border-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-border-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-accordion-border-disabled: var(--sb-ui-color-grayscale-L200);
+  }
+
+  /* ========================================
+     SECONDARY - Variante secundaria
+     Usa colores amarillos del brand
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-accordion--secondary {
+    /* Background */
+    --sb-ui-accordion-bg-color: var(--sb-ui-color-grayscale-white);
+    --sb-ui-accordion-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-accordion-bg-active: var(--sb-ui-color-secondary-L300);
+    --sb-ui-accordion-bg-disabled: var(--sb-ui-color-grayscale-L400);
+
+    /* Text */
+    --sb-ui-accordion-text-color: var(--sb-ui-color-primary-base);
+    --sb-ui-accordion-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-active: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-disabled: var(--sb-ui-color-grayscale-base);
+
+    /* Border */
+    --sb-ui-accordion-border-color: var(--sb-ui-color-secondary-base);
+    --sb-ui-accordion-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-accordion-border-active: var(--sb-ui-color-secondary-D200);
+    --sb-ui-accordion-border-disabled: var(--sb-ui-color-grayscale-L200);
+  }
+}
+

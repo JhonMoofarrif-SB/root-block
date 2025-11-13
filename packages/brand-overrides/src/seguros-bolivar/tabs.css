@@ -1,0 +1,132 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - Tabs Component Overrides
+ * ============================================================================
+ *
+ * Nueva Arquitectura con @layer brand-overrides (v2.0.0)
+ *
+ * ESTRUCTURA:
+ * 1. Configuración global (fuera de @layer) - padding, border-radius, etc.
+ * 2. Overrides por variante (dentro de @layer brand-overrides) - colores
+ *
+ * VARIANTES: track, button, folder
+ * LAYOUTS: horizontal, vertical
+ * ESTADOS: default, hover, active, disabled, focus
+ *
+ * ⚠️ IMPORTANTE:
+ * - Usar @layer brand-overrides para overrides de variables CSS
+ * - NO usar !important (ya no es necesario)
+ * - Usar tokens de la marca: var(--sb-ui-color-*), NO hardcodear
+ * - Solo definir las variables que cambian respecto al default
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL (fuera de @layer)
+   ============================================================================
+   Propiedades estructurales como padding, border-radius, tamaños
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-tabs {
+  /* Espaciado de tabs (muy compactos según diseño) */
+  --sb-ui-tabs-padding-inline: clamp(0.625rem, 0.5rem + 0.5vw, 0.875rem);
+  --sb-ui-tabs-padding-block: clamp(0.5rem, 0.4rem + 0.3vw, 0.625rem);
+  --sb-ui-tabs-gap: clamp(0.375rem, 0.3rem + 0.3vw, 0.5rem);
+  
+  /* Espaciado del panel de contenido (espacioso) */
+  --sb-ui-tabs-panel-padding-inline: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --sb-ui-tabs-panel-padding-block: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --sb-ui-tabs-panel-margin-block-start: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  
+  /* Visual */
+  --sb-ui-tabs-border-radius: clamp(6px, 0.4rem + 0.3vw, 8px);
+  --sb-ui-tabs-icon-size: clamp(18px, 1rem + 0.3vw, 20px);
+  --sb-ui-tabs-indicator-size: 2px;
+  
+  /* Tipografía */
+  --sb-ui-tabs-title-font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem);
+  --sb-ui-tabs-description-font-size: clamp(0.6875rem, 0.65rem + 0.15vw, 0.75rem);
+}
+
+/* ============================================================================
+   2. OVERRIDES POR VARIANTE (dentro de @layer brand-overrides)
+   ============================================================================
+   Variables de color, estados hover/active/disabled
+   ============================================================================ */
+@layer brand-overrides {
+  /* ========================================
+     TRACK VARIANT - Con indicador verde
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-tabs--track {
+    /* Background */
+    --sb-ui-tabs-bg-color: transparent;
+    --sb-ui-tabs-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-tabs-bg-active: transparent;
+
+    /* Text */
+    --sb-ui-tabs-text-color: var(--sb-ui-color-grayscale-D200);
+    --sb-ui-tabs-text-hover: var(--sb-ui-color-grayscale-D200);
+    --sb-ui-tabs-text-active: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-text-disabled: var(--sb-ui-color-grayscale-base);
+
+    /* Icons */
+    --sb-ui-tabs-icon-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-tabs-icon-hover: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-icon-active: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-icon-disabled: var(--sb-ui-color-grayscale-L100);
+
+    /* Border */
+    --sb-ui-tabs-border-color: var(--sb-ui-color-grayscale-L200);
+    --sb-ui-tabs-border-active: var(--sb-ui-color-primary-base);
+  }
+
+  /* ========================================
+     BUTTON VARIANT - Con fondo amarillo activo
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-tabs--button {
+    /* Background */
+    --sb-ui-tabs-bg-color: transparent;
+    --sb-ui-tabs-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-tabs-bg-active: var(--sb-ui-color-secondary-L400);
+
+    /* Text */
+    --sb-ui-tabs-text-color: var(--sb-ui-color-grayscale-D200);
+    --sb-ui-tabs-text-hover: var(--sb-ui-color-grayscale-D200);
+    --sb-ui-tabs-text-active: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-text-disabled: var(--sb-ui-color-grayscale-base);
+
+    /* Icons */
+    --sb-ui-tabs-icon-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-tabs-icon-hover: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-icon-active: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-icon-disabled: var(--sb-ui-color-grayscale-L100);
+
+    /* Border */
+    --sb-ui-tabs-border-color: var(--sb-ui-color-grayscale-L200);
+  }
+
+  /* ========================================
+     FOLDER VARIANT - Similar a button sin indicador
+     ======================================== */
+  [data-brand='seguros-bolivar'] .sb-ui-tabs--folder {
+    /* Background */
+    --sb-ui-tabs-bg-color: transparent;
+    --sb-ui-tabs-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-tabs-bg-active: transparent;
+
+    /* Text */
+    --sb-ui-tabs-text-color: var(--sb-ui-color-grayscale-D200);
+    --sb-ui-tabs-text-hover: var(--sb-ui-color-grayscale-D200);
+    --sb-ui-tabs-text-active: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-text-disabled: var(--sb-ui-color-grayscale-base);
+
+    /* Icons */
+    --sb-ui-tabs-icon-color: var(--sb-ui-color-grayscale-base);
+    --sb-ui-tabs-icon-hover: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-icon-active: var(--sb-ui-color-primary-base);
+    --sb-ui-tabs-icon-disabled: var(--sb-ui-color-grayscale-L100);
+
+    /* Border */
+    --sb-ui-tabs-border-color: var(--sb-ui-color-grayscale-L200);
+  }
+}
+

@@ -1,0 +1,219 @@
+/**
+ * Breadcrumb Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * Uso: 
+ * <nav class="sb-ui-breadcrumb" aria-label="Breadcrumb">
+ *   <ol class="sb-ui-breadcrumb__list">
+ *     <li class="sb-ui-breadcrumb__item">
+ *       <a href="#" class="sb-ui-breadcrumb__link">Home</a>
+ *     </li>
+ *     <li class="sb-ui-breadcrumb__item">
+ *       <a href="#" class="sb-ui-breadcrumb__link">Category</a>
+ *     </li>
+ *     <li class="sb-ui-breadcrumb__item">
+ *       <span class="sb-ui-breadcrumb__current" aria-current="page">Current</span>
+ *     </li>
+ *   </ol>
+ * </nav>
+ */
+
+@layer reset, tokens, base, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-breadcrumb {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-breadcrumb *,
+  .sb-ui-breadcrumb *::before,
+  .sb-ui-breadcrumb *::after {
+    box-sizing: inherit;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-breadcrumb {
+    /* Typography */
+    --sb-ui-breadcrumb-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-breadcrumb-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --sb-ui-breadcrumb-font-weight: 400;
+    --sb-ui-breadcrumb-line-height: 1.5;
+
+    /* Colors */
+    --sb-ui-breadcrumb-link-color: var(--sb-ui-color-primary-base);
+    --sb-ui-breadcrumb-link-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-breadcrumb-link-active: var(--sb-ui-color-primary-D200);
+    --sb-ui-breadcrumb-current-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-breadcrumb-separator-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    /* Spacing */
+    --sb-ui-breadcrumb-gap: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --sb-ui-breadcrumb-padding-block: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --sb-ui-breadcrumb-padding-inline: 0;
+
+    /* Separator */
+    --sb-ui-breadcrumb-separator-content: '>';
+    --sb-ui-breadcrumb-separator-margin-inline: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+
+    /* Transitions */
+    --sb-ui-breadcrumb-transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  /* Container */
+  .sb-ui-breadcrumb {
+    display: block;
+    inline-size: 100%;
+    padding-block: var(--sb-ui-breadcrumb-padding-block);
+    padding-inline: var(--sb-ui-breadcrumb-padding-inline);
+    font-family: var(--sb-ui-breadcrumb-font-family);
+    font-size: var(--sb-ui-breadcrumb-font-size);
+    font-weight: var(--sb-ui-breadcrumb-font-weight);
+    line-height: var(--sb-ui-breadcrumb-line-height);
+  }
+
+  /* List */
+  .sb-ui-breadcrumb__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Item */
+  .sb-ui-breadcrumb__item {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    /* Separator - usando ::after */
+    &:not(:last-child)::after {
+      content: var(--sb-ui-breadcrumb-separator-content);
+      color: var(--sb-ui-breadcrumb-separator-color);
+      margin-inline-start: var(--sb-ui-breadcrumb-separator-margin-inline);
+      margin-inline-end: var(--sb-ui-breadcrumb-separator-margin-inline);
+      font-weight: 400;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+
+  /* Link */
+  .sb-ui-breadcrumb__link {
+    color: var(--sb-ui-breadcrumb-link-color);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: var(--sb-ui-breadcrumb-transition);
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+      color: var(--sb-ui-breadcrumb-link-hover);
+      text-decoration-color: currentColor;
+    }
+
+    &:active {
+      color: var(--sb-ui-breadcrumb-link-active);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  }
+
+  /* Current page (no link) */
+  .sb-ui-breadcrumb__current {
+    color: var(--sb-ui-breadcrumb-current-color);
+    font-weight: 400;
+    cursor: default;
+    display: inline-block;
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  /* Collapsed state - mobile */
+  .sb-ui-breadcrumb--collapsed {
+    .sb-ui-breadcrumb__item:not(:first-child):not(:last-child) {
+      display: none;
+    }
+
+    .sb-ui-breadcrumb__item:first-child::after {
+      content: '...';
+    }
+  }
+
+  /* Loading state */
+  .sb-ui-breadcrumb--loading {
+    opacity: 0.6;
+    pointer-events: none;
+
+    .sb-ui-breadcrumb__link {
+      cursor: wait;
+    }
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER (máxima prioridad)
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .sb-ui-breadcrumb {
+      .sb-ui-breadcrumb__link {
+        text-decoration: underline;
+        text-decoration-color: currentColor;
+      }
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-breadcrumb {
+      --sb-ui-breadcrumb-transition: none;
+    }
+  }
+
+  /* Mobile styles - collapse to first and last */
+  @media (max-width: 640px) {
+    .sb-ui-breadcrumb {
+      --sb-ui-breadcrumb-font-size: 0.875rem;
+    }
+
+    /* Auto-collapse on mobile */
+    .sb-ui-breadcrumb:not(.sb-ui-breadcrumb--no-collapse) {
+      .sb-ui-breadcrumb__item:not(:first-child):not(:last-child) {
+        display: none;
+      }
+
+      .sb-ui-breadcrumb__item:first-child::after {
+        content: '...';
+      }
+    }
+  }
+}

@@ -1,0 +1,382 @@
+/**
+ * Accordion Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * Uso: <details class="sb-ui-accordion sb-ui-accordion--primary">
+ *        <summary class="sb-ui-accordion__header">
+ *          <span class="sb-ui-accordion__icon-start">🌐</span>
+ *          <span class="sb-ui-accordion__label">Label text</span>
+ *          <button class="sb-ui-accordion__action sb-ui-button sb-ui-button--primary sb-ui-button--fill">Button</button>
+ *          <span class="sb-ui-accordion__icon-end">▼</span>
+ *        </summary>
+ *        <div class="sb-ui-accordion__content">Content</div>
+ *      </details>
+ */
+
+@layer reset, tokens, base, variants, sizes, modifiers, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-accordion {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-accordion__header {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  .sb-ui-accordion__content {
+    all: unset;
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-accordion {
+    /* Colores BASE - Estados interactivos */
+    --sb-ui-accordion-bg-color: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-accordion-bg-hover: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-accordion-bg-active: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-accordion-bg-disabled: var(--sb-ui-color-grayscale-L400, #fafafa);
+    --sb-ui-accordion-bg-disabled-hover: var(--sb-ui-color-grayscale-L400, #fafafa);
+
+    --sb-ui-accordion-text-color: var(--sb-ui-color-grayscale-D200, #5b5b5b);
+    --sb-ui-accordion-text-hover: var(--sb-ui-color-grayscale-D200, #5b5b5b);
+    --sb-ui-accordion-text-active: var(--sb-ui-color-grayscale-D200, #5b5b5b);
+    --sb-ui-accordion-text-disabled: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    --sb-ui-accordion-text-disabled-hover: var(--sb-ui-color-grayscale-base, #9b9b9b);
+
+    --sb-ui-accordion-border-color: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-accordion-border-hover: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-accordion-border-active: var(--sb-ui-color-grayscale-L100, #d0d0d0);
+    --sb-ui-accordion-border-disabled: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-accordion-border-disabled-hover: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-accordion-border-focus: var(--sb-ui-color-primary-base, #038450);
+
+    /* Espaciado - SIEMPRE con clamp() */
+    --sb-ui-accordion-padding-inline: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+    --sb-ui-accordion-padding-block: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+    --sb-ui-accordion-gap: clamp(0.75rem, 0.5rem + 0.5vw, 1rem);
+    --sb-ui-accordion-content-padding-block: clamp(1rem, 0.8rem + 1vw, 1.25rem);
+    --sb-ui-accordion-content-padding-inline: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+
+    /* Tipografía - SIEMPRE con clamp() */
+    --sb-ui-accordion-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-accordion-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --sb-ui-accordion-font-weight: 400;
+    --sb-ui-accordion-line-height: 1.5;
+
+    /* Tamaños - Logical properties */
+    --sb-ui-accordion-min-block-size: clamp(48px, 10vw, 56px);
+
+    /* Bordes */
+    --sb-ui-accordion-border-width: 1px;
+    --sb-ui-accordion-border-radius: clamp(12px, 0.75rem + 0.5vw, 16px);
+    --sb-ui-accordion-border-focus-width: 3px;
+
+    /* Iconos */
+    --sb-ui-accordion-icon-size: clamp(1.25rem, 1.125rem + 0.5vw, 1.5rem);
+
+    /* Transiciones - NO incluir outline para evitar destellos en focus */
+    --sb-ui-accordion-transition: background-color 0.2s ease, border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  .sb-ui-accordion {
+    /* Layout */
+    display: block;
+    position: relative;
+
+    /* Spacing - SOLO Logical Properties */
+    margin-block-end: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+
+    /* Appearance */
+    background-color: var(--sb-ui-accordion-bg-color);
+    border: var(--sb-ui-accordion-border-width) solid var(--sb-ui-accordion-border-color);
+    border-radius: var(--sb-ui-accordion-border-radius);
+
+    /* Animation */
+    transition: var(--sb-ui-accordion-transition);
+
+    /* Remove default marker */
+    & summary {
+      list-style: none;
+    }
+
+    & summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* Border color changes on header interaction */
+    &:has(.sb-ui-accordion__header:hover:not(:disabled)) {
+      border-color: var(--sb-ui-accordion-border-hover, var(--sb-ui-accordion-border-color));
+    }
+
+    &:has(.sb-ui-accordion__header:active:not(:disabled)) {
+      border-color: var(--sb-ui-accordion-border-active, var(--sb-ui-accordion-border-color));
+    }
+
+    /* Focus state - Border verde grueso */
+    &:has(.sb-ui-accordion__header:focus-visible) {
+      border-color: var(--sb-ui-accordion-border-focus);
+      border-width: var(--sb-ui-accordion-border-focus-width);
+    }
+  }
+
+  .sb-ui-accordion__header {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    gap: var(--sb-ui-accordion-gap);
+
+    /* Spacing */
+    padding-inline: var(--sb-ui-accordion-padding-inline);
+    padding-block: var(--sb-ui-accordion-padding-block);
+    min-block-size: var(--sb-ui-accordion-min-block-size);
+
+    /* Typography */
+    font-family: var(--sb-ui-accordion-font-family);
+    font-size: var(--sb-ui-accordion-font-size);
+    font-weight: var(--sb-ui-accordion-font-weight);
+    line-height: var(--sb-ui-accordion-line-height);
+    color: var(--sb-ui-accordion-text-color);
+
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+
+    /* Animation */
+    transition: var(--sb-ui-accordion-transition);
+
+    /* Nested Pseudo-classes */
+    &:hover:not(:disabled) {
+      background-color: var(--sb-ui-accordion-bg-hover);
+      color: var(--sb-ui-accordion-text-hover, var(--sb-ui-accordion-text-color));
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--sb-ui-accordion-bg-active);
+      color: var(--sb-ui-accordion-text-active, var(--sb-ui-accordion-text-color));
+    }
+
+    &:focus-visible:not(:disabled) {
+      outline: none;
+    }
+  }
+
+  .sb-ui-accordion__icon-start {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Size */
+    inline-size: var(--sb-ui-accordion-icon-size);
+    block-size: var(--sb-ui-accordion-icon-size);
+    flex-shrink: 0;
+
+    /* Appearance */
+    font-size: var(--sb-ui-accordion-icon-size);
+  }
+
+  .sb-ui-accordion__label {
+    /* Layout */
+    flex: 1;
+
+    /* Typography */
+    font-family: var(--sb-ui-accordion-font-family);
+    font-size: var(--sb-ui-accordion-font-size);
+    font-weight: var(--sb-ui-accordion-font-weight);
+    line-height: var(--sb-ui-accordion-line-height);
+  }
+
+  .sb-ui-accordion__action {
+    /* Layout */
+    flex-shrink: 0;
+  }
+
+  .sb-ui-accordion__icon-end {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Size */
+    inline-size: var(--sb-ui-accordion-icon-size);
+    block-size: var(--sb-ui-accordion-icon-size);
+    flex-shrink: 0;
+
+    /* Appearance */
+    font-size: var(--sb-ui-accordion-icon-size);
+
+    /* Animation */
+    transition: transform 0.3s ease;
+  }
+
+  .sb-ui-accordion__content {
+    /* Layout */
+    display: block;
+
+    /* Spacing */
+    padding-inline: var(--sb-ui-accordion-content-padding-inline);
+    padding-block-start: var(--sb-ui-accordion-content-padding-block);
+    padding-block-end: var(--sb-ui-accordion-content-padding-block);
+
+    /* Typography */
+    font-family: var(--sb-ui-accordion-font-family);
+    font-size: var(--sb-ui-accordion-font-size);
+    font-weight: 400;
+    line-height: var(--sb-ui-accordion-line-height);
+    color: var(--sb-ui-accordion-text-color);
+
+    /* Border divisor (solo visible cuando está open) */
+    border-block-start: 0 solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  /* Expanded state */
+  .sb-ui-accordion[open] {
+    & .sb-ui-accordion__icon-end {
+      transform: rotate(180deg);
+    }
+
+    & .sb-ui-accordion__content {
+      border-block-start: var(--sb-ui-accordion-border-width) solid
+        var(--sb-ui-accordion-border-color);
+    }
+  }
+
+  /* Disabled state */
+  .sb-ui-accordion--disabled {
+    pointer-events: none;
+
+    & .sb-ui-accordion__header {
+      background-color: var(--sb-ui-accordion-bg-disabled);
+      color: var(--sb-ui-accordion-text-disabled);
+      cursor: not-allowed;
+    }
+
+    & .sb-ui-accordion {
+      border-color: var(--sb-ui-accordion-border-disabled);
+    }
+
+    &:hover .sb-ui-accordion__header {
+      background-color: var(
+        --sb-ui-accordion-bg-disabled-hover,
+        var(--sb-ui-accordion-bg-disabled)
+      ) !important;
+      color: var(
+        --sb-ui-accordion-text-disabled-hover,
+        var(--sb-ui-accordion-text-disabled)
+      ) !important;
+    }
+  }
+}
+
+/* ========================================
+   VARIANTS LAYER
+   ======================================== */
+@layer variants {
+  .sb-ui-accordion--primary {
+    --sb-ui-accordion-border-color: var(--sb-ui-color-primary-base);
+    --sb-ui-accordion-border-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-border-active: var(--sb-ui-color-primary-D200);
+  }
+
+  .sb-ui-accordion--secondary {
+    --sb-ui-accordion-border-color: var(--sb-ui-color-secondary-base);
+    --sb-ui-accordion-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-accordion-border-active: var(--sb-ui-color-secondary-D200);
+  }
+}
+
+/* ========================================
+   SIZES LAYER
+   ======================================== */
+@layer sizes {
+  .sb-ui-accordion--small {
+    --sb-ui-accordion-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --sb-ui-accordion-padding-inline: clamp(0.75rem, 0.6rem + 0.8vw, 1rem);
+    --sb-ui-accordion-padding-block: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --sb-ui-accordion-min-block-size: clamp(40px, 8vw, 48px);
+  }
+
+  .sb-ui-accordion--large {
+    --sb-ui-accordion-font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+    --sb-ui-accordion-padding-inline: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+    --sb-ui-accordion-padding-block: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+    --sb-ui-accordion-min-block-size: clamp(56px, 12vw, 72px);
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  .sb-ui-accordion--no-icon-start {
+    & .sb-ui-accordion__icon-start {
+      display: none;
+    }
+  }
+
+  .sb-ui-accordion--no-icon-end {
+    & .sb-ui-accordion__icon-end {
+      display: none;
+    }
+  }
+
+  .sb-ui-accordion--no-action {
+    & .sb-ui-accordion__action {
+      display: none;
+    }
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  .sb-ui-accordion--loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER (máxima prioridad)
+   ======================================== */
+@layer utilities {
+  /* High contrast mode support - OBLIGATORIO */
+  @media (prefers-contrast: high) {
+    .sb-ui-accordion {
+      --sb-ui-accordion-border-width: 2px;
+    }
+  }
+
+  /* Reduced motion support - OBLIGATORIO */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-accordion {
+      --sb-ui-accordion-transition: none;
+    }
+
+    .sb-ui-accordion__icon-end {
+      transition: none;
+    }
+  }
+}
+

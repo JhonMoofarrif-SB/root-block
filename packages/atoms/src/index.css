@@ -6,14 +6,18 @@
  * ============================================================================
  */
 
+@import './accordion.css';
 @import './alert.css';
+@import './breadcrumb.css';
 @import './button.css';
 @import './calendar.css';
 @import './checkbox.css';
 @import './datepicker.css';
+@import './file-upload.css';
 @import './input.css';
 @import './radio.css';
 @import './select.css';
 @import './spinner.css';
+@import './tabs.css';
 @import './textArea.css';
 @import './toggle.css';
